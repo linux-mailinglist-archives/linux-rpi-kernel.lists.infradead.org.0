@@ -2,38 +2,34 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id B52CE10CC7
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed,  1 May 2019 20:39:11 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id B927113EE6
+	for <lists+linux-rpi-kernel@lfdr.de>; Sun,  5 May 2019 12:37:11 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
 	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
 	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vTofgHsHAQHttyJgTpjfP5w0qBLqygkj1I5cK4ARdvM=; b=nLelfwhs/UeTqm
-	aD/cypVIRXnXRtArW6reVKzHlAGh8D+p85C+PcDi970gW+13qn2sqwYCTpyXzbLVRRzrx4gHff/N+
-	HyfzhBkLB2q4Gc0kRp78MkMT1l/v9mSjflDhmAy86FGEHDzgW4IB4v8xP0euPvVMmTTUUKHazwwlx
-	L8Ik56Wjg34uAfVdbAasUo/CFXzpqEClNAokr3Zo0P3YTaPn+ZrrhpQbuNfF6sYJz7Dv31j2JhKVB
-	JzXjETCwJUqKTFlCOj/3APegaGMATvtAO/bzNquFGKP4vb4TSbUF1MIitV2ImLxF2uV0Og/WfiI2x
-	QB9O69R2pD7rFYuqqO9Q==;
+	List-Owner; bh=7wxlobe1xEKGK6DVr4xCIphzoXUWYOjeOeQoRgJ115A=; b=ViPaPwp5REGWeI
+	mOnEGAts74cNidMlU8XZoWLjijDqoS9qsboGAiuu75ZrGjQrSKNzwmBGAINPy5hQzmogDRBTdfIwx
+	sc4l9iBO6QNXbAU8lKG1YugbZGS0s4npGX+VGhHOMNt/1aWCc2NndNum9uf8y23Ef6nT/7gEF2+TW
+	Rti1cy8+756qrVXQKGq2H+PbB4fGjFLC/zOHpyx2jHBSV7+/YL70kkEDESVAu2QqXq4lHY/TiFOEL
+	SJ/r0X/Nv38a1ExjL7tCkKyjC8Z1nRuCBr7nI7FCLpm8SJFuySur3bVkbMzlf6uNN+p/zigVqlnxc
+	HBd0pvP9m1PFKxYIgkFg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hLu8L-0003Oy-W0; Wed, 01 May 2019 18:39:09 +0000
-Received: from mout.kundenserver.de ([212.227.126.131])
+	id 1hNEVw-0004vB-CS; Sun, 05 May 2019 10:37:00 +0000
+Received: from mout.kundenserver.de ([212.227.126.135])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hLu8H-0003OM-C5
- for linux-rpi-kernel@lists.infradead.org; Wed, 01 May 2019 18:39:08 +0000
-Received: from [192.168.1.166] ([37.4.249.111]) by mrelayeu.kundenserver.de
- (mreue009 [212.227.15.167]) with ESMTPSA (Nemesis) id
- 1N17gw-1gc1SI2R2I-012W2a; Wed, 01 May 2019 20:39:00 +0200
-Subject: Re: dwc_otg disconnect IRQ storm/starvation crash
-To: Lukas Wunner <lukas@wunner.de>
-References: <20190430014140.GI5152@florz.florz.de>
- <51166349-220c-6b85-dc22-44c9314810a8@i2se.com>
- <20190501171133.GJ5152@florz.florz.de>
- <20190501173809.tjjl7valdb3vu4yv@wunner.de>
- <47e0d4c2-1d20-f353-2d2d-9f901c1323e5@i2se.com>
- <20190501182142.ngxyid73xtyz7vyl@wunner.de>
+ id 1hNEVg-0004nI-Og; Sun, 05 May 2019 10:36:46 +0000
+Received: from [192.168.1.166] ([37.4.249.152]) by mrelayeu.kundenserver.de
+ (mreue010 [212.227.15.167]) with ESMTPSA (Nemesis) id
+ 1MFsIZ-1hWnPk1SaV-00HNC5; Sun, 05 May 2019 12:36:31 +0200
+Subject: Re: [PATCH] i2c: bcm2835: Model Divider in CCF
+To: Annaliese McDermond <nh6z@nh6z.net>, eric@anholt.net,
+ f.fainelli@gmail.com, wsa@the-dreams.de, linux-i2c@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <20190505034339.30778-1-nh6z@nh6z.net>
 From: Stefan Wahren <stefan.wahren@i2se.com>
 Openpgp: preference=signencrypt
 Autocrypt: addr=stefan.wahren@i2se.com; keydata=
@@ -78,40 +74,42 @@ Autocrypt: addr=stefan.wahren@i2se.com; keydata=
  AZYZD+/iLm5TaKWN6oGIti0VjJv8ZZOZOfCb6vqFIkJW+aOu4orTLFMz28aoU3QyWpNC8FFm
  dYsVua8s6gN1NIa6y3qa/ZB8bA/iky59AEz4iDIRrgUzMEg8Ak7Tfm1KiYeiTtBDCo25BvXj
  bqsyxkQD1nkRm6FAVzEuOPIe8JuqW2xD9ixGYvjU5hkRgJp3gP5b+cnG3LPqquQ2E6goKUML AQ==
-Message-ID: <874c3dc5-c57f-6373-fc23-e6a95c2705ff@i2se.com>
-Date: Wed, 1 May 2019 20:39:00 +0200
+Message-ID: <610c7594-85c9-72db-63a6-6e632e9586aa@i2se.com>
+Date: Sun, 5 May 2019 12:36:29 +0200
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
  Thunderbird/60.6.1
 MIME-Version: 1.0
-In-Reply-To: <20190501182142.ngxyid73xtyz7vyl@wunner.de>
+In-Reply-To: <20190505034339.30778-1-nh6z@nh6z.net>
 Content-Language: en-US
-X-Provags-ID: V03:K1:lONiFzMnBkGrNvkNIj6oCCPgDmi3sDBpcRvvfSs3fzKjA757uGR
- W4oMlX75nyk221gSRmYoa+bFd931SPNuhxzWLJuuLhWh4HG4/A+KDv41Qma8fC1OplLA91Q
- lJUYCG13yqBtWVVZ67dxU83cydTZAYCqJaP2trwMITkL1yYdl6l687PbcF/AyCoQTPP3OeB
- c3DrJIhNZXpCLmlgnfm3A==
+X-Provags-ID: V03:K1:fSFLx1EKsH1RU19dSH8BuitqL/gkJOccFK5iU2M9Vg4bSmuIoBL
+ DAL4kMS7hEZnefHb/kEUfBEgDqjoYkmafPIMJzphBCwzh4w75tqT0Mvu0UpbhCX6sQPgHns
+ GJuPw9JSGyfS8I9Gt54cyUSnR2htgT8Gko1gXNnsAb1dBjSJYAvVNZmBnEJecHwdAbc41Jh
+ GdVWKUWwrG/Cni3SXi6fQ==
 X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:xyspjCV4lno=:VmQgoRpQMbAzoviJsNaYkT
- CILLUx44Xks459qeLsSijEztgAcqD2sYE3r/ZAiKIeY1Aoq+vzZopzv6G178nFtgk49dtELz5
- C/6yMbFXj4qxGQUxvTSyKPJBRu7IYOQ7RWtQ4i7ySEDjJM1oWkdsQjmjopJNgFY1uk4811HLM
- VNs7q09Zb3udjggmyuRkaqGptRa8VvCXDJNxqVecDXaJYOREKMTwq1iRxaH6rDoT7sxFFAPD/
- E/m7auQMun59xFimOVd3rvwrsY4mz10l9paesP0w5TUw8YDWNTAG1ozVguMq976LlDkEJb8RZ
- nRGV/NwqvStplQW8YD/E9HxPXBk5Am0g0+eshh6MrJ3lR8Nuy74OQfG3w6+kynSUBnN3BhQjO
- XMwf8la4m6LsS3yYrBcac7+zMeo658JlnMrLXcB0cvO9AXSrp4N/IARxsLHWRdV5zvJQI6Dot
- G83lb1dKpGgMDcadaGnBiGI34svxa8yRxebv1MtWQeWE2z5Fg1SA50KaS3h9vmHlw7SsnAF5F
- Cvph1xdquyGxvraEH7ghPQ9xIFLVvGAKW0kC2c7yiBbz8MrgXQYa4DHvqR6Enj5h00p/CKNM+
- SVII9Rf4I+BGGnX/aFHYs/tWZF/Lo3mTj00dt9CwayIUCX+iz0j5zTwU1HSiMb37FXbQ7UpVv
- OvGpB6fc2J+0Wpf7Yph6//V/x0SeJsS9LhFJZ/Kuhu37jP4jo8A9JpjMYl7XALOkaQG4NMWcY
- 4t0NhGZ11qga/YuaVtvGKi2S/Eb7A9E2aO4ye/aUqQwn87AeAyRGMnwXDWk=
+X-UI-Out-Filterresults: notjunk:1;V03:K0:wqeAoax5wFc=:2A8iUXIKIsry2fj1+adPiS
+ Y4ttrYvA/VAXYni9DOB2IW3B+TxHmuk/NtJ74SZJxId3r65w0AMAhJysxA+SpKc7fnuCXy2a+
+ DPtEQFx85pkgM6bnTex/WFFDkfUMBB2wWcIPIPAFnffLobTmUhvDQb+/Ey3VPijh6L3KRO7k7
+ wIfDIW/FG+boSUCfn6OygnCJ4wwlhIWCaqMvlV27mLUcsZTld5sSKBR+UiE3Br93PP2KUe3AI
+ i9h9lIQ3FAgqDIfL2qRAZcgsRO05p0DB7p9MtCXjhU39ALZS3IUaYUxVNTnabAi/byKNpEndo
+ vvqhSd3TYyWmtfQ+fgQcsxQfBZ6BQTcBDolcXa26IkPwEIUw8ZtHDayh0jOK8Forf7UJ5m0oX
+ 0805pl3dc1zK7ZDkMNHPsxg46xK9sKyNYdOwxlOR0YsL6OnRwSCXzWaQHq2WfGAfZaB66032x
+ T7S1RJhiRIoLkLST18sOG55KvoLzq37mEI8TZTdbr7TIxMVEpKXt2fYVqYVbv3L6onh3NNu//
+ QQdh4RP4rJGPQ3tEocMhX+Q1HzdhR36n/TCoBV6RQ17q4UhbSg4i9IvuvahPnhgEGEB7SbWGo
+ Ym0pOhydUcppi8EJCbVd9F8mnDZL3iyRigSYad3iogS0azd4IVQvwqsubOlGAtHV/fEBVb/hc
+ TQxyPY/4cPvt9C/UGTJ51Z5Ta2mHG9EWwbKno24CQcI7qY7WoQQ5jkNwnV0BqhQ1e6dzdvAW6
+ EFX3BNXeyJJmTYLez6l/vzXBCuFPENJH7d8GMDeTbVDK318RDYT8rT7uksc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190501_113907_362887_F0C1037E 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20190505_033645_106667_F5BBAFD4 
+X-CRM114-Status: GOOD (  14.02  )
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [212.227.126.131 listed in list.dnswl.org]
+ no trust [212.227.126.135 listed in list.dnswl.org]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [212.227.126.135 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -124,43 +122,38 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: linux-rpi-kernel@lists.infradead.org
+Cc: team@nwdigitalradio.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-Am 01.05.19 um 20:21 schrieb Lukas Wunner:
-> On Wed, May 01, 2019 at 08:17:23PM +0200, Stefan Wahren wrote:
->> Am 01.05.19 um 19:38 schrieb Lukas Wunner:
->>> -- >8 --
->>> Subject: [PATCH] ARM: bcm283x: Enable DMA support for SPI controller
->>>
->>> Without this, the driver for the BCM2835 SPI controller uses interrupt
->>> mode instead of DMA mode, incurring a significant performance penalty.
->>> The Foundation's device tree has had these attributes for years in
->>> bcm270x.dtsi, but for some reason they were never upstreamed.
->>>
->>> Signed-off-by: Lukas Wunner <lukas@wunner.de>
->> How about sending a proper patch to take it for the next release?
-> Is this not a proper patch? :-) It can be applied with git am --scissors.
+Hi Annaliese,
 
-The content is fine, but it should be send to all people / lists to give
-them a chance to comment. The broadcom guys won't expect such changes
-here. Also finding this patch later would be more complicated.
+Am 05.05.19 um 05:43 schrieb Annaliese McDermond:
+> Model the I2C bus clock divider as a part of the Core Clock Framework.
+> Primarily this removes the clk_get_rate() call from each transfer.
+> This call causes problems for slave drivers that themselves have
+> internal clock components that are controlled by an I2C interface.
+> When the slave's internal clock component is prepared, the prepare
+> lock is obtained, and it makes calls to the I2C subsystem to
+> command the hardware to activate the clock.  In order to perform
+> the I2C transfer, this driver sets the divider, which requires
+> it to get the parent clock rate, which it does with clk_get_rate().
+> Unfortunately, this function will try to take the clock prepare
+> lock, which is already held by the slave's internal clock calls
+> creating a deadlock.
 
-> However I'm not even sure bcm283x.dtsi is the correct file.  Why is
-> there a separate bcm270x.dtsi in the Foundation's repo?
+i think i understand the problem, but could you please explain the
+specific use case where this happend?
 
-In most case bcm283x stands for upstream and bcm27xx for downstream. So
-the bcm27xx files usually contains the Foundation extensions.
+I suspect bcm2835 is not the only platform which is affected, so it
+would be better to fix this in general.
 
 Regards
 
->
-> Thanks,
->
-> Lukas
+Stefan
+
 
 
 _______________________________________________
