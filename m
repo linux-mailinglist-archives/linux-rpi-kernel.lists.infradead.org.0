@@ -2,52 +2,104 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2A51D14C7B
-	for <lists+linux-rpi-kernel@lfdr.de>; Mon,  6 May 2019 16:41:13 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 20E2114FF8
+	for <lists+linux-rpi-kernel@lfdr.de>; Mon,  6 May 2019 17:21:11 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Sg/j6M2+iVEXu/nRo5NjLk52bLI5kBPsLgahAWB1BnM=; b=OLNpYGT56PaXiW
-	DJ24al/rHfTctTtvp/ISUrNy+6QZ+o/t5Qxil2NgqOx3koBQ7Dh8J6ywbRrjTFSJ+6bBvnPN6YUEp
-	gTxVx4Mp9Bby37ZSAKuF1fLHw7iooeHOSTcjkxYfOq7mZFbo8OlMIDvcFL09xmMNZGuuvfc3LydOy
-	9iTW++Dfqa5CzZHRjynOc9iWfCfCcFFekrWxxGo/KRtNj6YWA9vClizp5lsd08PyDfqEmYR5KFsKy
-	KSF4TfzhvV2IibGsVII7toOPuw8ZMrSCXpexpeJBDeNf7yQLzpmVBpPnxWFJpXtvmcvcwpdcRYmEa
-	EtNaEHPnhiRJmlvQXqew==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DPv4wWpBEyyo7Ok1+BLvhVXnUs37qvWbLAHfYlIzI8A=; b=r3QI3JXC3pylFP
+	Vjsw8GYNyinl7szrBHoxOG8E3uGXec3YvjMuclUAZRbKhQw37mE3MjF9RbM7y5skvUlG2iKalgbNS
+	3VqmCezfT8cPSMEKFTLyt2sy33ofO2W/CFfAoes5Zf+VhCScQ3jAkYTglT8tJyz9DJJOdIN3dzOiV
+	Qq64UwF/fguUNoAfY4XWa7znoBgSK+0i6dwGhcYpkR81wPYpgt4esdkxHKPIhZIfE4N70qlKsG0nq
+	wGUgaqa20acXVn6APi+SmqxM/GPFDdy8sE+qVHqI66hZsDvd1+70sziHER2FVhfhwEn1nFBxcUtyR
+	5z0x/zmZdU7F1hpiuM0Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hNenl-0004CJ-MG; Mon, 06 May 2019 14:41:09 +0000
-Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
+	id 1hNfQR-0004nO-8f; Mon, 06 May 2019 15:21:07 +0000
+Received: from userp2130.oracle.com ([156.151.31.86])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hNenS-0003nT-4W; Mon, 06 May 2019 14:40:51 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx1.suse.de (Postfix) with ESMTP id 6371DAC0C;
- Mon,  6 May 2019 14:40:45 +0000 (UTC)
-From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-To: linux-kernel@vger.kernel.org
-Subject: [PATCH v2 0/3] staging: vchiq: use interruptible waits
-Date: Mon,  6 May 2019 16:40:27 +0200
-Message-Id: <20190506144030.29056-1-nsaenzjulienne@suse.de>
-X-Mailer: git-send-email 2.21.0
+ id 1hNfQN-0004mq-So; Mon, 06 May 2019 15:21:05 +0000
+Received: from pps.filterd (userp2130.oracle.com [127.0.0.1])
+ by userp2130.oracle.com (8.16.0.27/8.16.0.27) with SMTP id x46FJUE9100526;
+ Mon, 6 May 2019 15:20:57 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com;
+ h=date : from : to : cc
+ : subject : message-id : references : mime-version : content-type :
+ in-reply-to; s=corp-2018-07-02;
+ bh=EMVZPLqed0spBkywKOWEg6NbdmaW+XOPtfLd8HpUuQA=;
+ b=o+//pkDQTwrEiN/m7EtTacjF2kEO4BVGJ863xaNH+7J97F7Q005ch5iCjuEBzkSVpTVs
+ 1o4SQYO/i591KoUMPrShWoengb/1w9HObMGuowgIZp9I2MWLRwFwaizoxaR7PnMpj2wc
+ /30HeJBHaBZ6unYXinEL1fj03mHtUiJW5YAozN7NrV3x+6JO5oGc6eZBxzBjEG7SQ0lf
+ eVAobDru/jZMNGlGeAyDs2bPRxY7maYxTkckQbC0FthV1n2VJoACoATVCydYFrlkrwGf
+ QTR/SArMQxNOXRus8ZE0fVlekFK+rd3vu7o0ttzXZeR2Unc8d97ymTc1S4XjDvUBIhTJ UA== 
+Received: from userp3030.oracle.com (userp3030.oracle.com [156.151.31.80])
+ by userp2130.oracle.com with ESMTP id 2s94bfq9xx-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Mon, 06 May 2019 15:20:57 +0000
+Received: from pps.filterd (userp3030.oracle.com [127.0.0.1])
+ by userp3030.oracle.com (8.16.0.27/8.16.0.27) with SMTP id x46FJpM2086866;
+ Mon, 6 May 2019 15:20:57 GMT
+Received: from userv0122.oracle.com (userv0122.oracle.com [156.151.31.75])
+ by userp3030.oracle.com with ESMTP id 2sagytdvgm-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Mon, 06 May 2019 15:20:56 +0000
+Received: from abhmp0004.oracle.com (abhmp0004.oracle.com [141.146.116.10])
+ by userv0122.oracle.com (8.14.4/8.14.4) with ESMTP id x46FKrgf007496;
+ Mon, 6 May 2019 15:20:53 GMT
+Received: from kadam (/196.110.137.40) by default (Oracle Beehive Gateway v4.0)
+ with ESMTP ; Mon, 06 May 2019 08:20:52 -0700
+Date: Mon, 6 May 2019 18:20:39 +0300
+From: Dan Carpenter <dan.carpenter@oracle.com>
+To: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+Subject: Re: [PATCH v2 2/3] staging: vchiq: revert "switch to
+ wait_for_completion_killable"
+Message-ID: <20190506152039.GT2239@kadam>
+References: <20190506144030.29056-1-nsaenzjulienne@suse.de>
+ <20190506144030.29056-3-nsaenzjulienne@suse.de>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20190506144030.29056-3-nsaenzjulienne@suse.de>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Proofpoint-Virus-Version: vendor=nai engine=5900 definitions=9249
+ signatures=668686
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0
+ malwarescore=0
+ phishscore=0 bulkscore=0 spamscore=0 mlxscore=0 mlxlogscore=999
+ adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.0.1-1810050000 definitions=main-1905060131
+X-Proofpoint-Virus-Version: vendor=nai engine=5900 definitions=9249
+ signatures=668686
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0
+ priorityscore=1501 malwarescore=0
+ suspectscore=0 phishscore=0 bulkscore=0 spamscore=0 clxscore=1011
+ lowpriorityscore=0 mlxscore=0 impostorscore=0 mlxlogscore=999 adultscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.0.1-1810050000
+ definitions=main-1905060131
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190506_074050_401050_CC858AB6 
-X-CRM114-Status: GOOD (  13.72  )
-X-Spam-Score: -1.6 (-)
+X-CRM114-CacheID: sfid-20190506_082104_058931_37D03805 
+X-CRM114-Status: GOOD (  14.62  )
+X-Spam-Score: -2.5 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-1.6 points)
+ Content analysis details:   (-2.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [195.135.220.15 listed in list.dnswl.org]
- 0.1 URIBL_SBL_A Contains URL's A record listed in the Spamhaus SBL
- blocklist [URIs: lists.fedoraproject.org]
- 0.6 URIBL_SBL Contains an URL's NS IP listed in the Spamhaus SBL
- blocklist [URIs: lists.fedoraproject.org]
+ medium trust [156.151.31.86 listed in list.dnswl.org]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ 0.0 UNPARSEABLE_RELAY      Informational: message has unparseable relay
+ lines
+ -0.0 T_DKIMWL_WL_HIGH       DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -59,72 +111,38 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: devel@driverdev.osuosl.org, dan.carpenter@oracle.com,
- linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org
+Cc: devel@driverdev.osuosl.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-Hi,
-this series tries to address an issue that came up in Raspbian's kernel
-tree [1] and upstream distros [2][3].
+On Mon, May 06, 2019 at 04:40:29PM +0200, Nicolas Saenz Julienne wrote:
+> @@ -1740,7 +1740,8 @@ parse_rx_slots(struct vchiq_state *state)
+>  					&service->bulk_rx : &service->bulk_tx;
+>  
+>  				DEBUG_TRACE(PARSE_LINE);
+> -				if (mutex_lock_killable(&service->bulk_mutex)) {
+> +				if (mutex_lock_killable(
+> +					&service->bulk_mutex) != 0) {
 
-We adopted some changes that moved wait calls from a custom
-implementation to the more standard killable family of functions. Users
-complained that all the VCHIQ threads showed up in D state (which is the
-expected behaviour).
+This series does't add != 0 consistently...  Personally, I would prefer
+we just leave it out.  I use != 0 for two things.  1)  When I'm talking
+about the number zero.
 
-The custom implementation we deleted tried to mimic the killable family
-of functions, yet accepted more signals than the later; SIGKILL |
-SIGINT | SIGQUIT | SIGTRAP | SIGSTOP | SIGCONT for the custom
-implementation as opposed to plain old SIGKILL.
+	if (len == 0) {
 
-Raspbian maintainers decided roll back some of those changes and leave
-the wait functions as interruptible. Hence creating some divergence
-between both trees.
+Or with strcmp():
 
-One could argue that not liking having the threads stuck in D state is
-not really a software issue. It's more a cosmetic thing that can scare
-people when they look at "uptime". On the other hand, if we are ever to
-unstage this driver, we'd really need a proper justification for using
-the killable family of functions. Which I think it's not really clear at
-the moment.
+	if (strcmp(a, b) == 0) { // a equals b
+	if (strcmp(a, b) < 0) {  // a less than b.
 
-As Raspbian's kernel has been working for a while with interruptible
-waits I propose we follow through. If needed we can always go back to
-killable. But at least we'll have a proper understanding on the actual
-needs. In the end the driver is in staging, and the potential for errors
-small.
+But here zero means no errors, so I would just leave it out...
 
-Regards,
-Nicolas
-
-[1] https://github.com/raspberrypi/linux/issues/2881
-[2] https://archlinuxarm.org/forum/viewtopic.php?f=65&t=13485
-[3] https://lists.fedoraproject.org/archives/list/arm@lists.fedoraproject.org/message/GBXGJ7DOV5CQQXFPOZCXTRD6W4BEPT4Q/
-
---
-
-Changes since v1:
-  - Proplery format revert commits
-  - Add code comment to remind of this issue
-  - Add Fixes tags
-
-Nicolas Saenz Julienne (3):
-  staging: vchiq_2835_arm: revert "quit using custom
-    down_interruptible()"
-  staging: vchiq: revert "switch to wait_for_completion_killable"
-  staging: vchiq: make wait events interruptible
-
- .../interface/vchiq_arm/vchiq_2835_arm.c      |  2 +-
- .../interface/vchiq_arm/vchiq_arm.c           | 21 +++++++------
- .../interface/vchiq_arm/vchiq_core.c          | 31 ++++++++++++-------
- .../interface/vchiq_arm/vchiq_util.c          |  6 ++--
- 4 files changed, 35 insertions(+), 25 deletions(-)
-
--- 
-2.21.0
+regards,
+dan carpenter
 
 
 _______________________________________________
