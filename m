@@ -2,58 +2,54 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7B78617439
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed,  8 May 2019 10:49:21 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 98F1517516
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed,  8 May 2019 11:24:18 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=gkpUsfR4QeMGQNqSJO3ZzZw+y9UDgy8pSb+xnnEfUyg=; b=WfZzzFy45If5IGHxIeBcTrBJr
-	c+zSiDW+zdFzHHXL9EW9DzVT3CafNItdUOIekITDouS2jS6GHFOq42/9y5yosk7sbbg/ud1OdiIEh
-	+XF8uPKsY80iSAfVCGVUP57aaxH1Boig63tCTcN5+SRxIFDOTWDuOs4f2PlWSj4rtwqk97MmKs6wQ
-	wJAtFMMBVaWPTOc8SqX11DGyqMldws0XIzvYlt6lb7p6jElPiOaP4g9sxT3MqQ+gjOPswHYgrq8Y2
-	imQrafgf/LKcjmIkFEyOn6t+0YrOCBkmP4rxy/WCSpPvnQO6SCT7XC01gSdLF8JAvKLK0DhxqTnxq
-	SagVHoCUw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:
+	In-Reply-To:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	References:List-Owner; bh=UL0gE5ZsrfAomsfW32XIqEi0HVIXaqJ0byZBfDYLKkc=; b=NEy
+	1iHhmpTXYs0prDgL9ENExiDXlrvxuLSHm06MKB2+zrsJj/G2Ov3CQ7l33m+IxNMdJeGyKyG6S53CM
+	o3c5QD9r2bZ04SnTWfagEzfIgACuvUA/tahdfBRjf2nDgzXG9syAIXd80UU7xwD2uJBafwJRsioIj
+	PBlWnWsaw3XC6PuBWbXetzY6D5jd0IqphVFBDhMyfWnz8URXDTtGRbiBQpdMeqRBu1PabUOzfZUrR
+	39m+KXHlWpIE4De4UeKeXDcfiTHvGsr8PQW0ogsLRdE1lqJpx/E4Q2xXbOVYLsP/MTyNTBd+iG/OA
+	4XZigvdIfaNi+xwkV0hmWxQJ8dBG7rQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hOIGL-0008LN-5m; Wed, 08 May 2019 08:49:17 +0000
+	id 1hOIo8-0007ET-9y; Wed, 08 May 2019 09:24:12 +0000
 Received: from heliosphere.sirena.org.uk ([2a01:7e01::f03c:91ff:fed4:a3b6])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hOIGB-0008Dn-RN; Wed, 08 May 2019 08:49:09 +0000
+ id 1hOInz-00078H-5M; Wed, 08 May 2019 09:24:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sirena.org.uk; s=20170815-heliosphere; h=In-Reply-To:Content-Type:
- MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ d=sirena.org.uk; s=20170815-heliosphere; h=Date:Message-Id:In-Reply-To:
+ Subject:Cc:To:From:Sender:Reply-To:MIME-Version:Content-Type:
  Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=om+fpMjoBeo6OmvhQLYoKQ1tz2zYXAg6W4JSs9Yvc1U=; b=Ndawc8EaIN1CnwwH1yY30g9CA
- XUmiOVbM3Ikdj9CJmX/VH/g7OTu+of8wzsmwn/n1kDAUPWCih56tUyMH4h79euPpQ/vpACTGDzdtD
- MWMXunQiT7M6fw7x2pphOqe2T+cKrTjlnyJGozwbj/gww/Ft2MCoKfPFJW45MIVuLxAIc=;
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+ List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:
+ List-Archive; bh=gXJ1mcvnfd2Lr4CrzMcsy+xEMcAnrSJHRAZiquY3mjg=; b=lnZ0uiyuXjmV
+ cTb7XBg4vRrnA8RPiKD5d9635w6YGUCJ/CdS7YsfVQ8NsJYiGA28b6YqKxdwlULwjDWPZrHsSMeZl
+ PkftqRGTKymYkYpRuhwcMd3Mk/zsthh1Kcy+6wKBCrvyYFdQ3hfwbY++5p3Iq0QiR/IZwgpvIe4Ek
+ csjkw=;
 Received: from [61.199.190.11] (helo=finisterre.sirena.org.uk)
  by heliosphere.sirena.org.uk with esmtpsa
  (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.89)
  (envelope-from <broonie@sirena.org.uk>)
- id 1hOIG2-0007bS-V6; Wed, 08 May 2019 08:48:59 +0000
+ id 1hOInt-0007jg-7R; Wed, 08 May 2019 09:23:58 +0000
 Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
- id E4A75440017; Wed,  8 May 2019 09:42:05 +0100 (BST)
-Date: Wed, 8 May 2019 17:42:05 +0900
+ id 0A5F2440034; Wed,  8 May 2019 10:08:54 +0100 (BST)
 From: Mark Brown <broonie@kernel.org>
-To: Lukas Wunner <lukas@wunner.de>
-Subject: Re: [PATCH V2 5/6] spi: bcm2835: make the lower limit for dma mode
- configurable
-Message-ID: <20190508084205.GD14916@sirena.org.uk>
-References: <20190423201513.8073-1-kernel@martin.sperl.org>
- <20190423201513.8073-6-kernel@martin.sperl.org>
- <20190424070712.hh6ozvhkvkxhwak3@wunner.de>
-MIME-Version: 1.0
-In-Reply-To: <20190424070712.hh6ozvhkvkxhwak3@wunner.de>
-X-Cookie: -- I have seen the FUN --
-User-Agent: Mutt/1.10.1 (2018-07-13)
+To: Martin Sperl <kernel@martin.sperl.org>
+Subject: Applied "spi: bcm2835: add driver stats to debugfs" to the spi tree
+In-Reply-To: <20190423201513.8073-7-kernel@martin.sperl.org>
+X-Patchwork-Hint: ignore
+Message-Id: <20190508090854.0A5F2440034@finisterre.sirena.org.uk>
+Date: Wed,  8 May 2019 10:08:53 +0100 (BST)
+X-Bad-Reply: In-Reply-To but no 'Re:' in Subject.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190508_014908_030243_301857F7 
-X-CRM114-Status: GOOD (  10.86  )
+X-CRM114-CacheID: sfid-20190508_022403_354034_52959A92 
+X-CRM114-Status: GOOD (  18.73  )
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.0 points)
@@ -77,69 +73,209 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: linux-spi@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-Content-Type: multipart/mixed; boundary="===============3561462735614130378=="
+Cc: linux-spi@vger.kernel.org, Mark Brown <broonie@kernel.org>,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
+The patch
 
---===============3561462735614130378==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="mO8cNyIiGwRJ/NO+"
-Content-Disposition: inline
+   spi: bcm2835: add driver stats to debugfs
 
+has been applied to the spi tree at
 
---mO8cNyIiGwRJ/NO+
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-5.3
 
-On Wed, Apr 24, 2019 at 09:07:12AM +0200, Lukas Wunner wrote:
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.  
 
-> Indeed I'd prefer if another bit is added to "mode" in struct device
-> to represent the need for another clock cycle in-between bytes.
-> The SPI core could then reduce the clock speed based on this flag
-> and the problem would be solved for everyone.
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-> Influencing this behavior with a module parameter feels a bit like a
-> kludge and I fear may stay indefinitely even if a better solution
-> is implemented later.
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
-This does feel like we know enough to have a more advanced function in
-the driver given a bit of information about the client device
-requireemnts.  Though it's going to be complex to express them,
-especially with the ATMega case where we want fast individual clocks but
-lots of dead space in between bytes (is the controller capable of adding
-that dead space itself in DMA mode BTW?).
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
---mO8cNyIiGwRJ/NO+
-Content-Type: application/pgp-signature; name="signature.asc"
+Thanks,
+Mark
 
------BEGIN PGP SIGNATURE-----
+From 154f7da56f1ecba42021d550c9e8432ac8d32c26 Mon Sep 17 00:00:00 2001
+From: Martin Sperl <kernel@martin.sperl.org>
+Date: Tue, 23 Apr 2019 20:15:13 +0000
+Subject: [PATCH] spi: bcm2835: add driver stats to debugfs
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAlzSll0ACgkQJNaLcl1U
-h9BtCQf+Kt1H2BIy8rCRowJoHOYziXd77HiP3zga+61FigqwiVNAsnc9sgHceaX8
-PC+sIWmiH3sdLwIO+ZCkNwTxPmPwrLLnv7xQa8NWnS7jCxIMnVLRnmlQ9cVuLQ0k
-sHIA+aPAqT/wUZLDrwg4PhAq2laX/KDZb9rOpPbi4kb/zVhVtkXuYVFEgiR5Pl77
-enqEIE+oEUG7Ebns1fzljdzv/h0zu1g+KpzTJ4hVTVCShHUAo8AZmBsgMfP/gT/Y
-q0U8SBCda+HZH5Av6k9lBWMgGgOfF1E1JlQaNYQGTfEVOlt1imMXH4yQVy+bilZ2
-8rHCL74K7lQ5reujgEtw/36TmfZ8qg==
-=atSx
------END PGP SIGNATURE-----
+To estimate efficiency add statistics on transfer types
+(polling, interrupt and dma) used to debugfs.
 
---mO8cNyIiGwRJ/NO+--
+Signed-off-by: Martin Sperl <kernel@martin.sperl.org>
 
+Changelog:
+  V1 -> V2: applied feedback by Stefan Wahren
+            reorganized patchset
+	    added extra rational, descriptions
+	    fixed compile issue when CONFIG_DEBUG_FS is unset
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+ drivers/spi/spi-bcm2835.c | 74 +++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 74 insertions(+)
 
---===============3561462735614130378==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+diff --git a/drivers/spi/spi-bcm2835.c b/drivers/spi/spi-bcm2835.c
+index 3230d37fa89a..eb67da697ef5 100644
+--- a/drivers/spi/spi-bcm2835.c
++++ b/drivers/spi/spi-bcm2835.c
+@@ -22,6 +22,7 @@
+ 
+ #include <linux/clk.h>
+ #include <linux/completion.h>
++#include <linux/debugfs.h>
+ #include <linux/delay.h>
+ #include <linux/dma-mapping.h>
+ #include <linux/dmaengine.h>
+@@ -101,6 +102,15 @@ MODULE_PARM_DESC(polling_limit_us,
+  *	length is not a multiple of 4 (to overcome hardware limitation)
+  * @tx_spillover: whether @tx_prologue spills over to second TX sglist entry
+  * @dma_pending: whether a DMA transfer is in progress
++ * @debugfs_dir: the debugfs directory - neede to remove debugfs when
++ *      unloading the module
++ * @count_transfer_polling: count of how often polling mode is used
++ * @count_transfer_irq: count of how often interrupt mode is used
++ * @count_transfer_irq_after_polling: count of how often we fall back to
++ *      interrupt mode after starting in polling mode.
++ *      These are counted as well in @count_transfer_polling and
++ *      @count_transfer_irq
++ * @count_transfer_dma: count how often dma mode is used
+  */
+ struct bcm2835_spi {
+ 	void __iomem *regs;
+@@ -115,8 +125,55 @@ struct bcm2835_spi {
+ 	int rx_prologue;
+ 	unsigned int tx_spillover;
+ 	unsigned int dma_pending;
++
++	struct dentry *debugfs_dir;
++	u64 count_transfer_polling;
++	u64 count_transfer_irq;
++	u64 count_transfer_irq_after_polling;
++	u64 count_transfer_dma;
+ };
+ 
++#if defined(CONFIG_DEBUG_FS)
++static void bcm2835_debugfs_create(struct bcm2835_spi *bs,
++				   const char *dname)
++{
++	char name[64];
++	struct dentry *dir;
++
++	/* get full name */
++	snprintf(name, sizeof(name), "spi-bcm2835-%s", dname);
++
++	/* the base directory */
++	dir = debugfs_create_dir(name, NULL);
++	bs->debugfs_dir = dir;
++
++	/* the counters */
++	debugfs_create_u64("count_transfer_polling", 0444, dir,
++			   &bs->count_transfer_polling);
++	debugfs_create_u64("count_transfer_irq", 0444, dir,
++			   &bs->count_transfer_irq);
++	debugfs_create_u64("count_transfer_irq_after_polling", 0444, dir,
++			   &bs->count_transfer_irq_after_polling);
++	debugfs_create_u64("count_transfer_dma", 0444, dir,
++			   &bs->count_transfer_dma);
++}
++
++static void bcm2835_debugfs_remove(struct bcm2835_spi *bs)
++{
++	debugfs_remove_recursive(bs->debugfs_dir);
++	bs->debugfs_dir = NULL;
++}
++#else
++static void bcm2835_debugfs_create(struct bcm2835_spi *bs,
++				   const char *dname)
++{
++}
++
++static void bcm2835_debugfs_remove(struct bcm2835_spi *bs)
++{
++}
++#endif /* CONFIG_DEBUG_FS */
++
+ static inline u32 bcm2835_rd(struct bcm2835_spi *bs, unsigned reg)
+ {
+ 	return readl(bs->regs + reg);
+@@ -320,6 +377,9 @@ static int bcm2835_spi_transfer_one_irq(struct spi_master *master,
+ {
+ 	struct bcm2835_spi *bs = spi_master_get_devdata(master);
+ 
++	/* update usage statistics */
++	bs->count_transfer_irq++;
++
+ 	/*
+ 	 * Enable HW block, but with interrupts still disabled.
+ 	 * Otherwise the empty TX FIFO would immediately trigger an interrupt.
+@@ -564,6 +624,9 @@ static int bcm2835_spi_transfer_one_dma(struct spi_master *master,
+ 	struct bcm2835_spi *bs = spi_master_get_devdata(master);
+ 	int ret;
+ 
++	/* update usage statistics */
++	bs->count_transfer_dma++;
++
+ 	/*
+ 	 * Transfer first few bytes without DMA if length of first TX or RX
+ 	 * sglist entry is not a multiple of 4 bytes (hardware limitation).
+@@ -706,6 +769,9 @@ static int bcm2835_spi_transfer_one_poll(struct spi_master *master,
+ 	struct bcm2835_spi *bs = spi_master_get_devdata(master);
+ 	unsigned long timeout;
+ 
++	/* update usage statistics */
++	bs->count_transfer_polling++;
++
+ 	/* enable HW block without interrupts */
+ 	bcm2835_wr(bs, BCM2835_SPI_CS, cs | BCM2835_SPI_CS_TA);
+ 
+@@ -735,6 +801,10 @@ static int bcm2835_spi_transfer_one_poll(struct spi_master *master,
+ 					    jiffies - timeout,
+ 					    bs->tx_len, bs->rx_len);
+ 			/* fall back to interrupt mode */
++
++			/* update usage statistics */
++			bs->count_transfer_irq_after_polling++;
++
+ 			return bcm2835_spi_transfer_one_irq(master, spi,
+ 							    tfr, cs, false);
+ 		}
+@@ -982,6 +1052,8 @@ static int bcm2835_spi_probe(struct platform_device *pdev)
+ 		goto out_clk_disable;
+ 	}
+ 
++	bcm2835_debugfs_create(bs, dev_name(&pdev->dev));
++
+ 	return 0;
+ 
+ out_clk_disable:
+@@ -996,6 +1068,8 @@ static int bcm2835_spi_remove(struct platform_device *pdev)
+ 	struct spi_master *master = platform_get_drvdata(pdev);
+ 	struct bcm2835_spi *bs = spi_master_get_devdata(master);
+ 
++	bcm2835_debugfs_remove(bs);
++
+ 	/* Clear FIFOs, and disable the HW block */
+ 	bcm2835_wr(bs, BCM2835_SPI_CS,
+ 		   BCM2835_SPI_CS_CLEAR_RX | BCM2835_SPI_CS_CLEAR_TX);
+-- 
+2.20.1
+
 
 _______________________________________________
 linux-rpi-kernel mailing list
 linux-rpi-kernel@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
-
---===============3561462735614130378==--
-
