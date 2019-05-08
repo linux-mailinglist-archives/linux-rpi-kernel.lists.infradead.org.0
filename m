@@ -2,55 +2,54 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id AD91E174B1
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed,  8 May 2019 11:09:57 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id B4CA817532
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed,  8 May 2019 11:35:21 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:
 	In-Reply-To:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	References:List-Owner; bh=Qnj9IP8g4f4Uv51S0whg+rDaNKLeLOipRp8IGBeNgi4=; b=qan
-	okHJMiOryY3Dd3fnS6DQIZUkUTMubXRcXmqTe78v8QGpZlSUN2oIIP1eQ8TrUszs+aGReMVDN9QQu
-	qsABfeE3BEMM8ZLLO8yFnOP8vegMJgo3F3n7OLfR5fyf3/c32wbgkWlutHpxsz+4eFYYSgJaKV8um
-	+FaTf/IPpLiH+gUKURbOc+yGv/lfCKBoo6M8oncLd8/JMqFtQTisw1rMC+1I4k9YIcjQNxTGcPeGT
-	Aa6PnlUisYtgEnp6k8zrG/ePb5uPn4jtV088JhF/yXuJmumbsVR1mCkcmHPzjcCkOuZPU1D8T6FPh
-	ZDsDm2wDehHeYAVeSHOYs8MWJXmZVAg==;
+	References:List-Owner; bh=s8+tGO3+KiJI62mpFXTjM9TBdicCNO3cWkOV6c/PkC0=; b=N1B
+	kXdV0Ezc88L4ybOyyxYCrb85DvOJOq+DapFLU8K3hQXz4+NRjp93yt4S7wLqz0tClF9kHMiwdWGSj
+	RbWWamNzQIGESzast4yGOljhgC0LH9QTckbXvVsEPIDMM2zyW9M1Za+6aJNuE9yxfS+A4Id7Xm9mh
+	Bz3zBoS9uQQjuxjoLV4mJMULijwZvW6BkYvS91ANnqN2oVj5GwA+kxSUtv0NYs0BqNScDWspl52pK
+	DwSWuXvAG4b9AeVeWJLjJo1he4rGkQIGbPdRj5l0W8qIpzk6jDbt+SqHpIlFATyWSPKY127C/kSZ8
+	p+o1heLosYtzbbDNOyjokklAq1Ok+hA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hOIaG-0000f7-8J; Wed, 08 May 2019 09:09:52 +0000
+	id 1hOIyr-0003R9-1y; Wed, 08 May 2019 09:35:17 +0000
 Received: from heliosphere.sirena.org.uk ([2a01:7e01::f03c:91ff:fed4:a3b6])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hOIZf-0008HE-9I; Wed, 08 May 2019 09:09:19 +0000
+ id 1hOIyi-0002gc-3B; Wed, 08 May 2019 09:35:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=sirena.org.uk; s=20170815-heliosphere; h=Date:Message-Id:In-Reply-To:
  Subject:Cc:To:From:Sender:Reply-To:MIME-Version:Content-Type:
  Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
  Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
  List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:
- List-Archive; bh=gn9t97HPmXoC1ozrtx5IXyGRI/WtGcItZCxC3ipx6kg=; b=f5Xv34rnSStV
- LPqwpDfxk6OfOfkWm3BfmOJZnWrHm6jj6qeOdYeKPGG/k7GqBk+7DNy1QeLfVgGPVLvCgoAX7knU4
- bCWRz6HlT/+ElaSgN8OkiwlfwKizpJiUIy1feqa8t4Cs29PFapon7tQ5YFs9JWjSdbThozUNisuPp
- Ekryk=;
+ List-Archive; bh=rYwKAqsrEof0qyuwbZ2hkS4MGRZ8gZ9xn/6j5WvviGw=; b=BBpNUEVqLMZB
+ +bVduJuVcS29qdjZt32Y4Vy0/a6iNeKoSrSIwn91DJjgQa9++v4mgnwUFjWz22zmveJITGGjpVOr3
+ Ejx69ZUrCOHRJT2cDCFY7VOSXeOdlyuNKrAXlR5G9mGLvISegpNXIGhcQwhOZ2yvckiGK/KKVQp6E
+ xNVj0=;
 Received: from [61.199.190.11] (helo=finisterre.sirena.org.uk)
  by heliosphere.sirena.org.uk with esmtpsa
  (TLS1.2:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.89)
  (envelope-from <broonie@sirena.org.uk>)
- id 1hOIZa-0007gM-9P; Wed, 08 May 2019 09:09:11 +0000
+ id 1hOIya-0007l9-EE; Wed, 08 May 2019 09:35:01 +0000
 Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
- id 7596B440010; Wed,  8 May 2019 10:08:56 +0100 (BST)
+ id 0BE15440010; Wed,  8 May 2019 10:34:55 +0100 (BST)
 From: Mark Brown <broonie@kernel.org>
 To: Martin Sperl <kernel@martin.sperl.org>
-Subject: Applied "spi: bcm2835: bcm2835_spi_transfer_one_poll remove
- unnecessary argument" to the spi tree
-In-Reply-To: <20190423201513.8073-2-kernel@martin.sperl.org>
+Subject: Applied "spi: core: allow defining time that cs is deasserted" to the
+ spi tree
+In-Reply-To: <20190223084952.14758-2-kernel@martin.sperl.org>
 X-Patchwork-Hint: ignore
-Message-Id: <20190508090856.7596B440010@finisterre.sirena.org.uk>
-Date: Wed,  8 May 2019 10:08:56 +0100 (BST)
-X-Bad-Reply: In-Reply-To but no 'Re:' in Subject.
+Message-Id: <20190508093455.0BE15440010@finisterre.sirena.org.uk>
+Date: Wed,  8 May 2019 10:34:54 +0100 (BST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190508_020915_621968_F98AC3C0 
-X-CRM114-Status: GOOD (  14.14  )
+X-CRM114-CacheID: sfid-20190508_023508_306963_6B1BC98F 
+X-CRM114-Status: GOOD (  23.55  )
 X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.0 points)
@@ -84,7 +83,7 @@ Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infrade
 
 The patch
 
-   spi: bcm2835: bcm2835_spi_transfer_one_poll remove unnecessary argument
+   spi: core: allow defining time that cs is deasserted
 
 has been applied to the spi tree at
 
@@ -109,50 +108,150 @@ to this mail.
 Thanks,
 Mark
 
-From 9ac3f90db46b7805a37df2bc419faf369025d64a Mon Sep 17 00:00:00 2001
+From 0ff2de8bb163551ec4230a5a6f3c40c1f6adec4f Mon Sep 17 00:00:00 2001
 From: Martin Sperl <kernel@martin.sperl.org>
-Date: Tue, 23 Apr 2019 20:15:08 +0000
-Subject: [PATCH] spi: bcm2835: bcm2835_spi_transfer_one_poll remove
- unnecessary argument
+Date: Sat, 23 Feb 2019 08:49:48 +0000
+Subject: [PATCH] spi: core: allow defining time that cs is deasserted
 
-Remove the unnecessary argument of xfer_time_us when calling
-bcm2835_spi_transfer_one_poll.
+For some SPI devices that support speed_hz > 1MHz the default 10 us delay
+when cs_change = 1 is typically way to long and may result in poor spi bus
+utilization.
+
+This patch makes it possible to control the delay at micro or nano second
+resolution on a per spi_transfer basis. It even allows an "as fast as
+possible" mode with:
+    xfer.cs_change_delay_unit = SPI_DELAY_UNIT_NSECS;
+    xfer.cs_change_delay = 0;
+
+The delay code is shared between delay_usecs and cs_change_delay for
+consistency and reuse, so in the future this change_delay_unit could also
+apply to delay_usec as well.
+
+Note that on slower SOCs/CPU actually reaching ns deasserts on cs is not
+realistic as the gpio overhead alone (without any delays added ) may
+already leave cs deasserted for more than 1us - at least on a raspberry pi.
+But at the very least this way we can keep it as short as possible.
 
 Signed-off-by: Martin Sperl <kernel@martin.sperl.org>
-
-Changelog:
-  V1 -> V2: applied feedback by Stefan Wahren
-            reorganized patchset
-	    added extra rational, descriptions
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- drivers/spi/spi-bcm2835.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ drivers/spi/spi.c       | 59 ++++++++++++++++++++++++++++++++++-------
+ include/linux/spi/spi.h |  7 +++++
+ 2 files changed, 56 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/spi/spi-bcm2835.c b/drivers/spi/spi-bcm2835.c
-index 8aa22713c483..6c73e694794a 100644
---- a/drivers/spi/spi-bcm2835.c
-+++ b/drivers/spi/spi-bcm2835.c
-@@ -697,8 +697,7 @@ static void bcm2835_dma_init(struct spi_master *master, struct device *dev)
- static int bcm2835_spi_transfer_one_poll(struct spi_master *master,
- 					 struct spi_device *spi,
- 					 struct spi_transfer *tfr,
--					 u32 cs,
--					 unsigned long long xfer_time_us)
-+					 u32 cs)
- {
- 	struct bcm2835_spi *bs = spi_master_get_devdata(master);
- 	unsigned long timeout;
-@@ -799,8 +798,7 @@ static int bcm2835_spi_transfer_one(struct spi_master *master,
+diff --git a/drivers/spi/spi.c b/drivers/spi/spi.c
+index 5e75944ad5d1..7e8ffe3fdc00 100644
+--- a/drivers/spi/spi.c
++++ b/drivers/spi/spi.c
+@@ -1090,6 +1090,52 @@ static int spi_transfer_wait(struct spi_controller *ctlr,
+ 	return 0;
+ }
  
- 	/* for short requests run polling*/
- 	if (xfer_time_us <= BCM2835_SPI_POLLING_LIMIT_US)
--		return bcm2835_spi_transfer_one_poll(master, spi, tfr,
--						     cs, xfer_time_us);
-+		return bcm2835_spi_transfer_one_poll(master, spi, tfr, cs);
++static void _spi_transfer_delay_ns(u32 ns)
++{
++	if (!ns)
++		return;
++	if (ns <= 1000) {
++		ndelay(ns);
++	} else {
++		u32 us = DIV_ROUND_UP(ns, 1000);
++
++		if (us <= 10)
++			udelay(us);
++		else
++			usleep_range(us, us + DIV_ROUND_UP(us, 10));
++	}
++}
++
++static void _spi_transfer_cs_change_delay(struct spi_message *msg,
++					  struct spi_transfer *xfer)
++{
++	u32 delay = xfer->cs_change_delay;
++	u32 unit = xfer->cs_change_delay_unit;
++
++	/* return early on "fast" mode - for everything but USECS */
++	if (!delay && unit != SPI_DELAY_UNIT_USECS)
++		return;
++
++	switch (unit) {
++	case SPI_DELAY_UNIT_USECS:
++		/* for compatibility use default of 10us */
++		if (!delay)
++			delay = 10000;
++		else
++			delay *= 1000;
++		break;
++	case SPI_DELAY_UNIT_NSECS: /* nothing to do here */
++		break;
++	default:
++		dev_err_once(&msg->spi->dev,
++			     "Use of unsupported delay unit %i, using default of 10us\n",
++			     xfer->cs_change_delay_unit);
++		delay = 10000;
++	}
++	/* now sleep for the requested amount of time */
++	_spi_transfer_delay_ns(delay);
++}
++
+ /*
+  * spi_transfer_one_message - Default implementation of transfer_one_message()
+  *
+@@ -1148,14 +1194,8 @@ static int spi_transfer_one_message(struct spi_controller *ctlr,
+ 		if (msg->status != -EINPROGRESS)
+ 			goto out;
  
- 	/* run in dma mode if conditions are right */
- 	if (master->can_dma && bcm2835_spi_can_dma(master, spi, tfr))
+-		if (xfer->delay_usecs) {
+-			u16 us = xfer->delay_usecs;
+-
+-			if (us <= 10)
+-				udelay(us);
+-			else
+-				usleep_range(us, us + DIV_ROUND_UP(us, 10));
+-		}
++		if (xfer->delay_usecs)
++			_spi_transfer_delay_ns(xfer->delay_usecs * 1000);
+ 
+ 		if (xfer->cs_change) {
+ 			if (list_is_last(&xfer->transfer_list,
+@@ -1163,7 +1203,7 @@ static int spi_transfer_one_message(struct spi_controller *ctlr,
+ 				keep_cs = true;
+ 			} else {
+ 				spi_set_cs(msg->spi, false);
+-				udelay(10);
++				_spi_transfer_cs_change_delay(msg, xfer);
+ 				spi_set_cs(msg->spi, true);
+ 			}
+ 		}
+@@ -3757,4 +3797,3 @@ static int __init spi_init(void)
+  * include needing to have boardinfo data structures be much more public.
+  */
+ postcore_initcall(spi_init);
+-
+diff --git a/include/linux/spi/spi.h b/include/linux/spi/spi.h
+index 053abd22ad31..023beb9e9e4b 100644
+--- a/include/linux/spi/spi.h
++++ b/include/linux/spi/spi.h
+@@ -735,6 +735,9 @@ extern void spi_res_release(struct spi_controller *ctlr,
+  * @bits_per_word: select a bits_per_word other than the device default
+  *      for this transfer. If 0 the default (from @spi_device) is used.
+  * @cs_change: affects chipselect after this transfer completes
++ * @cs_change_delay: delay between cs deassert and assert when
++ *      @cs_change is set and @spi_transfer is not the last in @spi_message
++ * @cs_change_delay_unit: unit of cs_change_delay
+  * @delay_usecs: microseconds to delay after this transfer before
+  *	(optionally) changing the chipselect status, then starting
+  *	the next transfer or completing this @spi_message.
+@@ -824,6 +827,10 @@ struct spi_transfer {
+ 	u8		bits_per_word;
+ 	u8		word_delay_usecs;
+ 	u16		delay_usecs;
++	u16		cs_change_delay;
++	u8		cs_change_delay_unit;
++#define SPI_DELAY_UNIT_USECS	0
++#define SPI_DELAY_UNIT_NSECS	1
+ 	u32		speed_hz;
+ 	u16		word_delay;
+ 
 -- 
 2.20.1
 
