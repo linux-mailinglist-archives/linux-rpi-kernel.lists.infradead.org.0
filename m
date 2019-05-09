@@ -2,55 +2,55 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5099A17655
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed,  8 May 2019 12:55:53 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 94F4018A9A
+	for <lists+linux-rpi-kernel@lfdr.de>; Thu,  9 May 2019 15:28:40 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7cJbPZ4AUxD0uf3soS2uQj4UrJd76NhNnYOo6wUuZSA=; b=JNLqdXWZIGMfiJ
-	ETl8p/WXCokr3rsI6MAv1HtLBJqDIlOmOd4g/HKgnEQdfsV6p62JcRSc6z61tNhFKILe8qIGw1iBr
-	LgIXjRymOuQveINlT9ph7bBZ7WP7VtdJAHb1zZgbjbU9zHZPA6MSRzhp7I0wlfeyxI6LMtI4VDxLd
-	qWlRczkzf6INGW8kEMU76+0UIk1+Rm2poYakFE+vEQNsR7JvKhQQSIKLQNUzrIwwPB0ZUkXUJD1jT
-	D87Iptu9YTLkfOAvRoxVsbdbJquIENO9SYs+ODrEjP4tFctaVvw1PGQKuYlAT3glwPL/gWiZglrX8
-	PMdJOFhFJZ31Rvsel2cw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=6PrnoenAc7qbA+4i2hsTgc+wsIVqgp7okzdomxEkHF4=; b=lWwsXRvWJEAmSrofbYetxvZNa
+	QIBpsFVyLHCor9TtXCmubdsmXdMCBqN39imGSkbX71MOs1o4p+vES2yeybJ4JUb7JzGCTAgxhHrij
+	ajaLADF6IVLpuYC100pFdBoDg5K9YjmNj05DWAJ6/ASg4MnfsHMy9pG/+18cITLqXMu8Y1Y+Xcy6T
+	MOkJ180l+TzTsIZiKITxVdBcaupLc4jpF0H67q7s7RIZG6nczZBy4rgi+tHIt5j7cZja1+iO0GXgz
+	bVjagUnQJdFMhyqBi12BR/N2XTzPyijnl0etO2DKqrqYSZaF4GGRXKUvYi5/iJaYHixtbbd/iAoOx
+	if5FIC5NQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hOKEn-0002uA-Ak; Wed, 08 May 2019 10:55:49 +0000
-Received: from 212-186-180-163.static.upcbusiness.at ([212.186.180.163]
- helo=cgate.sperl.org)
- by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hOKEi-0002tJ-2v; Wed, 08 May 2019 10:55:46 +0000
-Received: from msmac.intern.sperl.org (account martin@sperl.org [10.10.10.11]
- verified) by sperl.org (CommuniGate Pro SMTP 6.2.1 _community_)
- with ESMTPSA id 7764359; Wed, 08 May 2019 10:55:22 +0000
-Mime-Version: 1.0 (Mac OS X Mail 9.3 \(3124\))
-Subject: Re: [PATCH V2 5/6] spi: bcm2835: make the lower limit for dma mode
- configurable
-From: kernel@martin.sperl.org
-In-Reply-To: <20190508084205.GD14916@sirena.org.uk>
-Date: Wed, 8 May 2019 12:55:32 +0200
-Message-Id: <CE110436-866D-44F4-B8A5-F7D02DD06F70@martin.sperl.org>
-References: <20190423201513.8073-1-kernel@martin.sperl.org>
- <20190423201513.8073-6-kernel@martin.sperl.org>
- <20190424070712.hh6ozvhkvkxhwak3@wunner.de>
- <20190508084205.GD14916@sirena.org.uk>
-To: Mark Brown <broonie@kernel.org>
-X-Mailer: Apple Mail (2.3124)
+	id 1hOj6B-0008Jp-VQ; Thu, 09 May 2019 13:28:35 +0000
+Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
+ by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1hOj68-0008G5-Lw
+ for linux-rpi-kernel@lists.infradead.org; Thu, 09 May 2019 13:28:34 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+ by mx1.suse.de (Postfix) with ESMTP id 618ABAC5C;
+ Thu,  9 May 2019 13:28:29 +0000 (UTC)
+Message-ID: <c2c6366d59d6f1418a46634970c98f4d6b0b9377.camel@suse.de>
+Subject: Re: Enable DMA support for SPI controller (was dwc_otg disconnect
+ IRQ storm/starvation crash)
+From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+To: Stefan Wahren <stefan.wahren@i2se.com>
+Date: Thu, 09 May 2019 15:28:25 +0200
+In-Reply-To: <e3533679-edd8-b8f8-c5b5-8681bb57ae2e@i2se.com>
+References: <20190430014140.GI5152@florz.florz.de>
+ <51166349-220c-6b85-dc22-44c9314810a8@i2se.com>
+ <20190501171133.GJ5152@florz.florz.de>
+ <e3533679-edd8-b8f8-c5b5-8681bb57ae2e@i2se.com>
+User-Agent: Evolution 3.32.1 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190508_035544_299389_284824AF 
-X-CRM114-Status: UNSURE (   3.95  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -0.0 (/)
+X-CRM114-CacheID: sfid-20190509_062832_876936_2319A1AE 
+X-CRM114-Status: GOOD (  16.25  )
+X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.0 points)
+ Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 TVD_RCVD_IP            Message was received from an IP address
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [195.135.220.15 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -62,26 +62,106 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: linux-spi@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: linux-rpi-kernel@lists.infradead.org,
+ Noralf =?ISO-8859-1?Q?Tr=F8nnes?= <noralf@tronnes.org>
+Content-Type: multipart/mixed; boundary="===============3318017444152851265=="
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
 
-> On 08.05.2019, at 10:42, Mark Brown <broonie@kernel.org> wrote:
-> 
-> especially with the ATMega case where we want fast individual clocks but
-> lots of dead space in between bytes (is the controller capable of adding
-> that dead space itself in DMA mode BTW?).
+--===============3318017444152851265==
+Content-Type: multipart/signed; micalg="pgp-sha256";
+	protocol="application/pgp-signature"; boundary="=-55fhrJYVlHl5I87BUY8K"
 
-No it is not - at least not so far as I know of (and I just went over the
-available documentation again).
 
-Martin
+--=-55fhrJYVlHl5I87BUY8K
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Stefan,
+
+On Wed, 2019-05-08 at 21:05 +0200, Stefan Wahren wrote:
+> Hi Nicolas,
+>=20
+> since you have a semi-working SPI setup, could you also please test the
+> following DT patch?
+>=20
+> I like to see this integrated into 5.3 and the original message hasn't
+> published to the mailing list yet.
+>=20
+> Thanks Stefan
+>=20
+>=20
+> -- >8 --
+> Subject: [PATCH] ARM: bcm283x: Enable DMA support for SPI controller
+>=20
+> Without this, the driver for the BCM2835 SPI controller uses interrupt
+> mode instead of DMA mode, incurring a significant performance penalty.
+> The Foundation's device tree has had these attributes for years in
+> bcm270x.dtsi, but for some reason they were never upstreamed.
+>=20
+> Signed-off-by: Lukas Wunner <lukas@wunner.de>
+> ---
+> arch/arm/boot/dts/bcm283x.dtsi | 2 ++
+> 1 file changed, 2 insertions(+)
+>=20
+> diff --git a/arch/arm/boot/dts/bcm283x.dtsi b/arch/arm/boot/dts/bcm283x.d=
+tsi
+> index 1b53339..893a76a 100644
+> --- a/arch/arm/boot/dts/bcm283x.dtsi
+> +++ b/arch/arm/boot/dts/bcm283x.dtsi
+> @@ -421,6 +421,8 @@
+> reg =3D <0x7e204000 0x1000>;
+> interrupts =3D <2 22>;
+> clocks =3D <&clocks BCM2835_CLOCK_VPU>;
+> + dmas =3D <&dma 6>, <&dma 7>;
+> + dma-names =3D "tx", "rx";
+> #address-cells =3D <1>;
+> #size-cells =3D <0>;
+> status =3D "disabled";
+>=20
+
+It seems to be running OK on my setup (w5500 SPI Ethernet controller). It's
+been running at max speed for an hour without issues. Also, the throughput =
+is
+higher and more stable.
+
+Regards,
+Nicolas
+
+
+--=-55fhrJYVlHl5I87BUY8K
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCAAdFiEErOkkGDHCg2EbPcGjlfZmHno8x/4FAlzUKvkACgkQlfZmHno8
+x/7+nQf+MaIc8xHYPF7LjHhvoAVHSwN9AoqmzqdPsUWN9GQ+scnpc1pIXO85aItc
+K4PWGCFbp98uYJifw9c+RrjVgkkiTv5eIZ/V2BdWCd89eIzPqLZGNbRgR4ZO793X
+/OMCiI2jOCzOZiRjx0FD0F9tHdaCUB/I7o9oA+loqO4xNtbfqVwHTxwvd7ayBDjZ
+oUjU/tDa23kZqNd0tZYRf2Or6xt73Jt3DYtVRO/1AmJmWPJoSAMG5A87y38T617C
+QjTOFZda6l9GtMJSHaUKtvORcLwRq0EkoqR8etaHv3fH0nGbz7I281bU+tlzp+6/
+/oiThYIbtPQY19QUb12eeXkV2JVoiA==
+=A2gj
+-----END PGP SIGNATURE-----
+
+--=-55fhrJYVlHl5I87BUY8K--
+
+
+
+--===============3318017444152851265==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-rpi-kernel mailing list
 linux-rpi-kernel@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
+
+--===============3318017444152851265==--
+
+
