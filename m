@@ -2,63 +2,71 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 12DD12D18A
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 29 May 2019 00:26:23 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 203662D40F
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 29 May 2019 05:02:19 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=5ZszrlR9YMb5ilJoUgfPITQTfjchtGlN7XnzBh6qGVk=; b=UYUNOQudBtpAfw7juBZXQIC/T
-	Qb33DOXMZwuGb33SIDGnDvW7BkCdqvupsYBIFVjo+YKZ/wTJzde9p46XsjkdelGcIKNSXJNjwuCPb
-	a4ChguG4tUf3yeuXihfomFL6EUdb/HHEbryCfFxJjcHIcj/YwbZ7/mu2BwhCc2D1oVmJmgojdEriS
-	s2KS/2Cd1ld6nZIjSZOIgmDBSlxpgf4akmpjJR7XnWEVxYnkOd/ZICyc39Ybgvp4TXeBJWjzSemPI
-	Sd6MXBLDSzClMtmcymwkdbCE5DZdVjOafekMXEyn8c4Mczcsf9zdb5pQsPeUp08G/35KvGPRg9TQz
-	4mo+8F0gw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Date:
+	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=SFU1ybjtac74hwFMQBXsFJVw15mqGCLEJcITktXAf8U=; b=YNv3eo9GqPs99K
+	1a25W2ZAd2jkI/+CaVI0hwZeOV3RR48WThg6SJ4vTeChqjJ7bizoP/LD7c0Xg9wiGlRbJ0BOf4RWb
+	QrMdKqiGh5jqqWQcX1ZEf02bIH7VU9jWnnPuX/uH4RFf/h8FfkK8X9IYCtL2K35IO0dIRsKRZVJb5
+	C/MBigyZawdCGG9bcuxUBUZGjEflM4isQM0VJxKaFALvfxm9wKW6MbArv7+y00ZtnzdEQFWCkDTLE
+	EkyK//X+tf9gWkoP9XPgsTMEg1YOkCf2Okz57k9TKWa2yBsBmchY3Jk8UjzfDbuFJjrTKhH2at5Qe
+	njVI7cRQzfhdutvI7SJg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hVkXq-0006XG-Jp; Tue, 28 May 2019 22:26:10 +0000
-Received: from anholt.net ([50.246.234.109])
- by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hVkXg-0006IB-KN; Tue, 28 May 2019 22:26:02 +0000
-Received: from localhost (localhost [127.0.0.1])
- by anholt.net (Postfix) with ESMTP id 07A3E10A03D5;
- Tue, 28 May 2019 15:25:56 -0700 (PDT)
-X-Virus-Scanned: Debian amavisd-new at anholt.net
-Received: from anholt.net ([127.0.0.1])
- by localhost (kingsolver.anholt.net [127.0.0.1]) (amavisd-new, port 10024)
- with LMTP id f67l0HYwfo6f; Tue, 28 May 2019 15:25:54 -0700 (PDT)
-Received: from eliezer.anholt.net (localhost [127.0.0.1])
- by anholt.net (Postfix) with ESMTP id B19BC10A1201;
- Tue, 28 May 2019 15:25:54 -0700 (PDT)
-Received: by eliezer.anholt.net (Postfix, from userid 1000)
- id 40E792FE3AAE; Tue, 28 May 2019 17:25:54 -0500 (CDT)
-From: Eric Anholt <eric@anholt.net>
-To: Annaliese McDermond <nh6z@nh6z.net>, Wolfram Sang <wsa@the-dreams.de>
+	id 1hVoqw-0001ih-UH; Wed, 29 May 2019 03:02:10 +0000
+Received: from smtp97.ord1d.emailsrvr.com ([184.106.54.97])
+ by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
+ id 1hVoqm-0001c4-QT; Wed, 29 May 2019 03:02:02 +0000
+Received: from smtp5.relay.ord1d.emailsrvr.com (localhost [127.0.0.1])
+ by smtp5.relay.ord1d.emailsrvr.com (SMTP Server) with ESMTP id 13CC9A019D;
+ Tue, 28 May 2019 23:01:58 -0400 (EDT)
+X-SMTPDoctor-Processed: csmtpprox beta
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=g001.emailsrvr.com;
+ s=20190322-9u7zjiwi; t=1559098918;
+ bh=dxk1NY8pRsVPWLjcp9o/Cvrv9iSK3H0mNb52VECozys=;
+ h=Subject:From:Date:To:From;
+ b=HVOZ521Hl7QMWUqq7mUULr8MvIxEYZto7hio+0rsM/MyRNWrTfM2GvLl0Vryk41b7
+ 6gnJhRBPsnx9Wx1monqXJIgvFgNtVG1X4oGti3cC/xsNkPfRBXu3ruHG7cMWAQkxpO
+ Z5WpSL8rO6/+GiDK5KJMtjY7WnRMjjGNkIoYNyEA=
+X-Auth-ID: mcdermj@xenotropic.com
+X-Auth-ID: mcdermj@xenotropic.com
+Received: by smtp5.relay.ord1d.emailsrvr.com (Authenticated sender:
+ mcdermj-AT-xenotropic.com) with ESMTPSA id 2231CA00AB; 
+ Tue, 28 May 2019 23:01:57 -0400 (EDT)
+X-Sender-Id: mcdermj@xenotropic.com
+Received: from [10.0.3.33] (c-73-96-52-102.hsd1.or.comcast.net [73.96.52.102])
+ (using TLSv1.2 with cipher DHE-RSA-AES256-GCM-SHA384)
+ by 0.0.0.0:465 (trex/5.7.12); Tue, 28 May 2019 23:01:58 -0400
+Mime-Version: 1.0 (Mac OS X Mail 12.4 \(3445.104.11\))
 Subject: Re: [PATCH v2] i2c: bcm2835: Model Divider in CCF
-In-Reply-To: <E711B8C3-85B8-435C-97FD-E62BCB88B679@nh6z.net>
+From: Annaliese McDermond <nh6z@nh6z.net>
+In-Reply-To: <716a7b8a-c2f8-a3c4-0b3a-be3cb26a6c12@i2se.com>
+Date: Tue, 28 May 2019 20:01:56 -0700
+Message-Id: <ACF57AF2-51C9-4884-BC65-126221CDAB5B@nh6z.net>
 References: <20190508071227.18609-1-nh6z@nh6z.net>
- <4174B26B-4E3A-4CCA-A5ED-BE62A3B5E66A@nh6z.net> <20190516075848.GA1033@kunai>
- <2E6EDCD1-E0B1-4859-BD75-EF411D3D4C6B@nh6z.net> <20190527191534.GD8808@kunai>
- <E711B8C3-85B8-435C-97FD-E62BCB88B679@nh6z.net>
-User-Agent: Notmuch/0.22.2+1~gb0bcfaa (http://notmuchmail.org) Emacs/26.1
- (x86_64-pc-linux-gnu)
-Date: Tue, 28 May 2019 15:25:53 -0700
-Message-ID: <87r28ijjwu.fsf@anholt.net>
-MIME-Version: 1.0
+ <716a7b8a-c2f8-a3c4-0b3a-be3cb26a6c12@i2se.com>
+To: Stefan Wahren <stefan.wahren@i2se.com>
+X-Mailer: Apple Mail (2.3445.104.11)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190528_152600_694407_6C596F55 
-X-CRM114-Status: GOOD (  11.30  )
-X-Spam-Score: -0.0 (/)
+X-CRM114-CacheID: sfid-20190528_200200_914209_D019336D 
+X-CRM114-Status: GOOD (  10.84  )
+X-Spam-Score: 1.0 (+)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.0 points)
+ Content analysis details:   (1.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [50.246.234.109 listed in list.dnswl.org]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ no trust [184.106.54.97 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 1.0 SPF_SOFTFAIL           SPF: sender does not match SPF record (softfail)
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -70,75 +78,35 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: NWDR Team <team@nwdigitalradio.com>, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org
-Content-Type: multipart/mixed; boundary="===============8463965783759756813=="
+Cc: wsa@the-dreams.de, team@nwdigitalradio.com,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-i2c@vger.kernel.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
---===============8463965783759756813==
-Content-Type: multipart/signed; boundary="=-=-=";
-	micalg=pgp-sha512; protocol="application/pgp-signature"
-
---=-=-=
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-
-Annaliese McDermond <nh6z@nh6z.net> writes:
-
->> On May 27, 2019, at 12:15 PM, Wolfram Sang <wsa@the-dreams.de> wrote:
->>=20
->> Regardless which solution is favoured, I am going to apply this patch in
->> a minute:
->>=20
->> http://patchwork.ozlabs.org/patch/1097688/
->>=20
->> It enables this driver for ARCH_BRCMSTB. So, the solution should work
->> for this as well. (I don't know any of these platforms well)
->
-> I did some looking the other day, and I had forgotten that the RPi has 3
-> of the i2c-bcm2835 devices each with their own divider that sits in their
-> register space.  This makes me think the correct solution would be for
-> the divider to be controlled in the driver as was in my original patch.
-> Otherwise we=E2=80=99d have to make three different dividers in the bcm28=
-35-clk
-> driver, and the i2c driver would no longer work for other platforms.
-
-Control of the divider should definitely be in the i2c driver, not in
-clk-bcm2835.
-
---=-=-=
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCgAdFiEE/JuuFDWp9/ZkuCBXtdYpNtH8nugFAlzttXIACgkQtdYpNtH8
-nuiAbg//X0j7M7BOUJsCvwPSJpLQIHbCOYkYw5Ei6i+7Qz0SEnTtCGPVkXkBGC3A
-ZtKw5mR5T114FxhJL3GS40LwcUoW6nowzgaxop06/HCGCBP6pA98JRgbWhWznXHi
-vCkhqBhK9gNsD+JbW8RqDQ10YovQJg6poZ9f6fehxhPl37Vts2HV70RtKaenV8FO
-xoo1gw1wtcapre6nA7k1wy10+7DRAD3GVlCPu7vK29+Ih9sZcYkYLHmf6leIAQUp
-2qM0lZkzGcW24O0vqCFW9g2vU2PXiebLzGQVq6s0s0oV11zXjilCAgP3C0Z8hj6P
-+iqwQeUFFQGrzaN+okFp/O9f84caHuDF4btgboZ+zqgSvIVi5ZxWYa9EDdlnM3pK
-HdYb5Nqcf+0rggfhj+L5EsIr1gO8w38JUT30KigbPnYb2Ps/lRrGFvqUnY1mnUCR
-tE9CUa793+/j2JS9ETX1bo6yJph6JtlqIHqLq/rED0PxbPjAIRHx8dj7RsIpFuCD
-/Ifk2KOzF/POKktZhXS0NYw2OQZaF8CPhs/bwiRix95WQlS3oF69DG4VKmI0V+0J
-p6MHf1EZrGr3k23x9+poohIcEN7zpeaYA/SOULdhoKxTT7BWNRrJ9QS1gQ51wY6E
-tZIMOXIBzptS4GoHjeeTm00GszKJsOMJQn4TeMWbf0WW6TvjPiQ=
-=I88g
------END PGP SIGNATURE-----
---=-=-=--
-
-
---===============8463965783759756813==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-rpi-kernel mailing list
-linux-rpi-kernel@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
-
---===============8463965783759756813==--
-
+Cgo+IE9uIE1heSAyOCwgMjAxOSwgYXQgMTI6NTIgQU0sIFN0ZWZhbiBXYWhyZW4gPHN0ZWZhbi53
+YWhyZW5AaTJzZS5jb20+IHdyb3RlOgo+IAo+IEhpIEFubmFsaWVzZSwKPiAKPiB0aGFuayB5b3Ug
+Zm9yIG1lbnRpb24gdGhhdCB3ZSBoYXZlIG11bHRpcGxlIEkyQyBpbnRlcmZhY2VzLgo+IAo+IE9u
+IDA4LjA1LjE5IDA5OjEyLCBBbm5hbGllc2UgTWNEZXJtb25kIHdyb3RlOgo+PiArCj4+ICtzdGF0
+aWMgc3RydWN0IGNsayAqYmNtMjgzNV9pMmNfcmVnaXN0ZXJfZGl2KHN0cnVjdCBkZXZpY2UgKmRl
+diwKPj4gKwkJCQkJY29uc3QgY2hhciAqbWNsa19uYW1lLAo+PiArCQkJCQlzdHJ1Y3QgYmNtMjgz
+NV9pMmNfZGV2ICppMmNfZGV2KQo+PiArewo+PiArCXN0cnVjdCBjbGtfaW5pdF9kYXRhIGluaXQ7
+Cj4+ICsJc3RydWN0IGNsa19iY20yODM1X2kyYyAqcHJpdjsKPj4gKwljb25zdCBjaGFyICpkZXZu
+YW1lID0gZGV2X25hbWUoZGV2KTsKPj4gKwo+PiArCWluaXQub3BzID0gJmNsa19iY20yODM1X2ky
+Y19vcHM7Cj4+ICsJaW5pdC5uYW1lID0gImJjbTI4MzUtaTJjIjsKPiAKPiBEb2VzIHRoaXMgd29y
+ayBpbnRlbnRpb25hbGx5IGluIGNhc2UgaTJjLTAgYW5kIGkyYy0xIGFyZSB1c2VkIGF0IHRoZQo+
+IHNhbWUgdGltZT8KCkl0IHNob3VsZCB3b3JrIGZpbmUuICBUaGUgY2xvY2tzIGFyZSBhbGwgcmVn
+aXN0ZXJlZCBzZXBhcmF0ZWx5IGFuZCBwYXNzZWQKdGhlIHBvaW50ZXIgdG8gdGhlIHN0cnVjdCBk
+ZXZpY2UgZm9yIHRoZSBpbnRlcmZhY2UuICBUaGlzIGtlZXBzIGl0CmFjY2Vzc2luZyB0aGUgY29y
+cmVjdCByZWdpc3RlcnMgYW5kIHN1Y2guCgo+IFBsZWFzZSBhbHNvIGNoZWNrIHRoZSBvdXRwdXQg
+b2YgL3N5cy9rZXJuZWwvZGVidWcvY2xrL2Nsa19zdW1tYXJ5CgpUaGV54oCZbGwgY29tZSB1cCB3
+aXRoIHRoZSBzYW1lIG5hbWUgaW4gdGhlIGN1cnJlbnQgY29kZSBpbiB0aGUgZGVidWcKb3V0cHV0
+LiAgSSBhZ3JlZSB0aGlzIGlzIG1pbGRseSBjb25mdXNpbmcgYW5kIEnigJlsbCBzcGluIGFub3Ro
+ZXIgdmVyc2lvbgpvZiB0aGUgcGF0Y2ggdG8gZ2l2ZSB0aGVtIHVuaXF1ZSBjbG9jayBuYW1lcyBp
+biBjbGtfc3VtbWFyeS4KCj4gUmVnYXJkcwo+IFN0ZWZhbgo+IAoKLS0KQW5uYWxpZXNlIE1jRGVy
+bW9ub2QKbmg2ekBuaDZ6Lm5ldApfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fXwpsaW51eC1ycGkta2VybmVsIG1haWxpbmcgbGlzdApsaW51eC1ycGkta2VybmVs
+QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
+aXN0aW5mby9saW51eC1ycGkta2VybmVsCg==
