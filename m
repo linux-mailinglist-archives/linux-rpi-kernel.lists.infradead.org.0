@@ -2,75 +2,54 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id B6D0E2D4C7
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 29 May 2019 06:32:50 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 080D830F01
+	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 31 May 2019 15:39:46 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XbI3n01EWbnOjxrq332vWjyyEHKiKxvVJLIi1hzkG1I=; b=smaEloTMemWgCt
-	0at2o6k9AAZmhrXigUD8oCZgEcBF/RZBx21DqCCqunL1ZWrg3pvO/OXGQhfxy9wf9zb1yN254VVxz
-	QAGC5GSD5Og/D9WNUMp5N/u8JochSQL/nSH2++8yAZKdWpIGVGaAizbQl9Af+qqISeBvJpgb87kX8
-	6n0BbQfdq5KTDbpLrR9Lq7sWnAS9pJWCgeTIkPocraEKxibbNWRL1X68sCVjsh0dN+qoU1DJeSv5b
-	3n4eAtxpRWUHnaEUDh8be1cwzqtuwNSYwgEYXf2I6TD1gCUBjZLgmlH+HCV7LNRnut6nJ+QFo3Yr3
-	80SNM+UcL7mapMquZWsg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=mFvAYNeFllyVo2vDhoY08Ry7JWhsBUh3Y/PgJoz9sOM=; b=E/KXfJuaheLw79
+	ggleTN/M4JoHXeoyOYvydozb7j5wEKIxsBCIwsYm175AvIk6wmtZUSBeJt0IFsj7bvOPIvTusb3sa
+	NPAhiDARtxNy7XCoN2COKEQzXWLEiOz5fGi+Emfi0/lL1Gy3IUmF2Knuh1s3vgURSUSPhhWJI3b5B
+	WjK14JgzHz0RsAsFSQwtjVoQ+qTOBnu0KDPgEgHaJxEvPKW5hfZw8mw90F03R3ukP/1oodBQmgrPq
+	d2aFMy0TocpXJDXVBQI+d3C6WZJtHQlUXmwtB1Z6KPNcgXErketooeBn9vsYa65ZD8oHw7ysLjkrH
+	EBkdmHiZRalCekj90ojQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hVqGY-000848-0H; Wed, 29 May 2019 04:32:42 +0000
-Received: from smtp73.ord1d.emailsrvr.com ([184.106.54.73])
+	id 1hWhkv-0002MY-AE; Fri, 31 May 2019 13:39:37 +0000
+Received: from youngberry.canonical.com ([91.189.89.112])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hVqGO-0007wb-9F; Wed, 29 May 2019 04:32:33 +0000
-Received: from smtp10.relay.ord1d.emailsrvr.com (localhost [127.0.0.1])
- by smtp10.relay.ord1d.emailsrvr.com (SMTP Server) with ESMTP id B6CFBA00A8;
- Wed, 29 May 2019 00:32:31 -0400 (EDT)
-X-SMTPDoctor-Processed: csmtpprox beta
-Received: from smtp10.relay.ord1d.emailsrvr.com (localhost [127.0.0.1])
- by smtp10.relay.ord1d.emailsrvr.com (SMTP Server) with ESMTP id AADB3A00C7;
- Wed, 29 May 2019 00:32:31 -0400 (EDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=g001.emailsrvr.com;
- s=20190322-9u7zjiwi; t=1559104351;
- bh=mcOSD+EFum3khj5SinsGaMT/35QO/uxIAir4XZYoT8g=;
- h=Subject:From:Date:To:From;
- b=MHycrVrxakzEDWlvwpHaEBzGrDb0gcYBv9ApqyioUjbKce1xluqS4DT8fIadzptw8
- IRl1TrLl5RXPIf67SKptCbkPOspiI3rsuRPXi76GyPqaFuiwlMGXyjDbrno/IHCVA3
- pHLqbPCmCSJTUTkDfxZ4gPc7UurMZHDHqevfjKWY=
-X-Auth-ID: mcdermj@xenotropic.com
-Received: by smtp10.relay.ord1d.emailsrvr.com (Authenticated sender:
- mcdermj-AT-xenotropic.com) with ESMTPSA id AF1E5A00A8; 
- Wed, 29 May 2019 00:32:30 -0400 (EDT)
-X-Sender-Id: mcdermj@xenotropic.com
-Received: from [10.0.3.33] (c-73-96-52-102.hsd1.or.comcast.net [73.96.52.102])
- (using TLSv1.2 with cipher DHE-RSA-AES256-GCM-SHA384)
- by 0.0.0.0:465 (trex/5.7.12); Wed, 29 May 2019 00:32:31 -0400
-Mime-Version: 1.0 (Mac OS X Mail 12.4 \(3445.104.11\))
-Subject: Re: [PATCH v2] i2c: bcm2835: Model Divider in CCF
-From: Annaliese McDermond <nh6z@nh6z.net>
-In-Reply-To: <ACF57AF2-51C9-4884-BC65-126221CDAB5B@nh6z.net>
-Date: Tue, 28 May 2019 21:32:29 -0700
-Message-Id: <F02ECB35-4999-4B6E-8ACF-4EC4359F4017@nh6z.net>
-References: <20190508071227.18609-1-nh6z@nh6z.net>
- <716a7b8a-c2f8-a3c4-0b3a-be3cb26a6c12@i2se.com>
- <ACF57AF2-51C9-4884-BC65-126221CDAB5B@nh6z.net>
-To: Stefan Wahren <stefan.wahren@i2se.com>
-X-Mailer: Apple Mail (2.3445.104.11)
+ id 1hWhks-0002Ln-2F; Fri, 31 May 2019 13:39:35 +0000
+Received: from 1.general.cking.uk.vpn ([10.172.193.212] helo=localhost)
+ by youngberry.canonical.com with esmtpsa (TLS1.0:RSA_AES_256_CBC_SHA1:32)
+ (Exim 4.76) (envelope-from <colin.king@canonical.com>)
+ id 1hWhkk-0007Qf-Sd; Fri, 31 May 2019 13:39:26 +0000
+From: Colin King <colin.king@canonical.com>
+To: Eric Anholt <eric@anholt.net>, Stefan Wahren <stefan.wahren@i2se.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ devel@driverdev.osuosl.org
+Subject: [PATCH] staging: vc04_services: remove redundant assignment to
+ pointer service
+Date: Fri, 31 May 2019 14:39:26 +0100
+Message-Id: <20190531133926.17644-1-colin.king@canonical.com>
+X-Mailer: git-send-email 2.20.1
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190528_213232_429823_E40C2090 
-X-CRM114-Status: UNSURE (   8.93  )
+X-CRM114-CacheID: sfid-20190531_063934_456743_010C0379 
+X-CRM114-Status: UNSURE (   9.37  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: 1.0 (+)
+X-Spam-Score: -5.0 (-----)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (1.0 points)
+ Content analysis details:   (-5.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [184.106.54.73 listed in list.dnswl.org]
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [91.189.89.112 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 1.0 SPF_SOFTFAIL           SPF: sender does not match SPF record (softfail)
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -82,143 +61,44 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: wsa@the-dreams.de, team@nwdigitalradio.com,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-i2c@vger.kernel.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-Cgo+IE9uIE1heSAyOCwgMjAxOSwgYXQgODowMSBQTSwgQW5uYWxpZXNlIE1jRGVybW9uZCA8bmg2
-ekBuaDZ6Lm5ldD4gd3JvdGU6Cj4gCj4gCj4gCj4+IE9uIE1heSAyOCwgMjAxOSwgYXQgMTI6NTIg
-QU0sIFN0ZWZhbiBXYWhyZW4gPHN0ZWZhbi53YWhyZW5AaTJzZS5jb20+IHdyb3RlOgoKPj4gUGxl
-YXNlIGFsc28gY2hlY2sgdGhlIG91dHB1dCBvZiAvc3lzL2tlcm5lbC9kZWJ1Zy9jbGsvY2xrX3N1
-bW1hcnkKPiAKPiBUaGV54oCZbGwgY29tZSB1cCB3aXRoIHRoZSBzYW1lIG5hbWUgaW4gdGhlIGN1
-cnJlbnQgY29kZSBpbiB0aGUgZGVidWcKPiBvdXRwdXQuICBJIGFncmVlIHRoaXMgaXMgbWlsZGx5
-IGNvbmZ1c2luZyBhbmQgSeKAmWxsIHNwaW4gYW5vdGhlciB2ZXJzaW9uCj4gb2YgdGhlIHBhdGNo
-IHRvIGdpdmUgdGhlbSB1bmlxdWUgY2xvY2sgbmFtZXMgaW4gY2xrX3N1bW1hcnkuCgpJbiB2MyBv
-ZiB0aGUgcGF0Y2ggdGhlIG91dHB1dCBvZiAvc3lzL2tlcm5lbC9kZWJ1Zy9jbGsvY2xrX3N1bW1h
-cnkgbG9va3MgbGlrZSB0aGUKZm9sbG93aW5nIHdpdGggdHdvIGkyYyBkZXZpY2VzIGVuYWJsZWQg
-b24gdGhlIFJQaS4gIE5vdGUgM2Y4MDQwMDAuaTJjX2RpdiBhbmQgCjNmMjA1MDAwLmkyY19kaXYu
-CgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBlbmFibGUgIHByZXBhcmUgIHByb3Rl
-Y3QgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGR1dHkKICAgY2xvY2sgICAgICAgICAg
-ICAgICAgICAgICAgICAgIGNvdW50ICAgIGNvdW50ICAgIGNvdW50ICAgICAgICByYXRlICAgYWNj
-dXJhY3kgcGhhc2UgIGN5Y2xlCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQog
-b3RnICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDAgICAgICAgIDAgICAgICAgIDAg
-ICA0ODAwMDAwMDAgICAgICAgICAgMCAgICAgMCAgNTAwMDAKIG9zYyAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICA3ICAgICAgICA3ICAgICAgICA0ICAgIDE5MjAwMDAwICAgICAgICAg
-IDAgICAgIDAgIDUwMDAwCiAgICBncDIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMSAg
-ICAgICAgMSAgICAgICAgMSAgICAgICAzMjc2OCAgICAgICAgICAwICAgICAwICA1MDAwMAogICAg
-dHNlbnMgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDEgICAgICAgIDEgICAgICAgIDEgICAg
-IDE5MjAwMDAgICAgICAgICAgMCAgICAgMCAgNTAwMDAKICAgIHZlYyAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAwICAgICAgICAwICAgICAgICAwICAgIDE5MjAwMDAwICAgICAgICAgIDAg
-ICAgIDAgIDUwMDAwCiAgICBvdHAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMCAgICAg
-ICAgMCAgICAgICAgMCAgICAgNDgwMDAwMCAgICAgICAgICAwICAgICAwICA1MDAwMAogICAgdGlt
-ZXIgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDAgICAgICAgIDAgICAgICAgIDAgICAgIDEw
-MDAwMDIgICAgICAgICAgMCAgICAgMCAgNTAwMDAKICAgIHBsbGggICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICA0ICAgICAgICA0ICAgICAgICAwICAgODU1MDAwMDAwICAgICAgICAgIDAgICAg
-IDAgIDUwMDAwCiAgICAgICBwbGxoX3BpeF9wcmVkaXYgICAgICAgICAgICAgICAgMSAgICAgICAg
-MSAgICAgICAgMCAgIDg1NTAwMDAwMCAgICAgICAgICAwICAgICAwICA1MDAwMAogICAgICAgICAg
-cGxsaF9waXggICAgICAgICAgICAgICAgICAgIDAgICAgICAgIDAgICAgICAgIDAgICAgODU1MDAw
-MDAgICAgICAgICAgMCAgICAgMCAgNTAwMDAKICAgICAgIHBsbGhfYXV4ICAgICAgICAgICAgICAg
-ICAgICAgICAxICAgICAgICAxICAgICAgICAwICAgICAzMzM5ODQ0ICAgICAgICAgIDAgICAgIDAg
-IDUwMDAwCiAgICAgICBwbGxoX3JjYWxfcHJlZGl2ICAgICAgICAgICAgICAgMSAgICAgICAgMSAg
-ICAgICAgMCAgICAgMzMzOTg0NCAgICAgICAgICAwICAgICAwICA1MDAwMAogICAgICAgICAgcGxs
-aF9yY2FsICAgICAgICAgICAgICAgICAgIDAgICAgICAgIDAgICAgICAgIDAgICAgICAzMzM5ODQg
-ICAgICAgICAgMCAgICAgMCAgNTAwMDAKICAgIHBsbGQgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAzICAgICAgICAzICAgICAgICAxICAyMDAwMDAwMDI0ICAgICAgICAgIDAgICAgIDAgIDUw
-MDAwCiAgICAgICBwbGxkX2RzaTEgICAgICAgICAgICAgICAgICAgICAgMCAgICAgICAgMCAgICAg
-ICAgMCAgICAgNzgxMjUwMSAgICAgICAgICAwICAgICAwICA1MDAwMAogICAgICAgcGxsZF9kc2kw
-ICAgICAgICAgICAgICAgICAgICAgIDAgICAgICAgIDAgICAgICAgIDAgICAgIDc4MTI1MDEgICAg
-ICAgICAgMCAgICAgMCAgNTAwMDAKICAgICAgIHBsbGRfcGVyICAgICAgICAgICAgICAgICAgICAg
-ICA0ICAgICAgICA0ICAgICAgICAzICAgNTAwMDAwMDA2ICAgICAgICAgIDAgICAgIDAgIDUwMDAw
-CiAgICAgICAgICBwY20gICAgICAgICAgICAgICAgICAgICAgICAgMSAgICAgICAgMSAgICAgICAg
-MSAgICAgMTUzNTk5OSAgICAgICAgICAwICAgICAwICA1MDAwMAogICAgICAgICAgZ3AwICAgICAg
-ICAgICAgICAgICAgICAgICAgIDEgICAgICAgIDEgICAgICAgIDEgICAgMjQ5OTkzODkgICAgICAg
-ICAgMCAgICAgMCAgNTAwMDAKICAgICAgICAgICAgIHBsbCAgICAgICAgICAgICAgICAgICAgICAx
-ICAgICAgICAxICAgICAgICAwICAgIDk4MzAzODQ4ICAgICAgICAgIDAgICAgIDAgIDUwMDAwCiAg
-ICAgICAgICAgICAgICBjb2RlY19jbGtpbiAgICAgICAgICAgMiAgICAgICAgMiAgICAgICAgMCAg
-ICA5ODMwMzg0OCAgICAgICAgICAwICAgICAwICA1MDAwMAogICAgICAgICAgICAgICAgICAgbmFk
-YyAgICAgICAgICAgICAgIDEgICAgICAgIDEgICAgICAgIDAgICAgMTIyODc5ODEgICAgICAgICAg
-MCAgICAgMCAgNTAwMDAKICAgICAgICAgICAgICAgICAgICAgIG1hZGMgICAgICAgICAgICAxICAg
-ICAgICAxICAgICAgICAwICAgICA2MTQzOTkxICAgICAgICAgIDAgICAgIDAgIDUwMDAwCiAgICAg
-ICAgICAgICAgICAgICBuZGFjICAgICAgICAgICAgICAgMSAgICAgICAgMSAgICAgICAgMCAgICAx
-MjI4Nzk4MSAgICAgICAgICAwICAgICAwICA1MDAwMAogICAgICAgICAgICAgICAgICAgICAgbWRh
-YyAgICAgICAgICAgIDIgICAgICAgIDIgICAgICAgIDAgICAgIDYxNDM5OTEgICAgICAgICAgMCAg
-ICAgMCAgNTAwMDAKICAgICAgICAgICAgICAgICAgICAgICAgIGJkaXYgICAgICAgICAxICAgICAg
-ICAxICAgICAgICAwICAgICAxNTM1OTk4ICAgICAgICAgIDAgICAgIDAgIDUwMDAwCiAgICAgICAg
-ICBncDEgICAgICAgICAgICAgICAgICAgICAgICAgMSAgICAgICAgMSAgICAgICAgMSAgICAyNDAw
-MDA5NCAgICAgICAgICAwICAgICAwICA1MDAwMAogICAgICAgICAgaHNtICAgICAgICAgICAgICAg
-ICAgICAgICAgIDAgICAgICAgIDAgICAgICAgIDAgICAxNjM2ODI4NjYgICAgICAgICAgMCAgICAg
-MCAgNTAwMDAKICAgICAgICAgIHVhcnQgICAgICAgICAgICAgICAgICAgICAgICAwICAgICAgICAw
-ICAgICAgICAwICAgIDQ3OTk5NjI1ICAgICAgICAgIDAgICAgIDAgIDUwMDAwCiAgICAgICBwbGxk
-X2NvcmUgICAgICAgICAgICAgICAgICAgICAgMiAgICAgICAgMiAgICAgICAgMCAgIDUwMDAwMDAw
-NiAgICAgICAgICAwICAgICAwICA1MDAwMAogICAgICAgICAgc2RyYW0gICAgICAgICAgICAgICAg
-ICAgICAgIDAgICAgICAgIDAgICAgICAgIDAgICAxNjY2NjY2NjggICAgICAgICAgMCAgICAgMCAg
-NTAwMDAKICAgIHBsbGMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAzICAgICAgICAzICAg
-ICAgICAxICAyNDAwMDAwMDAwICAgICAgICAgIDAgICAgIDAgIDUwMDAwCiAgICAgICBwbGxjX3Bl
-ciAgICAgICAgICAgICAgICAgICAgICAgMSAgICAgICAgMSAgICAgICAgMCAgMTIwMDAwMDAwMCAg
-ICAgICAgICAwICAgICAwICA1MDAwMAogICAgICAgICAgZW1tYyAgICAgICAgICAgICAgICAgICAg
-ICAgIDAgICAgICAgIDAgICAgICAgIDAgICAyMDAwMDAwMDAgICAgICAgICAgMCAgICAgMCAgNTAw
-MDAKICAgICAgIHBsbGNfY29yZTIgICAgICAgICAgICAgICAgICAgICAwICAgICAgICAwICAgICAg
-ICAwICAgICA5Mzc1MDAwICAgICAgICAgIDAgICAgIDAgIDUwMDAwCiAgICAgICBwbGxjX2NvcmUx
-ICAgICAgICAgICAgICAgICAgICAgMCAgICAgICAgMCAgICAgICAgMCAgICAgOTM3NTAwMCAgICAg
-ICAgICAwICAgICAwICA1MDAwMAogICAgICAgcGxsY19jb3JlMCAgICAgICAgICAgICAgICAgICAg
-IDIgICAgICAgIDIgICAgICAgIDEgIDEyMDAwMDAwMDAgICAgICAgICAgMCAgICAgMCAgNTAwMDAK
-ICAgICAgICAgIHZwdSAgICAgICAgICAgICAgICAgICAgICAgICAzICAgICAgICAzICAgICAgICAy
-ICAgNDAwMDAwMDAwICAgICAgICAgIDAgICAgIDAgIDUwMDAwCiAgICAgICAgICAgICAzZjgwNDAw
-MC5pMmNfZGl2ICAgICAgICAgMSAgICAgICAgMSAgICAgICAgMSAgICAgIDEwMDAwMCAgICAgICAg
-ICAwICAgICAwICA1MDAwMAogICAgICAgICAgICAgM2YyMDUwMDAuaTJjX2RpdiAgICAgICAgIDEg
-ICAgICAgIDEgICAgICAgIDEgICAgICAxMDAwMDAgICAgICAgICAgMCAgICAgMCAgNTAwMDAKICAg
-ICAgICAgICAgIGF1eF9zcGkyICAgICAgICAgICAgICAgICAwICAgICAgICAwICAgICAgICAwICAg
-NDAwMDAwMDAwICAgICAgICAgIDAgICAgIDAgIDUwMDAwCiAgICAgICAgICAgICBhdXhfc3BpMSAg
-ICAgICAgICAgICAgICAgMCAgICAgICAgMCAgICAgICAgMCAgIDQwMDAwMDAwMCAgICAgICAgICAw
-ICAgICAwICA1MDAwMAogICAgICAgICAgICAgYXV4X3VhcnQgICAgICAgICAgICAgICAgIDAgICAg
-ICAgIDAgICAgICAgIDAgICA0MDAwMDAwMDAgICAgICAgICAgMCAgICAgMCAgNTAwMDAKICAgICAg
-ICAgICAgIHBlcmlfaW1hZ2UgICAgICAgICAgICAgICAwICAgICAgICAwICAgICAgICAwICAgNDAw
-MDAwMDAwICAgICAgICAgIDAgICAgIDAgIDUwMDAwCiAgICBwbGxiICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgMiAgICAgICAgMiAgICAgICAgMCAgMjgwMDAwMDAxMiAgICAgICAgICAwICAg
-ICAwICA1MDAwMAogICAgICAgcGxsYl9hcm0gICAgICAgICAgICAgICAgICAgICAgIDEgICAgICAg
-IDEgICAgICAgIDAgIDE0MDAwMDAwMDYgICAgICAgICAgMCAgICAgMCAgNTAwMDAKICAgIHBsbGEg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAyICAgICAgICAyICAgICAgICAwICAyNDAwMDAw
-MDAwICAgICAgICAgIDAgICAgIDAgIDUwMDAwCiAgICAgICBwbGxhX2NjcDIgICAgICAgICAgICAg
-ICAgICAgICAgMCAgICAgICAgMCAgICAgICAgMCAgICAgOTM3NTAwMCAgICAgICAgICAwICAgICAw
-ICA1MDAwMAogICAgICAgcGxsYV9kc2kwICAgICAgICAgICAgICAgICAgICAgIDAgICAgICAgIDAg
-ICAgICAgIDAgICAgIDkzNzUwMDAgICAgICAgICAgMCAgICAgMCAgNTAwMDAKICAgICAgIHBsbGFf
-cGVyICAgICAgICAgICAgICAgICAgICAgICAwICAgICAgICAwICAgICAgICAwICAgICA5Mzc1MDAw
-ICAgICAgICAgIDAgICAgIDAgIDUwMDAwCiAgICAgICBwbGxhX2NvcmUgICAgICAgICAgICAgICAg
-ICAgICAgMSAgICAgICAgMSAgICAgICAgMCAgMTIwMDAwMDAwMCAgICAgICAgICAwICAgICAwICA1
-MDAwMAogICAgICAgICAgaDI2NCAgICAgICAgICAgICAgICAgICAgICAgIDAgICAgICAgIDAgICAg
-ICAgIDAgICAzMDAwMDAwMDAgICAgICAgICAgMCAgICAgMCAgNTAwMDAKICAgICAgICAgIGlzcCAg
-ICAgICAgICAgICAgICAgICAgICAgICAwICAgICAgICAwICAgICAgICAwICAgMzAwMDAwMDAwICAg
-ICAgICAgIDAgICAgIDAgIDUwMDAwCiAgICAgICAgICB2M2QgICAgICAgICAgICAgICAgICAgICAg
-ICAgMCAgICAgICAgMCAgICAgICAgMCAgIDMwMDAwMDAwMCAgICAgICAgICAwICAgICAwICA1MDAw
-MAogc2MxNmlzNzUyX2NsayAgICAgICAgICAgICAgICAgICAgICAgIDEgICAgICAgIDEgICAgICAg
-IDAgICAgIDE4NDMyMDAgICAgICAgICAgMCAgICAgMCAgNTAwMDAKIGRzaTFwICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAwICAgICAgICAwICAgICAgICAwICAgICAgICAgICAwICAgICAg
-ICAgIDAgICAgIDAgIDUwMDAwCiBkc2kwcCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-MCAgICAgICAgMCAgICAgICAgMCAgICAgICAgICAgMCAgICAgICAgICAwICAgICAwICA1MDAwMAog
-ZHNpMWUgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDAgICAgICAgIDAgICAgICAgIDAg
-ICAgICAgICAgIDAgICAgICAgICAgMCAgICAgMCAgNTAwMDAKIGRzaTBlICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAwICAgICAgICAwICAgICAgICAwICAgICAgICAgICAwICAgICAgICAg
-IDAgICAgIDAgIDUwMDAwCiBjYW0xICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMCAg
-ICAgICAgMCAgICAgICAgMCAgICAgICAgICAgMCAgICAgICAgICAwICAgICAwICA1MDAwMAogY2Ft
-MCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDAgICAgICAgIDAgICAgICAgIDAgICAg
-ICAgICAgIDAgICAgICAgICAgMCAgICAgMCAgNTAwMDAKIGRwaSAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAwICAgICAgICAwICAgICAgICAwICAgICAgICAgICAwICAgICAgICAgIDAg
-ICAgIDAgIDUwMDAwCiB0ZWMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMCAgICAg
-ICAgMCAgICAgICAgMCAgICAgICAgICAgMCAgICAgICAgICAwICAgICAwICA1MDAwMAogc21pICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDAgICAgICAgIDAgICAgICAgIDAgICAgICAg
-ICAgIDAgICAgICAgICAgMCAgICAgMCAgNTAwMDAKIHNsaW0gICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAwICAgICAgICAwICAgICAgICAwICAgICAgICAgICAwICAgICAgICAgIDAgICAg
-IDAgIDUwMDAwCiBkZnQgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMCAgICAgICAg
-MCAgICAgICAgMCAgICAgICAgICAgMCAgICAgICAgICAwICAgICAwICA1MDAwMAogYXZlbyAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgIDAgICAgICAgIDAgICAgICAgIDAgICAgICAgICAg
-IDAgICAgICAgICAgMCAgICAgMCAgNTAwMDAKIHB3bSAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAwICAgICAgICAwICAgICAgICAwICAgICAgICAgICAwICAgICAgICAgIDAgICAgIDAg
-IDUwMDAwCgotLQpBbm5hbGllc2UgTWNEZXJtb25kCm5oNnpAbmg2ei5uZXQKCgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1ycGkta2VybmVsIG1h
-aWxpbmcgbGlzdApsaW51eC1ycGkta2VybmVsQGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
-c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1ycGkta2VybmVsCg==
+From: Colin Ian King <colin.king@canonical.com>
+
+Pointer service is being set to NULL however this value is never
+read and so the assignment is redundant and can be removed.
+
+Addresses-Coverity: ("Unused value")
+Signed-off-by: Colin Ian King <colin.king@canonical.com>
+---
+ .../staging/vc04_services/interface/vchiq_arm/vchiq_shim.c    | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c
+index 13910d205fce..17a4f2c8d8b1 100644
+--- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c
+@@ -639,10 +639,8 @@ int32_t vchi_service_close(const VCHI_SERVICE_HANDLE_T handle)
+ 
+ 	if (service) {
+ 		VCHIQ_STATUS_T status = vchiq_close_service(service->handle);
+-		if (status == VCHIQ_SUCCESS) {
++		if (status == VCHIQ_SUCCESS)
+ 			service_free(service);
+-			service = NULL;
+-		}
+ 
+ 		ret = vchiq_status_to_vchi(status);
+ 	}
+-- 
+2.20.1
+
+
+_______________________________________________
+linux-rpi-kernel mailing list
+linux-rpi-kernel@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
