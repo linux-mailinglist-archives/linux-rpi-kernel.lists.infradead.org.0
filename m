@@ -2,71 +2,54 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id A29D3432BB
-	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 13 Jun 2019 07:10:07 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id E3807433E1
+	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 13 Jun 2019 09:53:27 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=af+CFjJOzP4KqdNlln11OUJt+7qkHVIAvji7vKHkuTc=; b=UcHft4xK/r71hp
-	19BQDlHQPQov5hCu6a87EWq4k2ZzEGhDn3O/XCXtVwnOWW3IVXx6rnl9qY9PA8vZc799evJp3QSFx
-	iP9Dg6QJwrSmVj9cFAQu8l8vbNU5UcgQLc/OdYMVzTbSRHAcbhKIgDo7C3sU6UK9EoepdTJgFwRhI
-	GwaShOtIUP/aV5K2PNYpT6X7GxS1xCVvmIEIs1ZZTJvCzId7CfKYZw9KSMi2aFlnjyPmgNhZqflpW
-	91nIz3CAD+JCiEfuxXBRvjskjE9IdiMc8icVzoJI/+0fnbMCflDBHtHatsPkNRmJukjnpvWTai+wB
-	Lfv1bpR94tXGOiK/TRUw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=APcj45RJjcoDDkjLReG/XBC3Jctub2JOIl1yT+2MjFc=; b=lBYUWiZrQaDgXTeBtXCdd8cUD
+	s1bqBGPyMkb3SLmSAKdp/Mc2uQLX509cygFMljpfzpk1UZSgPPu9uCx+TBkXKwrtJsPZZZ6CVxi8z
+	41mcUO7r1IpbPs33N0ERs3rT/qhFnP7NV7rSc8otBn6I6+WEBSzINsMyEgsUy72nrY0avCZAsedaT
+	3J5WSidKjLxp7CBYXS2zEXcSEYpyirVzvCvA1gFQJhCYCLNyIWsk3QYMGkuxM+WMJcsSUDDXo2eXi
+	Y1N2zmoMah6A9yxbZJsllzkq8QPko5YF3vr8N4mkhadSOylL/osaL+NYt6ErlSRYzEqUrw9JnJAIW
+	9anKiZpNA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hbHzq-0005TI-35; Thu, 13 Jun 2019 05:09:58 +0000
-Received: from smtp107.iad3a.emailsrvr.com ([173.203.187.107])
- by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hbHzP-0005Gw-OA; Thu, 13 Jun 2019 05:09:33 +0000
-Received: from smtp38.relay.iad3a.emailsrvr.com (localhost [127.0.0.1])
- by smtp38.relay.iad3a.emailsrvr.com (SMTP Server) with ESMTP id 302C31855;
- Thu, 13 Jun 2019 01:09:24 -0400 (EDT)
-X-SMTPDoctor-Processed: csmtpprox beta
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=g001.emailsrvr.com;
- s=20190322-9u7zjiwi; t=1560402564;
- bh=YphfuBxons+OWOZNJBAlemTbwJdLog12Pz9975FV9lE=;
- h=Subject:From:Date:To:From;
- b=TcnXbiR3mVBC7+Vi+KfgW8p+wSwKO0l7u8OvL72AXx/4HHzTnVJo/6ptDUYm8BaqU
- CgGAn3DnI0OtguY6c3serWW4+cOuHk3BfAwYRVr1vJf9hCm0TCDmIagPrIxt12p5yN
- JYx3XPruhINe/T2oZ3rOyEOO8JiwMpMwgBd3fsO0=
-X-Auth-ID: mcdermj@xenotropic.com
-Received: by smtp38.relay.iad3a.emailsrvr.com (Authenticated sender:
- mcdermj-AT-xenotropic.com) with ESMTPSA id 0E2CD2CA6; 
- Thu, 13 Jun 2019 01:09:22 -0400 (EDT)
-X-Sender-Id: mcdermj@xenotropic.com
-Received: from [10.0.3.33] (c-73-96-52-102.hsd1.or.comcast.net [73.96.52.102])
- (using TLSv1.2 with cipher DHE-RSA-AES256-GCM-SHA384)
- by 0.0.0.0:465 (trex/5.7.12); Thu, 13 Jun 2019 01:09:24 -0400
-Mime-Version: 1.0 (Mac OS X Mail 12.4 \(3445.104.11\))
+	id 1hbKXw-0004SU-C2; Thu, 13 Jun 2019 07:53:20 +0000
+Received: from sauhun.de ([88.99.104.3] helo=pokefinder.org)
+ by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
+ id 1hbKXZ-0004FK-Ib; Thu, 13 Jun 2019 07:52:59 +0000
+Received: from localhost (unknown [84.134.207.153])
+ by pokefinder.org (Postfix) with ESMTPSA id BE0882C3559;
+ Thu, 13 Jun 2019 09:51:03 +0200 (CEST)
+Date: Thu, 13 Jun 2019 09:50:35 +0200
+From: Wolfram Sang <wsa@the-dreams.de>
+To: Annaliese McDermond <nh6z@nh6z.net>
 Subject: Re: [PATCH v4] i2c: bcm2835: Model Divider in CCF
-From: Annaliese McDermond <nh6z@nh6z.net>
-In-Reply-To: <20190612104107.ndbo55ii2w3ahtzr@ninjato>
-Date: Wed, 12 Jun 2019 22:09:21 -0700
-Message-Id: <2E838B63-DD8D-40AC-AA31-7C0FEF8B4424@nh6z.net>
+Message-ID: <20190613075035.GA952@kunai>
 References: <20190529042912.12956-1-nh6z@nh6z.net>
  <20190608171443.14484-1-nh6z@nh6z.net>
  <20190612104107.ndbo55ii2w3ahtzr@ninjato>
-To: Wolfram Sang <wsa@the-dreams.de>
-X-Mailer: Apple Mail (2.3445.104.11)
+ <2E838B63-DD8D-40AC-AA31-7C0FEF8B4424@nh6z.net>
+MIME-Version: 1.0
+In-Reply-To: <2E838B63-DD8D-40AC-AA31-7C0FEF8B4424@nh6z.net>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190612_220931_916595_7B9B3719 
-X-CRM114-Status: GOOD (  12.85  )
-X-Spam-Score: 1.0 (+)
+X-CRM114-CacheID: sfid-20190613_005257_775527_9C5DBE87 
+X-CRM114-Status: UNSURE (   8.26  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (1.0 points)
+ Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [173.203.187.107 listed in list.dnswl.org]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 1.0 SPF_SOFTFAIL           SPF: sender does not match SPF record (softfail)
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ no trust [88.99.104.3 listed in list.dnswl.org]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -81,49 +64,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>,
 Cc: swarren@wwwdotorg.org, NWDR Team <team@nwdigitalradio.com>,
  linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  linux-i2c@vger.kernel.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============2265442787752323125=="
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-Cgo+IE9uIEp1biAxMiwgMjAxOSwgYXQgMzo0MSBBTSwgV29sZnJhbSBTYW5nIDx3c2FAdGhlLWRy
-ZWFtcy5kZT4gd3JvdGU6Cj4gCj4gT24gU2F0LCBKdW4gMDgsIDIwMTkgYXQgMTA6MTQ6NDNBTSAt
-MDcwMCwgQW5uYWxpZXNlIE1jRGVybW9uZCB3cm90ZToKPj4gTW9kZWwgdGhlIEkyQyBidXMgY2xv
-Y2sgZGl2aWRlciBhcyBhIHBhcnQgb2YgdGhlIENvcmUgQ2xvY2sgRnJhbWV3b3JrLgo+PiBQcmlt
-YXJpbHkgdGhpcyByZW1vdmVzIHRoZSBjbGtfZ2V0X3JhdGUoKSBjYWxsIGZyb20gZWFjaCB0cmFu
-c2Zlci4KPj4gVGhpcyBjYWxsIGNhdXNlcyBwcm9ibGVtcyBmb3Igc2xhdmUgZHJpdmVycyB0aGF0
-IHRoZW1zZWx2ZXMgaGF2ZQo+PiBpbnRlcm5hbCBjbG9jayBjb21wb25lbnRzIHRoYXQgYXJlIGNv
-bnRyb2xsZWQgYnkgYW4gSTJDIGludGVyZmFjZS4KPj4gV2hlbiB0aGUgc2xhdmUncyBpbnRlcm5h
-bCBjbG9jayBjb21wb25lbnQgaXMgcHJlcGFyZWQsIHRoZSBwcmVwYXJlCj4+IGxvY2sgaXMgb2J0
-YWluZWQsIGFuZCBpdCBtYWtlcyBjYWxscyB0byB0aGUgSTJDIHN1YnN5c3RlbSB0bwo+PiBjb21t
-YW5kIHRoZSBoYXJkd2FyZSB0byBhY3RpdmF0ZSB0aGUgY2xvY2suICBJbiBvcmRlciB0byBwZXJm
-b3JtCj4+IHRoZSBJMkMgdHJhbnNmZXIsIHRoaXMgZHJpdmVyIHNldHMgdGhlIGRpdmlkZXIsIHdo
-aWNoIHJlcXVpcmVzCj4+IGl0IHRvIGdldCB0aGUgcGFyZW50IGNsb2NrIHJhdGUsIHdoaWNoIGl0
-IGRvZXMgd2l0aCBjbGtfZ2V0X3JhdGUoKS4KPj4gVW5mb3J0dW5hdGVseSwgdGhpcyBmdW5jdGlv
-biB3aWxsIHRyeSB0byB0YWtlIHRoZSBjbG9jayBwcmVwYXJlCj4+IGxvY2ssIHdoaWNoIGlzIGFs
-cmVhZHkgaGVsZCBieSB0aGUgc2xhdmUncyBpbnRlcm5hbCBjbG9jayBjYWxscwo+PiBjcmVhdGlu
-ZyBhIGRlYWRsb2NrLgo+PiAKPj4gTW9kZWxpbmcgdGhlIGRpdmlkZXIgaW4gdGhlIENDRiBuYXRp
-dmVseSByZW1vdmVzIHRoaXMgZGVwZW5kZW5jeQo+PiBhbmQgdGhlIGRpdmlkZXIgdmFsdWUgaXMg
-b25seSBzZXQgdXBvbiBjaGFuZ2luZyB0aGUgYnVzIGNsb2NrCj4+IGZyZXF1ZW5jeSBvciBjaGFu
-Z2VzIGluIHRoZSBwYXJlbnQgY2xvY2sgdGhhdCBjYXNjYWRlIGRvd24gdG8gdGhpcwo+PiBkaXZp
-c29yLiAgVGhpcyBvYnZpYXRlcyB0aGUgbmVlZCB0byBzZXQgdGhlIGRpdmlkZXIgd2l0aCBldmVy
-eQo+PiB0cmFuc2ZlciBhbmQgYXZvaWRzIHRoZSBkZWFkbG9jayBkZXNjcmliZWQgYWJvdmUuICBJ
-dCBhbHNvIHNob3VsZAo+PiBwcm92aWRlIGJldHRlciBjbG9jayBkZWJ1Z2dpbmcgYW5kIHNhdmUg
-YSBmZXcgY3ljbGVzIG9uIGVhY2gKPj4gdHJhbnNmZXIgZHVlIHRvIG5vdCBoYXZpbmcgdG8gcmVj
-YWxjdWF0ZSB0aGUgZGl2aWRlciB2YWx1ZS4KPj4gCj4+IFNpZ25lZC1vZmYtYnk6IEFubmFsaWVz
-ZSBNY0Rlcm1vbmQgPG5oNnpAbmg2ei5uZXQ+Cj4+IEFja2VkLWJ5OiBTdGVmYW4gV2FocmVuIDxz
-dGVmYW4ud2FocmVuQGkyc2UuY29tPgo+PiBSZXZpZXdlZC1ieTogRXJpYyBBbmhvbHQgPGVyaWNA
-YW5ob2x0Lm5ldD4KPiAKPiBBcHBsaWVkIHRvIGZvci1uZXh0LCB0aGFua3MgZm9yIGtlZXBpbmcg
-YXQgdGhpcyEKClRoYW5rcyBmb3IgeW91ciBwYXRpZW5jZSB3aXRoIHRoaXMuICBJIGtub3cgaXTi
-gJlzIGhhcmQgdG8gZGVhbCB3aXRoCm5ld2VyIGZvbGtzIHNvbWV0aW1lcywgYnV0IEkgcmVhbGx5
-IGFwcHJlY2lhdGUgeW91ciBmb3JiZWFyYW5jZS4KCj4gQW5kIHRoYW5rcyB0byBhbGwKPiByZXZp
-ZXdlcnMsIHRvby4KClRoYW5rcyB0b28gdG8gRXJpYyBhbmQgU3RlZmFuLiAgSWYgeW914oCZcmUg
-ZXZlciBpbiB0aGUgRXVnZW5lLCBPUiBhcmVhCmxvb2sgbWUgdXAgZm9yIGEgZnJlZSBiZXZlcmFn
-ZSBvZiB5b3VyIGNob2ljZS4gOikKCj4gKE9uZSBtaW5vciB0aGluZzogbmV4dCB0aW1lLCBwbGVh
-c2Ugc3RhcnQgYSBuZXcgdGhyZWFkIHdoZW4gc2VuZGluZyBhCj4gbmV3IHBhdGNoLiBUaGlzIG1h
-a2VzIGFwcGx5aW5nIHBhdGNoZXMgZWFzaWVyLikKCknigJlsbCBkZWZpbml0ZWx5IGRvIHNvIG5l
-eHQgdGltZS4gIFRoYW5rIHlvdS4KCi0tCkFubmFsaWVzZSBNY0Rlcm1vbmQKbmg2ekBuaDZ6Lm5l
-dApfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
-cGkta2VybmVsIG1haWxpbmcgbGlzdApsaW51eC1ycGkta2VybmVsQGxpc3RzLmluZnJhZGVhZC5v
-cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1ycGkt
-a2VybmVsCg==
+
+--===============2265442787752323125==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="wac7ysb48OaltWcw"
+Content-Disposition: inline
+
+
+--wac7ysb48OaltWcw
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+
+> > Applied to for-next, thanks for keeping at this!
+>=20
+> Thanks for your patience with this.  I know it=E2=80=99s hard to deal with
+> newer folks sometimes, but I really appreciate your forbearance.
+
+For me, it was not hard but technically interesting. The solution to
+have a CCF driver embedded in a master driver might come useful in the
+future again. So, thanks again everyone!
+
+
+--wac7ysb48OaltWcw
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAl0CAEcACgkQFA3kzBSg
+KbaNzBAAhtuYUWBJQnLoUF/+8qEPgUSZwpVqbMV50CdW2Pxy58COjEmlVe/uiqvh
+BfTyj5kSdSwqtp52oSILSpMXYzEoThEY30ssv6nARanw/LmMc4/VJ3lOtpuHL/6D
+im9o4osWaUfcBJKmOChoZQ16gB5C0iYUhPBsi+IEq3Gy5hv/cE0CDGHmNC4yv3Zs
+0o4uUNtQdlamHVO2pXGKeUavCqM/2qZvhI64JCFxuvL1H72FCFAo1bePRyzX3VNj
+2ZL99io1J9VqUeIg7FkwfwZA/On6ngtC16tFNXsgguVeBlRrwZXKLMribxWwkPlO
+6j9aJ9dk6zXLvcKT0CsFSw7NAW1ltr4g1rPTSA8n5Jy6289gtDhmpb5dghls6R2X
+2ocSATm8q8kpPRIhl3UNQcjvLwkRD7J2KK57wH4GI6gqnpyRwT32V1O4vTJCJeoA
+o+L8bJSxdfSTq40VQC7IdSE0XnsddhFuLVlPebiQK54XTWCxdAYKyE1PsM7n7Rem
+akUDVH2FHBK3dMWZJGiVoJNTIVtvAW8HTBwTI72nsEzmaLUZUIqT0uyxDicNWXtc
+xKP6HSgRwoEaMBhS2SiZT5HfFXZlzN2uKU4WlwGXSdqjKg4Jv5th19FtejmZpEfh
+7hdig75Xj8Pe9INcHyjfqKFZcDvUwuwa2KudNjsdxd8mEqQqFzk=
+=5B77
+-----END PGP SIGNATURE-----
+
+--wac7ysb48OaltWcw--
+
+
+--===============2265442787752323125==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-rpi-kernel mailing list
+linux-rpi-kernel@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
+
+--===============2265442787752323125==--
+
