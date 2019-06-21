@@ -2,71 +2,93 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5349E4B376
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 19 Jun 2019 09:57:59 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8F4FC4ED9B
+	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 21 Jun 2019 19:12:18 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
 	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WQnWhMDblaZVN//OBTUhn6vdVY+zfVcSES8fiA8M72k=; b=IHzzyOobYHH/pA
-	zpHldTGO9nOpTUxfTC4Exb3YHq3rnOjSHxJIT6eMa9tScnGd+DtzdDRlp1X96G8cyhmnggvuDmUZQ
-	5XSbLCtcGiF14uddKCQsHw7wuf42uA4sS9gOoZQrwdOZMPxqa9zOsK5abR66pzdvjLmjDI4C56BJl
-	+IFqlsoSP48WAssLbeQ+TwLApkdlDcQuj+ggb2n8RfTKUYU4naGjixwdE+lxj0gZzP0to3JPptznc
-	l8GB3gTjY9chjAKEKThgDxrKK0coBu8M59ygjDgSOi8flpmhnvEI+tj0sUh+a3e/y+J1K4DFZrngd
-	rzlOm4C0cDKav4OyNlbw==;
+	List-Owner; bh=5I3ks7bo+m43xjDhftF20Ai8N7LqyWrDlKc/nYZOAzY=; b=bubXd9vdVU9fVE
+	m1HbqkQDO568nDsIJqPoEzIb6ySSdGRThuIWm4p/WIugOZD7ISlt7UvWGLQTLIdbI4+C3AfL9Oq25
+	eamaMku07iVRbsq8LdF2GW7y37qpUPCpPt2m01k3+AdMy/lbCTjfIyFHcAs6IsTOvjbBVaCX4yBCl
+	Mw8w182vrBOoHwpGzwgmGvJLglljf0hE4xyBjsUQl57FbGNLw6QogXKPqBV4HzjRAqpohqxe+XQI6
+	QhcqcLaWMZTvwMo1tqIEG3DQ/LWNITSCDIE/OvEjarAGEtaEQIfojw+91pCZqpLRudX5686NCCIWJ
+	p07El5U72a0Lopx2BK0Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hdVTe-0007a0-Vq; Wed, 19 Jun 2019 07:57:55 +0000
-Received: from smtp107.iad3a.emailsrvr.com ([173.203.187.107])
+	id 1heN55-0000Mv-VO; Fri, 21 Jun 2019 17:12:08 +0000
+Received: from mout.gmx.net ([212.227.15.19])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hdVSi-0006av-C9; Wed, 19 Jun 2019 07:56:59 +0000
-Received: from smtp14.relay.iad3a.emailsrvr.com (localhost [127.0.0.1])
- by smtp14.relay.iad3a.emailsrvr.com (SMTP Server) with ESMTP id 13EA02509F;
- Wed, 19 Jun 2019 03:56:51 -0400 (EDT)
-X-SMTPDoctor-Processed: csmtpprox beta
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=g001.emailsrvr.com;
- s=20190322-9u7zjiwi; t=1560931011;
- bh=nlytxzqSkiORuqwDCgMfTH9qNAct2oY4cbvvUdkDmD8=;
- h=Subject:From:Date:To:From;
- b=wbMriODlEZVzbkMl+dZQ8pc7VzwKjFcgTCbrZo8pzgMGQGr1i+U1/4jzUShGXKiOa
- HwpqntUTNAqJNVXffSSPd54NnunG+nA2gNm5mK40kSKL3HIgjabmab/pjr4nU0XMYA
- TDHGaZi4p1i+RXhOXL60GJhvKVTofxgrxbwepR0k=
-X-Auth-ID: mcdermj@xenotropic.com
-Received: by smtp14.relay.iad3a.emailsrvr.com (Authenticated sender:
- mcdermj-AT-xenotropic.com) with ESMTPSA id EA61F20FDE; 
- Wed, 19 Jun 2019 03:56:49 -0400 (EDT)
-X-Sender-Id: mcdermj@xenotropic.com
-Received: from [10.0.3.33] (c-73-96-52-102.hsd1.or.comcast.net [73.96.52.102])
- (using TLSv1.2 with cipher DHE-RSA-AES256-GCM-SHA384)
- by 0.0.0.0:465 (trex/5.7.12); Wed, 19 Jun 2019 03:56:50 -0400
-Mime-Version: 1.0 (Mac OS X Mail 12.4 \(3445.104.11\))
-Subject: Re: [PATCH v4] i2c: bcm2835: Model Divider in CCF
-From: Annaliese McDermond <nh6z@nh6z.net>
-In-Reply-To: <cd25e228-c3e1-2a01-14e3-fe9a5198c78d@i2se.com>
-Date: Wed, 19 Jun 2019 00:56:48 -0700
-Message-Id: <EBC4BB44-5ED9-4C88-B371-A85774DB16B4@nh6z.net>
-References: <20190529042912.12956-1-nh6z@nh6z.net>
- <20190608171443.14484-1-nh6z@nh6z.net>
- <cd25e228-c3e1-2a01-14e3-fe9a5198c78d@i2se.com>
-To: Stefan Wahren <stefan.wahren@i2se.com>
-X-Mailer: Apple Mail (2.3445.104.11)
+ id 1heN51-0000MS-53; Fri, 21 Jun 2019 17:12:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
+ s=badeba3b8450; t=1561137110;
+ bh=pikR5/KXF+9GO3cS9XFX/uRd/MsXY9NL3Y1lHICzUUk=;
+ h=X-UI-Sender-Class:Subject:To:Cc:References:From:Date:In-Reply-To;
+ b=FJXxyzw+/1XB/g0RUfao91CSG+l1ICS3cdsJHBdgdb6Trm0BllQJ2xom71hIsqmRP
+ FkcVpO0dRFtQo6qCOvvk8tgezQ+yxVYVl4mg9eYJaKjLjt2GZTLOpYAZLYKGY5bSyh
+ hJnmnxp1pWXb4wj1ZL2q25nqT+LGTNiTy2TerMxU=
+X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
+Received: from [192.168.1.162] ([37.4.249.111]) by mail.gmx.com (mrgmx002
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 0LaXEN-1iJUzq3X9L-00mIa6; Fri, 21
+ Jun 2019 19:11:49 +0200
+Subject: Re: [PATCH v2 0/2] i2c: bcm2835: Fixes for clock changes in probe
+ function
+To: Annaliese McDermond <nh6z@nh6z.net>, eric@anholt.net,
+ f.fainelli@gmail.com, wsa@the-dreams.de, swarren@wwwdotorg.org,
+ linux-i2c@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20190621105250.19858-1-nh6z@nh6z.net>
+From: Stefan Wahren <wahrenst@gmx.net>
+Message-ID: <7d23a83f-4e3a-5186-78b2-2183e636b0af@gmx.net>
+Date: Fri, 21 Jun 2019 19:11:48 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.7.1
+MIME-Version: 1.0
+In-Reply-To: <20190621105250.19858-1-nh6z@nh6z.net>
+Content-Language: en-US
+X-Provags-ID: V03:K1:taiXKuJGyrqz/BHoKI9wPQvzZ/He7P42vNLrqNR/za/dm564A3Y
+ mRGIFBrcnHMAo0vByONnKinbDRLSetzaePSTdZjCHPtexJGtB47g5JshdyVuA87vW1xzYqO
+ 49HOPhzRHZWKYw6TW8Wk7JciWSBiPl6s9swQ+7w9QwnXMITgbdma50acDpD+jGm0+CzRzzd
+ dlBU5Qj4MW3XflcwOe65w==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:XqbpE/Gjd04=:hg1BHGqyph7ozZl2spYdEE
+ kVBMb1xhXyEzsgRZruYhs78JOZ4PUIkhbxWTPE5ITXagKTKQh46ZN3mXLPLd07klwifBxm2rY
+ YtEPEnan3/+2y0Uw1/n374bFeG8UdgJy+uSg8IUI6gso6NSBk0L5HZ4vo/3tk5GkHJUnvFlzT
+ je+2f0CFw11oYwoX8Jji1xuU1QZaD/inaW4SUoCupr1yDrBJSd+Tz1AfMRPEqNmP8Y5FkOgV8
+ kPZNOrvo8ZOWaCrStWiSIgVHWPssAsDE1twdAOY7F/o5GkiQ+enFlKDa1qrGp158SoBuPXKcr
+ IInDTOFNCHPwmu6zKV8njVek9q5G2xNdMZ+rA56H3xyrTyWdnXlKkZd51HMSEzabBd37Wgmqy
+ EpAF197obWmWSqJQyDM2vFElITyKbCXEyufncZ8cZV+1/eABkopZDx/RWT8YeVK2BEXgDGOZh
+ aLFMz4gpybewx+7CucVU94Q5dcPI2qT6cOGG4GfbjQA6YXOuIK4mJ9knRkpFUw+J+Jb3tB0p+
+ 1wjdWrkGSEleqknh+JY3tFuGsAPHMpVfp99j5OHrMaQw8AQuXyn81Rwrv7icIpzvaDtqJ+1X1
+ ZQTUimozgGsts5FipE0ycPnOyi01jZP/tntZVgWqlrOeh9IETRKvRNDhBGMQBYevQWFSMpgBV
+ QXoRzWz6wUWryC7PrJdRIO5swRb7c7UxPjG9kSU/luoDTRowwcWZQDY9MUuOWjnyL6Pu344GK
+ hPHnM8fFI0VSu6l1DZUknKQkWTABcTX2zStr2RfJ2VPzeY6NbNMAweyJEe/oQkQLfI2oTWnXU
+ Xd8Mn/tAFXwGcFIzYdgpAci3iItkAW6SwlJk89bTz00Wg5bQC8QtwBf5esTnxVATZ39W3tKKD
+ FrOQx/OUA8hWcja12eJi5t3M3UBUA85FYQAIaNcLC5m4jSKlY/4w+oX/QFKSiAHubvbAJ0s6w
+ lgbp4TLe4Q8RfrfYHglCnGDFCb82kLUIQ6bgDcV1+CqisunHQLAVq
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190619_005657_111852_C798F2F8 
-X-CRM114-Status: GOOD (  11.19  )
-X-Spam-Score: 1.0 (+)
+X-CRM114-CacheID: sfid-20190621_101203_529656_46D3870E 
+X-CRM114-Status: GOOD (  14.23  )
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (1.0 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [173.203.187.107 listed in list.dnswl.org]
- 1.0 SPF_SOFTFAIL           SPF: sender does not match SPF record (softfail)
+ no trust [212.227.15.19 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider (wahrenst[at]gmx.net)
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -78,45 +100,36 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: swarren@wwwdotorg.org, wsa@the-dreams.de, team@nwdigitalradio.com,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-i2c@vger.kernel.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: team@nwdigitalradio.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-U3RlZmFuIC0tCgo+IE9uIEp1biAxOSwgMjAxOSwgYXQgMTI6MTYgQU0sIFN0ZWZhbiBXYWhyZW4g
-PHN0ZWZhbi53YWhyZW5AaTJzZS5jb20+IHdyb3RlOgo+IAo+IEhpIEFubmFsaWVzZSwKPiAKPiBP
-biAwOC4wNi4xOSAxOToxNCwgQW5uYWxpZXNlIE1jRGVybW9uZCB3cm90ZToKPj4gTW9kZWwgdGhl
-IEkyQyBidXMgY2xvY2sgZGl2aWRlciBhcyBhIHBhcnQgb2YgdGhlIENvcmUgQ2xvY2sgRnJhbWV3
-b3JrLgo+PiBQcmltYXJpbHkgdGhpcyByZW1vdmVzIHRoZSBjbGtfZ2V0X3JhdGUoKSBjYWxsIGZy
-b20gZWFjaCB0cmFuc2Zlci4KPj4gVGhpcyBjYWxsIGNhdXNlcyBwcm9ibGVtcyBmb3Igc2xhdmUg
-ZHJpdmVycyB0aGF0IHRoZW1zZWx2ZXMgaGF2ZQo+PiBpbnRlcm5hbCBjbG9jayBjb21wb25lbnRz
-IHRoYXQgYXJlIGNvbnRyb2xsZWQgYnkgYW4gSTJDIGludGVyZmFjZS4KPj4gV2hlbiB0aGUgc2xh
-dmUncyBpbnRlcm5hbCBjbG9jayBjb21wb25lbnQgaXMgcHJlcGFyZWQsIHRoZSBwcmVwYXJlCj4+
-IGxvY2sgaXMgb2J0YWluZWQsIGFuZCBpdCBtYWtlcyBjYWxscyB0byB0aGUgSTJDIHN1YnN5c3Rl
-bSB0bwo+PiBjb21tYW5kIHRoZSBoYXJkd2FyZSB0byBhY3RpdmF0ZSB0aGUgY2xvY2suICBJbiBv
-cmRlciB0byBwZXJmb3JtCj4+IHRoZSBJMkMgdHJhbnNmZXIsIHRoaXMgZHJpdmVyIHNldHMgdGhl
-IGRpdmlkZXIsIHdoaWNoIHJlcXVpcmVzCj4+IGl0IHRvIGdldCB0aGUgcGFyZW50IGNsb2NrIHJh
-dGUsIHdoaWNoIGl0IGRvZXMgd2l0aCBjbGtfZ2V0X3JhdGUoKS4KPj4gVW5mb3J0dW5hdGVseSwg
-dGhpcyBmdW5jdGlvbiB3aWxsIHRyeSB0byB0YWtlIHRoZSBjbG9jayBwcmVwYXJlCj4+IGxvY2ss
-IHdoaWNoIGlzIGFscmVhZHkgaGVsZCBieSB0aGUgc2xhdmUncyBpbnRlcm5hbCBjbG9jayBjYWxs
-cwo+PiBjcmVhdGluZyBhIGRlYWRsb2NrLgo+PiAKPj4gTW9kZWxpbmcgdGhlIGRpdmlkZXIgaW4g
-dGhlIENDRiBuYXRpdmVseSByZW1vdmVzIHRoaXMgZGVwZW5kZW5jeQo+PiBhbmQgdGhlIGRpdmlk
-ZXIgdmFsdWUgaXMgb25seSBzZXQgdXBvbiBjaGFuZ2luZyB0aGUgYnVzIGNsb2NrCj4+IGZyZXF1
-ZW5jeSBvciBjaGFuZ2VzIGluIHRoZSBwYXJlbnQgY2xvY2sgdGhhdCBjYXNjYWRlIGRvd24gdG8g
-dGhpcwo+PiBkaXZpc29yLiAgVGhpcyBvYnZpYXRlcyB0aGUgbmVlZCB0byBzZXQgdGhlIGRpdmlk
-ZXIgd2l0aCBldmVyeQo+PiB0cmFuc2ZlciBhbmQgYXZvaWRzIHRoZSBkZWFkbG9jayBkZXNjcmli
-ZWQgYWJvdmUuICBJdCBhbHNvIHNob3VsZAo+PiBwcm92aWRlIGJldHRlciBjbG9jayBkZWJ1Z2dp
-bmcgYW5kIHNhdmUgYSBmZXcgY3ljbGVzIG9uIGVhY2gKPj4gdHJhbnNmZXIgZHVlIHRvIG5vdCBo
-YXZpbmcgdG8gcmVjYWxjdWF0ZSB0aGUgZGl2aWRlciB2YWx1ZS4KPj4gCj4gaSd2ZSBzZWVuIHJl
-cG9ydHMgWzFdLCBbMl0gdGhhdCB0aGlzIGNvbW1pdCBjYXVzZXMgdHJvdWJsZS4KPiAKPiBDb3Vs
-ZCB5b3UgcGxlYXNlIGxvb2sgaW50byB0aGVtPwoKCknigJlsbCBzZWUgaWYgSSBjYW4gbG9vayBp
-bnRvIHRoZXNlIGFuZCBzZWUgd2hhdOKAmXMgdXAuCgoKPiBUaGFua3MKPiAKPiBbMV0gLSBodHRw
-czovL3d3dy5yYXNwYmVycnlwaS5vcmcvZm9ydW1zL3ZpZXd0b3BpYy5waHA/Zj00NCZ0PTI0Mjg1
-Ngo+IFsyXSAtIGh0dHBzOi8vYXJjaGxpbnV4YXJtLm9yZy9mb3J1bS92aWV3dG9waWMucGhwP2Y9
-MjMmdD0xMzcxOQoKLS0KQW5uYWxpZXNlIE1jRGVybW9uZApuaDZ6QG5oNnoubmV0Cl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJwaS1rZXJuZWwg
-bWFpbGluZyBsaXN0CmxpbnV4LXJwaS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
-bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJwaS1rZXJuZWwK
+Am 21.06.19 um 12:52 schrieb Annaliese McDermond:
+> An issue was reported in [1] and [2] that the latest version of the i2c
+> driver was not properly loading.  After analysis it was determined that
+> the new clock code was failiing because the i2c driver was trying to
+> load before the bcm2835-clk driver when not loaded as a module. This is
+> fixed by actually attempting to grab a reference to the clock and failing
+> out with a EPROBE_DEFER if it's not there.  This gives the other drivers
+> an opportunity to load.
+>
+> This series also fixes a related bug where the clock setup code in the
+> probe function could cause an issue where the IRQ would be requested
+> by the driver and never freed in case of some clock setup failure.  The
+> patch moves this IRQ code to the end of the probe function where it will
+> not cause this issue.
+>
+> [1] - https://www.raspberrypi.org/forums/viewtopic.php?f=44&t=242856
+> [2] - https://archlinuxarm.org/forum/viewtopic.php?f=23&t=13719
+
+This whole series is:
+
+Acked-by: Stefan Wahren <wahrenst@gmx.net>
+
+
+_______________________________________________
+linux-rpi-kernel mailing list
+linux-rpi-kernel@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
