@@ -2,73 +2,74 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5D5A0556FC
-	for <lists+linux-rpi-kernel@lfdr.de>; Tue, 25 Jun 2019 20:19:09 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 53D90556FE
+	for <lists+linux-rpi-kernel@lfdr.de>; Tue, 25 Jun 2019 20:19:28 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yDsydI012dUuPs1RNDIZdFylPetdee0WCuvxIdUyYzE=; b=nr50a9+buqeK12
-	25cMm3+yGW8FHM07PUbFUzGVrRcHd8QT4Khln1tqWllTC36R3XVELJqWLYT8PTcd89Rn+jd5/9dum
-	4Lk6e59k0WXVqesD/2emkpT+d0drQGruVO7acwADy4KhJzu+ogB79CiYJgNitel+rJEncxbyIfSKe
-	HLCip5y2LeS/89w/jHJuDBcef7dWP0P9mjhl3fsGsqhbJDbemupTvDO+ZJtmWvsxuDY31kCfL0UCl
-	TLuU9YUOlGQyg7SfCAXDJsLzs0FuyFg7fVA6p4h2k1BW2U6RmqtsELduSwnRQd61KArRu5/JZo4Pz
-	hs+G+Ih4buvx2M120JnA==;
+	List-Owner; bh=Xcy+pp7zbLozUZWpDvbk+wdT6CVQzKEscC3eEFq4lyY=; b=qLSRPOHoyOhKFd
+	QQFq2UnT7DMK/+99xY37oS+RItNhPBevgmkSC/Yzgr2IWlucSgMSihk6I1zzmH8bC5qzhc/gC2dXQ
+	dbfMBgyBs3D9OK8TlWZyM9go+inbzpRV8JRi4gXD6FHt6hnY0OCaRJF8TAcbCMjd/c3b6SPqNKJAG
+	CpDOQoAGdLyVm/j6xZzqIJGfkI0idrC2T/i4jDfs3jHt+dQ2OROPjBqpV4CJk4j/dYnJU+zBkteqm
+	RWEjs+IOs2SgVz7YQA2ADYOGKbNOyE2/ZFQjX77qiTf07Zp01xGKmhAvmKidA7NFrCyUhc8MncjoS
+	V8mdKbOjpCs+oyMAMFvQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hfq24-0004rm-Ur; Tue, 25 Jun 2019 18:19:04 +0000
-Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
+	id 1hfq2O-00059o-Mp; Tue, 25 Jun 2019 18:19:24 +0000
+Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hfq0g-0003nx-PE; Tue, 25 Jun 2019 18:17:40 +0000
-Received: by mail-pf1-x444.google.com with SMTP id 19so9899238pfa.4;
- Tue, 25 Jun 2019 11:17:38 -0700 (PDT)
+ id 1hfq0k-0003r6-Uo; Tue, 25 Jun 2019 18:17:44 +0000
+Received: by mail-pg1-x541.google.com with SMTP id y72so9350379pgd.8;
+ Tue, 25 Jun 2019 11:17:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=from:to:cc:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding;
- bh=TPd8ferAVo0HvYrCWk5KrEQ9AnVSJ83ueSCdzT8Hy3Y=;
- b=Glm2fnCH5Knprr1c5OUlWUeOYPwxM5GitpTmCM+Oo4HEF38UyXNm4b01UYCaefch6v
- Um9Sj6ISGiadSFIt+UAN1pZmZd+yvXAyt6hG9duvXdOhlmjM5IHuUNEfR0JBLZ8OZEk/
- 0vG4txuXrHSM2JvHWkkm+OuZCppMbOgaNlRq0hjz+XM/aGRfqbYwyYefLFleuTy1A90K
- PDUf6kvEnHf1v6IuU+z2+UldEbFIhdIQYHOn6faMiuYKubtIs9dC3uP9BF0XLy4jVuuf
- RH6WFUBYdIFWI1iZmPNQeDATEUsED5wuTndl6DQEsZrlI6mDJ+BRQ6svewQBpB9UP9B9
- qVZw==
+ bh=6OE9g8UxPWrlkp4I1s8MLnXbmsIfGkjszHg/VwiGeEI=;
+ b=PkcnIeQzs1zfKtuo3z5TFZlEfPLQDxByeWDqKTvjmHFMvYz7goekr2Man0wK+dYbWA
+ fN37jKHynn81HP6qHvzpkH5KxUlLABHF0NTKGaUGEFZ5/Muwt3mgxqJUmcS3gB4xusR7
+ PAzlc0WsUR+wpCoLxQA7Y3q/pj8W5JExqojbqEREDdPr2iPYMY+GzCwenTueuLZGk8aH
+ ot5kyZFDDfOcKjqTpt9n/vH3tncH+PZJbyLLlC5810OZjIME1ku2MF8ITuuoo3qtK48Q
+ 44Eu2FNwFqFulfggzkhbHftgU5GSg5GclOUnpOQDd9J5KKO2vlH8K3Ogdqv7gCfTq2qm
+ roxw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
  :references:mime-version:content-transfer-encoding;
- bh=TPd8ferAVo0HvYrCWk5KrEQ9AnVSJ83ueSCdzT8Hy3Y=;
- b=OXoawAujY6KbJXww5ojXvys4diS7dN/L62ZBhXZb6zvW99FwRFlYpAVCT6xre8REFO
- S+XEtZER3O36x9rniryvaee1sviuO95qUSpcciaBQbdKdnvjFUpcejUT2Ar2Q3XX8igJ
- XCd52MpA1vXzoXW8Ygkd6ppUjH30G2jsS91vfM2JZ8b5oKNoriDyy3i12vZHz4Y7sOPq
- 4NDbQvHlBI9HKtDURiNtajNKjJnT1XMexJN7XtSeAXxri+J+CYpgI04QD0OOgWv9RBLM
- agkPal7aDF+MiPRfpJ3WCFCwDVEEEgaiVsOgnykAcwtsD+dht5f5QIjEvYzSo3E2NeYx
- sXyQ==
-X-Gm-Message-State: APjAAAU7S39t8M/Jeu+r4mDP6j/6sdP1pWk3orQUcG/jyVwJurEMufqa
- t0qz0AlzpdEuZl6k7utPV1EHfo4tECY=
-X-Google-Smtp-Source: APXvYqzq3ns3IcREp9Pgz/jP+aV8t5Ma8TdnTIJ79KzabdlwjSRqsHg7+tNbvorfmyAB0jV5TX/SCQ==
-X-Received: by 2002:a17:90a:dc86:: with SMTP id
- j6mr126154pjv.141.1561486658147; 
- Tue, 25 Jun 2019 11:17:38 -0700 (PDT)
+ bh=6OE9g8UxPWrlkp4I1s8MLnXbmsIfGkjszHg/VwiGeEI=;
+ b=ilx4MEDwBSL8aoby5Fnsa4QTLyDsSOVVgrQKKWMCDsTSUv79Tgg7gkILjCDMXnajmx
+ XTKJnqOZ0mfaw4dMJIhTfcRYj7QOURj3/rlvzGJ9ZAPaiVApPVDoP6YVpWLXxVqU6Y22
+ RYwo1m9eoYSIYjGn/gNu5YYlyBdHNVVi/W3boxoIel6qCbHxfKbvSJZ7YURTyfjzyDju
+ p1AEOrZG40tkWMtU3IAtEsHWgBuCK09tgP0jUzlU0OgEERr9/6XVNEfG5WWWkY9wdRwb
+ no3APHbFckQlcc6sYP+3h4/11kbamVfFo5xdADPRf1JFmTKC9HQ7xiv0s08OhWArsEVU
+ iPZA==
+X-Gm-Message-State: APjAAAWv+ZzyVMvBfM8s1pZvoe8mjaFd7V7zXf7NO1KlJ3tVcs7l5NW/
+ NXnzp9ifjXH/nGdUGkbCIP4=
+X-Google-Smtp-Source: APXvYqydZ9SS49WOaaOPUIdJjRrGZB4Pi4MNamUCtvrLZ1terMbJPUqVgdk8zJy2zhwcaEkFBfNwHw==
+X-Received: by 2002:a63:88c7:: with SMTP id
+ l190mr33994930pgd.240.1561486661850; 
+ Tue, 25 Jun 2019 11:17:41 -0700 (PDT)
 Received: from localhost.localdomain ([122.163.71.137])
- by smtp.gmail.com with ESMTPSA id w7sm14042959pfb.117.2019.06.25.11.17.35
+ by smtp.gmail.com with ESMTPSA id w7sm14042959pfb.117.2019.06.25.11.17.38
  (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
- Tue, 25 Jun 2019 11:17:37 -0700 (PDT)
+ Tue, 25 Jun 2019 11:17:41 -0700 (PDT)
 From: Nishka Dasgupta <nishkadg.linux@gmail.com>
 To: eric@anholt.net, wahrenst@gmx.net, gregkh@linuxfoundation.org,
  linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  devel@driverdev.osuosl.org
-Subject: [PATCH 5/9] staging: vc04_services: Remove vchiq_resume_internal()
-Date: Tue, 25 Jun 2019 23:47:05 +0530
-Message-Id: <20190625181710.2267-5-nishkadg.linux@gmail.com>
+Subject: [PATCH 6/9] staging: vc04_services: Remove
+ vchiq_use_service_no_resume()
+Date: Tue, 25 Jun 2019 23:47:06 +0530
+Message-Id: <20190625181710.2267-6-nishkadg.linux@gmail.com>
 X-Mailer: git-send-email 2.19.1
 In-Reply-To: <20190625181710.2267-1-nishkadg.linux@gmail.com>
 References: <20190625181710.2267-1-nishkadg.linux@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190625_111738_847947_5A51EE83 
-X-CRM114-Status: UNSURE (   7.76  )
+X-CRM114-CacheID: sfid-20190625_111743_109459_ECD7324E 
+X-CRM114-Status: UNSURE (   8.02  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
@@ -76,7 +77,7 @@ X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:444 listed in]
+ no trust [2607:f8b0:4864:20:0:0:0:541 listed in]
  [list.dnswl.org]
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
  provider (nishkadg.linux[at]gmail.com)
@@ -106,56 +107,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-Remove unused function vchiq_resume_internal.
+Remove unused function vchiq_use_service_no_resume.
 Issue found with Coccinelle.
 
 Signed-off-by: Nishka Dasgupta <nishkadg.linux@gmail.com>
 ---
- .../interface/vchiq_arm/vchiq_core.c             | 16 ----------------
- .../interface/vchiq_arm/vchiq_core.h             |  3 ---
- 2 files changed, 19 deletions(-)
+ .../vc04_services/interface/vchiq_arm/vchiq_arm.c  | 14 --------------
+ .../vc04_services/interface/vchiq_arm/vchiq_if.h   |  2 --
+ 2 files changed, 16 deletions(-)
 
-diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
-index 7f093b2679ae..5e231cc5c87d 100644
---- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
-+++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
-@@ -2830,22 +2830,6 @@ vchiq_shutdown_internal(struct vchiq_state *state, VCHIQ_INSTANCE_T instance)
- 	return VCHIQ_SUCCESS;
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
+index 6e59470d44ab..a97076c18a0f 100644
+--- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
+@@ -3072,20 +3072,6 @@ static void suspend_timer_callback(struct timer_list *t)
+ 	vchiq_check_suspend(state);
  }
  
 -VCHIQ_STATUS_T
--vchiq_resume_internal(struct vchiq_state *state)
+-vchiq_use_service_no_resume(VCHIQ_SERVICE_HANDLE_T handle)
 -{
--	VCHIQ_STATUS_T status = VCHIQ_SUCCESS;
+-	VCHIQ_STATUS_T ret = VCHIQ_ERROR;
+-	struct vchiq_service *service = find_service_by_handle(handle);
 -
--	if (state->conn_state == VCHIQ_CONNSTATE_PAUSED) {
--		vchiq_set_conn_state(state, VCHIQ_CONNSTATE_RESUMING);
--		request_poll(state, NULL, 0);
--	} else {
--		status = VCHIQ_ERROR;
--		VCHIQ_STATS_INC(state, error_count);
+-	if (service) {
+-		ret = vchiq_use_internal(service->state, service,
+-				USE_TYPE_SERVICE_NO_RESUME);
+-		unlock_service(service);
 -	}
--
--	return status;
+-	return ret;
 -}
 -
  VCHIQ_STATUS_T
- vchiq_close_service(VCHIQ_SERVICE_HANDLE_T handle)
+ vchiq_use_service(VCHIQ_SERVICE_HANDLE_T handle)
  {
-diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
-index b319031145ed..b5e09d52b202 100644
---- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
-+++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
-@@ -518,9 +518,6 @@ vchiq_free_service_internal(struct vchiq_service *service);
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_if.h b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_if.h
+index 5445f201e284..c23bd105c40f 100644
+--- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_if.h
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_if.h
+@@ -107,8 +107,6 @@ extern VCHIQ_STATUS_T vchiq_open_service(VCHIQ_INSTANCE_T instance,
+ extern VCHIQ_STATUS_T vchiq_close_service(VCHIQ_SERVICE_HANDLE_T service);
+ extern VCHIQ_STATUS_T vchiq_remove_service(VCHIQ_SERVICE_HANDLE_T service);
+ extern VCHIQ_STATUS_T vchiq_use_service(VCHIQ_SERVICE_HANDLE_T service);
+-extern VCHIQ_STATUS_T vchiq_use_service_no_resume(
+-	VCHIQ_SERVICE_HANDLE_T service);
+ extern VCHIQ_STATUS_T vchiq_release_service(VCHIQ_SERVICE_HANDLE_T service);
  extern VCHIQ_STATUS_T
- vchiq_shutdown_internal(struct vchiq_state *state, VCHIQ_INSTANCE_T instance);
- 
--extern VCHIQ_STATUS_T
--vchiq_resume_internal(struct vchiq_state *state);
--
- extern void
- remote_event_pollall(struct vchiq_state *state);
- 
+ vchiq_queue_message(VCHIQ_SERVICE_HANDLE_T handle,
 -- 
 2.19.1
 
