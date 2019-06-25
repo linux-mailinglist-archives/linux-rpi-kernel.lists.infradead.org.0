@@ -2,77 +2,93 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 49B76524EF
-	for <lists+linux-rpi-kernel@lfdr.de>; Tue, 25 Jun 2019 09:37:04 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6B20952592
+	for <lists+linux-rpi-kernel@lfdr.de>; Tue, 25 Jun 2019 09:56:56 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BD8zmaW8SIWmn3QdfivmgueXxWClV/QCdOKX/wHrRPw=; b=k/rjeOFmUVcxAw
-	FcGP3xjpJjwv2C3AjGwLnAKbiQF7BynSPaOEJlngGsquVAAVAsuSHKM3feWGgbyG1Sg4uctish1yv
-	C6JjZ2SX96OWXvBghS0rWRM9Be2bWEdXTvqx58/TuBoBSv+69Afj/4hqnRPDgKKf9CImuW/E/JMu5
-	t1Med+UHKKJXeS0sa+AGeUsaBy68L+IBMH6EDEWUYMN7e3n3IA2gcqFOPp3O0q5KwG2zZnGpkFKZH
-	O1R6c7fK5ZFisC+ijmrQjWkK3uUTi+PfdPb9BTFhIPPVe7ajJh6rXqauSQ1jiiMKakSVGtRyU4C/L
-	IW98ZSnwy/44mCsdCY4Q==;
+	List-Owner; bh=qDC/ZueTdRvMygX9HTWef8yz3E7zjEd9hQ5r9+6tVdI=; b=LWfMhCEysOf0ZG
+	npep+QT9mvVw4GwzMr/4I0y5SPtIp3H9k7KpY+d9OoiFTj7uE8xM+ICJV4JsbB7boTpwFGc6mlJf5
+	wTRIAjd7RfBMFsDlgshkpoDE9uwVvLJb5Txqvo5DOs+Rj7NAVdU5cbGXie7Jgso+s7FKdwR4M/iNl
+	uR4ViyodaRZwqxOoWLMAlmqUt3KkYxaChnpGxsYYn8FOEuZP/G+guqhDVV4YIoS3X1bmAPSpYjI2G
+	pBIo7nVdwr0/ycEXAWSie5LGEV3wh38xUuwHz4TxkF1fs5YcERJIp13T6KcsSy+88n2XLUGj7Czfv
+	PYTG6mhY0L1UuJ5prPsg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hfg0e-0000Hu-M4; Tue, 25 Jun 2019 07:36:56 +0000
-Received: from mail-io1-xd42.google.com ([2607:f8b0:4864:20::d42])
+	id 1hfgJu-0002Fl-Nl; Tue, 25 Jun 2019 07:56:50 +0000
+Received: from userp2130.oracle.com ([156.151.31.86])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hfg0a-0000Gr-0B; Tue, 25 Jun 2019 07:36:54 +0000
-Received: by mail-io1-xd42.google.com with SMTP id m24so458208ioo.2;
- Tue, 25 Jun 2019 00:36:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=JbpPj0DCLr6TgvcwaNhaVYyXQ1KtwFBdw/kdmuK8GW4=;
- b=pPX8Qgg874Yumj7c0y5ur24FUEXPWCgxpDsMnYp6jx0h5kSd1MqxFUmEs6iagKx/qM
- +Y3XsLVKgCWaLp3PsHrW2poj8ZX3YoSA6zrV08AAeBXyNL11sqax69vsLKXQP4IltrUo
- rsNMoAq734jMXmBvv3MTvY/qY22Uzh34YXflbCLhgh+pagFwMZ1PZnZPbVLQiV3lcRXV
- a89+fgpAKM8TALIKtqRPkpqXScRh1B2/JuHcMVo8xTDOr1XhtlQ3xZf3Kl0eZDNtuicZ
- bkmyoOOB5w7gSqk447wT0LPwu5WiOg91owKnoxGD4DEu4ME/tsrDJTUKfEoY4AN+Yimo
- nDBQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=JbpPj0DCLr6TgvcwaNhaVYyXQ1KtwFBdw/kdmuK8GW4=;
- b=Eq9Gti5OEARP6LkCk3w6FfiO0IbUFXxnzsgRkH1uAaV9Rj5EeXTNXyNHt2EvkrRCed
- G9SdeNZBo4mT5x1x2SNgKv973p3vCMYuzO8ahkm7vsLCrzFF+kKSc4qrDxAB6xYS7aMc
- uAW+JRvguFeTscWnZ0X/T3B+i13jnZukb1qIkOU8wWoLixvEuiTUwlCz8it9kKV9taQE
- Hh+kUn0rdNg+YiExpJEYGQtqjA09OJFRiKzK7j0es9FqgyA2Yn9dcMIf6j+FnNrQZbGi
- mcK3odBvQOicxeg0zQ+944KtRR+NvCS/pWfLAHgRWyujN8uR6awWCZCOq+sLO1nSb3mk
- 2PDg==
-X-Gm-Message-State: APjAAAU4FAnEX9Jsfn1OBTKU2AL0eaEkJLzB9Dv9EADp2ijLPRDhcIie
- Iy476cDx/ozpLmouHPOG5C3Gb4L98lTsrRiniwk=
-X-Google-Smtp-Source: APXvYqzlNc8rPqW74Hlogp+mli1EBGgu59A9C7b23BB+Z+foqlfatmCvmK1IOjih1XYlpah/0XcRBaMZRIW26tDWv9k=
-X-Received: by 2002:a6b:f90f:: with SMTP id j15mr35859348iog.43.1561448210575; 
- Tue, 25 Jun 2019 00:36:50 -0700 (PDT)
-MIME-Version: 1.0
-References: <1561414395-12518-1-git-send-email-wahrenst@gmx.net>
-In-Reply-To: <1561414395-12518-1-git-send-email-wahrenst@gmx.net>
-From: Peter Robinson <pbrobinson@gmail.com>
-Date: Tue, 25 Jun 2019 08:36:39 +0100
-Message-ID: <CALeDE9N-j_mSubddpsQ24905Ti3YHfPAECsRaxdW4sQv3K6w+Q@mail.gmail.com>
+ id 1hfgJM-0001rP-LO; Tue, 25 Jun 2019 07:56:18 +0000
+Received: from pps.filterd (userp2130.oracle.com [127.0.0.1])
+ by userp2130.oracle.com (8.16.0.27/8.16.0.27) with SMTP id x5P7sOWG008130;
+ Tue, 25 Jun 2019 07:56:08 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com;
+ h=date : from : to : cc
+ : subject : message-id : references : mime-version : content-type :
+ in-reply-to; s=corp-2018-07-02;
+ bh=5hPNEEOLEhrLonKXVMBQSK5/DYkRHzR0TDxjO5rF1gg=;
+ b=yx6SN5D5OpW+U1sSOBLsx/z+kGMd1Jy3WzcGBdZNSUUPIONIFXRKSa5jA/FLZQs8Vsdj
+ h2qFp+7RgdPKOYbh9JEstZAxRTYy1oM3iRw3Ay20n3dIWjWkYalYHC7Whq++2YEfSLjz
+ J8JS5QTpX+QFjCPBzejqmSJ15glCWGgb47/KAeei9RCFm+odfWJ4kPfaEYY54Vr7BT6N
+ UMFOwPx0bkvm5UzKRoKNpodMfrti044WM05JNGTqa5S02Purd36alP0dXOG4EZtbsiME
+ 4fEw71+2erJS/dQUJXnZtYAXm+D4nC9f2+CI84jeVspfQV/qd6bgVOZM1Q9PHitGPmgJ hQ== 
+Received: from userp3020.oracle.com (userp3020.oracle.com [156.151.31.79])
+ by userp2130.oracle.com with ESMTP id 2t9brt2jv7-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Tue, 25 Jun 2019 07:56:08 +0000
+Received: from pps.filterd (userp3020.oracle.com [127.0.0.1])
+ by userp3020.oracle.com (8.16.0.27/8.16.0.27) with SMTP id x5P7tXD6007243;
+ Tue, 25 Jun 2019 07:56:08 GMT
+Received: from userv0121.oracle.com (userv0121.oracle.com [156.151.31.72])
+ by userp3020.oracle.com with ESMTP id 2tat7c3a4g-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Tue, 25 Jun 2019 07:56:07 +0000
+Received: from abhmp0015.oracle.com (abhmp0015.oracle.com [141.146.116.21])
+ by userv0121.oracle.com (8.14.4/8.13.8) with ESMTP id x5P7u6hM005590;
+ Tue, 25 Jun 2019 07:56:06 GMT
+Received: from kadam (/41.57.98.10) by default (Oracle Beehive Gateway v4.0)
+ with ESMTP ; Tue, 25 Jun 2019 00:56:06 -0700
+Date: Tue, 25 Jun 2019 10:55:58 +0300
+From: Dan Carpenter <dan.carpenter@oracle.com>
+To: Stefan Wahren <wahrenst@gmx.net>
 Subject: Re: [PATCH] staging: bcm2835-camera: Restore return behavior of
  ctrl_set_bitrate()
-To: Stefan Wahren <wahrenst@gmx.net>
+Message-ID: <20190625075558.GY28859@kadam>
+References: <1561414395-12518-1-git-send-email-wahrenst@gmx.net>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <1561414395-12518-1-git-send-email-wahrenst@gmx.net>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9298
+ signatures=668687
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0
+ malwarescore=0
+ phishscore=0 bulkscore=0 spamscore=0 mlxscore=0 mlxlogscore=999
+ adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.0.1-1810050000 definitions=main-1906250065
+X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9298
+ signatures=668687
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0
+ priorityscore=1501 malwarescore=0
+ suspectscore=0 phishscore=0 bulkscore=0 spamscore=0 clxscore=1011
+ lowpriorityscore=0 mlxscore=0 impostorscore=0 mlxlogscore=999 adultscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.0.1-1810050000
+ definitions=main-1906250065
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190625_003652_046604_D0DEF4E8 
-X-CRM114-Status: GOOD (  18.00  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20190625_005616_895732_AC8467EA 
+X-CRM114-Status: GOOD (  20.05  )
+X-Spam-Score: -2.5 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (-2.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:d42 listed in]
- [list.dnswl.org]
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [156.151.31.86 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (pbrobinson[at]gmail.com)
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
@@ -80,6 +96,9 @@ X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.0 UNPARSEABLE_RELAY      Informational: message has unparseable relay
+ lines
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -99,12 +118,11 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-On Mon, Jun 24, 2019 at 11:13 PM Stefan Wahren <wahrenst@gmx.net> wrote:
->
+On Tue, Jun 25, 2019 at 12:13:15AM +0200, Stefan Wahren wrote:
 > The commit 52c4dfcead49 ("Staging: vc04_services: Cleanup in
 > ctrl_set_bitrate()") changed the return behavior of ctrl_set_bitrate().
 > This breaks probing of bcm2835-camera:
->
+> 
 >     bcm2835-v4l2: mmal_init: failed to set all camera controls: -3
 >     Cleanup: Destroy video encoder
 >     Cleanup: Destroy image encoder
@@ -112,52 +130,34 @@ On Mon, Jun 24, 2019 at 11:13 PM Stefan Wahren <wahrenst@gmx.net> wrote:
 >     Cleanup: Destroy camera
 >     bcm2835-v4l2: bcm2835_mmal_probe: mmal init failed: -3
 >     bcm2835-camera: probe of bcm2835-camera failed with error -3
->
+> 
 > So restore the old behavior and fix this issue.
->
+> 
 > Fixes: 52c4dfcead49 ("Staging: vc04_services: Cleanup in ctrl_set_bitrate()")
 > Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
-Tested-by: Peter Robinson <pbrobinson@gmail.com>
 
-Thanks Stefan, I can confirm this resolves the issue I have seen with
-the camera on 5.2 but hadn't had the time to bisect it yet.
+I feel like this papers over the issue.  It would be better to figure
+out why this is failing and fix it properly.  -3 is -ESRCH and when I
+grep for ESRCH I only see it used in the ioctl so that can't be it.
 
-Tested with a v2.1 camera module attached to a RPI3A+
+I think it must be -MMAL_MSG_STATUS_EINVAL actually, but it comes from
+the firmware or something so we can't grep for it.
 
-Regards,
-Peter
+Can we do some more digging to find out why it's failing or otherwise
+we could add a comment.
 
-> ---
->  drivers/staging/vc04_services/bcm2835-camera/controls.c | 8 +++++---
->  1 file changed, 5 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/staging/vc04_services/bcm2835-camera/controls.c b/drivers/staging/vc04_services/bcm2835-camera/controls.c
-> index d60e378..1c4c9e8 100644
-> --- a/drivers/staging/vc04_services/bcm2835-camera/controls.c
-> +++ b/drivers/staging/vc04_services/bcm2835-camera/controls.c
-> @@ -610,9 +610,11 @@ static int ctrl_set_bitrate(struct bm2835_mmal_dev *dev,
->
->         encoder_out = &dev->component[MMAL_COMPONENT_VIDEO_ENCODE]->output[0];
->
-> -       return vchiq_mmal_port_parameter_set(dev->instance, encoder_out,
-> -                                            mmal_ctrl->mmal_id, &ctrl->val,
-> -                                            sizeof(ctrl->val));
-> +       vchiq_mmal_port_parameter_set(dev->instance, encoder_out,
-> +                                     mmal_ctrl->mmal_id, &ctrl->val,
-> +                                     sizeof(ctrl->val));
-> +
-> +       return 0;
->  }
->
->  static int ctrl_set_bitrate_mode(struct bm2835_mmal_dev *dev,
-> --
-> 2.7.4
->
->
-> _______________________________________________
-> linux-rpi-kernel mailing list
-> linux-rpi-kernel@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
+	/*
+	 * FIXME:  port_parameter_set() sometimes fails with
+	 * -MMAL_MSG_STATUS_EINVAL and we don't know why so we're
+	 * ignoring those errors for now.
+	 *
+	 */
+	return 0;
+
+
+regards,
+dan carpenter
+
 
 _______________________________________________
 linux-rpi-kernel mailing list
