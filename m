@@ -2,8 +2,8 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8730858AB8
-	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 27 Jun 2019 21:08:55 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id D197D58AC0
+	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 27 Jun 2019 21:09:34 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
@@ -11,67 +11,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=HqSpIUfh3MHan+4/6YMoTUrTwDKJGgeXCFpRjACa1Hg=; b=MyIKK3RFWLZW1LI5XhH7p4qbmT
-	qnb67Jxisz9uk6GP5XkrJfFi5vcyLN845s5DnL6yf+s0IN6Dg+5cB6QFtc5ZIhk4zRxXQxkb7zl0z
-	2Fm0a9HBkxtI7i7PWsobGOFi7shEsD8ey2uPMu+c6UV9cKYk89DswoLx6KCDEgB4UnIxVITvh6am3
-	Kd/tci+eGxpMn5zAVYzYlPjOWYsxYh0K0y9Wefkl7wKBcKRyvrsYFzVbvkYu2uFhJ+5NWKK8Zh5aH
-	Kni9WIUoX7o7bYvXXbluQbpCPTZ2pBjSCH2PlmswmUAsjqlmidW+zhOerQvXSPkAWmwkP+lekzYsZ
-	KiA24WHw==;
+	bh=j34G9mS9CTSWrsFm3NaYXteis8bN/AlXCmp5703VfKY=; b=dA6dBOP3l0+upI/k145jX9uHxD
+	IXkMa87mKY4fKiCDMMbYevES1wRBK5BW5wRlvYjjGYhos7KHX2WIOMpTjiEBvZD84Lb8deg8o/L0q
+	AwJ0U0KI7sVJza8ioJllvstUh83bCrttkm4DLE6bGgcpBt+rSZATHv00gpCSZnb0ljil0ynXM1Ic1
+	vVurp/PkCyTr4aBVageE31kiupeiqlymk+BT05leKQ366XAyl1fdpomLAI43dFWLslL6vWcMKGsyn
+	qJfsVWAb6XjHyH73LZZQ8ucPfnCikicGpBjI1QgOkSyfUrPFRRP4GYdBVi6Q5C1nkuzli9kCTqUnA
+	fCft30SQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hgZlL-0004jL-TE; Thu, 27 Jun 2019 19:08:52 +0000
+	id 1hgZly-0005LW-TO; Thu, 27 Jun 2019 19:09:31 +0000
 Received: from mout.gmx.net ([212.227.17.22])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hgZjg-0003Z1-HX; Thu, 27 Jun 2019 19:07:10 +0000
+ id 1hgZjg-0003ZQ-Qe; Thu, 27 Jun 2019 19:07:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
- s=badeba3b8450; t=1561662412;
- bh=jDTS8viFYqrDbHal1MRfayty/onAySUVJktCMM7U9LA=;
+ s=badeba3b8450; t=1561662413;
+ bh=HN3lhHm+Yt2GbL8dO//CPN9hcnC7lx/vfdI7rSIW4Pk=;
  h=X-UI-Sender-Class:From:To:Cc:Subject:Date:In-Reply-To:References;
- b=boyR1b1cVnoKHMYAWqz5F14XVnOO+5f+PR5CnjctNVZzad1WK3Vy7CadjSAX0ljbH
- O6Pk7QST70wbzg6ci6XpQ7XmQsQeBk2s1EDQ7PIn9caoY/6l/g8chMvCYxfyYKa1Qe
- nXUBRA9lg6F9vG3GD28ROjT+q8WtCG8Ph6IZqkdM=
+ b=ISIBPootMoMSbtYFcaNVsNT8f+5oqIbnZBammUzC39oBzwx66IS70gfTNP8o73tei
+ 2oEmQmmhRGA8iULe3HL0j5PYkb0AjenyOzK9RREbAISQyCgW6+kqYMpaoYX3vNM6+b
+ a885JyOEEMaGReTp2Yhxbcj+S+T38BCTd1UD8JzM=
 X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
 Received: from localhost.localdomain ([37.4.249.111]) by mail.gmx.com
  (mrgmx101 [212.227.17.168]) with ESMTPSA (Nemesis) id
- 0M6730-1iVuty1hPe-00y91P; Thu, 27 Jun 2019 21:06:52 +0200
+ 0M3vCA-1iY7p83L2A-00rWF9; Thu, 27 Jun 2019 21:06:52 +0200
 From: Stefan Wahren <wahrenst@gmx.net>
 To: Eric Anholt <eric@anholt.net>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Dave Stevenson <dave.stevenson@raspberrypi.org>,
  Hans Verkuil <hverkuil@xs4all.nl>,
  Mauro Carvalho Chehab <mchehab@kernel.org>
-Subject: [PATCH 21/31] staging: bcm2835-camera: Unify header inclusion defines
-Date: Thu, 27 Jun 2019 21:06:16 +0200
-Message-Id: <1561662386-23045-2-git-send-email-wahrenst@gmx.net>
+Subject: [PATCH 22/31] staging: bcm2835-camera: Fix multiple assignments
+ should be avoided
+Date: Thu, 27 Jun 2019 21:06:17 +0200
+Message-Id: <1561662386-23045-3-git-send-email-wahrenst@gmx.net>
 X-Mailer: git-send-email 2.7.4
 In-Reply-To: <1561662386-23045-1-git-send-email-wahrenst@gmx.net>
 References: <1561662386-23045-1-git-send-email-wahrenst@gmx.net>
-X-Provags-ID: V03:K1:u2byLpeY81owIOe0u0m7dsEbi1BMOnsvUw8J/3/4FrRXeaW/irC
- LoXykJgzLFToxCJLBQfNgDO3MuvZJ78slALKTqVjV5Ln8lJCa+ONkMb4KLK03VBpkYLIPqV
- waJKxhxujuJXV29xe7NALB9W7esBFPD46qUJ2wo6/K35MUpWRSo0Lub26e+9NpeIWqsv6ax
- klNVgSeMRmS0FU3LTlYSg==
+X-Provags-ID: V03:K1:nDht862Sp27VYwhBb9Kh9ofjwNBUYyKYpnUiI/S8FqW7MW5NEo/
+ 3a0bU3PoAEYPVcTQpkI9eQfQj42yyOLe8xTC+l5hdLlrulutA/Irbt7bo23CSxTt++y3v7G
+ Lq0E8VjMCa4fOGh1S55NxUVGnj4MhS0I3li7xJ6o5IlYAEIdgkPwqNVf7+LNenoQlo8Q8Sc
+ 3qnrR1IxS6OH6mPX6TM4Q==
 X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:Dz6jkUEmH98=:d5Jk/boCMg8s1Sc0nJL9K3
- 7TrzZunCtfiu8SMe6z4qS/qwMuGih7CpkVhHJEYspFnnOmcpIlWUAuYXbR8M7zMyCWqo3om+D
- FLmBcTKDSiLvqdrGhi/X4Xvjtsd0xS3w07bPiN1ozjF/f0n5yE6eVPOJid1U6wAASNavjUpj/
- CR7YbVBNyMp42Hqf8XKIUiTXFS/4VE0m1pfaCq1XavTj5VLhuzafPwXV9hJmR2E2OAy52MhlA
- fZzg65dtHyahvFzYW6ynkl7XLJmYNw89JjC04300NJ6AwBuqAik6r9gdPctofRfU42x7K5cz1
- j88PIsx4Is56WQhjskTfBlRnt/ZnQFrUkw0gAqtgWj29NrF5zHd2HLA40dWxfeUV5T31lG4OT
- pWR+YpzY3FNQoiK6H0BfxOabM9p+9/OtZRIgG74EPRKFPSYX5NhPDZw4SHzTbLbdXANiNsb45
- g2IJjijr72WX48pUWcK0M0Y0XaaH983wsXm+pCn0u5SYwy0CbyAL0aykZNF7AeA8M58U+ExTz
- o0yb0VzKrqtVwqVz5Nmo4y7S1+eCUSo/UTAJA/RptPhfpm1RgUB0mIbDWEvaG6tvUAm7xBxjM
- akVIGlzgI1KD2hJj9LHsJWSLDvgyvFh7Fsg85s2zluAYQgvJbNPmr5u0Ak+w1yQPvkknhB4u6
- 49QoIoKiEhWJR0XzH+0htR3i24EvPG69+hfVug1pi1k5BL2sRhxMaaKYg7OYf0qS4xmfPHCKw
- WvuCZfVTQ8nzaB3ehfiYDN71MjwY+RMy2qNEro8DUzpiE0rEd72vIP/N7HPrKFEYlpGgFoqA/
- 7XFd8EGLrdyj3rfLN5AOrM+3xmBNWCCbrbFW6vWyoqcZ/jJ2CwmXyzjdSR2jcZSsT7h0UuwAe
- KVj2bo5C9c/igB4fv5EtOgXYhBSCOMOu+J+7ozqGdxKhIuXZsbSs9B2Nr3EYmxpi/VUKH14Zm
- wEXAcUsuIx83vHacAWD+pKiXNBTRi0LF7TPGZ9vFnNyZz3lhMf/BtSeyBJsAlOFruHPzPlDB4
- kIPrfg1P/18XBzQzRvJ5RiZunT0pBQp9wdfskaK/GcKwvvTZX4zyedAsaksY+9veSBjYXxO7/
- KSQppR5fjlZh00=
+X-UI-Out-Filterresults: notjunk:1;V03:K0:QGwz0ac8KYY=:xECsoiozVywwQUPjOJKdk0
+ RXknP9fSotn2hZ1hFXEAGXMDax6+vufvh+Vg5u6DZUnFdb2GOTlzQPx++ABTuFwuJJniCly9i
+ UZLN0Bx7TdiquURrdp02FvSX69z2v7gsQAsLrg53YSKNCgedHt/OclQhcs6nGPJ4zw0+MRhRb
+ Lpl+q/KCfWgSFTS7PWisQukjBhqxJ9Y/ps0hgKZGmrEEItcA1Jld3Ier3Fw3//ACxpc9SY32q
+ 28+V4eN1NJ/AlnlDab9l4rBCKCNWEXJllUYaIukEVEFgIMCkzY9VDLB0RhUWImLCXo7Pou/5s
+ sLMypqJ2GyscU1H71eSyMy/aadr9uFxav0ZYTXMuSqvHhXpJTeUC6Ct9dd5ZnuQDcCD3WNs4Y
+ PN23yU4t+vefahzYaci1d5VjXj6/oM6vvuTImPbWUGh6FsV08MqEzhzADKHN8XRIUW+BXXLCU
+ WWMjarSP6j84hT3uE7H+rAmy/Q6dmjbywbRn6NwAsrZNEr6b+evggBYF+YwqUYlQQvu1kw1DQ
+ eqxyapX4PxZlG4mRnoEsdQYMYTrd/JCZNuFMA29A0REJxEL/0C27nMbZUQtQZTmHdyd0/otFO
+ FK+zPiTjL3gkExjjcNl+3PTvsxgYP6ROg/h7EM1A99XIrFaSV2zXDMzxWdlxc33r4wOkenVwY
+ WrQYwNNqoykamQR14zhVyeI1tFbVndFgEJQPMAzCxL7ndYBunPN6RR99yzsUNOJTaWWPPw3va
+ KN3Yo3Aq/qlTXz7Db0FSez5iYH/bV63b6LXhdNGBXIo47BXtz3qK4aVZWvMrPE3Xm6/ikPs9X
+ sTKfpHsFBREdnhRSNZtMst8bldxJl1v5KRy9QQ8LksHivHnl0xx+r0oqqd/vrbDQmBNTYHuXd
+ k9gpldalO41zEhBBqPpDvFglURgsbrlnPVLQu8+kFFgd9aZglhueSqT/fvJSeQ5xJRsBnOS9t
+ Hmsrb5e9g/pH9BfE1gtwMmYmDxkL9LfCe8xZBkCmIdk86hBQGWQMko1YqROC9sPkh1nbB7Zkc
+ NxkXqhrxkur9Rq5RVvxWqvjeUheFJ2vjKxFsPuUgPlLTtmGIVg7EN2J6gzG7GcD75jWj8L/xB
+ hoJNfVxihuQMuo=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190627_120708_894275_9D19CB44 
-X-CRM114-Status: UNSURE (   8.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190627_120709_154761_679CF227 
+X-CRM114-Status: GOOD (  10.54  )
 X-Spam-Score: -0.9 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.9 points)
@@ -111,32 +111,32 @@ Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infrade
 
 From: Dave Stevenson <dave.stevenson@raspberrypi.org>
 
-Most of the headers use ifndef FOO_H, whilst mmal-parameters.h
-used ifndef __FOO_H.
-
-Revise mmal-parameters.h to drop the underscores and make the
-headers all consistent.
+Clear checkpatch complaints of "multiple assignments should be avoided"
 
 Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.org>
 ---
- drivers/staging/vc04_services/bcm2835-camera/mmal-parameters.h | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/staging/vc04_services/bcm2835-camera/mmal-parameters.h b/drivers/staging/vc04_services/bcm2835-camera/mmal-parameters.h
-index 6d21594..da21ec5 100644
---- a/drivers/staging/vc04_services/bcm2835-camera/mmal-parameters.h
-+++ b/drivers/staging/vc04_services/bcm2835-camera/mmal-parameters.h
-@@ -19,8 +19,8 @@
-  * @{
-  */
-
--#ifndef __MMAL_PARAMETERS_H
--#define __MMAL_PARAMETERS_H
-+#ifndef MMAL_PARAMETERS_H
-+#define MMAL_PARAMETERS_H
-
- /** Common parameter ID group, used with many types of component. */
- #define MMAL_PARAMETER_GROUP_COMMON            (0 << 16)
+diff --git a/drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c b/drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c
+index 6205793..bef0052 100644
+--- a/drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c
++++ b/drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c
+@@ -1049,11 +1049,12 @@ static int mmal_setup_components(struct bm2835_mmal_dev *dev,
+ 		/* Make a further decision on port based on resolution */
+ 		if (f->fmt.pix.width <= max_video_width &&
+ 		    f->fmt.pix.height <= max_video_height)
+-			camera_port = port =
++			camera_port =
+ 			    &dev->component[COMP_CAMERA]->output[CAM_PORT_VIDEO];
+ 		else
+-			camera_port = port =
++			camera_port =
+ 			    &dev->component[COMP_CAMERA]->output[CAM_PORT_CAPTURE];
++		port = camera_port;
+ 		break;
+ 	case COMP_IMAGE_ENCODE:
+ 		encode_component = dev->component[COMP_IMAGE_ENCODE];
 --
 2.7.4
 
