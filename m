@@ -2,84 +2,79 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 223C558AB2
-	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 27 Jun 2019 21:07:41 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id CAB7358C8D
+	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 27 Jun 2019 23:11:48 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=EoChiffJk/D50oJfYLH204qwFj7DKpRqqACOxI7+PM8=; b=ZQo3iOpM9RuEsqLx1LwzaEAogw
-	ZQF5HIEJ+o80B8xhCyFAbho693+dTKHLlFk3ZtluZ7S4tbkM5wJtwg6W8zvUH/J1FhK5TuCUjiSWW
-	5HZowRURbppiDs2Jpxp/juv7mRr7v0jRLoGG5/9yfjttohOEkv2l/dQXo1js0PW1scwE+CfEcE6RR
-	u1TzLP1AKNl8OdvmBkDFJi8E79P10eN0GOR3OHl0PZU3aoZdsiENZWIKs6qrXFC+jAGkGlOpyYmzq
-	a2U23DFHUZeyxJ+jVRWW9/teHpnJcPpADt7QGIVoJTO4Bgykvyz6yYLDtWhKXWACuyhc/Bc3K3bpR
-	tujgxC+g==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=jDl+0lTyDLOVJX6hdtSfDyAIChT4A/dzYIf3ay3Wzas=; b=hOs
+	dY6IfDpwyo7RQqeFj6AKeVywl5El256KeqUNhExXXoXQU+X5ACxMvYeospeFIF+15t4AnyBrJsgwt
+	Ep5ojyi0FWDT8tpjLxGYV1Lj/C5ezP6JX2DBS5bjOnkfv+etVEs9IXsU09rGvtdt/4kYKg9fu08XE
+	aDxzqAOyr0TgSVzKQbs7DoYWZhUcau3Q1Ve9P+CTPkv8F8KBOO+J/Dn5xmlnP5Rb0m/GvJefhJnWe
+	u3sDWcr8j3SVADegX5k/jGT+YO4Qp6pE+v+EqdGNxQwVxuF6oD02AwNMJA8nhSrSGTjvKG0mYApdC
+	ILPoo0QD5mrXCdt9tuAVYwwUpTWAcSw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hgZk8-0003sI-S6; Thu, 27 Jun 2019 19:07:36 +0000
-Received: from mout.gmx.net ([212.227.17.20])
+	id 1hgbgH-0002ec-2n; Thu, 27 Jun 2019 21:11:45 +0000
+Received: from mout.gmx.net ([212.227.15.19])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hgZje-0003Yv-Ua; Thu, 27 Jun 2019 19:07:08 +0000
+ id 1hgbeh-0000cb-8S; Thu, 27 Jun 2019 21:10:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
- s=badeba3b8450; t=1561662414;
- bh=LRyz6YBXxxPj6I4Vwjk1xVVm3VP1fgqB6kgOc9SZZ2c=;
- h=X-UI-Sender-Class:From:To:Cc:Subject:Date:In-Reply-To:References;
- b=GirP0fljl41TxQXSm1O9gJJhCN7MtAvA2NBIiwQ1KIGrkVfPAHj5Sw6fDcvYKJtfu
- E2osrqmE8u2cTkC3cE840XaN8IrmJZu7A/fIroOc7WbAh3bGnOCjBGDXaha1CpbSbd
- zZoHQI4w7AkPHYC0kt1W6a9CXQRsjQtCaDZHzNsg=
+ s=badeba3b8450; t=1561669790;
+ bh=tOe/BsiIMjwoLabnnwXX3NINpGucWPxxyc0RQkE0ApQ=;
+ h=X-UI-Sender-Class:From:To:Cc:Subject:Date;
+ b=ZfuFen8jwyk5KZzFDSdqGs0mV0OXyCl5zF9UeMFE6n8PjlLTXKRoCc3zRmS3Y98bB
+ LNDUSI2UN7IZfVaFZjWf9mV74phFaTV0VlQWW9c7a9tg9TUBewO4OeN3gZNKWOZB0W
+ JPlzTjuKEwkDiv1F2ZNCwWvwhruRojlL6rp1Pegk=
 X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
 Received: from localhost.localdomain ([37.4.249.111]) by mail.gmx.com
- (mrgmx101 [212.227.17.168]) with ESMTPSA (Nemesis) id
- 0MLB89-1hgIcJ1gDx-000Nai; Thu, 27 Jun 2019 21:06:54 +0200
+ (mrgmx004 [212.227.17.190]) with ESMTPSA (Nemesis) id
+ 1MtwUw-1iYinq1UxI-00uK9j; Thu, 27 Jun 2019 23:09:50 +0200
 From: Stefan Wahren <wahrenst@gmx.net>
 To: Eric Anholt <eric@anholt.net>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Dave Stevenson <dave.stevenson@raspberrypi.org>,
  Hans Verkuil <hverkuil@xs4all.nl>,
  Mauro Carvalho Chehab <mchehab@kernel.org>
-Subject: [PATCH 26/31] staging: bcm2835-camera: Remove/amend some obsolete
- comments
-Date: Thu, 27 Jun 2019 21:06:21 +0200
-Message-Id: <1561662386-23045-7-git-send-email-wahrenst@gmx.net>
+Subject: [PATCH 27/31] staging: mmal-vchiq: Avoid use of bool in structures
+Date: Thu, 27 Jun 2019 23:09:25 +0200
+Message-Id: <1561669769-2498-1-git-send-email-wahrenst@gmx.net>
 X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1561662386-23045-1-git-send-email-wahrenst@gmx.net>
-References: <1561662386-23045-1-git-send-email-wahrenst@gmx.net>
-X-Provags-ID: V03:K1:4xomtyWSvBDrQz0zJqh5x0hXvsx0k3JhFaFYg3KGa6+d+DFRHEf
- bxv7FTElzUlvQ4k51+EbPC6FX/4pGQbQ4EKK5gQOxEoefI9XJMHsohhv7Sr87ki0H6aV+by
- GX7eVNC2peAsNFNkVgXvYJxN6YStYZi3vtpUzeoQ309nbnK0uWHnU354e36D8hBOUJpsfkw
- SkIiLpwSJsfSQRg98to6A==
+X-Provags-ID: V03:K1:XFFVS6J7p8vwVQmBIJXFTLISbJpbws3cNDTTFZWohJQfzLD8CR+
+ LfEiQslGADaYvMz37HwEnPWgyRdNlWQigKnbCS3N36L9xUpeCKuHOCyFU0+t/pj9vfQXhCo
+ 5e5AUFIrBAekKkXkZYhxO/YmiaoC9L/ingm3SE/WtTjIlyC2j7SkJcLZOixGZ65LmyjceUz
+ TTTpDoBDesal8UgeKo3Eg==
 X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:ZnwXJ6Xicg4=:lytjMVXwZM643hxn+PT0hD
- L/OZl/YY16Ftz3EXRg2qGYJRcT1eXFvSBo2v/CCL3DMphM4+c4ugw6rlorf0e0+DfR4nwTpel
- zCFReDmiZ+b+JLnkQ5TmfsxUm5EZaoTJI/S8goBbuLxCzctOId5FBoUgX6epxXKv6kty99lqV
- 7hqXn7dtmDoPYVer7R6PvvnKWM7FhFVDvJsloC4IFzxhnHaRlrvNynisitWfs/vwSyyJNRXfs
- QLwSSmw+9zud3MyS20SOItxYjn5rmajUTg+xHDiJTkXn60+0VTFnWfrT03pKeECt/dV3Y7HNG
- zSWv6Zt9hZCAONTZlcqtIkgwn5b8wYYtNfWY24kthmz9/TWaIr8rWFSZUpvdndfjhoc+iyP2x
- zaPAXJZ+MynjnMLvRKShmK/xlUNT/KocM4RtJCG8a/7QJV5WVcjUR6AmR2rndubwnLAhmeHqP
- um4Q0KQw1S0uIr9NG6220M51MjM4HTCrdEFvLYxj3jwPEP0m9XC+j4AeJgzRglYb2YYMYr7qY
- 47rASphbqix3KtXZEoLNpRFIqoYDJcvOlA27Cf2hNnSQAeHxWRbHlWsdZ119Gd3rDmZIRObOH
- 29xyIin8zMCtqu84GaN+Cfe7SEGwPSakbOW0gJRpHrQ+RL1QRkugRhI7wIQfcdQZFfwckckMi
- x6Qvz9GzW1lyEmFLol6azUFLu3fbW/yh+W7uZpmj0nFlKi049NuUMXTM8Bh1sAI6PHAM4xcL6
- oQOcPmVX0clJAsuLbmoXsFUxaOsufsfmlUwd86blc6UaA1fYPsttn3eFkFcaFvm74pPMD76fK
- xyGXm0k9xjsIcqnKW4tXuJPZ1KctvzX0jSgRhhfGvK1UpcfIpX6fxQK2iv0UjrHMctfbckThR
- dc8i7Y7uCR0Yp3h5gzWj+RA15KbX4G4zJQYw0aFqx8eh0tE6Y1o4Yc4fNLaqwhPoLi0Ic5VGw
- NsLoaXsQnnvdwJ/G5HMqBBVPNtXB4dpW9wXx9QS2KD7F0zYkxPdKeJ+tGSJMYrvKBQ5rST8e+
- ini5oieKZ7DFA/JEvcgIAyUAyYyThr82ux+g0Md5sHPtP7QyAhfaiMzHgIXlNGcXFyr7hxb21
- pAaWxZ7mpklkYY=
+X-UI-Out-Filterresults: notjunk:1;V03:K0:A4GjgavEWCA=:G+PJsUBAxgqqAbv4Nraj1q
+ PYLJPYz3TysHJgMWZmVmKeh+3b14DmjiEzDO8sxGYJ7sLLSqUXw+qnZ6NpD5X72DNfzzcjPkV
+ bvD0y9WBIOhoep32BWJbI3FEX94bf8ikr3UjTvoNLUq4krDPnBrOFWwRnpXAjEmfBueuPQGeT
+ P/fdkhThRioEwuPg5tXVFSJ5FJRVExnkbCAhJlTAmBY2IZoj0tvw2w3XuiiJeG7oC7D7lCDDl
+ TR+RA5o3IKXthpAIucDGcQQsn03+iPBQkg1S2palOka8O9Adzjw1fdf6wJCsnAdAKNk/YoCRD
+ EKIHFkFIABHRIWLft838yyWsHaTsTXIYpbg2sMOeQCHoY81yteDAbOlez0UeWdIUs0+Mr420o
+ Rq517SIrnYa3jqZ4TdKJ40Xa7RPbytvlq4ck+ghoYbdIErrmpHAN9zzIW0xGUGoMj+BJhPmFi
+ LX6n8RQ3Tjb50Nu7yZhSbj1KmWjIxUZCOWF4JZ7g5LwZTZPiM2dqaPT/gZt2PuqpDVsMZaXPx
+ 33NngNTTXc057/eC5RVyOH88YhXXrKZ7ULiW7T5fS6wPnObuaDz4J4Mm/4gYdlgCi/vF/vKU+
+ RA3K4asFj7riqIu14qm7Mv42aaoS2C789hoqqx5SUKLhZbqUa/0Pj9hU1EJAucdaWo/xYABJD
+ RND+x11wQ4MjPNnfb56Yn10zC8MgHmeO/cSUuF9an07ZZCD36X0wtmWCFeXixa9z1KmAih665
+ 9+e+x6l/8kva2NRrKKFO3yAymBdFV63wHEgA4ZVkU3wBUJWXRLEo7R7gxfUeYIvOeQDedXcDE
+ a6y7Eli97WG0UBywU77gFR1sSikFGDcANunHaeWzNQLTOKazzXInPokMUU1S29jjVCuHodIDk
+ m+ByAifN2474HIPJm1zXcYbmk9T7yePRdKJlV3qX4Xc9LbinJd1bHZ7WsjzYtGq17yfOc8hvS
+ 5yKjWToUtlNCMI/mRbtdCbwhagipauNhonICu0f2d3qXfjBKTTo3xRebFBND4j13qesfFQ5Ow
+ NN4mgeOqAUJ4GoS56zetU8qPVPNwE5EVRzR5spCH/Sa8CoLQv9kbn1ZV4+XOEDV9aS0GUcEGb
+ qcyKv4OPbgiDUc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190627_120707_299619_955A0BF1 
-X-CRM114-Status: UNSURE (   9.27  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -0.9 (/)
+X-CRM114-CacheID: sfid-20190627_141007_627292_98DEEDC2 
+X-CRM114-Status: GOOD (  12.08  )
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.9 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [212.227.17.20 listed in list.dnswl.org]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [212.227.15.19 listed in list.dnswl.org]
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
  provider (wahrenst[at]gmx.net)
  -0.0 SPF_PASS               SPF: sender matches SPF record
@@ -112,51 +107,89 @@ Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infrade
 
 From: Dave Stevenson <dave.stevenson@raspberrypi.org>
 
-Remove a todo which has been done.
-Remove a template line that was redundant.
-Make a comment clearer as to the non-obvious meaning of a field.
+Fixes up a checkpatch error "Avoid using bool structure members
+because of possible alignment issues".
 
 Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.org>
 ---
- drivers/staging/vc04_services/bcm2835-camera/controls.c | 11 +----------
- 1 file changed, 1 insertion(+), 10 deletions(-)
+ drivers/staging/vc04_services/bcm2835-camera/mmal-vchiq.c | 12 ++++++------
+ drivers/staging/vc04_services/bcm2835-camera/mmal-vchiq.h |  4 ++--
+ 2 files changed, 8 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/staging/vc04_services/bcm2835-camera/controls.c b/drivers/staging/vc04_services/bcm2835-camera/controls.c
-index b8aaedd..848b14a 100644
---- a/drivers/staging/vc04_services/bcm2835-camera/controls.c
-+++ b/drivers/staging/vc04_services/bcm2835-camera/controls.c
-@@ -971,10 +971,6 @@ static const struct bm2835_mmal_v4l2_ctrl v4l2_ctrls[V4L2_CTRL_COUNT] = {
- 		ctrl_set_value,
- 		false
- 	},
--/*	{
-- *		0, MMAL_CONTROL_TYPE_CLUSTER, 3, 1, 0, NULL, 0, NULL
-- *	},
-- */
- 	{
- 		V4L2_CID_EXPOSURE_AUTO, MMAL_CONTROL_TYPE_STD_MENU,
- 		~0x03, V4L2_EXPOSURE_APERTURE_PRIORITY, V4L2_EXPOSURE_AUTO, 0,
-@@ -982,11 +978,6 @@ static const struct bm2835_mmal_v4l2_ctrl v4l2_ctrls[V4L2_CTRL_COUNT] = {
- 		ctrl_set_exposure,
- 		false
- 	},
--/* todo this needs mixing in with set exposure
-- *	{
-- *		V4L2_CID_SCENE_MODE, MMAL_CONTROL_TYPE_STD_MENU,
-- *	},
-- */
- 	{
- 		V4L2_CID_EXPOSURE_ABSOLUTE, MMAL_CONTROL_TYPE_STD,
- 		/* Units of 100usecs */
-@@ -1152,7 +1143,7 @@ static const struct bm2835_mmal_v4l2_ctrl v4l2_ctrls[V4L2_CTRL_COUNT] = {
- 	},
- 	{
- 		V4L2_CID_SCENE_MODE, MMAL_CONTROL_TYPE_STD_MENU,
--		-1,	/* Min is computed at runtime */
-+		-1,	/* Min (mask) is computed at runtime */
- 		V4L2_SCENE_MODE_TEXT,
- 		V4L2_SCENE_MODE_NONE, 1, NULL,
- 		MMAL_PARAMETER_PROFILE,
+diff --git a/drivers/staging/vc04_services/bcm2835-camera/mmal-vchiq.c b/drivers/staging/vc04_services/bcm2835-camera/mmal-vchiq.c
+index d0f7b67..1c180ea 100644
+--- a/drivers/staging/vc04_services/bcm2835-camera/mmal-vchiq.c
++++ b/drivers/staging/vc04_services/bcm2835-camera/mmal-vchiq.c
+@@ -853,9 +853,9 @@ static int port_info_get(struct vchiq_mmal_instance *instance,
+ 		goto release_msg;
+
+ 	if (rmsg->u.port_info_get_reply.port.is_enabled == 0)
+-		port->enabled = false;
++		port->enabled = 0;
+ 	else
+-		port->enabled = true;
++		port->enabled = 1;
+
+ 	/* copy the values out of the message */
+ 	port->handle = rmsg->u.port_info_get_reply.port_handle;
+@@ -1292,7 +1292,7 @@ static int port_disable(struct vchiq_mmal_instance *instance,
+ 	if (!port->enabled)
+ 		return 0;
+
+-	port->enabled = false;
++	port->enabled = 0;
+
+ 	ret = port_action_port(instance, port,
+ 			       MMAL_MSG_PORT_ACTION_TYPE_DISABLE);
+@@ -1344,7 +1344,7 @@ static int port_enable(struct vchiq_mmal_instance *instance,
+ 	if (ret)
+ 		goto done;
+
+-	port->enabled = true;
++	port->enabled = 1;
+
+ 	if (port->buffer_cb) {
+ 		/* send buffer headers to videocore */
+@@ -1511,7 +1511,7 @@ int vchiq_mmal_port_connect_tunnel(struct vchiq_mmal_instance *instance,
+ 			pr_err("failed disconnecting src port\n");
+ 			goto release_unlock;
+ 		}
+-		src->connected->enabled = false;
++		src->connected->enabled = 0;
+ 		src->connected = NULL;
+ 	}
+
+@@ -1758,7 +1758,7 @@ int vchiq_mmal_component_disable(struct vchiq_mmal_instance *instance,
+
+ 	ret = disable_component(instance, component);
+ 	if (ret == 0)
+-		component->enabled = false;
++		component->enabled = 0;
+
+ 	mutex_unlock(&instance->vchiq_mutex);
+
+diff --git a/drivers/staging/vc04_services/bcm2835-camera/mmal-vchiq.h b/drivers/staging/vc04_services/bcm2835-camera/mmal-vchiq.h
+index 1750ff0..f738e7f 100644
+--- a/drivers/staging/vc04_services/bcm2835-camera/mmal-vchiq.h
++++ b/drivers/staging/vc04_services/bcm2835-camera/mmal-vchiq.h
+@@ -48,7 +48,7 @@ typedef void (*vchiq_mmal_buffer_cb)(
+ 		unsigned long length, u32 mmal_flags, s64 dts, s64 pts);
+
+ struct vchiq_mmal_port {
+-	bool enabled;
++	u32 enabled:1;
+ 	u32 handle;
+ 	u32 type; /* port type, cached to use on port info set */
+ 	u32 index; /* port index, cached to use on port info set */
+@@ -82,7 +82,7 @@ struct vchiq_mmal_port {
+ };
+
+ struct vchiq_mmal_component {
+-	bool enabled;
++	u32 enabled:1;
+ 	u32 handle;  /* VideoCore handle for component */
+ 	u32 inputs;  /* Number of input ports */
+ 	u32 outputs; /* Number of output ports */
 --
 2.7.4
 
