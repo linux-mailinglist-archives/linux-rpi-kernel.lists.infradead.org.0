@@ -2,92 +2,79 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3535957C2E
-	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 27 Jun 2019 08:28:09 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id C9BEE57CBE
+	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 27 Jun 2019 09:06:35 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A3ZhqbfDYjj1vFp7MqVID+jeRo7WjsmIpaqJy1ioQOc=; b=P+PMKFcrAJ/yg5
-	brG6FQ2GmZZoUKc5oEq8zmLy9zlJZQ7eYEbc4y53K9ddKbc3IPgecsusOpek4F+TLjDzEMlU02uE2
-	KSG9K1Y3hcqbWPGfYm3eeY97L+kXIdBNqqGfVVl1MCmsm0knZIomJXupyGCoyKZsRZHDxrhY5epQM
-	FioXxo5DvkdKAC+bJKFOLto8TzNUYlEU64NrsVyxHbx6DdGo3mk2ExmXkbAnBYWlTec47xpgolOih
-	+JyrHWgypPHxnGuMl4Rb9MJXVQrc1JOGyYildHNPLo+O8hBIyapNO2oS6go4uv00blF0Kc/Wkj/Va
-	QIyKox2AnbBnQPVv5vng==;
+	List-Owner; bh=nZR0hmrdqzWxgNb1HjPZBj1GRy0O0yXkTlbBdmYpDl0=; b=uquyuRc6XoTq+e
+	T203m8ZV1hS3LBI2Q+8Xdtd7BI2jvU54EB6JybDs75u8ZPaXS9KWsySkIGJ0sLawKzQyHwHo+/Nix
+	AzSr3QudI2uYZnOpYETEcfuASuy01ev+QY7qb5mtzok+Ayn2RutmHrE1fdGihvko/MErdeWIm1T3F
+	FrJgNRXnNoJG+sDlTc2ZkCUhHVKE/1/LGUz35YGQMI1U5yNKbDI3xMAupAUZlu6C2VX0M+V6fnBQe
+	H5k1AtQypXkpElHWwFIv2ti2ebVNkGkKsh+z7UGFvMtRYSZIXEdY4MTeRYfs6P+DWXLWoQUvlL+ZH
+	N54I5TfHW0aDZlQMZtkA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hgNt1-00087s-JM; Thu, 27 Jun 2019 06:27:59 +0000
-Received: from userp2130.oracle.com ([156.151.31.86])
+	id 1hgOUI-0008JP-C3; Thu, 27 Jun 2019 07:06:30 +0000
+Received: from mail-io1-xd42.google.com ([2607:f8b0:4864:20::d42])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hgNsy-000871-1e; Thu, 27 Jun 2019 06:27:57 +0000
-Received: from pps.filterd (userp2130.oracle.com [127.0.0.1])
- by userp2130.oracle.com (8.16.0.27/8.16.0.27) with SMTP id x5R6NWw1014055;
- Thu, 27 Jun 2019 06:27:43 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com;
- h=date : from : to : cc
- : subject : message-id : references : mime-version : content-type :
- in-reply-to; s=corp-2018-07-02;
- bh=GDKJKNHOZeHmmW0m1iW1ic8ltOoO02ccTD0gSIZf2sE=;
- b=M7YixM67nzGU+6jKyws0QLjh4CEOUFGT+FN6tvurgwz96NK+OPtlc8TIpwNe5coKjDv7
- hcJ2UcGfH2VCEf54yHP40nKq4W038XugHUjP+hE6dBKBe1bTu1snP1fYvBdv9yGuSmEf
- qKwrCqs4ylUZa7HSTOeJth73R9LEV6j3yy3QXyujSFNlDaJ8JvFEG2J+5C6QyOCtvViw
- sPxeGXzCRWNXEdnMAkdljICZDWeuOYiEW9r2lrS3KWWkwj8FjbCsgD+x1lIGY0y8Vl5u
- Y9MocJ9LnLNkLlpQcUnE6QGpb4qOKgSDWhlorMIgKDm/o/em0LfDSJksF0KwfoUMdpA2 WA== 
-Received: from aserp3020.oracle.com (aserp3020.oracle.com [141.146.126.70])
- by userp2130.oracle.com with ESMTP id 2t9brteat4-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Thu, 27 Jun 2019 06:27:43 +0000
-Received: from pps.filterd (aserp3020.oracle.com [127.0.0.1])
- by aserp3020.oracle.com (8.16.0.27/8.16.0.27) with SMTP id x5R6QroX070945;
- Thu, 27 Jun 2019 06:27:42 GMT
-Received: from aserv0122.oracle.com (aserv0122.oracle.com [141.146.126.236])
- by aserp3020.oracle.com with ESMTP id 2t9p6v5843-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
- Thu, 27 Jun 2019 06:27:42 +0000
-Received: from abhmp0009.oracle.com (abhmp0009.oracle.com [141.146.116.15])
- by aserv0122.oracle.com (8.14.4/8.14.4) with ESMTP id x5R6Rccp032271;
- Thu, 27 Jun 2019 06:27:39 GMT
-Received: from kadam (/41.57.98.10) by default (Oracle Beehive Gateway v4.0)
- with ESMTP ; Wed, 26 Jun 2019 23:27:37 -0700
-Date: Thu, 27 Jun 2019 09:27:29 +0300
-From: Dan Carpenter <dan.carpenter@oracle.com>
-To: Stefan Wahren <wahrenst@gmx.net>
-Subject: Re: [PATCH V2] staging: bcm2835-camera: Restore return behavior of
- ctrl_set_bitrate()
-Message-ID: <20190627062729.GB5715@kadam>
-References: <1561564091-14248-1-git-send-email-wahrenst@gmx.net>
+ id 1hgOU9-0008IU-JT; Thu, 27 Jun 2019 07:06:27 +0000
+Received: by mail-io1-xd42.google.com with SMTP id h6so2502556ioh.3;
+ Thu, 27 Jun 2019 00:06:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=LRr+uF1QUQRJ7/F9/T5M30/xxy4B4+/9v+X/o1cToug=;
+ b=RfOIL0lOlaZDUF7NWRsawph/bbFNFqJ+tXE5LxfXJCn8qiRwkS4Ecggkv/T5AZItm/
+ pc1Xiz9po2siM475iIteHwCSDSkDuj0Y9wEv/H/qJ7vEl2plSf/1kyJPftnmBDUEDibH
+ 4eeQzoIFss3yffIwTdSl2EP3GBVEMOdM8C/YdtRxi51oa+iWXzsuCfggtOdUn1dyH+ZT
+ EjqBuc5p+fNOMxKmrLknPGQZVyEbp4NQUSyJGtGj7JF7OtutTtQttCTK6btdLEg1Djd3
+ JyET+4QtL0nZBUIPWQjRJ8wJmrVbHhMJaQ1OogMrVwW8UbOPTHXQz9hmRm2ZzP0f4b6S
+ 0kUA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=LRr+uF1QUQRJ7/F9/T5M30/xxy4B4+/9v+X/o1cToug=;
+ b=B6Z9NLKqYXeHxzO1thi4NqD0Rb46Ho7RAYpZm3kww3+eyLV/0ZKK+/Pb5fv3ldQfe0
+ vMwxEQK6yzmA0jIpgcM8RyW3OlqgVfV6t3biKSuWEHZe2GB/aHvotJ9yCuRO5FKu2nce
+ 94p1Ofr9o3Tr0DGjbhqZX1klAtOc+Lz1IOYCEWY5grFo7KadG4iQ4PCIJTGD1Qpxel0x
+ 5KWBtfwOyGS4Y/kVzgfAZvyOSGMr+IR3Q+C9IDKP5UiyfkEhV38NztpL9dZEfpA6Nfhw
+ 5I3BeKSxnEI6HiMCbj8BqxfbFsZl6GXpTooR/4iIBsntIfzFcQMyufEBjzq5WaawwwB6
+ L3UA==
+X-Gm-Message-State: APjAAAWtDdejym+LNxRBJrkB532Oo6SqO9vH1fBPYUHeG8pb3qry9+nn
+ B41AShjsWF8f3ib9+9pgtHa7QRyB793k3e5pU1s=
+X-Google-Smtp-Source: APXvYqzU4jVA9BLDxzgmTgjUZqDqrJZqJr+0QgODw/agJoAacTv8dQXvqOSFDC5M6zdEAP1pGvH+vzh2jDBhiwJ2bC8=
+X-Received: by 2002:a02:c7c7:: with SMTP id s7mr2803109jao.37.1561619180028;
+ Thu, 27 Jun 2019 00:06:20 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <1561564091-14248-1-git-send-email-wahrenst@gmx.net>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9300
- signatures=668687
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0
- malwarescore=0
- phishscore=0 bulkscore=0 spamscore=0 mlxscore=0 mlxlogscore=999
- adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.0.1-1810050000 definitions=main-1906270072
-X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9300
- signatures=668687
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0
- priorityscore=1501 malwarescore=0
- suspectscore=0 phishscore=0 bulkscore=0 spamscore=0 clxscore=1011
- lowpriorityscore=0 mlxscore=0 impostorscore=0 mlxlogscore=999 adultscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.0.1-1810050000
- definitions=main-1906270073
+References: <1561414395-12518-1-git-send-email-wahrenst@gmx.net>
+ <20190625075558.GY28859@kadam> <27ed9c22-1d36-7c3e-a81b-5fa1e8245d1e@gmx.net>
+ <CAAoAYcNhwoCwRrac7ek+5XfjqJyBUj1jHefidSoLmj_XG7jPHw@mail.gmail.com>
+In-Reply-To: <CAAoAYcNhwoCwRrac7ek+5XfjqJyBUj1jHefidSoLmj_XG7jPHw@mail.gmail.com>
+From: Peter Robinson <pbrobinson@gmail.com>
+Date: Thu, 27 Jun 2019 08:06:08 +0100
+Message-ID: <CALeDE9Pz9m3C5sUUOjgbgzH+cxhSByxj1ebHzoUjDVw6gW07zw@mail.gmail.com>
+Subject: Re: [PATCH] staging: bcm2835-camera: Restore return behavior of
+ ctrl_set_bitrate()
+To: Dave Stevenson <dave.stevenson@raspberrypi.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190626_232756_226772_8D6C82AF 
-X-CRM114-Status: GOOD (  10.26  )
-X-Spam-Score: -2.5 (--)
+X-CRM114-CacheID: sfid-20190627_000621_638739_05C77627 
+X-CRM114-Status: UNSURE (   8.08  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-2.5 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [156.151.31.86 listed in list.dnswl.org]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2607:f8b0:4864:20:0:0:0:d42 listed in]
+ [list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider (pbrobinson[at]gmail.com)
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
@@ -96,9 +83,6 @@ X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  author's domain
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- 0.0 UNPARSEABLE_RELAY      Informational: message has unparseable relay
- lines
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -110,21 +94,27 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: devel@driverdev.osuosl.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+Cc: devel@driverdev.osuosl.org, linux-arm-kernel@lists.infradead.org,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Madhumitha Prabakaran <madhumithabiw@gmail.com>,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+ "moderated list:BROADCOM BCM2835 ARM ARCHITECTURE"
+ <linux-rpi-kernel@lists.infradead.org>,
+ Dan Carpenter <dan.carpenter@oracle.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-Thanks!
+>   Dave
+>
+> PS Is linux-rpi-kernel actually behaving for other people? I didn't
+> see this patch when it was submitted, and it isn't showing in the list
+> archive either.
 
-Acked-by: Dan Carpenter <dan.carpenter@oracle.com>
-
-regards,
-dan carpenter
-
+No, but it never really has for me, it's always been weird in what it
+allows through by default and the admin has to approve a lot of things
+so sometimes you'll get 100s of mails at once when who ever the admin
+is catches up.
 
 _______________________________________________
 linux-rpi-kernel mailing list
