@@ -2,94 +2,60 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id AF80258C8B
-	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 27 Jun 2019 23:11:29 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 01CA7595A7
+	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 28 Jun 2019 10:07:16 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=fiqM6saBPxQxOtYOiqwcl6I/Yxz2TI5r5WbDsmucJK8=; b=bBGgHk48EoivoT3s5fNljx2wLP
-	1B6XCJKKxOXFSdKNUo17cFsx/pbCL62a6Qw4YO3cJUiWo4E9veW5KloQM20aD3OzINhfR3/sQnjD3
-	iYYUabiAyi5Cg5PQnfHTDolqJl7/wam5/vRjwtgo+9i7gmGYJKtaWqou//EK/OMBn8mB9sHTO01rV
-	WaGcjI348oEpgsPvKsupPHXigYDr5ZecrrKFNu/aMCFTC9oVha7UtfQyLnK8ivf/MwooBgDS9kxez
-	+htK+btsWRTOyvQ+mGug8UovP8+X3oFjipF8t8wgKpgbMXOznbHF8kNrWplpPN7oI8Yoygf6Emmwq
-	q0j3KEmg==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=U3RlWNVkJza54k8R5yxWmZxMRoNkPG8y2Q79/NSp43E=; b=jtNBR8vPsHrEZE
+	8ANhAUXtu8kQ/43TDWf/sXN9bIP+C+FJdXBTrXYMo1XpOjYtt2Bwxtnro/nALKyKFKrCFa3PTHbna
+	lzNfUBpUo3IyGaXRXXK0QjSVpw391EWDtvRMFKHdNPXbdyfpsZMTXErSW+JcsoV0Pu1n77UAlDYVs
+	y0F45/aacXX947touf/bxkxJi3rk9Vy3Z2j/m1vdADJoQhr5l/y2P7SY5yJ2UU/eejE+3nbQug6CC
+	5BBCloLKJ+Ld1K/AUbmkElVw47YXr6X9rZjSHLxwOccBvCPbbEhaTW2diPzcq4tbBmjnTmDQTfyeD
+	/14Cv1cUKnK7snJSeyyw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hgbfx-0002MR-7v; Thu, 27 Jun 2019 21:11:25 +0000
-Received: from mout.gmx.net ([212.227.15.15])
+	id 1hgluV-0004ld-KH; Fri, 28 Jun 2019 08:07:07 +0000
+Received: from lb2-smtp-cloud9.xs4all.net ([194.109.24.26])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hgbef-0000J2-7f; Thu, 27 Jun 2019 21:10:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
- s=badeba3b8450; t=1561669792;
- bh=ttpEs1jpLEZYuVPaNhB5NUXKeu5GWnJTmxgKtFVsZ/E=;
- h=X-UI-Sender-Class:From:To:Cc:Subject:Date:In-Reply-To:References;
- b=gMEVQ0kdpgS4z/iWG9q+I1R0jN91fex3/I9NMhsIyLNA4DvAPg18uQHUmWA6lGMOU
- s1MuiUBiTtUHUm0epHAeNhyjQYbIoexjIsPugFdUieD3eF3YEO4RASFj191wx24Emx
- yH9hcc2lChBPMTOASr1FlgTOwrrczltPTsc9S+IA=
-X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
-Received: from localhost.localdomain ([37.4.249.111]) by mail.gmx.com
- (mrgmx004 [212.227.17.190]) with ESMTPSA (Nemesis) id
- 1MzyuS-1iSeG93GZq-00x4FN; Thu, 27 Jun 2019 23:09:51 +0200
-From: Stefan Wahren <wahrenst@gmx.net>
-To: Eric Anholt <eric@anholt.net>,
+ id 1hgluC-0004YK-5w; Fri, 28 Jun 2019 08:06:50 +0000
+Received: from [192.168.2.10] ([46.9.252.75])
+ by smtp-cloud9.xs4all.net with ESMTPA
+ id gltthk77qSfvXgltwhQpwi; Fri, 28 Jun 2019 10:06:40 +0200
+Subject: Re: [PATCH 00/31] staging: bcm2835-camera: Improvements
+To: Stefan Wahren <wahrenst@gmx.net>, Eric Anholt <eric@anholt.net>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Dave Stevenson <dave.stevenson@raspberrypi.org>,
- Hans Verkuil <hverkuil@xs4all.nl>,
  Mauro Carvalho Chehab <mchehab@kernel.org>
-Subject: [PATCH 31/31] staging: bcm2835-camera: Correct ctrl min/max/step/def
- to 64bit
-Date: Thu, 27 Jun 2019 23:09:29 +0200
-Message-Id: <1561669769-2498-5-git-send-email-wahrenst@gmx.net>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1561669769-2498-1-git-send-email-wahrenst@gmx.net>
-References: <1561669769-2498-1-git-send-email-wahrenst@gmx.net>
-X-Provags-ID: V03:K1:r8Us6r3bVX5kevDTW9x6AqdZPb7soLP6SbFXLB/ALq4FGi16Z0q
- BLCqJ4aT6jj1Sc8pIg5fyywuHv53mbTvxkAV2npWu3TUECFUaIV9TKLny43YDpefXb7be9f
- X1wG6PmPL6UmMQWGqyOYwEiiphuxZQY1eIkEmvrgoS7pTp2x/aEZ/yZRKY6EsLz+5swW4Z9
- aq5gQcacPy3aT1BuWwRzg==
-X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:thW8iTalx6U=:uzQ9Jy4TB1gBUkNwErgS5W
- cwJdOoSd4G5duDcnifUJPU2BNYupQQCBlw/PuXukgk+aJBjFtW+4JwbrfX4w24d+NeHt2XcAq
- at/9WbfLsnsPrI1eIy3unyLpGZYCW1qBzO6fC+rj4HchNYCz5V/IzCdV6m50D01KctS/sLOrU
- DLWlmFUKgT7b42kQpv8xhWqUsjIJZgALT3p8an15C1fLUmmxCwTDH8sYzgMWULCCTfxDHyxIb
- 7BhT5sNquvvFFIPNP1tKPTfBsC/0NwmOSl9v/Ng+B3pUxJqY8EzTjBQfEO4D8CqpzGDjUDQcP
- z2oodm5POxmwSt7zrw0DlFT2KXe/1aUAD9Tw/xktmbroPwYy892Vj1zITsggBFh1YZUJAejTX
- 5yOcXSTVJ30iNiqYsIqzgEsBp6FUSg/Us5SGbafzAcE2LAnXVN6/ZDQBd/QR0qNtwlhd6+RmS
- k9mbHjpWlHFlR5NRiL61JY/7Z1Tuh1mYjOkW/RTasYXeB23e/kMIcgu8A/aicjPnYES40R0sa
- PJzie+8QyS3Gk9CVXxKCjDa7AFFhWHEAIM8hdYTPK+9bX9gUQd3B6oLhGsrVDPL/O+kw1XUUA
- Y1aMEGSr4uup9z0WQFG9CF9pvdjE0D+4xqv7zbAIfiFNm84UGk97e2q1P29u7Tbc8yD4zOER9
- ZJWyyF1VwyJxQkzdsFXJ0xuy2vaxPRExlEzIUXZzV8yCSvoYszPzYRgLWOJ0Dm6WGJt0Hky+R
- UmCrKLZhlOhGviqoAQ7yopCmfe3IgXNiQQ84Mi55uwq7YfLr3+XLv78XbgvnL8OMbQbFa5jcG
- btDad1pIjyE9RA13JKAzWkrmrfTUvaZTmEQR7SbZFn0DeiYC514ij7qNXsMnmmkjqc3BR6KUw
- SqyQSvHOf5sxmOe45pXJu5Q3Yo6MUD6NbNN/h6fO2QBVly++S/97pgazpwwQi6w6k8GyvFnwn
- B3KwSrEiWCbaUiGxPS//Aeh6wpTdB44N+3MEddgpGCXuJQGTcTa+/S5/bAi40Y6IaELDIfxJu
- LxqgQkWrZBlNqd9QX+eCJauRUV+VUEPrwlicjZe+wNOSqoIog+qSTrNZM61yn2LZ9vFQwCt9Q
- Oi2ZGXaFIKxYwc=
+References: <1561661788-22744-1-git-send-email-wahrenst@gmx.net>
+From: Hans Verkuil <hverkuil@xs4all.nl>
+Message-ID: <f4492041-2587-eedb-8ae5-ae610e90fde2@xs4all.nl>
+Date: Fri, 28 Jun 2019 10:06:29 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.6.1
+MIME-Version: 1.0
+In-Reply-To: <1561661788-22744-1-git-send-email-wahrenst@gmx.net>
+Content-Language: en-US
+X-CMAE-Envelope: MS4wfH5mWIQQ+78Ft5mokEb9dqgknieKCSU+WaLX+MeaWiZ5p3zjqcmUvQBpisGm3LIy6d4crj85Wc9aM3vkZWInMAGi+qqQ4uW8d3ZIqHCHLGX/KnSPsl9M
+ vAduhvd2ME1dFsHoOmGryN8elr+I0oY5IdYFYmb9o1F4RuQtWM9z95P5jqkeplwDOtgSNMO23vOd4BK4OfsV8Z+D6V0CzES/Og6mI5xg+9j7njQxJ7zMGsaa
+ 6WkeXWbDSG8GPAmmgc7cjVbHpJMQaJ1WI29CzciOMfT8X2rKYrSYz6XMAqr1Vp5XZO+XbPemkoSC7UMlrOPKNcgbo7brPq3xN6giJSx+BDH8OeRgNhAtSPQI
+ 1u86xWxF2EPmMYnFIMdPYJypdPPSV05VUtctFPpEFW6XdV3mn7iDil/dTB9CZTOKBptAkqXpbjJqr//V8bCN2sHbMWyBqMXxRV1cBNsQlVTB1CFWZEccgNRS
+ VFxkIpiet0MUVI7p
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190627_141005_582466_C2F58BB1 
-X-CRM114-Status: GOOD (  12.25  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20190628_010648_385115_96A554FC 
+X-CRM114-Status: GOOD (  16.84  )
+X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [212.227.15.15 listed in list.dnswl.org]
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (wahrenst[at]gmx.net)
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [194.109.24.26 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -103,70 +69,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>,
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
 Cc: devel@driverdev.osuosl.org, linux-rpi-kernel@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-From: Dave Stevenson <dave.stevenson@raspberrypi.org>
+Hi Stefan,
 
-The V4L2 control API was expanded to take 64 bit values in commit
-0ba2aeb6dab (Apr 16 2014), but as this driver wasn't in the mainline
-kernel at that point this was overlooked.
+On 6/27/19 8:55 PM, Stefan Wahren wrote:
+> This is an attempt to help Dave Stevenson to get all the fixes and
+> improvements of the bcm2835-camera driver into mainline.
+> 
+> Mostly i only polished the commit logs for upstream.
+> 
+> The series based on the latest bugfix V2 of staging: bcm2835-camera: Resto=
+> re
+> return behavior of ctrl_set_bitrate().
 
-Update to use 64 bit values. This also fixes a couple of warnings
-in 64 bit builds.
+Thank you for working on this.
 
-Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.org>
----
- drivers/staging/vc04_services/bcm2835-camera/controls.c | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
+Three high-level questions:
 
-diff --git a/drivers/staging/vc04_services/bcm2835-camera/controls.c b/drivers/staging/vc04_services/bcm2835-camera/controls.c
-index 848b14a..89786c2 100644
---- a/drivers/staging/vc04_services/bcm2835-camera/controls.c
-+++ b/drivers/staging/vc04_services/bcm2835-camera/controls.c
-@@ -78,10 +78,10 @@ struct bm2835_mmal_v4l2_ctrl {
- 	/* control minimum value or
- 	 * mask for MMAL_CONTROL_TYPE_STD_MENU
- 	 */
--	s32 min;
--	s32 max; /* maximum value of control */
--	s32 def;  /* default value of control */
--	s32 step; /* step size of the control */
-+	s64 min;
-+	s64 max; /* maximum value of control */
-+	s64 def;  /* default value of control */
-+	u64 step; /* step size of the control */
- 	const s64 *imenu; /* integer menu array */
- 	u32 mmal_id; /* mmal parameter id */
- 	bm2835_mmal_v4l2_ctrl_cb *setter;
-@@ -1250,7 +1250,7 @@ int bm2835_mmal_init_controls(struct bm2835_mmal_dev *dev,
+1) Can you post the output of 'v4l2-compliance -s' using the latest v4l2-compliance
+   from https://git.linuxtv.org/v4l-utils.git ?  I'm interested to see what the
+   status is of this driver w.r.t. the compliance tests.
 
- 		case MMAL_CONTROL_TYPE_STD_MENU:
- 		{
--			int mask = ctrl->min;
-+			u64 mask = ctrl->min;
+2) What is the status of this driver from your point of view? What is needed to
+   get it out of staging?
 
- 			if (ctrl->id == V4L2_CID_SCENE_MODE) {
- 				/* Special handling to work out the mask
-@@ -1260,11 +1260,11 @@ int bm2835_mmal_init_controls(struct bm2835_mmal_dev *dev,
- 				 */
- 				int i;
+3) Out of curiosity: is this driver still valid for RPi4?
 
--				mask = 1 << V4L2_SCENE_MODE_NONE;
-+				mask = BIT(V4L2_SCENE_MODE_NONE);
- 				for (i = 0;
- 				     i < ARRAY_SIZE(scene_configs);
- 				     i++) {
--					mask |= 1 << scene_configs[i].v4l2_scene;
-+					mask |= BIT(scene_configs[i].v4l2_scene);
- 				}
- 				mask = ~mask;
- 			}
---
-2.7.4
+Regards,
+
+	Hans
+
+> 
+> Dave Stevenson (31):
+>   staging: bcm2835-camera: Ensure H264 header bytes get a sensible
+>     timestamp
+>   staging: bcm2835-camera: Check the error for REPEAT_SEQ_HEADER
+>   staging: bcm2835-camera: Replace spinlock protecting context_map with
+>     mutex
+>   staging: bcm2835-camera: Do not bulk receive from service thread
+>   staging: bcm2835-camera: Correctly denote key frames in encoded data
+>   staging: bcm2835-camera: Return early on errors
+>   staging: bcm2835-camera: Remove dead email addresses
+>   staging: bcm2835-camera: Fix comment style violations.
+>   staging: bcm2835-camera: Fix spacing around operators
+>   staging: bcm2835-camera: Reduce length of enum names
+>   staging: bcm2835-camera: Fix multiple line dereference errors
+>   staging: bcm2835-camera: Fix brace style issues.
+>   staging: bcm2835-camera: Fix missing lines between items
+>   staging: bcm2835-camera: Fix open parenthesis alignment
+>   staging: bcm2835-camera: Ensure all buffers are returned on disable
+>   staging: bcm2835-camera: Remove check of the number of buffers
+>     supplied
+>   staging: bcm2835-camera: Handle empty EOS buffers whilst streaming
+>   staging: bcm2835-camera: Set sequence number correctly
+>   staging: bcm2835-camera: Ensure timestamps never go backwards.
+>   staging: bcm2835-camera: Add multiple inclusion protection to headers
+>   staging: bcm2835-camera: Unify header inclusion defines
+>   staging: bcm2835-camera: Fix multiple assignments should be avoided
+>   staging: bcm2835-camera: Fix up mmal-parameters.h
+>   staging: bcm2835-camera: Use enums for max value in controls
+>   staging: bcm2835-camera: Correct V4L2_CID_COLORFX_CBCR behaviour
+>   staging: bcm2835-camera: Remove/amend some obsolete comments
+>   staging: mmal-vchiq: Avoid use of bool in structures
+>   staging: bcm2835-camera: Fix stride on RGB3/BGR3 formats
+>   staging: bcm2835-camera: Add sanity checks for queue_setup/CREATE_BUFS
+>   staging: bcm2835-camera: Set the field value within ach buffer
+>   staging: bcm2835-camera: Correct ctrl min/max/step/def to 64bit
+> 
+>  .../vc04_services/bcm2835-camera/bcm2835-camera.c  | 378 ++++++++++++----=
+> -----
+>  .../vc04_services/bcm2835-camera/bcm2835-camera.h  |  34 +-
+>  .../vc04_services/bcm2835-camera/controls.c        | 184 +++++-----
+>  .../vc04_services/bcm2835-camera/mmal-common.h     |  12 +-
+>  .../vc04_services/bcm2835-camera/mmal-encodings.h  |   9 +-
+>  .../vc04_services/bcm2835-camera/mmal-msg-common.h |   9 +-
+>  .../vc04_services/bcm2835-camera/mmal-msg-format.h | 104 +++---
+>  .../vc04_services/bcm2835-camera/mmal-msg-port.h   | 133 ++++----
+>  .../vc04_services/bcm2835-camera/mmal-msg.h        | 150 ++++----
+>  .../vc04_services/bcm2835-camera/mmal-parameters.h | 286 +++++++++-------
+>  .../vc04_services/bcm2835-camera/mmal-vchiq.c      | 159 +++++----
+>  .../vc04_services/bcm2835-camera/mmal-vchiq.h      |  22 +-
+>  12 files changed, 826 insertions(+), 654 deletions(-)
+> 
+> =2D-
+> 2.7.4
+> 
 
 
 _______________________________________________
