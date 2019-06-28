@@ -2,57 +2,58 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id A84C4598DC
-	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 28 Jun 2019 12:57:07 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 609F759CB8
+	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 28 Jun 2019 15:13:37 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
 	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
 	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mRmchjHj22GlfMr71M9scygc8lHJwgDE/JJaaO4OoCQ=; b=kMQ4VR17pEhNmA
-	sti2QukVmv0iZnWXVxBP+Ic2Sgssew60pBK3QYDMZORXtIyNmv64b9yDCFcky9Ix4hYYioRSWpaF7
-	lUVm6RyZboND8nsAvkq/C+cA+7O+VksLdmkdRMCMLax5nSo/Jsrw4VZCGWlq+v2foiuo4DjFT+KTQ
-	uK7pthbvJ6eLWsnLfatM3TftsZA8YFvAlE5++4v3K153EYjBqnkS/EhwFsdrLFDs7D2+TWZISBlRt
-	L5HKNw1lcy7+sH6844bHb4HRnovqjC41gOoYYR+FUP9bwU3P5tbCNEZqUSU5jUaz3CNRceNwHRY0i
-	meaiObBFXuyfmWIijLBQ==;
+	List-Owner; bh=pIShxwRZUHASFbiiqvopfGy08HxAv3iymoRfC85rPsE=; b=V3mlN176S0cvbG
+	DniEEGMOIWuVcjv4kiOzjvOmuAPv0tHWVjWrjqCiW5Q3hx1ZKPLcy8ujO1xwqQ01AmyzysUSQJEn6
+	63P65Tb0SyUHr9pJnOjlxDDXimt5+TV6zyrybhqtWQKmVydGUktrydSK4AEfFUWsNkSPCsbqzi98x
+	IrcxMeAwj/CbNdNevm0SFWMqC7VCaM8/bBxFNLr9rpf8mAzGkXDUHYmu53RlM3Q0kuElTddvQlu8D
+	rvcB/sd+KWA9FbdQSZWhFg3Z50irq5LOT1G1lj4DK8437sNTL6xDWQ55AE9ZbYTA7xxN94E4tkt+8
+	PcKxuJBVrsdpuwHePUWg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hgoYx-0008Sw-KX; Fri, 28 Jun 2019 10:57:03 +0000
-Received: from lb3-smtp-cloud9.xs4all.net ([194.109.24.30])
+	id 1hgqh1-0007AZ-Ac; Fri, 28 Jun 2019 13:13:31 +0000
+Received: from lb1-smtp-cloud9.xs4all.net ([194.109.24.22])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hgoYg-0008Hg-8W; Fri, 28 Jun 2019 10:56:48 +0000
+ id 1hgqgi-0006yp-Qg; Fri, 28 Jun 2019 13:13:14 +0000
 Received: from [192.168.2.10] ([46.9.252.75])
  by smtp-cloud9.xs4all.net with ESMTPA
- id goYXhlEE4SfvXgoYbhRYAF; Fri, 28 Jun 2019 12:56:41 +0200
+ id gqgahmB0KSfvXgqgdhS3hH; Fri, 28 Jun 2019 15:13:07 +0200
 Subject: Re: [PATCH 00/31] staging: bcm2835-camera: Improvements
-To: Dave Stevenson <dave.stevenson@raspberrypi.org>
+To: Stefan Wahren <wahrenst@gmx.net>, Eric Anholt <eric@anholt.net>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Dave Stevenson <dave.stevenson@raspberrypi.org>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>
 References: <1561661788-22744-1-git-send-email-wahrenst@gmx.net>
- <f4492041-2587-eedb-8ae5-ae610e90fde2@xs4all.nl>
- <CAAoAYcMxqNiHLVB=9PyiU1QmLNkzqBEVabdO35-ZTBB5ijSwxA@mail.gmail.com>
 From: Hans Verkuil <hverkuil@xs4all.nl>
-Message-ID: <29209687-87cd-9743-4a29-ac021be74217@xs4all.nl>
-Date: Fri, 28 Jun 2019 12:56:37 +0200
+Message-ID: <a276361b-a111-aa2e-ce9b-37ad2c1646dc@xs4all.nl>
+Date: Fri, 28 Jun 2019 15:13:03 +0200
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
  Thunderbird/60.6.1
 MIME-Version: 1.0
-In-Reply-To: <CAAoAYcMxqNiHLVB=9PyiU1QmLNkzqBEVabdO35-ZTBB5ijSwxA@mail.gmail.com>
+In-Reply-To: <1561661788-22744-1-git-send-email-wahrenst@gmx.net>
 Content-Language: en-US
-X-CMAE-Envelope: MS4wfIHu1xCo4Abz4Bs/oeB/zxM+s4CDVkaKLMHw0XYOC1fygpcYhsFql5kSqrdm5qpVVkW4qxwUOQ5TmqwfgBA1xlzxQ+6M9+fH1+MnB4MmPBxpfrezvO1j
- kK6ojtjf1sxWzcJop4/X5lRxwWshna24GfNcymk2yYBlZmvWyex4ZgPIpBu7ykeDqxrxtrw/mCwmMH4LVlnTaIB/6rS99L8z9bfPvrECpFNBqvLrpi4qYlPu
- Fmhqx1My3YakbdMg3oo2RFS0Rt6e1bhzmn1pndxm09FDRT9kwxp/JfgFVvvjQq3p6f8I3slLugIh/vjTSC586BaGnfH5Ep3ba/uUwY6nRnsDDarojDwCsP2H
- 1YbvBbOL2wl7Khl+/h7O3emz7zv4oD/nLlsxYebtA0VFfy9HOTB1NCWCRaXAMSqrV/Ok72CKzKmLuhbq3FQfGpVlxgmzt6pJR9e+6LpWS3kdwPEOYhmLcSEv
- LoubcT5dYPwG1QwH
+X-CMAE-Envelope: MS4wfPX0wKdI6YJjmGSGjyolqCwjE4HsrSV3REhpkyUvMFCR4n8JtR3FopzDG9Y912VSq0dqocUiM1X1dMWc4BD0rWXi160fiXbAAdQM/8xoSwg+k2NqBQbd
+ gbmwYyYuP2QVFrMLPDFbpXemgFBds82dLVpV8IXZC0s2cdUwWplyIgkQcUsrY7/QnoRuXcvcQW2qeX9mv4P686/udBCY4t4COT1iB2sbHZpX5FGpRH+XBpal
+ mwqWp5E2OIvTnE1ReXAe9GfKZeH0AG6W+iVsrnMp5crLIpgQlZDmtBHrYHI9BmVv/Ap6ozlNGcrwt3a2I7HXJzXSh39tUz+vDmL3zaGjFfJm7T/KoM1Ov2U2
+ zHHyxHhBIY4EbxG+szAt93uc/Ci3bFwUQb3wPubFbnbesPE4VzxuR+nYjj26odnOuZnobMNrqD6IDlQgpp6pj3nNhKeLR4xIShGog2vt7YXIC+MQTslz2ns1
+ VODv9BhcqN1uAM6V
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190628_035646_458907_B6A8E675 
-X-CRM114-Status: GOOD (  22.59  )
+X-CRM114-CacheID: sfid-20190628_061313_030986_5F8C9AF1 
+X-CRM114-Status: GOOD (  16.50  )
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [194.109.24.30 listed in list.dnswl.org]
+ low trust [194.109.24.22 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
@@ -66,192 +67,91 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: devel@driverdev.osuosl.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- LMML <linux-media@vger.kernel.org>,
- "moderated list:BROADCOM BCM2835 ARM ARCHITECTURE"
- <linux-rpi-kernel@lists.infradead.org>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- linux-arm-kernel@lists.infradead.org
+Cc: devel@driverdev.osuosl.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-On 6/28/19 12:39 PM, Dave Stevenson wrote:
-> Hi Stefan
+On 6/27/19 8:55 PM, Stefan Wahren wrote:
+> This is an attempt to help Dave Stevenson to get all the fixes and
+> improvements of the bcm2835-camera driver into mainline.
 > 
-> Firstly a huge thank you for picking this up - it's been on my to-do
-> list for ages, and just hasn't made it to the top.
+> Mostly i only polished the commit logs for upstream.
 > 
-> On Fri, 28 Jun 2019 at 09:06, Hans Verkuil <hverkuil@xs4all.nl> wrote:
->>
->> Hi Stefan,
->>
->> On 6/27/19 8:55 PM, Stefan Wahren wrote:
->>> This is an attempt to help Dave Stevenson to get all the fixes and
->>> improvements of the bcm2835-camera driver into mainline.
->>>
->>> Mostly i only polished the commit logs for upstream.
->>>
->>> The series based on the latest bugfix V2 of staging: bcm2835-camera: Resto=
->>> re
->>> return behavior of ctrl_set_bitrate().
->>
->> Thank you for working on this.
->>
->> Three high-level questions:
->>
->> 1) Can you post the output of 'v4l2-compliance -s' using the latest v4l2-compliance
->>    from https://git.linuxtv.org/v4l-utils.git ?  I'm interested to see what the
->>    status is of this driver w.r.t. the compliance tests.
+> The series based on the latest bugfix V2 of staging: bcm2835-camera: Resto=
+> re
+> return behavior of ctrl_set_bitrate().
 > 
-> Hi Hans.
-> 
-> Running it against the downstream driver (which should be nearly
-> identical based on this set of patches), 4.19, on a Pi4 I get
-> pi@raspberrypi:~/v4l-utils/utils/v4l2-compliance $ ./v4l2-compliance -s
-> v4l2-compliance SHA: b16f9e945d74aa552abdd6f873821cb77faaf13a, 32 bits
-> 
-> Compliance test for bm2835 mmal device /dev/video0:
-> 
-> Driver Info:
->     Driver name      : bm2835 mmal
->     Card type        : mmal service 16.1
->     Bus info         : platform:bcm2835-v4l2
->     Driver version   : 4.19.56
->     Capabilities     : 0x85200005
->         Video Capture
->         Video Overlay
->         Read/Write
->         Streaming
->         Extended Pix Format
->         Device Capabilities
->     Device Caps      : 0x05200005
->         Video Capture
->         Video Overlay
->         Read/Write
->         Streaming
->         Extended Pix Format
-> 
-> Required ioctls:
->     test VIDIOC_QUERYCAP: OK
-> 
-> Allow for multiple opens:
->     test second /dev/video0 open: OK
->     test VIDIOC_QUERYCAP: OK
->     test VIDIOC_G/S_PRIORITY: OK
->     test for unlimited opens: OK
-> 
-> Debug ioctls:
->     test VIDIOC_DBG_G/S_REGISTER: OK (Not Supported)
->     test VIDIOC_LOG_STATUS: OK
-> 
-> Input ioctls:
->     test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
->     test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
->     test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
->     test VIDIOC_ENUMAUDIO: OK (Not Supported)
->     test VIDIOC_G/S/ENUMINPUT: OK
->     test VIDIOC_G/S_AUDIO: OK (Not Supported)
->     Inputs: 1 Audio Inputs: 0 Tuners: 0
-> 
-> Output ioctls:
->     test VIDIOC_G/S_MODULATOR: OK (Not Supported)
->     test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
->     test VIDIOC_ENUMAUDOUT: OK (Not Supported)
->     test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
->     test VIDIOC_G/S_AUDOUT: OK (Not Supported)
->     Outputs: 0 Audio Outputs: 0 Modulators: 0
-> 
-> Input/Output configuration ioctls:
->     test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
->     test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK (Not Supported)
->     test VIDIOC_DV_TIMINGS_CAP: OK (Not Supported)
->     test VIDIOC_G/S_EDID: OK (Not Supported)
-> 
-> Control ioctls (Input 0):
->     test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK
->     test VIDIOC_QUERYCTRL: OK
->     test VIDIOC_G/S_CTRL: OK
->     test VIDIOC_G/S/TRY_EXT_CTRLS: OK
->     test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK
->     test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
->     Standard Controls: 33 Private Controls: 0
-> 
-> Format ioctls (Input 0):
->     test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK
->     test VIDIOC_G/S_PARM: OK
->     test VIDIOC_G_FBUF: OK
->     test VIDIOC_G_FMT: OK
->     test VIDIOC_TRY_FMT: OK
->     test VIDIOC_S_FMT: OK
->     test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
->     test Cropping: OK (Not Supported)
->     test Composing: OK (Not Supported)
->     test Scaling: OK
-> 
-> Codec ioctls (Input 0):
->     test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
->     test VIDIOC_G_ENC_INDEX: OK (Not Supported)
->     test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
-> 
-> Buffer ioctls (Input 0):
->     test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
->     test VIDIOC_EXPBUF: OK (Not Supported)
->     test Requests: OK (Not Supported)
-> 
-> Test input 0:
-> 
-> Streaming ioctls:
->     test read/write: OK
->     test blocking wait: OK
->             warn: v4l2-test-buffers.cpp(1429): Can free buffers even
-> if still mmap()ed
->     test MMAP (no poll): OK
->             warn: v4l2-test-buffers.cpp(1429): Can free buffers even
-> if still mmap()ed
->     test MMAP (select): OK
->             warn: v4l2-test-buffers.cpp(1429): Can free buffers even
-> if still mmap()ed
->     test MMAP (epoll): OK
->     test USERPTR (no poll): OK
->     test USERPTR (select): OK
->     test DMABUF (no poll): OK (Not Supported)
->     test DMABUF (select): OK (Not Supported)
-> 
-> Total for bm2835 mmal device /dev/video0: 53, Succeeded: 53, Failed:
-> 0, Warnings: 3
-> 
-> The warnings are because downstream we have an early version of
-> "media: vb2: Allow reqbufs(0) with "in use" MMAP buffers" that doesn't
-> set the flag to userspace. I need to revert that and apply the
-> accepted one (it's not a clean cherrypick though).
-> 
-> I do try and run compliance every few months because I'm aware that
-> you frequently add extra tests.
+> Dave Stevenson (31):
+>   staging: bcm2835-camera: Ensure H264 header bytes get a sensible
+>     timestamp
+>   staging: bcm2835-camera: Check the error for REPEAT_SEQ_HEADER
+>   staging: bcm2835-camera: Replace spinlock protecting context_map with
+>     mutex
+>   staging: bcm2835-camera: Do not bulk receive from service thread
+>   staging: bcm2835-camera: Correctly denote key frames in encoded data
+>   staging: bcm2835-camera: Return early on errors
+>   staging: bcm2835-camera: Remove dead email addresses
+>   staging: bcm2835-camera: Fix comment style violations.
+>   staging: bcm2835-camera: Fix spacing around operators
+>   staging: bcm2835-camera: Reduce length of enum names
+>   staging: bcm2835-camera: Fix multiple line dereference errors
+>   staging: bcm2835-camera: Fix brace style issues.
+>   staging: bcm2835-camera: Fix missing lines between items
+>   staging: bcm2835-camera: Fix open parenthesis alignment
+>   staging: bcm2835-camera: Ensure all buffers are returned on disable
+>   staging: bcm2835-camera: Remove check of the number of buffers
+>     supplied
+>   staging: bcm2835-camera: Handle empty EOS buffers whilst streaming
+>   staging: bcm2835-camera: Set sequence number correctly
+>   staging: bcm2835-camera: Ensure timestamps never go backwards.
+>   staging: bcm2835-camera: Add multiple inclusion protection to headers
+>   staging: bcm2835-camera: Unify header inclusion defines
+>   staging: bcm2835-camera: Fix multiple assignments should be avoided
+>   staging: bcm2835-camera: Fix up mmal-parameters.h
+>   staging: bcm2835-camera: Use enums for max value in controls
+>   staging: bcm2835-camera: Correct V4L2_CID_COLORFX_CBCR behaviour
+>   staging: bcm2835-camera: Remove/amend some obsolete comments
+>   staging: mmal-vchiq: Avoid use of bool in structures
+>   staging: bcm2835-camera: Fix stride on RGB3/BGR3 formats
+>   staging: bcm2835-camera: Add sanity checks for queue_setup/CREATE_BUFS
+>   staging: bcm2835-camera: Set the field value within ach buffer
 
-Much appreciated! That's also a great help in getting this into mainline.
-If it passes these test cleanly, then that gives me a lot of confidence
-about the quality of the driver.
+ach -> each
 
->> 2) What is the status of this driver from your point of view? What is needed to
->>    get it out of staging?
+>   staging: bcm2835-camera: Correct ctrl min/max/step/def to 64bit
 > 
-> I think the main issue is the dependency on vchiq. I'm hoping that the
-> V4L2 side of this is now relatively clean, but it probably wants a
-> full review when someone has the time.
-
-A full review of the v4l2 driver? Ping me once we've merged this patch series,
-and I can do a full review of the driver. I'll try to go through this series
-today.
-
+>  .../vc04_services/bcm2835-camera/bcm2835-camera.c  | 378 ++++++++++++----=
+> -----
+>  .../vc04_services/bcm2835-camera/bcm2835-camera.h  |  34 +-
+>  .../vc04_services/bcm2835-camera/controls.c        | 184 +++++-----
+>  .../vc04_services/bcm2835-camera/mmal-common.h     |  12 +-
+>  .../vc04_services/bcm2835-camera/mmal-encodings.h  |   9 +-
+>  .../vc04_services/bcm2835-camera/mmal-msg-common.h |   9 +-
+>  .../vc04_services/bcm2835-camera/mmal-msg-format.h | 104 +++---
+>  .../vc04_services/bcm2835-camera/mmal-msg-port.h   | 133 ++++----
+>  .../vc04_services/bcm2835-camera/mmal-msg.h        | 150 ++++----
+>  .../vc04_services/bcm2835-camera/mmal-parameters.h | 286 +++++++++-------
+>  .../vc04_services/bcm2835-camera/mmal-vchiq.c      | 159 +++++----
+>  .../vc04_services/bcm2835-camera/mmal-vchiq.h      |  22 +-
+>  12 files changed, 826 insertions(+), 654 deletions(-)
 > 
->> 3) Out of curiosity: is this driver still valid for RPi4?
+> =2D-
+> 2.7.4
 > 
-> Yes, it is still valid. The imaging side hasn't changed significantly,
-> it just runs a bit faster.
 
-Nice!
+This series looks good. Others made some comments that should be addressed,
+and the H264 changes should, I think, be dealt with in a separate patch
+series.
+
+I guess this should go in via Greg? When you make a v2 (excluding the H264
+changes, and incorporating Dan's comments), then you can add my:
+
+Acked-by: Hans Verkuil <hverkuil-cisco@xs4all.nl>
+
+Thanks!
 
 	Hans
 
