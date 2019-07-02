@@ -2,95 +2,92 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 02A6A5AA26
-	for <lists+linux-rpi-kernel@lfdr.de>; Sat, 29 Jun 2019 12:28:36 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 874715C968
+	for <lists+linux-rpi-kernel@lfdr.de>; Tue,  2 Jul 2019 08:37:57 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7CmZtX/yT1RhsBKS37Exelx5lseFUV0S62yXQGEhZGo=; b=R4OA4HBtbr5/tR
-	zC2W5xwMkzdRw1XYxDnt1PD+QOScsjmSf88aBEgTkujC20lKkzpoDjCFaDyjUSV4uS9TnF6Kpi8HZ
-	gznfxE4CeDXiIiZoLlhP3tQoYN6Z1fg6YyeYYeamPGkKfbIdUn2wk/iZIq+OodUaEjiRXdWC7M1Qe
-	0VyuqFzitWzuDz8TspEh+alLTzLfju5Movo16WILQJ+oUqK0oaYq8+N1cb+t0hlNAdlfk6r03YaJJ
-	/lbxMAxlgqgMs30jCX9LJohTJKkLodJSmEJiIXP56YwAsca/s5JQ7+Da9qgYRCtq2GRAaXRUuZqP8
-	sr0xY1ipKwpzwbZK1ekg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-ID:Subject:
+	From:To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=P7Xy2Nr+bdkJ1XYSYBIVdwrmnJLUDJtIs66WzmfhA4U=; b=k5kY9LkQgbul8O
+	nrYkKYQGwc26elhQ5IlXEDcEjYasHcSI7OOvKWsahG6d3/bNK47KYkRWwC2ODCssV+1xiZQuXRz1d
+	0hrEZIz6x0iLVCqOuKOyGG9o9tIffWg+nAyhKFuN/f45hfN+d1kQ3Zbc1heVotssSogkps4iB8Dwi
+	DpwragmoPS4eaCobsQpN2OP4gHyg4pwB5NQZY3pqMUEN8Df9W54yhJ8cVSVAGJP+mURERo9T8p5dr
+	5jt6KnaDDCE5YoXj6FeG6pVW4yWshRUK24fTtnV0WOHanvsw3ZKhyikOuoVv65h11FDixZZ+b53w9
+	buQkJMFFsO4NiHJQ8U2g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hhAam-0007OJ-Ik; Sat, 29 Jun 2019 10:28:24 +0000
-Received: from mout.gmx.net ([212.227.15.19])
+	id 1hiCQC-0001JP-IS; Tue, 02 Jul 2019 06:37:44 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hhAaS-0007C3-7K; Sat, 29 Jun 2019 10:28:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
- s=badeba3b8450; t=1561804068;
- bh=oj3lEsqwlc9HMeW13jPftORYX0fnnx2+Twl0l4AuHFg=;
- h=X-UI-Sender-Class:Subject:To:Cc:References:From:Date:In-Reply-To;
- b=k37CiEiIHlkwg16x0k1F2sU04Pyc1H3qvzTUnNl7VyWNF9VpunMr0FJXWk4O332Bl
- CZzX22P8lodyJjI70cSPCiPsRrh5HIjnls1EoNVCmNoSdc+fG7FaWizYedzlYz9aAM
- D2gKjBKjKj8uIZKmsjfYtDAaMUx59+UV4OohJ4Mw=
-X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
-Received: from [192.168.1.162] ([37.4.249.111]) by mail.gmx.com (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1Mj8qd-1iAhyj2EQX-00f7nI; Sat, 29
- Jun 2019 12:27:48 +0200
-Subject: Re: [PATCH 00/31] staging: bcm2835-camera: Improvements
-To: Dave Stevenson <dave.stevenson@raspberrypi.org>
-References: <1561661788-22744-1-git-send-email-wahrenst@gmx.net>
- <f4492041-2587-eedb-8ae5-ae610e90fde2@xs4all.nl>
- <24265b85-a12a-7a46-91d1-f20f5a133f8b@gmx.net>
- <CAAoAYcM6-xBEZfzpxchwh5z21HbFbu57a=7PZNoLB5J2vef7QA@mail.gmail.com>
-From: Stefan Wahren <wahrenst@gmx.net>
-Message-ID: <3be8db2a-6960-b31f-3b3b-78b45733fe01@gmx.net>
-Date: Sat, 29 Jun 2019 12:27:46 +0200
+ id 1hiCQ4-0001Ie-St; Tue, 02 Jul 2019 06:37:42 +0000
+Received: by mail-pf1-x431.google.com with SMTP id y15so7757548pfn.5;
+ Mon, 01 Jul 2019 23:37:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=to:cc:from:subject:message-id:date:user-agent:mime-version
+ :content-language:content-transfer-encoding;
+ bh=ZhvKZPBHtqlWYn5aQ+LHumK996S+XHbvPSVeWsaVn+Q=;
+ b=d+uuMuAVs0xdXgQBW0Ib5RbKb2idX1BA+YdEAA6m21/+x6g59r0ikdCAKdl66g46i9
+ 4YxijYOFF+jdPv2VzrHyxnWrSlmOybtYgEncUTDIuTkQ7WPFjdOI9v6L5mPsUcqYSg9F
+ VzGl2t07CQSj1caH4WFL7KsFjFmr72eLdWQQF1HcuzPiQ+5fmTfJmdBOq4khC0vq9IKE
+ rygM+XCNw/pC4pmNrP6r/QX6BvuC0HAIFMySrLAS43FFe8Z2Dj6gsHOPMpeNj9t6nF+8
+ iiZSQd4ehI3+aqU5GH7AxzzEIJV3QL0dxu3TKOaF2Druv9dSUmkcLO8NeG4/1kdcPm3i
+ ThVQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:to:cc:from:subject:message-id:date:user-agent
+ :mime-version:content-language:content-transfer-encoding;
+ bh=ZhvKZPBHtqlWYn5aQ+LHumK996S+XHbvPSVeWsaVn+Q=;
+ b=J4Zc+f55o0zQ+7YR7Ul11PvotUph2vezjk+i0W255V/BVzdxHTpOiyTiyJ8y0uIAZj
+ n6HE7qyKTqA6WveIMRRXgopNXJucm3dNSOcbclVUO9OATtguU91mglrJB4XJFIPd/osx
+ rWKJ9Tf0xxJfYjE9sjX5IcPLAjOccoriiooqGdrQpAQaOC6vgQgprrOGe0viDMhZGQBS
+ EKW23dSoLJZpt6ZQ1i6qAHdm9hF3O+b1uOAxQYqU0eha7eC2HPsZPKzBkGXoUG1ioIjh
+ Jm4kDOni5MUuvZlhA1XnBuF+xlgfJcGlEtU1X9Tspt5UmhHRCHyta8ALYvSGHgf8InDT
+ pfZA==
+X-Gm-Message-State: APjAAAUsRalL3aZKpCpdX+wmys6Z8sqoFvyu3+dUcaJf8pvKNPXtDyR9
+ 0J5thpyZr/qaHSwFvN7WvCE=
+X-Google-Smtp-Source: APXvYqyBNH7kgsggP7hgvoNIjLAazXPBrAU3O7/+xZOUiiwKVm7RrMKFq8ppt8SOdiDLBRImLjWPoA==
+X-Received: by 2002:a63:c14c:: with SMTP id p12mr29124787pgi.138.1562049455708; 
+ Mon, 01 Jul 2019 23:37:35 -0700 (PDT)
+Received: from ?IPv6:2601:641:c100:83a0:50b6:82f3:beba:8d5e?
+ ([2601:641:c100:83a0:50b6:82f3:beba:8d5e])
+ by smtp.gmail.com with ESMTPSA id i36sm12697781pgl.70.2019.07.01.23.37.34
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+ Mon, 01 Jul 2019 23:37:35 -0700 (PDT)
+X-Mozilla-News-Host: news://gmane.comp.lib.uclibc.buildroot:119
+To: "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>
+From: Tinchu <tinchu.nitrpr@gmail.com>
+Subject: ARM setting up secure mode vector table
+Message-ID: <4fb7db36-bce6-ea42-7dd8-91d71857697c@gmail.com>
+Date: Mon, 1 Jul 2019 23:37:34 -0700
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
  Thunderbird/60.7.1
 MIME-Version: 1.0
-In-Reply-To: <CAAoAYcM6-xBEZfzpxchwh5z21HbFbu57a=7PZNoLB5J2vef7QA@mail.gmail.com>
 Content-Language: en-US
-X-Provags-ID: V03:K1:tdZvR7djPZcMZsZiH/C0lwP5pmG3QD72btjtp68x/Mn05o6Lxkr
- PV09oeH3/aNorWGsaQS/jmu72Fb8p2eX+FVR0gz/L0RQ2cN3xk9rE6cADdT+hVCeFQEhPt3
- FDKqljmC4cPUeL0b9JOGHH9OFG1eHjEh+FqjqBzkbRKBnxqncVLDzkDUs/7sG3754oo+hJn
- oB0IHloM/YrIK6VsF/0uw==
-X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:PbD8h4eg1NM=:LibZowrsleCCevBF3eSeT7
- fbw1yjpxCxyTw5NefTa3oJBwCBxwj+xhm1b0B5vK0iY95xdY016j6lxgD1xl+7EsZl5CVss3Q
- GGAY/x6qJwQwarmexLcszUBZaSNhhRBPob2s+taDzfov9OKAFokOdepuem7BjIF5vwzUXIxBq
- 6QUzy5Qke7+Da3W1NYKmoidxmjzZZrc26HWbeY8n3RLx0CZdzONQCofUCO/ABE/rpGkHQuh7W
- r3tnLTZopwwis981n9wA0ypzicLM4+xdK/jt0QW+a0vCSJCgq/3MNkAAOxzvd/4bm3pGmz/Dk
- E/Ie1rMH5hEvg/dbKwvk5Bzmb3vG6JxY6wwt0e3D2evA5vXNYHkGoIe7OIMIzJO+OuZsC0DZH
- rgz/r+r+PSde7pqI+SebKGeQKRJb5n9HDrFAbvIk2y1ZxAqi39hBZ2vaqDUAVy/XPq2lfGoeI
- pVUK9KkLCdg+Y7Z6VTv9EkIF6u6vyQxZoOKVdxszfg+l29fUMAfmQnKej85dEgnptHUkaPUQy
- NkJjF1PA65jOw1fyXELtTtWHf/xxmYREXMXRqfDJV8VZOk8toB1/3Gur3TdY+Iyh18/srY5HT
- bvQtl+z9AMX7PAcFLHkJs0h80qls5JzlkYUkyzYOtPOWKGZN62KUMlOV5Lq6rV3U0KROK9NAz
- fDfBxsBHMus0Rm3pKE7ez98cPxEPIc5w5Dmye8ZBzJszG4cdMbJJcOi17vTN64VdlxBSCzkS0
- U8clGuwRU58x14H6T7FgHWTmgjTnkfs0Ck2KOAwgFa992DDIPxDYdlO3sIPEyzRnpBUfNBobS
- ECchz4k1URDmIKrXcRRqwwnuwoNS3kNl2CVpAHSyitXweOVsJyDAcW+xtDE030Gsc6Ox9z7Zg
- XgNX9n40FWJKdOun0ZqPPIhun0CfrPRc33VPFhaf+3Nou7fDKUig5b2o0INBP0o842hhvnN36
- YVntu1fd3fCVq9poZJU6RuR/Z9M7HyHNB6Hbsblkfhi4Cv+HbuqQHDhEykPQH3NRs2RV+lZPG
- /ZeRY27JjYv+zIDe8aTxTv9VV7MpIWMAW54ep+V/ktB5cgR3jZ85iY2C0e2QPdbrzsGJmgtlM
- 1KGhogxMLUMfW4=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190629_032804_559585_BB7207DA 
-X-CRM114-Status: UNSURE (   8.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20190701_233736_932017_3BDB52CE 
+X-CRM114-Status: GOOD (  13.27  )
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [212.227.15.19 listed in list.dnswl.org]
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ no trust [2607:f8b0:4864:20:0:0:0:431 listed in]
+ [list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (wahrenst[at]gmx.net)
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
+ provider (tinchu.nitrpr[at]gmail.com)
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -102,31 +99,115 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: devel@driverdev.osuosl.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Hans Verkuil <hverkuil@xs4all.nl>,
- "moderated list:BROADCOM BCM2835 ARM ARCHITECTURE"
- <linux-rpi-kernel@lists.infradead.org>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- linux-arm-kernel@lists.infradead.org, LMML <linux-media@vger.kernel.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Marc Zyngier <marc.zyngier@arm.com>,
+ Russell King <rmk+kernel@armlinux.org.uk>,
+ linux-rpi-kernel@lists.infradead.org, lkml <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-SGkgRGF2ZSwKCkFtIDI4LjA2LjE5IHVtIDE5OjI5IHNjaHJpZWIgRGF2ZSBTdGV2ZW5zb246Cj4g
-SGkgU3RlZmFuCj4KPiBDb3VsZCB5b3UgdHJ5IHJ1bm5pbmcKPiB2NGwyLWN0bCAtdiB3aWR0aD02
-NDAsaGVpZ2h0PTQ4MCxwaXhlbGZvcm1hdD1ZVTEyCj4gYmVmb3JlIHJ1bm5pbmcgdjRsMi1jb21w
-bGlhbmNlPyBUaGUgZGVmYXVsdCBmb3JtYXQgaXMgSlBFRywgYW5kIEkganVzdAo+IHdvbmRlciBp
-ZiB0aGVyZSBpcyBhbiBpc3N1ZSBsdXJraW5nIGluIHRoZSBjb21wcmVzc2lvbiBzaWRlLgoKeWVz
-LCB0aGlzIGlzIG11Y2ggYmV0dGVyOgoKU3RyZWFtaW5nIGlvY3RsczoKwqDCoMKgIHRlc3QgcmVh
-ZC93cml0ZTogT0sKwqDCoMKgIHRlc3QgYmxvY2tpbmcgd2FpdDogT0sKwqDCoMKgIHRlc3QgTU1B
-UCAobm8gcG9sbCk6IE9LCsKgwqDCoCB0ZXN0IE1NQVAgKHNlbGVjdCk6IE9LCsKgwqDCoCB0ZXN0
-IE1NQVAgKGVwb2xsKTogT0sKwqDCoMKgIHRlc3QgVVNFUlBUUiAobm8gcG9sbCk6IE9LCsKgwqDC
-oCB0ZXN0IFVTRVJQVFIgKHNlbGVjdCk6IE9LCsKgwqDCoCB0ZXN0IERNQUJVRiAobm8gcG9sbCk6
-IE9LIChOb3QgU3VwcG9ydGVkKQrCoMKgwqAgdGVzdCBETUFCVUYgKHNlbGVjdCk6IE9LIChOb3Qg
-U3VwcG9ydGVkKQoKVG90YWwgZm9yIGJtMjgzNSBtbWFsIGRldmljZSAvZGV2L3ZpZGVvMDogNTMs
-IFN1Y2NlZWRlZDogNTMsIEZhaWxlZDogMCwKV2FybmluZ3M6IDAKCj4gSSdsbCBnZXQgYSBQaTMg
-bWFpbmxpbmUgYnVpbGQgZ29pbmcgd2hlbiBJIGdldCBhIGNoYW5jZS4KPgoKX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcnBpLWtlcm5lbCBtYWls
-aW5nIGxpc3QKbGludXgtcnBpLWtlcm5lbEBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
-cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcnBpLWtlcm5lbAo=
+Hi,
+
+Apologies in advance for extra CC list.
+
+I'm trying to hack linux kernel (v4.14 LTS) for Raspberry PI 3 (ARM32 build), to
+enable early boot code switch to secure mode using SMC #0 instruction and return
+(and later tinker with some secure mode registers).
+
+While this may generally not be possible, it seems it just might for this platform
+(i can do this on a baremetal library, but not kernel proper. Apparently the
+current BCM firmware sets up secure, non secure  and monitor vector base addresses
+to 0x00000000 before calling into zImage and all mem is writable for non secure
+mode. See the gory details in ultibo pascal library code comments [1]. The trick
+is to copy a vector table with SMC vector to address 0. I'm suspecting this not
+working for linux as having to write the code in true position independent way.
+
+Here's a rough hack to arch/arm/kernel/hyp-stub.S
+I'm simply hacking in a vector entry into existing hyp vector table and then
+copying it over to 0 (I've tried using a completely different table, which fails
+in same way).
+
++	.macro sec_vec_install_run
++
++		mrc p15, #0, r4, c12, c0, #0
++		ldr r5, .LSecureVectorTable
++
++		/* 8 bytes of vector */
++		ldmia r5!, {r6-r7}
++		stmia r4!, {r6-r7}
++
++		ldmia r5!, {r6-r7}
++		stmia r4!, {r6-r7}
++
++		ldmia r5!, {r6-r7}
++		stmia r4!, {r6-r7}
++
++		ldmia r5!, {r6-r7}
++		stmia r4!, {r6-r7}
++
++		/* 1 word for secondary table */
++		ldmia r5!, {r6-r7}
++		stmia r4!, {r6-r7}
++
++		/*Clean Data Cache MVA */
++		mov r5, #0
++		mcr p15, #0, r5, cr7, cr10, #1
++
++		dsb
++
++		//Invalidate Instruction Cache
++		mov r5, #0
++		mcr p15, #0, r5, cr7, cr5, #0
++
++		//Flush Branch Target Cache
++		mov r5, #0
++		mcr p15, #0, r5, cr7, cr5, #6
++
++		dsb
++		isb
++
++		.arch_extension sec
++		smc #0
++
++	.endm
+
+
+ENTRY(__hyp_stub_install_secondary)
+
++	sec_vec_install_run
+...
+
++smc_hdlr:
++	/* do stuff later */
++	ret	lr
++ENDPROC(smc_hdlr)
+
+.align 5
+ENTRY(__hyp_stub_vectors)
+__hyp_stub_reset:	W(b)	.
+__hyp_stub_und:		W(b)	.
++ __hyp_stub_svc:	ldr pc, .Lhdlr2
+- __hyp_stub_svc:	W(b)	.
+
+...
+
++.Lhdlr2:
++	.word smc_hdlr
++.LSecureVectorTable:
++	.long  __hyp_stub_vectors
+
+
+Can someone please tell me what part of code is wrong. Pretty much similar code
+works in baremetal setup.
+
+TIA
+
+[1] https://github.com/ultibohub/Core/blob/master/source/rtl/ultibo/core/bootrpi2.pas
+
+
+
+_______________________________________________
+linux-rpi-kernel mailing list
+linux-rpi-kernel@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
