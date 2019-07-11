@@ -2,92 +2,111 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 874715C968
-	for <lists+linux-rpi-kernel@lfdr.de>; Tue,  2 Jul 2019 08:37:57 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 7C5F56580E
+	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 11 Jul 2019 15:45:57 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-ID:Subject:
-	From:To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=P7Xy2Nr+bdkJ1XYSYBIVdwrmnJLUDJtIs66WzmfhA4U=; b=k5kY9LkQgbul8O
-	nrYkKYQGwc26elhQ5IlXEDcEjYasHcSI7OOvKWsahG6d3/bNK47KYkRWwC2ODCssV+1xiZQuXRz1d
-	0hrEZIz6x0iLVCqOuKOyGG9o9tIffWg+nAyhKFuN/f45hfN+d1kQ3Zbc1heVotssSogkps4iB8Dwi
-	DpwragmoPS4eaCobsQpN2OP4gHyg4pwB5NQZY3pqMUEN8Df9W54yhJ8cVSVAGJP+mURERo9T8p5dr
-	5jt6KnaDDCE5YoXj6FeG6pVW4yWshRUK24fTtnV0WOHanvsw3ZKhyikOuoVv65h11FDixZZ+b53w9
-	buQkJMFFsO4NiHJQ8U2g==;
+	List-Owner; bh=xnFZLQNPbFTjWVW6prRRYgPneeDIcmGWviPw9Rf2vaM=; b=ag2QpSJgCPVHrf
+	C3XaZCtg91SmYh7MNLdqZXxm0TvLBYNY/icpxrehzSRc7rQPcv4gjoE/OHBeA1/VKgmMtI+stQg0b
+	Bn1IphItw34rf12gV7wNOaXt916GOVH0qtTpBNInXfrdBB6d4D/Pt0fjq5G5XvCPztlUv2kL0JXp2
+	WCpm0f3rjXHXNLRSuDcsOiYG7Rm0qqxHcQznSoQ5I2qCcLDXaYgzdi56LzfzDr0Zr1JW1awCC2zvv
+	jYkqptSyDTXbv1czORuDg96YOjVUYXz4ufVrL78+urZEHeBzbp9BhoKr8qarBmztakpAwQKtM9G69
+	X7WKk95gOxo8uDR23Tiw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hiCQC-0001JP-IS; Tue, 02 Jul 2019 06:37:44 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1hlZOQ-0001e1-8m; Thu, 11 Jul 2019 13:45:50 +0000
+Received: from mx08-00252a01.pphosted.com ([91.207.212.211])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hiCQ4-0001Ie-St; Tue, 02 Jul 2019 06:37:42 +0000
-Received: by mail-pf1-x431.google.com with SMTP id y15so7757548pfn.5;
- Mon, 01 Jul 2019 23:37:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=to:cc:from:subject:message-id:date:user-agent:mime-version
- :content-language:content-transfer-encoding;
- bh=ZhvKZPBHtqlWYn5aQ+LHumK996S+XHbvPSVeWsaVn+Q=;
- b=d+uuMuAVs0xdXgQBW0Ib5RbKb2idX1BA+YdEAA6m21/+x6g59r0ikdCAKdl66g46i9
- 4YxijYOFF+jdPv2VzrHyxnWrSlmOybtYgEncUTDIuTkQ7WPFjdOI9v6L5mPsUcqYSg9F
- VzGl2t07CQSj1caH4WFL7KsFjFmr72eLdWQQF1HcuzPiQ+5fmTfJmdBOq4khC0vq9IKE
- rygM+XCNw/pC4pmNrP6r/QX6BvuC0HAIFMySrLAS43FFe8Z2Dj6gsHOPMpeNj9t6nF+8
- iiZSQd4ehI3+aqU5GH7AxzzEIJV3QL0dxu3TKOaF2Druv9dSUmkcLO8NeG4/1kdcPm3i
- ThVQ==
+ id 1hlZOJ-0001cW-BU
+ for linux-rpi-kernel@lists.infradead.org; Thu, 11 Jul 2019 13:45:47 +0000
+Received: from pps.filterd (m0102629.ppops.net [127.0.0.1])
+ by mx08-00252a01.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id
+ x6BDhoHq012918
+ for <linux-rpi-kernel@lists.infradead.org>; Thu, 11 Jul 2019 14:45:41 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=raspberrypi.org;
+ h=from : to : cc : subject : date : message-id; s=pp;
+ bh=HAfyE5vq9jpBhAxZyoPTsOZYx8qRQEzm7LzCZOVxA98=;
+ b=v+McrwDzvUBlxfhM4JXCv751WY6xwI82KPoF4l4JQXxcyP0XiO8nxnkW45TCU1xUEwDo
+ PYaL/LwxjrpcVxCGv2OVgPGGgOaFLEFE2kwMuPtfUh9iSrPkDoS87DDFVWROcnN19S8R
+ SXXFd6Rqq2HXNZzF4etWTE0mmzV75Zv53QCirw93yWb5cxY1DlCyY/js4EC8ClhO3mws
+ UFWm6cahYUvS/24aRadFklsHu+Hw+1/LUSaiEmUjx5Lk8jm55fjnBA2l4jLJqGtJZMkO
+ UV/fblJkvbb+gjuEJXnSJKy+W3p7Kmvs6rUOlXCPJ8LD/0vKIrfliA1gRsfcEUpTUcAm pw== 
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71])
+ by mx08-00252a01.pphosted.com with ESMTP id 2tmd5x1cm1-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=OK)
+ for <linux-rpi-kernel@lists.infradead.org>; Thu, 11 Jul 2019 14:45:41 +0100
+Received: by mail-wm1-f71.google.com with SMTP id u17so1648215wmd.6
+ for <linux-rpi-kernel@lists.infradead.org>;
+ Thu, 11 Jul 2019 06:45:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=raspberrypi.org; s=google;
+ h=from:to:cc:subject:date:message-id;
+ bh=HAfyE5vq9jpBhAxZyoPTsOZYx8qRQEzm7LzCZOVxA98=;
+ b=WTWXNyOkcpQK+c9/4XM99fDdN6Xw6N4Pf4s3OftsAduPOlc7F4gWSMlWvzRk527WP7
+ NSzT5Ww/VHnysyjVyRMBJT9VqXCV0ziwFbz2xLEVPlYNJBaAj8jLfxD1blF2EQPRgCeV
+ yW8kpQ/RE5tDpERwMj4w7dXEC9j8k+Aut4G4WMnbuEqgEw0ihaSviX1lgmb0+4HY/3o6
+ OexeSwByhl4XKeetzY62qnHMl+qjk1ActnOV3Tj4SDd8EEYHGeGckPJYLLMZyEcxLr7u
+ c9SyN9EyDxUhAUl6w21l8g57pn/AnBlgbDO+JZk8Neus2fA7Wk567DHBmFs0/pb8EbQu
+ Z5hg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:to:cc:from:subject:message-id:date:user-agent
- :mime-version:content-language:content-transfer-encoding;
- bh=ZhvKZPBHtqlWYn5aQ+LHumK996S+XHbvPSVeWsaVn+Q=;
- b=J4Zc+f55o0zQ+7YR7Ul11PvotUph2vezjk+i0W255V/BVzdxHTpOiyTiyJ8y0uIAZj
- n6HE7qyKTqA6WveIMRRXgopNXJucm3dNSOcbclVUO9OATtguU91mglrJB4XJFIPd/osx
- rWKJ9Tf0xxJfYjE9sjX5IcPLAjOccoriiooqGdrQpAQaOC6vgQgprrOGe0viDMhZGQBS
- EKW23dSoLJZpt6ZQ1i6qAHdm9hF3O+b1uOAxQYqU0eha7eC2HPsZPKzBkGXoUG1ioIjh
- Jm4kDOni5MUuvZlhA1XnBuF+xlgfJcGlEtU1X9Tspt5UmhHRCHyta8ALYvSGHgf8InDT
- pfZA==
-X-Gm-Message-State: APjAAAUsRalL3aZKpCpdX+wmys6Z8sqoFvyu3+dUcaJf8pvKNPXtDyR9
- 0J5thpyZr/qaHSwFvN7WvCE=
-X-Google-Smtp-Source: APXvYqyBNH7kgsggP7hgvoNIjLAazXPBrAU3O7/+xZOUiiwKVm7RrMKFq8ppt8SOdiDLBRImLjWPoA==
-X-Received: by 2002:a63:c14c:: with SMTP id p12mr29124787pgi.138.1562049455708; 
- Mon, 01 Jul 2019 23:37:35 -0700 (PDT)
-Received: from ?IPv6:2601:641:c100:83a0:50b6:82f3:beba:8d5e?
- ([2601:641:c100:83a0:50b6:82f3:beba:8d5e])
- by smtp.gmail.com with ESMTPSA id i36sm12697781pgl.70.2019.07.01.23.37.34
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Mon, 01 Jul 2019 23:37:35 -0700 (PDT)
-X-Mozilla-News-Host: news://gmane.comp.lib.uclibc.buildroot:119
-To: "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>
-From: Tinchu <tinchu.nitrpr@gmail.com>
-Subject: ARM setting up secure mode vector table
-Message-ID: <4fb7db36-bce6-ea42-7dd8-91d71857697c@gmail.com>
-Date: Mon, 1 Jul 2019 23:37:34 -0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.7.1
-MIME-Version: 1.0
-Content-Language: en-US
+ h=x-gm-message-state:from:to:cc:subject:date:message-id;
+ bh=HAfyE5vq9jpBhAxZyoPTsOZYx8qRQEzm7LzCZOVxA98=;
+ b=kDfTqz4OxsQGdga4/AXhwVcOBAwUKfxQm/T9XXbpkenwWrnOdeAtrtKEAHQ0oFaGlN
+ syMCcZwsl/1csVXIpG+QbsqRbPHcVtSLQoEf4CfWP7GOVxRGoBA9jXzMuGCYEbXPfY+J
+ NGlPlT8xhboshrxAh7mQ3zDQg6Tt3oupJCR+t+pKYiYIrFcO+4ZfjO9egMaMf6UVTRr1
+ eaIFGgP3FhHbQ7SrhUbFwNn7Un4q0zVZunKfXzAq528HAgSIBEXGcmcSjy5+E0CWhiEH
+ vCk2g7797Xz33oFud4G5pAr9VwU1cP5liCEUskXUtRaf/Q5MBzCE5yPF6PwJNtsbifWf
+ XJ6g==
+X-Gm-Message-State: APjAAAWRhIDSB9tQeyf7FnFFE5WtJ/hlqOwN1d5OhvTuOMMNjvptX0OV
+ 30YAlgJYmOjsijybAMhoQRCukLnuaRdOJYtzN7nOO7zr2lP5o8HHgrEbqQgztcsWrJpw7EnLhr9
+ v7DVK6dj4wv1f7jUPwnlFjhZzOWOIO2o3P3k=
+X-Received: by 2002:adf:fe09:: with SMTP id n9mr5641587wrr.41.1562852740558;
+ Thu, 11 Jul 2019 06:45:40 -0700 (PDT)
+X-Google-Smtp-Source: APXvYqypIrsedHEAbDW3NOuK+HEUYtQnaDEhNZw5HmIZ2Hrqn0o0Rd63sxvab+STDyw06/PvdsoJ7g==
+X-Received: by 2002:adf:fe09:: with SMTP id n9mr5641568wrr.41.1562852740312;
+ Thu, 11 Jul 2019 06:45:40 -0700 (PDT)
+Received: from localhost.localdomain ([2a00:1098:3142:14:4d96:5e54:efaf:af7d])
+ by smtp.gmail.com with ESMTPSA id
+ z1sm6431022wrp.51.2019.07.11.06.45.38
+ (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+ Thu, 11 Jul 2019 06:45:39 -0700 (PDT)
+From: Phil Elwell <phil@raspberrypi.org>
+To: Russell King <linux@arm.linux.org.uk>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Dave Martin <Dave.Martin@arm.com>, Jiri Slaby <jslaby@suse.com>,
+ linux-serial@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: [PATCH] tty: amba-pl011: Make TX optimisation conditional
+Date: Thu, 11 Jul 2019 14:45:32 +0100
+Message-Id: <1562852732-123411-1-git-send-email-phil@raspberrypi.org>
+X-Mailer: git-send-email 2.7.4
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:5.22.84,1.0.8
+ definitions=2019-07-11_02:2019-07-11,2019-07-11 signatures=0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190701_233736_932017_3BDB52CE 
-X-CRM114-Status: GOOD (  13.27  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20190711_064544_656190_1FCAD9A0 
+X-CRM114-Status: GOOD (  20.80  )
+X-Spam-Score: -0.9 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (-0.9 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:431 listed in]
- [list.dnswl.org]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [91.207.212.211 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (tinchu.nitrpr[at]gmail.com)
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -99,112 +118,96 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Marc Zyngier <marc.zyngier@arm.com>,
- Russell King <rmk+kernel@armlinux.org.uk>,
- linux-rpi-kernel@lists.infradead.org, lkml <linux-kernel@vger.kernel.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-Hi,
+pl011_tx_chars takes a "from_irq" parameter to reduce the number of
+register accesses. When from_irq is true the function assumes that the
+FIFO is half empty and writes up to half a FIFO's worth of bytes
+without polling the FIFO status register, the reasoning being that
+the function is being called as a result of the TX interrupt being
+raised. This logic would work were it not for the fact that
+pl011_rx_chars, called from pl011_int before pl011_tx_chars, releases
+the spinlock before calling tty_flip_buffer_push.
 
-Apologies in advance for extra CC list.
+A user thread writing to the UART claims the spinlock and ultimately
+calls pl011_tx_chars with from_irq set to false. This reverts to the
+older logic that polls the FIFO status register before sending every
+byte. If this happen on an SMP system during the section of the IRQ
+handler where the spinlock has been released, then by the time the TX
+interrupt handler is called, the FIFO may already be full, and any
+further writes are likely to be lost.
 
-I'm trying to hack linux kernel (v4.14 LTS) for Raspberry PI 3 (ARM32 build), to
-enable early boot code switch to secure mode using SMC #0 instruction and return
-(and later tinker with some secure mode registers).
+The fix involves adding a per-port flag that is true iff running from
+within the interrupt handler and the spinlock has not yet been released.
+This flag is then used as the value for the from_irq parameter of
+pl011_tx_chars, causing polling to be used in the unsafe case.
 
-While this may generally not be possible, it seems it just might for this platform
-(i can do this on a baremetal library, but not kernel proper. Apparently the
-current BCM firmware sets up secure, non secure  and monitor vector base addresses
-to 0x00000000 before calling into zImage and all mem is writable for non secure
-mode. See the gory details in ultibo pascal library code comments [1]. The trick
-is to copy a vector table with SMC vector to address 0. I'm suspecting this not
-working for linux as having to write the code in true position independent way.
+Fixes: 1e84d22322ce ("serial/amba-pl011: Refactor and simplify TX FIFO handling")
 
-Here's a rough hack to arch/arm/kernel/hyp-stub.S
-I'm simply hacking in a vector entry into existing hyp vector table and then
-copying it over to 0 (I've tried using a completely different table, which fails
-in same way).
+Signed-off-by: Phil Elwell <phil@raspberrypi.org>
+---
+ drivers/tty/serial/amba-pl011.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-+	.macro sec_vec_install_run
-+
-+		mrc p15, #0, r4, c12, c0, #0
-+		ldr r5, .LSecureVectorTable
-+
-+		/* 8 bytes of vector */
-+		ldmia r5!, {r6-r7}
-+		stmia r4!, {r6-r7}
-+
-+		ldmia r5!, {r6-r7}
-+		stmia r4!, {r6-r7}
-+
-+		ldmia r5!, {r6-r7}
-+		stmia r4!, {r6-r7}
-+
-+		ldmia r5!, {r6-r7}
-+		stmia r4!, {r6-r7}
-+
-+		/* 1 word for secondary table */
-+		ldmia r5!, {r6-r7}
-+		stmia r4!, {r6-r7}
-+
-+		/*Clean Data Cache MVA */
-+		mov r5, #0
-+		mcr p15, #0, r5, cr7, cr10, #1
-+
-+		dsb
-+
-+		//Invalidate Instruction Cache
-+		mov r5, #0
-+		mcr p15, #0, r5, cr7, cr5, #0
-+
-+		//Flush Branch Target Cache
-+		mov r5, #0
-+		mcr p15, #0, r5, cr7, cr5, #6
-+
-+		dsb
-+		isb
-+
-+		.arch_extension sec
-+		smc #0
-+
-+	.endm
-
-
-ENTRY(__hyp_stub_install_secondary)
-
-+	sec_vec_install_run
-...
-
-+smc_hdlr:
-+	/* do stuff later */
-+	ret	lr
-+ENDPROC(smc_hdlr)
-
-.align 5
-ENTRY(__hyp_stub_vectors)
-__hyp_stub_reset:	W(b)	.
-__hyp_stub_und:		W(b)	.
-+ __hyp_stub_svc:	ldr pc, .Lhdlr2
-- __hyp_stub_svc:	W(b)	.
-
-...
-
-+.Lhdlr2:
-+	.word smc_hdlr
-+.LSecureVectorTable:
-+	.long  __hyp_stub_vectors
-
-
-Can someone please tell me what part of code is wrong. Pretty much similar code
-works in baremetal setup.
-
-TIA
-
-[1] https://github.com/ultibohub/Core/blob/master/source/rtl/ultibo/core/bootrpi2.pas
-
+diff --git a/drivers/tty/serial/amba-pl011.c b/drivers/tty/serial/amba-pl011.c
+index 5921a33..70c1dc9 100644
+--- a/drivers/tty/serial/amba-pl011.c
++++ b/drivers/tty/serial/amba-pl011.c
+@@ -270,6 +270,7 @@ struct uart_amba_port {
+ 	unsigned int		old_cr;		/* state during shutdown */
+ 	unsigned int		fixed_baud;	/* vendor-set fixed baud rate */
+ 	char			type[12];
++	bool			irq_locked;	/* in irq, unreleased lock */
+ #ifdef CONFIG_DMA_ENGINE
+ 	/* DMA stuff */
+ 	bool			using_tx_dma;
+@@ -814,6 +815,7 @@ __acquires(&uap->port.lock)
+ 		return;
+ 
+ 	/* Avoid deadlock with the DMA engine callback */
++	uap->irq_locked = 0;
+ 	spin_unlock(&uap->port.lock);
+ 	dmaengine_terminate_all(uap->dmatx.chan);
+ 	spin_lock(&uap->port.lock);
+@@ -941,6 +943,7 @@ static void pl011_dma_rx_chars(struct uart_amba_port *uap,
+ 		fifotaken = pl011_fifo_to_tty(uap);
+ 	}
+ 
++	uap->irq_locked = 0;
+ 	spin_unlock(&uap->port.lock);
+ 	dev_vdbg(uap->port.dev,
+ 		 "Took %d chars from DMA buffer and %d chars from the FIFO\n",
+@@ -1349,6 +1352,7 @@ __acquires(&uap->port.lock)
+ {
+ 	pl011_fifo_to_tty(uap);
+ 
++	uap->irq_locked = 0;
+ 	spin_unlock(&uap->port.lock);
+ 	tty_flip_buffer_push(&uap->port.state->port);
+ 	/*
+@@ -1483,6 +1487,7 @@ static irqreturn_t pl011_int(int irq, void *dev_id)
+ 	int handled = 0;
+ 
+ 	spin_lock_irqsave(&uap->port.lock, flags);
++	uap->irq_locked = 1;
+ 	status = pl011_read(uap, REG_RIS) & uap->im;
+ 	if (status) {
+ 		do {
+@@ -1502,7 +1507,7 @@ static irqreturn_t pl011_int(int irq, void *dev_id)
+ 				      UART011_CTSMIS|UART011_RIMIS))
+ 				pl011_modem_status(uap);
+ 			if (status & UART011_TXIS)
+-				pl011_tx_chars(uap, true);
++				pl011_tx_chars(uap, uap->irq_locked);
+ 
+ 			if (pass_counter-- == 0)
+ 				break;
+-- 
+2.7.4
 
 
 _______________________________________________
