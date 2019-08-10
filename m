@@ -2,53 +2,75 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id A20236E696
-	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 19 Jul 2019 15:37:20 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8970188C52
+	for <lists+linux-rpi-kernel@lfdr.de>; Sat, 10 Aug 2019 18:44:12 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=1TSzpxrhHzErsCg3nZKEwN1/beWWTk06ZPBuWwa7qi8=; b=ELT+rR2lfVkRy/uG87uQdrQRjD
-	dX+OS+4NEewInlBnN6qppMr5bPgh4Ujk+brGMdc6t/I4xj1R5hh4WpZJNoDC9GphnvUwuIfb0ozPa
-	+OuQqLgH+BRfPH8ljBIdL7u/uI25hdZM21oaXaFw3qwmJRw+YHQ6AvVQIkuj9RmxGBq2EyNapw38y
-	yEmkhyNAn6Jvp9jhW7FSFV3tFVbUnrfU+1wZpZS/Fstszxv9harQ46a7YfBse55nV90oiWaL8y5JF
-	ZAueAm81te1Shia9SAo+Mwxw2KdVnlhSJIYtY/duq8nWMN2UPEqR89bx669Eb9uHI+hTc2Nkd1BuO
-	38sbZgkw==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:To:Date:Message-Id:Subject
+	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=pZylelOwtcae6ODCFoHXY8ZUGRJgJDr3Y+LAuEUewp4=; b=G2sb83Hga1oM35
+	I2uz0oesPiBcJ8PvKopHsC4W87GU5tDdY63qcaEvGXDAPS0tcv13UxbYtnHgdttXQWja16RSO1k/A
+	oSEDa3vlvxo0Zjb7BCVTy63oHdm4O6kgXoVTBNHIg1gnB35iYQpHd+hbH5uyAzWkFGfuaeHyvWq+b
+	+6EO81KOLK9UnQj+U0XnAy180z5QKng1qkcrELjLhzBtrmOlyAwARQdsqqwb6bM5Iujbc7xWGOVZY
+	DEUJWgpGBxxt2jn3HFwRDFm4pWDyjyl3NG/WcqwLkkF78sg+IYD3Ral1rV/4//tz+x6g/C2/2JrBd
+	WO+1zFvruVvC+TgOhb9w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hoT4W-0006fN-QY; Fri, 19 Jul 2019 13:37:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
- id 1hoT3f-00069a-W8; Fri, 19 Jul 2019 13:36:25 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8BC3D1509;
- Fri, 19 Jul 2019 06:36:23 -0700 (PDT)
-Received: from e103592.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com
- [10.121.207.14])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 642693F71A;
- Fri, 19 Jul 2019 06:36:22 -0700 (PDT)
-From: Dave Martin <Dave.Martin@arm.com>
-To: linux-serial@vger.kernel.org
-Subject: [RFC PATCH 2/2] serial: pl011: Don't bother pushing more TX data
- while TX irq is active
-Date: Fri, 19 Jul 2019 14:35:25 +0100
-Message-Id: <1563543325-12463-3-git-send-email-Dave.Martin@arm.com>
-X-Mailer: git-send-email 2.1.4
-In-Reply-To: <1563543325-12463-1-git-send-email-Dave.Martin@arm.com>
-References: <1563543325-12463-1-git-send-email-Dave.Martin@arm.com>
+	id 1hwUTP-000888-0r; Sat, 10 Aug 2019 16:44:07 +0000
+Received: from mo6-p00-ob.smtp.rzone.de ([2a01:238:20a:202:5300::7])
+ by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
+ id 1hwUTK-000877-9z
+ for linux-rpi-kernel@lists.infradead.org; Sat, 10 Aug 2019 16:44:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1565455436;
+ s=strato-dkim-0002; d=goldelico.com;
+ h=To:Date:Message-Id:Subject:From:X-RZG-CLASS-ID:X-RZG-AUTH:From:
+ Subject:Sender;
+ bh=MF1oXijqN2TdIVuBSZAFxI4q5jV47KjpYL/TUrRiXqc=;
+ b=niywIZncRfoAGCcNRoJx1TTycLiYjYeIq9klX6HmF9DHoxjLySsQEpK4ounD99jMB8
+ NG1Hd8up3xvnHcZnUs5oZzKJQ1VA8Py0tYvkzZY+hZ8YML/GCLP2gjqmaaGECF+7IIkR
+ IoveYnyy+Epyu6BGwmGSe3nbGNMlu1Oxkn9TWDHFzJMtKbB8o+se44Ins7SJO7/R/OS6
+ tqKKYYHjrNkKCy2XNV7mB91aSKYuqgSfFtj8MjVQFO44OIyULua9biNoUjnJWoVE9WxW
+ ik9r8MZ4Yvl40H02hvdl5BQarUviPgKEWGiAxGfreOvDGQzrZqm9JRUNRA+PFPlGr52U
+ 2pyw==
+X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMgPgp8VKxflSZ1P34KBj7wpz8NMGH/zuwDCpEcw="
+X-RZG-CLASS-ID: mo00
+Received: from mbp-13-nikolaus.fritz.box
+ by smtp.strato.de (RZmta 44.24 DYNA|AUTH)
+ with ESMTPSA id j00b6dv7AGhulok
+ (using TLSv1 with cipher ECDHE-RSA-AES256-SHA (curve secp521r1 with 521 ECDH
+ bits, eq. 15360 bits RSA)) (Client did not present a certificate)
+ for <linux-rpi-kernel@lists.infradead.org>;
+ Sat, 10 Aug 2019 18:43:56 +0200 (CEST)
+From: "H. Nikolaus Schaller" <hns@goldelico.com>
+Subject: HDMI monitor wakeup from standby
+Message-Id: <5D68F876-5942-4E6D-8D2A-528F0D39CAF0@goldelico.com>
+Date: Sat, 10 Aug 2019 18:43:59 +0200
+To: linux-rpi-kernel@lists.infradead.org
+Mime-Version: 1.0 (Mac OS X Mail 9.3 \(3124\))
+X-Mailer: Apple Mail (2.3124)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190719_063624_071274_406A50F3 
-X-CRM114-Status: GOOD (  12.20  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20190810_094402_949512_42C42E96 
+X-CRM114-Status: UNSURE (   7.85  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -0.9 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (0.0 points)
+ Content analysis details:   (-0.9 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [2a01:238:20a:202:5300:0:0:7 listed in]
+ [list.dnswl.org]
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -60,58 +82,59 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Russell King <linux@arm.linux.org.uk>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- linux-rpi-kernel@lists.infradead.org, Jiri Slaby <jslaby@suse.com>,
- Rogier Wolff <R.E.Wolff@BitWizard.nl>, linux-arm-kernel@lists.infradead.org
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-When the TX irq is active, writing chars to the TX FIFO from
-anywhere except pl011_int() is pointless: the UART is already busy,
-and new chars will be picked up by pl011_int() as soon as there is
-FIFO space.
+Hi,
+I have running a v4.19 mainline kernel and Debian on the RasPi 3B+
+and it works well. Except one thing.
 
-To reduce the scope for surprises, bail out of pl011_start_tx_pio()
-without attempting to write to the FIFO or start TX DMA if the TX FIFO
-interrupt is already in use.
+If X11 or a console command (xset dpms standby/suspend/off) sends
+the monitor to standby it won't turn fully on with
 
-This should also avoid pointless overhead in some situations.
+	"xset dpms force on".
 
-Signed-off-by: Dave Martin <Dave.Martin@arm.com>
+The monitor goes on, but there is no image, it reports "no HDMI" and
+after a while it turns off. The monitor is an ASUS VS247HR.
 
----
+If I am quick enough I can run "xset dpms force standby" and then
+immediately "xset dpms force on" and the monitor stays working.
 
-Please test both with and without this patch.
+I have tried the same with a HDMI projector (Acer) using the same
+cable and that one works perfectly with dpms wakeup.
 
-I believe with the previous patch in place, this patch is not strictly
-necessary.  However, if the UART is actively transmitting in the
-background already, it does make sense not to waste time trying polling
-the FIFO fill status or setting up DMA etc.
----
- drivers/tty/serial/amba-pl011.c | 4 ++++
- 1 file changed, 4 insertions(+)
+But if the monitor is refusing to turn on, I can replug the cable
+to the projector and that one shows the image.
 
-diff --git a/drivers/tty/serial/amba-pl011.c b/drivers/tty/serial/amba-pl011.c
-index e24bbc0..f28935a 100644
---- a/drivers/tty/serial/amba-pl011.c
-+++ b/drivers/tty/serial/amba-pl011.c
-@@ -1318,6 +1318,10 @@ static void pl011_start_tx(struct uart_port *port)
- 	struct uart_amba_port *uap =
- 	    container_of(port, struct uart_amba_port, port);
- 
-+	/* It's pointless to kick the UART if it's already transmitting... */
-+	if (uap->im & UART011_TXIM)
-+		return;
-+
- 	if (!pl011_dma_tx_start(uap))
- 		pl011_start_tx_pio(uap);
- }
--- 
-2.1.4
+So the HDMI data stream is ok, it is just something wrong with
+standby/wakeup signalling.
+
+What makes me think it is a kernel issue, is that the monitor
+standby works well with Raspbian default kernels.
+
+Summary:
+* Asus monitor does not wake up from standby
+* Acer projector works
+* replugging cable from Asus to Acer works
+* Raspbian works with Asus monitor
+
+Any suggestions what I should try?
+
+A special setting in config.txt or cmdline.txt? Mine are here:
+
+	http://download.goldelico.com/letux-u-boot/RasPi-3B+/latest/
+
+And/or does Raspbian have a special tool to help "xset dpms force on"?
+
+Or is there a feature missing in the mainline kernel which is in
+Raspbian kernels?
+
+Does some control line need more delay?
+
+Thanks,
+Nikolaus Schaller
 
 
 _______________________________________________
