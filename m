@@ -2,8 +2,8 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 62F5F8F387
-	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 15 Aug 2019 20:35:19 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5CC208F38B
+	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 15 Aug 2019 20:35:38 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
@@ -11,69 +11,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=ihSypT3PyeJ0cTSk6ue644fMoCd78G2FdfPnWDCyimg=; b=thiMj1baQmSCOKcUMBSQIHXWZ4
-	MrtLYWax6VzqsXTBhsiDzS9bGPvzBOeAfBklt+Wk5R+iktxuvAm6TykfNgGSCGLKe+Q5YMwOTP2R6
-	gcSEYCBGgZf3FLONareleyG3Dg6yiwa6/Olc6l69rJKRcPe7iN5yUzmU4NfpGOOLX3x6mOGm0TmT/
-	Oi10939Pfg7GfY6ygzu7Rg211N8hbFh4P23kaYm659GUCaaB9jdRjTaeVYHU+eEZ0OcKhzcnZcQQq
-	FtxBqTnbwFImaVh1Hq+hcOHVL117datYISqpkZx0NROSi62CF7x/2aaQP5sflZxq+C0T7eFiTZJj+
-	fGluKOLw==;
+	bh=y4mXabDyaD7CNes1853n+UmWKquYbhNDYEzSCxExzM8=; b=UMh647HFeuabEw8bBuKgvL+tuS
+	MQlPepTdWX6WpiqqZLi/rLeqPorILP44U24cRUFDkCZqgyWyoKkGhkulMWSeKSox2pJ8oxAMewjd3
+	XWRaMtWNAyG83UCLt/eDWyoGdCOfoXEyrHbDf6+6tzIhYyVjNxUgkmgKJOBQY9LGw4Wlc/XIyKgfm
+	lpqdcRzXsAAUL+uYAjh0b38vLCoqfcNuOzd7twpOTlfoH+Akws6Uny+AVnAkS6oDN9pRZklFzF/Eh
+	HW0o90Co63D6TGk0PX2UEcntX37YvNbt1NLzw3oHyE5MFpbxzBnJR50sfgFlveUPCfCFrZmb6JO+P
+	Kc0maU5w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hyKag-0004GC-5a; Thu, 15 Aug 2019 18:35:14 +0000
-Received: from mout.gmx.net ([212.227.17.22])
+	id 1hyKb1-0004bq-13; Thu, 15 Aug 2019 18:35:35 +0000
+Received: from mout.gmx.net ([212.227.17.20])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hyKa4-0002b1-Of; Thu, 15 Aug 2019 18:34:39 +0000
+ id 1hyKa6-0002b3-Aj; Thu, 15 Aug 2019 18:34:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
- s=badeba3b8450; t=1565894066;
- bh=+2oonmagg4vxfNFfRbEmDPibIdyxVmitLgc60Mm0X5k=;
+ s=badeba3b8450; t=1565894067;
+ bh=4U1p4f+jfE8K6OohTuUOCs76mL7r63DrveLltSU5d4c=;
  h=X-UI-Sender-Class:From:To:Cc:Subject:Date:In-Reply-To:References;
- b=MSAx+ogl0gftfHW1BIAJ1/IFdXdQ0gK9ydf0+kJWc2FtMpx1HWpbTQ8NASDzBgYAg
- +geBVmow8KWC9N02Bf/dA7MSy76aPqzK+olpc6eJgHYYJNAcX5izUW/6Y5UHZEUv+b
- Q4/jOPhT9KWF7MdlYccvDOFf4yhDnIy1MvfWx0Y4=
+ b=LhV+cqdI+lprBIj2hMjL3gJeo/c20eBtxgdvpx7HWuVvMORPrtqzRd69SZj22/n9y
+ wNboKlMZ7cSNnmVliIQvudmxJq1EFameGlIDh+8QZ8fSh1yAeAHGDIDTkcgVHdIek2
+ aTva+1DqdPRp8I9E6rgLT9GLx/A0O5DSoYYI1Hnw=
 X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
 Received: from localhost.localdomain ([37.4.249.106]) by mail.gmx.com
  (mrgmx104 [212.227.17.168]) with ESMTPSA (Nemesis) id
- 1MIdif-1i1Khr209N-00EbPV; Thu, 15 Aug 2019 20:34:26 +0200
+ 1MpUUm-1icsRy3Ysu-00pqyO; Thu, 15 Aug 2019 20:34:26 +0200
 From: Stefan Wahren <wahrenst@gmx.net>
 To: Florian Fainelli <f.fainelli@gmail.com>
-Subject: [GIT PULL 2/3] bcm2835-defconfig-next-2019-08-15
-Date: Thu, 15 Aug 2019 20:34:02 +0200
-Message-Id: <1565894043-5249-2-git-send-email-wahrenst@gmx.net>
+Subject: [GIT PULL 3/3] bcm2835-defconfig-64-next-2019-08-15
+Date: Thu, 15 Aug 2019 20:34:03 +0200
+Message-Id: <1565894043-5249-3-git-send-email-wahrenst@gmx.net>
 X-Mailer: git-send-email 2.7.4
 In-Reply-To: <1565894043-5249-1-git-send-email-wahrenst@gmx.net>
 References: <1565894043-5249-1-git-send-email-wahrenst@gmx.net>
-X-Provags-ID: V03:K1:pgYfzagC2IHOaULxCptjMluA3Bu2jXR1/IqGOQcWRLxCnf+GbYW
- +oZOSfYhJwPq+poHXPY3Hz37KV1d/BB3WLtkHfpHL2E8773oJMDhFHBNi4p36jd7Yw8Mqgy
- b2IA4xL28luSgWWkenBEyiWtiaz8gxNGdMyb35UXdCoY5Of6dmn0vQ9ugycIMyUwyFBXj7T
- KD84i48STPVi/BI8fXg9g==
+X-Provags-ID: V03:K1:ieIssjeS3M87b//1wptjCQdyqXxFZSiRtONWxZ1aeDN1BTiJ4q3
+ meJnJqS5X+tkxD2xbJiBPU4AFXKXdBty2/u+bjd8jbVGag+2vAmP/RTu068D67fUh96c+Cy
+ j1frzcQUUijLWrWCwxW0tXSodOkbijnH1w7tLm36lEKjOHR8RqnEzEhKMlnH0yr0Z0S/kj0
+ 6JV89oB/AoFCCDBu07nlw==
 X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:YH2EV89Ie1M=:XnvyZlsxLzaEAqtKiIPEmD
- gPzgQiYE2mpHxkVrvVeqHxpSQyZdTFZcb4V0KYdlOX/bsVFIi7aORjRIrW4JE5C5zs+rp8HtD
- WgRIaGvPtdBmHs1YyU8341EMrynyhAn5dwTsBn8HuHxhjil22PCMajt/5BRnvT/rV9lMuHXq5
- ux/hpFEUA9UpQ1RuE/PU5biVH9O2dOLk7lYtz/ihU8pV+CNbiclZUkHRtkInqSlUHuEQ1tqFU
- ZV+um0CHj2BZWtAS6oqoWLYZFm2NzwT1VYHWIf2XsjTKVaTNyhMXatabHKdr3VcRJrMZ18F5S
- 8a3zYm5B3EMwkqGIgooLs3w97tZq0bCVTekDp+w3MPBxS/RbRifZjBfc6iBM8s4hPaL8KqByw
- jUbuyUYM3llnUV7AQJohbKA26fCC9kMJ1oHrNeR12V9+nbwoENHE112P2T+IKi5YjbjLANDpI
- 9IJL7ndm7ZNJhEsB+i1d/66DiFQkzWxLbbARJ3v3+ZpBLbysVremttnsCa2sfgjnWVZSIXXxK
- wTXOsBRkuifa2ED2MBEyolvBNh1Ka2WpD5FKeYYfptuxv1beDB6O4yO5Ht5lMyQvcN0pCDM9P
- VpJKU51xwVp1t5oCc6+j1ptEpbCI4IcqZgv8F5pgg1H75MxbmXeveHhdjaS2ZKrrQb0+D9otr
- oYzaBVZG1WW19m0e71bmCZguY0+o6DElrsuW9OECVbcDuXdI1uIUSn5iW9tIHTWBN+DwbEPjt
- SYZwxBOXj4Uv7Xmi/IlwN4ZTmH+MXNJTuekrHe0mL1dfrFMi9Uey75q+BCeSbTAa33W3+3Dfr
- gf+0bE6wCQg+1SSHxVsDgyBHMeqxFsPNdaRGUFmoSs/pHajN0nLQJJ0B7J+bnR2WGYLpLQJ9i
- +062Vz8n7lWTQctcG1HY6CuzqdcAaqZmGnYMz9OT4wiUwbSO4M8h4fVhDBMTQhhpdXE4hZKKU
- dqJzFEPiLDQFGBLk363s4bFLCIFLBQ9vxV1mDIoTlRVseHmBtv90yz3Wb3sGarhGhtZsCnGHf
- eqaeZXN/ydpyPEUcOLPb1yUsF1jMoq6NvLvz7kHCcT/tEPm0UnIbqZiXP48YlhPG4YZ8EfDvl
- r/S7EFLTsaUA8vfs19J6qQwIOUcwaOKLheR/bydcxT00nyK/oWfGbukkA==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:t3wIIpspCao=:ENao8h3FtHLSNX8ElhDfKB
+ lgAUFnx0IIMAEPhk6BHCyOcJg3hpfslzqrYl0BCGt17shA4IRSS0qDORZtDC4+7vHirvv4xIh
+ AfyGmTILtZh9k0rUJMQkNXAtGlL8v+FemOwsCriNwTdIf6rNjlcc9xK48UneiCEKoM6qR/KvV
+ z9RoezXPDJHL1Jvx7JVBEvLsjv9b7phhmhNAsYZQW8O4++3Zf9Mp9YbK8xTgIJ5Cg9bvDOC5H
+ jVmgLOhZ2TaNODCvqpK1ZiJec1shCX7EFVFAx/EVTgHUW3jcgw1ytT6ciFOtHxsGHlzkQzx12
+ vt9SjO5UX6WoEDTctxfRO8IX/MtY+aWNf0JOT+OsMFK20q46b4gqizWZblmvEiWZ6RyYh2Fyq
+ DtK3D9Hw1rlLhNQYBtsLOAEXTecFw6v1KIIslVKZwkPo+/oWMYJdpABHqkJulw32rz+EhrXSX
+ QMPeDlfH4GrXa2hwkF+cZMG5mtJ6zGQSHrgn7PQnKbMI8YF++vwNWJWyejoptlugeuNVHy2CM
+ Z2Z2q2aWxwJzcYAL12HtJY1K8c1TX/JXCkewP5PmacZCSsEFoCyPjZQADlu/CwIdlWzGkLHjM
+ f7DX1LmsNkGeZzRA8+DzREVyUmbE001rg7E2b1ToAXeX2m/V3CDHI1Z++ukL0Ly9zHfb8rhp+
+ CJLoxJNWgFWlTT+gsAcRCMCnBN8LgYA60pJ9kN3VY4Ul6m2hk2/tvqBQdI93JyBa9gzvnh3pX
+ ho1PntL93BzwQVt+oDQOHTwpZcRpLtUdTpkNQn3GXel8bxSSSPNdhlpLRjJjiQPg5qMqX6A73
+ AAgoqKkL3yYP8CfgaFYrPTMDqJAGuZO05pGhlkiDn56Xw6OsF9LYBG2YgII6w1jdrRiUMBG51
+ p1VJ6byJaffhvjZj2nDMEdjURrNQi/xkexQaNjXpMcwsDUZqv2KKH1KK97XwYEYSjjph8x46e
+ I9vbdfBD8N1CgyHK2M0k7vL1r7h5WoLRYAtU/74Pe6/h49NnHJobxWo16pUaiYUPtiAFGvhMt
+ wkI87HLAphINvGq0YCNSyfCNFb9TJbCEVM5YxoEqIjRHWxOz30xkHzLPOAzgvJxH9LaqcYtaX
+ yPVzMbJsys4uiZCg+UHqnqMPgpuv3LrjZ2ObE54nUcgSVRAcomcctmKc8U9ryIT/ehRcDZqaD
+ q5hTGdgxiH9pvGvyKOjYtFa6VbKeHiZOWmDW6QFeBSxn7/sA==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190815_113437_101178_C2849BB6 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20190815_113438_664137_31166E65 
+X-CRM114-Status: GOOD (  10.52  )
 X-Spam-Score: -0.9 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.9 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [212.227.17.22 listed in list.dnswl.org]
+ low trust [212.227.17.20 listed in list.dnswl.org]
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
  provider (wahrenst[at]gmx.net)
  -0.0 SPF_PASS               SPF: sender matches SPF record
@@ -112,23 +113,22 @@ The following changes since commit 5f9e832c137075045d15cd6899ab0505cfb2ca4b:
 
 are available in the git repository at:
 
-  git://github.com/anholt/linux tags/bcm2835-defconfig-next-2019-08-15
+  git://github.com/anholt/linux tags/bcm2835-defconfig-64-next-2019-08-15
 
-for you to fetch changes up to 4c6f5d4038af2c7332630bdd75cfdc0309e97242:
+for you to fetch changes up to e2dd73ac4440f7143e990e76bad9a46dc63a5951:
 
-  ARM: defconfig: enable cpufreq driver for RPi (2019-07-23 22:53:35 +0200)
+  arm64: defconfig: enable cpufreq support for RPi3 (2019-07-23 23:17:09 +0200)
 
 ----------------------------------------------------------------
-This pull request enables the new RPi cpufreq driver in the 32-bit
-defconfigs.
+This pull request enables the new RPi cpufreq driver in the 64-bit
+defconfig.
 
 ----------------------------------------------------------------
 Nicolas Saenz Julienne (1):
-      ARM: defconfig: enable cpufreq driver for RPi
+      arm64: defconfig: enable cpufreq support for RPi3
 
- arch/arm/configs/bcm2835_defconfig  | 9 +++++++++
- arch/arm/configs/multi_v7_defconfig | 2 ++
- 2 files changed, 11 insertions(+)
+ arch/arm64/configs/defconfig | 2 ++
+ 1 file changed, 2 insertions(+)
 
 _______________________________________________
 linux-rpi-kernel mailing list
