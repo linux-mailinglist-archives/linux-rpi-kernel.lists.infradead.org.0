@@ -2,66 +2,93 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 265F2AFF68
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 11 Sep 2019 17:00:05 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5A90DAFF77
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 11 Sep 2019 17:03:19 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:
-	In-Reply-To:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	References:List-Owner; bh=hDyLZCJZj5JSEy7/4OjUAj+E7Na8fbOp78ZR7Z38/Hk=; b=PBs
-	gQij4jn4cfbrwQDtgEIwOK//7PjPbbm6ClWq05QtL3DTmiedByqQJzGT/eRbDwM0v8WU9RsjLvBnC
-	VFUwH44/M6qCg1y+snUPszSajAQKezVDD8PByXsrXMKHIJsKBDUOuOoRZCCHBXvSlYTDaifEE9bOr
-	xEPqsHnLnSw4H5EYSTK/9rRQXF2vVoJZwhJvuVNrpPsErzVxIpWqz1wRlHi+oKKzC0n/Zw6ZbAXRM
-	yzSIkANdiCqKo1RzbLOJsm2ZT2n6ceHKKw9B5Y5zdBSrLGZBBAnxJE6gk/Pe+3obhJdl+kDXrrxMr
-	zRcPMZATMUz8rl8BGap4iveUn2mJSaQ==;
+	List-Owner; bh=wZzcpZfQ8JcC1YIyRssdN+HIOFmA0nC4fo+XKaWIUP8=; b=T13hguQDi6r4pE
+	kkG7nukoIWK7gOzKc8SXNjDO5A3Scn7jF+sLMxHQNq0BAsRr6n6RjFWvvPZL9Eiiwx+itCuw0Xr61
+	hepjRowv4LLmK7PXYXRmYmxAh9myTZmsP6f7kIu2QdQIz6m3fzx3X4Fhn5b7RKJdgtLwc0KiPutTZ
+	1azw5x57c7zpLA2UnYk9AcBDOb4Tdb545+FrznAqgREQ5jf5cTXLDi+oqSxeNeBwPhposNbPenSQX
+	aIMx36E/IsTy6T+mq33hD/gYGcKVgfTyROp4gh5vKL8kE7h1YfSSTFdEJrux0ccYaMdN/KvEIPODW
+	uqXKAEyVEEBYCWson8ow==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.2 #3 (Red Hat Linux))
-	id 1i846D-00021K-85; Wed, 11 Sep 2019 15:00:01 +0000
-Received: from heliosphere.sirena.org.uk ([2a01:7e01::f03c:91ff:fed4:a3b6])
+	id 1i849I-00042N-2O; Wed, 11 Sep 2019 15:03:12 +0000
+Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
  by bombadil.infradead.org with esmtps (Exim 4.92.2 #3 (Red Hat Linux))
- id 1i8469-000200-UQ
- for linux-rpi-kernel@lists.infradead.org; Wed, 11 Sep 2019 14:59:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sirena.org.uk; s=20170815-heliosphere; h=Date:Message-Id:In-Reply-To:
- Subject:Cc:To:From:Sender:Reply-To:MIME-Version:Content-Type:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
- List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:
- List-Archive; bh=3i3Y2Y5YZv7F0dgv4wMHYov62v3o0a7kJcez4K+rlYI=; b=nrPidHd55tOH
- v5SEmPK8nc6IGDibjCky0l4ls9tlYZE1Dj+FXDLeoUMFuprAXXFriGogbUOhd31SPYeV24TEnfJ0I
- yk5WxYrRwi/dbsXASOyExTmqecy3T2ZXj7FWrUOoeu2/x7A9IhxjQ+elfohFABWT7EJeRuMV2CM9w
- bE3Yw=;
-Received: from [148.69.85.38] (helo=fitzroy.sirena.org.uk)
- by heliosphere.sirena.org.uk with esmtpsa
- (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
- (envelope-from <broonie@sirena.org.uk>)
- id 1i8464-0001jq-Oh; Wed, 11 Sep 2019 14:59:52 +0000
-Received: by fitzroy.sirena.org.uk (Postfix, from userid 1000)
- id 2D94CD00486; Wed, 11 Sep 2019 15:59:52 +0100 (BST)
-From: Mark Brown <broonie@kernel.org>
-To: Lukas Wunner <lukas@wunner.de>
-Subject: Applied "spi: Guarantee cacheline alignment of driver-private data"
- to the spi tree
-In-Reply-To: <01625b9b26b93417fb09d2c15ad02dfe9cdbbbe5.1568187525.git.lukas@wunner.de>
-X-Patchwork-Hint: ignore
-Message-Id: <20190911145952.2D94CD00486@fitzroy.sirena.org.uk>
-Date: Wed, 11 Sep 2019 15:59:52 +0100 (BST)
-X-Bad-Reply: In-Reply-To but no 'Re:' in Subject.
+ id 1i849D-000408-5T
+ for linux-rpi-kernel@lists.infradead.org; Wed, 11 Sep 2019 15:03:08 +0000
+Received: by mail-pl1-x642.google.com with SMTP id k1so10260404pls.11
+ for <linux-rpi-kernel@lists.infradead.org>;
+ Wed, 11 Sep 2019 08:03:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to:user-agent;
+ bh=d5/f69PU6WyAFI1qX9x9zilSuMPIBTYp7Aohz5P1zyE=;
+ b=gG9oG4X6t6Mz6yTDo04xFkWf20EXHrv09t20/LH+aSTzrh2RTw+QSzwYppTHh/+iGr
+ Xy3YKvNKV7lEtA8kVH00D0UqYTRP3q7UXUqGKtAqbp5+V+Ol5vglGzAkD6SdPRg6TEz8
+ fAvO6N4Pz98rdBLVIlE63Pp79dtfoIMtgibcRylcAIO4eYNTWqxjWNwjzdmqYIue3w5H
+ xXSQmYDJ3eRrJLWtftS6E2cn2mkOoNkJgam+8KNmTWWFY2RK+wekb8zPTnID9S69M3u9
+ m9o8lhy3T9RKfd2gbUZ6R9z2h7AM8nABVyGJ/4AlWeGVG7pcjaxJgQ3YrEwRTy8f0gbj
+ 2Gvw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=d5/f69PU6WyAFI1qX9x9zilSuMPIBTYp7Aohz5P1zyE=;
+ b=WbxDtIM8s0pbiWaVXQcWqlkCERC9RAmlVGQ1Xk+5BRN/EA22yRjFpvZ9AIu5wnMC+m
+ 7fKVzF610ibYVpEX5PEfUjXK5j6XQ0Cr8oJ7m8oEGdliypx2MYh8k3LD5mWhrLCB7QWK
+ PAIv6atfWv5v/uYQdkk0fuQGcllu/z37Boe1BQ4YF3eE8d8JAse0EDhDA3hEQfOkF53y
+ uBD+Mt91eu1Qr+xfJTnufeupKXIVJBDoh8zfHOq6uFqx5dY5M9EPe6Pi1eSk5EqjB66O
+ lKd1TygwsL0Rxw6asE0no6od2Uf7Nb8HNZ9tAZKmEN6lu1lNI251V9RTBR296Eum2jEW
+ /B1w==
+X-Gm-Message-State: APjAAAWkivf7wjO3HzNyKiFw9nlIpGaxjUx+pTeTtnk1T4B3WgmZ597v
+ kjWnyBxRDOfZCh6clyfHK2c=
+X-Google-Smtp-Source: APXvYqwAK3KLPcDsX3lbhfke/SAhZz2AVDZWn4jmFCZs0QExQGndexzB+79XY51SCLMPaunSN7zKbA==
+X-Received: by 2002:a17:902:9d90:: with SMTP id
+ c16mr26190254plq.12.1568214185878; 
+ Wed, 11 Sep 2019 08:03:05 -0700 (PDT)
+Received: from SARKAR ([1.186.0.68])
+ by smtp.gmail.com with ESMTPSA id v10sm2771364pjk.23.2019.09.11.08.03.04
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 11 Sep 2019 08:03:05 -0700 (PDT)
+Date: Wed, 11 Sep 2019 20:33:00 +0530
+From: Rohit Sarkar <rohitsarkar5398@gmail.com>
+To: Dan Carpenter <dan.carpenter@oracle.com>
+Subject: Re: [PATCH] staging: vhciq_core: replace snprintf with scnprintf
+Message-ID: <20190911150300.GA12027@SARKAR>
+References: <20190911135112.GA5569@SARKAR>
+ <7bf3c74d-e690-1ef1-dd74-ac98667e42ef@i2se.com>
+ <20190911142543.GA9873@SARKAR> <20190911144312.GL15977@kadam>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20190911144312.GL15977@kadam>
+User-Agent: Mutt/1.9.4 (2018-02-28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190911_075957_982823_CC3D58A0 
-X-CRM114-Status: GOOD (  14.19  )
-X-Spam-Score: -0.1 (/)
+X-CRM114-CacheID: sfid-20190911_080307_209097_037148DE 
+X-CRM114-Status: GOOD (  17.76  )
+X-Spam-Score: 0.1 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.1 points)
+ Content analysis details:   (0.1 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2607:f8b0:4864:20:0:0:0:642 listed in]
+ [list.dnswl.org]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider (rohitsarkar5398[at]gmail.com)
+ 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
+ in digit (rohitsarkar5398[at]gmail.com)
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
@@ -77,112 +104,64 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Brown <broonie@kernel.org>, linux-rpi-kernel@lists.infradead.org,
- linux-spi@vger.kernel.org
-MIME-Version: 1.0
+Cc: devel@driverdev.osuosl.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ kernel-janitors@vger.kernel.org,
+ Tobias =?iso-8859-1?Q?B=FCttner?= <tobias.buettner@fau.de>,
+ Dominic Braun <inf.braun@fau.de>, linux-rpi-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-The patch
+On Wed, Sep 11, 2019 at 05:46:12PM +0300, Dan Carpenter wrote:
+> On Wed, Sep 11, 2019 at 07:55:43PM +0530, Rohit Sarkar wrote:
+> > On Wed, Sep 11, 2019 at 04:17:25PM +0200, Stefan Wahren wrote:
+> > > Hi Rohit,
+> > > 
+> > > On 11.09.19 15:51, Rohit Sarkar wrote:
+> > > > When the number of bytes to be printed exceeds the limit snprintf
+> > > > returns the number of bytes that would have been printed (if there was
+> > > > no truncation). This might cause issues, hence use scnprintf which
+> > > > returns the actual number of bytes printed to buffer always
+> > > >
+> > > > Signed-off-by: Rohit Sarkar <rohitsarkar5398@gmail.com>
+> > > thanks for your patch. Did you test your change on the Raspberry Pi?
+> > 
+> > Hey Stefan,
+> > No I haven't done so as I thought this is a generic change?
+> > Will that be necessary?
+> 
+> No.  It's not required.  The patch is easy to audit and clearly
+> harmless.
+> 
+> The question would be does it actually fix a bug?  I looked at it and
+> some of the strings are definitely a bit long.  The longest one I saw
+> was:
+> 	"  Slots: %d available (%d data), %d recyclable, %d stalls (%d data)",
+> 	123456789 123456789 123456789 123456789 123456789 123456789 123456789
+> 
+> If you get a lot of stalls, then that looks like it could lead to a
+> read overflow (an information leak).  Either way this does make the
+> code a bit easier to audit so it seems like a nice cleanup.  Next time
+> though, I really would prefer if you put this sort analysis in your
+> commit message so I can just glance over it.  (I'm lazy).
+> 
+> Reviewed-by: Dan Carpenter <dan.carpenter@oracle.com>
+> 
+> regards,
+> dan carpenter
 
-   spi: Guarantee cacheline alignment of driver-private data
+Hey Dan,
+Thanks for reviewing this :)
+I will make sure to add some analysis the next time I do a clean up like
+this.
 
-has been applied to the spi tree at
-
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-5.4
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.  
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
+There are a lot of usages of "snprintf" throughout the staging
+directory (315 to be exact)
+Would it be worthwhile to find ones that may cause an information leak
+and replace them with "scnprintf"?
 Thanks,
-Mark
-
-From 229e6af102e407feada76d3c270395d7cda2cdfe Mon Sep 17 00:00:00 2001
-From: Lukas Wunner <lukas@wunner.de>
-Date: Wed, 11 Sep 2019 12:15:30 +0200
-Subject: [PATCH] spi: Guarantee cacheline alignment of driver-private data
-
-__spi_alloc_controller() uses a single allocation to accommodate struct
-spi_controller and the driver-private data, but places the latter behind
-the former.  This order does not guarantee cacheline alignment of the
-driver-private data.  (It does guarantee cacheline alignment of struct
-spi_controller but the structure doesn't make any use of that property.)
-
-Round up struct spi_controller to cacheline size.  A forthcoming commit
-leverages this to grant DMA access to driver-private data of the BCM2835
-SPI master.
-
-An alternative, less economical approach would be to use two allocations.
-
-A third approach consists of reversing the order to conserve memory.
-But Mark Brown is concerned that it may result in a performance penalty
-on architectures that don't like unaligned accesses.
-
-Signed-off-by: Lukas Wunner <lukas@wunner.de>
-Link: https://lore.kernel.org/r/01625b9b26b93417fb09d2c15ad02dfe9cdbbbe5.1568187525.git.lukas@wunner.de
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- drivers/spi/spi.c | 11 +++++++----
- 1 file changed, 7 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/spi/spi.c b/drivers/spi/spi.c
-index b2890923d256..f8b4654a57d3 100644
---- a/drivers/spi/spi.c
-+++ b/drivers/spi/spi.c
-@@ -2188,8 +2188,10 @@ extern struct class spi_slave_class;	/* dummy */
-  * __spi_alloc_controller - allocate an SPI master or slave controller
-  * @dev: the controller, possibly using the platform_bus
-  * @size: how much zeroed driver-private data to allocate; the pointer to this
-- *	memory is in the driver_data field of the returned device,
-- *	accessible with spi_controller_get_devdata().
-+ *	memory is in the driver_data field of the returned device, accessible
-+ *	with spi_controller_get_devdata(); the memory is cacheline aligned;
-+ *	drivers granting DMA access to portions of their private data need to
-+ *	round up @size using ALIGN(size, dma_get_cache_alignment()).
-  * @slave: flag indicating whether to allocate an SPI master (false) or SPI
-  *	slave (true) controller
-  * Context: can sleep
-@@ -2211,11 +2213,12 @@ struct spi_controller *__spi_alloc_controller(struct device *dev,
- 					      unsigned int size, bool slave)
- {
- 	struct spi_controller	*ctlr;
-+	size_t ctlr_size = ALIGN(sizeof(*ctlr), dma_get_cache_alignment());
- 
- 	if (!dev)
- 		return NULL;
- 
--	ctlr = kzalloc(size + sizeof(*ctlr), GFP_KERNEL);
-+	ctlr = kzalloc(size + ctlr_size, GFP_KERNEL);
- 	if (!ctlr)
- 		return NULL;
- 
-@@ -2229,7 +2232,7 @@ struct spi_controller *__spi_alloc_controller(struct device *dev,
- 		ctlr->dev.class = &spi_master_class;
- 	ctlr->dev.parent = dev;
- 	pm_suspend_ignore_children(&ctlr->dev, true);
--	spi_controller_set_devdata(ctlr, &ctlr[1]);
-+	spi_controller_set_devdata(ctlr, (void *)ctlr + ctlr_size);
- 
- 	return ctlr;
- }
--- 
-2.20.1
-
+Rohit
 
 _______________________________________________
 linux-rpi-kernel mailing list
