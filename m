@@ -2,59 +2,71 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id B358FAFAC2
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 11 Sep 2019 12:48:15 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 05A82AFAC0
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 11 Sep 2019 12:47:30 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:MIME-Version:Subject:Date:From:
-	References:In-Reply-To:Message-Id:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+dlaO4OkMCjrRyLIWGo+OJF+bYK+Aid+y4UhkiT9rFI=; b=F7n2KIAK0vjFq4
-	499xHbrSc9s8W0e0OLcwNARoXu/L2G5b1zrUtzrFu33+/Bfl+ruEOcssB20N3bTYgwHbc8HAIYm/K
-	KNYeRg+OBaXtMqOPEnHeku3E51/hDJt9VEiczxmLVzX8bJSWCCVN5lL3IkCPaiqLcy9RywQvafPMb
-	PSkot+1/VFzRYGBIvRoptjwqn+ZufRse6tsm3YlqEyrED+Oq0PcvHCeA6PMJOi6lywxDuRLNKCMzW
-	0XhM3uv7OpglB7p3dNHQBiv/Lc94ikq3FL75Bu7MKpflt03CeX5IyYarNzKNtM/qUUVDQM8P04oLM
-	hhK7eLruORwZFqA/xhIQ==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=1VYG917W4AHaiJlnT4hN4Ryb4zS0bvvtrMGUE2zZARg=; b=mnIwfE1y9vFkYAKd93JZ022BC
+	0sn54oYc4D0fusAdLV7nuP5rKVYuLfw4DDQUZUn407jozPVQtfPIQOqQ7i4yo0RX1jIabFQLlEZ94
+	7Xy2q0Z/fzqkaDwx6zXvzfvmqWQTnDsG8tqL9t8A2NkgwjW9Jap4EbMKW35ZVU6zJ6LxDE9bLeC43
+	qx6n3Iic2wfz6ecS7MGEBpo0VkEGEYCbpjdR+djjYGXSIudY0pBxx1B2jlMkXOy4LYWDSciMtqx1e
+	/aS+t2n/3AyNJ89HMrJ0Z4ubKzxsP2jJiWiaGpB6YfW7Ekn/9qU5hlvelEwE1QqGLDizww9gquvHn
+	IPFdYo7yA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i80AU-0004CJ-06; Wed, 11 Sep 2019 10:48:10 +0000
-Received: from mailout2.hostsharing.net ([83.223.78.233])
+	id 1i809m-00047r-5i; Wed, 11 Sep 2019 10:47:26 +0000
+Received: from heliosphere.sirena.org.uk ([2a01:7e01::f03c:91ff:fed4:a3b6])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i80AQ-0004Bs-2c
- for linux-rpi-kernel@lists.infradead.org; Wed, 11 Sep 2019 10:48:07 +0000
-Received: from h08.hostsharing.net (h08.hostsharing.net
- [IPv6:2a01:37:1000::53df:5f1c:0])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (Client CN "*.hostsharing.net",
- Issuer "COMODO RSA Domain Validation Secure Server CA" (not verified))
- by mailout2.hostsharing.net (Postfix) with ESMTPS id D081410189D0E;
- Wed, 11 Sep 2019 12:48:02 +0200 (CEST)
-Received: from localhost (p57BD772B.dip0.t-ipconnect.de [87.189.119.43])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
- (No client certificate requested)
- by h08.hostsharing.net (Postfix) with ESMTPSA id 874156138D2F;
- Wed, 11 Sep 2019 12:48:02 +0200 (CEST)
-X-Mailbox-Line: From 062b03b7f86af77a13ce0ec3b22e0bdbfcfba10d Mon Sep 17
- 00:00:00 2001
-Message-Id: <062b03b7f86af77a13ce0ec3b22e0bdbfcfba10d.1568187525.git.lukas@wunner.de>
-In-Reply-To: <cover.1568187525.git.lukas@wunner.de>
+ id 1i809j-00047Y-RJ
+ for linux-rpi-kernel@lists.infradead.org; Wed, 11 Sep 2019 10:47:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=sirena.org.uk; s=20170815-heliosphere; h=In-Reply-To:Content-Type:
+ MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+ List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=obMQBjQk21sSrNDQ9pzr5Lrl4+GQWjmyi37MqvNhcFo=; b=BkFtIyszpUZQvUpa0xiEd9+lT
+ Kz9hqZEbQG09bwIxmytYOdk69zUPPadkXKecfaQ4MuexvS0BH6jL1q0o/FH26jN5ljfLwwpDaYIUw
+ SuelNo3itJ87mtHGb/Gn3M9zxwL8c9e29uxUvuOaMVwysuy91N+UyaeSvGpbdM/y6HY74=;
+Received: from [148.69.85.38] (helo=fitzroy.sirena.org.uk)
+ by heliosphere.sirena.org.uk with esmtpsa
+ (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
+ (envelope-from <broonie@sirena.org.uk>)
+ id 1i809h-0008Hf-Sl; Wed, 11 Sep 2019 10:47:21 +0000
+Received: by fitzroy.sirena.org.uk (Postfix, from userid 1000)
+ id 3A04CD00330; Wed, 11 Sep 2019 11:47:21 +0100 (BST)
+Date: Wed, 11 Sep 2019 11:47:21 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Lukas Wunner <lukas@wunner.de>
+Subject: Re: [PATCH v2 00/10] Speed up SPI simplex transfers on Raspberry Pi
+Message-ID: <20190911104721.GX2036@sirena.org.uk>
 References: <cover.1568187525.git.lukas@wunner.de>
-From: Lukas Wunner <lukas@wunner.de>
-Date: Wed, 11 Sep 2019 12:15:30 +0200
-Subject: [PATCH v2 05/10] spi: bcm2835: Drop dma_pending flag
 MIME-Version: 1.0
-To: Mark Brown <broonie@kernel.org>
+In-Reply-To: <cover.1568187525.git.lukas@wunner.de>
+X-Cookie: Be careful!  UGLY strikes 9 out of 10!
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190911_034806_428681_4CDAA7D9 
-X-CRM114-Status: GOOD (  15.18  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20190911_034723_895391_CBE66186 
+X-CRM114-Status: UNSURE (   7.64  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -0.1 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (0.0 points)
+ Content analysis details:   (-0.1 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ 0.0 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
  0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -67,83 +79,67 @@ List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
 Cc: linux-rpi-kernel@lists.infradead.org, linux-spi@vger.kernel.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============1795843313686695934=="
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-VGhlIEJDTTI4MzUgU1BJIGRyaXZlciB1c2VzIGEgZmxhZyB0byBrZWVwIHRyYWNrIG9mIHdoZXRo
-ZXIgYSBETUEKdHJhbnNmZXIgaXMgaW4gcHJvZ3Jlc3MuCgpUaGUgZmxhZyBpcyB1c2VkIHRvIGF2
-b2lkIHRlcm1pbmF0aW5nIERNQSBjaGFubmVscyBtdWx0aXBsZSB0aW1lcyBpZiBhCnRyYW5zZmVy
-IGZpbmlzaGVzIG9yZGVybHkgd2hpbGUgc2ltdWx0YW5lb3VzbHkgdGhlIFNQSSBjb3JlIGludm9r
-ZXMgdGhlCi0+aGFuZGxlX2VycigpIGNhbGxiYWNrIGJlY2F1c2UgdGhlIHRyYW5zZmVyIHRvb2sg
-dG9vIGxvbmcuICBIb3dldmVyCnRlcm1pbmF0aW5nIERNQSBjaGFubmVscyBtdWx0aXBsZSB0aW1l
-cyBpcyBwZXJmZWN0bHkgZmluZSwgc28gdGhlIGZsYWcKaXMgdW5uZWNlc3NhcnkgZm9yIHRoaXMg
-cGFydGljdWxhciBwdXJwb3NlLgoKVGhlIGZsYWcgaXMgYWxzbyB1c2VkIHRvIGF2b2lkIGludm9r
-aW5nIGJjbTI4MzVfc3BpX3VuZG9fcHJvbG9ndWUoKQptdWx0aXBsZSB0aW1lcyB1bmRlciB0aGlz
-IHJhY2UgY29uZGl0aW9uLiAgSG93ZXZlciBtdWx0aXBsZSAqY29uY3VycmVudCoKaW52b2NhdGlv
-bnMgY2FuIG5vIGxvbmdlciBoYXBwZW4gc2luY2UgY29tbWl0IDI1Mjc3MDRkODQxMSAoInNwaToK
-YmNtMjgzNTogU3luY2hyb25pemUgd2l0aCBjYWxsYmFjayBvbiBETUEgdGVybWluYXRpb24iKSBi
-ZWNhdXNlIHRoZQotPmhhbmRsZV9lcnIoKSBjYWxsYmFjayBub3cgdXNlcyB0aGUgX3N5bmMoKSB2
-YXJpYW50IHdoZW4gdGVybWluYXRpbmcKRE1BIGNoYW5uZWxzLgoKVGhlIG9ubHkgcmFpc29uIGQn
-w6p0cmUgb2YgdGhlIGZsYWcgaXMgdGhlcmVmb3JlIHRoYXQKYmNtMjgzNV9zcGlfdW5kb19wcm9s
-b2d1ZSgpIGNhbm5vdCBjb3BlIHdpdGggbXVsdGlwbGUgKnNlcXVlbnRpYWwqCmludm9jYXRpb25z
-LiAgQWNoaWV2ZSB0aGF0IGJ5IHNldHRpbmcgdHhfcHJvbG9ndWUgdG8gMCBhdCB0aGUgZW5kIG9m
-CnRoZSBmdW5jdGlvbi4gIFN1YnNlcXVlbnQgaW52b2NhdGlvbnMgdGh1cyBiZWNvbWUgbm8tb3Bz
-LgoKV2l0aCB0aGF0LCB0aGUgZG1hX3BlbmRpbmcgZmxhZyBiZWNvbWVzIHVubmVjZXNzYXJ5LCBz
-byBkcm9wIGl0LgoKVGVzdGVkLWJ5OiBOdW5vIFPDoSA8bnVuby5zYUBhbmFsb2cuY29tPgpUZXN0
-ZWQtYnk6IE5vcmFsZiBUcsO4bm5lcyA8bm9yYWxmQHRyb25uZXMub3JnPgpTaWduZWQtb2ZmLWJ5
-OiBMdWthcyBXdW5uZXIgPGx1a2FzQHd1bm5lci5kZT4KQWNrZWQtYnk6IFN0ZWZhbiBXYWhyZW4g
-PHdhaHJlbnN0QGdteC5uZXQ+CkFja2VkLWJ5OiBNYXJ0aW4gU3BlcmwgPGtlcm5lbEBtYXJ0aW4u
-c3Blcmwub3JnPgotLS0KIGRyaXZlcnMvc3BpL3NwaS1iY20yODM1LmMgfCAyMyArKysrKysrKy0t
-LS0tLS0tLS0tLS0tLQogMSBmaWxlIGNoYW5nZWQsIDggaW5zZXJ0aW9ucygrKSwgMTUgZGVsZXRp
-b25zKC0pCgpkaWZmIC0tZ2l0IGEvZHJpdmVycy9zcGkvc3BpLWJjbTI4MzUuYyBiL2RyaXZlcnMv
-c3BpL3NwaS1iY20yODM1LmMKaW5kZXggZjc5ZjA0ZWE0MmU1Li41MzJjNThiY2ZkNDUgMTAwNjQ0
-Ci0tLSBhL2RyaXZlcnMvc3BpL3NwaS1iY20yODM1LmMKKysrIGIvZHJpdmVycy9zcGkvc3BpLWJj
-bTI4MzUuYwpAQCAtOTQsNyArOTQsNiBAQCBNT0RVTEVfUEFSTV9ERVNDKHBvbGxpbmdfbGltaXRf
-dXMsCiAgKiBAcnhfcHJvbG9ndWU6IGJ5dGVzIHJlY2VpdmVkIHdpdGhvdXQgRE1BIGlmIGZpcnN0
-IFJYIHNnbGlzdCBlbnRyeSdzCiAgKglsZW5ndGggaXMgbm90IGEgbXVsdGlwbGUgb2YgNCAodG8g
-b3ZlcmNvbWUgaGFyZHdhcmUgbGltaXRhdGlvbikKICAqIEB0eF9zcGlsbG92ZXI6IHdoZXRoZXIg
-QHR4X3Byb2xvZ3VlIHNwaWxscyBvdmVyIHRvIHNlY29uZCBUWCBzZ2xpc3QgZW50cnkKLSAqIEBk
-bWFfcGVuZGluZzogd2hldGhlciBhIERNQSB0cmFuc2ZlciBpcyBpbiBwcm9ncmVzcwogICogQGRl
-YnVnZnNfZGlyOiB0aGUgZGVidWdmcyBkaXJlY3RvcnkgLSBuZWVkZSB0byByZW1vdmUgZGVidWdm
-cyB3aGVuCiAgKiAgICAgIHVubG9hZGluZyB0aGUgbW9kdWxlCiAgKiBAY291bnRfdHJhbnNmZXJf
-cG9sbGluZzogY291bnQgb2YgaG93IG9mdGVuIHBvbGxpbmcgbW9kZSBpcyB1c2VkCkBAIC0xMTcs
-NyArMTE2LDYgQEAgc3RydWN0IGJjbTI4MzVfc3BpIHsKIAlpbnQgdHhfcHJvbG9ndWU7CiAJaW50
-IHJ4X3Byb2xvZ3VlOwogCXVuc2lnbmVkIGludCB0eF9zcGlsbG92ZXI7Ci0JdW5zaWduZWQgaW50
-IGRtYV9wZW5kaW5nOwogCiAJc3RydWN0IGRlbnRyeSAqZGVidWdmc19kaXI7CiAJdTY0IGNvdW50
-X3RyYW5zZmVyX3BvbGxpbmc7CkBAIC01NTEsNiArNTQ5LDggQEAgc3RhdGljIHZvaWQgYmNtMjgz
-NV9zcGlfdW5kb19wcm9sb2d1ZShzdHJ1Y3QgYmNtMjgzNV9zcGkgKmJzKQogCQlzZ19kbWFfYWRk
-cmVzcygmdGZyLT50eF9zZy5zZ2xbMV0pIC09IDQ7CiAJCXNnX2RtYV9sZW4oJnRmci0+dHhfc2cu
-c2dsWzFdKSAgICAgKz0gNDsKIAl9CisKKwlicy0+dHhfcHJvbG9ndWUgPSAwOwogfQogCiBzdGF0
-aWMgdm9pZCBiY20yODM1X3NwaV9kbWFfZG9uZSh2b2lkICpkYXRhKQpAQCAtNTY2LDEwICs1NjYs
-OCBAQCBzdGF0aWMgdm9pZCBiY20yODM1X3NwaV9kbWFfZG9uZSh2b2lkICpkYXRhKQogCSAqIGlz
-IGNhbGxlZCB0aGUgdHgtZG1hIG11c3QgaGF2ZSBmaW5pc2hlZCAtIGNhbid0IGdldCB0byB0aGlz
-CiAJICogc2l0dWF0aW9uIG90aGVyd2lzZS4uLgogCSAqLwotCWlmIChjbXB4Y2hnKCZicy0+ZG1h
-X3BlbmRpbmcsIHRydWUsIGZhbHNlKSkgewotCQlkbWFlbmdpbmVfdGVybWluYXRlX2FzeW5jKGN0
-bHItPmRtYV90eCk7Ci0JCWJjbTI4MzVfc3BpX3VuZG9fcHJvbG9ndWUoYnMpOwotCX0KKwlkbWFl
-bmdpbmVfdGVybWluYXRlX2FzeW5jKGN0bHItPmRtYV90eCk7CisJYmNtMjgzNV9zcGlfdW5kb19w
-cm9sb2d1ZShicyk7CiAKIAkvKiBhbmQgbWFyayBhcyBjb21wbGV0ZWQgKi87CiAJY29tcGxldGUo
-JmN0bHItPnhmZXJfY29tcGxldGlvbik7CkBAIC02NDQsOSArNjQyLDYgQEAgc3RhdGljIGludCBi
-Y20yODM1X3NwaV90cmFuc2Zlcl9vbmVfZG1hKHN0cnVjdCBzcGlfY29udHJvbGxlciAqY3RsciwK
-IAkvKiBzdGFydCBUWCBlYXJseSAqLwogCWRtYV9hc3luY19pc3N1ZV9wZW5kaW5nKGN0bHItPmRt
-YV90eCk7CiAKLQkvKiBtYXJrIGFzIGRtYSBwZW5kaW5nICovCi0JYnMtPmRtYV9wZW5kaW5nID0g
-MTsKLQogCS8qIHNldCB0aGUgRE1BIGxlbmd0aCAqLwogCWJjbTI4MzVfd3IoYnMsIEJDTTI4MzVf
-U1BJX0RMRU4sIGJzLT50eF9sZW4pOwogCkBAIC02NjIsNyArNjU3LDYgQEAgc3RhdGljIGludCBi
-Y20yODM1X3NwaV90cmFuc2Zlcl9vbmVfZG1hKHN0cnVjdCBzcGlfY29udHJvbGxlciAqY3RsciwK
-IAlpZiAocmV0KSB7CiAJCS8qIG5lZWQgdG8gcmVzZXQgb24gZXJyb3JzICovCiAJCWRtYWVuZ2lu
-ZV90ZXJtaW5hdGVfc3luYyhjdGxyLT5kbWFfdHgpOwotCQlicy0+ZG1hX3BlbmRpbmcgPSBmYWxz
-ZTsKIAkJZ290byBlcnJfcmVzZXRfaHc7CiAJfQogCkBAIC05MjcsMTEgKzkyMSwxMCBAQCBzdGF0
-aWMgdm9pZCBiY20yODM1X3NwaV9oYW5kbGVfZXJyKHN0cnVjdCBzcGlfY29udHJvbGxlciAqY3Rs
-ciwKIAlzdHJ1Y3QgYmNtMjgzNV9zcGkgKmJzID0gc3BpX2NvbnRyb2xsZXJfZ2V0X2RldmRhdGEo
-Y3Rscik7CiAKIAkvKiBpZiBhbiBlcnJvciBvY2N1cnJlZCBhbmQgd2UgaGF2ZSBhbiBhY3RpdmUg
-ZG1hLCB0aGVuIHRlcm1pbmF0ZSAqLwotCWlmIChjbXB4Y2hnKCZicy0+ZG1hX3BlbmRpbmcsIHRy
-dWUsIGZhbHNlKSkgewotCQlkbWFlbmdpbmVfdGVybWluYXRlX3N5bmMoY3Rsci0+ZG1hX3R4KTsK
-LQkJZG1hZW5naW5lX3Rlcm1pbmF0ZV9zeW5jKGN0bHItPmRtYV9yeCk7Ci0JCWJjbTI4MzVfc3Bp
-X3VuZG9fcHJvbG9ndWUoYnMpOwotCX0KKwlkbWFlbmdpbmVfdGVybWluYXRlX3N5bmMoY3Rsci0+
-ZG1hX3R4KTsKKwlkbWFlbmdpbmVfdGVybWluYXRlX3N5bmMoY3Rsci0+ZG1hX3J4KTsKKwliY20y
-ODM1X3NwaV91bmRvX3Byb2xvZ3VlKGJzKTsKKwogCS8qIGFuZCByZXNldCAqLwogCWJjbTI4MzVf
-c3BpX3Jlc2V0X2h3KGN0bHIpOwogfQotLSAKMi4yMy4wCgoKX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcnBpLWtlcm5lbCBtYWlsaW5nIGxpc3QK
-bGludXgtcnBpLWtlcm5lbEBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
-YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcnBpLWtlcm5lbAo=
+
+--===============1795843313686695934==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="sBvc846/5FzkyDmz"
+Content-Disposition: inline
+
+
+--sBvc846/5FzkyDmz
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Sep 11, 2019 at 12:15:30PM +0200, Lukas Wunner wrote:
+> Extend the BCM2835 SPI driver to handle simplex transfers internally,
+> thereby reducing their latency and CPU usage and obviating the need to
+> have the SPI core convert to full-duplex via SPI_CONTROLLER_MUST_TX/RX.
+
+Whatever you're doing to send these is still not sending the
+patches in order:
+
+    779 N T 09/11 Lukas Wunner    (1.6K) [PATCH v2 00/10] Speed up SPI simp=
+lex t
+    780 N T 09/11 Lukas Wunner    (2.1K) =E2=94=9C=E2=94=80>[PATCH v2 02/10=
+] dmaengine: bcm2835:
+    781 N T 09/11 Lukas Wunner    (1.3K) =E2=94=9C=E2=94=80>[PATCH v2 01/10=
+] dmaengine: bcm2835:
+    782 N T 09/11 Lukas Wunner    (2.6K) =E2=94=9C=E2=94=80>[PATCH v2 03/10=
+] spi: Guarantee cac
+
+--sBvc846/5FzkyDmz
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEyBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAl140LYACgkQJNaLcl1U
+h9CJuAf40t7iOsCtCUCgOGIXB+YibWRckLCGnZaxx9lO8FpS02JKK8a1kZ7BzmBu
+KUB9QEeaKj5mR76HSW9ptzpbLt2Dhgy92E9In/53UHZK8w7xCRzpngrLvLy/ngg9
+BKxBDoUN5rANRRMIhK18StZ4TKHqviLnTyfFlFkchbmu9KH3bQpwV1v+t0Mv4TqS
+rbeE860BfkVkR6iCMCt/vTlIi+XwRxoTVgjLUWPIphox2CzAYX0ChmRuuX+lXfz3
+t1LJLptjNXavM3z03a/6EeLrgjIvTlc0EmXJNb2YpjSl4w2Lfhtiy8saxwuwXa1s
+UIApc9MXI4DnImX3tQ8K1ZWo2qJq
+=9QgI
+-----END PGP SIGNATURE-----
+
+--sBvc846/5FzkyDmz--
+
+
+--===============1795843313686695934==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-rpi-kernel mailing list
+linux-rpi-kernel@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
+
+--===============1795843313686695934==--
+
