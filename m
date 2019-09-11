@@ -2,51 +2,52 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 70780AFA76
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 11 Sep 2019 12:34:25 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id A15B9AFAA4
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 11 Sep 2019 12:42:30 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:MIME-Version:Subject:Date:From:
-	References:In-Reply-To:Message-Id:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/JGSqZMs0mN1LO87upt4lJVzHfcpoPRX0E8JdHIaBrI=; b=IIOEgiaMgI610/
-	qsIh49Jtr/TsGLIuG+5skPOHELACC/yQ571WwCQz/0JuoFRUHGW7/dum+qZVSCAOl9A9GaOBptpuv
-	BAjFcKfMsyd2F2VVcRxIq1ZGNA5iUF2D8hdPfHYUleQMNEnVFpt7uWgMqEBmeBsxGETAj4mJ49dzb
-	bbD4l7uOE/vEyUAs+Hzx+VyMrJkKP6N9TIlKFgpdkfQ3YIDSrKLBsi3k/3QMYqNV6EydGw3AKI27h
-	5M342tpKF5l7ibrH8sxl0xhJB3Q+zX1DkqAaiUDxthaJEojw7N6tHDYWQrT4+gclR4WwSxCrsd2DC
-	GaThdOxJuFgVpW8RHYWg==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Subject:Date:
+	From:References:In-Reply-To:Message-Id:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=A/QeSHBON2vinxZ1N7Zlb9E2fYRCKUxy6ryL2lhw1Lc=; b=h7eJQuWqaJ+BX/aRbI9rRZzHIt
+	3uP0KmRcoz0VoXl49kUPLx+LAZOwe4soEqT1lz9jkMkqN33RNL4550XhGaNCDtkP7yPGUWvfOYeGF
+	jBKJsNdrpaIUWSgu9q+NrArWYrOnvHP+/p1CjcqzNQCpAfOrlNWtuFTLu7A5mhspr9JgwnlZlNXal
+	cUvj+yHDdfGpsvmGBWay2Ekcor+31NItoyAWkfb8jtB9HAc6CuYot1buiJLmvWKd9mXHxSXwCVcp7
+	vX54EEo5/EeeZbdKpEIxxsDD5pWdw9pBFvCgtPbXob/KujwtUZ1Z9gvcWnlvFAal+seuczwG1uYgz
+	abVW2jBA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i7zx4-0007EK-J7; Wed, 11 Sep 2019 10:34:18 +0000
-Received: from mailout2.hostsharing.net ([2a01:37:3000::53df:4ee9:0])
+	id 1i804t-0002CK-Kl; Wed, 11 Sep 2019 10:42:23 +0000
+Received: from mailout1.hostsharing.net ([2a01:37:1000::53df:5fcc:0])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i7zx1-0007Dp-9T
- for linux-rpi-kernel@lists.infradead.org; Wed, 11 Sep 2019 10:34:16 +0000
+ id 1i804q-0002BY-Er
+ for linux-rpi-kernel@lists.infradead.org; Wed, 11 Sep 2019 10:42:21 +0000
 Received: from h08.hostsharing.net (h08.hostsharing.net [83.223.95.28])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (Client CN "*.hostsharing.net",
  Issuer "COMODO RSA Domain Validation Secure Server CA" (not verified))
- by mailout2.hostsharing.net (Postfix) with ESMTPS id CE39D10189CE9;
- Wed, 11 Sep 2019 12:34:12 +0200 (CEST)
+ by mailout1.hostsharing.net (Postfix) with ESMTPS id 26FA1101903B3;
+ Wed, 11 Sep 2019 12:42:19 +0200 (CEST)
 Received: from localhost (p57BD772B.dip0.t-ipconnect.de [87.189.119.43])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
  (No client certificate requested)
- by h08.hostsharing.net (Postfix) with ESMTPSA id 80D8261255CE;
- Wed, 11 Sep 2019 12:34:12 +0200 (CEST)
-X-Mailbox-Line: From bfc98a38225bbec4158440ad06cb9eee675e3e6f Mon Sep 17
+ by h08.hostsharing.net (Postfix) with ESMTPSA id D98726124A1A;
+ Wed, 11 Sep 2019 12:42:18 +0200 (CEST)
+X-Mailbox-Line: From 01625b9b26b93417fb09d2c15ad02dfe9cdbbbe5 Mon Sep 17
  00:00:00 2001
-Message-Id: <bfc98a38225bbec4158440ad06cb9eee675e3e6f.1568187525.git.lukas@wunner.de>
+Message-Id: <01625b9b26b93417fb09d2c15ad02dfe9cdbbbe5.1568187525.git.lukas@wunner.de>
 In-Reply-To: <cover.1568187525.git.lukas@wunner.de>
 References: <cover.1568187525.git.lukas@wunner.de>
 From: Lukas Wunner <lukas@wunner.de>
 Date: Wed, 11 Sep 2019 12:15:30 +0200
-Subject: [PATCH v2 01/10] dmaengine: bcm2835: Allow reusable descriptors
-MIME-Version: 1.0
+Subject: [PATCH v2 03/10] spi: Guarantee cacheline alignment of driver-private
+ data
 To: Mark Brown <broonie@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190911_033415_481544_F20FB718 
-X-CRM114-Status: GOOD (  10.11  )
+X-CRM114-CacheID: sfid-20190911_034220_656808_5B199890 
+X-CRM114-Status: GOOD (  11.57  )
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (0.0 points)
@@ -66,35 +67,78 @@ List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
 Cc: linux-rpi-kernel@lists.infradead.org, linux-spi@vger.kernel.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-VGhlIERNQSBlbmdpbmUgQVBJIHJlcXVpcmVzIERNQSBkcml2ZXJzIHRvIGV4cGxpY2l0bHkgYWxs
-b3cgdGhhdApkZXNjcmlwdG9ycyBhcmUgcHJlcGFyZWQgb25jZSBhbmQgcmV1c2VkIG11bHRpcGxl
-IHRpbWVzLiBPbmx5IGEKc2luZ2xlIGRyaXZlciBtYWtlcyB1c2Ugb2YgdGhpcyBmdW5jdGlvbmFs
-aXR5IHNvIGZhciAocHhhX2RtYS5jLAp0byBzcGVlZCB1cCBweGFfY2FtZXJhLmMpLgoKV2UncmUg
-YWJvdXQgdG8gYWRkIGFub3RoZXIgdXNlIGNhc2UgZm9yIHJldXNhYmxlIGRlc2NyaXB0b3JzIGlu
-CnRoZSBCQ00yODM1IFNQSSBkcml2ZXIsIHNvIGFsbG93IHRoYXQgaW4gdGhlIEJDTTI4MzUgRE1B
-IGRyaXZlci4KClRlc3RlZC1ieTogTnVubyBTw6EgPG51bm8uc2FAYW5hbG9nLmNvbT4KVGVzdGVk
-LWJ5OiBOb3JhbGYgVHLDuG5uZXMgPG5vcmFsZkB0cm9ubmVzLm9yZz4KU2lnbmVkLW9mZi1ieTog
-THVrYXMgV3VubmVyIDxsdWthc0B3dW5uZXIuZGU+CkFja2VkLWJ5OiBWaW5vZCBLb3VsIDx2a291
-bEBrZXJuZWwub3JnPgpBY2tlZC1ieTogU3RlZmFuIFdhaHJlbiA8d2FocmVuc3RAZ214Lm5ldD4K
-QWNrZWQtYnk6IE1hcnRpbiBTcGVybCA8a2VybmVsQG1hcnRpbi5zcGVybC5vcmc+CkNjOiBGbG9y
-aWFuIEthdWVyIDxmbG9yaWFuLmthdWVyQGtvYWxvLmRlPgpDYzogUm9iZXJ0IEphcnptaWsgPHJv
-YmVydC5qYXJ6bWlrQGZyZWUuZnI+Ci0tLQogZHJpdmVycy9kbWEvYmNtMjgzNS1kbWEuYyB8IDEg
-KwogMSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspCgpkaWZmIC0tZ2l0IGEvZHJpdmVycy9k
-bWEvYmNtMjgzNS1kbWEuYyBiL2RyaXZlcnMvZG1hL2JjbTI4MzUtZG1hLmMKaW5kZXggODEwMWZm
-MmYwNWMxLi41MjNjNTA3YWQ2OWUgMTAwNjQ0Ci0tLSBhL2RyaXZlcnMvZG1hL2JjbTI4MzUtZG1h
-LmMKKysrIGIvZHJpdmVycy9kbWEvYmNtMjgzNS1kbWEuYwpAQCAtOTA3LDYgKzkwNyw3IEBAIHN0
-YXRpYyBpbnQgYmNtMjgzNV9kbWFfcHJvYmUoc3RydWN0IHBsYXRmb3JtX2RldmljZSAqcGRldikK
-IAlvZC0+ZGRldi5kaXJlY3Rpb25zID0gQklUKERNQV9ERVZfVE9fTUVNKSB8IEJJVChETUFfTUVN
-X1RPX0RFVikgfAogCQkJICAgICAgQklUKERNQV9NRU1fVE9fTUVNKTsKIAlvZC0+ZGRldi5yZXNp
-ZHVlX2dyYW51bGFyaXR5ID0gRE1BX1JFU0lEVUVfR1JBTlVMQVJJVFlfQlVSU1Q7CisJb2QtPmRk
-ZXYuZGVzY3JpcHRvcl9yZXVzZSA9IHRydWU7CiAJb2QtPmRkZXYuZGV2ID0gJnBkZXYtPmRldjsK
-IAlJTklUX0xJU1RfSEVBRCgmb2QtPmRkZXYuY2hhbm5lbHMpOwogCi0tIAoyLjIzLjAKCgpfX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1ycGkta2Vy
-bmVsIG1haWxpbmcgbGlzdApsaW51eC1ycGkta2VybmVsQGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
-cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1ycGkta2VybmVs
-Cg==
+__spi_alloc_controller() uses a single allocation to accommodate struct
+spi_controller and the driver-private data, but places the latter behind
+the former.  This order does not guarantee cacheline alignment of the
+driver-private data.  (It does guarantee cacheline alignment of struct
+spi_controller but the structure doesn't make any use of that property.)
+
+Round up struct spi_controller to cacheline size.  A forthcoming commit
+leverages this to grant DMA access to driver-private data of the BCM2835
+SPI master.
+
+An alternative, less economical approach would be to use two allocations.
+
+A third approach consists of reversing the order to conserve memory.
+But Mark Brown is concerned that it may result in a performance penalty
+on architectures that don't like unaligned accesses.
+
+Signed-off-by: Lukas Wunner <lukas@wunner.de>
+---
+ drivers/spi/spi.c | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/spi/spi.c b/drivers/spi/spi.c
+index b2890923d256..f8b4654a57d3 100644
+--- a/drivers/spi/spi.c
++++ b/drivers/spi/spi.c
+@@ -2188,8 +2188,10 @@ extern struct class spi_slave_class;	/* dummy */
+  * __spi_alloc_controller - allocate an SPI master or slave controller
+  * @dev: the controller, possibly using the platform_bus
+  * @size: how much zeroed driver-private data to allocate; the pointer to this
+- *	memory is in the driver_data field of the returned device,
+- *	accessible with spi_controller_get_devdata().
++ *	memory is in the driver_data field of the returned device, accessible
++ *	with spi_controller_get_devdata(); the memory is cacheline aligned;
++ *	drivers granting DMA access to portions of their private data need to
++ *	round up @size using ALIGN(size, dma_get_cache_alignment()).
+  * @slave: flag indicating whether to allocate an SPI master (false) or SPI
+  *	slave (true) controller
+  * Context: can sleep
+@@ -2211,11 +2213,12 @@ struct spi_controller *__spi_alloc_controller(struct device *dev,
+ 					      unsigned int size, bool slave)
+ {
+ 	struct spi_controller	*ctlr;
++	size_t ctlr_size = ALIGN(sizeof(*ctlr), dma_get_cache_alignment());
+ 
+ 	if (!dev)
+ 		return NULL;
+ 
+-	ctlr = kzalloc(size + sizeof(*ctlr), GFP_KERNEL);
++	ctlr = kzalloc(size + ctlr_size, GFP_KERNEL);
+ 	if (!ctlr)
+ 		return NULL;
+ 
+@@ -2229,7 +2232,7 @@ struct spi_controller *__spi_alloc_controller(struct device *dev,
+ 		ctlr->dev.class = &spi_master_class;
+ 	ctlr->dev.parent = dev;
+ 	pm_suspend_ignore_children(&ctlr->dev, true);
+-	spi_controller_set_devdata(ctlr, &ctlr[1]);
++	spi_controller_set_devdata(ctlr, (void *)ctlr + ctlr_size);
+ 
+ 	return ctlr;
+ }
+-- 
+2.23.0
+
+
+_______________________________________________
+linux-rpi-kernel mailing list
+linux-rpi-kernel@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
