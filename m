@@ -2,68 +2,89 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id B41AECFD54
-	for <lists+linux-rpi-kernel@lfdr.de>; Tue,  8 Oct 2019 17:15:59 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 01FFDD5770
+	for <lists+linux-rpi-kernel@lfdr.de>; Sun, 13 Oct 2019 20:48:19 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i1dpo8xGoHFBfhIbb+k6WVFpHsEG97l32lJ6O6ougjM=; b=lfEqn4ndWCHz/P
-	jzjTPTmjutDogJdrXdSXtiYHs9i2NfOkHwA+zmpV4NbYdMFWhsqWOL7BTFHR5Lvv51ARk7p4461o1
-	YtoMcHbzX8UzbSgnxmr94Gcl8wca2g5wiZHjX5ZByZbQoKueqsdAAvPDIZDeDXwrr8EXpIpVLj1Bx
-	Qn7ngqXeOmX/wTsS+5K9Ej1Yo5zovUIxKebPH9JSMkB+6RzetNJ0R/DUiz4/KRFHx8F7CtJHNgcqp
-	cN9rzsT3kXhmIpj5yzgfo65mitnxWdBBgJQDWh2fj7YIBktaGNzDpA1btj/VKUnPQkVRiTIuJ3dHT
-	Cy6asVssDNDfaPhaIQBA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rl5/k8Q/qSjXInKu04KhUHNeELImxAniQUVjBYRiM5E=; b=ufnvOrCS5LiTLL
+	Hjxg6xEsUQfWEDeP9Fv4olP0/f4Lb7nmE13f63OQ2kdDSmpDs4FUW7vcspP2nzEvy9JglkEtJvpeh
+	KN8/wCxsfNit7wEHB9ZIOof5B2/5hlR76wtqFHvijdAYdfdZ0l7NFv+kkOQBr3pXSxTBERUEZG40D
+	TK3ZZBZ4H8cMejiwSagZYVH5tXw8ddUSv5l9RH73Zem+sdtPNVX9ZdPqchpjQjQ2H8yt+5NT55W35
+	CTTaqJ8KsPdxgAFxw21Z3G67p9Id+CAQy0PLcQxf9DvQUtSyV82SHf6NLzQiITX8PzLKpkXMjqY13
+	pZht92Jk4LWURJkJ3CYA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
-	by bombadil.infradead.org with esmtp (Exim 4.92.2 #3 (Red Hat Linux))
-	id 1iHrDQ-0006Io-Cs; Tue, 08 Oct 2019 15:15:56 +0000
-Received: from mail.kernel.org ([198.145.29.99])
- by bombadil.infradead.org with esmtps (Exim 4.92.2 #3 (Red Hat Linux))
- id 1iHrDN-0006Hr-MY
- for linux-rpi-kernel@lists.infradead.org; Tue, 08 Oct 2019 15:15:54 +0000
-Received: from localhost (unknown [89.205.136.99])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id E17ED20679;
- Tue,  8 Oct 2019 15:15:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1570547751;
- bh=14pGX9PvbF+akybdQEtzMfsaYMZBPxv3t73fc4rSR1c=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=dD0f4/Z5w+0yDxR21yp+DBWrDToCk0WdffreftjEXgmXWBmbOGKpMREZAX8+0CUC5
- v2DPKAbAyvHTJyNq4Kw8+v/wgKwA8I5FELERJD97xvmb4FEYc2TvWQHc2zquFVl923
- G5CZH3Bgwdd2iA2v4L7suNTZzttz8DbGtJ90luLc=
-Date: Tue, 8 Oct 2019 17:15:47 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Dan Carpenter <dan.carpenter@oracle.com>
-Subject: Re: [PATCH] staging: vchiq: don't leak kernel address
-Message-ID: <20191008151547.GA2864822@kroah.com>
-References: <20191008123346.3931-1-mcroce@redhat.com>
- <20191008131518.GH25098@kadam>
- <CAGnkfhxefH+3YKDWQMCOYoj1skcq6rUmHuiHZQ-76YixFqbQjg@mail.gmail.com>
- <20191008142517.GO21515@kadam>
+	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
+	id 1iJiuc-0003pb-3Z; Sun, 13 Oct 2019 18:48:14 +0000
+Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
+ by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1iJiuY-0003pC-NZ; Sun, 13 Oct 2019 18:48:11 +0000
+Received: by mail-pl1-x643.google.com with SMTP id j11so6993345plk.3;
+ Sun, 13 Oct 2019 11:48:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=CeolOloPmeT1KftxvZqohSF0GTQr4950rvmG7EqO4RI=;
+ b=LMJEV2LhnI60/Nw7SKRueRtun4v6UR9IX/6grkybDx8B+B0v9Ehmq6AwMQD3EnrlLz
+ T31x4qCb0dMOf96n28fKNB7hh9OLhM+Gen0FZnmcaQi5qagwAWTwUurck+1UcqCNvQJm
+ eKkovSONyDfHxxNvIVqjDHRfn4uRAtXwsX5wu0e8o+U1xDma0HpRZz2QP+UqEKyoL9sN
+ nW+nKDBLr38INuRZIvYyEqIKUtH3TcQK8hA8Tbm8E9zpyUqYlm3psGqz08rio7VRLRd3
+ Ysg6cQCKIBmQmssIEBwctG8ph8/cwb7BTONUhV8DvCnwDzDx6Y4O7M5hUa/rUWf2uMHp
+ mXxA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=CeolOloPmeT1KftxvZqohSF0GTQr4950rvmG7EqO4RI=;
+ b=b1iaWfNqg1tq1E/hmyJMVwtEgxmICuhLGBoosETW8XWxsj4X4y4Hf5N87lPZq2fMYp
+ V7VcdP8eeZbjfSN89piK1I2wI6cMLZn4fkJ+1lqZF+VXTNOnBBZR9Jjt91sR6fBLsB9y
+ y3o07KKPvUin30Bb5ocZslPZyaNqZEtsuYbx0g+YFF3lVHSBt64xfYpxT2M9gLUPphHo
+ W7KKs0mtdN6iRxOVHgvGSyQvfPnf3vqpO4jynK057Dm954atRm7qbgmWCg0WODpt1AYB
+ X8/FA3x13Ma/D4V30mG7n2lKBjNB0oNnkfCP2l+4UK3XINl/awQ9R8CDrLasha2Cx5Xd
+ RuAw==
+X-Gm-Message-State: APjAAAWUvm75uLY5fAypLcbR5Fc8+XzVtA5EDHiVx8Aj2LM8bYX4ZDsb
+ Y4T5vaRrY8qWIlYObz88kEQ=
+X-Google-Smtp-Source: APXvYqwgOspCeAA1P9HhtOsCDHA+mh6Kslt8WDA4XoK+Jt4+cpb0481gXLa03aXA8nFDe2MgtkqcEg==
+X-Received: by 2002:a17:902:bd05:: with SMTP id
+ p5mr25785990pls.203.1570992489363; 
+ Sun, 13 Oct 2019 11:48:09 -0700 (PDT)
+Received: from wambui.zuku.co.ke ([197.237.61.225])
+ by smtp.googlemail.com with ESMTPSA id 4sm13813926pja.29.2019.10.13.11.48.00
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sun, 13 Oct 2019 11:48:08 -0700 (PDT)
+From: Wambui Karuga <wambui.karugax@gmail.com>
+To: outreachy-kernel@googlegroups.com
+Subject: [PATCH] staging: vc04_services: use DIV_ROUND_UP helper macro
+Date: Sun, 13 Oct 2019 21:47:50 +0300
+Message-Id: <20191013184750.32766-1-wambui.karugax@gmail.com>
+X-Mailer: git-send-email 2.23.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20191008142517.GO21515@kadam>
-User-Agent: Mutt/1.12.2 (2019-09-21)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191008_081553_755932_7723DCC5 
-X-CRM114-Status: GOOD (  10.96  )
-X-Spam-Score: -5.0 (-----)
+X-CRM114-CacheID: sfid-20191013_114810_792523_62F31882 
+X-CRM114-Status: UNSURE (   8.80  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-5.0 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [198.145.29.99 listed in list.dnswl.org]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2607:f8b0:4864:20:0:0:0:643 listed in]
+ [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider (wambui.karugax[at]gmail.com)
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -75,37 +96,51 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: devel@driverdev.osuosl.org, LKML <linux-kernel@vger.kernel.org>,
- bcm-kernel-feedback-list@broadcom.com, linux-rpi-kernel@lists.infradead.org,
- Matteo Croce <mcroce@redhat.com>
+Cc: devel@driverdev.osuosl.org, gregkh@linuxfoundation.org,
+ linux-kernel@vger.kernel.org, bcm-kernel-feedback-list@broadcom.com,
+ linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-On Tue, Oct 08, 2019 at 05:25:17PM +0300, Dan Carpenter wrote:
-> On Tue, Oct 08, 2019 at 04:21:54PM +0200, Matteo Croce wrote:
-> > On Tue, Oct 8, 2019 at 3:16 PM Dan Carpenter <dan.carpenter@oracle.com> wrote:
-> > >
-> > > The subject doesn't match the patch.  It should just be "remove useless
-> > > printk".
-> > >
-> > > regards,
-> > > dan carpenter
-> > >
-> > 
-> > Well, it avoids leaking an address by removing an useless printk.
-> > It seems that GKH already picked the patch in his staging tree, but
-> > I'm fine with both subjects, really,
-> 
-> The address wasn't leaked because it was already %pK.  The subject
-> says there is an info leak security problem, when the opposite is true.
+Replace open-coded division calculation with the DIV_ROUND_UP
+helper macro for better readability.
+Issue found using coccinelle:
+@@
+expression n,d;
+@@
+(
+- ((n + d - 1) / d)
++ DIV_ROUND_UP(n,d)
+|
+- ((n + (d - 1)) / d)
++ DIV_ROUND_UP(n,d)
+)
 
-I've edited the subject line now.
+Signed-off-by: Wambui Karuga <wambui.karugax@gmail.com>
+---
+ .../staging/vc04_services/interface/vchiq_arm/vchiq_core.h    | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-thanks,
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
+index 63f71b2a492f..75104986201b 100644
+--- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
+@@ -60,8 +60,8 @@ vchiq_static_assert(IS_POW2(VCHIQ_MAX_SLOTS_PER_SIDE));
+ 
+ #define VCHIQ_SLOT_MASK        (VCHIQ_SLOT_SIZE - 1)
+ #define VCHIQ_SLOT_QUEUE_MASK  (VCHIQ_MAX_SLOTS_PER_SIDE - 1)
+-#define VCHIQ_SLOT_ZERO_SLOTS  ((sizeof(struct vchiq_slot_zero) + \
+-	VCHIQ_SLOT_SIZE - 1) / VCHIQ_SLOT_SIZE)
++#define VCHIQ_SLOT_ZERO_SLOTS  DIV_ROUND_UP(sizeof(struct vchiq_slot_zero), \
++					    VCHIQ_SLOT_SIZE)
+ 
+ #define VCHIQ_MSG_PADDING            0  /* -                                 */
+ #define VCHIQ_MSG_CONNECT            1  /* -                                 */
+-- 
+2.23.0
 
-greg k-h
 
 _______________________________________________
 linux-rpi-kernel mailing list
