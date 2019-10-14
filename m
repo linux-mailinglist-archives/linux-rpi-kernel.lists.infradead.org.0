@@ -2,82 +2,69 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 43E8FD6B90
-	for <lists+linux-rpi-kernel@lfdr.de>; Tue, 15 Oct 2019 00:12:47 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5A96ED76CA
+	for <lists+linux-rpi-kernel@lfdr.de>; Tue, 15 Oct 2019 14:47:14 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iZgy3tfpnBTjX4ZB8WkVpjLp3NvSx0Kz+eil3vIgjkw=; b=YbHE45D93KOl/T
-	OzY6mcn87glA/sR4neR2b9uDm8C8NghtMnL/P6Izw1SnI2BfnqkamWD0VrgDV4btj9mEfnlbheqWN
-	qAPvirWOwHSYRW59hjJHLhruGbrlcVGsf1m+FDVQkma4Kp/CZVG9KSKsM5l2Glyz39azAC4mC3vWm
-	EULJABKcgBhsOCBIQF2pmyz2iw54S2qzm+RJw8WqGTKivBx0q+iPXHsUQIOnxHvA4+Sw4iupkK+On
-	ICrIeFrH8MHO04sxeo33HkmR4s4U4dv7rrlB5o6dqreAzq5Hx4jOiBrg1p6TJ15uNRsknHHoexHA6
-	5ezmjO/eK/jxtx5DfwGQ==;
+	List-Owner; bh=8eUNCWLd9CBpxdODXYs49yuiTG5VJU2QNYrDcy5t6NE=; b=jZMFpfeqxYO6k8
+	CdG+0JCrsM+Jgwlo2tfQDPkg87psY0SKaGMC2yMXs+hKbe43gZ4iFFNLfFySt0IYmywohr2MPDnUK
+	QwfM/HKxeojbYifMvXAi5yih9HvLlQxdU+8a07B/CX0z8V2pzEWtyEcVwNwyFRvwcE6lIKVLIPJsR
+	wrh3SKm3qKhfT/97bBogqk3VVucm1Hbb7Aa7xJV7+YAGAivODqdVipXLZTU82CMexgRpra99PjNTS
+	+zC8wQeS/EZNPxcgkil4Nk7UIW4jyQ4mczhj7RTEIZOLmBcJEA605szp6YPTv06RWeDo95oJ5x6Yn
+	INjqVBemGq+SHtTeKMNQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iK8a1-00010d-W2; Mon, 14 Oct 2019 22:12:41 +0000
-Received: from pandora.armlinux.org.uk
- ([2001:4d48:ad52:3201:214:fdff:fe10:1be6])
+	id 1iKMEI-0001dJ-0i; Tue, 15 Oct 2019 12:47:10 +0000
+Received: from vps0.lunn.ch ([185.16.172.187])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iK8Zw-0000zW-1r; Mon, 14 Oct 2019 22:12:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
- MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=bdiOmpZ5RXcC/f/ihPKAhcTaPuRDCg1OJyatxTXbycA=; b=M7x+OyYci8CeJM4I9gxZ/lDOZ
- 7JCz/6Qn66QpeEL89nFUfLj/GDC+A4/4zdT0YgwHy2GCKXl7GbT7Qa44ILvPEzFZstTfROg0ff0Pw
- qxUxovho9gxZIB3aK4eE3evWWHHMJUWio2XGDWhWY9pYJZxtw96kDnDRGsEdK1ci7oewwITn+zhpK
- ERGqqNqeZKGF150G62cTrd6grs92JGlQvEJkUXced9mlaaTMUI9Q1QlUwDNdNpKYE5S5FsC3FMCHo
- HmPef99Ty6+75vJ3RTTbL7i/iGMV3pEcdVJ7b2uYehudwPOx+yVSUHyTnDqpM1tppmEC+jA+5IQm+
- nNczPBotA==;
-Received: from shell.armlinux.org.uk
- ([2001:4d48:ad52:3201:5054:ff:fe00:4ec]:43726)
- by pandora.armlinux.org.uk with esmtpsa
- (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256) (Exim 4.90_1)
- (envelope-from <linux@armlinux.org.uk>)
- id 1iK8Zb-0000Ht-Hz; Mon, 14 Oct 2019 23:12:16 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.92)
- (envelope-from <linux@shell.armlinux.org.uk>)
- id 1iK8ZX-0004mu-Rt; Mon, 14 Oct 2019 23:12:11 +0100
-Date: Mon, 14 Oct 2019 23:12:11 +0100
-From: Russell King - ARM Linux admin <linux@armlinux.org.uk>
-To: Heiner Kallweit <hkallweit1@gmail.com>
+ id 1iKMDj-0001CV-Dj; Tue, 15 Oct 2019 12:46:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+ s=20171124; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
+ Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+ List-Post:List-Owner:List-Archive;
+ bh=GJeacgwRZQ/bOrl742oGvW0kKE1JwzMCFshubJHj3Vc=; b=gvimkRSbZH8oAZmljIXSS0t5he
+ cpewV9RgFCcqYKOb+uYeSsbxVnpbzOD3cdZett/NsUw80CWgl5MueXRUnXsXb02n4p+0bWOhqm2cC
+ SWHRbrRxwcLbbtK2fSBGjPw6Z4x0Rw3bCkPOnsYXcVI4B2Pm4DsVBjk4q/zbvLznRjP4=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.92.2)
+ (envelope-from <andrew@lunn.ch>)
+ id 1iKA9w-00079V-6H; Tue, 15 Oct 2019 01:53:52 +0200
+Date: Tue, 15 Oct 2019 01:53:52 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Daniel Wagner <dwagner@suse.de>
 Subject: Re: lan78xx and phy_state_machine
-Message-ID: <20191014221211.GR25745@shell.armlinux.org.uk>
+Message-ID: <20191014235352.GH19861@lunn.ch>
 References: <20191014140604.iddhmg5ckqhzlbkw@beryllium.lan>
- <20191014163004.GP25745@shell.armlinux.org.uk>
- <20191014192529.z7c5x6hzixxeplvw@beryllium.lan>
- <25cfc92d-f72b-d195-71b1-f5f238c7988d@gmx.net>
- <b9afd836-613a-dc63-f77b-f9a77d33acc4@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <b9afd836-613a-dc63-f77b-f9a77d33acc4@gmail.com>
+In-Reply-To: <20191014140604.iddhmg5ckqhzlbkw@beryllium.lan>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191014_151236_094659_C62F2BEE 
-X-CRM114-Status: GOOD (  13.84  )
-X-Spam-Score: -2.5 (--)
+X-CRM114-CacheID: sfid-20191015_054635_574951_A4C35679 
+X-CRM114-Status: UNSURE (   8.19  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 0.6 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-2.5 points)
+ Content analysis details:   (0.6 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [2001:4d48:ad52:3201:214:fdff:fe10:1be6 listed in]
- [list.dnswl.org]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [185.16.172.187 listed in list.dnswl.org]
+ 0.8 DATE_IN_PAST_12_24     Date: is 12 to 24 hours before Received: date
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -89,54 +76,28 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Andrew Lunn <andrew@lunn.ch>, Daniel Wagner <dwagner@suse.de>,
- netdev@vger.kernel.org, bcm-kernel-feedback-list@broadcom.com,
- linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org
+Cc: bcm-kernel-feedback-list@broadcom.com, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-On Mon, Oct 14, 2019 at 10:20:15PM +0200, Heiner Kallweit wrote:
-> On 14.10.2019 21:51, Stefan Wahren wrote:
-> > [add more recipients]
-> > 
-> > Am 14.10.19 um 21:25 schrieb Daniel Wagner:
-> >> Moving the phy_prepare_link() up in phy_connect_direct() ensures that
-> >> phydev->adjust_link is set when the phy_check_link_status() is called.
-> >>
-> >> diff --git a/drivers/net/phy/phy_device.c
-> >> b/drivers/net/phy/phy_device.c index 9d2bbb13293e..2a61812bcb0d 100644
-> >> --- a/drivers/net/phy/phy_device.c +++ b/drivers/net/phy/phy_device.c
-> >> @@ -951,11 +951,12 @@ int phy_connect_direct(struct net_device *dev,
-> >> struct phy_device *phydev, if (!dev) return -EINVAL;
-> >>
-> >> +       phy_prepare_link(phydev, handler);
-> >> +
-> >>         rc = phy_attach_direct(dev, phydev, phydev->dev_flags, interface);
-> >>         if (rc)
+On Mon, Oct 14, 2019 at 04:06:04PM +0200, Daniel Wagner wrote:
+> Hi,
 > 
-> If phy_attach_direct() fails we may have to reset phydev->adjust_link to NULL,
-> as we do in phy_disconnect(). Apart from that change looks good to me.
+> I've trying to boot a RPi 3 Model B+ in 64 bit mode. While I can get
+> my configuratin booting with v5.2.20, the current kernel v5.3.6 hangs
+> when initializing the eth interface.
+> 
+> Is this a know issue? Some configuration issues?
 
-Sorry, but it doesn't look good to me.
+Hi Daniel
 
-I think there's a deeper question here - why is the phy state machine
-trying to call the link change function during attach?
+This is clearly a networking issue, so posting to netdev is a good
+idea. And you might want to Cc: the ethernet PHY maintainers.
 
-At this point, the PHY hasn't been "started" so it shouldn't be
-doing that.
-
-Note the documentation, specifically phy.rst's "Keeping Close Tabs on
-the PAL" section.  Drivers are at liberty to use phy_prepare_link()
-_after_ phy_attach(), which means there is a window for
-phydev->adjust_link to be NULL.  It should _not_ be called at this
-point.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTC broadband for 0.8mile line in suburbia: sync at 12.1Mbps down 622kbps up
-According to speedtest.net: 11.9Mbps down 500kbps up
+      Andrew
 
 _______________________________________________
 linux-rpi-kernel mailing list
