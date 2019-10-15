@@ -2,61 +2,80 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id D5933D76C0
-	for <lists+linux-rpi-kernel@lfdr.de>; Tue, 15 Oct 2019 14:46:26 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id EDD62D7D3B
+	for <lists+linux-rpi-kernel@lfdr.de>; Tue, 15 Oct 2019 19:17:18 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6VEDtD/lM2ut71JnOH2Y/QvPSKWlrmoCZ0dt1X9J6I4=; b=S71v+t+P08VvMx
-	uoZh5UmM1LSry8j/5sTZDGR2bW3BGzFWIoFJQQeD/ME65WVCo31R4urAXGbD1zB8L0WQ50urzOJqA
-	gdLzwPSCnLW1rtM0utyHdFc1zDPZwWiRSGEjQTKWAyUMvE7w1uY0q38GjlKby3aSPc/JszER2UHW/
-	uOwZO8/qNeZ9hn7ATCDNFzCd0mbgtEWzw9dTnNbC5oT5B3qua0wQaTR4M8/nRXlZYXdLy/QSmPhtO
-	SEu0lCzaRTJ86d4uD8lgCjuhFtibGJDeG5IXhB6GSrU9Vi3Q7MBWOCuJfTbCw+WNIw1fY7axslhnM
-	jKHXYh6ftPU3LTZxmU/w==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=TBUuBlJeq7kNbgXnnE+LktgX/UqVBHiY8reLcJA5iE4=; b=qce
+	LXOg1niqe++SOoJtZa2MYD0+7ZX5ZnrnV9rVmajlhH9DvPPXqq9jPT+wsQ7n50EDmD+ZBh5jqTGDy
+	TTBZS7+1B45APyqzOSHw/xIBg5MkQngxFAYAXsTsBuaqprtB3Lwz4AizGZP2535oQzjFv2woBJBGo
+	VcAZC4YnW5XKya+SsDug0EYbYGcQ143sJFtPpXtfgzwddVnJbfhXIj0hS43teTLHMTO1vH6kEe19t
+	wrK281C7zl0G9VFy+2mn/CGPRM+0gaPXwjG0JCwSFD+N4FrxBRVDZIjAx7ybsoI3q+1qIWiRYihmJ
+	KMMUK4lk+VrsR6sdkggDJpYujVZzV6w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iKMDW-000125-Cy; Tue, 15 Oct 2019 12:46:22 +0000
-Received: from vps0.lunn.ch ([185.16.172.187])
+	id 1iKQRf-0005zE-2f; Tue, 15 Oct 2019 17:17:15 +0000
+Received: from mout.gmx.net ([212.227.15.15])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iKMDR-00011U-8y; Tue, 15 Oct 2019 12:46:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
- s=20171124; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
- Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=b2LRs80sHHO7zZUl0AfSjYwW3Hi4C/5CNclgj3JOiPA=; b=bFV+qOV07XIH0lPG/8Rfjy7U7R
- PHSaWtAJ+XyNSMkQ5XmSlVrynmoF9j85RLi+hyTheM5nxUduI8AsOJ3HgWmUNb8HmzHFTx2am6Vn3
- nbVwgjHZJnLEGKjE02ZKAV6XC+vIKiP3mfY2nv4SbaqUspAv03IqPct4ENF5kkdM+xpE=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.92.2)
- (envelope-from <andrew@lunn.ch>)
- id 1iKB5b-0007Dr-Uv; Tue, 15 Oct 2019 02:53:27 +0200
-Date: Tue, 15 Oct 2019 02:53:27 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Daniel Wagner <dwagner@suse.de>
-Subject: Re: lan78xx and phy_state_machine
-Message-ID: <20191015005327.GJ19861@lunn.ch>
-References: <20191014140604.iddhmg5ckqhzlbkw@beryllium.lan>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20191014140604.iddhmg5ckqhzlbkw@beryllium.lan>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+ id 1iKQQq-0004xX-7m; Tue, 15 Oct 2019 17:16:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
+ s=badeba3b8450; t=1571159776;
+ bh=pWV8t98N4Fo6WzlbK05g/TVgMxifM1N6xBHlNciUcE8=;
+ h=X-UI-Sender-Class:From:To:Cc:Subject:Date;
+ b=kSR6/xH+HDHvrO3CO4SQ/kQOCfer1nNoIp8hFH1MfZaC2GVbaIZfFXT6mXxMFMAa7
+ jTfmm3fq4Qa4GRx/fqXkan0YnhZ/Exm0SSBpYfajTU09gG56+qXhrT2oBgkiJCcQlN
+ lTvgdkYLRebTrVqKPmhNFzPBK+gIg5V4hkMFMrm4=
+X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
+Received: from localhost.localdomain ([37.4.249.112]) by mail.gmx.com
+ (mrgmx005 [212.227.17.190]) with ESMTPSA (Nemesis) id
+ 1M7sHo-1iPM7G0QNO-004zt6; Tue, 15 Oct 2019 19:16:16 +0200
+From: Stefan Wahren <wahrenst@gmx.net>
+To: Florian Fainelli <f.fainelli@gmail.com>
+Subject: [GIT PULL 1/3] bcm2835-dt-next-2019-10-15
+Date: Tue, 15 Oct 2019 19:15:23 +0200
+Message-Id: <1571159725-5090-1-git-send-email-wahrenst@gmx.net>
+X-Mailer: git-send-email 2.7.4
+X-Provags-ID: V03:K1:dfZx3uAk0vysgtmYoY6k3UPO7+uWCLJU/YbcuOWHM3bUaop1Kfc
+ FdW5t1UZI4gqdAQSn7/POzYMdoPfZ+Ox6/2uHh3do52Bcx0lLROu9rlI+a5II62DuzvRmUG
+ 6cYs7xrKRSWAHRACx8eCiYvDfSP8DvtsTWlc9mFBmHjUfK+G9pJpycZeRt3vu4f7YskTHe/
+ +ykUGtHcFwPt8sXHOpFAQ==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:wyIlnAb9bcA=:RB4gxlwT01gSsq4Bmz8/05
+ DlmkjBB/Z9cOI2zys9IFQNgv2YbZBUovkOoFl0EjDkHUdGYKtePogDa/2CtfAmsH/0Z1l8OUW
+ zQlevcJQkviYadwRxcMy7FlU5lYOEQqTZVQVmMbchWicu4876i9Etwx3BK3K9tH/erziGQZBs
+ 6gHGDSi9Ca2a7iJxYvGP/MhwEOiBWwIYhGKxBQk4tWZrvvb8VpbExhS/RarSQVcopi7fwi0i8
+ ALu8nowNm2PyU4j7ufap5qO7/e9A4REJrG6yQx30s4kgcEtu1vFjk/gK4qRZahrVTUzuJqBkT
+ 2S95HEjUAriCT7Ki6jQF7CAK9VWxBF651li20hXsLhABZkfhXp9L2Kpqc9zVJYKvDPKSicArO
+ 8UaHyakTvVDx8z/Dy9fCkea+by/AT0pFzh/z1s6XjFAsY8zI1NMID9vF8Am/A20NB9US7V/z5
+ EbQ3C7vVf13MIlOXE2SSSfXzk31IoeIW8UkcXeOiuHW3PruEDoLFIKt7KyLWvWE3AAOegmRNc
+ LCK99P1CSe/nSR+7h32VpL0L8Nw40fDHhWItwObcLRbWMavig7HT6aWOXBR6/q08I1dwE8i3R
+ uCMKgEzbp/fn8ZvBF963HCkAGrQbtL3vh1X3RSaBepkVK4dfdNUrAG+W/Wrcoop2ax0xiH7hQ
+ WyKItgPxxGOBJIMJu8hqcrUMuODhZiOAcUWWSGiQNooDsj/2X/cpww+bz/PH39942Z8Y9JJgH
+ B0mSsZRJ7qOIEZcAxKdVdf2zEwft3O3ND9gHorwQur1YzC9mrxxAB3P5jYnPEor8OZiGmKf3O
+ 8pYjURdHxcjfDPcXCTlln0M6wC8UUa6ZtqYQNUxJwO9YVNot28f5cvkDfvTjMOGITgmccdpxF
+ JjWejq09Nff/UBUeVVHq/e92KMdic6czcHAFZP06qs1JcG4cHivCqFaxRDxjAoQiBeMGrf1uI
+ eybHJsBBdIF66DbXzSIKFer9cLsikiA3Rgq6j3ENoICZFfuORQplJsNTNYGVaBKffmPDi0hTD
+ TjTD5xcqcu/Gq5XZGZvBYUEzIJbq6AIgwvs+P4do5JI9b4Ikh45bS4XZ7CAOxBMJ01fWU/fhB
+ Uy1oC7ulH7zulaT47AUY0GdEKJj2N8WYprxyQJ5e8zpaIC5oOH4fPYpL275yjx7vesC0wzJQV
+ 9Rzj/lHDsNdOlVkQqtkDUJEgqrL0HmNZRrWzzmW7Mfz/Gd/+fNjCfn65lEq+UN4qobAk+As+H
+ fko+Wqbh+gnpIHer4TU5Gi5+sJ+fbeurRDsw7QA==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191015_054619_615955_1178E878 
-X-CRM114-Status: UNSURE (   8.44  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: 0.9 (/)
+X-CRM114-CacheID: sfid-20191015_101624_575457_756C1243 
+X-CRM114-Status: GOOD (  14.23  )
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (0.9 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [185.16.172.187 listed in list.dnswl.org]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- 1.1 DATE_IN_PAST_06_12     Date: is 6 to 12 hours before Received: date
+ no trust [212.227.15.15 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider (wahrenst[at]gmx.net)
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
@@ -76,29 +95,64 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: bcm-kernel-feedback-list@broadcom.com, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, bcm-kernel-feedback-list@broadcom.com,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-On Mon, Oct 14, 2019 at 04:06:04PM +0200, Daniel Wagner wrote:
-> Hi,
-> 
-> I've trying to boot a RPi 3 Model B+ in 64 bit mode. While I can get
-> my configuratin booting with v5.2.20, the current kernel v5.3.6 hangs
-> when initializing the eth interface.
-> 
-> Is this a know issue? Some configuration issues?
+Hi Florian,
 
-Hi Daniel
+The following changes since commit 54ecb8f7028c5eb3d740bb82b0f1d90f2df63c5c:
 
-Please could you add a WARN_ON(1); in phy_queue_state_machine() and
-post the stack dump. That might help us figure out what is going on.
+  Linux 5.4-rc1 (2019-09-30 10:35:40 -0700)
 
-     Thanks
-	Andrew
+are available in the git repository at:
+
+  git://github.com/anholt/linux tags/bcm2835-dt-next-2019-10-15
+
+for you to fetch changes up to 46fdee06aeefedfc62a4c33b2c4a7a74682ac755:
+
+  arm64: dts: broadcom: Add reference to RPi 4 B (2019-10-10 19:14:28 +0200)
+
+----------------------------------------------------------------
+This pull request introduce initial Raspberry Pi 4 support. But all the fancy
+stuff like GENET, PCIe, xHCI, 40 bit DMA and V3D is missing.
+
+----------------------------------------------------------------
+Stefan Wahren (7):
+      ARM: dts: bcm283x: Remove simple-bus from fixed clocks
+      ARM: dts: bcm283x: Remove brcm,bcm2835-pl011 compatible
+      ARM: dts: bcm283x: Move BCM2835/6/7 specific to bcm2835-common.dtsi
+      dt-bindings: arm: Convert BCM2835 board/soc bindings to json-schema
+      dt-bindings: arm: bcm2835: Add Raspberry Pi 4 to DT schema
+      ARM: dts: Add minimal Raspberry Pi 4 support
+      arm64: dts: broadcom: Add reference to RPi 4 B
+
+ .../devicetree/bindings/arm/bcm/bcm2835.yaml       |  54 ++
+ .../devicetree/bindings/arm/bcm/brcm,bcm2835.txt   |  67 --
+ arch/arm/boot/dts/Makefile                         |   1 +
+ arch/arm/boot/dts/bcm2711-rpi-4-b.dts              | 123 +++
+ arch/arm/boot/dts/bcm2711.dtsi                     | 844 +++++++++++++++++++++
+ arch/arm/boot/dts/bcm2835-common.dtsi              | 194 +++++
+ arch/arm/boot/dts/bcm2835-rpi.dtsi                 |   4 -
+ arch/arm/boot/dts/bcm2835.dtsi                     |   1 +
+ arch/arm/boot/dts/bcm2836.dtsi                     |   1 +
+ arch/arm/boot/dts/bcm2837.dtsi                     |   1 +
+ arch/arm/boot/dts/bcm283x-rpi-usb-peripheral.dtsi  |   7 +
+ arch/arm/boot/dts/bcm283x.dtsi                     | 190 +----
+ arch/arm64/boot/dts/broadcom/Makefile              |   3 +-
+ arch/arm64/boot/dts/broadcom/bcm2711-rpi-4-b.dts   |   2 +
+ 14 files changed, 1236 insertions(+), 256 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/arm/bcm/bcm2835.yaml
+ delete mode 100644 Documentation/devicetree/bindings/arm/bcm/brcm,bcm2835.txt
+ create mode 100644 arch/arm/boot/dts/bcm2711-rpi-4-b.dts
+ create mode 100644 arch/arm/boot/dts/bcm2711.dtsi
+ create mode 100644 arch/arm/boot/dts/bcm2835-common.dtsi
+ create mode 100644 arch/arm/boot/dts/bcm283x-rpi-usb-peripheral.dtsi
+ create mode 100644 arch/arm64/boot/dts/broadcom/bcm2711-rpi-4-b.dts
 
 _______________________________________________
 linux-rpi-kernel mailing list
