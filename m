@@ -2,56 +2,80 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id E685BDAE07
-	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 17 Oct 2019 15:15:31 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 896BBDB2F7
+	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 17 Oct 2019 19:06:02 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4V7l4vJBt4T1kttW7ydiZuCnQLN9OEEuWf+yrtnywa8=; b=FXaLS1c++x6W0a
-	GRTtwbxeQwVelBAiJ6snxnWoZCLuSCBAvYUzGOOtdE3UEIAXqKfktur8/jTsJmcmhfYYcYTwwKwbO
-	R9I7/jhw3EoY62dmRGVdIb6Qr6I0BIoeG0bct3HzArbvBpVsE7tRH2XqVwZge34aQkyJs80uACKye
-	QE37F21/P5d/NYPoJ+UHGYswgwfFrAC39u2YV2JZBnH53ye/lkY5wCL0omb6QYOZW4KCmOsfWjh/b
-	rOcG4HaCyc8bCiTaP3XwU245lU+8TyLu5qrkvpT5bM5pH22d3rCDGphQZRoCyWIOQwIn56Qn/L5uy
-	2DYVduB23tMSFp2Lm/dg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=N0/1Ia6Bu8/1R/8r2PnCw6qwImmq6/RsL0D7N2MFSUE=; b=ieQ1xglFm857xj
+	xyTvyjvBCVTjhLXbbiHQX1jvqanwX7lGDZYymcImzw+8+18Jte4RkNLdRREbjd6RfsXWx+oohaQlF
+	Fq1iLO7CGBylUlZjTiYDQkYMMZxKS3cKWQHo0LoRdgRJaGj4UMkP6vAYwEPruHgEOSlIKHZc+TRKD
+	XF0Tc+qj+a2FSxC7eLSQFuhYuJNROh7lEyENdD5w5o4EEZEYqOPFMEC7ztHlKGQ70HWfyE66AddSJ
+	YOo8KYAgtmn2ZFwAcnuJkIccsdBu+eYGsHGRTp7crvrxGSCH+eNjMObeAhMkKKDyXcJTZwywaCpTA
+	pHruBDLmeP5CkDNOCCMA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iL5cl-0007Tb-4z; Thu, 17 Oct 2019 13:15:27 +0000
-Received: from vps0.lunn.ch ([185.16.172.187])
+	id 1iL9Dp-0004ew-Lb; Thu, 17 Oct 2019 17:05:57 +0000
+Received: from mout.gmx.net ([212.227.15.15])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iL5ci-0007T7-M6; Thu, 17 Oct 2019 13:15:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
- s=20171124; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
- Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
- Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
- :Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
- List-Post:List-Owner:List-Archive;
- bh=NqVeHSqOt7B49IXQ7DBm0nJvqrZVETdR2j3Q+0D5yBk=; b=BNND/TCB2BZpVmQujW/03vUDTN
- 7iY+e61kwaHLaAoBoDESVzmbENCJ/t60CuvndaGdVxM/aPZ/01g7m2ON9E/KlnwPowwzpI157VscX
- J5ANU/jbivWqVhtShE18WtdGuvxLC4H6cjreA9z9T/4VVUCLYT6CnI6g2sK72Zzh6xvw=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.92.2)
- (envelope-from <andrew@lunn.ch>)
- id 1iL5cb-0004RE-8r; Thu, 17 Oct 2019 15:15:17 +0200
-Date: Thu, 17 Oct 2019 15:15:17 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Daniel Wagner <dwagner@suse.de>
+ id 1iL9Dl-0004eE-R0; Thu, 17 Oct 2019 17:05:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
+ s=badeba3b8450; t=1571331934;
+ bh=D2nr+/uIr9daJJyGdGVYoHj2YBBt7jtI817EfrG1QpU=;
+ h=X-UI-Sender-Class:Subject:To:Cc:References:From:Date:In-Reply-To;
+ b=JHrR07j7MDHWNk3fD/4CMJ7g4axYEyFiJucH1dvF27ls3JFWYxwPn+n0ausS20Nvr
+ MYRs6WlmD1/U2g7GCvMmFaS3GXDrwAH7PlxHhYfROInsqhFkWoVpQA4F/Ihws6FM0S
+ 9eq+7Wd/pwtzM5z0XMVMwb3vVFWt4UxGDmV3GE5g=
+X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
+Received: from [192.168.1.162] ([37.4.249.112]) by mail.gmx.com (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MEm2D-1iFNWX3BwR-00GJPX; Thu, 17
+ Oct 2019 19:05:34 +0200
 Subject: Re: lan78xx and phy_state_machine
-Message-ID: <20191017131517.GJ4780@lunn.ch>
+To: Daniel Wagner <dwagner@suse.de>, Andrew Lunn <andrew@lunn.ch>
 References: <20191014140604.iddhmg5ckqhzlbkw@beryllium.lan>
  <20191015005327.GJ19861@lunn.ch>
  <20191015171653.ejgfegw3hkef3mbo@beryllium.lan>
  <20191016142501.2c76q7kkfmfcnqns@beryllium.lan>
  <20191016155107.GH17013@lunn.ch>
  <20191017065230.krcrrlmedzi6tj3r@beryllium.lan>
+From: Stefan Wahren <wahrenst@gmx.net>
+Message-ID: <6f445327-a2bc-fa75-a70a-c117f2205ecd@gmx.net>
+Date: Thu, 17 Oct 2019 19:05:32 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.9.0
 MIME-Version: 1.0
-Content-Disposition: inline
 In-Reply-To: <20191017065230.krcrrlmedzi6tj3r@beryllium.lan>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+Content-Language: en-US
+X-Provags-ID: V03:K1:9IAKT4IiX7+DDHiuY01ulMUJkFGfba8XIzS9j0mYloTIT6b7IMF
+ +LLrgwE1nLdb3KfDiw2CWIEFQ9K4wFRjVmKgbByDB3U2fvKiKILh7dw2VmQxWIGXNvtaogc
+ 5ZVrmQEohfD38gwvr+SthzKG1UnK8rjGpMe+r0ogdRGKLvzB3GdBvfK69yPx4CS4Pc6S2GS
+ Y00K26hwaQvO+a1IyMJYA==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:Xzp56fR6mWY=:NhqZMMzbS9aS1wktFFEX+8
+ DehkTQE76WkqzqceJsZ9mv81OTmdtvqUxFRkRkzW7dR3HSzToWuvj/S9S3EQhjw4gHXVBheAv
+ tAtR00PoRlLrM+6HeUTH+ayxz7FpAiMpKjx6Pb0NPYvOBdy8OeiYv6T5Qz5/bdYF8dpxSfLi7
+ 5L/mOysYkUIRhs7YVxgAc8tmxevN9TuAJhD8ZfMPiaaA3ALV7awZAvwnKZeo6hbz3NRVwsrVF
+ GqUDH5v5ucBredJL+Im9L/AC5XX75O+e+MRLsDDPnbcY73z4HKFbCiZhUPK2xD/i7ca98gcrU
+ nt06MwbYhOfk3s+21pFJ+hN80STXVy4ACE76WGvtjnmzTK5Sr0fhAKYAcjuEtrkWYZV/pKFzt
+ h6A555GerISg7lkC7094WJyaa9IJXHKnLbv8a6b3vWrty5dS7N52LZ7QgaYzZHDh/yBmt5jVq
+ bqpXun756dntcDuOEwnhZ6BuRYhCirOK60xujmJD6Q7yOaZRSrSwD2afiFHwnw3h7Way6gjsO
+ zmDxuT98KAjF3EH9V7NkTP4p9Ml/Mz3/cHLp3qWpXD49JRowJWVZLGOuK3+bzkv+CSvAt3m7q
+ f/2FbG7GqavZxKHt7Tcd1SfZxLxnBffzzzhUC9MeE0z5gW6Aa6Bh2T9SONKXUpiB3Ne7qZTmV
+ icTWZXCstWV37jpw/4SmtEweFW04H9a4NRZsrWVFHDFAdCl0wZiBxmcy1zp8D1eTG5k64Q2l7
+ jgd5ioOXXjBeVjtDqHc9SnPj2ZZyTn5fJvbK0ZrN3RujuBHyTn2xo5jG7Rxnu1/tbkzGUnkC8
+ eDr5cXWk+kvBErn99eBARy+g0t6PrS1jzgnFxgZ2nU03bcxjNoFqxeAeyRiI5T/jqGp/lgeQW
+ 1R8Hy6f7kHTxIvsFrMcvQRJyMK2+iG+mXrhEQcFKXqtIZW8TnlYdfqbhB4/qjbomhmZ7mkkfp
+ AFhAKRfYP4FN1FyV/flk/6g+Ftal3Fvu6MRvZ6IsKbGb68xA9isVOFWwdblJ0eYcyTzcwb8lV
+ 8ZziQN6d68WbTFNEbLlkHBSgpMd6zGxeMT6d1+JRpDFcIy2MzuPkcn7uyy6CGWRsOl7oYWoIz
+ 6eFk6BZpOiSIdiktcwdvhcYkLt5IO+pQKG1FHZABcqUKLyorFL/sxb1kDoSUjMETkSudDJPac
+ Q+1dUMMAiEgPOPbvzFJY9oRVp5zuf3BZFjvp7M9j57sDxBjQ4bQ47kGYIlIWbah9DwXgNNHKu
+ zCbpbrjW36M9wV4yMmQeEGmvhUzHqbfxB4ulFiw81ICcWWx6wt/ePitqYEf4=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191017_061524_725764_D1051233 
-X-CRM114-Status: UNSURE (   7.37  )
+X-CRM114-CacheID: sfid-20191017_100554_207183_803A03B1 
+X-CRM114-Status: UNSURE (   9.17  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
@@ -59,8 +83,10 @@ X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [185.16.172.187 listed in list.dnswl.org]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ no trust [212.227.15.15 listed in list.dnswl.org]
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider (wahrenst[at]gmx.net)
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
@@ -88,22 +114,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-On Thu, Oct 17, 2019 at 08:52:30AM +0200, Daniel Wagner wrote:
+Hi Daniel,
+
+Am 17.10.19 um 08:52 schrieb Daniel Wagner:
 > On Wed, Oct 16, 2019 at 05:51:07PM +0200, Andrew Lunn wrote:
-> > Hi Daniel
-> > 
-> > Please could you give this a go. It is totally untested, not even
-> > compile tested...
-> 
+>> Hi Daniel
+>>
+>> Please could you give this a go. It is totally untested, not even
+>> compile tested...
 > Sure. The system boots but ther is one splat:
+>
+this is a known issues since 4.20 [1], [2]. So not related to the crash.
 
-Cool. So we are going in the right direction.
+Unfortunately, you didn't wrote which kernel version works for you
+(except of this splat). Only 5.3 or 5.4-rc3 too?
 
-This splat looks complete different. But it might still be a race
-condition with netdev_register. We should look at what the power
-management code is doing.
+[1] - https://marc.info/?l=linux-netdev&m=154604180927252&w=2
+[2] - https://patchwork.kernel.org/patch/10888797/
 
-	   Andrew
 
 _______________________________________________
 linux-rpi-kernel mailing list
