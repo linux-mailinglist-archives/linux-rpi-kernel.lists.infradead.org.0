@@ -2,64 +2,65 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5575BDCC83
-	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 18 Oct 2019 19:21:43 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 02AA7DCC85
+	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 18 Oct 2019 19:22:38 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
 	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
 	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8N7lEylInbecK0qS4mJGeD/KpXu2QV+VlHYSUXRAFPc=; b=BkpHAymSZmEpJr
-	mTrLq+6srHxtuj1l+OIS4DJWieUEBZ16MyVWJPzC/FsnYWHecAl/iPMbMXZbt1saJYqGK0JjjzKSV
-	x9gpPEQR2vbT8rEoIWgqFH6ooUsCMdlsN05YYj1BYSiz/uYS2gUFc78KwOjYF8SOKPJs6Y6mon7Qz
-	M8K3COW2Z3IDjW2ZpOmYlxFzlR+aRO+seY3TF1Kp+xiAn+TGfU1mpH84W0bDEAraq8T4Y8e/JziXe
-	WcanitQcJHT9va+DQ9xbgFpT3YXl/gyC/OD/K+oV4g90iys1lb4lv5Lf5Ey2Lj+ZMb6oP091hJY3z
-	mWuM19k9x2Yf/clcwREQ==;
+	List-Owner; bh=7SR1y8axjIxX4uOucM92Fxk455nilEaqAkxI5ZDBKMg=; b=d9jO+Vd6iM+j6V
+	UK1mt5fmkx6oADA4UfJCOF1dBnCGUkr06PjOUuSpvsSUap1GgZmyrlCpaX+0DiFXUKGQ3eUYb+vqG
+	WS2PwYfF+OBWxaFyupxvcj0//kbOW1KpfuMKuOQgp4h5B8aHXkLIY1HaHRqJIXSSYvlpd0qexf+XD
+	fjZ/ADgkrAkttmuhEKMKwAAZHbF3rJA6p8QJIwX3S1sDjolcsi5cH+XhnPHdYFgiXKz4LCk3OdBGs
+	nVKO3aEUbNeOHM1ARRepQ5l38GQ3DdAXzs66ME/6gYcHzv+u2+Aafx/BtV+Xdb3Yzt9lUbLpvn/yj
+	Cku1I3xk4bqFEMp6n/EQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iLVwZ-0001Zq-LF; Fri, 18 Oct 2019 17:21:39 +0000
-Received: from mail-ed1-x542.google.com ([2a00:1450:4864:20::542])
+	id 1iLVxR-0001uw-3h; Fri, 18 Oct 2019 17:22:33 +0000
+Received: from mail-ed1-x541.google.com ([2a00:1450:4864:20::541])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iLVwJ-0001Or-UR; Fri, 18 Oct 2019 17:21:25 +0000
-Received: by mail-ed1-x542.google.com with SMTP id v38so5145332edm.7;
- Fri, 18 Oct 2019 10:21:23 -0700 (PDT)
+ id 1iLVxC-0001l8-UU; Fri, 18 Oct 2019 17:22:20 +0000
+Received: by mail-ed1-x541.google.com with SMTP id h33so5123032edh.12;
+ Fri, 18 Oct 2019 10:22:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=subject:to:cc:references:from:openpgp:autocrypt:message-id:date
  :user-agent:mime-version:in-reply-to:content-language
  :content-transfer-encoding;
- bh=MASR/FluEaPV2kJBRmj9lbqGkWJRGtvA3nfWqAmQsg0=;
- b=pQ8NT+0tsGNtMagaX7Tu2Rr0xjvmXc31c3M9U/Cl/6XDylf0f4BGoqPA4sfKB90rTw
- zdNfT+9oWsr6QtoxEvGNFE8TQekabGvDwXP+s3fQG5151ZOksSOMDa+nE6/fl7yUsDFW
- TsEqjMiSCT8IZiNw9d09oh714m6hU9MPx6apykqG/x3/AY+3uHJB4uZGcv+LZGCBpNvZ
- XPYVtqdXXinQWkRBRVSKRtXc5dn7Mfx1ddXjtGYL8r0ghwW9DLRRExa+Gse3eB42XM6W
- rrHe2fpWXlPyygkB6S4LPSeW6oNdYQ3k4mobsR5lp9ZPrWGCChtNcW/EhTNl0rbKUH6Y
- DYZA==
+ bh=9/5cBvlfd/HVF8jB3IVrtvid7CzwMy5BdqMWt2gEtp8=;
+ b=RZj04qOtuBW8S2yh/+xTbKgyPlzHtmvOnBSTfNX0EIPTC8TndKkInaRzfA9UZWTmXe
+ s3hu5phn5+Q2qLVQv52fxITLLNt17HeoZiR8K7Yw6yU22I7VA7816cCa5NxvZwJOHugb
+ gj5FMCDK5Z4uawa09iZKnNj/yZXGL+br9i55D5Wb+u1w01O0cI87EvOts+1CnkP2gKNP
+ /eIAl5MkZIiQ3OXxy+ticBr11gRFJ9pQYrrJY7taXU032zbk+4ao303MOF33jePpna1l
+ INZK44WZx0FmgOo/AtGh49WuqdGbbmYbJQg+RMKqUEONL5R0ML4ibga2ztpBgsTyES3a
+ 3SQQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:subject:to:cc:references:from:openpgp:autocrypt
  :message-id:date:user-agent:mime-version:in-reply-to
  :content-language:content-transfer-encoding;
- bh=MASR/FluEaPV2kJBRmj9lbqGkWJRGtvA3nfWqAmQsg0=;
- b=jOJZN7Up7TX7uWYzRSDe4xMFJqGgaZjnTPRGW4KEzLrj8EPXLm32wuJ+Ol6oVAo/BC
- ZdXmRHRYVcWvEYUr8zKh2z3aJjGN5JPdLY+K/ksoSB53qPdvnhbyBFnVbUV+ednN9nD0
- iN4PvOHcKe7jWNqZBJmEo0cxsA+c2LR3O0DJ63+jdUqIE++MKgXz8W+bn78khlbGsDWa
- ZZQj99QZMKiU4M1G6UkH8kCXZoUmCXTZyrWWPHorMVUi96n9a9IGpXjm6zYS7Yae0AaG
- Xe1n+vnbVhH8XN/BREo1Y2iAAPIMIrHTeemq+yYDxmzrLskn6m7BX4W7lCXZyIM3l3Em
- qm2A==
-X-Gm-Message-State: APjAAAWAloUL9bN0WJtYOXqsPbhN4gvSsev+rxmN2ztBq2us75FzwuTL
- PJVCf6UCoBVwS5OxetTx/LEledMp
-X-Google-Smtp-Source: APXvYqzHuCJU6yhwvYqDq8AxCf5dOHwojd8no7m1kZ5vJgdGxf6LFFSehvkVof556M1zZjn72V+qyg==
-X-Received: by 2002:aa7:ccd3:: with SMTP id y19mr10936407edt.122.1571419282514; 
- Fri, 18 Oct 2019 10:21:22 -0700 (PDT)
+ bh=9/5cBvlfd/HVF8jB3IVrtvid7CzwMy5BdqMWt2gEtp8=;
+ b=AgQlN4FSocVaisB2rmzAi7tjhhB3cxTIUL7e21JBMMVv5IsK7D3YnB+uZC3C7v+TNe
+ cCluA2weHzVwhQ3uheOBuDHxG6ttGUfUm5rUJy3Qu7uW/LR476PdKJ2Q5luN0X5DRqXu
+ ncQZ3xtZG1OybRRSaE8t2jxH9MdnydRmOOeVa8aiuGtuFnF9JQ78gnp2yGDQO41QQfHe
+ 2uK1YgGP0qg+pxVMhBObbi1ukeMNR4Gax/r2GeVA+V2A5BTqbsrbmHhxJMbI3MTLJkCI
+ +yIVk8uzzkw9J9XFLGCDVnjJet3Jr28AnjgF6Xny1nV4E2Qwz8tyhPCN4tjWurlClZl4
+ rwDQ==
+X-Gm-Message-State: APjAAAVfDBlAcrbe5sjdEe7A+dWwpRDa5Ce30ezAisKJb1VELBBK8T6t
+ tJRSrTrJDDXrl07ZtKtrR4IjVZ+T
+X-Google-Smtp-Source: APXvYqyR8R07MY7CQI3yhDo3/xom6+gFbQfUg5zMww0YrAyZQ/oW7k5cMuYXphOY+Oj6qFF17afR2g==
+X-Received: by 2002:a17:906:6a43:: with SMTP id
+ n3mr9638676ejs.292.1571419337351; 
+ Fri, 18 Oct 2019 10:22:17 -0700 (PDT)
 Received: from [10.67.50.53] ([192.19.223.252])
- by smtp.googlemail.com with ESMTPSA id g15sm273729edp.0.2019.10.18.10.21.20
+ by smtp.googlemail.com with ESMTPSA id c32sm288559eda.97.2019.10.18.10.22.15
  (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Fri, 18 Oct 2019 10:21:21 -0700 (PDT)
-Subject: Re: [GIT PULL 3/3] bcm2835-maintainers-next-2019-10-15
+ Fri, 18 Oct 2019 10:22:16 -0700 (PDT)
+Subject: Re: [GIT PULL 2/3] bcm2835-soc-next-2019-10-15
 To: Stefan Wahren <wahrenst@gmx.net>
 References: <1571159725-5090-1-git-send-email-wahrenst@gmx.net>
- <1571159725-5090-3-git-send-email-wahrenst@gmx.net>
+ <1571159725-5090-2-git-send-email-wahrenst@gmx.net>
 From: Florian Fainelli <f.fainelli@gmail.com>
 Openpgp: preference=signencrypt
 Autocrypt: addr=f.fainelli@gmail.com; prefer-encrypt=mutual; keydata=
@@ -116,23 +117,23 @@ Autocrypt: addr=f.fainelli@gmail.com; prefer-encrypt=mutual; keydata=
  caxTGgc5zzQHeX67eMzrGomG3ZnIxmd1sAbgvJUDaD2GrYlulfwGWwWyTNbWRvMighVdPkSF
  6XFgQaosWxkV0OELLy2N485YrTr2Uq64VKyxpncLh50e2RnyAJ9Za0Dx0yyp44iD1OvHtkEI
  M5kY0ACeNhCZJvZ5g4C2Lc9fcTHu8jxmEkI=
-Message-ID: <892848b4-6104-2588-0e94-ebf1b3305a3d@gmail.com>
-Date: Fri, 18 Oct 2019 10:21:18 -0700
+Message-ID: <03466247-807c-5fe7-b63e-2a90d1e3b04e@gmail.com>
+Date: Fri, 18 Oct 2019 10:22:13 -0700
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
  Thunderbird/60.9.0
 MIME-Version: 1.0
-In-Reply-To: <1571159725-5090-3-git-send-email-wahrenst@gmx.net>
+In-Reply-To: <1571159725-5090-2-git-send-email-wahrenst@gmx.net>
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191018_102124_102695_6A889639 
-X-CRM114-Status: GOOD (  14.79  )
+X-CRM114-CacheID: sfid-20191018_102219_035959_0BA23F68 
+X-CRM114-Status: GOOD (  16.40  )
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:542 listed in]
+ no trust [2a00:1450:4864:20:0:0:0:541 listed in]
  [list.dnswl.org]
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
  provider (f.fainelli[at]gmail.com)
@@ -172,19 +173,17 @@ On 10/15/19 10:15 AM, Stefan Wahren wrote:
 > 
 > are available in the git repository at:
 > 
->   git://github.com/anholt/linux tags/bcm2835-maintainers-next-2019-10-15
+>   git://github.com/anholt/linux tags/bcm2835-soc-next-2019-10-15
 > 
-> for you to fetch changes up to a91f757bda1a48317f692487addf832ebf8e93aa:
+> for you to fetch changes up to 781fa0a954240c8487683ddf837fb2c4ede8e7ca:
 > 
->   mailmap: Add Simon Arlott (replacement for expired email address) (2019-10-12 12:48:25 +0200)
-> 
-> ----------------------------------------------------------------
-> This pull request clarifies maintainership of the BCM2711 and adds a replacement
-> mail address for a former contributor.
+>   ARM: bcm: Add support for BCM2711 SoC (2019-10-10 19:21:03 +0200)
 > 
 > ----------------------------------------------------------------
+> This pull request introduces the machine board code for the BCM2711,
+> which is placed on the Raspberry Pi 4.
 
-Merged into maintainers/next, thanks Stefan!
+Merged into soc/next, thanks Stefan!
 -- 
 Florian
 
