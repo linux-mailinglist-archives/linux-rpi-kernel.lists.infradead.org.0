@@ -2,43 +2,45 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id E506AEE1AE
-	for <lists+linux-rpi-kernel@lfdr.de>; Mon,  4 Nov 2019 14:55:21 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id D6E28EE1B1
+	for <lists+linux-rpi-kernel@lfdr.de>; Mon,  4 Nov 2019 14:55:35 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=EwyFKN1O5d2vPemFYxZS+3mMfFBL52UpmnB6Z+agV7k=; b=iluC1vRnbWbVTU
-	K83yTs1lVo330vTYXVlX0KSpSwXRhNra44Wa19+Xv9jy6wQMsa+ol/5OoFkHgK9c8JgAjpIxFFxLO
-	TvNNcyFeJ7LLFUHmDbcspI0H/IGCSOtQGotrk/kG6gFSCThWw/drsC6f2VFmA6esONZ4uERfCEbgM
-	u2lmwCW03sxuEg4PpJvmnyelRP8mtKNDHORR3+8vlAFqyhsK6ZTDJ3ZlWa8U0qWopbOI2fxlqeFNG
-	SHblUEvvANuX9FI6BxFO0GgD6ZR5aylNtyZ0on+o+lLuG6gE0jaOjlgLHQMeGVIgBNfS2t4BNhWWU
-	cupLcm8xi8nEuoz1J/zw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=BbjbUXZZC87ihgYUgcGIcSp5qEBOtr2wbqz3tKyFrfA=; b=I0uK5DSKv869xl
+	JE77GW1qrbCq/keyPJ9jR5cwzGCgBJntEWByttos2lVPwK+Pe97I5XmuwpHnyjPm2o6NouRGQBWQ1
+	iWpg1HHRB6MRTcZWuc4ToaxvxXxHgKO5xch2ezp31Fd2huDvR2Ney4wmc0irIY23rzwMADOaQjnD4
+	UIoQGfx9tWbOQDpxJml+AMPuP++Nqj92TT45ySz1SQBEW6iovqwXkkf2FJWX8B4MvdYDnC6gcMgz/
+	48eAdZ4Gt3CPPTVrT7/2UNtgs1DGRIDcmaDW6P8SsveYHjmQMzlMdaBuiSwm8TctWN+DCsETALnxF
+	za2y4HqAucHmqQQeVabA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iRcpD-0003Tn-TA; Mon, 04 Nov 2019 13:55:19 +0000
+	id 1iRcpS-0003kz-FW; Mon, 04 Nov 2019 13:55:34 +0000
 Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iRcok-0001t8-Jk; Mon, 04 Nov 2019 13:54:52 +0000
+ id 1iRcol-0001tA-Gw; Mon, 04 Nov 2019 13:54:53 +0000
 X-Virus-Scanned: by amavisd-new at test-mx.suse.de
 Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx1.suse.de (Postfix) with ESMTP id 8BC7BAC5F;
- Mon,  4 Nov 2019 13:54:46 +0000 (UTC)
+ by mx1.suse.de (Postfix) with ESMTP id A3D45AF05;
+ Mon,  4 Nov 2019 13:54:48 +0000 (UTC)
 From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 To: catalin.marinas@arm.com, devicetree@vger.kernel.org,
  bcm-kernel-feedback-list@broadcom.com,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 0/2] arm64: Fix CMA/crashkernel reservation
-Date: Mon,  4 Nov 2019 14:54:10 +0100
-Message-Id: <20191104135412.32118-1-nsaenzjulienne@suse.de>
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: [PATCH 2/2] arm64: mm: reserve CMA and crashkernel in ZONE_DMA32
+Date: Mon,  4 Nov 2019 14:54:12 +0100
+Message-Id: <20191104135412.32118-3-nsaenzjulienne@suse.de>
 X-Mailer: git-send-email 2.23.0
+In-Reply-To: <20191104135412.32118-1-nsaenzjulienne@suse.de>
+References: <20191104135412.32118-1-nsaenzjulienne@suse.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191104_055450_794628_65A48336 
-X-CRM114-Status: UNSURE (   8.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20191104_055451_704032_CDF0C812 
+X-CRM114-Status: GOOD (  11.32  )
 X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-2.3 points)
@@ -59,32 +61,49 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: linux-kernel@vger.kernel.org
+Cc: Will Deacon <will@kernel.org>, Qian Cai <cai@lca.pw>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-As pointed out by Qian Cai[1] the series enabling ZONE_DMA in arm64
-breaks CMA/crashkernel reservations on large devices, as it changed its
-default placement. After discussing it with Catalin Marinas we're
-restoring the old behavior.
+With the introduction of ZONE_DMA in arm64 we moved the default CMA and
+crashkernel reservation into that area. This caused a regression on big
+machines that need big CMA and crashkernel reservations. Note that
+ZONE_DMA is only 1GB big.
 
-The Raspberry Pi 4, being the only device that needs CMA and crashkernel
-in ZONE_DMA will explicitly do so trough it's device tree.
+Restore the previous behavior as the wide majority of devices are OK
+with reserving these in ZONE_DMA32. The ones that need them in ZONE_DMA
+will configure it explicitly.
 
-[1] https://lkml.org/lkml/2019/10/21/725
-
+Reported-by: Qian Cai <cai@lca.pw>
+Signed-off-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 ---
+ arch/arm64/mm/init.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Nicolas Saenz Julienne (2):
-  ARM: dts: bcm2711: force CMA into first GB of memory
-  arm64: mm: reserve CMA and crashkernel in ZONE_DMA32
-
- arch/arm/boot/dts/bcm2711-rpi-4-b.dts | 19 +++++++++++++++++++
- arch/arm64/mm/init.c                  |  4 ++--
- 2 files changed, 21 insertions(+), 2 deletions(-)
-
+diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+index 580d1052ac34..8385d3c0733f 100644
+--- a/arch/arm64/mm/init.c
++++ b/arch/arm64/mm/init.c
+@@ -88,7 +88,7 @@ static void __init reserve_crashkernel(void)
+ 
+ 	if (crash_base == 0) {
+ 		/* Current arm64 boot protocol requires 2MB alignment */
+-		crash_base = memblock_find_in_range(0, ARCH_LOW_ADDRESS_LIMIT,
++		crash_base = memblock_find_in_range(0, arm64_dma32_phys_limit,
+ 				crash_size, SZ_2M);
+ 		if (crash_base == 0) {
+ 			pr_warn("cannot allocate crashkernel (size:0x%llx)\n",
+@@ -454,7 +454,7 @@ void __init arm64_memblock_init(void)
+ 
+ 	high_memory = __va(memblock_end_of_DRAM() - 1) + 1;
+ 
+-	dma_contiguous_reserve(arm64_dma_phys_limit ? : arm64_dma32_phys_limit);
++	dma_contiguous_reserve(arm64_dma32_phys_limit);
+ }
+ 
+ void __init bootmem_init(void)
 -- 
 2.23.0
 
