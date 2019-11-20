@@ -2,73 +2,78 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0A09A1044E7
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 20 Nov 2019 21:21:19 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 48EAD1044E6
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 20 Nov 2019 21:21:14 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:References:Mime-Version
 	:Message-Id:In-Reply-To:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Qo5hNwYAlxBA/SxRKIR72NvQtrdOkNJM6gJRGUe7A4U=; b=pF4UCdfP8ZQQpK
-	IcgaRu20TEIEYZxkUVTVqRU3vgv4lJ1zThy6kS6yB13/Ul6kWOXzpvbHIYKd/B06mpkks8oyQ6jxh
-	sVrPMjFj7TjEZeuhkybWHDoPXzd9XznXs/3TqQ5841pDct7GWYu4MLFVajv1hM6Id0hipqO21WVO2
-	RYkFGoofj3dy87YenfxNeYveOO3UViddCdNAvmAg5o0osilznzX4jSa3Mq7+72o0m+OCE2v2h4NTM
-	xUM47HU5aPeqEA7JsK/DOuAEF1bxITdz1wRWIhITSV/tSyFOMruFRw9xClH4bIkiCCEfPIY9Ps/bz
-	l6GzfwXBS/2a4YeBa29Q==;
+	List-Owner; bh=R3kPMJVmNNJhaSy6PVMgiWd69x2+95P8xy9kExtYb9Y=; b=AMq9f5Y4muhVNb
+	CF63pgMSfHqi1133OQPy0B8qhqElWFu/ZZR427j/95LqW6q9bzLLmKdJzN7IOreD7YeuzXZFuV7nb
+	REHVmTqzFwf7SIhm2lpBP4yRG/gyDjVhgGAZy5ieEZ5qj7SRI/lMTPei1aXS9QpTFfXTViLFAIsZT
+	TkMIE9rH66KoldtAUiAwlJ0NPhycjAGCF/juEDjo+dUSs0LbCB7bbJMy/ftPHLkJr1fhixqJ33I+C
+	+5sxAz04Si3wh3oIqSqc1zF4ERFoRW4/f48EVV7bXISSpmyYaSktJ2jrFq2BwyxBj3f5Sps+BUGlE
+	YHYsyGZ0IbqMnCiaQ3bQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iXWTN-0000sU-EK; Wed, 20 Nov 2019 20:21:09 +0000
-Received: from mail-qv1-xf49.google.com ([2607:f8b0:4864:20::f49])
+	id 1iXWTQ-0000va-Nu; Wed, 20 Nov 2019 20:21:12 +0000
+Received: from mail-qt1-x84a.google.com ([2607:f8b0:4864:20::84a])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iXWTK-0000qx-9Q
- for linux-rpi-kernel@lists.infradead.org; Wed, 20 Nov 2019 20:21:07 +0000
-Received: by mail-qv1-xf49.google.com with SMTP id bz8so605245qvb.9
+ id 1iXWTL-0000rR-IL
+ for linux-rpi-kernel@lists.infradead.org; Wed, 20 Nov 2019 20:21:09 +0000
+Received: by mail-qt1-x84a.google.com with SMTP id j18so677217qtp.15
  for <linux-rpi-kernel@lists.infradead.org>;
- Wed, 20 Nov 2019 12:21:04 -0800 (PST)
+ Wed, 20 Nov 2019 12:21:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
  h=date:in-reply-to:message-id:mime-version:references:subject:from:to
- :cc; bh=ymAb/3FkIrD0ZHaNkHYugZ2pdI0MGgpm6zAVH7TwBy0=;
- b=QlWTRfAqfXD9o0DTSX7L+2mzKkJvTUAW1tt9Zq1k6C2+a/v+2566Poy28ZYXdh5J+M
- ampbxeI4MjnypYS7Ls8/tO1hbhxuf/w40GRp4pU9QDkq0xR2KqRLJGUTmLLYqFzNO+jp
- yqNN3HUerL2xGB5A9CWkPAFeYt165RysxgVcCuBTlryWlANKxb++1WDVLhREdpuqMjbB
- aoD3hIwpJPnoPxNGfaUGA8fAgwcMwvowDjBxO4PwJfkwrQGZa93vuP4DAR4fT2sIUsYf
- KIdirMp4LBxRAwqE21FejtHmnyo7sWBEyHW9jKnpu8eurAyH1NUEegKQImL10dmcavVy
- Eyug==
+ :cc; bh=fWfTgwXgNFFl2fLN6zQYf3X/dIUmqtkeZhCtb1F+DgQ=;
+ b=gtuofu0zXTJtMRhTzmiWR7ra7BXyRjjQkfgvEfsM26gkH7ijheeDuFBkTjwxaS6Ko6
+ 5wGSLZhoiAqkkJWPeg72mysHkgeilUBI/KU9vRHmaYYuPA23IDKORqkuDv29oFVKRjmP
+ zqnei+jzuFsl63DBLJ0pzo7GCEVxvXzNiOIcO0gAPZvQZ3ckxmWKlkE7ckPui1ajRobY
+ drrMYFKsz/tpbv/H1rPtLX1C2bfmx+N14gjsFV67gBr2FAEnrN2aocvOfnmFGAN3PwBG
+ XXwYIIHiGr58GA/lH3JjzBzFjfMV44NW8syeRCkymmnGgZkYYSMWGMnRUVDptDrdc+YY
+ Ds8g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:in-reply-to:message-id:mime-version
  :references:subject:from:to:cc;
- bh=ymAb/3FkIrD0ZHaNkHYugZ2pdI0MGgpm6zAVH7TwBy0=;
- b=JmjxOMb2tYBnkTJGJZIYr//8/mxrEc3PQGIRIEz77oIKfiCkqocfS5wvipqM0kNL9M
- tcZc86ySyze5kWth0Vb+yyw6yrY9Ml8J/Eh+VY2kTGBoQQw1Z8IOEUerG0lNSFuADm3d
- Aub5urpHnw4K7YyCQA5o7D8IrlhhuJ6g5GTWkNaaj6NUNCcaW+LfT8qoYPjRukOvOFLk
- DaewsKjy+a45NrQRV1dqeLDbv5c2wmb1OnJraeMa8eYS556mTAqo+HaOb0iLPLCnqC6T
- Zl/0CJ4DCvnSFFLBIF5CFdHDfZOH08YXwB/bSC7PYlWzmu6DAFIZZAlrx1PbBx+zeJyd
- Ca4Q==
-X-Gm-Message-State: APjAAAVRmSvfS2aLCHSetgIIY7TIEdRge3AMQefw28FcZs3D9kLgRF6Y
- qh/7q7OEC8bTVdXWa7Y0KAPmVDGt6emZHGLqPKg=
-X-Google-Smtp-Source: APXvYqx+wsW3VsrA6qKf3LQshPe2grt4za913f8rG0jLRYs+i4N6qOOfg4DSwiqKNRIoDnaE3lKBTMQKY7TUIuWBU0c=
-X-Received: by 2002:a0c:b062:: with SMTP id l31mr4621746qvc.43.1574281264073; 
- Wed, 20 Nov 2019 12:21:04 -0800 (PST)
-Date: Wed, 20 Nov 2019 15:20:58 -0500
-In-Reply-To: <cover.1574253964.git.marcgonzalez@google.com>
-Message-Id: <20191120202102.249121-1-marcgonzalez@google.com>
+ bh=fWfTgwXgNFFl2fLN6zQYf3X/dIUmqtkeZhCtb1F+DgQ=;
+ b=DEd71g6nBe3ZT8r+mGMW+gZ5CQPsfhCFR7wNmYlWK7e0mmGchLDSouVDKf/gDaixnl
+ 7UnrQZDVgRx/x8V8HRCvbNYw4w/XyKHPnPXTdEt7UOhUAOz4ST4YV0Da+lPmfGfvfBe+
+ fP3/C4p0NQWKTUHkVMxi17AKRqcnLPDF0DVzURLaoSYdj/PEeIREo3XAZ0vhn6mv3PyZ
+ NYo4f2PkD4IxuaFuydhGjMzHVKFv7Qc3JdzO/W3xH8vobTdU+FiDvhaBq/TdhdBFrPGS
+ OBfixji560+V6qa86s6emrtaLhrLvXHDOGCEMlAm7ez5WmQOAEG2zrxS5IkCa/huartD
+ sEuQ==
+X-Gm-Message-State: APjAAAU1vPB8sPxOOwTaE3K7u7Bz1MPmtg2tbzdPjvrqLUycQhvwWMI4
+ mnYuGjEZkGQf5OgCY200Jc4griuN/z6B9haY8WU=
+X-Google-Smtp-Source: APXvYqyA3GCfXTOVhCVwlVpc2ljyFhIZxTm7UWi4+moq4Nie2yQYgoXdaPZ+E21o18wZOsmO3H8xPQYn0n9Y3AdZjxg=
+X-Received: by 2002:ad4:4e6b:: with SMTP id ec11mr4603362qvb.121.1574281265380; 
+ Wed, 20 Nov 2019 12:21:05 -0800 (PST)
+Date: Wed, 20 Nov 2019 15:20:59 -0500
+In-Reply-To: <20191120202102.249121-1-marcgonzalez@google.com>
+Message-Id: <20191120202102.249121-2-marcgonzalez@google.com>
 Mime-Version: 1.0
 References: <cover.1574253964.git.marcgonzalez@google.com>
+ <20191120202102.249121-1-marcgonzalez@google.com>
 X-Mailer: git-send-email 2.24.0.432.g9d3f5f5b63-goog
-Subject: [PATCH v2 0/4] staging: vchiq: Fix vchiq_read return value in case of
- error
+Subject: [PATCH v2 1/4] staging: vchiq: Fix block comment format in
+ vchiq_dump()
 From: Marcelo Diop-Gonzalez <marcgonzalez@google.com>
 To: gregkh@linuxfoundation.org, eric@anholt.net, wahrenst@gmx.net
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191120_122106_351704_0AD1060F 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20191120_122107_601890_B77084F4 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -7.7 (-------)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-7.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2607:f8b0:4864:20:0:0:0:84a listed in]
+ [list.dnswl.org]
  -7.5 USER_IN_DEF_DKIM_WL    From: address is in the default DKIM
  white-list
  -0.0 SPF_PASS               SPF: sender matches SPF record
@@ -98,83 +103,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-This is a proposed fix of an issue regarding the handling of positive
-return values from copy_to_user() in vchiq_read(). It looks like the
-struct dump_context passed to the vchiq_dump() function keeps track
-of the number of bytes written in the context->actual field. When
-copy_to_user() returns a positive value, this is set to -EFAULT. The
-problem is that this is never returned to the user, and instead the
-function continues, adding the number of bytes that should have
-been copied to context->actual.
+This fixes a checkpatch warning.
 
-Running the following program:
+Signed-off-by: Marcelo Diop-Gonzalez <marcgonzalez@google.com>
+---
+ .../staging/vc04_services/interface/vchiq_arm/vchiq_arm.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <errno.h>
-
-int main(int argc, char **argv) {
-        int fd = open("/dev/vchiq", 0);
-        if (fd < 0)
-                exit(-1);
-        sbrk(getpagesize());
-        char *bad_buf = sbrk(0)-100;
-        int x = read(fd, bad_buf, 2000);
-        printf("%d %d\n", x, errno);
-        puts(bad_buf);
-}
-
-gives this output:
-
--1 1
-State 0: CONNECTED
-  tx_po
-
-
-  Remote: slots 2-32 tx_pos=578 recycle=1f
-    Slots claimed:
-
-Note the mangled output and incorrect errno value. Messing with the
-constants in that toy program changes the results. Sometimes read()
-returns with no error, sometimes it returns with a wrong error code,
-sometimes with the right one. But it seems that it only ever returns an
-error at all accidentally, due to the fact that the comparison between
-context->actual and context->space in vchiq_dump() is unsigned, so that
-that function won't do anything else if it ever sets context->actual
-to a negative value.
-
-After this patchset, the above program prints this:
-
--1 14
-State 0: CONNECTED
-  tx_pos=b4a218(@165de6b4), rx_pos=ae0668(@f02b54f4)
-  Version: 8 (min 3)
-  Stats
-
-Help with testing would be appreciated. So far I've basically just
-diffed the output of 'cat /dev/vchiq', run the program above with
-a few different values, and run vchiq_test a few times.
-
-These were applied to the staging-next branch of the tree
-at git.kernel.org/pub/scm/linux/kernel/git/gregkh/staging.git
-
-v2:
-separate first patch into different logical changes.
-
-Marcelo Diop-Gonzalez (4):
-  staging: vchiq: Fix block comment format in vchiq_dump()
-  staging: vchiq_dump: Replace min with min_t
-  staging: vchiq: Refactor indentation in vchiq_dump_* functions
-  staging: vchiq: Have vchiq_dump_* functions return an error code
-
- .../interface/vchiq_arm/vchiq_2835_arm.c      |   5 +-
- .../interface/vchiq_arm/vchiq_arm.c           | 129 ++++++++++--------
- .../interface/vchiq_arm/vchiq_core.c          | 104 ++++++++++----
- .../interface/vchiq_arm/vchiq_core.h          |  12 +-
- 4 files changed, 153 insertions(+), 97 deletions(-)
-
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
+index 319e7aa0e0e0..6328abcaeeeb 100644
+--- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
+@@ -2098,9 +2098,11 @@ vchiq_dump(void *dump_context, const char *str, int len)
+ 		context->actual += copy_bytes;
+ 		len -= copy_bytes;
+ 
+-		/* If tne terminating NUL is included in the length, then it
+-		** marks the end of a line and should be replaced with a
+-		** carriage return. */
++		/*
++		 * If the terminating NUL is included in the length, then it
++		 * marks the end of a line and should be replaced with a
++		 * carriage return.
++		 */
+ 		if ((len == 0) && (str[copy_bytes - 1] == '\0')) {
+ 			char cr = '\n';
+ 
 -- 
 2.24.0.432.g9d3f5f5b63-goog
 
