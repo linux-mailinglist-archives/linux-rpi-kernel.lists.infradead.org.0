@@ -2,85 +2,110 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 022041038D8
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 20 Nov 2019 12:39:17 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 192E7103D02
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 20 Nov 2019 15:12:16 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-ID:Subject:
-	From:To:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=77rPBDpm6lPhbRKKF8lFUhaa6mfo/eFZGUGWmN/Wwf0=; b=XP+KLVFgY6k+c/
-	UA/E8EgjJavhLzd3qM/yGQc9OzVUAyqYul5+iB/HZkRGUqQVcDZxaj0VF5i7+MQZD9/g8t/6ezrlo
-	hH3TyufYDv7KzQTuwYzilO1l38UU/p14ZTnID4AECY0byShUhFn71o5RPXt9xmhGaokUYMLy2KOwY
-	cAiSZi18uvqhP2k/4+WT2lt6iNnSl8SMQUWPis3PDDKw9MqQsugqcgt7onBFnj9C8XXGZvIfIlu8A
-	6LD76gsv+eCio1QFRyTtdTMCN7KLM+GbkpFLsZbv76Q8wwtU0gP7kd8lcTXQ6iwhr/KyLvn5+4cM4
-	YdlyeeNsbHfFF5sh0i8Q==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=GMh9vuREqk0d8/YWxIzmuiiC6RPD+99T1msGV6Ata7k=; b=MyfWdClgxrBq8StQ2tpTwwEsq
+	9jn1SP4s1vIwiPatYFnLtPqyfN6V9fMY78yKteLkx3hG5H7Sw2MFpLvFtjRYwQHf96+Mcj2QfOGr+
+	JEsHMB7yc19mi6TZcU0tva2B0f4a9SUUPmVawUsn+8ATflILQf03VNuDM1DCS05ApZ5s8SIE95ACD
+	4s+IQF2HOm1TAlYNUOJ7Lx7PRQ/ZO0cH2IZ42P53H3thH1Q3VmOkkreLfGfK9HIW98t9T72CNkzU5
+	Ci0ZetjaBUTM/NUVN05exCr287bHBfB0m/YxZ1hT4nufFst8R7uXcsxehx3oPw/7XJhbkm+UrfjCj
+	x+iyXX4EQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iXOK3-0001HV-Rl; Wed, 20 Nov 2019 11:38:59 +0000
-Received: from mout.gmx.net ([212.227.15.15])
+	id 1iXQi6-0001pk-Ab; Wed, 20 Nov 2019 14:11:58 +0000
+Received: from mx08-00252a01.pphosted.com ([91.207.212.211])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iXOK1-0001Gx-8n
- for linux-rpi-kernel@lists.infradead.org; Wed, 20 Nov 2019 11:38:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
- s=badeba3b8450; t=1574249930;
- bh=lqyqM/sKrmql+PwHb90YqnUSZovmLvHDKIXNfQX0XeU=;
- h=X-UI-Sender-Class:To:From:Subject:Date;
- b=WWmfwRyAjcV8ViIpjf/CrABvhxI6lIzVC28U0o3AQh0byXlqRqaouAupHjXf4tDpx
- FNHnFk2d/kwDVW8Uai5hFSwGfHS27y5awF5KidbFTHo2nqJnMI3/QveXQzp32Ci2OO
- Yq4roVRyiSLnlofCipjzRSdfhfsSSL/R+jlhG1gM=
-X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
-Received: from [192.168.1.176] ([37.4.249.139]) by mail.gmx.com (mrgmx005
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1Mz9Un-1hch4L3AFX-00wDIF; Wed, 20
- Nov 2019 12:38:50 +0100
-To: linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org
-From: Stefan Wahren <wahrenst@gmx.net>
-Subject: BCM2835 maintainership
-Message-ID: <68580738-4ecf-3bb7-5720-6e5b6dafcfeb@gmx.net>
-Date: Wed, 20 Nov 2019 12:38:50 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.9.0
+ id 1iXQi0-0001ok-Mb
+ for linux-rpi-kernel@lists.infradead.org; Wed, 20 Nov 2019 14:11:55 +0000
+Received: from pps.filterd (m0102629.ppops.net [127.0.0.1])
+ by mx08-00252a01.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id
+ xAKE7rG2029654
+ for <linux-rpi-kernel@lists.infradead.org>; Wed, 20 Nov 2019 14:11:48 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=raspberrypi.org;
+ h=subject : to :
+ references : from : message-id : date : mime-version : in-reply-to :
+ content-type : content-transfer-encoding; s=pp;
+ bh=/at8uXIrARqtgojJ1uqk2uttbAL7Vve/nUl5o5grkME=;
+ b=iPk4YXi5TtZqqzZEnVHVh/T9CVXQQQW0vCtU71hnYjztWvelNo/ZaaAufROx85r7APhI
+ ZgQZYopDUCJwclPTYmWYngInGSPF+/gRxb1UMqEj5u3PoHrbdheQ5yyO2IUkwZT2HQl4
+ lbNcz9KIIjQ6HRpfNlJXvGFlQDGtaWT6ChP4KU8KMV8KfNn+cRNd/sJ3IJryeCM1EteJ
+ zOTxER3V98drx3AdYBx+J752kCu0ipV9RyZV2fUGRnS0uCB+w3F8SiMUGNBR/+C/0JL/
+ 4nAsHn6XiqeZ8Q8cAryGJYtnl8ffr1SWIrcj3y0fLKC+teOYpmY23PAGoG+B0vUrNGHV pg== 
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69])
+ by mx08-00252a01.pphosted.com with ESMTP id 2wa6fr24hc-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=OK)
+ for <linux-rpi-kernel@lists.infradead.org>; Wed, 20 Nov 2019 14:11:48 +0000
+Received: by mail-wr1-f69.google.com with SMTP id f8so21209421wrq.6
+ for <linux-rpi-kernel@lists.infradead.org>;
+ Wed, 20 Nov 2019 06:11:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=raspberrypi.org; s=google;
+ h=subject:to:references:from:message-id:date:user-agent:mime-version
+ :in-reply-to:content-language:content-transfer-encoding;
+ bh=/at8uXIrARqtgojJ1uqk2uttbAL7Vve/nUl5o5grkME=;
+ b=UdB1lz8im6SBGQpcvQzeAhTAlmwVFuGiMZKvwLQx3xcB1KmaMmmhO5EczwU/6YUQyo
+ l6VxSMUHLWSXfrlHjEBD8zaSxCimdN3I1/y2HuD3DR8aVtatPRGx4Tfuuwyx+o8KgezN
+ wRH0LQXLZvXSu2hhXNc4RHcLjPygwY2ju9OW2Ppqm9Y2z5lbv4/SL6rhPKRCZ0vTJlnB
+ 6Ipfw41lIejaJ5MR/E8Vrtrqab5N3vNKa97FFUnZ9Wtvc/aEJCM8L9IO1N0ue29BMLgr
+ TIBOY6N2LhXvEXLaKglqQa1k5UqK3JHGFVTe2RR+HhN1PoIj3HYMk7//t4+deyvr8h+x
+ 6PBg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:subject:to:references:from:message-id:date
+ :user-agent:mime-version:in-reply-to:content-language
+ :content-transfer-encoding;
+ bh=/at8uXIrARqtgojJ1uqk2uttbAL7Vve/nUl5o5grkME=;
+ b=ZRBow5lrGA6B7tyyW23mM2jVvCXjMwMqSO1bXGrOvArVkCC6nsay05sR/I2HsjT3uU
+ 5flsvP6WbVZ/yo9JQL+t2x8RnrzWKyndDamsNM46Qm6iTKQvMTaxJWekNtNOWLKZIUxI
+ 8IDUXY0um+ghZfj439AMlPZAAM6RkVkYuoUUYPMVFb0luwm6uZ+MVW4pdi8VG7K3Bv2Y
+ qU7a+Cvfaen2eTJKatbML6Q4uhWEjjocBs9rL3DMtTAx78yL4Pr6GzkPQZkza9vqbtFs
+ 2MR4JwpB5WJ1T3PZXn+orZ+qohIdHqNl1+pWmBVyI+ajpuLDu2eXZq93/ibZg+y5LElJ
+ RtnQ==
+X-Gm-Message-State: APjAAAVDu0yPOLQn7xp/XI096px4fZOf6OVc8Oj0aqPownt2qysH1fOi
+ WxV9hrgOStnTLEu3duwKpJ5cZYPUd4r1Uckc4gZfAv+GcUD55WNhBIVZhyh4L9C3fdRT1v1/ug1
+ BDp6VnO1q8iD7ZxRg2amhkgaF1noRkCvH/OA=
+X-Received: by 2002:adf:9f52:: with SMTP id f18mr3505260wrg.51.1574259107296; 
+ Wed, 20 Nov 2019 06:11:47 -0800 (PST)
+X-Google-Smtp-Source: APXvYqxZRI7Eod4HiL1Kayr9EEsJm+aehAb4aIL5/d8hMf6YjOsGz3IbTUtcXBU9l53Ogr+zvywRXQ==
+X-Received: by 2002:adf:9f52:: with SMTP id f18mr3505217wrg.51.1574259106978; 
+ Wed, 20 Nov 2019 06:11:46 -0800 (PST)
+Received: from ?IPv6:2a00:1098:3142:14:d54d:f6e0:3aef:f94?
+ ([2a00:1098:3142:14:d54d:f6e0:3aef:f94])
+ by smtp.gmail.com with ESMTPSA id 19sm35289172wrc.47.2019.11.20.06.11.45
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Wed, 20 Nov 2019 06:11:46 -0800 (PST)
+Subject: Re: BCM2835 maintainership
+To: Stefan Wahren <wahrenst@gmx.net>, linux-kernel@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org
+References: <68580738-4ecf-3bb7-5720-6e5b6dafcfeb@gmx.net>
+From: Phil Elwell <phil@raspberrypi.org>
+Message-ID: <913cdc73-4b4e-5ea7-80c6-f32d0340f37c@raspberrypi.org>
+Date: Wed, 20 Nov 2019 14:11:46 +0000
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.2.2
 MIME-Version: 1.0
+In-Reply-To: <68580738-4ecf-3bb7-5720-6e5b6dafcfeb@gmx.net>
 Content-Language: en-US
-X-Provags-ID: V03:K1:NppHBscTU5hFATj15+QdozwTQz+xRqNmlaXDy40FziLle98rbmP
- KIFr7e4mAKiQVE7zB4E3NiFBPguRs/7U7ORwGbL6Rr7RBD4CrBcQASbssUkQWFmHu1RuHpO
- me23qknFZ0BVIRsPMnR0FH3qU1FRHRhTsjYJameCjwBiAJw7MNO/AITyzKcAuzobUyTdpvX
- Cjls8R8+zM+gJSnZxU78w==
-X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:M+omUdPv3xY=:hhPaWjXE4xbat3U20/FSm4
- iO1khFenmQgYrl/fnqeF5nh2XZcYcFofP/8BXl4uM6J1EUY7HaOXn9VV+rwpJLXAA2Iib52S5
- eL4qPkKJflGhekCqxtM2gEAd9t8ymwrtL4oF1DWbOvSwQXnVqluR4xT2YU/58WkgmHcLt2Epu
- xcuyF4BhlXGXy9oq0DGvz08PyT1J9aTHoGpIksNaz50z304/hnUo+FwAIBRxzb/Mn4yveznH3
- ARkBX10atW1IigzBAOonG/aFJI3RSsnRAYO4/6t3/Gfkik8Fcw8E72z1Qk7slQQz+mYNzcwz3
- zyeDBEzAI4j0NMq+ypM+4DVpC9864tSfmTxmTIFHqWZ+E2Gl3j4gp7HifBN2lq7tAzFBYf6YW
- 2JoshHyBjUuYdvrUMcZPSp9FP4+vwlAiyXyrWZgB6GXDyf8rvfEljFEtO6MK8Pt0JccWUdRny
- cK5+qS1FjW/MPX/lioI+LUdSVLSM/jVW50+PiGY/ilf4OWN5c/Uj2sNnhZR+nzdoqQdiyn5yj
- MtOT955dvay3oLP6I4yLbbHrYOArf3ZvexeubYjYSBF4InnnYdp9TBceO3TLnbMwO29LJrSHm
- pmiVid/xo7FYV+0gj+oB9mzVJAHILEf+3RE6iKxZe4NnExzJUzU9MnJ3+VDN/BUWYJKJe8+sK
- hS+ZEe//98nUp/d77p4X5Z0oGOt5HCpv0MLpfvLj5WpVNdEe+1I62vHTDlqbuAEdHl79mH+uG
- XICH7hC9V+v/YOXyh6wKwhBJyGR6E1Dx0Q9u/DaaduAUds94RPlL/g3d1jC6P947LFNvflKH1
- nTPjZFq+axacpM7/+FmhTuA3bS/VdRrb2jsVOvbTL2hL2w+FYYCdIEM1qYyCTv/lyKl0GPRvR
- 3OsGBGpwYFyHVSt+Cd3NEZC+OO4EWcKGJYlT/lai0jUEGNEgsD8+AzKiE42vDAjPgZj9IvU22
- D36IaWBstdLM/UKAmRC7Ourif5v7Jwk9TWgemyVNw+z58xMIcXsqbH85Ab+8UOIe3ePgq+b87
- u0OxX4fKAlg6eVmNfUBiz797VOzlD3Juj1+8hAcoL04aGhBiZbBNuLGVbhfLgqCGuIa6+lToX
- e7bhApcjV+g/5lpiOJHyEzqRVVpL62jqIEdAmbV9UaA/l3YeMVERXUj7NMotjif1pXsk3Adwf
- UhTa5vAYxeYu/3n6Lh9Kamb2uPs5+G7zT/FmeQwWedNSeunnt7Uzr5LRWr+Dcdeb7kjpU5Xst
- nS5PDp/sgEfJp6VJ9mZxXtO5qDzQ7zYgls7GePax4so1pUG0auOKoBByhqzg=
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.95,18.0.572
+ definitions=2019-11-20_04:2019-11-15,2019-11-20 signatures=0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191120_033857_640385_02CEB829 
-X-CRM114-Status: UNSURE (   5.00  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20191120_061153_098708_E42BCC54 
+X-CRM114-Status: GOOD (  13.75  )
+X-Spam-Score: -0.9 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (-0.9 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [212.227.15.15 listed in list.dnswl.org]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [91.207.212.211 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (wahrenst[at]gmx.net)
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
@@ -89,6 +114,7 @@ X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -100,26 +126,36 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-Hello,
+Hi Stefan,
 
-i need to announce that i step back as BCM2835 maintainer with the end
-of this year. Maintainership was a fun ride, but at the end i noticed
-that it needed more time for doing it properly than my available spare time.
+On 20/11/2019 11:38, Stefan Wahren wrote:
+> Hello,
+> 
+> i need to announce that i step back as BCM2835 maintainer with the end
+> of this year. Maintainership was a fun ride, but at the end i noticed
+> that it needed more time for doing it properly than my available spare time.
+> 
+> Nicolas Saenz Julienne is pleased be my successor and i wish him all the
+> best on his way.
+> 
+> Finally i want to thank all the countless contributors and maintainers
+> for helping to integrate the Raspberry Pi into the mainline Kernel.
 
-Nicolas Saenz Julienne is pleased be my successor and i wish him all the
-best on his way.
+I'd like to take this opportunity to thank you for being such a champion 
+of BCM2835+ and Raspberry Pi. It must have felt like a thankless task at 
+times, but you leave the upstream Pi support in a much better state than 
+when you started.
 
-Finally i want to thank all the countless contributors and maintainers
-for helping to integrate the Raspberry Pi into the mainline Kernel.
+Welcome Nicolas - you've been contributing to the mainline kernel almost 
+as long as I've been at Raspberry Pi, and you're no stranger to the Pi 
+repos on GitHub. I look forward to working with you further.
 
-Regards
-Stefan
-
+Phil
 
 _______________________________________________
 linux-rpi-kernel mailing list
