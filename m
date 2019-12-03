@@ -2,74 +2,104 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id BE987110271
-	for <lists+linux-rpi-kernel@lfdr.de>; Tue,  3 Dec 2019 17:35:57 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9B4171103D8
+	for <lists+linux-rpi-kernel@lfdr.de>; Tue,  3 Dec 2019 18:49:26 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=8j0NSsGbFkQffuqj8vLhIZRewj04EoiLWxairvF8dj8=; b=hX01cUC4fv2KnT2ogaGGAWwq/
-	FI3K4VBiGg7uIKtqLU8rOMKbUzWYWVFEG3e1ho4vO4ewSPHk0q09Vg00hbDsjCgW3CfYGH2arjy8V
-	kdT/vP1ccdlEzVJ1ES/nss467+l1AL2QJnG5KeAJ1s3jghlHBua7U2oMvRg9+xZv6axAxBDQzvPm1
-	dC5Y9lGEK3bwhKW7WSwxsKBflw4So9NkjFmBVnKh8f/5PZmAtt36ydZJ4pK4Kydnfu+P/uMPGYs7r
-	3b6bVcQTZhNsc6AgjNonI3RmURpyRfE4nlFStnq2JSKKU8NYP2jPPidIxokxdFNWZ1viVpKzDPFto
-	I8sv+zb2Q==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Kc157cyxBrvvV3touGFm6Je2rCacbTp4uNJN8HrwjGM=; b=FVZq3QSLteHy+x
+	+4aryZnE/ZVp4feuVk5cvlrpppE6OqobvlxisqW+OFsLjFkU65K4mwvUl15NqBkVlvVT4tsQTGjXo
+	yYxgAcj1ymfExztjed0ERbuBdosea0PfhXyRmmXq/rT/B9BkHPjXM3aR1PnPIo7o0csvyFwqJV+4x
+	ZTBdhY06lUMiBeFvKL0jzalo5jar1r9U0QjwQ38vKdo+0Gqzt5qkj+JRQag3C4EffnAd6VZik4eya
+	+3mASR6H6GgueE8e920hr+UI1Osr5SAmgYhbG189nw62ClaQ0WERY/eu/g768eOGrn8T+r60qj7Tk
+	dezDTIw1LECfOsY6iNCQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1icB97-0003ZS-6B; Tue, 03 Dec 2019 16:35:29 +0000
-Received: from heliosphere.sirena.org.uk ([172.104.155.198])
+	id 1icCIU-0005Wj-J0; Tue, 03 Dec 2019 17:49:14 +0000
+Received: from userp2130.oracle.com ([156.151.31.86])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1icB93-0003Ys-Ox
- for linux-rpi-kernel@lists.infradead.org; Tue, 03 Dec 2019 16:35:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sirena.org.uk; s=20170815-heliosphere; h=In-Reply-To:Content-Type:
- MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=r6m1p6iz/ZLXeiykJGdEzzkQHCD0mD0wLBa122C3/ok=; b=MVCFMzV5dOqogocPNLWzLR40v
- g/hl5c5gwXux8bd2wUwY8eJ1x+FfKGrI14FNF1B1gEBmpGc1NzIZsk/4yz7N6r94Il9iRsTdkcwzk
- FhpmDumi0pA+RqCu/In/SO7ycLNHlyQv6Godmsps8x0gqaDYFm+TAM3dp09tNGDoagrMM=;
-Received: from fw-tnat-cam1.arm.com ([217.140.106.49]
- helo=fitzroy.sirena.org.uk) by heliosphere.sirena.org.uk with esmtpsa
- (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
- (envelope-from <broonie@sirena.org.uk>)
- id 1icB90-0003H3-Ng; Tue, 03 Dec 2019 16:35:22 +0000
-Received: by fitzroy.sirena.org.uk (Postfix, from userid 1000)
- id 00D63D003B4; Tue,  3 Dec 2019 16:35:21 +0000 (GMT)
-Date: Tue, 3 Dec 2019 16:35:21 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Phil Elwell <phil@raspberrypi.org>
-Subject: Re: Side effect of SPI GPIO descriptor usage
-Message-ID: <20191203163521.GM1998@sirena.org.uk>
-References: <db6a1e17-49a3-e3ed-7713-56b7763713d6@raspberrypi.org>
- <20191202134344.GE1998@sirena.org.uk>
- <1e0b7cd6-cf9e-2b68-f875-8015c8ffc326@raspberrypi.org>
+ id 1icCIR-0005VO-L0
+ for linux-rpi-kernel@lists.infradead.org; Tue, 03 Dec 2019 17:49:13 +0000
+Received: from pps.filterd (userp2130.oracle.com [127.0.0.1])
+ by userp2130.oracle.com (8.16.0.27/8.16.0.27) with SMTP id xB3HiHeL083905;
+ Tue, 3 Dec 2019 17:48:59 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com;
+ h=date : from : to : cc
+ : subject : message-id : references : mime-version : content-type :
+ in-reply-to; s=corp-2019-08-05;
+ bh=sSASPAHagPCXIE0J+FbrggrMCD8nUj8l3FLAbhUoC+c=;
+ b=MmRu/EbGwC7+cPmq7YtAcXvP5Pxgb5K/lqNTR83+9wsdlNUugNgRTHUv80Hh9uC+07p5
+ mqmb9dYjffOh/UrNkMGvBtt6pSvQN1YVVIEHP2a0wvWB7/7Wccc8xD1m8hxzjtRcVNJI
+ g9WFV70FR3hI+apZdgOgQKmPHLTpHEMYNsRFVMwWxVT/5V4J0DxMjEH0lZew6CFtlupa
+ QsjMpPnvsZH2P4DTkvbmPeqoGMIYdL8yS/58uU2n4TcNJuuV1gQ2afm6RiYHrvtS17AP
+ F+hpEFUMYoEvwlNcVl20+UPt7fU94W8F1x9sSqOaWt93/0t2y+63x4SomyC5ZPbjqdvY QA== 
+Received: from aserp3020.oracle.com (aserp3020.oracle.com [141.146.126.70])
+ by userp2130.oracle.com with ESMTP id 2wkfuu9hky-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Tue, 03 Dec 2019 17:48:58 +0000
+Received: from pps.filterd (aserp3020.oracle.com [127.0.0.1])
+ by aserp3020.oracle.com (8.16.0.27/8.16.0.27) with SMTP id xB3Hi3ND034942;
+ Tue, 3 Dec 2019 17:48:58 GMT
+Received: from userv0121.oracle.com (userv0121.oracle.com [156.151.31.72])
+ by aserp3020.oracle.com with ESMTP id 2wnb80fx9t-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+ Tue, 03 Dec 2019 17:48:58 +0000
+Received: from abhmp0014.oracle.com (abhmp0014.oracle.com [141.146.116.20])
+ by userv0121.oracle.com (8.14.4/8.13.8) with ESMTP id xB3HmsfK010433;
+ Tue, 3 Dec 2019 17:48:54 GMT
+Received: from kadam (/129.205.23.165) by default (Oracle Beehive Gateway v4.0)
+ with ESMTP ; Tue, 03 Dec 2019 09:48:53 -0800
+Date: Tue, 3 Dec 2019 20:48:45 +0300
+From: Dan Carpenter <dan.carpenter@oracle.com>
+To: Marcelo Diop-Gonzalez <marcgonzalez@google.com>
+Subject: Re: [PATCH] staging: vchiq: call unregister_chrdev_region() when
+ driver registration fails
+Message-ID: <20191203174845.GB1765@kadam>
+References: <20191203153921.70540-1-marcgonzalez@google.com>
 MIME-Version: 1.0
-In-Reply-To: <1e0b7cd6-cf9e-2b68-f875-8015c8ffc326@raspberrypi.org>
-X-Cookie: Cleanliness is next to impossible.
-User-Agent: Mutt/1.10.1 (2018-07-13)
+Content-Disposition: inline
+In-Reply-To: <20191203153921.70540-1-marcgonzalez@google.com>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9460
+ signatures=668685
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0
+ malwarescore=0
+ phishscore=0 bulkscore=0 spamscore=0 mlxscore=0 mlxlogscore=999
+ adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.0.1-1911140001 definitions=main-1912030134
+X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9460
+ signatures=668685
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0
+ priorityscore=1501 malwarescore=0
+ suspectscore=0 phishscore=0 bulkscore=0 spamscore=0 clxscore=1011
+ lowpriorityscore=0 mlxscore=0 impostorscore=0 mlxlogscore=999 adultscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.0.1-1911140001
+ definitions=main-1912030134
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191203_083525_823502_6DD3E80E 
-X-CRM114-Status: GOOD (  17.87  )
-X-Spam-Score: 0.2 (/)
+X-CRM114-CacheID: sfid-20191203_094911_820949_571F4203 
+X-CRM114-Status: GOOD (  11.40  )
+X-Spam-Score: -2.5 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (0.2 points)
+ Content analysis details:   (-2.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [172.104.155.198 listed in list.dnswl.org]
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [156.151.31.86 listed in list.dnswl.org]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
+ 0.0 UNPARSEABLE_RELAY      Informational: message has unparseable relay
+ lines
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -81,101 +111,29 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
- linux-rpi-kernel@lists.infradead.org, linux-spi@vger.kernel.org
-Content-Type: multipart/mixed; boundary="===============7081898801320142191=="
+Cc: devel@driverdev.osuosl.org, gregkh@linuxfoundation.org,
+ linux-rpi-kernel@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
+On Tue, Dec 03, 2019 at 10:39:21AM -0500, Marcelo Diop-Gonzalez wrote:
+> This undoes the previous call to alloc_chrdev_region() on failure,
+> and is probably what was meant originally given the label name.
+> 
+> Signed-off-by: Marcelo Diop-Gonzalez <marcgonzalez@google.com>
 
---===============7081898801320142191==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="zHDeOHGDnzKksZSU"
-Content-Disposition: inline
+Fixes: 187ac53e590c ("staging: vchiq_arm: rework probe and init functions")
+Reviewed-by: Dan Carpenter <dan.carpenter@oracle.com>
 
+Thanks!
 
---zHDeOHGDnzKksZSU
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+regards,
+dan carpenter
 
-On Mon, Dec 02, 2019 at 02:11:51PM +0000, Phil Elwell wrote:
-> On 02/12/2019 13:43, Mark Brown wrote:
-> > On Mon, Dec 02, 2019 at 12:10:11PM +0000, Phil Elwell wrote:
-
-> > I
-> > can't see anything in that change which sets the flag, can you be
-> > more specific?
-
-> bcm2835_spi_probe in spi-bcm2835.c sets ctrl->use_gpio_descriptors to true,
-> and of_spi_parse_dt in spi.c includes the following:
-
-> /*
->  * For descriptors associated with the device, polarity inversion is
->  * handled in the gpiolib, so all gpio chip selects are "active high"
->  * in the logical sense, the gpiolib will invert the line if need be.
->  */
-> if ((ctlr->use_gpio_descriptors) && ctlr->cs_gpiods &&
->     ctlr->cs_gpiods[spi->chip_select])
-> 	spi->mode |= SPI_CS_HIGH;
-
-Right, I see what you're saying now.
-
-> > In general it's a bad idea to modify mode at runtime, and it's a
-> > bad idea to mix multiple means of configuring the polarity of the
-> > chip select (eg, mixing DT configuration with other means).
-
-> Applications using spidev to implement user-space drivers need to be able to
-> set SPI mode, CS polarity etc. at run time. I agree that there
-
-I'm nervous of spidev user doing stuff like that with the chip
-selects, with DT even spidev devices should be registered
-normally, you will get a complaint if you register a raw spidev.
-There's no free pass for "oh, spidev can do anything we don't
-care" here - the DT should describe the hardware, if some of the
-hardware happens to be implemented by spidev then fine.
-
-That said we do have other in kernel users that do change modes
-at runtime, though I'm not convinced many of them have GPIO chip
-selects.  Linus?
-
-> are many ways to set the polarity of a chip select, and it may be that
-> too many are being used with GPIO CSs declared by DT, but I don't think that
-> completely explains the connection between use_gpio_descriptors
-> and the automatic setting of SPI_CS_HIGH.
-
-That's the result of there being too many places where the
-polarity of the chip select is set so the code is pushing to at
-least only implement this in one place so things are clearer and
-more consistent.
-
---zHDeOHGDnzKksZSU
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAl3mjscACgkQJNaLcl1U
-h9A5nAf+KL/EMG9AeIeRv8/4LbT1CbXUDlGeuE6JyVP6WkAZaVRqab2gbl4rUOAI
-vuIKIOJ76vkvjOG9deGsO2N+rIRmXfKt+U0Nz1z92Qg4OjkAybQbiv0ObJU2C5QJ
-HUoMtPJ4HlGgOoct0EXfz/MlwLC3CtXaAM9j6rwE+kZCfLAgJ2I4N6yK4H6/030Q
-dw/Q+opbvHM2AFKfLPOCInDryDmQrwcstyPHmWKfsrkoJdyZ8QS1G9EydnQQIBYR
-31IsXVzDWE8ziAuc5gF5+FN4/cBbdQxtcIHCx3mDVYcB3F6xEKDRPd0aDglAMP1J
-51pDSdVPkHYzoUB7PiuvqGH9KtFr1w==
-=h29l
------END PGP SIGNATURE-----
-
---zHDeOHGDnzKksZSU--
-
-
---===============7081898801320142191==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-rpi-kernel mailing list
 linux-rpi-kernel@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
-
---===============7081898801320142191==--
-
