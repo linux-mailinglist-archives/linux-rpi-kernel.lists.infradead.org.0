@@ -2,81 +2,71 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6C370112DB6
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed,  4 Dec 2019 15:47:31 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 82298112E23
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed,  4 Dec 2019 16:16:22 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1phTjQ3gDFM3vwnEZuw/QBPXaDErUx3qejJ6Fom/6lc=; b=Hz11VcCitDmwSd
-	WB27fKU7T6pyPBZKBh5JNBOptSZCYhzoN43sn0gDEhg1/+DGVHOaYVtUvIS0UpwgIZu+Q624oTSAu
-	QKwMYNukpec3EclDx+qPZUcsgfTSUl75TrtVO8qYpLNVJXcWPPKigQErzZeJEp9skzniP2qdF11YD
-	Xd3ty82Lx0+mn5eEIa65KOC6kkVtbkMNwUylt6DDBByTtPd1NgynHjSPXngwn2QLk+nq7fXKIrWhQ
-	ORTQtpfJG1Rq7nCw3fdH9nt9cesdj23YmIVk/ArCNKBl9dMKTl33Zr8vl6i0/lWlXP47QQKs6/0b8
-	Rh0SXgRo6gFKnqVRknzg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=nK6A5FTusa8uLWvQtn3XOz9diwlWUJSO++JykqJdjBQ=; b=akNuamnBtIRnA37+DFf15iQwY
+	VGaUsDRoccedBUyhyHvzEqhAJCGCCYo3DT6XpMPrXL70E7LXJ/OtRTAiedym7HjhKrN5TGtxdqvzI
+	zZkh87oNOMyMB6VxdVaIj9sWieOeTVX4Msy8qAFoc3hAnV/B4ekchTJNv6dsOVwyIDnkYK9ISUxkk
+	yCQoH6zM4H4BdkTXgOBA42SC88+U3wh2RRfEruS2M31XhVjwvttZBVjuOR+SXs31mcoJzs2zXdDzp
+	6ZgxPlfnTPa3OgaKRi14edlx7QZ9frfy6joz4ntNIUFsLQj0o4fuurmHshSgCnLIsjhm9ACy4mA47
+	StKT3Ab6A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1icVvu-0004ip-Ju; Wed, 04 Dec 2019 14:47:14 +0000
-Received: from mail-lj1-x242.google.com ([2a00:1450:4864:20::242])
+	id 1icWNh-0006c1-Fs; Wed, 04 Dec 2019 15:15:57 +0000
+Received: from heliosphere.sirena.org.uk ([172.104.155.198])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1icVvq-0004i5-H6
- for linux-rpi-kernel@lists.infradead.org; Wed, 04 Dec 2019 14:47:12 +0000
-Received: by mail-lj1-x242.google.com with SMTP id d20so8362783ljc.12
- for <linux-rpi-kernel@lists.infradead.org>;
- Wed, 04 Dec 2019 06:47:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=dd6qtsyIVCGRGuNUcTToh40zKwEE5g2OPPazq4Ye+jI=;
- b=QW5Uv+xmXK7EKs1Hmc4gLmSIEGeVGQaX6SsgtRCJRLpXZO6wVv3HDNDIlJR4rAa0TW
- 82CrvLBQDugHsGI0v6m/2bDoIrp/2evwczV9YCS7B6Mtmrn1YeO+NepDqwK7V4OyjREo
- 5V4yD40wWg/GJkxV5ib63Anz4gEkNx+mIJzNemJ6aOnVy8VUiriZr7eJZDULQ+90W5R+
- m5J+ZTwjze0VcJ/+bX00pLJjD008mYxBT2q/GoK22c0KRoRYe+3IYIG1LHFeeawoVzJX
- d9n35JXolwdfdYG1nSIUpvTYR0spU9XGzh7wtbiMpjjcya2y4LR164HGbDKz2vYpfC1g
- ccKQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=dd6qtsyIVCGRGuNUcTToh40zKwEE5g2OPPazq4Ye+jI=;
- b=eDcySsamwOPAJkpQEXTkMrBuASDp+2FArjN1vM2KIgHz6u/8bI/7Dje3G8KSfXX0LZ
- HzQBGRsGZwcE8EVbcTl/7Tp6pNPIBoXxSSgZ8mmuY/NwyhAsj62vtO1FhqmzrMQlMrFO
- yjySNfGP5qNdUN5Yhgkaj7r7J70NpaYjcGmPRqMG5ek+GbkpqzLYrC1UP4KATp1/ZKHA
- eRBWdot3DxLFlUeczqUl7ox/wpVV8STlrXj+TylK06EmxVSBvqnX/x4DxqPBaYkDi1Zq
- kcntOAYkqUGc6vSktQ6h/SsCaHX35zLLYppeCdBbv3GXqTPe/rnmDP64b1mxkHo763Nn
- zdgw==
-X-Gm-Message-State: APjAAAUl9HSvoUh61j0YjGNvCe6A6JCzAmu7uXkZhTCWn0UBoK+vifEa
- UBqFhNiuateOhuwX2gHTLOPeKpAi7hu03qMVPDo9lfV2ZKHwHQ==
-X-Google-Smtp-Source: APXvYqyFDHM4spp1vtK8S3nBLuw8l0xIF7nvdqtjdaw5r0wgAjBn9x3MGzNL95Y/Zp3eNll4jqNkKnJAqendK3TWS7E=
-X-Received: by 2002:a2e:9587:: with SMTP id w7mr2186691ljh.42.1575470828107;
- Wed, 04 Dec 2019 06:47:08 -0800 (PST)
-MIME-Version: 1.0
+ id 1icWNd-0006ai-UA
+ for linux-rpi-kernel@lists.infradead.org; Wed, 04 Dec 2019 15:15:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=sirena.org.uk; s=20170815-heliosphere; h=In-Reply-To:Content-Type:
+ MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+ Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+ List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=hjwLb5IdIcsIVmn9KYxeoR5uP3Q1WPTcMtoZrlGRjKE=; b=SbR7ZkPYPqkRANLnnVVarDRyg
+ EfHwsJSJrwqN9b6bh2N+yN9/t1aNwDD1ev1g9ID6tOn5WLCohmHk8FsODLoE0/3HKpap5bDtd0WnG
+ YiyKStG08Q1P9ANFyDDJNxgKc9uJEyDe8+X5FnHo7dEbUygAeMsl6/eJG9eG5K6RdAPbs=;
+Received: from 92.40.248.127.threembb.co.uk ([92.40.248.127]
+ helo=fitzroy.sirena.org.uk) by heliosphere.sirena.org.uk with esmtpsa
+ (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
+ (envelope-from <broonie@sirena.org.uk>)
+ id 1icWNa-0000xU-6D; Wed, 04 Dec 2019 15:15:50 +0000
+Received: by fitzroy.sirena.org.uk (Postfix, from userid 1000)
+ id DE2B0D00426; Wed,  4 Dec 2019 15:15:43 +0000 (GMT)
+Date: Wed, 4 Dec 2019 15:15:43 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Linus Walleij <linus.walleij@linaro.org>
+Subject: Re: Side effect of SPI GPIO descriptor usage
+Message-ID: <20191204151543.GV1998@sirena.org.uk>
 References: <db6a1e17-49a3-e3ed-7713-56b7763713d6@raspberrypi.org>
  <20191202134344.GE1998@sirena.org.uk>
  <1e0b7cd6-cf9e-2b68-f875-8015c8ffc326@raspberrypi.org>
  <20191203163521.GM1998@sirena.org.uk>
-In-Reply-To: <20191203163521.GM1998@sirena.org.uk>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 4 Dec 2019 15:46:56 +0100
-Message-ID: <CACRpkdbqNw+h6MphF7kLAwym-F3G+ZebMDB2BMt0bzA6DfM0OA@mail.gmail.com>
-Subject: Re: Side effect of SPI GPIO descriptor usage
-To: Mark Brown <broonie@kernel.org>
+ <CACRpkdbqNw+h6MphF7kLAwym-F3G+ZebMDB2BMt0bzA6DfM0OA@mail.gmail.com>
+MIME-Version: 1.0
+In-Reply-To: <CACRpkdbqNw+h6MphF7kLAwym-F3G+ZebMDB2BMt0bzA6DfM0OA@mail.gmail.com>
+X-Cookie: Cleanliness is next to impossible.
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191204_064710_624154_139CB8AA 
-X-CRM114-Status: GOOD (  20.49  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20191204_071553_983061_B2306618 
+X-CRM114-Status: GOOD (  17.49  )
+X-Spam-Score: 0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:242 listed in]
- [list.dnswl.org]
+ no trust [172.104.155.198 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
@@ -95,95 +85,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>,
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
 Cc: linux-rpi-kernel <linux-rpi-kernel@lists.infradead.org>,
  linux-spi <linux-spi@vger.kernel.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5218009039338748058=="
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-On Tue, Dec 3, 2019 at 5:35 PM Mark Brown <broonie@kernel.org> wrote:
-> On Mon, Dec 02, 2019 at 02:11:51PM +0000, Phil Elwell wrote:
 
-> > Applications using spidev to implement user-space drivers need to be able to
-> > set SPI mode, CS polarity etc. at run time. I agree that there
->
-> I'm nervous of spidev user doing stuff like that with the chip
-> selects, with DT even spidev devices should be registered
-> normally, you will get a complaint if you register a raw spidev.
-> There's no free pass for "oh, spidev can do anything we don't
-> care" here - the DT should describe the hardware, if some of the
-> hardware happens to be implemented by spidev then fine.
+--===============5218009039338748058==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="oAjj1ZwgLg4oRN9q"
+Content-Disposition: inline
 
-I agree with this. In 99 cases out of 100 it turns out that the
-userspace driver is a substandard version of a driver that should
-actually be in a place such as drivers/iio and what we end up
-supporting is offended userspace driver authors who are acting
-against the interests of the kernel community.
 
-I have come to accept the usecase of userspace GPIO for things
-like industrial automation one-offs, random hackerspace projects,
-and prototypes all highly custom, and with such high friction with
-kernel internals and pain to carry forward should be expected.
+--oAjj1ZwgLg4oRN9q
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-With devices on SPI and I2C I get really sceptic. What are those
-hardware devices, and what makes them so fantastic that they
-cannot use a kernel driver like everyone else?
+On Wed, Dec 04, 2019 at 03:46:56PM +0100, Linus Walleij wrote:
 
-> That said we do have other in kernel users that do change modes
-> at runtime, though I'm not convinced many of them have GPIO chip
-> selects.  Linus?
+> and I can find one more outlier:
 
-I looked it over and most are devices like board files and RTC
-clocks that enforce SPI_CS_HIGH. They seem to be native
-chip selects so it will work as expected but I will look it over so
-I haven't broken any of them.
+> drivers/mmc/host/mmc_spi.c, function mmc_spi_initsequence()
 
-and I can find one more outlier:
+> This very clearly want the inverse polarity of whatever was the default,
+> but the code assumes that SPI_CS_HIGH implies that this is the
+> actual physical level and forces it high, then low. I will send
+> a patch for this: what they want to achieve is the inverse of
+> whatever was configured.
 
-drivers/mmc/host/mmc_spi.c, function mmc_spi_initsequence()
+Yes, that's the first one I looked at when I was poking around
+and I agree with that analysis.
 
-This very clearly want the inverse polarity of whatever was the default,
-but the code assumes that SPI_CS_HIGH implies that this is the
-actual physical level and forces it high, then low. I will send
-a patch for this: what they want to achieve is the inverse of
-whatever was configured.
+> I am a bit sorry about the semantics of "HIGH" here when the right
+> word should rather be "asserted": it's named like this for historical
+> reasons.
 
-The driver drivers/net/wireless/ti/wlcore/spi.c does exactly
-this already.
+There's quite a few things I'd do differently if I were designing
+the API.
 
-I am a bit sorry about the semantics of "HIGH" here when the right
-word should rather be "asserted": it's named like this for historical
-reasons.
+> An alternative would be to let SPI use gpiod_set_raw_value()
+> to steamroll all the inversion semantics in the GPIO library,
+> and SPI_CS_HIGH would literally mean to drive the physical
+> line high.
 
-An alternative would be to let SPI use gpiod_set_raw_value()
-to steamroll all the inversion semantics in the GPIO library,
-and SPI_CS_HIGH would literally mean to drive the physical
-line high.
+> This may seem like an intuitively correct solution but
+> it has implications for everything using device tree to define
+> SPI clients: spi-cs-high in a device tree means that the
+> CS is active high, which gpiolib currently detects and
+> handles by way of disabling internal inversion (the default
+> for SPI devices is active low). Previously the SPI core would
+> set SPI_CS_HIGH and we would then just double-assign
+> that in the SPI core and then again in some drivers, it doesn't
+> seem much better to me.
 
-This may seem like an intuitively correct solution but
-it has implications for everything using device tree to define
-SPI clients: spi-cs-high in a device tree means that the
-CS is active high, which gpiolib currently detects and
-handles by way of disabling internal inversion (the default
-for SPI devices is active low). Previously the SPI core would
-set SPI_CS_HIGH and we would then just double-assign
-that in the SPI core and then again in some drivers, it doesn't
-seem much better to me.
+Yeah, my general thought is that trying to do anything other than
+making a new interface for this and actively deleting all the old
+ones is probably just going to be pushing the problem around and
+not actually any better.
 
-So I will look these over, but if people (and especially the SPI
-maintainer) prefer the semantic that SPI_CS_HIGH does not
-mean "asserted" but takes direct control of the physical
-level of the CS line, I can do that instead.
+> I could also additionally patch the whole kernel to rename
+> SPI_CS_HIGH into SPI_CS_ASSERTED if this makes things
+> better. (Would be a two-step patch rocket adding the additional
+> define and switching everyone over before deleting the
+> SPI_CS_HIGH.)
 
-I could also additionally patch the whole kernel to rename
-SPI_CS_HIGH into SPI_CS_ASSERTED if this makes things
-better. (Would be a two-step patch rocket adding the additional
-define and switching everyone over before deleting the
-SPI_CS_HIGH.)
+I think that's probably worth it mainly in the context of also
+auditing all the users and possibly making a bigger change which
+makes it harder for users to trigger problems.  That's a lot more
+work though and needs more thought about what a better interface
+would be.
 
-Yours,
-Linus Walleij
+--oAjj1ZwgLg4oRN9q
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAl3nzZ8ACgkQJNaLcl1U
+h9Dzfwf/bpA6+7EWaEVCm94apDxJdxpI/9Mq6ANh+9+2NtoxQnn2bm7uiOPM8LLL
+U4GqU5zR7wht6CcoTd7iU7Z2UO06dwUZdAJBLvvVPAJQO+AYaHhTuzoADN5NgrLy
+BLeTydYtRuCZSUhF6mkClLtthjB9ecMA21FHwNS8sRGCWPqIEgvwSNxGWJqDKlIr
+Tg3ElLH4pb0iXm1z0ElHewWoZiVjmvjmawrEiDQAEd9JbFjQWO4LmQEIF4nVYERQ
+XRtpc3paFLbIyUjnmKzOFXgYaWrv0Eh4Q8nLi0GJ7SsCTgCV6XrN3EYOYRjVSM21
+LQa7hSBaAG4qEeF3aGBoYlxsSVvkDg==
+=foD7
+-----END PGP SIGNATURE-----
+
+--oAjj1ZwgLg4oRN9q--
+
+
+--===============5218009039338748058==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-rpi-kernel mailing list
 linux-rpi-kernel@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
+
+--===============5218009039338748058==--
+
