@@ -2,71 +2,92 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 82298112E23
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed,  4 Dec 2019 16:16:22 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id BB90B1135CF
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed,  4 Dec 2019 20:38:14 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=nK6A5FTusa8uLWvQtn3XOz9diwlWUJSO++JykqJdjBQ=; b=akNuamnBtIRnA37+DFf15iQwY
-	VGaUsDRoccedBUyhyHvzEqhAJCGCCYo3DT6XpMPrXL70E7LXJ/OtRTAiedym7HjhKrN5TGtxdqvzI
-	zZkh87oNOMyMB6VxdVaIj9sWieOeTVX4Msy8qAFoc3hAnV/B4ekchTJNv6dsOVwyIDnkYK9ISUxkk
-	yCQoH6zM4H4BdkTXgOBA42SC88+U3wh2RRfEruS2M31XhVjwvttZBVjuOR+SXs31mcoJzs2zXdDzp
-	6ZgxPlfnTPa3OgaKRi14edlx7QZ9frfy6joz4ntNIUFsLQj0o4fuurmHshSgCnLIsjhm9ACy4mA47
-	StKT3Ab6A==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=7+MhE/56epXMh2vMfqev8jhj3pAn2hVnD/qocZuu7II=; b=jt7ne7RodJtZs+
+	2k5NrLvrdMamdVLLwQ5ZPTdY/Tk/uVOoSOFWEMo5+S/2YyNUOYlaHpMsYtlRbLF1rbHlKIxWimkGm
+	GQV1orjr9bhJj53Pho8nTlpTdqtLpYVNoUJO86yDJhm8B0sKF5tExAOT23vw55G2qoIBWkiqoQeLo
+	swsjnnSNqZD8DssUvBLWSZM+GSgY4+EJVrkHFsQq7L4XyHNRi8q99jbvyztWwg7pHVSGM4/BTSwJa
+	aJqu1UsH35nS+paxgonvSR2RfCPj8k3aTyvy4g1WZf1L+lIoVcPwR5xN/q/P3uG6QizICO4UCG/SQ
+	k5hycibjXDsVqaUVS1vw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1icWNh-0006c1-Fs; Wed, 04 Dec 2019 15:15:57 +0000
-Received: from heliosphere.sirena.org.uk ([172.104.155.198])
+	id 1icaTV-000155-5T; Wed, 04 Dec 2019 19:38:13 +0000
+Received: from mout.gmx.net ([212.227.17.21])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1icWNd-0006ai-UA
- for linux-rpi-kernel@lists.infradead.org; Wed, 04 Dec 2019 15:15:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=sirena.org.uk; s=20170815-heliosphere; h=In-Reply-To:Content-Type:
- MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
- Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=hjwLb5IdIcsIVmn9KYxeoR5uP3Q1WPTcMtoZrlGRjKE=; b=SbR7ZkPYPqkRANLnnVVarDRyg
- EfHwsJSJrwqN9b6bh2N+yN9/t1aNwDD1ev1g9ID6tOn5WLCohmHk8FsODLoE0/3HKpap5bDtd0WnG
- YiyKStG08Q1P9ANFyDDJNxgKc9uJEyDe8+X5FnHo7dEbUygAeMsl6/eJG9eG5K6RdAPbs=;
-Received: from 92.40.248.127.threembb.co.uk ([92.40.248.127]
- helo=fitzroy.sirena.org.uk) by heliosphere.sirena.org.uk with esmtpsa
- (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256) (Exim 4.92)
- (envelope-from <broonie@sirena.org.uk>)
- id 1icWNa-0000xU-6D; Wed, 04 Dec 2019 15:15:50 +0000
-Received: by fitzroy.sirena.org.uk (Postfix, from userid 1000)
- id DE2B0D00426; Wed,  4 Dec 2019 15:15:43 +0000 (GMT)
-Date: Wed, 4 Dec 2019 15:15:43 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Linus Walleij <linus.walleij@linaro.org>
-Subject: Re: Side effect of SPI GPIO descriptor usage
-Message-ID: <20191204151543.GV1998@sirena.org.uk>
-References: <db6a1e17-49a3-e3ed-7713-56b7763713d6@raspberrypi.org>
- <20191202134344.GE1998@sirena.org.uk>
- <1e0b7cd6-cf9e-2b68-f875-8015c8ffc326@raspberrypi.org>
- <20191203163521.GM1998@sirena.org.uk>
- <CACRpkdbqNw+h6MphF7kLAwym-F3G+ZebMDB2BMt0bzA6DfM0OA@mail.gmail.com>
+ id 1icaTN-0000yQ-29; Wed, 04 Dec 2019 19:38:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
+ s=badeba3b8450; t=1575488268;
+ bh=ArwWA5u7biUTPgY2jiZDH4PNvdO34NLG32veiH3O/3M=;
+ h=X-UI-Sender-Class:Subject:To:Cc:References:From:Date:In-Reply-To;
+ b=kOHjJJsPsjVDazxUuW67t2XHau3rgAdGxKbQv0dNOfGkPlZ2wNEnWqFysGj8mk4F6
+ owuXJ1Ze7t5doZLJvY2z+ka9QUmAu7uR7Be8swvxOA3v8k8toAyiPjoc5N3qt9wXsb
+ HwPjk4SxcFLN+uBhNTxzqhgJKoxR5y0cZ0EKNLms=
+X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
+Received: from [192.168.1.176] ([37.4.249.163]) by mail.gmx.com (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MulmF-1hmorX1uGB-00rlPs; Wed, 04
+ Dec 2019 20:37:48 +0100
+Subject: Re: [PATCH] staging/vc04_services/bcm2835-camera: distinct numeration
+ and names for devices
+To: Michael Kupfer <michael.kupfer@fau.de>, eric@anholt.net,
+ bcm-kernel-feedback-list@broadcom.com, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20191204114814.26252-1-michael.kupfer@fau.de>
+From: Stefan Wahren <wahrenst@gmx.net>
+Message-ID: <174ce1ac-157d-f943-4d3d-54c92ad82fca@gmx.net>
+Date: Wed, 4 Dec 2019 20:37:45 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.9.0
 MIME-Version: 1.0
-In-Reply-To: <CACRpkdbqNw+h6MphF7kLAwym-F3G+ZebMDB2BMt0bzA6DfM0OA@mail.gmail.com>
-X-Cookie: Cleanliness is next to impossible.
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <20191204114814.26252-1-michael.kupfer@fau.de>
+Content-Language: en-US
+X-Provags-ID: V03:K1:4//V4radeOhvSxq9QY2Gzoh8RamGWsgRoVkoUC41xfnGbHq/iYC
+ dtXbQVuI6N7QpwVztSzXCwCRJBHBkQNjXFUGp/PF7QBIP0Oco29T1cyINYwOQXIKgmwwCEt
+ qdXNaSUjX6Ts4h4x2nOIwxsncxlSnicOMKaYwOPX+Bodpn47EoBrcsy2Gt7gprF7/RegiPf
+ pSl/d8r19GTIojdBd2aRw==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:lo/cLEEl0KA=:Kzku3Ktbx05FIwNLxMv8by
+ gnFAKmpeJt+IbA4pX3ZeXdwCmJWstYP3+N9QIbpZT7+4Vau/FqMjl62guvm/bGmt04xSH0696
+ Z1xukCNco403oPX/SwkoAMJO8MFDeFjzzVDodgJrkrtsILYRXbNAVlJ8j8h/5hyDO0KkYaC5l
+ 0KDRPIQzTpIEbI166Ga197bor6rtvfEtpT8ak6q04G79MTs0kzDtwQcReiIYKAQZGXsxMJFvr
+ +V8ARiKpgZ5VaBL4w973lB+KfcelycYaAZ/1Et8dydbOax5hm2LR/MZi5pdq2u2RZj52s1kMc
+ 6M+rOdxMtlXHWDRNpM9x/U/j8DTOi6xLyGGDBLAk2M6zZuFmMWHzU3zGBikw+uHGeNNf8OZbu
+ BZdDRVmwfuRwkIKPau0GCHZgVEUf6Ar7Gf9llhvXt4NSvng8PNfFhhwOSQf1eLFBtzobSinrF
+ nYvFZ1jNBav/1nugd9YL/qUfbo5XHaS2HqLLVRQ45tDz25zWn3YcGRjiSj+mxCIX3fA+uilPt
+ 634rJafCDBSTmEs+oZx/CIn490iWOScxEYa5GSwqPsQH0hdiCaHgYE0S2WWwCrlfKiJl537Kn
+ +SM2Xlj6LQozUXur5wqs+Xxt8JWJ17sDRup/VRJd1n7ZmXG+6CfKVyvKHmZS4h0jd1RkFI4LM
+ +KPVRB6pH/Ino8Fgwv0e2KZIDY0GwkswqkhxXdB9sJ/QrGIs0GF+cOjgGVLV8lHMnxzn895jY
+ 9uSVVfsOqfMp18ICO5ohR9kcCwDlTLeffrx9B2ogMsDHM526o2g7poqEOlPnYi3g007eFZnTe
+ LECdy4gI2SWqlPwYAersvtudxGXzktSxQcyIha5jlBVfGWYB0ssFI1R4YZQ2+4V02GCYBBVOO
+ 7jR4iSKZzDzFajmrY9qqbsMAz414TYqbXZGB58Sv9PmvakFzOqCe9cQpN9u6vvjnfLuxiEhiY
+ HGYpkJKkjJ9vWRSAZKXHYQiWTMNqzey+6nkthJEmzHSHWrmY/WHUxxGG08iNgMtbeF7oT84++
+ x/4x0t8MnwjIxyoqlcbZ3yTxe13IGssfukfrWxDH07Pto3NvnEAmYoE62zNWIjqfwLEbmaMSg
+ TT5NVQaOvMAc7cttzGCB0CktGjyspPNuacpnJd8X3dDC7yRJ5wY7Vt90sOsU1jwlXE6dWrp0/
+ v96aqPVJWIGAd0jRRm/ntOlduUP3hOz2/K4+7s71upP0kaR0fOCcl1qM/JwfDMLWYTyiUJIkW
+ ooN156ZWOZyvts/g/wL9CCLzK2YOn7pRhqOJCdQgMcJMvlQGwLfwWYyaHDc8=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191204_071553_983061_B2306618 
-X-CRM114-Status: GOOD (  17.49  )
-X-Spam-Score: 0.2 (/)
+X-CRM114-CacheID: sfid-20191204_113805_437260_68868F16 
+X-CRM114-Status: UNSURE (   8.75  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -0.9 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (0.2 points)
+ Content analysis details:   (-0.9 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [172.104.155.198 listed in list.dnswl.org]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [212.227.17.21 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider (wahrenst[at]gmx.net)
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
@@ -83,105 +104,34 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: linux-rpi-kernel <linux-rpi-kernel@lists.infradead.org>,
- linux-spi <linux-spi@vger.kernel.org>
-Content-Type: multipart/mixed; boundary="===============5218009039338748058=="
+Cc: Kay Friedrich <kay.friedrich@fau.de>, linux-kernel@i4.cs.fau.de
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
+Hi Michael,
 
---===============5218009039338748058==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="oAjj1ZwgLg4oRN9q"
-Content-Disposition: inline
+Am 04.12.19 um 12:48 schrieb Michael Kupfer:
+> Create a static atomic counter for numerating cameras.
+> Use the Media Subsystem Kernel Internal API to create distinct
+> device-names, so that the camera-number (given by the counter)
+> matches the camera-name.
+>
+> Co-developed-by: Kay Friedrich <kay.friedrich@fau.de>
+> Signed-off-by: Kay Friedrich <kay.friedrich@fau.de>
+> Signed-off-by: Michael Kupfer <michael.kupfer@fau.de>
 
+this is a functional change. Please send this patch to Nicolas Saenz
+Julienne the new BCM2835 maintainer and the Video4Linux guys (Mauro and
+Hans) and the linux media mailing list.
 
---oAjj1ZwgLg4oRN9q
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Wed, Dec 04, 2019 at 03:46:56PM +0100, Linus Walleij wrote:
-
-> and I can find one more outlier:
-
-> drivers/mmc/host/mmc_spi.c, function mmc_spi_initsequence()
-
-> This very clearly want the inverse polarity of whatever was the default,
-> but the code assumes that SPI_CS_HIGH implies that this is the
-> actual physical level and forces it high, then low. I will send
-> a patch for this: what they want to achieve is the inverse of
-> whatever was configured.
-
-Yes, that's the first one I looked at when I was poking around
-and I agree with that analysis.
-
-> I am a bit sorry about the semantics of "HIGH" here when the right
-> word should rather be "asserted": it's named like this for historical
-> reasons.
-
-There's quite a few things I'd do differently if I were designing
-the API.
-
-> An alternative would be to let SPI use gpiod_set_raw_value()
-> to steamroll all the inversion semantics in the GPIO library,
-> and SPI_CS_HIGH would literally mean to drive the physical
-> line high.
-
-> This may seem like an intuitively correct solution but
-> it has implications for everything using device tree to define
-> SPI clients: spi-cs-high in a device tree means that the
-> CS is active high, which gpiolib currently detects and
-> handles by way of disabling internal inversion (the default
-> for SPI devices is active low). Previously the SPI core would
-> set SPI_CS_HIGH and we would then just double-assign
-> that in the SPI core and then again in some drivers, it doesn't
-> seem much better to me.
-
-Yeah, my general thought is that trying to do anything other than
-making a new interface for this and actively deleting all the old
-ones is probably just going to be pushing the problem around and
-not actually any better.
-
-> I could also additionally patch the whole kernel to rename
-> SPI_CS_HIGH into SPI_CS_ASSERTED if this makes things
-> better. (Would be a two-step patch rocket adding the additional
-> define and switching everyone over before deleting the
-> SPI_CS_HIGH.)
-
-I think that's probably worth it mainly in the context of also
-auditing all the users and possibly making a bigger change which
-makes it harder for users to trigger problems.  That's a lot more
-work though and needs more thought about what a better interface
-would be.
-
---oAjj1ZwgLg4oRN9q
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAl3nzZ8ACgkQJNaLcl1U
-h9Dzfwf/bpA6+7EWaEVCm94apDxJdxpI/9Mq6ANh+9+2NtoxQnn2bm7uiOPM8LLL
-U4GqU5zR7wht6CcoTd7iU7Z2UO06dwUZdAJBLvvVPAJQO+AYaHhTuzoADN5NgrLy
-BLeTydYtRuCZSUhF6mkClLtthjB9ecMA21FHwNS8sRGCWPqIEgvwSNxGWJqDKlIr
-Tg3ElLH4pb0iXm1z0ElHewWoZiVjmvjmawrEiDQAEd9JbFjQWO4LmQEIF4nVYERQ
-XRtpc3paFLbIyUjnmKzOFXgYaWrv0Eh4Q8nLi0GJ7SsCTgCV6XrN3EYOYRjVSM21
-LQa7hSBaAG4qEeF3aGBoYlxsSVvkDg==
-=foD7
------END PGP SIGNATURE-----
-
---oAjj1ZwgLg4oRN9q--
+Regards
+Stefan
 
 
---===============5218009039338748058==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-rpi-kernel mailing list
 linux-rpi-kernel@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
-
---===============5218009039338748058==--
-
