@@ -2,81 +2,54 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id F30F2113C55
-	for <lists+linux-rpi-kernel@lfdr.de>; Thu,  5 Dec 2019 08:28:09 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id BCF68113C94
+	for <lists+linux-rpi-kernel@lfdr.de>; Thu,  5 Dec 2019 08:46:16 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IivKjRNFhPaCmGAPzhksZ9Us6PoQMY5M3K/2/WK1yEg=; b=iqoaU/EPxt1MOr
-	KdVIXbS87TAG5qFOn/xKLy+VQqT32cuWB/tuRCzkltl7/L+nqtraIKK9wTq7WFFZCZktQuFN/0Ugl
-	Oet3Nn8u+k1rlWebb7jnhBfi4txSGgttZwNuBUgKyRMgrcR90Sfg9iPCT7DmEQww7y2Td+h/kUWUH
-	x0xCN+yjFWa13v2OnLQQXnhuN6wqgafJbJdVkSP/2vOEUfsRVi7qGpmhuoGFu34jizAop9JVH59Cu
-	Mas9VHf8p1n3KQcDC6l58e2XJfJCdcrWl3ti98NftdF0BgWKJHLTyT9r5fDhGM2s8o1T2aZnoNzHw
-	5Q68EtFlASHP3ce2MV0Q==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:References:In-Reply-To:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=xcLfoT+inFm6RPo+Sylas2A06pkLR2j5WuSPesbuBt4=; b=mHLYxS30pzzt2dvLNWsxtr8UA
+	G63zqWzCI1RR2r8oJb6DJhZiNTo+TWiWfsSlhs+1eGSnRBIaNWJOZHe0MjhcEZvCQXfLhq0p8Au6M
+	bu0C5WfCcYT7l90IT2zTtPq9tQHBRtcM+eo0yHu52EJzj0vegWfeT9gOmpGVYKT2rejR9F6wBjwt8
+	heIiWJGAIzpEmVgYlnC8XE4csEl1HDeU9fP8Xf31TjorsgvniPIltunP4kCxejt4WYJ1pZQI6fI8d
+	fghyIg28fkHHtiif0XuSUS6yAj3T2/OR/THDAOUIeo2wjhvE3ym0aTrpaGDmNS8dLq1H94ErOvYJD
+	AM9cqlghg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iclY6-0007bW-Uf; Thu, 05 Dec 2019 07:27:42 +0000
-Received: from mail-ot1-f45.google.com ([209.85.210.45])
+	id 1iclpq-0005ZZ-GI; Thu, 05 Dec 2019 07:46:02 +0000
+Received: from mx2.suse.de ([195.135.220.15] helo=mx1.suse.de)
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iclY3-0007ai-U9
- for linux-rpi-kernel@lists.infradead.org; Thu, 05 Dec 2019 07:27:41 +0000
-Received: by mail-ot1-f45.google.com with SMTP id g18so1708036otj.13
- for <linux-rpi-kernel@lists.infradead.org>;
- Wed, 04 Dec 2019 23:27:39 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=pw4WZcfphzCIzhgoRD2Vp3ZAYrP3HBw25b8UxRdaKd8=;
- b=B9rlH5btT7KNX+5l/q4d3BL+ppyDHUwzBdPQw70o+ERGxVVJ+1rocp2spCOq7XCyyi
- Jm1A0CBkxRU4h8sPFHxoTDXqW/O2ByNSL5RkczhRAYoEEb57X22vwN6zQDJMqUUZ0ptS
- HO7HcLHngGjnn6scg3nuZ5mFIwggfzzQ5fmPkbEEz2Rmr1ty0GpBsjOVtp87meTQP1LN
- 8s6DPJ3YD6QrrIhg0WLaSB8ZxxWr0d14peEHqD7befGG7HaeThSmnVjewjWrj6l0WvWJ
- U56edDrqlwudsxQKwvg7Tcoz4Gjb5DO4mOApOqC6jXLcSWukbSxyEeC7tJzxrIxdLhO9
- 1/FQ==
-X-Gm-Message-State: APjAAAXDW12haN5pQ6bQ6DxPONC8B5mstvZSb/tPbKFcUrtp87XMczkc
- TlAAvBFB0ZVCBirJ+wrlDgEdJ2rlNAHboxGS450=
-X-Google-Smtp-Source: APXvYqzPrmk9ff91NtbYQS9Y/ocMlPBzmXUcgeDKzX2+flvXR9Ts+wSM51OIwXz87ej0u1MDmd6ODMTIm/xCzR+HtOY=
-X-Received: by 2002:a9d:2073:: with SMTP id n106mr5566725ota.145.1575530854987; 
- Wed, 04 Dec 2019 23:27:34 -0800 (PST)
+ id 1iclpm-0005Yz-Rr
+ for linux-rpi-kernel@lists.infradead.org; Thu, 05 Dec 2019 07:46:00 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+ by mx1.suse.de (Postfix) with ESMTP id 7D2F1AE17;
+ Thu,  5 Dec 2019 07:45:55 +0000 (UTC)
+Date: Thu, 5 Dec 2019 08:45:51 +0100
+From: Petr Tesarik <ptesarik@suse.cz>
+To: Stefan Wahren <wahrenst@gmx.net>
+Subject: Re: Raspberry Pi Kernel Contributing
+Message-ID: <20191205084551.59d828fd@ezekiel.suse.cz>
+In-Reply-To: <56b727cd-d5f9-2ae5-ce21-0bc7834b2400@gmx.net>
+References: <BYWGM3UIMECN.2LBM56ZYRCANU@pride>
+ <56b727cd-d5f9-2ae5-ce21-0bc7834b2400@gmx.net>
+Organization: SUSE Linux, s.r.o.
+X-Mailer: Claws Mail 3.16.0 (GTK+ 2.24.32; x86_64-suse-linux-gnu)
 MIME-Version: 1.0
-References: <db6a1e17-49a3-e3ed-7713-56b7763713d6@raspberrypi.org>
- <20191202134344.GE1998@sirena.org.uk>
- <1e0b7cd6-cf9e-2b68-f875-8015c8ffc326@raspberrypi.org>
- <20191203163521.GM1998@sirena.org.uk>
- <CACRpkdbqNw+h6MphF7kLAwym-F3G+ZebMDB2BMt0bzA6DfM0OA@mail.gmail.com>
- <CACRpkdaxXKMqL4Y8yFu+U7WhpXgq6Yr+hx4rYd3aDzc+-dLDFw@mail.gmail.com>
-In-Reply-To: <CACRpkdaxXKMqL4Y8yFu+U7WhpXgq6Yr+hx4rYd3aDzc+-dLDFw@mail.gmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 5 Dec 2019 08:27:23 +0100
-Message-ID: <CAMuHMdW=eoOiuucv8-p7gs=u9QK_W_Onpu37fq57xU6f+0r0qg@mail.gmail.com>
-Subject: Re: Side effect of SPI GPIO descriptor usage
-To: Linus Walleij <linus.walleij@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191204_232739_969326_D6C50328 
-X-CRM114-Status: UNSURE (   6.74  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: 0.5 (/)
+X-CRM114-CacheID: sfid-20191204_234559_047569_E6E4EA53 
+X-CRM114-Status: GOOD (  10.24  )
+X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (0.5 points)
+ Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.210.45 listed in list.dnswl.org]
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [195.135.220.15 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (geert.uytterhoeven[at]gmail.com)
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.210.45 listed in wl.mailspike.net]
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
- EnvelopeFrom freemail headers are different
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -88,37 +61,67 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Brown <broonie@kernel.org>,
- linux-rpi-kernel <linux-rpi-kernel@lists.infradead.org>,
- linux-spi <linux-spi@vger.kernel.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: linux-rpi-kernel@lists.infradead.org
+Content-Type: multipart/mixed; boundary="===============6811424398210311130=="
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-Hi Linus,
+--===============6811424398210311130==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+ boundary="Sig_/rK+1Si2CX8FiFvuN+FY+G_I"; protocol="application/pgp-signature"
 
-On Thu, Dec 5, 2019 at 12:28 AM Linus Walleij <linus.walleij@linaro.org> wrote:
-> drivers/rtc/rtc-rx6110.c
-> Prints a warning if not flagged SPI_CS_HIGH, wil print
-> that warning if used with a GPIO chip select from device
-> tree. No regression, also no in-tree users.
+--Sig_/rK+1Si2CX8FiFvuN+FY+G_I
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-So this warning will trigger if the board designer added an inverter, e.g.
-to make it work with an SPI controller that doesn't support CS_HIGH...
+On Wed, 4 Dec 2019 20:52:49 +0100
+Stefan Wahren <wahrenst@gmx.net> wrote:
 
-Gr{oetje,eeting}s,
+> Hi Stephen,
+>=20
+> Am 04.12.19 um 08:35 schrieb Stephen Brennan:
+>[...]
+> >  I wonder if there is any pointer to
+> > what needs to be done for these, or some documentation on the underlying
+> > hardware? =20
+> Yes, we all are still waiting for the BCM2711 datasheet or at least a
+> memory map. This would be a nice christmas present ;-)
 
-                        Geert
+Out of curiosity, what are we missing apart from the new IP blocks that
+are already worked on (network, PCIe, v3d) and never documented blocks
+(OTP, hwmon, RNG)?
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+Petr T
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+--Sig_/rK+1Si2CX8FiFvuN+FY+G_I
+Content-Type: application/pgp-signature
+Content-Description: Digitální podpis OpenPGP
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCAAdFiEEHl2YIZkIo5VO2MxYqlA7ya4PR6cFAl3ota8ACgkQqlA7ya4P
+R6fTUwf8CfsCKO+GqLR+kjI5MFBapda+PgHnLMiEjaTd+F4Pi02jQCuq9vI5gXNe
+AaHssm50GeD7K3bpN8Mj0zidM7yRXOMLJx7h64kBEVtTAFkfWQeFMu1Z1WS3WlfQ
+EwVVzLcFQDpacrTF2kMRw2pdLK1Bl7AAt8MGwyqFST4jDDbXA0fx6NWR0bfzVjBY
+xf1AbcUkOa4SH08CcrpQ/bHjUisiom0+RDIS1r6VDUWW1/NtWI9vm5gVxYKG1D8h
+aqCnHXNsOEjc7bo9d8y6LUfKqkMbv24IDYlJP/Os0C5zLA0k60x9qtQHhIQBdqdy
+TbE+2MJJJzCp07tTqpCH9pR4yirNFg==
+=t9pk
+-----END PGP SIGNATURE-----
+
+--Sig_/rK+1Si2CX8FiFvuN+FY+G_I--
+
+
+--===============6811424398210311130==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-rpi-kernel mailing list
 linux-rpi-kernel@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
+
+--===============6811424398210311130==--
+
