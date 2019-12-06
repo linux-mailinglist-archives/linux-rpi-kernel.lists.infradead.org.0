@@ -2,90 +2,95 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id C58F2114566
-	for <lists+linux-rpi-kernel@lfdr.de>; Thu,  5 Dec 2019 18:09:23 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id EF394114C85
+	for <lists+linux-rpi-kernel@lfdr.de>; Fri,  6 Dec 2019 08:07:08 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ToFk2kE1zxdSp8XayV2rQvAaQA9rbsyBpadulCOuBS4=; b=XL2O6qt0KxlDfT
-	3WjhXf6QbVs/94NkT5HwnR3W/2WXU1sc8pHFB5WzxqYRa4/Bv5x1dZVCCztFtxTT89Vq7bIagdHkB
-	JPj+nBa8JokD6RQ1jnrV3GRvxyHupmGPdl4sl21vNOGI/lRFFc02swsbIZA25ENnqB2BVi13//hxv
-	5osYPhIUjrniFaI+Gn/qKiA8IjWSnnVH7S5FIKKPZN8Pb95oOugFCdOIl6PnMGRggO19TK9R7W3Uc
-	K44tVS8lONNwMcOA93wLXiFgrAhORT/iCUmMcAGsSPnMA4G7D4zLJyt8PoGza1wAinFm8jfZlE0sm
-	sTNS0Vrv6eFjQkhYdaCg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=b7KjX9PY5dki4A08AA9mw4TBlysoEPS12EzGYoBoQtA=; b=aMh5dRIk8rkk1W
+	Utm0gh0M7/6Fjj+rVfukW7baobIum9FuihGPh1JgYXdToEnVn8NsbwIfcoCO1uqExaWiRxHPFKbyL
+	1hpZ93z0NseF7nLXhNmSpCb1XUAvQXW9RfhxPvuSJSjJZXm/HWxTFtrnOzSZ2XKyi209skCuzdALU
+	JHJE3bDECWDjyy+JUWZY729/igk/hUsjZpy8t/pduRwQFWhXs6oAHe/68/qxIiIJffbz/Vn/3rSzr
+	IGtN5dJKhuQIY9Zq6boNeznwQm9nsZ8bzFPSN6AaCrCmgMO91Nw9zjD2TI1UmnHwdw64d70iTE6rj
+	OwTk/ICHR+LPuDdo09yw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1icucU-0006lm-Gj; Thu, 05 Dec 2019 17:08:50 +0000
-Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
+	id 1id7hR-0007jH-HN; Fri, 06 Dec 2019 07:06:49 +0000
+Received: from mout.gmx.net ([212.227.15.15])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1icucR-0006lF-Na
- for linux-rpi-kernel@lists.infradead.org; Thu, 05 Dec 2019 17:08:49 +0000
-Received: by mail-pg1-x541.google.com with SMTP id 6so1897256pgk.0
- for <linux-rpi-kernel@lists.infradead.org>;
- Thu, 05 Dec 2019 09:08:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=k/rXekQHS5OmcamXJRlcX1nMr/U/pWRS/JvOxVvicWg=;
- b=JiLHjMZatH1xXbOOdV5XH73w1wGgZ28z99UhA815C1L9UpGMWfl48+YMLpa7wA8bMb
- kuOnBIAW6fBhLJ7bIehmzZHBNogXe5FLojJHEsrn4umabCyI8ikMm4R71m0mSzRQcsSW
- 3dK7iX9BvXCDPgEqwSRxeyLVV37F0GUyEVFzHzSHz0o6O5ZWse+0xjIlXDyQqHl5ak3a
- 97VRVyg/HfwClFf/U3B9T6gRePGmOOB+dsa2xVkU278fDvbNTGKUFdQDlwsmDBccYE9p
- REYwgObNV9Vsgh+ZHvrShzf4AiHdHNaE4ST28DYIROdbrVKO/l1tDQDphzxugJ91bBtX
- +wkg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=k/rXekQHS5OmcamXJRlcX1nMr/U/pWRS/JvOxVvicWg=;
- b=J4MWab8kCh6tk0ldCogU1nRlO+UiINOiDehTfk9Jb8j22OP04rSuWoY/RWG/WnognN
- O8UyBWT8rYEwqw3ID4BVHBHtzxhxuOu5bKsM+ipyPE4uNEQc0yhcnBK6P+7M0nBq9FVI
- RftDWI7bleVnihjHZopwuu7KTJT8//2OKMD11Ojhzr/UsUm8EUknyk1clLKtsGl9/0HD
- jHkSe7ycGGJQHF4c1rBX3uk2iCsJCKRCIeo+EDNENn3kSAvMnleeuZDH6lxjZuG33ECx
- TuMVJk0Ucp4HS1SAZOSP59H5+n1ky4hZbL6304mTSafJXYrLbdC0xnP79TmiHkQfeSG7
- vZzA==
-X-Gm-Message-State: APjAAAXoNDoVr43JVrfQDxugSr1TqLfYr4lHB55QJUX6SCLMdqC4NI5h
- EKjiLdjRd4SBAM48qFli3GmwHCn5Zu5XRfJUAnY=
-X-Google-Smtp-Source: APXvYqxvv/BN8PyOMboKgozg2AK7hqyxcNc6P3+27dfhnApzzlgXjYniZ2dwAF5v7eLLCcZ4CLTiwtrLmB3/B4ZNGnU=
-X-Received: by 2002:a65:490e:: with SMTP id p14mr1542181pgs.4.1575565725246;
- Thu, 05 Dec 2019 09:08:45 -0800 (PST)
+ id 1id7hO-0007is-Me
+ for linux-rpi-kernel@lists.infradead.org; Fri, 06 Dec 2019 07:06:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
+ s=badeba3b8450; t=1575615993;
+ bh=FgOwiUQb1IZEX2RP63zHxjKd+NU5T2I9uoQAo0EoiXw=;
+ h=X-UI-Sender-Class:Subject:To:Cc:References:From:Date:In-Reply-To;
+ b=g0s7/xgN2cex4Z+YhBqSQPpO4BdmrgNn+hRSXtG7XSoea9SvymAiVVJsJUoVDHGUI
+ LCfBvzblbzFnCDEPAPaVjm8eiKrLA5D5/Y5fxKHDQ3zO4dFNj/t2ijXZJ8gUnyxY23
+ J7JJcVk4xcfqBXd4E30roVF4TLTyLYDGWhroHfjM=
+X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
+Received: from [192.168.1.176] ([37.4.249.122]) by mail.gmx.com (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1N33Ed-1hbteW1hYD-013LTH; Fri, 06
+ Dec 2019 08:06:33 +0100
+Subject: Re: Raspberry Pi Kernel Contributing
+To: Petr Tesarik <ptesarik@suse.cz>
+References: <BYWGM3UIMECN.2LBM56ZYRCANU@pride>
+ <56b727cd-d5f9-2ae5-ce21-0bc7834b2400@gmx.net>
+ <20191205084551.59d828fd@ezekiel.suse.cz>
+From: Stefan Wahren <wahrenst@gmx.net>
+Message-ID: <013be731-0bf9-ee55-3e3e-0ea7fb01ec0e@gmx.net>
+Date: Fri, 6 Dec 2019 08:06:31 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.9.0
 MIME-Version: 1.0
-References: <db6a1e17-49a3-e3ed-7713-56b7763713d6@raspberrypi.org>
- <20191202134344.GE1998@sirena.org.uk>
- <1e0b7cd6-cf9e-2b68-f875-8015c8ffc326@raspberrypi.org>
- <20191203163521.GM1998@sirena.org.uk>
- <CACRpkdbqNw+h6MphF7kLAwym-F3G+ZebMDB2BMt0bzA6DfM0OA@mail.gmail.com>
-In-Reply-To: <CACRpkdbqNw+h6MphF7kLAwym-F3G+ZebMDB2BMt0bzA6DfM0OA@mail.gmail.com>
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Thu, 5 Dec 2019 19:08:35 +0200
-Message-ID: <CAHp75VdiTvXm0P5k75oupFck4sQoh--ZY=YvNMFop9k-gZTNZw@mail.gmail.com>
-Subject: Re: Side effect of SPI GPIO descriptor usage
-To: Linus Walleij <linus.walleij@linaro.org>
+In-Reply-To: <20191205084551.59d828fd@ezekiel.suse.cz>
+Content-Language: en-US
+X-Provags-ID: V03:K1:7v42E87Rp0mQkLQcZYS59VWxGELJXP6Zss9FxkhjH3MHTND+j9J
+ SFtcIOl3Lyobht5EyRM14vnt0jM/23BZ+mI3Cfa2FLTIILRHq74mZKQxXfhDeci5uaZyVOO
+ 3BQ4gDb0jHGiIa6nwPlhbxBzKv7kbhWMc2XOmnlsoO2bv4YnqtT+p9hC4Lu5y6v7z0TXGvK
+ ogIT0XpTKL/FdNPGPXI5Q==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:eKcNbjcBzgA=:Mj2vqkv9YWmnMd/9WOqSK2
+ b6JG4WcJFIJfUochmvuRhZapAEnK1LKcQpdtcJBca3eJUw8x5KT0EpvPGNMPLjjvo8bIvFf4m
+ TV5TRewCCnuOCNuljBwYDiZOhjDnLl51t8QTSd2RSEp8ZJ7w8T7qVKeMyxDiPy+gC1NiokhIJ
+ Su6vWw+jtfIThRtzIwp20AmrO8vmEmcCuJhClLb2LWlpBdIb9cU4FPfV1XqrIdQHbyNID5bUb
+ 8uvm61VL2fhxtJzKfJ4IElhDl3QPZV+G5NUHaBLFP9Vf5K16vHh3RH3TGgW1eXBHYzOm/fyYH
+ qSklHFR2CmSMzUhDzq3qTozU4ukj9JFAz0ujjgeHk8JQZAjx7krbujF4lHAIQMF6Nonb6kswO
+ KR5zLJ0qdvEz0euhmSaqeFJLGrJ0GriWmVRnKa997Z49t8/Nsv6nG+0nsVbnlvf89Ew5nsDbT
+ P/mkBbUDvq7blYCftigqSQ/S71iAT9csKBlKBhaLbFypOYXMHFCp4U6kAdXENLoazIotETVTL
+ iBrx3aG+0ktprpy1/FbUQKYgt+Yro7gLO4yQBPu5is8bCuIzzxka6fzKslE6J9gD1MnmD8Lio
+ S70qNrDS8XR/QIhrQ88aACOM8OxFSZDTRgFfHDKBYqaiECok5Sx9ySKRJ3a3QFCk6+Ui+YIFu
+ 3FX1YR6ZnNykdqCU15yMvaKDxMeQ9lca/8VSzAidYRG7vdcTmZGRB/KfXsD+EVAjA6PQcRKxo
+ zgOY8x0X9oH97jAbPMy5NyJ5C6fmPUleYJ10Q4lXQ0AZ8QYTOo9jVf8XreiYFrgI/7R6FTQBk
+ eksvYGWrc1iEAsRlGrD7Uq4NTkbqtx6SpIInmlce0uKnylj7Mt0razyJwIxRpIGfGPTvUxJNc
+ etB0t+eHogkX9Rt4BXjnmYklEoIO7NFX2AzENWPK28ND/EVKSKMy3PovyduQoq+bIxIBo26qx
+ O9mNb7yIunInb0pJNfD45h8JeY3oIrtOOAzJLbG6Z4Q3NjvReFnEDr+B9+T9Zjorob5dgc8Zo
+ HWaCT8oG2W3yS+NdQxigSy0blgw0VVUxoYg7B76VdrsupGEY1Iet/fa8SckwhTmSJd+oIxcM5
+ KQyYMslE3qx7UesDTtsYOhMJJcAlK5quKudcipNYOOE9ivyyKQjIZsJswHfDvWFHH56QVLSei
+ YEPYrsr/rHkKpJjcTwI1iFdNkg18HBUbNF+12Oah5oPqKw90OjCzb4KNS9wyH3rYWEpeO2e/i
+ wZbpy5TWGDbq9rLv9WAa2XpPMG2fm1cbj5NsQFm/v+BTe5fQCeRgY1JBUGlE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191205_090847_815321_48A0508D 
-X-CRM114-Status: UNSURE (   9.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20191205_230647_068770_D5046C2E 
+X-CRM114-Status: GOOD (  10.48  )
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:541 listed in]
- [list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (andy.shevchenko[at]gmail.com)
+ provider (wahrenst[at]gmx.net)
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
+ valid -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [212.227.15.15 listed in wl.mailspike.net]
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -97,38 +102,40 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Brown <broonie@kernel.org>,
- linux-rpi-kernel <linux-rpi-kernel@lists.infradead.org>,
- linux-spi <linux-spi@vger.kernel.org>
+Cc: linux-rpi-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-On Wed, Dec 4, 2019 at 4:47 PM Linus Walleij <linus.walleij@linaro.org> wrote:
-> On Tue, Dec 3, 2019 at 5:35 PM Mark Brown <broonie@kernel.org> wrote:
-> > On Mon, Dec 02, 2019 at 02:11:51PM +0000, Phil Elwell wrote:
+Hi Petr,
 
-
-> and I can find one more outlier:
+Am 05.12.19 um 08:45 schrieb Petr Tesarik:
+> On Wed, 4 Dec 2019 20:52:49 +0100
+> Stefan Wahren <wahrenst@gmx.net> wrote:
 >
-> drivers/mmc/host/mmc_spi.c, function mmc_spi_initsequence()
+>> Hi Stephen,
+>>
+>> Am 04.12.19 um 08:35 schrieb Stephen Brennan:
+>> [...]
+>>>  I wonder if there is any pointer to
+>>> what needs to be done for these, or some documentation on the underlying
+>>> hardware?
+>> Yes, we all are still waiting for the BCM2711 datasheet or at least a
+>> memory map. This would be a nice christmas present ;-)
+> Out of curiosity,
+maybe this answer your own question.
+>  what are we missing apart from the new IP blocks that
+> are already worked on (network, PCIe, v3d) and never documented blocks
+> (OTP, hwmon, RNG)?
+
+In order to review or fixing driver bugs this documentation is mandatory.
+
+Regards
+Stefan
+
 >
-> This very clearly want the inverse polarity of whatever was the default,
-> but the code assumes that SPI_CS_HIGH implies that this is the
-> actual physical level and forces it high, then low. I will send
-> a patch for this: what they want to achieve is the inverse of
-> whatever was configured.
-
-Linus, hold on.
-MMC SPI is abusing protocol, you can't fix it in logical way.
-I recommend to read the protocol specification.
-
-P.S. I would be glad to be wrong, though.
-
--- 
-With Best Regards,
-Andy Shevchenko
+> Petr T
 
 _______________________________________________
 linux-rpi-kernel mailing list
