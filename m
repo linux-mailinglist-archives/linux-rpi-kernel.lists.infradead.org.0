@@ -2,116 +2,148 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5D706115F3C
-	for <lists+linux-rpi-kernel@lfdr.de>; Sat,  7 Dec 2019 23:26:24 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id CFFB81173EC
+	for <lists+linux-rpi-kernel@lfdr.de>; Mon,  9 Dec 2019 19:18:39 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:From:
-	Subject:To:Date:In-Reply-To:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	References:List-Owner; bh=sfvSUJynNVhCemfc9mWGtqXiT4PVuejR+eXQggpFS4o=; b=fj2
-	Fs3k2LfBpg4ajJO6NCc0breWvUb2UfTLAySoVVAALecVUxTRJIOYwzlgC+FAS/qNIbwF1137cBIxy
-	OwKe0qtFR4AqkwYrdkylTvbBO1I6s7Y/4lDxkn07DjH82L5gIoSmzUX+UC2qET/Ii0mrS6UdbrWbw
-	LDyc8htuFYactiQpGv9ifmA5yBQw0NLHTRO87Nud1O9BPc3MlXz3UMxot4yxTm1JEpE9C59dqBogZ
-	JAGjnLJtunHkDT+alh/51fYo2ngU4FNyN4K2zvdrR9Nf+wafpXv4yM2cSJHuUNM5dvo7FjC1mSFKi
-	cfsebKC8TFdAcoSH8N/2aYFpbemp/cQ==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=r5NCYXtcl+MBT1B+5YaiWkRoR7u400LmfCi2jy1ahhs=; b=TPrfeT8FhlqZgT
+	ednIZf164RD/9Opg5DQ6Fn/nIU1Rq+LuWlBE407IEXYy7k5eWiUOjTCo3E10iwwNTmrMg1AoXZ2sB
+	QYd/lgGc/MSsRU2/XZpiir/Gkq5UFQNQdG+eSRzYKVHdLVBzz0eU4CbYLSMiQ0qfghQMfJ43cBk/x
+	gasaWgRQcyBqxPsXQpKIyl924P497zMaSuv1iMqt/R+c2p9j1BURLWJxlQiOjubn4SU3SLMIEOq6/
+	bh2Z7lutwXFn5U58vQ66/HAE90Tqe3wPI1KsVFQEegcMRzIO2//08Cl6ElTGmB/4BzYqO3Us33G+Z
+	y1+ENrSc2nt5maT7Y8dA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1idiWc-0001jY-Up; Sat, 07 Dec 2019 22:26:06 +0000
-Received: from sender4-of-o50.zoho.com ([136.143.188.50])
+	id 1ieNc0-0003Pu-Mo; Mon, 09 Dec 2019 18:18:24 +0000
+Received: from mail-ed1-x541.google.com ([2a00:1450:4864:20::541])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1idiVQ-0007l3-1U
- for linux-rpi-kernel@lists.infradead.org; Sat, 07 Dec 2019 22:24:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1575757484; cv=none; 
- d=zohomail.com; s=zohoarc; 
- b=XTHpdugxockySXgIgLyB68ekpfQcTjsrEVePz4IjQCvdHfBOMikC3lbq2AIMQp9owguAZjBJax91WLSElLJHHHW0URXGt0PDca7CcJ7AGIz1Vdf780qNPJcKDHhv7SltmXfXCowCwZmVtlCSw4IpUPw51w3JOw1rWgYW5WJAQRM=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com;
- s=zohoarc; t=1575757484;
- h=Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:Message-ID:Subject:To;
- bh=hIq4MM72nztw9pF6WJWV16BTW1P4YyZDDIe5JKRRMso=; 
- b=oB+XbYIAJKuywww5XzsUlRP+tJ2fR108qfSaQ6F7GKZH3oWJyPa1eZcw9ksiS4p9d6HVBri2ZSli9icUW0v1ORVH6BYi+Jqg/jGPMuKK/Yn6u3iRINPMdvWvTFTRpgT0ugjxsdra1j8CPlRzjxaf0yuoM8O8dyTouJstmgkOWWI=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
- dkim=pass  header.i=brennan.io;
- spf=pass  smtp.mailfrom=stephen@brennan.io;
- dmarc=pass header.from=<stephen@brennan.io> header.from=<stephen@brennan.io>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1575757484; 
- s=selector01; d=brennan.io; i=stephen@brennan.io;
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:Date:To:Cc:Subject:From:Message-Id;
- bh=hIq4MM72nztw9pF6WJWV16BTW1P4YyZDDIe5JKRRMso=;
- b=Vkg3G7TOC7gwr1z9tJtoABiGgZv8O4kkJc72Jbe9m4rIUolKjY5ASuaB0xed46Uw
- bFEtmF0or6LwyGN/djVomxJ4F/mbEGmU4OWynCViAu4G3+VkQYibvbvJvYiVORVb7DG
- 9uQQAF1om7M86uytSh6cNeYtnPP/LG7n6UfE5/3c=
-Received: from localhost (195.173.24.136.in-addr.arpa [136.24.173.195]) by
- mx.zohomail.com with SMTPS id 1575757482823948.0546531274085;
- Sat, 7 Dec 2019 14:24:42 -0800 (PST)
-Originaldate: Wed Dec 4, 2019 at 8:52 PM
-Originalfrom: "Stefan Wahren" <wahrenst@gmx.net>
-Original: =?utf-8?q?Hi_Stephen,
- =0D=0A=0D=0AAm_04.12.19_um_08:35_schrieb_Stephen_Bre?= =?utf-8?q?nnan:
- =0D=0A>_Hi_Stefan,_and_also_Florian_since_I_know_you've_ha?=
- =?utf-8?q?nded_off_maintainership,=0D=0Ai_want_to_mention_that_Nicolas_ta?=
- =?utf-8?q?ke_over_the_BCM2835_maintainership.=0D=0A>=0D=0A>_On_Wed_Nov_13?=
- =?utf-8?q?,_2019_at_8:09_AM,_Stefan_Wahren_wrote:=0D=0A>>_Am_12.11.19_um_?=
- =?utf-8?q?09:00_schrieb_Stephen_Brennan:=0D=0A>>>__I_also_see_some_work_r?=
- =?utf-8?q?elated_to_the_BCM2711_SOC_for_the=0D=0A>>>_Raspberry_Pi_4,_whic?=
- =?utf-8?q?h_I_doubt_I_know_enough_to_help_with._I_did_a_diff_to_see=0D=0A?=
- =?utf-8?q?>>>_what_could_be_upstreamed:=0D=0A>>>=0D=0A>>>_____git_diff_--?=
- =?utf-8?q?numstat_v5.4-rc7..rpi/rpi-5.4.y=0D=0A>>_The_better_source_for_u?=
- =?utf-8?q?pstreaming_of_RPi_4_is_here_[2]._A_lot_of=0D=0A>>_downstream_pa?=
- =?utf-8?q?tches_are_hacks_and_not_suitable_for_mainline._So=0D=0A>>_upstr?=
- =?utf-8?q?eaming_is_sometimes_much_more_work_than_simply_a_resend_of_thos?=
- =?utf-8?q?e=0D=0A>>_patches._But_there_still_a_lot_of_lower_fruits._A_goo?=
- =?utf-8?q?d_example_is_the=0D=0A>>_hwrng_support_for_the_bcm2711.=0D=0A>_?=
- =?utf-8?q?[snip]=0D=0A>>_[2]_-_https://github.com/lategoodbye/rpi-zero/is?=
- =?utf-8?q?sues/43=0D=0A>_I'm_looking_back_at_the_upstreaming_status_and_n?=
- =?utf-8?q?oticed_two_unclaimed=0D=0A>_components_-_spi_and_bcm2835-power.?=
- =?utf-8?q?=0D=0Athis_list_is_not_complete._So_these_two_are_not_the_only_?=
- =?utf-8?q?missing_ones._I=0D=0Atried_to_extend_it_based_on_current_rpi-5.?=
- =?utf-8?q?4.y.=0D=0A>__I_wonder_if_there_is_any_pointer_to=0D=0A>_what_ne?=
- =?utf-8?q?eds_to_be_done_for_these,_or_some_documentation_on_the_underlyi?=
- =?utf-8?q?ng=0D=0A>_hardware=3F=0D=0AYes,_we_all_are_still_waiting_for_th?=
- =?utf-8?q?e_BCM2711_datasheet_or_at_least_a=0D=0Amemory_map._This_would_b?=
- =?utf-8?q?e_a_nice_christmas_present_;-)=0D=0A>=0D=0A>_For_bcm2835-power_?=
- =?utf-8?q?the_main_relevant_commit_I_see_is_c1ee74bff379_("soc:=0D=0A>_bc?=
- =?utf-8?q?m:_bcm2835-pm:_Add_support_for_2711.").=0D=0ACorrect,_but_this_?=
- =?utf-8?q?one_not_ready_for_upstream_submission._I_think_this=0D=0Awas_mo?=
- =?utf-8?q?re_a_hack_to_get_V3D_running_on_RPi_4._A_proper_approach_needs_?=
- =?utf-8?q?a=0D=0Anew_compatible_like_brcm,bcm2711-pm|.|=0D=0A>__For_spi_I?=
- =?utf-8?q?'m_not_sure_where_to=0D=0A>_look,_I_see_a_few_commits_but_nothi?=
- =?utf-8?q?ng_particularly_relevant_to_Pi_4.=0D=0A=0D=0APlease_look_at_thi?=
- =?utf-8?q?s_patch_and_the_discussion:=0D=0A=0D=0Ahttps://patchwork.kernel?=
- =?utf-8?q?.org/patch/11048251/=0D=0A=0D=0A>=0D=0A>_I'm_happy_to_try_to_ta?=
- =?utf-8?q?ke_on_anything_which_you_may_not_have_time_for,_but=0D=0A>_I'm_?=
- =?utf-8?q?sorry_in_advance_that_I_may_need_a_few_pointers_to_get_me_start?=
- =?utf-8?q?ed.=0D=0A=0D=0AThanks_for_your_help!=0D=0A=0D=0AStefan=0D=0A=0D?=
- =?utf-8?q?=0A>=0D=0A>_Thanks_for_your_continued_help!=0D=0A>_Stephen=0D?=
- =?utf-8?q?=0A>=0D=0A?=
-In-Reply-To: <56b727cd-d5f9-2ae5-ce21-0bc7834b2400@gmx.net>
-Date: Sat, 07 Dec 2019 14:24:41 -0800
-To: "Stefan Wahren" <wahrenst@gmx.net>
-Subject: Re: Raspberry Pi Kernel Contributing
-From: "Stephen Brennan" <stephen@brennan.io>
-Message-Id: <BYZJEPKN5OJO.3L2DGL0LJD7AU@pride>
-X-ZohoMailClient: External
+ id 1ieNbj-0003B0-9L; Mon, 09 Dec 2019 18:18:08 +0000
+Received: by mail-ed1-x541.google.com with SMTP id cx19so13569663edb.1;
+ Mon, 09 Dec 2019 10:18:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=subject:to:cc:references:from:autocrypt:message-id:date:user-agent
+ :mime-version:in-reply-to:content-language:content-transfer-encoding;
+ bh=AFyCxxkfXo1dBcwr25NUxxquASFmJwWK9k5RsCZyC5g=;
+ b=mnZtm2y0JW96QmGT3FAi7at9G6DYVmJvOg/5l4pCMUlq6PiZIG9/rJ2JePvvc6JV6+
+ Eb67uyu/dgJyWAWrZ2Tj5sSRCdOCluGz2DQmbR2kOwrMOd8/0sVJaXMrV0u49hnVn1LS
+ SSg9sgg5sU4PfUY89ZCmhIM8nzFgctbU52+ZGSzRO/Pnx/jAODqvIvqHr2qppMGi7UGQ
+ EhoskHnbikcMDECiRjiKfgoQ6Db3C1T+nSyvQpUvq2gMdzxPKRfM0mDIssRBReMgWnrT
+ bJH77gHQgrTJfy3M0l4avGBbwFi7Gg0SusD88+nc82mVFePJXJhfPiS08qdvMV6F2D+4
+ L5jw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:subject:to:cc:references:from:autocrypt
+ :message-id:date:user-agent:mime-version:in-reply-to
+ :content-language:content-transfer-encoding;
+ bh=AFyCxxkfXo1dBcwr25NUxxquASFmJwWK9k5RsCZyC5g=;
+ b=O+y6c3/36UV7FctcEsKPpz6RPiNqRUa1cnoF8dnt0skmey88CMXmAs0GNe7h0Trix4
+ vOcsAIzOqQj6SRq6Lw3/lwY3XVs7uwBY3CgDvcl7AY/ayFss1wYlnn01ssDhllrHOnR5
+ SbAJpqJ2aRSZK6DkeADfxSnnlcter7VMuSvo0TKcdx3qmn75llRm/OGC7BhonSMwCFCW
+ ITjoHtFARNo9E/IZbpPzqO8ztiE0hjvOG70OVKrcEOuInjwPHdcZm74JgOFcYulPirxe
+ HPZ/XKYfoP+TB6nIUyOpxiAhqSTw1KJWgwyCwXhjkl2BM8Usvcice1VM08nBzgMcG+eh
+ aCxQ==
+X-Gm-Message-State: APjAAAXfAKlq8nkthPqdbw3m2px9zDVqoNLOB9fl8PhOLWoK4Ya0NC5f
+ mLM+VHNQW4eLkKLoj1LxuDTqzDBL
+X-Google-Smtp-Source: APXvYqzx2fN2q7b10f+rTW708NsqbiJG9wu/sAQhrIXtqpblLXG5dyi/9yB9RMHWPWpTpUcXqdJ/Ow==
+X-Received: by 2002:a05:6402:486:: with SMTP id
+ k6mr27263588edv.263.1575915481928; 
+ Mon, 09 Dec 2019 10:18:01 -0800 (PST)
+Received: from [10.67.50.53] ([192.19.223.252])
+ by smtp.googlemail.com with ESMTPSA id c24sm12194eds.40.2019.12.09.10.17.58
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Mon, 09 Dec 2019 10:18:01 -0800 (PST)
+Subject: Re: [PATCH] ARM: dts: bcm283x: Fix critical trip point
+To: Lukas Wunner <lukas@wunner.de>, Stefan Wahren <wahrenst@gmx.net>
+References: <1575117073-5990-1-git-send-email-wahrenst@gmx.net>
+ <20191130135403.jmuuuy3lf5l3enti@wunner.de>
+From: Florian Fainelli <f.fainelli@gmail.com>
+Autocrypt: addr=f.fainelli@gmail.com; prefer-encrypt=mutual; keydata=
+ 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
+ G10n8gCguORqNGMsVRxrlLs7/himep7MrCc=
+Message-ID: <899ae14b-28d0-0982-cbdf-baf4f1e978fe@gmail.com>
+Date: Mon, 9 Dec 2019 10:17:57 -0800
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.2.1
+MIME-Version: 1.0
+In-Reply-To: <20191130135403.jmuuuy3lf5l3enti@wunner.de>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191207_142452_127444_74E001AB 
-X-CRM114-Status: GOOD (  20.98  )
+X-CRM114-CacheID: sfid-20191209_101807_350325_43E5BDCE 
+X-CRM114-Status: GOOD (  14.93  )
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 BAD_ENC_HEADER         Message has bad MIME encoding in the header
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2a00:1450:4864:20:0:0:0:541 listed in]
+ [list.dnswl.org]
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider (f.fainelli[at]gmail.com)
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -123,77 +155,34 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: linux-rpi-kernel@lists.infradead.org
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: linux-arm-kernel@lists.infradead.org, Scott Branden <sbranden@broadcom.com>,
+ Ray Jui <rjui@broadcom.com>, bcm-kernel-feedback-list@broadcom.com,
+ linux-rpi-kernel@lists.infradead.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-On Wed Dec 4, 2019 at 8:52 PM, Stefan Wahren wrote:
-> Hi Stephen,
->
-> 
-> Am 04.12.19 um 08:35 schrieb Stephen Brennan:
-> > Hi Stefan, and also Florian since I know you've handed off maintainership,
-> i want to mention that Nicolas take over the BCM2835 maintainership.
-
-Oops, my mistake! I'm really sorry.
-
-> >
-> > On Wed Nov 13, 2019 at 8:09 AM, Stefan Wahren wrote:
-> >> Am 12.11.19 um 09:00 schrieb Stephen Brennan:
-> >>>  I also see some work related to the BCM2711 SOC for the
-> >>> Raspberry Pi 4, which I doubt I know enough to help with. I did a diff to see
-> >>> what could be upstreamed:
-> >>>
-> >>>     git diff --numstat v5.4-rc7..rpi/rpi-5.4.y
-> >> The better source for upstreaming of RPi 4 is here [2]. A lot of
-> >> downstream patches are hacks and not suitable for mainline. So
-> >> upstreaming is sometimes much more work than simply a resend of those
-> >> patches. But there still a lot of lower fruits. A good example is the
-> >> hwrng support for the bcm2711.
-> > [snip]
-> >> [2] - https://github.com/lategoodbye/rpi-zero/issues/43
-> > I'm looking back at the upstreaming status and noticed two unclaimed
-> > components - spi and bcm2835-power.
-> this list is not complete. So these two are not the only missing ones. I
-> tried to extend it based on current rpi-5.4.y.
-
-Looks great, I'm taking a look to see what I can help with. I may look into 
-the performance improvements for the HWRNG that you and Nicolas have both 
-mentioned.
-
-> >  I wonder if there is any pointer to
-> > what needs to be done for these, or some documentation on the underlying
-> > hardware?
-> Yes, we all are still waiting for the BCM2711 datasheet or at least a
-> memory map. This would be a nice christmas present ;-)
-
-It's really amazing to me what this group of people has been able to do 
-*without* that datasheet.
-
-> >
-> > For bcm2835-power the main relevant commit I see is c1ee74bff379 ("soc:
-> > bcm: bcm2835-pm: Add support for 2711.").
-> Correct, but this one not ready for upstream submission. I think this
-> was more a hack to get V3D running on RPi 4. A proper approach needs a
-> new compatible like brcm,bcm2711-pm|.|
-> >  For spi I'm not sure where to
-> > look, I see a few commits but nothing particularly relevant to Pi 4.
->
-> 
-> Please look at this patch and the discussion:
->
-> 
-> https://patchwork.kernel.org/patch/11048251/
->
-
-Thanks again,
-Stephen
-
-
-_______________________________________________
-linux-rpi-kernel mailing list
-linux-rpi-kernel@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
+T24gMTEvMzAvMTkgNTo1NCBBTSwgTHVrYXMgV3VubmVyIHdyb3RlOgo+IE9uIFNhdCwgTm92IDMw
+LCAyMDE5IGF0IDAxOjMxOjEzUE0gKzAxMDAsIFN0ZWZhbiBXYWhyZW4gd3JvdGU6Cj4+IER1cmlu
+ZyBkZWZpbml0aW9uIG9mIHRoZSBDUFUgdGhlcm1hbCB6b25lIG9mIEJDTTI4M3ggU29DIGZhbWls
+eSB0aGVyZSB3YXMKPj4gYSBtaXN1bmRlcnN0YW5kaW5nIG9mIHRoZSBtZWFuaW5nICJjcml0aWNp
+YWwgdHJpcCBwb2ludCIgYW5kIHRoZSB0aGVybWFsCj4+IHRocm90dGxpbmcgcmFuZ2Ugb2YgdGhl
+IFZpZGVvQ29yZSBmaXJtd2FyZS4gVGhlIGxhdHRlciBvbmUgdGFrZXMgZWZmZWN0Cj4+IHdoZW4g
+dGhlIGNvcmUgdGVtcGVyYXR1cmUgaXMgYmV0d2VlbiA4MCBhbmQgODUgZGVncmVlIGNlbHNpdXMu
+IFNvIHRoZQo+PiBjdXJyZW50IGNyaXRpY2FsIHRyaXAgcG9pbnQgZG9lc24ndCBtYWtlIHNlbnNl
+LCBiZWNhdXNlIHRoZQo+PiB0aGVybWFsIHNodXRkb3duIGFwcGVhcnMgYmVmb3JlIHRoZSBmaXJt
+d2FyZSBoYXMgYSBjaGFuY2UgdG8gdGhyb3R0bGUgdGhlCj4+IEFSTSBjb3JlKHMpLgo+IAo+IEZX
+SVcsIHRoZSB0aGVybWFsIHRocm90dGxpbmcgcmFuZ2UgZ29lcyB3YXkgYWJvdmUgODXCsEMuCj4g
+Cj4gQXQgS3VuYnVzIHdlJ3ZlIHBlcmZvcm1lZCBudW1lcm91cyB0ZXN0cyBpbiBhIGNsaW1hdGUg
+Y2hhbWJlcgo+IGFuZCBteSByZWNvbGxlY3Rpb24gaXMgdGhhdCBhIENNMyBzdGFydHMgdGhyb3R0
+bGluZyBhYm92ZSA4MMKwQwo+IHdpdGggdGhlIGZyZXF1ZW5jeSBob3ZlcmluZyBiZXR3ZWVuIDYw
+MCBhbmQgMTIwMCBNSHouCj4gCj4gT25jZSA4NcKwQyBpcyByZWFjaGVkLCB0aGUgZnJlcXVlbmN5
+IGlzIGZpeGVkIGF0IDYwMCBNSHouCj4gCj4gQnV0IHRoZXJlIGEgYWRkaXRpb25hbCB0cmlwcGlu
+ZyBwb2ludHMgYWJvdmUgdGhhdCB3aGVuIHRoZSBmcmVxdWVuY3kKPiBnZXRzIGZ1cnRoZXIgcmVk
+dWNlZCB0byA0MDAgTUh6IGFuZCBsYXRlciAzMDAgTUh6LgoKRG9lcyB0aGF0IG1lYW4gdGhhdCB5
+b3UgYXJlIG9rYXkgd2l0aCA5MMKwQyBoZXJlLCBvciB3b3VsZCB5b3UgcmF0aGVyIHNlZQp0aGlz
+IGJlIGNoYW5nZSB0byA4NcKwQz8KLS0gCkZsb3JpYW4KCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJwaS1rZXJuZWwgbWFpbGluZyBsaXN0Cmxp
+bnV4LXJwaS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
+Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJwaS1rZXJuZWwK
