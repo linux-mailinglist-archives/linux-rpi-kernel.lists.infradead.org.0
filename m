@@ -2,69 +2,60 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7CCB5136E84
-	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 10 Jan 2020 14:48:50 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 7C474136ED4
+	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 10 Jan 2020 14:57:30 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zd/z070rmQ8asO7mhpLaU2gIp5Q1jopc7WmQDLyWJGs=; b=HJzoXei3ACSUqB
-	JKIJtMD36ga2JyQz7TQxZVkVIXJS+/+7WMH3vkeU8eH8YGjtVOzAd7QKIxXleaJGa27G+chVbaXR+
-	bB5mqkqX1YLawbOpivMrB4whrxrwXrDRPl/9dkufIxJGO906VOe+39BdRfYWscxeqAbNCthOnq12I
-	pNp/DF63twZprYqtI9qVFHEksnSj6HWNpguZsKK7NIs3hOO6ZXuYH+62nGr7QepTQ4GpvPOgAUMib
-	T85LzEB5Upv2kT4Mor4kh3UVZYjBBgTgVGYxvmBaJ3L4N1lyXl4Ja4fYbq7hj4mk0dKolipJt9qlX
-	Eve+RLeU5TVToZjq4agQ==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=Haz6NfzK8TDXOQBVsXlE3IvxeyUx6Ho+NMb6vfDZUWM=; b=Ung
+	zNqiZAjsoKFAHXrbOmNMDWH5ZNuX675RZPukiAlfw7cHlzF31xAmb6G/ey3ClPDyR8eJIHUbs4Zkd
+	IJ2yDHC1MfAyBGy/OpbG+oG/MMuc/zqCGMsfyrONX2FOLJivoHeH2H5auu3NYZECP9Gax7B9GsvpR
+	i1Aj6qBSLJltTh3ErzlHULQtd1LfbVDfAieNCNM28zLPq/6YoKBpkKkFhZXQ2XMdnQnSGRdZa5LIe
+	cQOLn0I6Q/rj7zXkT8q/CpWQqDsbIdcznE5W2qqbn9KFcuAwJy+Hak/HyFz13QGPbdPD21PEYzRsH
+	rZFFY2EuwG/Y3B6TeMb+ZN+Sdashjxw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ipueb-000432-Vv; Fri, 10 Jan 2020 13:48:45 +0000
-Received: from conssluserg-03.nifty.com ([210.131.2.82])
+	id 1ipun1-0001rt-Va; Fri, 10 Jan 2020 13:57:28 +0000
+Received: from conuserg-11.nifty.com ([210.131.2.78])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ipueL-0003rW-3p; Fri, 10 Jan 2020 13:48:30 +0000
-Received: from mail-vs1-f49.google.com (mail-vs1-f49.google.com
- [209.85.217.49]) (authenticated)
- by conssluserg-03.nifty.com with ESMTP id 00ADmDcC031838;
- Fri, 10 Jan 2020 22:48:14 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-03.nifty.com 00ADmDcC031838
+ id 1ipumt-0001jC-Dl; Fri, 10 Jan 2020 13:57:21 +0000
+Received: from grover.flets-west.jp (softbank126093102113.bbtec.net
+ [126.93.102.113]) (authenticated)
+ by conuserg-11.nifty.com with ESMTP id 00ADuLH8021001;
+ Fri, 10 Jan 2020 22:56:22 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-11.nifty.com 00ADuLH8021001
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
- s=dec2015msa; t=1578664094;
- bh=YW6gHC2/TBjxwotOxX5lv+0ESK1IMSnDrePMsS8Y854=;
- h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=v8CCJuH8FvCsIv3IH6Axc4E20isn2xwbyKkmVAwDnVUUP7XTnqD3pjWapoBDw1lDK
- 50Kzuo/MtEXB6Hdwr/DwS4PqEiEcxxek9hC0xXLPGBXvk23RQcvKWJOdPrXh+dbFTm
- hpmWbFoqq3663QSC/2QzPboUMx6ebwb3aacYQkNQCrA5Y+ZDRM5od9ZbSll/jAcAHt
- tP1tLunrgFSOOGMTJQQt5oqhrSUz3D+a5yFCzM/uA1ViWLaKv4o+xwleENqDjAhw/d
- k1iD3mjIpplBsfHoDvGo0Ec7ARWXd5VV2aA0C0JsGj//ZOe644CI/9zUvVUrt5f+JH
- 5+wStLmWTZdTg==
-X-Nifty-SrcIP: [209.85.217.49]
-Received: by mail-vs1-f49.google.com with SMTP id x123so1277054vsc.2;
- Fri, 10 Jan 2020 05:48:14 -0800 (PST)
-X-Gm-Message-State: APjAAAW/lSGD2k5TMZc0D3cEKCLxrAImZuaVhP2MFKJm+Zdo1NGuFvAU
- nw14G6Mxncm2gAhj98fr9YXWVzX2HegionxGpXY=
-X-Google-Smtp-Source: APXvYqyTXk/T86I7dlwE/veGRIdMLqTqb+cooe/0yqEITlDnMG/B+hHLqdaNi4yTMsk16cN+BBr421ehKsnP9BOOcVw=
-X-Received: by 2002:a67:f8ca:: with SMTP id c10mr1743990vsp.54.1578664092752; 
- Fri, 10 Jan 2020 05:48:12 -0800 (PST)
-MIME-Version: 1.0
-References: <20200104162829.20400-1-masahiroy@kernel.org>
- <20200110121951.GA1047840@kroah.com>
-In-Reply-To: <20200110121951.GA1047840@kroah.com>
+ s=dec2015msa; t=1578664582;
+ bh=zVyX+jnC81yFPW4LBhJZnImuwwlFDcqtIGqjvmZlyqg=;
+ h=From:To:Cc:Subject:Date:From;
+ b=vwOmdHD4C4wa/uGHgTN9FkESn/XEWK+Uevv4ZerrGKBY1PZMEDPK7/IWY78IuB2Mg
+ 4sGcQi7DeKxMh93gH9tb9e5OTYcmRtDlOlgj2FJP7o/S+vnzRE0FEhO29I2LlM9G70
+ pLjgpTZ5+v9HHS7E9f+5BUTWn//cnwGU5oXYOi8NfAzmB6X/5vFUzsugJ9Za6S2Hqr
+ DzuvkJaDVrha+uERl+0LNUmJC9ys9+d1BUA1BQEg6t3YC6vRiQfWmuFBtSSZZcALJz
+ NbDpOLMUsOlv7cxWnKuD1Dln0Rvk0GIuNl1zSysPA3whmpr9SBm+7ufHhfEAZAHV5J
+ ga5SnnQ6h6Uaw==
+X-Nifty-SrcIP: [126.93.102.113]
 From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Fri, 10 Jan 2020 22:47:37 +0900
-X-Gmail-Original-Message-ID: <CAK7LNATGZwPE9m=4L6n-OFPSmenQvoRvNR=c4Go65x1opjkpOQ@mail.gmail.com>
-Message-ID: <CAK7LNATGZwPE9m=4L6n-OFPSmenQvoRvNR=c4Go65x1opjkpOQ@mail.gmail.com>
-Subject: Re: [PATCH] staging: vc04_service: remove unused header include path
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, devel@driverdev.osuosl.org
+Subject: [PATCH v2] staging: vc04_services: remove header include path to
+ vc04_services
+Date: Fri, 10 Jan 2020 22:56:15 +0900
+Message-Id: <20200110135615.11617-1-masahiroy@kernel.org>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200110_054829_496184_7F3857B0 
-X-CRM114-Status: GOOD (  15.15  )
+X-CRM114-CacheID: sfid-20200110_055719_685528_E922273E 
+X-CRM114-Status: UNSURE (   8.10  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: 1.0 (+)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (1.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [210.131.2.82 listed in list.dnswl.org]
+ no trust [210.131.2.78 listed in list.dnswl.org]
  1.0 SPF_SOFTFAIL           SPF: sender does not match SPF record (softfail)
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
@@ -81,66 +72,72 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: devel@driverdev.osuosl.org,
- Broadcom Kernel Feedback List <bcm-kernel-feedback-list@broadcom.com>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- linux-rpi-kernel <linux-rpi-kernel@lists.infradead.org>
+Cc: Masahiro Yamada <masahiroy@kernel.org>, linux-kernel@vger.kernel.org,
+ bcm-kernel-feedback-list@broadcom.com, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-On Fri, Jan 10, 2020 at 9:24 PM Greg Kroah-Hartman
-<gregkh@linuxfoundation.org> wrote:
->
-> On Sun, Jan 05, 2020 at 01:28:29AM +0900, Masahiro Yamada wrote:
-> > I can build drivers/staging/vc04_services without this.
-> >
-> > Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
-> > ---
-> >
-> >  drivers/staging/vc04_services/Makefile | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/staging/vc04_services/Makefile b/drivers/staging/vc04_services/Makefile
-> > index afe43fa5a6d7..54d9e2f31916 100644
-> > --- a/drivers/staging/vc04_services/Makefile
-> > +++ b/drivers/staging/vc04_services/Makefile
-> > @@ -13,5 +13,5 @@ vchiq-objs := \
-> >  obj-$(CONFIG_SND_BCM2835)    += bcm2835-audio/
-> >  obj-$(CONFIG_VIDEO_BCM2835)  += bcm2835-camera/
-> >
-> > -ccflags-y += -Idrivers/staging/vc04_services -D__VCCOREVER__=0x04000000
-> > +ccflags-y += -D__VCCOREVER__=0x04000000
-> >
-> > --
->
-> This patch breaks the build for me:
-> drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c:6:10: fatal error: interface/vchi/vchi.h: No such file or directory
->     6 | #include "interface/vchi/vchi.h"
->       |          ^~~~~~~~~~~~~~~~~~~~~~~
-> compilation terminated.
->
-> So maybe you did't select all of the modules to build?
->
-> Sorry, I can't take this as-is :(
->
-> greg k-h
+Fix up some relative paths in #include "..." directives, and remove
+the include path to drivers/staging/vc04_services.
 
+Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+---
 
-Sorry, I compile-tested it with O= option.
+Changes in v2:
+  - fix up some relative paths.
+    I tested with/without O= option this time.
 
-I should have tested it with/without O=
-for this kind of patch.
+ drivers/staging/vc04_services/Makefile                        | 2 +-
+ drivers/staging/vc04_services/interface/vchi/vchi.h           | 4 ++--
+ .../staging/vc04_services/interface/vchiq_arm/vchiq_shim.c    | 2 +-
+ 3 files changed, 4 insertions(+), 4 deletions(-)
 
-
-I will fix up some relative paths.
-
-
+diff --git a/drivers/staging/vc04_services/Makefile b/drivers/staging/vc04_services/Makefile
+index afe43fa5a6d7..54d9e2f31916 100644
+--- a/drivers/staging/vc04_services/Makefile
++++ b/drivers/staging/vc04_services/Makefile
+@@ -13,5 +13,5 @@ vchiq-objs := \
+ obj-$(CONFIG_SND_BCM2835)	+= bcm2835-audio/
+ obj-$(CONFIG_VIDEO_BCM2835)	+= bcm2835-camera/
+ 
+-ccflags-y += -Idrivers/staging/vc04_services -D__VCCOREVER__=0x04000000
++ccflags-y += -D__VCCOREVER__=0x04000000
+ 
+diff --git a/drivers/staging/vc04_services/interface/vchi/vchi.h b/drivers/staging/vc04_services/interface/vchi/vchi.h
+index 56b1037d8e25..ff2b960d8cac 100644
+--- a/drivers/staging/vc04_services/interface/vchi/vchi.h
++++ b/drivers/staging/vc04_services/interface/vchi/vchi.h
+@@ -4,8 +4,8 @@
+ #ifndef VCHI_H_
+ #define VCHI_H_
+ 
+-#include "interface/vchi/vchi_cfg.h"
+-#include "interface/vchi/vchi_common.h"
++#include "vchi_cfg.h"
++#include "vchi_common.h"
+ 
+ /******************************************************************************
+  * Global defs
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c
+index 0ce3b08b3441..efdd3b1c7d85 100644
+--- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c
+@@ -3,7 +3,7 @@
+ #include <linux/module.h>
+ #include <linux/types.h>
+ 
+-#include "interface/vchi/vchi.h"
++#include "../vchi/vchi.h"
+ #include "vchiq.h"
+ #include "vchiq_core.h"
+ 
 -- 
-Best Regards
-Masahiro Yamada
+2.17.1
+
 
 _______________________________________________
 linux-rpi-kernel mailing list
