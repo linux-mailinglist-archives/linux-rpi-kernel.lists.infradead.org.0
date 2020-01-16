@@ -2,56 +2,59 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0531B13B19A
-	for <lists+linux-rpi-kernel@lfdr.de>; Tue, 14 Jan 2020 19:03:59 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5C06713D9BC
+	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 16 Jan 2020 13:15:51 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=0fsSNwyljyDqQqdJFUNZ0hWGb4ASnX/wjyMnLIt1fyM=; b=Fw9u9utjaDD5xD8+gEXEWCXTO
-	YUhIFpOQYmbFPeCCXt07yrMLI8t4aZBrcspo//CZNH3++vHU90phKTRhp5gNadgqfCGz3GUCgNBI0
-	1B+LF5Mnije+gwdOfWIDlplBL8xJz991l/qBPK799AZb24igH+0+tqgaADwojqwtLlH4Y/anQoOkS
-	xEmeTxN45+LSpsqg9aUbNaXkFLLC0pdbyfF48lVLI7PE/V7WLLcB1CeKW7ZIwgy9Ji3PlViTQ+nC7
-	lsbe1Nm4ODMZQv7ch0btVw2xDXiGrAGUrUNu2Wdimu75D6gfbRuHC74+cLBEGAdu4F2kXBU65FTS1
-	iUB7mZepQ==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Subject:Date:
+	From:Message-Id:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=hK2mbCneVnyfocHJZvYQr6CAE+01L5U/Q9xU7YYay5M=; b=EzN
+	UFaPiyJmsAB/V6UJpPKT3NbG/AUhfYg45NWHiB63bSgtWAWRuC4Qynw4hkZBluW3rH4EqASH4Eo8K
+	Ixh5Pxty7erkX5OaAmj5flHJy3YuMmZeGDcPtKf7QOrCdl6fj6dYc6PxOAtczL13g6qR0nOkvZk3p
+	HSWOBWgDC5bk6zm8RtHAyzSIN4Iha6L/JrW9iHop7is/p/6SzcHSZZZNu1UgMRrePeuE1UCrrsjw+
+	87RtMZphuSoyzKBxP5aM5nyCa05MtzlmyzVvMtGXKAPgPY3G8AR/SEQdoihI1AmjQr+yPA9rCuwOL
+	YBcfj0ghBc+JwZUqqWDPT3Zr0XEBL7w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1irQXi-0004xZ-8m; Tue, 14 Jan 2020 18:03:54 +0000
-Received: from mx2.suse.de ([195.135.220.15])
+	id 1is43x-0001uF-VO; Thu, 16 Jan 2020 12:15:49 +0000
+Received: from mailout2.hostsharing.net ([83.223.78.233])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1irQXU-0004pF-95; Tue, 14 Jan 2020 18:03:45 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx2.suse.de (Postfix) with ESMTP id 6D55DADF1;
- Tue, 14 Jan 2020 18:03:37 +0000 (UTC)
-Message-ID: <df7b8b1e2f411660cf2012bd86513491c9b5bf53.camel@suse.de>
-Subject: Re: [PATCH] arm64: defconfig: Enable Boradcom's GENET Ethernet
- controller
-From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-To: Florian Fainelli <f.fainelli@gmail.com>, linux-kernel@vger.kernel.org
-Date: Tue, 14 Jan 2020 19:03:36 +0100
-In-Reply-To: <a10b3e49-9c4f-5124-9e25-ef1482681287@gmail.com>
-References: <20200114164900.27483-1-nsaenzjulienne@suse.de>
- <a10b3e49-9c4f-5124-9e25-ef1482681287@gmail.com>
-User-Agent: Evolution 3.34.3 
-MIME-Version: 1.0
+ id 1is43s-0001rr-0o
+ for linux-rpi-kernel@lists.infradead.org; Thu, 16 Jan 2020 12:15:48 +0000
+Received: from h08.hostsharing.net (h08.hostsharing.net
+ [IPv6:2a01:37:1000::53df:5f1c:0])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (Client CN "*.hostsharing.net",
+ Issuer "COMODO RSA Domain Validation Secure Server CA" (not verified))
+ by mailout2.hostsharing.net (Postfix) with ESMTPS id BCB30101F2565;
+ Thu, 16 Jan 2020 13:15:26 +0100 (CET)
+Received: from localhost (unknown [87.130.102.138])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+ (No client certificate requested)
+ by h08.hostsharing.net (Postfix) with ESMTPSA id 78D5E60AE1B8;
+ Thu, 16 Jan 2020 13:15:26 +0100 (CET)
+X-Mailbox-Line: From aea363c27fd541dba96d2ebfeee4f596c6d34932 Mon Sep 17
+ 00:00:00 2001
+Message-Id: <cover.1579175223.git.lukas@wunner.de>
+From: Lukas Wunner <lukas@wunner.de>
+Date: Thu, 16 Jan 2020 13:14:00 +0100
+Subject: [PATCH 0/6] Raspberry Pi auxiliary UART fixes & cleanups
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200114_100340_464723_11BE0C11 
-X-CRM114-Status: GOOD (  16.04  )
-X-Spam-Score: -2.3 (--)
+X-CRM114-CacheID: sfid-20200116_041544_213480_A7ACD0C0 
+X-CRM114-Status: UNSURE (   6.10  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [195.135.220.15 listed in list.dnswl.org]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [83.223.78.233 listed in list.dnswl.org]
+ 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [195.135.220.15 listed in wl.mailspike.net]
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -63,97 +66,37 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Content-Type: multipart/mixed; boundary="===============4496780062546546492=="
+Cc: linux-rpi-kernel@lists.infradead.org, linux-serial@vger.kernel.org,
+ Jiri Slaby <jslaby@suse.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
+Here's a collection of fixes & cleanups for the Raspberry Pi auxiliary UART
+to prepare for upcoming feature work on the driver.
 
---===============4496780062546546492==
-Content-Type: multipart/signed; micalg="pgp-sha256";
-	protocol="application/pgp-signature"; boundary="=-NnY7PP2kYYNNjACY7ulI"
+With compliments from Revolution Pi labs (https://revolution.kunbus.com/).
 
+Lukas Wunner (5):
+  serial: 8250_bcm2835aux: Fix line mismatch on driver unbind
+  serial: 8250_bcm2835aux: Suppress register_port error on -EPROBE_DEFER
+  serial: 8250_bcm2835aux: Allocate uart_8250_port on stack
+  serial: 8250_bcm2835aux: Use generic remapping code
+  serial: 8250_bcm2835aux: Document struct bcm2835aux_data
 
---=-NnY7PP2kYYNNjACY7ulI
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Phil Elwell (1):
+  serial: 8250_bcm2835aux: Suppress clk_get error on -EPROBE_DEFER
 
-On Tue, 2020-01-14 at 09:20 -0800, Florian Fainelli wrote:
-> On 1/14/20 8:48 AM, Nicolas Saenz Julienne wrote:
-> > Currently used on the Raspberry Pi 4.
-> >=20
-> > Signed-off-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
->=20
-> Typo in the subject: s/Boradcom/Broadcom/ other than that
+ drivers/tty/serial/8250/8250_bcm2835aux.c | 50 ++++++++++++-----------
+ 1 file changed, 26 insertions(+), 24 deletions(-)
 
-Ouch, my bad.
+-- 
+2.24.0
 
-> do you want me to pick that up now for 5.6?
-
-Yes please. BTW sorry for the late submission, but I just realized we were
-missing the config option. All the genet related code is already in place s=
-o
-it's a shame it doesn't work out of the box.
-
-Regards,
-Nicolas
-
->=20
-> > ---
-> >  arch/arm64/configs/defconfig | 1 +
-> >  1 file changed, 1 insertion(+)
-> >=20
-> > diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfi=
-g
-> > index 38b4f998e24a..245d52a4d009 100644
-> > --- a/arch/arm64/configs/defconfig
-> > +++ b/arch/arm64/configs/defconfig
-> > @@ -256,6 +256,7 @@ CONFIG_VIRTIO_NET=3Dy
-> >  CONFIG_AMD_XGBE=3Dy
-> >  CONFIG_NET_XGENE=3Dy
-> >  CONFIG_ATL1C=3Dm
-> > +CONFIG_BCMGENET=3Dm
-> >  CONFIG_BNX2X=3Dm
-> >  CONFIG_MACB=3Dy
-> >  CONFIG_THUNDER_NIC_PF=3Dy
-> >=20
->=20
->=20
-
-
---=-NnY7PP2kYYNNjACY7ulI
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCAAdFiEErOkkGDHCg2EbPcGjlfZmHno8x/4FAl4eAngACgkQlfZmHno8
-x/6niwf+IPx+6hb5KZBUiJdysfp4ZFwwt6Xf8WdwLblNLxh4s4fFNinSMScIGe/7
-dfM3l6wUpLrt+LT3elyfA0hK6qHlvinhXg939aGND4tTulzB5sPd+QgrWn+gO8c1
-mxktOwhk0srMcuuDoBpEdfJ4Gro38J7LIznkRtGCiP4seFrOsPIieqvagoq/9blI
-Zv9MMZvZiesdxY227Chgc3wjv2zhYD0KQ7c1mt/QwZzWpvXXmK3vh5XuGCMSdH/M
-91VoVtpdr3mkWqe2/5lNmf1WdyTpaNKGxbx0g7TI38SGARUZwzF5IMkXiSTysCqt
-tVMp2y8t64U6ONH8pvMx5+NXHWeOaw==
-=aFRM
------END PGP SIGNATURE-----
-
---=-NnY7PP2kYYNNjACY7ulI--
-
-
-
---===============4496780062546546492==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-rpi-kernel mailing list
 linux-rpi-kernel@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
-
---===============4496780062546546492==--
-
-
