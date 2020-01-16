@@ -2,37 +2,37 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3852613DB08
-	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 16 Jan 2020 14:02:36 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 189CA13DB1B
+	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 16 Jan 2020 14:06:42 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
 	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
 	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KTFA4QNoininObfn++16ltBW5Mu4FRTtocCQlnUuxUU=; b=QKzcVMdDlGbtfN
-	FgKF7h01B0dKAimaYY0dKjz0zjy7tHgkz4jfTEGBvjzV8Um3DGHGxUp4npNrplNnz5H8yt/p1zbSf
-	plFhMTWnxFNfuajcaMcSP1QneU8hgudRJD4/urR8YUceRhsscCZiRookqTREGsx2ZhHaLHJS4OpXL
-	bIG0EGAP5ag2DLrwQcYC/GL1c4jzCudLeeisS7Q6higbikIn3xjsp6HJd4p8qdE0bxlE/OE3kXqNU
-	KsRHZZouHeCAnD+4Vj5W1Zrj3zfXk2rdFDFkIQ1NnRhHvmTZuOQsmnvim+7rHSR6SeZSFJGfPGFJ0
-	710nZPH1kCa6mqC+6fbw==;
+	List-Owner; bh=8y1sK7fkb40QKC447cclmIAqO/wj0zmEXwgvdT96r40=; b=YolEwevlfjQDx/
+	4CSzv3UM+9qmSndDifHwhEvF+hjI/3Rrz/de2GWIbRc9xrnXI4OEpWKs8F5trcrTSfFYYv5x7paVy
+	i8PzjgQ4N6TkyuRHuU0JFwXG+DHbok2fpz1SgVneh+FLLVWVGFvlaifW3guM+FJ3Wx8Pt2VeTiriM
+	FXpMlf5Uksu8gw2xuPBReaUa3LiDjKtqhUYoLON6Bn1K8y1kWKxMqn0kSXuBi5/id6aPaHlhdM8dS
+	vAU4o39x5/3FuGMdBn6u2h7eZz+0jp5znocGjxEhShy89FJvZtq0XLnJthLXGueRmzRWD0PBl/d3u
+	BZ9lxjfzKRMM17oFi6tQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1is4nC-000572-W6; Thu, 16 Jan 2020 13:02:34 +0000
+	id 1is4rA-0007Ln-IU; Thu, 16 Jan 2020 13:06:40 +0000
 Received: from mx2.suse.de ([195.135.220.15])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1is4n6-00055z-1H
- for linux-rpi-kernel@lists.infradead.org; Thu, 16 Jan 2020 13:02:32 +0000
+ id 1is4r5-0007LA-0j
+ for linux-rpi-kernel@lists.infradead.org; Thu, 16 Jan 2020 13:06:39 +0000
 X-Virus-Scanned: by amavisd-new at test-mx.suse.de
 Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx2.suse.de (Postfix) with ESMTP id 731C9B001;
- Thu, 16 Jan 2020 13:02:26 +0000 (UTC)
-Subject: Re: [PATCH 6/6] serial: 8250_bcm2835aux: Document struct
- bcm2835aux_data
+ by mx2.suse.de (Postfix) with ESMTP id A71B4ABBD;
+ Thu, 16 Jan 2020 13:06:33 +0000 (UTC)
+Subject: Re: [PATCH 4/6] serial: 8250_bcm2835aux: Allocate uart_8250_port on
+ stack
 To: Lukas Wunner <lukas@wunner.de>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 References: <cover.1579175223.git.lukas@wunner.de>
- <aea363c27fd541dba96d2ebfeee4f596c6d34932.1579175223.git.lukas@wunner.de>
+ <421d3aed4c34cc8447ac9c26c320961f1b787f11.1579175223.git.lukas@wunner.de>
 From: Matthias Brugger <mbrugger@suse.com>
 Autocrypt: addr=mbrugger@suse.com; prefer-encrypt=mutual; keydata=
  mQINBFP1zgUBEAC21D6hk7//0kOmsUrE3eZ55kjc9DmFPKIz6l4NggqwQjBNRHIMh04BbCMY
@@ -108,16 +108,16 @@ Autocrypt: addr=mbrugger@suse.com; prefer-encrypt=mutual; keydata=
  UHUEIsTwPWs2Q87k7vjYyrcyAOarX2X5pvMQvpAMADGf2Z3wrCsDdG25w2HztweUNd9QEprt
  JG8GNNzMOD4cQ82Ta7eGvPWPeXauWJDLVR9jHtWT9Ot3BQgmApLxACvwvD1a69jaFKov28SP
  HxUCQ9Y1Y/Ct
-Message-ID: <38e446cd-a04f-6f20-3368-7a386d331930@suse.com>
-Date: Thu, 16 Jan 2020 14:02:25 +0100
+Message-ID: <92cca672-fc00-c0bb-9d67-15da7d6d6319@suse.com>
+Date: Thu, 16 Jan 2020 14:06:32 +0100
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
  Thunderbird/68.3.0
 MIME-Version: 1.0
-In-Reply-To: <aea363c27fd541dba96d2ebfeee4f596c6d34932.1579175223.git.lukas@wunner.de>
+In-Reply-To: <421d3aed4c34cc8447ac9c26c320961f1b787f11.1579175223.git.lukas@wunner.de>
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200116_050228_366336_24B3E55C 
-X-CRM114-Status: GOOD (  14.96  )
+X-CRM114-CacheID: sfid-20200116_050635_345543_C97B55ED 
+X-CRM114-Status: GOOD (  23.03  )
 X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-2.3 points)
@@ -151,33 +151,110 @@ Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infrade
 
 
 On 16/01/2020 13:14, Lukas Wunner wrote:
-> Document the driver private data of the BCM2835 auxiliary UART so that
-> upcoming commits may add further members with proper kerneldoc.
+> The bcm2835aux UART driver stores a struct uart_8250_port in its private
+> data even though it's only passed once to serial8250_register_8250_port()
+> (which copies all relevant data) and becomes obsolete afterwards.
+> Allocate the struct on the stack instead for simplicity and to conserve
+> memory.
+> 
+> The driver also initializes a spinlock in the struct which is never used.
+> Drop that as well.
 > 
 > Signed-off-by: Lukas Wunner <lukas@wunner.de>
+> Cc: Martin Sperl <kernel@martin.sperl.org>
 
 Reviewed-by: Matthias Brugger <mbrugger@suse.com>
 
 > ---
->  drivers/tty/serial/8250/8250_bcm2835aux.c | 5 +++++
->  1 file changed, 5 insertions(+)
+>  drivers/tty/serial/8250/8250_bcm2835aux.c | 33 +++++++++++------------
+>  1 file changed, 15 insertions(+), 18 deletions(-)
 > 
 > diff --git a/drivers/tty/serial/8250/8250_bcm2835aux.c b/drivers/tty/serial/8250/8250_bcm2835aux.c
-> index d21460c9ef4b..e70e3cc30050 100644
+> index fb850d0ad643..f03d38e7c3a7 100644
 > --- a/drivers/tty/serial/8250/8250_bcm2835aux.c
 > +++ b/drivers/tty/serial/8250/8250_bcm2835aux.c
-> @@ -16,6 +16,11 @@
->  
+> @@ -17,13 +17,13 @@
 >  #include "8250.h"
 >  
-> +/**
-> + * struct bcm2835aux_data - driver private data of BCM2835 auxiliary UART
-> + * @clk: clock producer of the port's uartclk
-> + * @line: index of the port's serial8250_ports[] entry
-> + */
 >  struct bcm2835aux_data {
+> -	struct uart_8250_port uart;
 >  	struct clk *clk;
 >  	int line;
+>  };
+>  
+>  static int bcm2835aux_serial_probe(struct platform_device *pdev)
+>  {
+> +	struct uart_8250_port up = { };
+>  	struct bcm2835aux_data *data;
+>  	struct resource *res;
+>  	int ret;
+> @@ -34,17 +34,14 @@ static int bcm2835aux_serial_probe(struct platform_device *pdev)
+>  		return -ENOMEM;
+>  
+>  	/* initialize data */
+> -	spin_lock_init(&data->uart.port.lock);
+> -	data->uart.capabilities = UART_CAP_FIFO | UART_CAP_MINI;
+> -	data->uart.port.dev = &pdev->dev;
+> -	data->uart.port.regshift = 2;
+> -	data->uart.port.type = PORT_16550;
+> -	data->uart.port.iotype = UPIO_MEM;
+> -	data->uart.port.fifosize = 8;
+> -	data->uart.port.flags = UPF_SHARE_IRQ |
+> -				UPF_FIXED_PORT |
+> -				UPF_FIXED_TYPE |
+> -				UPF_SKIP_TEST;
+> +	up.capabilities = UART_CAP_FIFO | UART_CAP_MINI;
+> +	up.port.dev = &pdev->dev;
+> +	up.port.regshift = 2;
+> +	up.port.type = PORT_16550;
+> +	up.port.iotype = UPIO_MEM;
+> +	up.port.fifosize = 8;
+> +	up.port.flags = UPF_SHARE_IRQ | UPF_FIXED_PORT | UPF_FIXED_TYPE |
+> +			UPF_SKIP_TEST;
+>  
+>  	/* get the clock - this also enables the HW */
+>  	data->clk = devm_clk_get(&pdev->dev, NULL);
+> @@ -59,7 +56,7 @@ static int bcm2835aux_serial_probe(struct platform_device *pdev)
+>  	ret = platform_get_irq(pdev, 0);
+>  	if (ret < 0)
+>  		return ret;
+> -	data->uart.port.irq = ret;
+> +	up.port.irq = ret;
+>  
+>  	/* map the main registers */
+>  	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+> @@ -67,15 +64,15 @@ static int bcm2835aux_serial_probe(struct platform_device *pdev)
+>  		dev_err(&pdev->dev, "memory resource not found");
+>  		return -EINVAL;
+>  	}
+> -	data->uart.port.membase = devm_ioremap_resource(&pdev->dev, res);
+> -	ret = PTR_ERR_OR_ZERO(data->uart.port.membase);
+> +	up.port.membase = devm_ioremap_resource(&pdev->dev, res);
+> +	ret = PTR_ERR_OR_ZERO(up.port.membase);
+>  	if (ret)
+>  		return ret;
+>  
+>  	/* Check for a fixed line number */
+>  	ret = of_alias_get_id(pdev->dev.of_node, "serial");
+>  	if (ret >= 0)
+> -		data->uart.port.line = ret;
+> +		up.port.line = ret;
+>  
+>  	/* enable the clock as a last step */
+>  	ret = clk_prepare_enable(data->clk);
+> @@ -90,10 +87,10 @@ static int bcm2835aux_serial_probe(struct platform_device *pdev)
+>  	 * so we have to multiply the actual clock by 2
+>  	 * to get identical baudrates.
+>  	 */
+> -	data->uart.port.uartclk = clk_get_rate(data->clk) * 2;
+> +	up.port.uartclk = clk_get_rate(data->clk) * 2;
+>  
+>  	/* register the port */
+> -	ret = serial8250_register_8250_port(&data->uart);
+> +	ret = serial8250_register_8250_port(&up);
+>  	if (ret < 0) {
+>  		if (ret != -EPROBE_DEFER)
+>  			dev_err(&pdev->dev,
 > 
 
 _______________________________________________
