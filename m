@@ -2,37 +2,37 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id ACE5313DABA
-	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 16 Jan 2020 13:58:49 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 3852613DB08
+	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 16 Jan 2020 14:02:36 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
 	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
 	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2e+KcDEwT+HUcwIhYF3ayQ+IxyCEm4WRtGMqutJBP2Q=; b=s6PPrYM+HASXkR
-	m6N9yLUrADPFDeDHAaJQSa++QXz1BUOlfOhZgpUJImyF1Iw1bN3iuTZJp+CHxQD34bsqOZSRqcHxC
-	ORLZg0rg1z4mmLfrFUoadSCVXMspwxzRk9Ke8Slf+yQiz8oAmLfOf9Kx57ZN9d9EdFHGwTqChGmMg
-	twJOz37HCx1/kovYy5KhUtktSM128Utrf7ZGqSh1yQGbCovuwJ2m+aFH1Cz9HBJnIZJMFYgubDRuN
-	6UrUFawB+5E1RCbIuqMqv5Xq60eB766QGPiebp818e+zmtCjS1MolXe7xAaktLYXN7pqAhArDsF5x
-	MP2dtaFXzHNUMmSJ5biA==;
+	List-Owner; bh=KTFA4QNoininObfn++16ltBW5Mu4FRTtocCQlnUuxUU=; b=QKzcVMdDlGbtfN
+	FgKF7h01B0dKAimaYY0dKjz0zjy7tHgkz4jfTEGBvjzV8Um3DGHGxUp4npNrplNnz5H8yt/p1zbSf
+	plFhMTWnxFNfuajcaMcSP1QneU8hgudRJD4/urR8YUceRhsscCZiRookqTREGsx2ZhHaLHJS4OpXL
+	bIG0EGAP5ag2DLrwQcYC/GL1c4jzCudLeeisS7Q6higbikIn3xjsp6HJd4p8qdE0bxlE/OE3kXqNU
+	KsRHZZouHeCAnD+4Vj5W1Zrj3zfXk2rdFDFkIQ1NnRhHvmTZuOQsmnvim+7rHSR6SeZSFJGfPGFJ0
+	710nZPH1kCa6mqC+6fbw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1is4jV-0002zZ-Tm; Thu, 16 Jan 2020 12:58:45 +0000
+	id 1is4nC-000572-W6; Thu, 16 Jan 2020 13:02:34 +0000
 Received: from mx2.suse.de ([195.135.220.15])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1is4jQ-0002xW-Mx
- for linux-rpi-kernel@lists.infradead.org; Thu, 16 Jan 2020 12:58:44 +0000
+ id 1is4n6-00055z-1H
+ for linux-rpi-kernel@lists.infradead.org; Thu, 16 Jan 2020 13:02:32 +0000
 X-Virus-Scanned: by amavisd-new at test-mx.suse.de
 Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx2.suse.de (Postfix) with ESMTP id 1BA46B514;
- Thu, 16 Jan 2020 12:58:39 +0000 (UTC)
-Subject: Re: [PATCH 3/6] serial: 8250_bcm2835aux: Suppress register_port error
- on -EPROBE_DEFER
+ by mx2.suse.de (Postfix) with ESMTP id 731C9B001;
+ Thu, 16 Jan 2020 13:02:26 +0000 (UTC)
+Subject: Re: [PATCH 6/6] serial: 8250_bcm2835aux: Document struct
+ bcm2835aux_data
 To: Lukas Wunner <lukas@wunner.de>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 References: <cover.1579175223.git.lukas@wunner.de>
- <6aea0eacf3bfa73fe2d81082cc723265413410c8.1579175223.git.lukas@wunner.de>
+ <aea363c27fd541dba96d2ebfeee4f596c6d34932.1579175223.git.lukas@wunner.de>
 From: Matthias Brugger <mbrugger@suse.com>
 Autocrypt: addr=mbrugger@suse.com; prefer-encrypt=mutual; keydata=
  mQINBFP1zgUBEAC21D6hk7//0kOmsUrE3eZ55kjc9DmFPKIz6l4NggqwQjBNRHIMh04BbCMY
@@ -108,16 +108,16 @@ Autocrypt: addr=mbrugger@suse.com; prefer-encrypt=mutual; keydata=
  UHUEIsTwPWs2Q87k7vjYyrcyAOarX2X5pvMQvpAMADGf2Z3wrCsDdG25w2HztweUNd9QEprt
  JG8GNNzMOD4cQ82Ta7eGvPWPeXauWJDLVR9jHtWT9Ot3BQgmApLxACvwvD1a69jaFKov28SP
  HxUCQ9Y1Y/Ct
-Message-ID: <2c4eb91b-cf1d-b89a-90dc-2ef10d60e40d@suse.com>
-Date: Thu, 16 Jan 2020 13:58:38 +0100
+Message-ID: <38e446cd-a04f-6f20-3368-7a386d331930@suse.com>
+Date: Thu, 16 Jan 2020 14:02:25 +0100
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
  Thunderbird/68.3.0
 MIME-Version: 1.0
-In-Reply-To: <6aea0eacf3bfa73fe2d81082cc723265413410c8.1579175223.git.lukas@wunner.de>
+In-Reply-To: <aea363c27fd541dba96d2ebfeee4f596c6d34932.1579175223.git.lukas@wunner.de>
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200116_045841_038884_669C95CD 
-X-CRM114-Status: GOOD (  16.72  )
+X-CRM114-CacheID: sfid-20200116_050228_366336_24B3E55C 
+X-CRM114-Status: GOOD (  14.96  )
 X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-2.3 points)
@@ -125,10 +125,10 @@ X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  ---- ---------------------- --------------------------------------------------
  -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
  medium trust [195.135.220.15 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [195.135.220.15 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [195.135.220.15 listed in wl.mailspike.net]
  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -151,33 +151,33 @@ Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infrade
 
 
 On 16/01/2020 13:14, Lukas Wunner wrote:
-> Suppress a gratuitous error message if serial8250_register_8250_port()
-> returns -EPROBE_DEFER.
+> Document the driver private data of the BCM2835 auxiliary UART so that
+> upcoming commits may add further members with proper kerneldoc.
 > 
 > Signed-off-by: Lukas Wunner <lukas@wunner.de>
 
 Reviewed-by: Matthias Brugger <mbrugger@suse.com>
 
 > ---
->  drivers/tty/serial/8250/8250_bcm2835aux.c | 5 +++--
->  1 file changed, 3 insertions(+), 2 deletions(-)
+>  drivers/tty/serial/8250/8250_bcm2835aux.c | 5 +++++
+>  1 file changed, 5 insertions(+)
 > 
 > diff --git a/drivers/tty/serial/8250/8250_bcm2835aux.c b/drivers/tty/serial/8250/8250_bcm2835aux.c
-> index 33da68341c3a..fb850d0ad643 100644
+> index d21460c9ef4b..e70e3cc30050 100644
 > --- a/drivers/tty/serial/8250/8250_bcm2835aux.c
 > +++ b/drivers/tty/serial/8250/8250_bcm2835aux.c
-> @@ -95,8 +95,9 @@ static int bcm2835aux_serial_probe(struct platform_device *pdev)
->  	/* register the port */
->  	ret = serial8250_register_8250_port(&data->uart);
->  	if (ret < 0) {
-> -		dev_err(&pdev->dev, "unable to register 8250 port - %d\n",
-> -			ret);
-> +		if (ret != -EPROBE_DEFER)
-> +			dev_err(&pdev->dev,
-> +				"unable to register 8250 port - %d\n", ret);
->  		goto dis_clk;
->  	}
->  	data->line = ret;
+> @@ -16,6 +16,11 @@
+>  
+>  #include "8250.h"
+>  
+> +/**
+> + * struct bcm2835aux_data - driver private data of BCM2835 auxiliary UART
+> + * @clk: clock producer of the port's uartclk
+> + * @line: index of the port's serial8250_ports[] entry
+> + */
+>  struct bcm2835aux_data {
+>  	struct clk *clk;
+>  	int line;
 > 
 
 _______________________________________________
