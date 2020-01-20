@@ -2,54 +2,82 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 14DDA142D6B
-	for <lists+linux-rpi-kernel@lfdr.de>; Mon, 20 Jan 2020 15:24:40 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id A13E61432AF
+	for <lists+linux-rpi-kernel@lfdr.de>; Mon, 20 Jan 2020 20:59:32 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=3uX5VpXqk36N0GQ9TZDP5wlXGXexPR92LrKX7P4ikJU=; b=JAt9n89GdIxhKJ
-	FKzljbNrMLDh4V/VuJ0iIioCjhhU6NFF3X1nxsStQefqqzneaOYPPimSVChS1Glao7j5rx3ZXM+C1
-	yC75aGdnETgJIHM4e8hi/2KI5UQCI92fKzq5bDn6l28pvwZjsXrzJZVyPL6bmSWUOh2Pf0NJcAKS+
-	om7cdvP0AXWFoclSI0QOvk+tCAwcfXTmr0OXtXR4G5dBAX73/yIVOZK0ZhsfyVaH1xgcY58Hznc7s
-	hQPpytc8vuzh/sUZTr2H7HHaM3Sp6f/jGjUIWhcPyhZy+rpP2TSYY0RU13u+LfiBlvrToy9QI+u6l
-	sG9843M7LRyU4XR6t3YQ==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:To:From:
+	Subject:Date:In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=lELK8OnF96QHUDTAjKeRs0myf0yDdrJ+f1ZnpYwrS5U=; b=nLPzWExTdMas9w
+	eTThLJA5BrhRq9aSwnrmyJ/miM5JkIOdMwTFRo2Tb/qjFJxm3FkzJeDc3eZIxsLZBsPpdNmQSoBkX
+	p93RDbgEGyf9lX4E40KNtqlTFwMQJO8R+X3TfieL1HDeYhcPPnVj8JQDqXbwnHq6rhN2iG9hwPILn
+	6J5VaWE3Iyr2jz5agmYJkJ1ugEPp4hz8Y38HofpWnAZ3TIsH4nKB4gds9x/uWVfGYG4qQYRSe4C6Q
+	iNPPRjmR5066tN62u360ehbykznEfS/BebmRUVV7SBru2PNLfqZ1K5t755bR1FvauMJKb5aby78ac
+	9D7z8h79J4tnROgqXOHg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1itXyn-000330-RX; Mon, 20 Jan 2020 14:24:37 +0000
-Received: from mx2.suse.de ([195.135.220.15])
+	id 1itdCs-0005ob-OV; Mon, 20 Jan 2020 19:59:30 +0000
+Received: from sender4-of-o51.zoho.com ([136.143.188.51])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1itXyf-0002sS-P9
- for linux-rpi-kernel@lists.infradead.org; Mon, 20 Jan 2020 14:24:35 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx2.suse.de (Postfix) with ESMTP id 6D238ACA4;
- Mon, 20 Jan 2020 14:24:27 +0000 (UTC)
-From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-To: Mathias Nyman <mathias.nyman@intel.com>
-Subject: [PATCH] usb: xhci: Enable LPM for VIA LABS VL805
-Date: Mon, 20 Jan 2020 15:24:22 +0100
-Message-Id: <20200120142422.3907-1-nsaenzjulienne@suse.de>
-X-Mailer: git-send-email 2.24.1
-MIME-Version: 1.0
+ id 1itdCf-0005eJ-O4; Mon, 20 Jan 2020 19:59:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1579550348; 
+ s=selector01; d=brennan.io; i=stephen@brennan.io;
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:Date:Subject:From:To:Cc:Message-Id;
+ bh=zGEdNMOLYUYRRFqkqQsKe15wlZAeAg0gSQKMVkqOP1g=;
+ b=Pwe9wDFD2vVddbh4roqz2VZ+YSXzOhU7ZRLVdYZHQNQ4wDVmXyadx67RG0G5iEob
+ Cl7YPIGzVqy1fqpo08WLBkZEVb7ytHY1ooWF4rfqvPuNcrOXAQ/YHRk+dt96FxDd3Nt
+ LqisxORP7jbEwJheB7gfR5YRBhv8aQaFNCIC9WxM=
+Received: from localhost (195.173.24.136.in-addr.arpa [136.24.173.195]) by
+ mx.zohomail.com with SMTPS id 1579550343636345.40512828000374;
+ Mon, 20 Jan 2020 11:59:03 -0800 (PST)
+Originaldate: Mon Jan 20, 2020 at 12:03 PM
+Originalfrom: "Nicolas Saenz Julienne" <nsaenzjulienne@suse.de>
+Original: =?utf-8?q?Hi_Stephen,
+ =0D=0A=0D=0AOn_Sun,_2020-01-19_at_20:17_-0800,_Steph?=
+ =?utf-8?q?en_Brennan_wrote:=0D=0A>_When_booting_Raspberry_Pi_4B_using_a_m?=
+ =?utf-8?q?icro_SDHC_UHS_class_1_card,_the_SD=0D=0A>_card_partitions_never?=
+ =?utf-8?q?_appear_in_/dev.__According_to_the_device_tree=0D=0A>_bindings_?=
+ =?utf-8?q?for_Broadcom_IPROC_SDHCI_controller,_we_should_use=0D=0A>_"brcm?=
+ =?utf-8?q?,bcm2711-emmc2"_compatible_string_on_BCM2711._Set_this_compatib?=
+ =?utf-8?q?le=0D=0A>_string,_which_allows_these_cards_to_be_mounted.=0D=0A?=
+ =?utf-8?q?>=3D20=0D=0A>_Signed-off-by:_Stephen_Brennan_<stephen@brennan.i?=
+ =?utf-8?q?o>=0D=0A=0D=0AYour_UHS_class_1_card_should_work_out_of_the_box_?=
+ =?utf-8?q?using_the_current_kernel=0D=0Aversion._Note_that_the_device_nod?=
+ =?utf-8?q?e_is_defined_here:=0D=0A=0D=0Ahttps://git.kernel.org/pub/scm/li?=
+ =?utf-8?q?nux/kernel/git/torvalds/linux.git/tree/arc=3D=0D=0Ah/arm/boot/d?=
+ =?utf-8?q?ts/bcm2711.dtsi=3Fh=3D3Dv5.5-rc7#n255=0D=0A=0D=0Aand_enabled_he?=
+ =?utf-8?q?re:=0D=0A=0D=0Ahttps://git.kernel.org/pub/scm/linux/kernel/git/?=
+ =?utf-8?q?torvalds/linux.git/tree/arc=3D=0D=0Ah/arm/boot/dts/bcm2711-rpi-?=
+ =?utf-8?q?4-b.dts=3Fh=3D3Dv5.5-rc7#n98=0D=0A=0D=0ARegards,=0D=0ANicolas?=
+ =?utf-8?q?=0D=0A=0D=0A?=
+In-Reply-To: <936f10bbeca467ea8ebc669280a50c688730689d.camel@suse.de>
+Date: Mon, 20 Jan 2020 11:59:00 -0800
+Subject: Re: [PATCH] ARM: dts: bcm2711: Use bcm2711 compatible for sdhci
+From: "Stephen Brennan" <stephen@brennan.io>
+To: "Nicolas Saenz Julienne" <nsaenzjulienne@suse.de>
+Message-Id: <C00VV4QDHC2Q.20QYUR6KOPB8G@pride>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200120_062429_989590_AB332641 
-X-CRM114-Status: UNSURE (   9.99  )
+X-CRM114-CacheID: sfid-20200120_115917_842873_7841B4DD 
+X-CRM114-Status: UNSURE (   8.84  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.3 (--)
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [195.135.220.15 listed in list.dnswl.org]
+ 0.0 BAD_ENC_HEADER         Message has bad MIME encoding in the header
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [195.135.220.15 listed in wl.mailspike.net]
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -61,39 +89,38 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-usb@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Mark Rutland <mark.rutland@arm.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>,
+ bcm-kernel-feedback-list@broadcom.com, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-This PCIe controller chip is used on the Raspberry Pi 4 and multiple
-adapter cards. There is no publicly available documentation for the
-chip, yet both the downstream RPi4 kernel and the controller cards
-support/advertise LPM support.
+Hi Nicolas,
 
-Signed-off-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
----
- drivers/usb/host/xhci-pci.c | 3 +++
- 1 file changed, 3 insertions(+)
+You're right, this patch doesn't work (it doesn't even touch the correct 
+device tree node). My bad.
 
-diff --git a/drivers/usb/host/xhci-pci.c b/drivers/usb/host/xhci-pci.c
-index 4917c5b033fa..c1976e98992b 100644
---- a/drivers/usb/host/xhci-pci.c
-+++ b/drivers/usb/host/xhci-pci.c
-@@ -241,6 +241,9 @@ static void xhci_pci_quirks(struct device *dev, struct xhci_hcd *xhci)
- 			pdev->device == 0x3432)
- 		xhci->quirks |= XHCI_BROKEN_STREAMS;
- 
-+	if (pdev->vendor == PCI_VENDOR_ID_VIA && pdev->device == 0x3483)
-+		xhci->quirks |= XHCI_LPM_SUPPORT;
-+
- 	if (pdev->vendor == PCI_VENDOR_ID_ASMEDIA &&
- 			pdev->device == 0x1042)
- 		xhci->quirks |= XHCI_BROKEN_STREAMS;
--- 
-2.24.1
+> Your UHS class 1 card should work out of the box using the current
+> kernel version.
+
+I've been debugging an issue (reproduced on today's linux-next) in which my 
+UHS class 1 card's partitions don't show up in `/dev`. For example, if I do 
+`ls /dev | grep mmc`, I get just one result, "mmcblk1". I thought my patch 
+fixed the issue, but it turns out that the issue is sporadic: on some 
+boots, the issue manifests. On others, the partitions appear in /dev as 
+normal. When I tested this patch, the issue had sporadically disappeared, 
+leading me to believe the patch was effective.
+
+Sorry for the noise! If you have any suggestions on debugging this, I'd 
+appreciate it. As far as I know it could be anything - the particular card, 
+the particular Pi, etc.
+
+Thanks,
+Stephen
 
 
 _______________________________________________
