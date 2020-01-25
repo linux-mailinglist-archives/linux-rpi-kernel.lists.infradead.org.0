@@ -2,71 +2,60 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id C2FB51495FE
-	for <lists+linux-rpi-kernel@lfdr.de>; Sat, 25 Jan 2020 15:04:29 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 35016149690
+	for <lists+linux-rpi-kernel@lfdr.de>; Sat, 25 Jan 2020 17:16:32 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h6fiIAE2uZcy0wLuqDuShqUkFvGxBlYGKUmbLDpM+MQ=; b=tYphoB/TSwRE1F
-	paT3H8Nm/C/UzjDrFxwOytjvES0N+XL2MzqrXM4NM13tyxShZzfSn9L/+AfA6f1eUJfHvYqTeCjqH
-	hlr+v5sobq2AuiarNQxEcr/m8Wez5mGXE7XsUFH011D0KvaGlPmBwL3ecqhOdhUQhqMnm+ssKWKIx
-	eTQZ5CzqtCV92l22oITxbv4589JtSMiUiBz3bIbY6Ob5Y8ePHMAGolYPxT/81fpPlgf8L50MDsB1m
-	x6FGFd6mH9eWxH8TyZDVwIaz4jv3nxcsIrQn1jstiUOqc39cvFahhsKv9xQkAQ5crwY+YGnK+7nyj
-	twEJHus52G+JLBNWy6Cw==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=SG/8dybe+khkZ5K3E4mM0bcKHl7RbCtXNA0WsUtytN4=; b=j/4xOZDyCcf4NQNwsUuHWIgaZ
+	JXNVdbJBpw+tD1rviv5uCYdorXsSnlKAH1aisZUaMq4Iri6ARIzWkVR+RhgKeceGpuYsqQTXmwRf1
+	1SM7Rh/s/GLU98KCvHB6d7Y54eRvl2TyVQ9r0XWODz1B/AFbJAggTkwPfRUlOTTdlAIGCno6SDs/y
+	ghDDE6aghWWCNNAUugd+J4nPEDJT0Pck3Kn1AH5/7xAPAHxXyISF43K+iTsGRmxqjDKvo/O7DiD/b
+	KGlvDeFZlnLBjPmH6kZXEgX73HLJYzrOxlFyG6ZERT0jM34+O+9tgha0MmYux9uXNqkem7C9ygd4z
+	cxc/GwdTQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ivM32-0004XH-5b; Sat, 25 Jan 2020 14:04:28 +0000
-Received: from valentin-vidic.from.hr ([2001:470:1f0b:3b7::1])
+	id 1ivO6n-0001yw-1A; Sat, 25 Jan 2020 16:16:29 +0000
+Received: from mx2.suse.de ([195.135.220.15])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ivM2y-0004Wv-AE
- for linux-rpi-kernel@lists.infradead.org; Sat, 25 Jan 2020 14:04:25 +0000
-X-Virus-Scanned: Debian amavisd-new at valentin-vidic.from.hr
-Received: by valentin-vidic.from.hr (Postfix, from userid 1000)
- id DB9383EA; Sat, 25 Jan 2020 15:04:21 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=valentin-vidic.from.hr; s=2017; t=1579961061;
- bh=FrBzqS8eiienelASeW3XgxvsSBXSDhcRJOiku4JU/YI=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=H6ehGnNBAeBssOebeNfp91frxuPvVieNusS3y8/tdd/s8e8mXqjIsHz/JRHc8u+bj
- N9s2keJpTHmxlOCHPj1OQS4abKokPsHrX3iLjQz37vKHoZfktt1nitFAYDxQ4MwO9X
- URM+7hO0pYROl/hQxkWuq5PX+V3kSrc1GOiGCsbmmQGxZ7GwXTWi4UHRlUlgclBZWm
- i6vUMh2UwbVtxVNeoff2naSNApN700bDchkWZEXbeSiWCqIf/B/2s5XXz2ajvVkIr6
- ujJxs7B/lfbzfTM6y0w5KGeF7R3x9xfA7R20g7AMwLqOspv/0vLSD/Uy4syiuRI8lt
- afcxA1bcr5ydg==
-Date: Sat, 25 Jan 2020 15:04:21 +0100
-From: Valentin =?utf-8?B?VmlkacSH?= <vvidic@valentin-vidic.from.hr>
-To: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+ id 1ivO6k-0001ya-EG
+ for linux-rpi-kernel@lists.infradead.org; Sat, 25 Jan 2020 16:16:27 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+ by mx2.suse.de (Postfix) with ESMTP id 8259BAC53;
+ Sat, 25 Jan 2020 16:16:24 +0000 (UTC)
+Message-ID: <0f28a4fe2806aa5e4444aa6758ea60a73d1e8209.camel@suse.de>
 Subject: Re: RPi B+ USB support
-Message-ID: <20200125140421.GI3671@valentin-vidic.from.hr>
+From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+To: Valentin =?UTF-8?Q?Vidi=C4=87?= <vvidic@valentin-vidic.from.hr>
+Date: Sat, 25 Jan 2020 17:16:23 +0100
+In-Reply-To: <20200125140421.GI3671@valentin-vidic.from.hr>
 References: <20200125130737.GG3671@valentin-vidic.from.hr>
  <C04WEWWXBXRL.28WZVXZ9OKU4B@linux-9qgx>
  <20200125135404.GH3671@valentin-vidic.from.hr>
  <41e082fa921653f57de2809630bedbb339fe5111.camel@suse.de>
+ <20200125140421.GI3671@valentin-vidic.from.hr>
+User-Agent: Evolution 3.34.3 
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <41e082fa921653f57de2809630bedbb339fe5111.camel@suse.de>
-User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200125_060424_675456_AAE3746E 
-X-CRM114-Status: UNSURE (   5.20  )
+X-CRM114-CacheID: sfid-20200125_081626_624562_60BD89F6 
+X-CRM114-Status: UNSURE (   8.92  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: -0.2 (/)
+X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [195.135.220.15 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [195.135.220.15 listed in wl.mailspike.net]
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -79,21 +68,68 @@ List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
 Cc: linux-rpi-kernel@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4897378317352134490=="
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-On Sat, Jan 25, 2020 at 02:56:36PM +0100, Nicolas Saenz Julienne wrote:
-> Yes, it's possible, did you also update the relevant device-tree file on your
-> boot partition?
 
-Yes, I used dtbs/bcm2835-rpi-b.dtb from the same kernelci page.
+--===============4897378317352134490==
+Content-Type: multipart/signed; micalg="pgp-sha256";
+	protocol="application/pgp-signature"; boundary="=-nMxIoD1ulio4oLUm8AZ6"
 
--- 
-Valentin
+
+--=-nMxIoD1ulio4oLUm8AZ6
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+On Sat, 2020-01-25 at 15:04 +0100, Valentin Vidi=C4=87 wrote:
+> On Sat, Jan 25, 2020 at 02:56:36PM +0100, Nicolas Saenz Julienne wrote:
+> > Yes, it's possible, did you also update the relevant device-tree file o=
+n
+> > your
+> > boot partition?
+>=20
+> Yes, I used dtbs/bcm2835-rpi-b.dtb from the same kernelci page.
+
+Could you list me the contents of your boot partition and the contents of
+config.txt file (which should be in the boot partition).
+
+Regards,
+Nicolas
+
+
+--=-nMxIoD1ulio4oLUm8AZ6
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCAAdFiEErOkkGDHCg2EbPcGjlfZmHno8x/4FAl4sadcACgkQlfZmHno8
+x/5niAf+MeGtcyROmAuV89gVfgVnHN1e6ITU9E/0zPjWOcunh28CtefRSKV1bTMV
+XwzLlAZtu9NlfjK6CW45UrHrjTlh1kkiAxaCNWENyobcI5Uo80w/iXft6xaQh6Om
+4/EH19joigGfUPdw2xKMRnfi9fFe1plDPd6MuXTM3+5MiYs/hf7kAsmZsMkIu4Kd
+Pn41sRBDb1ypVGHb582gVQiXK0Aq1Ooio24+cBKWBF8I8q1RWJFfpDoxxY2wOCKi
+k2+WvQw9ioITTYUqVzYLJ79KawhH+/84llK+5Ke2OchK/qF/zQy+nmeqhl3MX+eQ
+keWddwBB244ccwfcF8FR3nshUMgxCw==
+=0lzH
+-----END PGP SIGNATURE-----
+
+--=-nMxIoD1ulio4oLUm8AZ6--
+
+
+
+--===============4897378317352134490==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-rpi-kernel mailing list
 linux-rpi-kernel@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
+
+--===============4897378317352134490==--
+
+
