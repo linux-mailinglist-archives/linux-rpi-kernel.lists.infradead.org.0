@@ -2,57 +2,71 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8B0A014A28F
-	for <lists+linux-rpi-kernel@lfdr.de>; Mon, 27 Jan 2020 12:07:12 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id D460C14AAC8
+	for <lists+linux-rpi-kernel@lfdr.de>; Mon, 27 Jan 2020 21:03:08 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=FFUqV1xWQa3c/wV6Q+W7IktB6UtA+xM9Dm4NKrjMS9I=; b=nPqg3xkaDryDhhfKpePq0Tkwy
-	KGzdPMxXJby8lBQbyWewyYWEY19kAuwePXc8UYxMNKVy3CxmT8WpVNYmkIUyt3tK71PY70dhrcQYg
-	hbo6TrZxx3n1bekZ1MB0lC4Nt1nAWxZXG0Vb/SzCEI4oND4k/Y+7V/TFcgurKAHdLHtDYzM3k/Q+f
-	Xko0RMlYLJ2kq6218ST36J65yaeoWTRe6/uEyaYtA4BdVY4lNYb8GCUB4sAPUPvD5rU+z48vxzTVS
-	DJMRZm/4tE0Rk8PtkpHzWOOgvLPE9RgQLpBgLQGYTvxjwRpyRmUuIeIGeJ9gsPoLPzVtgD2qvoeN0
-	XGZe50lag==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jKaXgYoZ65iDZ2f2sXk8ZOgvHGjPNz/nxiY+1Ua2Ij0=; b=i3442hFKkG8zN1
+	NPXCP+OHa7yKW1IN3puuaD4GYopwzPFkBRh70Vvixt28gVJXDSWMz7VqBmxZeAzocGpPWwlrjcytF
+	1HyPqll9/Fgk7VJzp3nH7n9NeVYRd54fWZaAofkwQICbQYyABDNG/P7M9LV3pcx+vXwgAMLFQXcv4
+	eVMqlbQv7nwlK1NpUbpqJCjbopOUPs+GRP+qIn14/7wPQhWUo45X4h/pGiDHhcD5vDB3KdXPe3mGu
+	e3p9SFrV0YzR3K052/lIoz5OPYyNrzOxhgdxVgFW2ElmUUPCpu04S9d2EyD/WPRgPSXWG0di9XdJV
+	cEbEz/ePdTf8vZc7fO1A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iw2ET-0004sH-TI; Mon, 27 Jan 2020 11:07:05 +0000
-Received: from mx2.suse.de ([195.135.220.15])
+	id 1iwAb8-00045I-5E; Mon, 27 Jan 2020 20:03:02 +0000
+Received: from valentin-vidic.from.hr ([94.229.67.141])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iw2EK-0004jl-9Z; Mon, 27 Jan 2020 11:06:57 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx2.suse.de (Postfix) with ESMTP id AE5BBB119;
- Mon, 27 Jan 2020 11:06:54 +0000 (UTC)
-Message-ID: <f66483db33f8c190030ba0b66e0d85e549691cf0.camel@suse.de>
-Subject: Re: [PATCH 06/22] staging: vc04_services: get rid of
- vchiq_platform_use_suspend_timer()
-From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-To: gregkh@linuxfoundation.org, linux-kernel@vger.kernel.org
-Date: Mon, 27 Jan 2020 12:06:53 +0100
-In-Reply-To: <20200124144617.2213-7-nsaenzjulienne@suse.de>
-References: <20200124144617.2213-1-nsaenzjulienne@suse.de>
- <20200124144617.2213-7-nsaenzjulienne@suse.de>
-User-Agent: Evolution 3.34.3 
+ id 1iwAb5-00044k-L5
+ for linux-rpi-kernel@lists.infradead.org; Mon, 27 Jan 2020 20:03:01 +0000
+X-Virus-Scanned: Debian amavisd-new at valentin-vidic.from.hr
+Received: by valentin-vidic.from.hr (Postfix, from userid 1000)
+ id 1DAA8393; Mon, 27 Jan 2020 21:02:48 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=valentin-vidic.from.hr; s=2017; t=1580155368;
+ bh=fRWRX98jC86tXlVTSR4DmkrD0lvvMReNXYv6d8DffHk=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=DhVMFib+o1PzAPYxd+Q7cM8lxK+mZmM0h/K3KxNY42qQN0V1pnHzbLG95L8qkVgaF
+ /CDYbrxUAjZtusWnwVV9GijKUgN2GJ7mv0uLFhFfpEEaskrX7XBy4QjfjZFaBruV36
+ ofY8hBRW5yD9BsCn2tU/EECfxUpPobFakO/HvXUtbkICXvon4ErFbqZA/REykuhc2H
+ LIkmK3SKISEq79iPGy8b3neqrt5foHmQJx3LxMGJKmsb+SJhmeAMn8OyiEr20e11em
+ eFypdWoUQETr3cIbEEJq+fF1ZLazmnud5dw5kxPPOFM5KLZBef8rrmj75HdgodSTsG
+ 8mq1h+oqje47A==
+Date: Mon, 27 Jan 2020 21:02:48 +0100
+From: Valentin =?utf-8?B?VmlkacSH?= <vvidic@valentin-vidic.from.hr>
+To: Stefan Wahren <stefan.wahren@i2se.com>
+Subject: Re: RPi B+ USB support
+Message-ID: <20200127200248.GX3671@valentin-vidic.from.hr>
+References: <20200125120933.GF3671@valentin-vidic.from.hr>
+ <d374f6cd6692d088ffad15cb29085cd723903418.camel@suse.de>
+ <20200125130737.GG3671@valentin-vidic.from.hr>
+ <39e2b61e-6ccf-a222-2246-5a36a2042e2c@i2se.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <39e2b61e-6ccf-a222-2246-5a36a2042e2c@i2se.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200127_030656_485209_551C13E3 
-X-CRM114-Status: UNSURE (   8.06  )
+X-CRM114-CacheID: sfid-20200127_120259_974334_BBF2E99B 
+X-CRM114-Status: UNSURE (   6.92  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.3 (--)
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [195.135.220.15 listed in list.dnswl.org]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [195.135.220.15 listed in wl.mailspike.net]
- -0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -64,75 +78,24 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: devel@driverdev.osuosl.org, bcm-kernel-feedback-list@broadcom.com,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Content-Type: multipart/mixed; boundary="===============2704678299681439119=="
+Cc: linux-rpi-kernel@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
+On Mon, Jan 27, 2020 at 08:29:06AM +0100, Stefan Wahren wrote:
+> is this warning disappeared, after swapping u-boot?
 
---===============2704678299681439119==
-Content-Type: multipart/signed; micalg="pgp-sha256";
-	protocol="application/pgp-signature"; boundary="=-jfVbXwfzGkRKU6Ms0WbO"
+Yes, the warning is gone now, but not sure what the cause was
+exactly. Probably something wrong with loading the device tree
+from the boot.scr, as both the git and the packaged version of
+u-boot.bin work now without problems.
 
-
---=-jfVbXwfzGkRKU6Ms0WbO
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, 2020-01-24 at 15:46 +0100, Nicolas Saenz Julienne wrote:
-> @@ -3059,7 +2986,6 @@ vchiq_check_service(struct vchiq_service *service)
->  			arm_state->videocore_use_count,
->  			suspend_state_names[arm_state->vc_suspend_state +
->  						VC_SUSPEND_NUM_OFFSET]);
-> -		vchiq_dump_service_use_state(service->state);
->  	}
->  out:
->  	return ret;
-
-As highlighted by the kbuild test robot, this shouldn't be removed. Sorry i=
-t
-slipped through the cracks. Happened because of it similarities with
-vchiq_dump_platform_use_state(), which is being rightfully removed.
-
-I'll give some time for further feedback, and send a v2.
-
-Regards,
-Nicolas
-
-
---=-jfVbXwfzGkRKU6Ms0WbO
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCAAdFiEErOkkGDHCg2EbPcGjlfZmHno8x/4FAl4uxE0ACgkQlfZmHno8
-x/7IcwgAlexqcFZf/vJCGPkHlxL6iHIKlCfhykAprlaYxplMz0io9YbfEMoxiaKj
-tuttGtiS8cVZgpJpMQA76Rc0iz6m05eSOxnLnxj1s7l9NTFobSU9BA06HsA1Hgg6
-h7GcQ/N71IY7vADTVX2zYWTt91KNKtBR5MBgJjudSe3E//DSHyC2SGOe3ZEWnjos
-2JKz/rW9X8bqTiaxS7e6YBzgd5ZRuuHVFWQ0iujbo+ymCiItZ1XeI3CxfkpJIdjn
-5y3vcKQkoMbWKaoKfQ9UlPdFHhacB28ukVCCcZPAQ3nCHCOYgteDrEtHmhu0Xive
-zkSOKBZTUF2Ku9R9JWUmDa3lqph9vg==
-=WPcc
------END PGP SIGNATURE-----
-
---=-jfVbXwfzGkRKU6Ms0WbO--
-
-
-
---===============2704678299681439119==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Valentin
 
 _______________________________________________
 linux-rpi-kernel mailing list
 linux-rpi-kernel@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
-
---===============2704678299681439119==--
-
-
