@@ -2,44 +2,44 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3C02C14EB42
-	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 31 Jan 2020 11:47:02 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 72C4614EB43
+	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 31 Jan 2020 11:47:03 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vnwxsCuIkRHk/nPLmcIV27KIHuU91CXDMxDvqWzJuMc=; b=TP9JnO8PBg3f3Y
-	KwOS3LOn96iWjZlJ+om5+XJCicVUznDYpRk5OnWMOvFIP8GsrcZYwY9Liue8OUk3SlNBGw3ZnKjLA
-	qba1lmVbbuIhhtdbYBazlXNGHwPS2uXkG0ZOaneV9Xz+sv8OmGYQzyS6ueZQR2cJ1Dc7lDIPTieyv
-	JAoTcIAfZrsBF5SppKjNXK68YbGQxoxzTiXY/bvzHMjhpP7Xj2wcz9Gw5td5C/ZeGhD1FaE6yzbes
-	98/GrpsjR96r4Fg+8WlGW4DZn3K8A2X8ifcWHIHqv3EWfNtoak9KMAkJBF03bgGSCs/l40D/xOgzM
-	xq71CyxqcbjB24CgS5qg==;
+	List-Owner; bh=knsSmtuALEHIBTPs0ATWNL7KnmFzPDf8rq5U/EuKisA=; b=HbI72cMiZQ7Xr+
+	CahdcH+gtYjQjgLxy6+BXMC1Rdtg1Jkf5vrdft4Bc8CWmcUSBnyqVILsJ+uQU5v0wVPI89uAPJaE6
+	1a4uQTG655hiHFcuRERQLmVZN97FhNTpFkiuW4WG9Bal5/V+eWWLUEEdsjdeGmbehWeAZSUik2Owe
+	JhptP9E3LU3aA2CgbEpz1FvR45Ecvp1eTDCpKqkEd+1kcNwJIV5PHXEleHRAlRPdsC5GuqXoZoazz
+	10FqKE54JIbFdksA6TNt5PznWd1vDqrmUkhbO45bDKHnub5CPlE5hQJeuok+IMVM0AcWUa7aQbu85
+	cllqS977Hmxse0UMVnRA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ixTpC-0004Bf-WF; Fri, 31 Jan 2020 10:46:59 +0000
+	id 1ixTpF-0004E0-5g; Fri, 31 Jan 2020 10:47:01 +0000
 Received: from mx2.suse.de ([195.135.220.15])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ixThp-0003ft-EV; Fri, 31 Jan 2020 10:39:22 +0000
+ id 1ixThq-0003gk-32; Fri, 31 Jan 2020 10:39:23 +0000
 X-Virus-Scanned: by amavisd-new at test-mx.suse.de
 Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx2.suse.de (Postfix) with ESMTP id 123C9B001;
+ by mx2.suse.de (Postfix) with ESMTP id B348EAF43;
  Fri, 31 Jan 2020 10:39:20 +0000 (UTC)
 From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 To: gregkh@linuxfoundation.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 20/21] staging: vc04_services: Get rid of
- vchiq_arm_vcresume()'s signature
-Date: Fri, 31 Jan 2020 11:38:36 +0100
-Message-Id: <20200131103836.14312-21-nsaenzjulienne@suse.de>
+Subject: [PATCH v2 21/21] staging: vc04_services: vchiq_arm: Get rid of unused
+ defines
+Date: Fri, 31 Jan 2020 11:38:37 +0100
+Message-Id: <20200131103836.14312-22-nsaenzjulienne@suse.de>
 X-Mailer: git-send-email 2.25.0
 In-Reply-To: <20200131103836.14312-1-nsaenzjulienne@suse.de>
 References: <20200131103836.14312-1-nsaenzjulienne@suse.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200131_023921_677034_83E4498A 
-X-CRM114-Status: UNSURE (   8.88  )
+X-CRM114-CacheID: sfid-20200131_023922_288628_895C5689 
+X-CRM114-Status: UNSURE (   9.14  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
@@ -71,27 +71,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-The function implementation does not exist.
+They aren't used anywhere. Get rid of them.
 
 Signed-off-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 ---
- drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.h | 3 ---
- 1 file changed, 3 deletions(-)
+ .../vc04_services/interface/vchiq_arm/vchiq_arm.c      | 10 ----------
+ 1 file changed, 10 deletions(-)
 
-diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.h b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.h
-index 795fd82a1d00..0784c5002417 100644
---- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.h
-+++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.h
-@@ -64,9 +64,6 @@ int vchiq_platform_init(struct platform_device *pdev,
- extern struct vchiq_state *
- vchiq_get_state(void);
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
+index 81b1c98cae3c..c456ced431af 100644
+--- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
+@@ -48,16 +48,6 @@
+ int vchiq_arm_log_level = VCHIQ_LOG_DEFAULT;
+ int vchiq_susp_log_level = VCHIQ_LOG_ERROR;
  
--extern enum vchiq_status
--vchiq_arm_vcresume(struct vchiq_state *state);
+-/* The number of times we allow force suspend to timeout before actually
+-** _forcing_ suspend.  This is to cater for SW which fails to release vchiq
+-** correctly - we don't want to prevent ARM suspend indefinitely in this case.
+-*/
+-#define FORCE_SUSPEND_FAIL_MAX 8
 -
- extern enum vchiq_status
- vchiq_arm_init_state(struct vchiq_state *state,
- 		     struct vchiq_arm_state *arm_state);
+-/* The time in ms allowed for videocore to go idle when force suspend has been
+- * requested */
+-#define FORCE_SUSPEND_TIMEOUT_MS 200
+-
+ struct user_service {
+ 	struct vchiq_service *service;
+ 	void *userdata;
 -- 
 2.25.0
 
