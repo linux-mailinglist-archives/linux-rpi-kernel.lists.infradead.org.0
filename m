@@ -2,78 +2,58 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 67FF8155BC8
-	for <lists+linux-rpi-kernel@lfdr.de>; Fri,  7 Feb 2020 17:31:11 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id C8DCD155CC7
+	for <lists+linux-rpi-kernel@lfdr.de>; Fri,  7 Feb 2020 18:25:38 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-ID:To:Subject
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=hlY1m4y2+fjX3Yj8sxVNX/eqtpjsS8EX5WLBapcLcGo=; b=KdmL+ll7bm739n
-	PpqA2IFzkdM5zCigEM0gg1ppKJ3+vjZQNArMbjQwSDl2qxZ3tOFQt/Xp3vnBJ/me8u27ai7Q4Xey4
-	srJ6xmmUrzjqu/u4VY4VZYwQhp1mgvaJd9Ra36ISFhmWAp04DSpQaYnrxzZ9AqVxgrWkTO+Tx5yZZ
-	gPHNoH5GEyHK0wFVvnfBG+q1HTAkb4e9f+MwMc/gHSTUTsXScuIavx12sfFaVF54RrfYdxLMsLYSn
-	qykgVvQcAv3ySoBACt/ONhvVo095Ey4yWOWC0qRWZDeUgGVSXbh/dfJ9KyBfyw50bN8IIAVykvOD/
-	cA/diBAp8x3OYpjmtEKA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:
+	Cc:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=MVkz0jVncklBdKn5Xky5aH1Q+Df8QKHfdXOAYrDoNLs=; b=RkXncK6iua9mmDJVXywf7ewFQ
+	AW00Ya9zv90fXi1YbE+5RUJ1z9YUPRVGVmpQuh3y8g3wnDOtyuZOzpgomdkPKkfQ0L59bHiG7SrTw
+	mjbgBb6gBaXcaTjEsyxEfVrLCb9IWK0JxhqTeapHD0auFf5zxKow1FF2SBnthEhweir0wao6gmI9Z
+	Am+1axA2UzHgYEio7wEskqDj81QuczjCZ7yc0feh2Be/AEjwWOMAhDbEAJJVQBQawCOWFA20ldLFT
+	lh+1HJLnE61ZAzlJJmkeABKiebNG8dVozp9fHfg/UiZAmhJmOziJDgJHdO7dO4L/tThHu0BIeRttP
+	mnF8JUaxQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j06Wh-0008Km-E9; Fri, 07 Feb 2020 16:30:43 +0000
-Received: from cable.insite.cz ([84.242.75.189])
+	id 1j07NY-0001mx-6m; Fri, 07 Feb 2020 17:25:20 +0000
+Received: from mx2.suse.de ([195.135.220.15])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j06Wd-0008K5-SX
- for linux-rpi-kernel@lists.infradead.org; Fri, 07 Feb 2020 16:30:41 +0000
-Received: from localhost (localhost [127.0.0.1])
- by cable.insite.cz (Postfix) with ESMTP id BADA7A1A40B08;
- Fri,  7 Feb 2020 17:30:35 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=ivitera.com; s=mail;
- t=1581093035; bh=qsVc9li1fSz4GnDlcZZEioA7hvf54QxlFumBuo2gVok=;
- h=From:Subject:To:Date:From;
- b=TNOWV1V8XUrr3TaoR45yVPEYe6775YJzz/0eVv41q82odStcVDbsCbFGAq4d5YvD6
- 0VZwojaFPkOYex/5VLROOr2CEzC9OZHUxk2QLWP6ePTvz3yYfvD8nKmhBKmJyHDWqN
- WZg51uCKz66s2BESOmiSOnl46IvnYCuRLvIIalMk=
-Received: from cable.insite.cz ([84.242.75.189])
- by localhost (server.insite.cz [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id wl7j5AY9GYVC; Fri,  7 Feb 2020 17:30:35 +0100 (CET)
-Received: from [192.168.100.32] (unknown [192.168.100.32])
- (Authenticated sender: pavel)
- by cable.insite.cz (Postfix) with ESMTPSA id 89C01A1A40B05;
- Fri,  7 Feb 2020 17:30:35 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=ivitera.com; s=mail;
- t=1581093035; bh=qsVc9li1fSz4GnDlcZZEioA7hvf54QxlFumBuo2gVok=;
- h=From:Subject:To:Date:From;
- b=TNOWV1V8XUrr3TaoR45yVPEYe6775YJzz/0eVv41q82odStcVDbsCbFGAq4d5YvD6
- 0VZwojaFPkOYex/5VLROOr2CEzC9OZHUxk2QLWP6ePTvz3yYfvD8nKmhBKmJyHDWqN
- WZg51uCKz66s2BESOmiSOnl46IvnYCuRLvIIalMk=
-From: Pavel Hofman <pavel.hofman@ivitera.com>
-Subject: [PATCH] overlays: dwc2: Increase RX FIFO size
-To: Minas Harutyunyan <hminas@synopsys.com>, Rob Herring
- <robh+dt@kernel.org>, Nicolas Saenz Julienne <nsaenzjulienne@suse.de>,
- linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+ id 1j07NV-0001mK-7Y
+ for linux-rpi-kernel@lists.infradead.org; Fri, 07 Feb 2020 17:25:18 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+ by mx2.suse.de (Postfix) with ESMTP id 5B9AAAF57;
+ Fri,  7 Feb 2020 17:25:11 +0000 (UTC)
+Message-ID: <9b0f8daeb12ad4e5be74ff93e64c38087af199cf.camel@suse.de>
+Subject: Re: [PATCH] overlays: dwc2: Increase RX FIFO size
+From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+To: Pavel Hofman <pavel.hofman@ivitera.com>, Minas Harutyunyan
+ <hminas@synopsys.com>, Rob Herring <robh+dt@kernel.org>, 
+ linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-rpi-kernel@lists.infradead.org
-Message-ID: <43db1d9c-6fa2-88bd-11df-6ae2f48a4ac9@ivitera.com>
-Date: Fri, 7 Feb 2020 17:30:35 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.6.1
+Date: Fri, 07 Feb 2020 18:25:09 +0100
+In-Reply-To: <43db1d9c-6fa2-88bd-11df-6ae2f48a4ac9@ivitera.com>
+References: <43db1d9c-6fa2-88bd-11df-6ae2f48a4ac9@ivitera.com>
+User-Agent: Evolution 3.34.3 
 MIME-Version: 1.0
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200207_083040_247055_E9ADC974 
-X-CRM114-Status: GOOD (  11.02  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20200207_092517_418944_67270BBF 
+X-CRM114-Status: GOOD (  10.91  )
+X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [195.135.220.15 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [195.135.220.15 listed in wl.mailspike.net]
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -85,62 +65,88 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============9029614717362911384=="
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-The previous version of the dwc2 overlay set the RX FIFO size to
-256 4-byte words. This sounds large enough for a 1024 byte packet (the
-largest isochronous high speed packet allowed), but it doesn't take
-into account some extra space needed by the hardware.
 
-Minas Harutyunyan at Synopsys (the source of the DWC OTG design)
-came up with a more correct value, 301, but since there is spare packet
-RAM this can be increased to 558 to allow two packets per frame.
+--===============9029614717362911384==
+Content-Type: multipart/signed; micalg="pgp-sha256";
+	protocol="application/pgp-signature"; boundary="=-yTpRgBYomwJsP1mAJVk/"
 
-See: https://github.com/raspberrypi/linux/issues/3447
 
-Signed-off-by: Phil Elwell <phil@raspberrypi.com>
-Signed-off-by: Pavel Hofman <pavel.hofman@ivitera.com>
----
- arch/arm/boot/dts/bcm283x-rpi-usb-otg.dtsi        | 2 +-
- arch/arm/boot/dts/bcm283x-rpi-usb-peripheral.dtsi | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+--=-yTpRgBYomwJsP1mAJVk/
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/arch/arm/boot/dts/bcm283x-rpi-usb-otg.dtsi
-b/arch/arm/boot/dts/bcm283x-rpi-usb-otg.dtsi
-index e2fd961..20322de 100644
---- a/arch/arm/boot/dts/bcm283x-rpi-usb-otg.dtsi
-+++ b/arch/arm/boot/dts/bcm283x-rpi-usb-otg.dtsi
-@@ -1,7 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
- &usb {
- 	dr_mode = "otg";
--	g-rx-fifo-size = <256>;
-+	g-rx-fifo-size = <558>;
- 	g-np-tx-fifo-size = <32>;
- 	/*
- 	 * According to dwc2 the sum of all device EP
-diff --git a/arch/arm/boot/dts/bcm283x-rpi-usb-peripheral.dtsi
-b/arch/arm/boot/dts/bcm283x-rpi-usb-peripheral.dtsi
-index 0ff0e9e..1409d1b 100644
---- a/arch/arm/boot/dts/bcm283x-rpi-usb-peripheral.dtsi
-+++ b/arch/arm/boot/dts/bcm283x-rpi-usb-peripheral.dtsi
-@@ -1,7 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
- &usb {
- 	dr_mode = "peripheral";
--	g-rx-fifo-size = <256>;
-+	g-rx-fifo-size = <558>;
- 	g-np-tx-fifo-size = <32>;
- 	g-tx-fifo-size = <256 256 512 512 512 768 768>;
- };
--- 
-1.9.1
+Hi Pavel,
+Could you change the patch title to something like this (see other patches
+changing the device-trees, you'll see it's the common pattern):
 
+	ARM: dts: bcm283x: increase dwc2's RX FIFO size
+
+On Fri, 2020-02-07 at 17:30 +0100, Pavel Hofman wrote:
+> The previous version of the dwc2 overlay set the RX FIFO size to
+> 256 4-byte words. This sounds large enough for a 1024 byte packet (the
+> largest isochronous high speed packet allowed), but it doesn't take
+> into account some extra space needed by the hardware.
+>=20
+> Minas Harutyunyan at Synopsys (the source of the DWC OTG design)
+> came up with a more correct value, 301, but since there is spare packet
+> RAM this can be increased to 558 to allow two packets per frame.
+
+I suggest making a short summary of your github explanation[1] instead of j=
+ust
+citing Minas. On one hand Minas' memory might get fuzzy after some time (or=
+ not
+be able to access the documentation) and...
+
+> See: https://github.com/raspberrypi/linux/issues/3447
+
+...you're assuming this link will be always available. Which is unlikely. A=
+fter
+properly explaining the issue, you won't need the link anyway. Ultimately a
+patch description should be as self-contained/self-explanatory as possible.
+
+Other than that the patch looks good.
+Thanks!
+Nicolas
+
+[1] https://github.com/raspberrypi/linux/issues/3447#issuecomment-581815066
+
+
+--=-yTpRgBYomwJsP1mAJVk/
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCAAdFiEErOkkGDHCg2EbPcGjlfZmHno8x/4FAl49nXUACgkQlfZmHno8
+x/64+Af9GVsNsm3NPhMpW0qCLhpsj/VtaeNiM9S+OrLw/5WVKaOalPDpGp+w7qrk
+bZ5VPmFCpIxjJX0fY6lnJWuOPlrMAi7w9PL+h3WFtSqmhRDELUktdg3cnvLYxaxm
+SykV6fdYnhB5u4YXRIky9Ox+Whz95P3LDg67IZE7PX/QQTbYm8+slwdkkTRWZSuZ
+8eb1J4rSDxPcE7rY7uPLNJVvMsFL6kPZiEqX4VvdIbwZ+5kJiyELEs/FbBKQlxFK
+dS8Xkc0VoS9UinK2i+M27haWJ39Z26Bgl7DWNEV4OSf4URECcLPwt/f9Lp5s4izo
+RCM/CL9ocnu6cS1723xHouvaYbKnKw==
+=nK9S
+-----END PGP SIGNATURE-----
+
+--=-yTpRgBYomwJsP1mAJVk/--
+
+
+
+--===============9029614717362911384==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-rpi-kernel mailing list
 linux-rpi-kernel@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
+
+--===============9029614717362911384==--
+
+
