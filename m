@@ -2,58 +2,84 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id C623D15AFDC
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 12 Feb 2020 19:32:03 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 7C99615B009
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 12 Feb 2020 19:43:41 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:
-	Cc:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=IP+TEnn/TUvion7FpOIUnBYpz3OpWRiZwSdg/yJxXoY=; b=W/YrAdqq+Ajsa+NUbLL/0p0yG
-	KBFKfksM8/LIxo7fNie7G+nFVqaG5lJJ7eOgjnNqjbI+ohSTh0CKQM4mldVStEAQEtk4xEl77DTeB
-	gb99J8YYUD3l8S8y3eWYrw3vfCTnwTSgISZ/EXn9poCSQXPhEhlFb6cHaK3SVkG8UYUwiFFLveBnl
-	yXAiXxfqgxbz4OhTBagyEbXz6igXCY1cHorAkc68HcQtln/5NWzg3gIAI0/kb1lXkTibFEKxueEco
-	azDKDCkuRfsWc3mJgX4/8JGgtwA+MUtDs4iRxC/siKgyUHP3k5vPUIIVBer4v7PUnIukSCOkhUMN7
-	G/o52ys6g==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Mime-Version:Message-Id
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=YpzHKBZ2TWU9kBRJzPhco4CWd1ATfpo32AE9tNWx+u4=; b=NdQ2ZExucHfmzU
+	PgGkjjf9qAY1F08vIICR0wCCb+OXa6n2Tt6TNAHy65rhVFm89bbgNtFKXoPtbyWdwdiUV9wt4hFGi
+	2RRo7EnnVHQiLx+gpCDMw3/jE5jtZksjqJwzYCFTc2Me8WInOfT2pRTfeAcYglNET4k5EIiJNh3HD
+	O6O3fu9NGMx5XDgNza4G4of1Ktfd/gL8EWjxdXRaVeEF2XxlMHNtN5dP/ImWL3L1xJZPHL6y5Gc8W
+	4oBhgC7lJHq2mPYSAOXT/puBvj4+gqZqNZAIdviIoNh55TbQdn6ezGkWwlKntqTH4kdPiAnrRKhWz
+	pKEdRa7hSzZ4Pmb1Yhiw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j1wno-0003Tl-Ay; Wed, 12 Feb 2020 18:32:00 +0000
-Received: from mx2.suse.de ([195.135.220.15])
+	id 1j1wz5-0007gl-Oo; Wed, 12 Feb 2020 18:43:39 +0000
+Received: from mail-qt1-x849.google.com ([2607:f8b0:4864:20::849])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j1wnf-0003Mw-In; Wed, 12 Feb 2020 18:31:53 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx2.suse.de (Postfix) with ESMTP id D1983AE46;
- Wed, 12 Feb 2020 18:31:49 +0000 (UTC)
-Message-ID: <a1d66025baa13b2276b12405544fc7107aac8d6c.camel@suse.de>
-Subject: Re: [PATCH] ARM: bcm2835_defconfig: add minimal support for
- Raspberry Pi4
-From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-To: Marek Szyprowski <m.szyprowski@samsung.com>, 
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Date: Wed, 12 Feb 2020 19:31:47 +0100
-In-Reply-To: <20200212102009.17428-1-m.szyprowski@samsung.com>
-References: <CGME20200212102022eucas1p1c49daf15d3e63eda9a56124bc4eafb57@eucas1p1.samsung.com>
- <20200212102009.17428-1-m.szyprowski@samsung.com>
-User-Agent: Evolution 3.34.3 
-MIME-Version: 1.0
+ id 1j1wz1-0007ez-S7
+ for linux-rpi-kernel@lists.infradead.org; Wed, 12 Feb 2020 18:43:37 +0000
+Received: by mail-qt1-x849.google.com with SMTP id c10so1866420qtk.18
+ for <linux-rpi-kernel@lists.infradead.org>;
+ Wed, 12 Feb 2020 10:43:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
+ h=date:message-id:mime-version:subject:from:to:cc;
+ bh=JVgBXiy5lEZpXJ3FQwlh3hjFj/B6MhF9Hdt9S92pl8k=;
+ b=AceqmgzNM2Fc6AWH5hWhy/HhZrwTFRyU7IMErUN5vEhRfV03I+g3URuzV7cOubTCoL
+ pAy1bw3YyPC8AvVSBXywtxnWFJSXel/xolv8l/AffLpWTug7wHN9ps5NXgNON8oEEh+V
+ swuEGtP9B8bJ41TO8VwQIHblwXWdeFAnRdVFRwK+BMUXa8tWZLB53SCfassxVeJH7vvm
+ +LBsfZ/Ar66l8YzHcc+xTu2uRejwLewcve1F1/zl24D7CVH6ZmrzMlwzlstQ4T4zjNOZ
+ eTPJ/KsyvYdJBhzmch9pUpJKrXcoFhIZqvF60XiKH4PHyNYaLdl8c4P5MbAw7tumQAgj
+ Z8ZA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:message-id:mime-version:subject:from:to:cc;
+ bh=JVgBXiy5lEZpXJ3FQwlh3hjFj/B6MhF9Hdt9S92pl8k=;
+ b=juXdxKhKZiKT8iwSQOM7o3Xu5ORKSBYnsAKrJDhK4QNLr1Z8JnR+HEEOBI1VA2XECn
+ NbgwcDIQ8O2EwGIINfKzyAYR158bEgEtVFbkr1vD0kdor4fNnveFIcuylFsZ4FpCwvEo
+ Xu63apshpcKTfn5iYEq3dQtpUxAhvgMAgi4pkOKT7DJ+PZBokHzUo+WShs4lfgQsH7E1
+ +xHr/wLx00yXsLSfqA/om4XGwLd3RnzPJXL5h2xkgvm3ygbvwP5bFXSf4wovlLk1DBTc
+ wdIBtX1r5bihtehtW8wD4qsu9jdaOd83kAUQ7Hu1naFxD1i9kiwzKr7XXfhnB9uDnj0w
+ 4VUw==
+X-Gm-Message-State: APjAAAXI7bWhGgciNWdWpmnXOKMymnfoAqym+MMeus09z+DADWkJySv3
+ 4a5rxJloQRapSJT+CM3VGThzD5YJv7ykeg6s/Dg=
+X-Google-Smtp-Source: APXvYqy3rFjAkYyNbNVI5/T4FZbfpQ/+4psD5kakBZk3n+KWReRyc5YVhYcmkzphG/BbZeTmgn65UcxbXDJQjS6l3JA=
+X-Received: by 2002:a0c:e8c7:: with SMTP id m7mr20946591qvo.128.1581533013816; 
+ Wed, 12 Feb 2020 10:43:33 -0800 (PST)
+Date: Wed, 12 Feb 2020 13:43:28 -0500
+Message-Id: <cover.1581532523.git.marcgonzalez@google.com>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.25.0.225.g125e21ebc7-goog
+Subject: [PATCH 0/5] Fix a possible race condition when dereferencing services
+From: Marcelo Diop-Gonzalez <marcgonzalez@google.com>
+To: nsaenzjulienne@suse.de, gregkh@linuxfoundation.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200212_103151_766233_3F372EFD 
-X-CRM114-Status: GOOD (  15.01  )
-X-Spam-Score: -2.3 (--)
+X-CRM114-CacheID: sfid-20200212_104335_937433_C4AFBB8A 
+X-CRM114-Status: GOOD (  13.53  )
+X-Spam-Score: -7.7 (-------)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (-7.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [195.135.220.15 listed in list.dnswl.org]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2607:f8b0:4864:20:0:0:0:849 listed in]
+ [list.dnswl.org]
+ -7.5 USER_IN_DEF_DKIM_WL    From: address is in the default DKIM
+ white-list
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [195.135.220.15 listed in wl.mailspike.net]
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.0 DKIMWL_WL_MED          DKIMwl.org - Medium sender
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -65,103 +91,65 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1900496262776963228=="
+Cc: devel@driverdev.osuosl.org, linux-rpi-kernel@lists.infradead.org,
+ dan.carpenter@oracle.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
+When a service is removed from the state->services array in
+unlock_service(), its spot in the array is set to NULL, and then it is
+freed. And there is code in many places that does something like:
 
---===============1900496262776963228==
-Content-Type: multipart/signed; micalg="pgp-sha256";
-	protocol="application/pgp-signature"; boundary="=-ITbJ1iHkW+ijPO3M83tC"
+struct vchiq_service *service = state->services[i];
+if (service && service->someting && service->something_else)
+   ...
 
+But the problem is that this could race with unlock_serivce(), where
+we read a non-null value right before it gets set to NULL and
+freed. This would be ok if the code above had an active ref_count on
+the service, but that's often not the case. So this patch is a
+proposal to reimplement the reference counting to use a struct kref,
+and to use kfree_rcu() instead of kfree() when freeing the services,
+so that the code above will not be buggy under rcu_read_lock(). It
+seemed like the right choice because there are lots of places where
+the above pattern exists and the caller doesn't have a reference, and
+doesn't need to keep one. And in several places this is done in a loop
+over all services.
 
---=-ITbJ1iHkW+ijPO3M83tC
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+I tested this with the vchiq_test program and also with a program that
+spins creating/deleting services, but more help/advice is appreciated.
 
-Hi Marek,
-On Wed, 2020-02-12 at 11:20 +0100, Marek Szyprowski wrote:
-> Add drivers for the minimal set of devices needed to boot Raspberry Pi4
-> board.
->=20
-> Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
+I think there's still a related race condition where a struct
+vchiq_instance is dereferenced without a guarantee that it won't go
+away. In vchiq_dump_platform_instances(), for example,
+service->instance is dereferenced a bunch, but someone else could
+close it in the middle. Also in vchiq_blocking_bulk_transfer() it
+seems possible that someone else closes it after reading
+service->instance? I might be missing something but after looking
+around for a bit I couldn't see any reason the instance would wait for
+this function to complete before being kfree'd.
 
-Just so you know, the amount of support on the RPi4 you might be able to ge=
-t
-updating bcm2835_defconfig's config is very limited. Only 1GB of ram and no
-PCIe (so no USBs).
+Marcelo Diop-Gonzalez (5):
+  staging: vc04_services: remove unused function
+  staging: vc04_services: remove unneeded parentheses
+  staging: vc04_services: fix indentation alignment in a few places
+  staging: vc04_services: use kref + RCU to reference count services
+  staging: vc04_services: don't increment service refcount when it's not
+    needed
 
-FYI I've been working on getting a workable configuration for arm32, short =
-of
-creating a new config altogether:
-https://www.mail-archive.com/linuxppc-dev@lists.ozlabs.org/msg163770.html
+ .../interface/vchiq_arm/vchiq_arm.c           |  41 ++-
+ .../interface/vchiq_arm/vchiq_core.c          | 286 +++++++++---------
+ .../interface/vchiq_arm/vchiq_core.h          |  20 +-
+ .../interface/vchiq_arm/vchiq_if.h            |   2 -
+ 4 files changed, 190 insertions(+), 159 deletions(-)
 
-That said, if you insist on booting with bcm2835_defconfig, I have no probl=
-em
-with the patch.
+-- 
+2.25.0.225.g125e21ebc7-goog
 
-Regards,
-Nicolas
-
->  arch/arm/configs/bcm2835_defconfig | 3 +++
->  1 file changed, 3 insertions(+)
->=20
-> diff --git a/arch/arm/configs/bcm2835_defconfig
-> b/arch/arm/configs/bcm2835_defconfig
-> index 519ff58e67b3..b5e7c1bd95f2 100644
-> --- a/arch/arm/configs/bcm2835_defconfig
-> +++ b/arch/arm/configs/bcm2835_defconfig
-> @@ -72,6 +72,7 @@ CONFIG_BLK_DEV_SD=3Dy
->  CONFIG_SCSI_CONSTANTS=3Dy
->  CONFIG_SCSI_SCAN_ASYNC=3Dy
->  CONFIG_NETDEVICES=3Dy
-> +CONFIG_BCMGENET=3Dy
->  CONFIG_USB_LAN78XX=3Dy
->  CONFIG_USB_USBNET=3Dy
->  CONFIG_USB_NET_SMSC95XX=3Dy
-> @@ -99,6 +100,8 @@ CONFIG_THERMAL=3Dy
->  CONFIG_BCM2835_THERMAL=3Dy
->  CONFIG_WATCHDOG=3Dy
->  CONFIG_BCM2835_WDT=3Dy
-> +CONFIG_REGULATOR=3Dy
-> +CONFIG_REGULATOR_GPIO=3Dy
->  CONFIG_MEDIA_SUPPORT=3Dy
->  CONFIG_MEDIA_CAMERA_SUPPORT=3Dy
->  CONFIG_DRM=3Dy
-
-
---=-ITbJ1iHkW+ijPO3M83tC
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCAAdFiEErOkkGDHCg2EbPcGjlfZmHno8x/4FAl5ERJMACgkQlfZmHno8
-x/7nMwf/V2o3WeDmAvMxxux/NwAAfKHB2HFIpdC962NUNKnoHxaP27wl/nzWhkXe
-8ly7F1qMnQPcU8rnO3CyoZeRrlplQhg1Z8/RcXEmr83Ua5gj9eyrahwnJneui2BZ
-bR+oZFOiGo40QJtNdjm16dT59SbiLfcskyiLOqNEItCehxf1qb22hc3Vz0aSeEXI
-xd6qhcCU/KvQYyJWm0Izq3l0U43roUfhcqm89oVyZJq6lWT+RbS4KfYjNQA0OxkG
-H8BSyfiK9RyY7XbCq/rpcKBnTvXCm3Lm9B6nuHGJBV31HeaukFzWJR+LhJ+pIxgX
-xCtJYAy26dqMGTLAsu9F/XZ51sk6YA==
-=gfp3
------END PGP SIGNATURE-----
-
---=-ITbJ1iHkW+ijPO3M83tC--
-
-
-
---===============1900496262776963228==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-rpi-kernel mailing list
 linux-rpi-kernel@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
-
---===============1900496262776963228==--
-
-
