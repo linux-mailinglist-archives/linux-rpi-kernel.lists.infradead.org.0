@@ -2,77 +2,148 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 14A4F15B1B6
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 12 Feb 2020 21:20:22 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5AC2015B1CF
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 12 Feb 2020 21:27:15 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Exl+ghpCCbDgokmz+mnVP2XqznDRYAda9Ybhf9xAN5Y=; b=FUpBUK2H90B/ia
-	wTNn2xcEpMTs3GySrU7F91SsP7DWCAilEAu1wWic3iyta9vVDkMhtpqmR/5EIcxDfBBVSrZ9Gb88U
-	QT7IfEzwikSvDbliXxWV1URLeiUe3500hxyfGXOiwTrAAD2Ss79yFpsJoapMyQ03O6uTuMqB7fD5/
-	yVPzdz+aKBdc0QjmqR/kgnw1Q01GSqrKB2uuOAW4jlYUYqr5vnwJj9K3D/avzbWYbEXEaYWr+ikN+
-	XdtNIJiwiaiCL1eAXRy8GaHBr3iLq59UVnK5cNOeGg+cqk1lMl9iA/oj4HY/lQ9HGpBPydKlIXRgf
-	E5iV/SVEQGMDv7OmYk+w==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Xrst6DEYw4Fn0LkNSCPmtgJAPdMmsAwzeVpFcGailZk=; b=k82uOumyLORx7V
+	zr4oTRsxjUsakkeF0o9vLKfZwSM0IHExGPGFvLvKhc95lTJfoKkZZ6wHvf2FtdwSa3kJP+REDrUPY
+	xMESrsSS1HqVrK9gjZwqzu8AJgLQgkHafIO2STIZln15NisvU/qUUcEdWRPXUILo0VILmlBDsN1dD
+	9iyaqD4IVkJk61u6DShePW+CC2UN1vqD/nkIO8Nqhoei3d+Y4q30ZOjRLUTwVsMn1+tzesawT+UW9
+	7CjSdC4/r1TyhCfHzBeH+bIHOxjNBf0rDJPQu1iF9VtufIsnjf4fvrh3Kr5xCIVjXHikCcWwQU/Lg
+	EcBrnY6HgWApeBBf/zZA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j1yUe-0006dK-FK; Wed, 12 Feb 2020 20:20:20 +0000
-Received: from mout.kundenserver.de ([212.227.126.187])
+	id 1j1ybJ-0000Im-MS; Wed, 12 Feb 2020 20:27:13 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j1yUC-00052l-9x; Wed, 12 Feb 2020 20:19:54 +0000
-Received: from mail-qk1-f177.google.com ([209.85.222.177]) by
- mrelayeu.kundenserver.de (mreue011 [212.227.15.129]) with ESMTPSA (Nemesis)
- id 1MTzve-1itgzm3HDG-00Qxsw; Wed, 12 Feb 2020 21:19:49 +0100
-Received: by mail-qk1-f177.google.com with SMTP id c188so3402200qkg.4;
- Wed, 12 Feb 2020 12:19:47 -0800 (PST)
-X-Gm-Message-State: APjAAAX1dSnnyq3PoBgmh9eMiLSQ3pcVwKdMc6HITUxKRkzAf9WopDih
- Wep+awS1AU7WbZETp3xmGNqPFW9nBZYQZ1OxyPw=
-X-Google-Smtp-Source: APXvYqwQIOhVnY9bQ1LDgJmsuv+7ni6xH/3BERILwIwIeUDXR88bOYRlBrWjmBW9A4udrXrmXhmIrc8oCdOVs0WJ/I0=
-X-Received: by 2002:a37:e409:: with SMTP id y9mr12825473qkf.352.1581538786339; 
- Wed, 12 Feb 2020 12:19:46 -0800 (PST)
-MIME-Version: 1.0
-References: <20200110173425.21895-1-nsaenzjulienne@suse.de>
-In-Reply-To: <20200110173425.21895-1-nsaenzjulienne@suse.de>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Wed, 12 Feb 2020 21:19:29 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a1tLrkymeJfXvDk_kxPvW_PQy6zNmrmO++dOPCWm71vOA@mail.gmail.com>
-Message-ID: <CAK8P3a1tLrkymeJfXvDk_kxPvW_PQy6zNmrmO++dOPCWm71vOA@mail.gmail.com>
+ id 1j1ybF-0000HM-VF; Wed, 12 Feb 2020 20:27:11 +0000
+Received: by mail-pg1-x535.google.com with SMTP id j15so1800745pgm.6;
+ Wed, 12 Feb 2020 12:27:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=subject:to:cc:references:from:autocrypt:message-id:date:user-agent
+ :mime-version:in-reply-to:content-language:content-transfer-encoding;
+ bh=d6zAFWJmLZIeyGgr3JKHdlnBZ2cvifSzgzb7Lz0cYqs=;
+ b=XoinvabNWbH3VjxvV4YjOP8wh5Qx2WJTM3R2bashw4q0l7pvkMYOCtzqoKOyd3yF4V
+ bZAMtHmPrplZWiV9j93ZgM7f3rXvYoh25NYQR+koQI8VIMa6AUAFMYCx2X5/1txWt96m
+ tMjlBHtBc0RsXpf8WnkvIcc1DW9kuuIjJ1KHPeQKIiMdiNjtt2AoBd9YJUMWjVDIr3JT
+ Dqdu/nyqojJ+ALYGOHHFtzxxmEdc0qA5x2atG8sI67VlNznmphzbWkwG64XXeJSJ7/BY
+ F0aHfIDCfMPaQy8NGwTKHrTFJgStZtBTAGOxx/u+llG64d0EAkGCHttxdDpBR0weAJyQ
+ NjCQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:subject:to:cc:references:from:autocrypt
+ :message-id:date:user-agent:mime-version:in-reply-to
+ :content-language:content-transfer-encoding;
+ bh=d6zAFWJmLZIeyGgr3JKHdlnBZ2cvifSzgzb7Lz0cYqs=;
+ b=ITb56erS7URlEbBrjnCswiYBJ4jpxWJUTwooNvLyb1fqz4GeN5OJDuib+IU8CuefT2
+ zKsIve5X6kdfEGkgX34bydjsamuvdt8wPf9mLQSlUrnmR/PBQ/sLWy97FOofO/EryEIo
+ /cKeZGxZIJDFECwmGItvn4aD5VcWSPhOQWN0CtZr1fkBafxSKMyDif1I2Sd+/jZWOOHl
+ gNFkfT2xWFhil9vmwtlukk53Ji2aqs6BhFZs2nTXho69zK+zju1TGfp3zUYKIA6oImfV
+ 2FIdpZl67td0xpmsIWHvNiYAe3tVhB+fUcLqFpa2ye0Fh3kvZHH3r7vcBQ/on+APn67j
+ wnxg==
+X-Gm-Message-State: APjAAAUChSebLqaAIOD7ptcEEXVixLAoMgkQfdh3wnUIacInjohIROP5
+ ogspoBCRe+Qc9u9BlUl61LHhjjmS
+X-Google-Smtp-Source: APXvYqyNqLuChvAiwOOKow/av8vLMh55craBstUbVqcQrieKw7L5mkm1McS6F7dtCJR7mC7XyQzTMw==
+X-Received: by 2002:a63:cb11:: with SMTP id p17mr14444001pgg.42.1581539228517; 
+ Wed, 12 Feb 2020 12:27:08 -0800 (PST)
+Received: from [10.67.50.49] ([192.19.223.252])
+ by smtp.googlemail.com with ESMTPSA id d22sm87337pfo.187.2020.02.12.12.27.06
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Wed, 12 Feb 2020 12:27:07 -0800 (PST)
 Subject: Re: [RFC] ARM: add multi_v7_lpae_defconfig
-To: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-X-Provags-ID: V03:K1:HxoS2vZRQww9XcdRaz2g5bXC+nksyeWIu//eXmoqNQVMrYyK/cp
- fDEMo10FyoKdNBlkj48YkPh/vP4Gb30ZgXaQTNPbD4VFlKe2Z9Ljebfcnn4SzeJx2R8J09z
- kZ5R2scln05lmrIzNIZ37JtzEQQjyfTfD2ha7uskD5FNKrepeVsnM/vr3bbwr7sBtBwLq02
- zNOphMd4l62LmcyjjYGwA==
-X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:j9eMqHw1n54=:hAF3M7y+83TyjOlokI0NC6
- HgZGMqQ5hcG1P+kUz3CdnD/3U/OrNDdfm6+0ktQPdjTIiQLtZxI0Ir2OPhEnSb6ysPLttGfCe
- myqWg49CQBnNSIkjSx3U2ihUfTXcE1NenR4qA/6Gl1H0uk1U/xZz/I2osehoqcNjUmQ/ZrJVW
- 4LSwRGJO7UKAzAubVlnb102XDCdc99/HG7NQdu+k2mJRx9FdGLpQb8fI0ksld6DifQRg+xped
- CS7KhGjDuoa25LGHDWkoIsatYMTK/lTRvFQqnk2SY+1O4xiH+ZsE/Wz+7Hp1oUhTWhuqLc1o/
- a2odOsDw1Vg0XQiPAbUzTUwPgp0S3L+sLO5gmGLypHP2100JniCEaC3k+fdmrimaY1hNv3W4t
- QKTET1UfPMDvMCGKCZHLpzmitvT/PhwOFCwYUvFuM0fOOxVMFkIl6zPNRAcIo6mdZJzsB/rS6
- 73tPpsoejKwqgZVN/Z5XWdHioZqXFjoPH6qj7icwwsx9QvnEPx/SpXzNFDbYXC+A/TOPKaBvH
- dKR/cQxP+gSlvscAF5H7useQDWE6mCRd0UggHErAd6K5HRHj7J98nCuv4FhKMKm9OnqwfWj1B
- 3JlRBBw02p/dnKtSUVaLVGl+e7Lma3ShMliwxDBjZqLB8FKmmd1p2di0QhEaLcg5ot+rUUKBH
- NAa3H++8LwR2YsUMaVFlCMt/X1khktrSnWvbnxRWYpOSotZM+woSOPG2nB6u1pmwJ57moG0tL
- RwkfzEOVilZThDnUik/6aDotsfIvkyBPEtS+BGEAQy4NnzHAgDGSIDQSrEOlcXzDMBicBy8M3
- FRDaVhA/hpBOJliC83IxEpK0u7RSoZORonpv3e3JoObc+QJMfM=
+To: Arnd Bergmann <arnd@arndb.de>,
+ Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+References: <20200110173425.21895-1-nsaenzjulienne@suse.de>
+ <CAK8P3a1tLrkymeJfXvDk_kxPvW_PQy6zNmrmO++dOPCWm71vOA@mail.gmail.com>
+From: Florian Fainelli <f.fainelli@gmail.com>
+Autocrypt: addr=f.fainelli@gmail.com; prefer-encrypt=mutual; keydata=
+ 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
+ G10n8gCguORqNGMsVRxrlLs7/himep7MrCc=
+Message-ID: <e061bc24-9832-cfb1-ab64-1cf164fe599e@gmail.com>
+Date: Wed, 12 Feb 2020 12:27:02 -0800
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.4.1
+MIME-Version: 1.0
+In-Reply-To: <CAK8P3a1tLrkymeJfXvDk_kxPvW_PQy6zNmrmO++dOPCWm71vOA@mail.gmail.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200212_121952_641938_ABE3A5E8 
-X-CRM114-Status: GOOD (  16.15  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20200212_122710_044823_BC55B073 
+X-CRM114-Status: GOOD (  17.07  )
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (0.0 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [212.227.126.187 listed in list.dnswl.org]
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [212.227.126.187 listed in wl.mailspike.net]
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ no trust [2607:f8b0:4864:20:0:0:0:535 listed in]
+ [list.dnswl.org]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider [f.fainelli[at]gmail.com]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -86,209 +157,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>,
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
 Cc: Russell King <linux@armlinux.org.uk>,
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Stefan Wahren <wahrenst@gmx.net>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
  "moderated list:BROADCOM BCM2835 ARM ARCHITECTURE"
- <linux-rpi-kernel@lists.infradead.org>
+ <linux-rpi-kernel@lists.infradead.org>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ Stefan Wahren <wahrenst@gmx.net>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-On Fri, Jan 10, 2020 at 6:35 PM Nicolas Saenz Julienne
-<nsaenzjulienne@suse.de> wrote:
->
-> The only missing configuration option preventing us from using
-> multi_v7_defconfig with the RPi4 is ARM_LPAE. It's needed as the PCIe
-> controller found on the SoC depends on 64bit addressing, yet can't be
-> included as not all v7 boards support LPAE.
->
-> Introduce multi_v7_lpae_defconfig, built off multi_v7_defconfig, which will
-> avoid us having to duplicate and maintain multiple similar configurations.
->
-> Note that merge_into_defconfig was taken from arch/powerpc/Makefile.
->
-> Signed-off-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+On 2/12/20 12:19 PM, Arnd Bergmann wrote:
+> On Fri, Jan 10, 2020 at 6:35 PM Nicolas Saenz Julienne
+> <nsaenzjulienne@suse.de> wrote:
+>>
+>> The only missing configuration option preventing us from using
+>> multi_v7_defconfig with the RPi4 is ARM_LPAE. It's needed as the PCIe
+>> controller found on the SoC depends on 64bit addressing, yet can't be
+>> included as not all v7 boards support LPAE.
+>>
+>> Introduce multi_v7_lpae_defconfig, built off multi_v7_defconfig, which will
+>> avoid us having to duplicate and maintain multiple similar configurations.
+>>
+>> Note that merge_into_defconfig was taken from arch/powerpc/Makefile.
+>>
+>> Signed-off-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+> 
+> I like the idea, but I would note that a lot of platforms enabled in
+> multi_v7_defconfig do not support LPAE. In particular, the first ARMv7
+> cores (Cortex-A8, -A9, -A5, and PJ4) don't, but the later ones (Cortex-A7,
+> -A15, -A17, and PJ4C-MP) do.
+> 
+> Here is a list from the defconfig file
+> 
 
-I like the idea, but I would note that a lot of platforms enabled in
-multi_v7_defconfig do not support LPAE. In particular, the first ARMv7
-cores (Cortex-A8, -A9, -A5, and PJ4) don't, but the later ones (Cortex-A7,
--A15, -A17, and PJ4C-MP) do.
+[snip]
 
-Here is a list from the defconfig file
+> CONFIG_ARCH_BCM=y
+> CONFIG_ARCH_BCM_CYGNUS=y
+> CONFIG_ARCH_BCM_HR2=y
+> CONFIG_ARCH_BCM_NSP=y
+> CONFIG_ARCH_BCM_5301X=y
+> CONFIG_ARCH_BCM_281XX=y
+> CONFIG_ARCH_BCM_21664=y
+> CONFIG_ARCH_BCM_63XX=y
+> CONFIG_ARCH_BRCMSTB=y
+> 
+> I think most of the above are A9, but not sure
 
-CONFIG_ARCH_VIRT=y
-CONFIG_ARCH_ALPINE=y
-CONFIG_ARCH_ARTPEC=y
-CONFIG_MACH_ARTPEC6=y
-
-Artpec is A9
-
-CONFIG_ARCH_ASPEED=y
-CONFIG_MACH_ASPEED_G6=y
-CONFIG_ARCH_AT91=y
-CONFIG_SOC_SAMA5D2=y
-CONFIG_SOC_SAMA5D3=y
-CONFIG_SOC_SAMA5D4=y
-
-AT91/SAMA5 is A5
-
-CONFIG_ARCH_BCM=y
-CONFIG_ARCH_BCM_CYGNUS=y
-CONFIG_ARCH_BCM_HR2=y
-CONFIG_ARCH_BCM_NSP=y
-CONFIG_ARCH_BCM_5301X=y
-CONFIG_ARCH_BCM_281XX=y
-CONFIG_ARCH_BCM_21664=y
-CONFIG_ARCH_BCM_63XX=y
-CONFIG_ARCH_BRCMSTB=y
-
-I think most of the above are A9, but not sure
-
-CONFIG_ARCH_BCM2835=y
-CONFIG_ARCH_BERLIN=y
-CONFIG_MACH_BERLIN_BG2CD=y
-CONFIG_MACH_BERLIN_BG2Q=y
-CONFIG_MACH_BERLIN_BG2=y
-
-These are mixed, I think BG2CD is A7, but the older ones are A9 or PJ4
-
-CONFIG_ARCH_DIGICOLOR=y
-
-CX92755 is an A8
-
-CONFIG_ARCH_EXYNOS=y
-
-exynos is a mix of A9 and A15/A7, so this is fine
-
-CONFIG_ARCH_HIGHBANK=y
-
-A9 and A15, also fine
-
-CONFIG_ARCH_HISI=y
-CONFIG_ARCH_HI3xxx=y
-CONFIG_ARCH_HIP01=y
-CONFIG_ARCH_HIP04=y
-CONFIG_ARCH_HIX5HD2=y
-CONFIG_ARCH_MXC=y
-CONFIG_SOC_IMX50=y
-CONFIG_SOC_IMX51=y
-CONFIG_SOC_IMX53=y
-
-IMX5 is A8
-
-CONFIG_SOC_IMX6Q=y
-CONFIG_SOC_IMX6SL=y
-CONFIG_SOC_IMX6SX=y
-
-These older imx6 variants are A9, but the 6UL and 7D are A7.
-
-CONFIG_SOC_IMX6UL=y
-CONFIG_SOC_LS1021A=y
-CONFIG_SOC_IMX7D=y
-CONFIG_SOC_VF610=y
-
-VF610 is an A5
-
-CONFIG_ARCH_KEYSTONE=y
-CONFIG_ARCH_MEDIATEK=y
-
-Mediatek is mostly A7, but some A9
-
-CONFIG_ARCH_MESON=y
-
-Mixed
-
-CONFIG_ARCH_MILBEAUT=y
-CONFIG_ARCH_MILBEAUT_M10V=y
-CONFIG_ARCH_MMP=y
-CONFIG_MACH_MMP2_DT=y
-CONFIG_MACH_MMP3_DT=y
-
-MMP is a PJ4, I don't think there is LPAE, but not sure
-
-CONFIG_ARCH_MVEBU=y
-CONFIG_MACH_ARMADA_370=y
-CONFIG_MACH_ARMADA_375=y
-CONFIG_MACH_ARMADA_38X=y
-CONFIG_MACH_ARMADA_39X=y
-CONFIG_MACH_ARMADA_XP=y
-CONFIG_MACH_DOVE=y
-
-Fairly sure only Armada XP has LPAE out of these
-
-CONFIG_ARCH_OMAP3=y
-CONFIG_ARCH_OMAP4=y
-CONFIG_SOC_OMAP5=y
-CONFIG_SOC_AM33XX=y
-CONFIG_SOC_AM43XX=y
-CONFIG_SOC_DRA7XX=y
-
-only OMAP5 and DRA7 use an A15, the others are A8 or A9
-
-CONFIG_ARCH_SIRF=y
-CONFIG_ARCH_QCOM=y
-CONFIG_ARCH_MSM8X60=y
-CONFIG_ARCH_MSM8960=y
-CONFIG_ARCH_MSM8974=y
-
-Not sure whether there is LPAE on Qualcomm's custom cores
-
-CONFIG_ARCH_ROCKCHIP=y
-
-Mixed
-
-CONFIG_ARCH_RENESAS=y
-
-Mixed
-
-CONFIG_ARCH_SOCFPGA=y
-
-A9 only
-
-CONFIG_PLAT_SPEAR=y
-CONFIG_ARCH_SPEAR13XX=y
-CONFIG_MACH_SPEAR1310=y
-CONFIG_MACH_SPEAR1340=y
-
-A9 only
-
-CONFIG_ARCH_STI=y
-CONFIG_ARCH_STM32=y
-CONFIG_ARCH_SUNXI=y
-
-sunxi has A8 and A7 (and one that is A15+A7)
-
-CONFIG_ARCH_TEGRA=y
-
-Mixed
-
-CONFIG_ARCH_UNIPHIER=y
-
- A9 only so far
-
-CONFIG_ARCH_U8500=y
-
-A9 only
-
-CONFIG_ARCH_VEXPRESS=y
-
-A9 or A15
-
-CONFIG_ARCH_WM8850=y
-
-A9
-
-CONFIG_ARCH_ZYNQ=y
-
-A9
-
-I think it would make sense to either turn off the various A8/A9/A5 platforms
-in the fragment, or add a CONFIG_ARCH_MULTI_V7VE option, and then
-change the Kconfig dependencies so that the older platforms get turned off
-when only V7 but not V7VE is set.
-
-      Arnd
+63138 is Cortex-A9, 63148 and BRCMSTB are using a Brahma-B15 CPU which
+is LPAE capable. 23550 is A7 and every others are Cortex-A9.
+-- 
+Florian
 
 _______________________________________________
 linux-rpi-kernel mailing list
