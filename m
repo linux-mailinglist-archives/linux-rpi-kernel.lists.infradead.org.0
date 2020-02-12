@@ -2,126 +2,58 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id E771315A62B
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 12 Feb 2020 11:20:41 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id C623D15AFDC
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 12 Feb 2020 19:32:03 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:List-Owner; bh=KoRavjuKN3GQXaR/7cSq5JgeMF7H1NNCsNPWhibqifQ=; b=kT
-	fZoZNXit4vNlMsRfGrVURsgGgSXXiYLqCM++J5eeUSkeHfJ7RA5V5DIxj9Evsesf7NwZXit1P3KVj
-	HL2E4fri+t4aV6XaS4KkPFUagebAnZHDOITRsiT6QsdxPyeZ73qBeb1FrphKGk/zBuOA5tf1W/U0G
-	xIQNg9tUDvCgapJkPDgj1/pvvddtNiNOUAthcdiu59hbTCsAxp0G/LaCOgSZ41GUgsLGIKY+Bt4gh
-	z2QI3a0KXgNnLPKKVvMFoLi7GAv8CS24D8RYZUa6ltTpbSsRIvw81eRvMQyYN0ucaW2O2jYobvN1f
-	KaaA1dlGh7e2WRaeBXoZFe9wSIzuPKWg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:
+	Cc:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=IP+TEnn/TUvion7FpOIUnBYpz3OpWRiZwSdg/yJxXoY=; b=W/YrAdqq+Ajsa+NUbLL/0p0yG
+	KBFKfksM8/LIxo7fNie7G+nFVqaG5lJJ7eOgjnNqjbI+ohSTh0CKQM4mldVStEAQEtk4xEl77DTeB
+	gb99J8YYUD3l8S8y3eWYrw3vfCTnwTSgISZ/EXn9poCSQXPhEhlFb6cHaK3SVkG8UYUwiFFLveBnl
+	yXAiXxfqgxbz4OhTBagyEbXz6igXCY1cHorAkc68HcQtln/5NWzg3gIAI0/kb1lXkTibFEKxueEco
+	azDKDCkuRfsWc3mJgX4/8JGgtwA+MUtDs4iRxC/siKgyUHP3k5vPUIIVBer4v7PUnIukSCOkhUMN7
+	G/o52ys6g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j1p8J-0005Ag-SW; Wed, 12 Feb 2020 10:20:39 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1j1wno-0003Tl-Ay; Wed, 12 Feb 2020 18:32:00 +0000
+Received: from mx2.suse.de ([195.135.220.15])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j1p86-00051W-QX
- for linux-rpi-kernel@lists.infradead.org; Wed, 12 Feb 2020 10:20:28 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
- by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id
- 20200212102023euoutp0183d5368ecca086f2d56251a725ea81f0~yoHBYkqOB3150531505euoutp01V
- for <linux-rpi-kernel@lists.infradead.org>;
- Wed, 12 Feb 2020 10:20:23 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com
- 20200212102023euoutp0183d5368ecca086f2d56251a725ea81f0~yoHBYkqOB3150531505euoutp01V
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
- s=mail20170921; t=1581502823;
- bh=nJIMo/hmctKSAepFMBORmUEOiA95WQ4W8/e/ZxU9jaM=;
- h=From:To:Cc:Subject:Date:References:From;
- b=AqY+HzEvHjbhTHD5uuMNZrzwBjIQo6W//piVoKe9k/diB0hU8cdbj9+BFGF5V1RGp
- xQvPeucEsBH9Z5eAeW2NZokxtY+tVGWIXKg0jOfcMW4A/sj6JoElY1wqkdPzcw2xpH
- T3+8NNdWD8I9kHbLcV9cWoNpEoX9aR6HX4I2IvZw=
-Received: from eusmges2new.samsung.com (unknown [203.254.199.244]) by
- eucas1p2.samsung.com (KnoxPortal) with ESMTP id
- 20200212102023eucas1p2555d9d8d2bc71e11a5b185788e5001ba~yoHBJn__T0070600706eucas1p2A;
- Wed, 12 Feb 2020 10:20:23 +0000 (GMT)
-Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
- eusmges2new.samsung.com (EUCPMTA) with SMTP id 54.CC.60679.761D34E5; Wed, 12
- Feb 2020 10:20:23 +0000 (GMT)
-Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
- eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
- 20200212102022eucas1p1c49daf15d3e63eda9a56124bc4eafb57~yoHA3l_qw0607406074eucas1p1Y;
- Wed, 12 Feb 2020 10:20:22 +0000 (GMT)
-Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
- eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
- 20200212102022eusmtrp1d294fd0d12b2145c659cd794b3725792~yoHA2__-n1418814188eusmtrp1v;
- Wed, 12 Feb 2020 10:20:22 +0000 (GMT)
-X-AuditID: cbfec7f4-0cbff7000001ed07-2b-5e43d167bc3c
-Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
- eusmgms1.samsung.com (EUCPMTA) with SMTP id 7C.9E.08375.661D34E5; Wed, 12
- Feb 2020 10:20:22 +0000 (GMT)
-Received: from AMDC2765.digital.local (unknown [106.120.51.73]) by
- eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
- 20200212102022eusmtip2426b56ff9c670b9f841aa901adba3b19~yoHAd-Rsm1735217352eusmtip2a;
- Wed, 12 Feb 2020 10:20:22 +0000 (GMT)
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-To: linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH] ARM: bcm2835_defconfig: add minimal support for Raspberry Pi4
-Date: Wed, 12 Feb 2020 11:20:09 +0100
-Message-Id: <20200212102009.17428-1-m.szyprowski@samsung.com>
-X-Mailer: git-send-email 2.17.1
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrGIsWRmVeSWpSXmKPExsWy7djPc7rpF53jDE7fFbDY9Pgaq8XlXXPY
- LCbe3sBusfbIXXaLbbOWs1lsWnGDzYHNY+stU4/NS+o9+rasYvTYfLra4/MmuQDWKC6blNSc
- zLLUIn27BK6M1kaVgh9sFZ8XtzE2MLawdTFyckgImEisnfsIyObiEBJYwSgxf9JeRgjnC6NE
- 6+vtLBDOZ0aJ0/PnMsK0HJt3EaplOaPE9tuz2OBalp88wgJSxSZgKNH1tgsowcEhIpAnsfZT
- MkiYWaCLUeJ3GzeILSwQIPF77g12EJtFQFWi6fAtsAW8ArYSa688grpPXmL1hgPMIPMlBI6w
- SVy6cpIJIuEi0fb/LwuELSzx6vgWdghbRuL05B4WiIZmRomH59ayQzg9jBKXm2ZA/WAtcefc
- L7DrmAU0Jdbv0ocIO0o83baJHSQsIcAnceOtIMTRfBKTtk1nhgjzSnS0CUFUq0nMOr4Obu3B
- C5eYIWwPiaVXZoEtEhKIlXjT94J1AqPcLIRdCxgZVzGKp5YW56anFhvlpZbrFSfmFpfmpesl
- 5+duYgTG/ul/x7/sYNz1J+kQowAHoxIPr8N0pzgh1sSy4srcQ4wSHMxKIrzijc5xQrwpiZVV
- qUX58UWlOanFhxilOViUxHmNF72MFRJITyxJzU5NLUgtgskycXBKNTDueLjalfVej/7Vazs/
- +N0pv5nXOOmXz9Imganse+4ksZgevfznMaOGt4v7eb3a6lbdi/e6/s+UUZCrVHl3sTTjbeYs
- A3FtzZN7e06e4xXV2WazQkfEaf2EL+1SGW+di9nSb/+JkMvfNWt1Q/6DwwXuer9uZc6O9T12
- JKG4Qk034JjK+x8i0t1KLMUZiYZazEXFiQDEwgvT+QIAAA==
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrLLMWRmVeSWpSXmKPExsVy+t/xe7ppF53jDObdNbfY9Pgaq8XlXXPY
- LCbe3sBusfbIXXaLbbOWs1lsWnGDzYHNY+stU4/NS+o9+rasYvTYfLra4/MmuQDWKD2bovzS
- klSFjPziElulaEMLIz1DSws9IxNLPUNj81grI1MlfTublNSczLLUIn27BL2M1kaVgh9sFZ8X
- tzE2MLawdTFyckgImEgcm3cRyObiEBJYyiixpXUOK0RCRuLktAYoW1jiz7UuqKJPjBKTuiew
- gyTYBAwlut52gU0SESiQOPnlGytIEbNAD6PEqSPvmEASwgJ+Ev+XPQCzWQRUJZoO32IEsXkF
- bCXWXnkEdYa8xOoNB5gnMPIsYGRYxSiSWlqcm55bbKhXnJhbXJqXrpecn7uJERh024793LyD
- 8dLG4EOMAhyMSjy8DtOd4oRYE8uKK3MPMUpwMCuJ8Io3OscJ8aYkVlalFuXHF5XmpBYfYjQF
- Wj6RWUo0OR8YEXkl8YamhuYWlobmxubGZhZK4rwdAgdjhATSE0tSs1NTC1KLYPqYODilGhgb
- BTyZJ/1S+JWsNo+nK2TuI37XNb1n7l0P/v9M6zJrOHPZ456T9l9atdW8hWf/4ytYO7fNNzdE
- bGvxGtkrkXv0nr2UKHx886BlwsQ50ibRMXuis5YFXr7xet3tdxxVMzbf0Hr9dfUdIb7i27UL
- j93YunrtQ85cx9v7n89iKTlVzuyWFarWKHlEiaU4I9FQi7moOBEAxg5WslACAAA=
-X-CMS-MailID: 20200212102022eucas1p1c49daf15d3e63eda9a56124bc4eafb57
-X-Msg-Generator: CA
-X-RootMTR: 20200212102022eucas1p1c49daf15d3e63eda9a56124bc4eafb57
-X-EPHeader: CA
-CMS-TYPE: 201P
-X-CMS-RootMailID: 20200212102022eucas1p1c49daf15d3e63eda9a56124bc4eafb57
+ id 1j1wnf-0003Mw-In; Wed, 12 Feb 2020 18:31:53 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+ by mx2.suse.de (Postfix) with ESMTP id D1983AE46;
+ Wed, 12 Feb 2020 18:31:49 +0000 (UTC)
+Message-ID: <a1d66025baa13b2276b12405544fc7107aac8d6c.camel@suse.de>
+Subject: Re: [PATCH] ARM: bcm2835_defconfig: add minimal support for
+ Raspberry Pi4
+From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+To: Marek Szyprowski <m.szyprowski@samsung.com>, 
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Date: Wed, 12 Feb 2020 19:31:47 +0100
+In-Reply-To: <20200212102009.17428-1-m.szyprowski@samsung.com>
 References: <CGME20200212102022eucas1p1c49daf15d3e63eda9a56124bc4eafb57@eucas1p1.samsung.com>
+ <20200212102009.17428-1-m.szyprowski@samsung.com>
+User-Agent: Evolution 3.34.3 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200212_022027_072109_881BF9BF 
-X-CRM114-Status: UNSURE (   8.74  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -5.2 (-----)
+X-CRM114-CacheID: sfid-20200212_103151_766233_3F372EFD 
+X-CRM114-Status: GOOD (  15.01  )
+X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-5.2 points)
+ Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [210.118.77.11 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [210.118.77.11 listed in wl.mailspike.net]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [195.135.220.15 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [195.135.220.15 listed in wl.mailspike.net]
  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -133,47 +65,103 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1900496262776963228=="
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-Add drivers for the minimal set of devices needed to boot Raspberry Pi4
-board.
 
-Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
----
- arch/arm/configs/bcm2835_defconfig | 3 +++
- 1 file changed, 3 insertions(+)
+--===============1900496262776963228==
+Content-Type: multipart/signed; micalg="pgp-sha256";
+	protocol="application/pgp-signature"; boundary="=-ITbJ1iHkW+ijPO3M83tC"
 
-diff --git a/arch/arm/configs/bcm2835_defconfig b/arch/arm/configs/bcm2835_defconfig
-index 519ff58e67b3..b5e7c1bd95f2 100644
---- a/arch/arm/configs/bcm2835_defconfig
-+++ b/arch/arm/configs/bcm2835_defconfig
-@@ -72,6 +72,7 @@ CONFIG_BLK_DEV_SD=y
- CONFIG_SCSI_CONSTANTS=y
- CONFIG_SCSI_SCAN_ASYNC=y
- CONFIG_NETDEVICES=y
-+CONFIG_BCMGENET=y
- CONFIG_USB_LAN78XX=y
- CONFIG_USB_USBNET=y
- CONFIG_USB_NET_SMSC95XX=y
-@@ -99,6 +100,8 @@ CONFIG_THERMAL=y
- CONFIG_BCM2835_THERMAL=y
- CONFIG_WATCHDOG=y
- CONFIG_BCM2835_WDT=y
-+CONFIG_REGULATOR=y
-+CONFIG_REGULATOR_GPIO=y
- CONFIG_MEDIA_SUPPORT=y
- CONFIG_MEDIA_CAMERA_SUPPORT=y
- CONFIG_DRM=y
--- 
-2.17.1
 
+--=-ITbJ1iHkW+ijPO3M83tC
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Marek,
+On Wed, 2020-02-12 at 11:20 +0100, Marek Szyprowski wrote:
+> Add drivers for the minimal set of devices needed to boot Raspberry Pi4
+> board.
+>=20
+> Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
+
+Just so you know, the amount of support on the RPi4 you might be able to ge=
+t
+updating bcm2835_defconfig's config is very limited. Only 1GB of ram and no
+PCIe (so no USBs).
+
+FYI I've been working on getting a workable configuration for arm32, short =
+of
+creating a new config altogether:
+https://www.mail-archive.com/linuxppc-dev@lists.ozlabs.org/msg163770.html
+
+That said, if you insist on booting with bcm2835_defconfig, I have no probl=
+em
+with the patch.
+
+Regards,
+Nicolas
+
+>  arch/arm/configs/bcm2835_defconfig | 3 +++
+>  1 file changed, 3 insertions(+)
+>=20
+> diff --git a/arch/arm/configs/bcm2835_defconfig
+> b/arch/arm/configs/bcm2835_defconfig
+> index 519ff58e67b3..b5e7c1bd95f2 100644
+> --- a/arch/arm/configs/bcm2835_defconfig
+> +++ b/arch/arm/configs/bcm2835_defconfig
+> @@ -72,6 +72,7 @@ CONFIG_BLK_DEV_SD=3Dy
+>  CONFIG_SCSI_CONSTANTS=3Dy
+>  CONFIG_SCSI_SCAN_ASYNC=3Dy
+>  CONFIG_NETDEVICES=3Dy
+> +CONFIG_BCMGENET=3Dy
+>  CONFIG_USB_LAN78XX=3Dy
+>  CONFIG_USB_USBNET=3Dy
+>  CONFIG_USB_NET_SMSC95XX=3Dy
+> @@ -99,6 +100,8 @@ CONFIG_THERMAL=3Dy
+>  CONFIG_BCM2835_THERMAL=3Dy
+>  CONFIG_WATCHDOG=3Dy
+>  CONFIG_BCM2835_WDT=3Dy
+> +CONFIG_REGULATOR=3Dy
+> +CONFIG_REGULATOR_GPIO=3Dy
+>  CONFIG_MEDIA_SUPPORT=3Dy
+>  CONFIG_MEDIA_CAMERA_SUPPORT=3Dy
+>  CONFIG_DRM=3Dy
+
+
+--=-ITbJ1iHkW+ijPO3M83tC
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCAAdFiEErOkkGDHCg2EbPcGjlfZmHno8x/4FAl5ERJMACgkQlfZmHno8
+x/7nMwf/V2o3WeDmAvMxxux/NwAAfKHB2HFIpdC962NUNKnoHxaP27wl/nzWhkXe
+8ly7F1qMnQPcU8rnO3CyoZeRrlplQhg1Z8/RcXEmr83Ua5gj9eyrahwnJneui2BZ
+bR+oZFOiGo40QJtNdjm16dT59SbiLfcskyiLOqNEItCehxf1qb22hc3Vz0aSeEXI
+xd6qhcCU/KvQYyJWm0Izq3l0U43roUfhcqm89oVyZJq6lWT+RbS4KfYjNQA0OxkG
+H8BSyfiK9RyY7XbCq/rpcKBnTvXCm3Lm9B6nuHGJBV31HeaukFzWJR+LhJ+pIxgX
+xCtJYAy26dqMGTLAsu9F/XZ51sk6YA==
+=gfp3
+-----END PGP SIGNATURE-----
+
+--=-ITbJ1iHkW+ijPO3M83tC--
+
+
+
+--===============1900496262776963228==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-rpi-kernel mailing list
 linux-rpi-kernel@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
+
+--===============1900496262776963228==--
+
+
