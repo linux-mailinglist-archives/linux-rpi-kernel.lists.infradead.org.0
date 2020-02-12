@@ -2,79 +2,79 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0A9C815B00E
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 12 Feb 2020 19:43:52 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 3D42015B029
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 12 Feb 2020 19:51:35 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:References:Mime-Version
-	:Message-Id:In-Reply-To:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mDLBNrswJdFOXgr2fCp4Eefz79WwOCmNhKjf6aT5gLQ=; b=H+1bkiVywdxqS5
-	zMaw2mz9p2Gn9tZycakZRazH8W8GXvs67UxxChYQwWXSB+WCIqrT1xQtnpxYkEkYQl+OsAFkxwOHN
-	swHkJ/TupkETeRAbpiJ4+ldP3AVqVApQfdUwRj1fX5zQEShAMyAvhFnI/icE13M3Naagxe3AOq3QG
-	8GXOfntGJ8FgnYI3w3DkrsWmzikX/Ydrf6blwcQOVg5Aqyc+7Hw88OcocM2IkOTUhoZncPdbApsEx
-	dYburULXtswAieRAyu4BVpyjuKbed0FlgYuAWQrHRe49pMhxm3A4FfwzsipvzOo5Jm2bw7VOHMypD
-	wOExDFsWUJIpCPH3Skhg==;
+	List-Owner; bh=X5CQ6jrFkCwXSc0rtqOu7cWHMOiIVSvKLDHDcOoWnsw=; b=XnHNOJYrx1nStH
+	r+dF91u+pfUx3/0TQd3z4SXj4f+cIHB4J5jMzKzKPvL9GcFXuN8TC2YDP2B8FsQ6ixeIRxvnNZzTv
+	Daml8wg+1y1Y4joim1Th6zAaYub8f7by2tMzuNetlVEWRWSNAePlVKaGP5GUud81y8Dm7QoCkE+9g
+	GTm/8J0IqptJK63+LEVwOOnnPvD1Zr0KAFKMm5hkM+rg4mjHx2qawKSSQoDQWBlZzJK476SXoGLwT
+	SsiEACCEwLyQ4bUw6Ej+Y0Z0KCjaobleBLh+WLa3RawzCxHIXZpKq1P/MYijBrI8z1w5EY1+2b6nD
+	/4F+NohffUnOM5cQBYzQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j1wzF-0007oG-4b; Wed, 12 Feb 2020 18:43:49 +0000
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
+	id 1j1x6j-0002Wq-K8; Wed, 12 Feb 2020 18:51:33 +0000
+Received: from mail-pj1-x1042.google.com ([2607:f8b0:4864:20::1042])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j1wz7-0007gq-6M
- for linux-rpi-kernel@lists.infradead.org; Wed, 12 Feb 2020 18:43:42 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id u5so2808464ybm.7
+ id 1j1x6g-0002WV-Pp
+ for linux-rpi-kernel@lists.infradead.org; Wed, 12 Feb 2020 18:51:32 +0000
+Received: by mail-pj1-x1042.google.com with SMTP id f2so1974619pjq.1
  for <linux-rpi-kernel@lists.infradead.org>;
- Wed, 12 Feb 2020 10:43:39 -0800 (PST)
+ Wed, 12 Feb 2020 10:51:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=date:in-reply-to:message-id:mime-version:references:subject:from:to
- :cc; bh=xhIOqHQd0jXYQ2FxBCtmYoOa6FI5uX4A/xLG79gRSwo=;
- b=cHZVQyxcSxtYJehumtNXNDA9jwpIsvtais+yYU05jTGxREWyf0A71whHkY4E+HnATi
- aH0EoTYuP9SWBdkQvRJXhgPFeuL8XSlwDO3fAdzN8Cglj8+TDkKyntDbM44dxwvLAnax
- uTJPHzazcLYISDQEYQQB2JUQkbtY7sy3OQTUwlldMpx0wU7wdE00scMnDvbXp0Zug70u
- 11h+VZtDjACvzMX/Et8dH8663bK0Oq44PghBRLkQHqUp+4+A2Cr75c1Ti9/OwN6SkOcO
- n2h/SUIwTWphNAdUVtmraydZ7I0RQf9eleQxly5Pa+2i8m9pf0pSxG1s+Uk4L+mMdptw
- Y23w==
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=fhG+w73Um4LRFx1y+IQP8p309R6bRu5uLfdD6UwelV0=;
+ b=N1XXNwwDuJi2iQrSn7S1fTrbkcTowP8yJzUc4aEqH6J/Gcx4e35g8hmic0On8mFV3e
+ WJ1vnNa2xOTFAumo3rUYeJE55S7QjRjzElXdhRG7XgSyyp8FJUX7cRDR0ITC20xqBxdz
+ rRqLHA6fmmbgsjOnTCudG3pjdyflzIvPxZDFocdpTqafbSPiS30GWrPmP0o14a2ZCR9V
+ /L77PYgI8D2V/LcHhNrXiU1y1yQF2PJ6xlJqhSCRj06oDliVX5I42e+mi4e7t76ITPDX
+ EwlXy5ZXLii90d5GKsMqgvO+/egkwSN3gjgYC5CSjlN5AJE9h4SSZ5Q8CJ0qT2FQ/iB3
+ Db6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:in-reply-to:message-id:mime-version
- :references:subject:from:to:cc;
- bh=xhIOqHQd0jXYQ2FxBCtmYoOa6FI5uX4A/xLG79gRSwo=;
- b=J1nWO/mLwsfTmQdoj5LKC884EjbGeolMhxPV/6ih03MBFabPr2HycUZ8DdBkTfQbHT
- mwNb1ouiS0ULzq28F8liwgeCwNj0/EabR85mT71cfwKPnH2bGSUmqckcjET+XXnfqgLO
- ShJoSkGjK/L7t5yS8hnK1ybVLHFqtqCogLCOPzU+nqxLZPshE/gnG9By3j6VIheTTG7E
- PNsRaaSbe+p5M0BreZVsJxx6ufipYGdN0IgcRBNgNE821pVovQ0sILOAT0fOEUCbSJcb
- 8NYx9yJWWBhO+fYtSyh5DWWnAYraNxNz0hUHDcoC7OCusr3THAg5RZdqGgGEQaPHYfin
- 19fQ==
-X-Gm-Message-State: APjAAAWgcKaGnjU3y4Jml8N4AcGGsNUnaSoTxfWX0+xbgqHy2zmhgZ7M
- kkN4NxeUgA5C7cRDUAEfsl6PszufwA+s7J9QI+s=
-X-Google-Smtp-Source: APXvYqyAEUPgzjH6Yri0hlb0y/aBP897CzJIvovSk8Z3BJvN2SuYX37lmSSKnPRtTw3c9/v3TAam2eJAa2vkqZVldHA=
-X-Received: by 2002:a81:af10:: with SMTP id n16mr10836934ywh.144.1581533018914; 
- Wed, 12 Feb 2020 10:43:38 -0800 (PST)
-Date: Wed, 12 Feb 2020 13:43:33 -0500
-In-Reply-To: <cover.1581532523.git.marcgonzalez@google.com>
-Message-Id: <ac6186ac888f1acf489b5b504efcba8b0d6a8b25.1581532523.git.marcgonzalez@google.com>
-Mime-Version: 1.0
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=fhG+w73Um4LRFx1y+IQP8p309R6bRu5uLfdD6UwelV0=;
+ b=LqBgba5CzLLn82i0RrVBnfKg1QSbrhViZ3/9+DR3dp64Knen8VdEkMLY5TJULiBg0f
+ cRLFrvf9sdgh/mP1JPeI8YXBobdSyaZKb9IOtboLuBeoMQH7rHNOxbhWOuyHFiJZuM1H
+ 4+0TZTs9bjRMgelO5eZJcJebwsFiwmd8uYrN6AWYrJFZytkC6WFNLCgwTcAAbjPMsU0j
+ jx8718SEC0hmtcA35Vfa9ffa0vA8ecYOqiBzWmJIWJ/Suy7Hq3KNAjCutX+YA0oEF7uF
+ Td6swakaCwwMAQY1tlmSRYqODvj/E7gsyzkV3b4qHO0W4XkBCeOvssJySroIAlfDnUQz
+ o13A==
+X-Gm-Message-State: APjAAAWoxnDVjMszVO4sPqT1MmuQg+vGIOoFfKCijv58DdQV/CrJH8Ta
+ MkFElB0JrLXnMZrYrgsgPd8O1OL3D/TCMsaxSZxecA==
+X-Google-Smtp-Source: APXvYqzkUxnHg6CvOHByBeQAqbneX++1ZWXENIJEAVxPur5dnVqS1hanHN6wo+UydZLYl6ASeOWL5RTKG1IKeX3V1Hw=
+X-Received: by 2002:a17:90a:348a:: with SMTP id
+ p10mr525547pjb.120.1581533487373; 
+ Wed, 12 Feb 2020 10:51:27 -0800 (PST)
+MIME-Version: 1.0
 References: <cover.1581532523.git.marcgonzalez@google.com>
-X-Mailer: git-send-email 2.25.0.225.g125e21ebc7-goog
-Subject: [PATCH 5/5] staging: vc04_services: don't increment service refcount
- when it's not needed
+ <41511abf64f73af62f21f8e0c7457edc289af905.1581532523.git.marcgonzalez@google.com>
+In-Reply-To: <41511abf64f73af62f21f8e0c7457edc289af905.1581532523.git.marcgonzalez@google.com>
 From: Marcelo Diop-Gonzalez <marcgonzalez@google.com>
-To: nsaenzjulienne@suse.de, gregkh@linuxfoundation.org
+Date: Wed, 12 Feb 2020 13:51:15 -0500
+Message-ID: <CAKvFj6obuHJgt1_ePLJ+Mba4k8RY2WLhutcsfNJk9ZFk4QcnPg@mail.gmail.com>
+Subject: Re: [PATCH 2/5] staging: vc04_services: remove unneeded parentheses
+To: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>,
+ Greg KH <gregkh@linuxfoundation.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200212_104341_265378_B178E7DA 
-X-CRM114-Status: GOOD (  11.24  )
-X-Spam-Score: -7.7 (-------)
+X-CRM114-CacheID: sfid-20200212_105130_865094_F8EF8031 
+X-CRM114-Status: GOOD (  13.71  )
+X-Spam-Score: -15.7 (---------------)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-7.7 points)
+ Content analysis details:   (-15.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:b4a listed in]
- [list.dnswl.org]
  -7.5 USER_IN_DEF_DKIM_WL    From: address is in the default DKIM
  white-list
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ -7.5 USER_IN_DEF_SPF_WL     From: address is in the default SPF
+ white-list
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
@@ -83,7 +83,8 @@ X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- -0.0 DKIMWL_WL_MED          DKIMwl.org - Medium sender
+ -0.5 ENV_AND_HDR_SPF_MATCH  Env and Hdr From used in default SPF WL
+ Match -0.0 DKIMWL_WL_MED          DKIMwl.org - Medium sender
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -96,153 +97,120 @@ List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
 Cc: devel@driverdev.osuosl.org, linux-rpi-kernel@lists.infradead.org,
- dan.carpenter@oracle.com
+ Dan Carpenter <dan.carpenter@oracle.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-There are a few places where a service's reference count is incremented,
-something quick is done, and the refcount is dropped. This can be made
-a little simpler/faster by not grabbing a reference in these cases.
+On Wed, Feb 12, 2020 at 1:43 PM Marcelo Diop-Gonzalez
+<marcgonzalez@google.com> wrote:
+>
+> there are extra parentheses around many conditional statements
+> that make things a little harder to read
+>
+> Signed-off-by: Marcelo Diop-Gonzalez <marcgonzalez@google.com>
+> ---
+>  .../interface/vchiq_arm/vchiq_core.c          | 36 +++++++++----------
+>  1 file changed, 18 insertions(+), 18 deletions(-)
+>
+> diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
+> index 4f8b59deaec9..72bfa0f73958 100644
+> --- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
+> +++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
+> @@ -138,8 +138,8 @@ find_service_by_handle(unsigned int handle)
+>
+>         spin_lock(&service_spinlock);
+>         service = handle_to_service(handle);
+> -       if (service && (service->srvstate != VCHIQ_SRVSTATE_FREE) &&
+> -               (service->handle == handle)) {
+> +       if (service && service->srvstate != VCHIQ_SRVSTATE_FREE &&
+> +           service->handle == handle) {
+>                 WARN_ON(service->ref_count == 0);
+>                 service->ref_count++;
+>         } else
+> @@ -161,7 +161,7 @@ find_service_by_port(struct vchiq_state *state, int localport)
+>         if ((unsigned int)localport <= VCHIQ_PORT_MAX) {
+>                 spin_lock(&service_spinlock);
+>                 service = state->services[localport];
+> -               if (service && (service->srvstate != VCHIQ_SRVSTATE_FREE)) {
+> +               if (service && service->srvstate != VCHIQ_SRVSTATE_FREE) {
+>                         WARN_ON(service->ref_count == 0);
+>                         service->ref_count++;
+>                 } else
+> @@ -184,9 +184,9 @@ find_service_for_instance(struct vchiq_instance *instance,
+>
+>         spin_lock(&service_spinlock);
+>         service = handle_to_service(handle);
+> -       if (service && (service->srvstate != VCHIQ_SRVSTATE_FREE) &&
+> -               (service->handle == handle) &&
+> -               (service->instance == instance)) {
+> +       if (service && service->srvstate != VCHIQ_SRVSTATE_FREE &&
+> +           service->handle == handle &&
+> +           service->instance == instance) {
+>                 WARN_ON(service->ref_count == 0);
+>                 service->ref_count++;
+>         } else
+> @@ -209,10 +209,10 @@ find_closed_service_for_instance(struct vchiq_instance *instance,
+>         spin_lock(&service_spinlock);
+>         service = handle_to_service(handle);
+>         if (service &&
+> -               ((service->srvstate == VCHIQ_SRVSTATE_FREE) ||
+> -                (service->srvstate == VCHIQ_SRVSTATE_CLOSED)) &&
+> -               (service->handle == handle) &&
+> -               (service->instance == instance)) {
+> +           (service->srvstate == VCHIQ_SRVSTATE_FREE ||
+> +            service->srvstate == VCHIQ_SRVSTATE_CLOSED) &&
+> +           service->handle == handle &&
+> +           service->instance == instance) {
+>                 WARN_ON(service->ref_count == 0);
+>                 service->ref_count++;
+>         } else
+> @@ -237,8 +237,8 @@ next_service_by_instance(struct vchiq_state *state, struct vchiq_instance *insta
+>         while (idx < state->unused_service) {
+>                 struct vchiq_service *srv = state->services[idx++];
+>
+> -               if (srv && (srv->srvstate != VCHIQ_SRVSTATE_FREE) &&
+> -                       (srv->instance == instance)) {
+> +               if (srv && srv->srvstate != VCHIQ_SRVSTATE_FREE &&
+> +                   srv->instance == instance) {
+>                         service = srv;
+>                         WARN_ON(service->ref_count == 0);
+>                         service->ref_count++;
+> @@ -464,10 +464,10 @@ get_listening_service(struct vchiq_state *state, int fourcc)
+>                 struct vchiq_service *service = state->services[i];
+>
+>                 if (service &&
+> -                       (service->public_fourcc == fourcc) &&
+> -                       ((service->srvstate == VCHIQ_SRVSTATE_LISTENING) ||
+> -                       ((service->srvstate == VCHIQ_SRVSTATE_OPEN) &&
+> -                       (service->remoteport == VCHIQ_PORT_FREE)))) {
+> +                   service->public_fourcc == fourcc &&
+> +                   (service->srvstate == VCHIQ_SRVSTATE_LISTENING ||
+> +                    (service->srvstate == VCHIQ_SRVSTATE_OPEN &&
+> +                     service->remoteport == VCHIQ_PORT_FREE))) {
+>                         lock_service(service);
+>                         return service;
+>                 }
+> @@ -485,8 +485,8 @@ get_connected_service(struct vchiq_state *state, unsigned int port)
+>         for (i = 0; i < state->unused_service; i++) {
+>                 struct vchiq_service *service = state->services[i];
+>
+> -               if (service && (service->srvstate == VCHIQ_SRVSTATE_OPEN)
+> -                       && (service->remoteport == port)) {
+> +               if (service && service->srvstate == VCHIQ_SRVSTATE_OPEN &&
+> +                   service->remoteport == port) {
+>                         lock_service(service);
+>                         return service;
+>                 }
+> --
+> 2.25.0.225.g125e21ebc7-goog
+>
 
-Signed-off-by: Marcelo Diop-Gonzalez <marcgonzalez@google.com>
----
- .../interface/vchiq_arm/vchiq_arm.c           | 16 ++++-----
- .../interface/vchiq_arm/vchiq_core.c          | 36 +++++++++++++------
- .../interface/vchiq_arm/vchiq_core.h          |  8 ++++-
- 3 files changed, 40 insertions(+), 20 deletions(-)
-
-diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
-index 3ed0e4ea7f5c..b377f18aed45 100644
---- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
-+++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
-@@ -2497,11 +2497,11 @@ vchiq_instance_get_use_count(struct vchiq_instance *instance)
- 	int use_count = 0, i;
- 
- 	i = 0;
--	while ((service = next_service_by_instance(instance->state,
--		instance, &i))) {
-+	rcu_read_lock();
-+	while ((service = __next_service_by_instance(instance->state,
-+						     instance, &i)))
- 		use_count += service->service_use_count;
--		unlock_service(service);
--	}
-+	rcu_read_unlock();
- 	return use_count;
- }
- 
-@@ -2524,11 +2524,11 @@ vchiq_instance_set_trace(struct vchiq_instance *instance, int trace)
- 	int i;
- 
- 	i = 0;
--	while ((service = next_service_by_instance(instance->state,
--		instance, &i))) {
-+	rcu_read_lock();
-+	while ((service = __next_service_by_instance(instance->state,
-+						     instance, &i)))
- 		service->trace = trace;
--		unlock_service(service);
--	}
-+	rcu_read_unlock();
- 	instance->trace = (trace != 0);
- }
- 
-diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
-index 65270a5b29db..d7d7f4d9d57f 100644
---- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
-+++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
-@@ -222,28 +222,42 @@ find_closed_service_for_instance(struct vchiq_instance *instance,
- }
- 
- struct vchiq_service *
--next_service_by_instance(struct vchiq_state *state, struct vchiq_instance *instance,
--			 int *pidx)
-+__next_service_by_instance(struct vchiq_state *state,
-+			   struct vchiq_instance *instance,
-+			   int *pidx)
- {
- 	struct vchiq_service *service = NULL;
- 	int idx = *pidx;
- 
--	rcu_read_lock();
- 	while (idx < state->unused_service) {
- 		struct vchiq_service *srv;
- 
- 		srv = rcu_dereference(state->services[idx++]);
- 		if (srv && srv->srvstate != VCHIQ_SRVSTATE_FREE &&
--		    srv->instance == instance &&
--		    kref_get_unless_zero(&srv->ref_count)) {
--			service = rcu_pointer_handoff(srv);
-+		    srv->instance == instance) {
-+			service = srv;
- 			break;
- 		}
- 	}
--	rcu_read_unlock();
- 
- 	*pidx = idx;
-+	return service;
-+}
- 
-+struct vchiq_service *
-+next_service_by_instance(struct vchiq_state *state,
-+			 struct vchiq_instance *instance,
-+			 int *pidx)
-+{
-+	struct vchiq_service *service;
-+
-+	rcu_read_lock();
-+	service = __next_service_by_instance(state, instance, pidx);
-+	if (service && kref_get_unless_zero(&service->ref_count))
-+		service = rcu_pointer_handoff(service);
-+	else
-+		service = NULL;
-+	rcu_read_unlock();
- 	return service;
- }
- 
-@@ -283,13 +297,13 @@ unlock_service(struct vchiq_service *service)
- int
- vchiq_get_client_id(unsigned int handle)
- {
--	struct vchiq_service *service = find_service_by_handle(handle);
-+	struct vchiq_service *service;
- 	int id;
- 
-+	rcu_read_lock();
-+	service = handle_to_service(handle);
- 	id = service ? service->client_id : 0;
--	if (service)
--		unlock_service(service);
--
-+	rcu_read_unlock();
- 	return id;
- }
- 
-diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
-index 30e4965c7666..cedd8e721aae 100644
---- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
-+++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
-@@ -572,7 +572,13 @@ find_closed_service_for_instance(struct vchiq_instance *instance,
- 	unsigned int handle);
- 
- extern struct vchiq_service *
--next_service_by_instance(struct vchiq_state *state, struct vchiq_instance *instance,
-+__next_service_by_instance(struct vchiq_state *state,
-+			   struct vchiq_instance *instance,
-+			   int *pidx);
-+
-+extern struct vchiq_service *
-+next_service_by_instance(struct vchiq_state *state,
-+			 struct vchiq_instance *instance,
- 			 int *pidx);
- 
- extern void
--- 
-2.25.0.225.g125e21ebc7-goog
-
+I have to admit that this one trades one checkpatch warning for
+another.... (line too long). It seemed like it looks better this way,
+and getting rid of the long lines would have meant refactoring more
+stuff, but if its a problem I can redo this one
 
 _______________________________________________
 linux-rpi-kernel mailing list
