@@ -2,72 +2,73 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7C99615B009
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 12 Feb 2020 19:43:41 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9E8D715B00A
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 12 Feb 2020 19:43:42 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Mime-Version:Message-Id
-	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=YpzHKBZ2TWU9kBRJzPhco4CWd1ATfpo32AE9tNWx+u4=; b=NdQ2ZExucHfmzU
-	PgGkjjf9qAY1F08vIICR0wCCb+OXa6n2Tt6TNAHy65rhVFm89bbgNtFKXoPtbyWdwdiUV9wt4hFGi
-	2RRo7EnnVHQiLx+gpCDMw3/jE5jtZksjqJwzYCFTc2Me8WInOfT2pRTfeAcYglNET4k5EIiJNh3HD
-	O6O3fu9NGMx5XDgNza4G4of1Ktfd/gL8EWjxdXRaVeEF2XxlMHNtN5dP/ImWL3L1xJZPHL6y5Gc8W
-	4oBhgC7lJHq2mPYSAOXT/puBvj4+gqZqNZAIdviIoNh55TbQdn6ezGkWwlKntqTH4kdPiAnrRKhWz
-	pKEdRa7hSzZ4Pmb1Yhiw==;
+	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:References:Mime-Version
+	:Message-Id:In-Reply-To:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zJ+8M8OLSerRt4SFY3qULXSC9p+rIdpAzNW3UwdPtuQ=; b=RJ1sAH0n/v/PHj
+	6J8CsbRirgv5cRPcDtphoQoSLmm3CcWpCJll9t1z+jcoH29UOl4BK+qfll3DDt7VVNK0bqNKPBOJ2
+	FaDz42DyB1fEdhB45siY/Mk5/2/yqd7l3yHZjosxudTaIrCtB8PR4pkXwN5JJQGfZG1p3vp8fVyoG
+	0uKZkRTUSi499Xuw9p3doeapyG6RLMxJX35W1uTsPTtzII+oNBzwG76KiEOnkyAxtNv5avNIXlSh6
+	SPFz0aXWBJU6VQ/7c18FLV8waiFLjjXcfQgOjn58RwWxVrtomqwYp0TP2SiMe73kS5cnErJDh2qv0
+	9n2l0T+rDRnk4eOH+ydg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j1wz5-0007gl-Oo; Wed, 12 Feb 2020 18:43:39 +0000
-Received: from mail-qt1-x849.google.com ([2607:f8b0:4864:20::849])
+	id 1j1wz7-0007hO-1l; Wed, 12 Feb 2020 18:43:41 +0000
+Received: from mail-qv1-xf49.google.com ([2607:f8b0:4864:20::f49])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j1wz1-0007ez-S7
- for linux-rpi-kernel@lists.infradead.org; Wed, 12 Feb 2020 18:43:37 +0000
-Received: by mail-qt1-x849.google.com with SMTP id c10so1866420qtk.18
+ id 1j1wz2-0007fK-ST
+ for linux-rpi-kernel@lists.infradead.org; Wed, 12 Feb 2020 18:43:38 +0000
+Received: by mail-qv1-xf49.google.com with SMTP id ce2so1906888qvb.23
  for <linux-rpi-kernel@lists.infradead.org>;
- Wed, 12 Feb 2020 10:43:34 -0800 (PST)
+ Wed, 12 Feb 2020 10:43:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=date:message-id:mime-version:subject:from:to:cc;
- bh=JVgBXiy5lEZpXJ3FQwlh3hjFj/B6MhF9Hdt9S92pl8k=;
- b=AceqmgzNM2Fc6AWH5hWhy/HhZrwTFRyU7IMErUN5vEhRfV03I+g3URuzV7cOubTCoL
- pAy1bw3YyPC8AvVSBXywtxnWFJSXel/xolv8l/AffLpWTug7wHN9ps5NXgNON8oEEh+V
- swuEGtP9B8bJ41TO8VwQIHblwXWdeFAnRdVFRwK+BMUXa8tWZLB53SCfassxVeJH7vvm
- +LBsfZ/Ar66l8YzHcc+xTu2uRejwLewcve1F1/zl24D7CVH6ZmrzMlwzlstQ4T4zjNOZ
- eTPJ/KsyvYdJBhzmch9pUpJKrXcoFhIZqvF60XiKH4PHyNYaLdl8c4P5MbAw7tumQAgj
- Z8ZA==
+ h=date:in-reply-to:message-id:mime-version:references:subject:from:to
+ :cc; bh=xaHikqo8uj3LPQIwtJG1BZ6E5u8UOeGpD80vt3j29n8=;
+ b=qf6MOYxXP3YPQ1eXMwjB7PnTcf/wcXnwPhFTJeuGp9ZmYwi7QRu9R+9VictvmSlVfo
+ KfT5Sd5bvTLyWmYZTgH1DU8Lk9u4DEMN9zglMsc3aZoukdnFPn04lXLW8z3R1t/B2aUt
+ 6ObAV9qZchMtD0mzzSIRb22jqtjSMN84EgS3pR4BEYIFv46U01Vyg91DyYOX+Slm4iYW
+ hpPmjF56wBmbuH2QoKBuWjb8WEv0hDYG0XAlKetYqTjSBp8QyD8ws8uLYD6CfVmUdQdG
+ 9YKo1Ym2zeTPBwDkAcRLgWVO6y9MiLTkKJQknyyfjGUATW+H0VEUJGtgMcRkbJEx/Sv4
+ uQ0w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:message-id:mime-version:subject:from:to:cc;
- bh=JVgBXiy5lEZpXJ3FQwlh3hjFj/B6MhF9Hdt9S92pl8k=;
- b=juXdxKhKZiKT8iwSQOM7o3Xu5ORKSBYnsAKrJDhK4QNLr1Z8JnR+HEEOBI1VA2XECn
- NbgwcDIQ8O2EwGIINfKzyAYR158bEgEtVFbkr1vD0kdor4fNnveFIcuylFsZ4FpCwvEo
- Xu63apshpcKTfn5iYEq3dQtpUxAhvgMAgi4pkOKT7DJ+PZBokHzUo+WShs4lfgQsH7E1
- +xHr/wLx00yXsLSfqA/om4XGwLd3RnzPJXL5h2xkgvm3ygbvwP5bFXSf4wovlLk1DBTc
- wdIBtX1r5bihtehtW8wD4qsu9jdaOd83kAUQ7Hu1naFxD1i9kiwzKr7XXfhnB9uDnj0w
- 4VUw==
-X-Gm-Message-State: APjAAAXI7bWhGgciNWdWpmnXOKMymnfoAqym+MMeus09z+DADWkJySv3
- 4a5rxJloQRapSJT+CM3VGThzD5YJv7ykeg6s/Dg=
-X-Google-Smtp-Source: APXvYqy3rFjAkYyNbNVI5/T4FZbfpQ/+4psD5kakBZk3n+KWReRyc5YVhYcmkzphG/BbZeTmgn65UcxbXDJQjS6l3JA=
-X-Received: by 2002:a0c:e8c7:: with SMTP id m7mr20946591qvo.128.1581533013816; 
- Wed, 12 Feb 2020 10:43:33 -0800 (PST)
-Date: Wed, 12 Feb 2020 13:43:28 -0500
-Message-Id: <cover.1581532523.git.marcgonzalez@google.com>
+ h=x-gm-message-state:date:in-reply-to:message-id:mime-version
+ :references:subject:from:to:cc;
+ bh=xaHikqo8uj3LPQIwtJG1BZ6E5u8UOeGpD80vt3j29n8=;
+ b=MuViqSfNqCS6JW538ANAhy+yE5+fkXubnwBq9dD2zerHw5KDSRjiyx2ssnBtft3BHH
+ /LsnT6jl7Gi1nlxMX5alrjl552Dmtb95deBUJH6uzkUOyX7azTRllEwJZaE3kVhlLF0l
+ ausTS51jsYFfGd+I34QCtTLtlbqj39+Ql/3GWxCjHgm+/SSlKgICIwmZ2i04i4lcK5gC
+ rBYhfJFyZOMIQSqipVm3rfZYNebC8Fec+FRJNomX9wDf+WfyF+cpvMgpIg+lhaFZH9Hb
+ r1tiezQQuLPWvgmQwJY0J8SHSDPxc169SjwVzsIsMdYVvt9oM9Wg5LwCdvLhpC0OFsZR
+ 80cQ==
+X-Gm-Message-State: APjAAAXRU71smtfU3VbcQjOhEJFpPfRYwZb5+0X0Q98/BR2DoDWpAiUq
+ dTX8lKb7E+UD0rhjnxltktMgQUCqa6zVXBru7FU=
+X-Google-Smtp-Source: APXvYqzm4DXE5pFIr/V5mpzREkOty2EYQp7Z8b0GMnmFtZ/9weAVH/BFM/5D4W2Gsz5KrwIxwT+xVBpvO2C/6qLk3uU=
+X-Received: by 2002:ac8:4b50:: with SMTP id e16mr8054032qts.89.1581533014693; 
+ Wed, 12 Feb 2020 10:43:34 -0800 (PST)
+Date: Wed, 12 Feb 2020 13:43:29 -0500
+In-Reply-To: <cover.1581532523.git.marcgonzalez@google.com>
+Message-Id: <ed8b0034e316b2a81b621e9fca43f8368334b191.1581532523.git.marcgonzalez@google.com>
 Mime-Version: 1.0
+References: <cover.1581532523.git.marcgonzalez@google.com>
 X-Mailer: git-send-email 2.25.0.225.g125e21ebc7-goog
-Subject: [PATCH 0/5] Fix a possible race condition when dereferencing services
+Subject: [PATCH 1/5] staging: vc04_services: remove unused function
 From: Marcelo Diop-Gonzalez <marcgonzalez@google.com>
 To: nsaenzjulienne@suse.de, gregkh@linuxfoundation.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200212_104335_937433_C4AFBB8A 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20200212_104336_920246_D6988F0C 
+X-CRM114-Status: UNSURE (   7.59  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -7.7 (-------)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  Content analysis details:   (-7.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:849 listed in]
- [list.dnswl.org]
  -7.5 USER_IN_DEF_DKIM_WL    From: address is in the default DKIM
  white-list
  -0.0 SPF_PASS               SPF: sender matches SPF record
@@ -98,53 +99,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-When a service is removed from the state->services array in
-unlock_service(), its spot in the array is set to NULL, and then it is
-freed. And there is code in many places that does something like:
+vchiq_get_service_fourcc() doesn't seem to be used anywhere
 
-struct vchiq_service *service = state->services[i];
-if (service && service->someting && service->something_else)
-   ...
+Signed-off-by: Marcelo Diop-Gonzalez <marcgonzalez@google.com>
+---
+ .../vc04_services/interface/vchiq_arm/vchiq_core.c        | 8 --------
+ .../staging/vc04_services/interface/vchiq_arm/vchiq_if.h  | 2 --
+ 2 files changed, 10 deletions(-)
 
-But the problem is that this could race with unlock_serivce(), where
-we read a non-null value right before it gets set to NULL and
-freed. This would be ok if the code above had an active ref_count on
-the service, but that's often not the case. So this patch is a
-proposal to reimplement the reference counting to use a struct kref,
-and to use kfree_rcu() instead of kfree() when freeing the services,
-so that the code above will not be buggy under rcu_read_lock(). It
-seemed like the right choice because there are lots of places where
-the above pattern exists and the caller doesn't have a reference, and
-doesn't need to keep one. And in several places this is done in a loop
-over all services.
-
-I tested this with the vchiq_test program and also with a program that
-spins creating/deleting services, but more help/advice is appreciated.
-
-I think there's still a related race condition where a struct
-vchiq_instance is dereferenced without a guarantee that it won't go
-away. In vchiq_dump_platform_instances(), for example,
-service->instance is dereferenced a bunch, but someone else could
-close it in the middle. Also in vchiq_blocking_bulk_transfer() it
-seems possible that someone else closes it after reading
-service->instance? I might be missing something but after looking
-around for a bit I couldn't see any reason the instance would wait for
-this function to complete before being kfree'd.
-
-Marcelo Diop-Gonzalez (5):
-  staging: vc04_services: remove unused function
-  staging: vc04_services: remove unneeded parentheses
-  staging: vc04_services: fix indentation alignment in a few places
-  staging: vc04_services: use kref + RCU to reference count services
-  staging: vc04_services: don't increment service refcount when it's not
-    needed
-
- .../interface/vchiq_arm/vchiq_arm.c           |  41 ++-
- .../interface/vchiq_arm/vchiq_core.c          | 286 +++++++++---------
- .../interface/vchiq_arm/vchiq_core.h          |  20 +-
- .../interface/vchiq_arm/vchiq_if.h            |   2 -
- 4 files changed, 190 insertions(+), 159 deletions(-)
-
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
+index d5957411d906..4f8b59deaec9 100644
+--- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
+@@ -315,14 +315,6 @@ vchiq_get_service_userdata(unsigned int handle)
+ 	return service ? service->base.userdata : NULL;
+ }
+ 
+-int
+-vchiq_get_service_fourcc(unsigned int handle)
+-{
+-	struct vchiq_service *service = handle_to_service(handle);
+-
+-	return service ? service->base.fourcc : 0;
+-}
+-
+ static void
+ mark_service_closing_internal(struct vchiq_service *service, int sh_thread)
+ {
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_if.h b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_if.h
+index 07c6a3db5ab6..39b77ea19210 100644
+--- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_if.h
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_if.h
+@@ -13,7 +13,6 @@
+ #define VCHIQ_MAKE_FOURCC(x0, x1, x2, x3) \
+ 			(((x0) << 24) | ((x1) << 16) | ((x2) << 8) | (x3))
+ #define VCHIQ_GET_SERVICE_USERDATA(service) vchiq_get_service_userdata(service)
+-#define VCHIQ_GET_SERVICE_FOURCC(service)   vchiq_get_service_fourcc(service)
+ 
+ enum vchiq_reason {
+ 	VCHIQ_SERVICE_OPENED,         /* service, -, -             */
+@@ -128,7 +127,6 @@ extern enum vchiq_status vchiq_bulk_receive_handle(unsigned int service,
+ 	enum vchiq_bulk_mode mode);
+ extern int   vchiq_get_client_id(unsigned int service);
+ extern void *vchiq_get_service_userdata(unsigned int service);
+-extern int   vchiq_get_service_fourcc(unsigned int service);
+ extern void vchiq_get_config(struct vchiq_config *config);
+ extern enum vchiq_status vchiq_set_service_option(unsigned int service,
+ 	enum vchiq_service_option option, int value);
 -- 
 2.25.0.225.g125e21ebc7-goog
 
