@@ -2,135 +2,81 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 68B2015BA1B
-	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 13 Feb 2020 08:35:23 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id D0E4715BC3F
+	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 13 Feb 2020 11:00:07 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:MIME-Version:
-	Date:Message-ID:From:To:Subject:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rXt3rgP4uz9z1xrmVX7x0wvdS2zSlAII5ZgVzsgYGKo=; b=cysgOthsDKi2io
-	/oO2b5JsAmM+yhxyLUUzjCFYoQo4pC6Gl7oWMDWFpfMHhrUxFhkdV6c6eTmYtCcfL3yZS1N+A9wo7
-	W+t8y2nlVCX9yaXFrqgqwCXYi+Txi+z7qGnsfFV8JxXOuVqrzIQwUk6V0mKKBMEtYjDF+t34NR3UA
-	d54Tzf+8GBJt6NJJCUgPI36gdTh6NWQegMQK+ddA0FqXf7jG1jEjo3EufFZ1h5t70wxzd28Z5HabS
-	A9nfkZb5bythQk03Ug+QDUKGp0iwHQUpkO3qSW3YgkOv9t2d1hA/frEsKvl/LS0nE5wLDUyi96Aml
-	TA2kWogImLlK4bQko6Fw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Cc:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=fFH1EibRTZWV1hvSC4SBesI/fBp/mwdmQZUcML13ZLA=; b=EeZ/5LNkpFsmpjJ+P1eYd2eycP
+	01NQfAP2e/hBXjhlWfXrgKj2XAe6WKlZn80epG5qMM5guAJJfK8QugLfbqR0MZRQn+hW2mhcBqwo2
+	JuQs8zO02z2sdYubsnUoSOkh5fJR8N1rbtDeahlbg0G8R5eXrIHI1xOgk1JTzWYIRJtBGwEg6U+9F
+	jvSMNSvj4Su85nAjXDsbqeFZN9rggdLjDf4ZNGlKHpCFThLRl22phtdqkLtJ4NQQRxTtP0d4PI/SD
+	Gya89pgef3MS7OPcmnZRLjb5f7JZWEnkXQfYzEOsGVVHM6xPSmaDyoXlCH1vIt8jxIkyjb/d1I6R1
+	ssQ4QEow==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j291u-0002Fz-0T; Thu, 13 Feb 2020 07:35:22 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1j2BHx-0006GG-AP; Thu, 13 Feb 2020 10:00:05 +0000
+Received: from mout.kundenserver.de ([217.72.192.74])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j291k-00027L-VE
- for linux-rpi-kernel@lists.infradead.org; Thu, 13 Feb 2020 07:35:14 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
- by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id
- 20200213073508euoutp0242f9a085f3a25b744bd554732d000dc6~y5gB8k7z52807828078euoutp02U
- for <linux-rpi-kernel@lists.infradead.org>;
- Thu, 13 Feb 2020 07:35:08 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com
- 20200213073508euoutp0242f9a085f3a25b744bd554732d000dc6~y5gB8k7z52807828078euoutp02U
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
- s=mail20170921; t=1581579308;
- bh=yxhnnZFN4xpeYqDaqMbGXmr4Z8OKTV5vkdpP58BDZ5M=;
- h=Subject:To:Cc:From:Date:In-Reply-To:References:From;
- b=m2mgv3kSEbxTscz3LG6e9/tq+1t3U6JNZz9LX7aCgI/4KEzqlMLwTJUo4H2fsWy9Q
- M7636dgSf2Fv9rqG15LeVYjvNIWpE6KEeGfkva4lLGSKfTjAqTJa8CY6GAXQr+0Jlx
- 0YXzQm8VlxJdhusIMp0jZEW9h+TuI9nnSO/Cn4vo=
-Received: from eusmges1new.samsung.com (unknown [203.254.199.242]) by
- eucas1p1.samsung.com (KnoxPortal) with ESMTP id
- 20200213073508eucas1p16e119f10904f7a049c539aed4f0f076c~y5gB4Nelh2164521645eucas1p1S;
- Thu, 13 Feb 2020 07:35:08 +0000 (GMT)
-Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
- eusmges1new.samsung.com (EUCPMTA) with SMTP id 09.AE.61286.C2CF44E5; Thu, 13
- Feb 2020 07:35:08 +0000 (GMT)
-Received: from eusmtrp2.samsung.com (unknown [182.198.249.139]) by
- eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
- 20200213073508eucas1p22d36cf1b15ea9ecd7a22d245e145fe05~y5gBbADf61499814998eucas1p2A;
- Thu, 13 Feb 2020 07:35:08 +0000 (GMT)
-Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
- eusmtrp2.samsung.com (KnoxPortal) with ESMTP id
- 20200213073508eusmtrp289c345422080c6de682e12c374c70169~y5gBaYfrZ0470804708eusmtrp20;
- Thu, 13 Feb 2020 07:35:08 +0000 (GMT)
-X-AuditID: cbfec7f2-ef1ff7000001ef66-85-5e44fc2c385c
-Received: from eusmtip1.samsung.com ( [203.254.199.221]) by
- eusmgms1.samsung.com (EUCPMTA) with SMTP id 96.1A.08375.C2CF44E5; Thu, 13
- Feb 2020 07:35:08 +0000 (GMT)
-Received: from [106.120.51.15] (unknown [106.120.51.15]) by
- eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
- 20200213073507eusmtip1b413deaca0d82eef849bc98c225005d1~y5gBFDLWm1173711737eusmtip1g;
- Thu, 13 Feb 2020 07:35:07 +0000 (GMT)
-Subject: Re: [PATCH] ARM: bcm2835_defconfig: add minimal support for
- Raspberry Pi4
-To: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>,
+ id 1j2BHt-00060l-Hw
+ for linux-rpi-kernel@lists.infradead.org; Thu, 13 Feb 2020 10:00:03 +0000
+Received: from [192.168.178.45] ([109.104.45.70]) by mrelayeu.kundenserver.de
+ (mreue106 [212.227.15.183]) with ESMTPSA (Nemesis) id
+ 1MGyl3-1jFfgV0HC7-00E8DN; Thu, 13 Feb 2020 10:59:48 +0100
+Subject: Re: [PATCH] ARM: bcm2835_defconfig: add minimal support for Raspberry
+ Pi4
+To: Marek Szyprowski <m.szyprowski@samsung.com>,
+ Nicolas Saenz Julienne <nsaenzjulienne@suse.de>,
  linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-Message-ID: <5adcb2de-3570-9c4d-5e5b-726b94fb2029@samsung.com>
-Date: Thu, 13 Feb 2020 08:35:06 +0100
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
- Thunderbird/68.4.2
-MIME-Version: 1.0
-In-Reply-To: <a1d66025baa13b2276b12405544fc7107aac8d6c.camel@suse.de>
-Content-Language: en-US
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprBKsWRmVeSWpSXmKPExsWy7djPc7o6f1ziDN7ON7DY9Pgaq8XlXXPY
- LCbe3sBusW3WcjaLTStusDmwemy9ZeqxeUm9x+bT1R6fN8kFsERx2aSk5mSWpRbp2yVwZSx9
- +oypoIuz4tOq+8wNjMvZuxg5OSQETCQuP//F2sXIxSEksIJRomP9D2YI5wujxLKORiaQKiGB
- z4wStz47wnR0TNrACBFfzihx4okpRMNbRolZU/6ygiSEBUIktnTOAZskIrCQUaL57kGgSRwc
- zAJaErOupILUsAkYSnS97WIDsXkF7CQmb78GtoxFQFXiw+4GMFtUIFbizLHvrBA1ghInZz5h
- AbE5BVwlDmz8AHYEs4C8xPa3ILtAbHGJW0/mM4HslRCYzi4x9csjFoirXSQad12DsoUlXh3f
- AvW/jMT/nTANzYwSD8+tZYdwehglLjfNYISospa4c+4XG8QHmhLrd+lDhB0lnm7bxA4SlhDg
- k7jxVhDiCD6JSdumM0OEeSU62oQgqtUkZh1fB7f24IVLzBMYlWYheW0WkndmIXlnFsLeBYws
- qxjFU0uLc9NTiw3zUsv1ihNzi0vz0vWS83M3MQLTy+l/xz/tYPx6KekQowAHoxIPr8Rr5zgh
- 1sSy4srcQ4wSHMxKIrzijUAh3pTEyqrUovz4otKc1OJDjNIcLErivMaLXsYKCaQnlqRmp6YW
- pBbBZJk4OKUaGB0emwce4+98vOLeDkulHa+jJZdocK5S3JDluZJJaouF8fuaDfNU7gpac+/Q
- n37Ff7b/tIdTuCdsDt/66Ci3+i73ikcBlb1fFe/8X/2mrf+YevK8Ny/rCm44T9Fbkcte2Pd7
- 0YZbirqLRe+dnhxl5iM0P+a5z9JZOVfklwbNFJrzWruyrl73KLcSS3FGoqEWc1FxIgAkZKGk
- KwMAAA==
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrDIsWRmVeSWpSXmKPExsVy+t/xu7o6f1ziDHYfFbTY9Pgaq8XlXXPY
- LCbe3sBusW3WcjaLTStusDmwemy9ZeqxeUm9x+bT1R6fN8kFsETp2RTll5akKmTkF5fYKkUb
- WhjpGVpa6BmZWOoZGpvHWhmZKunb2aSk5mSWpRbp2yXoZSx9+oypoIuz4tOq+8wNjMvZuxg5
- OSQETCQ6Jm1g7GLk4hASWMooMe/rEyaIhIzEyWkNrBC2sMSfa11sEEWvGSW2HjzACJIQFgiR
- eNK7jB0kISKwkFFi9qe9QFUcHMwCWhKzrqRCNJxhlNg/7zDYOjYBQ4mutyCTODl4BewkJm+/
- BraNRUBV4sPuBjBbVCBW4tj2NnaIGkGJkzOfsIDYnAKuEgc2fgBbzCxgJjFv80NmCFteYvvb
- OVC2uMStJ/OZJjAKzULSPgtJyywkLbOQtCxgZFnFKJJaWpybnltsqFecmFtcmpeul5yfu4kR
- GFPbjv3cvIPx0sbgQ4wCHIxKPLwSr53jhFgTy4orcw8xSnAwK4nwijcChXhTEiurUovy44tK
- c1KLDzGaAj03kVlKNDkfGO95JfGGpobmFpaG5sbmxmYWSuK8HQIHY4QE0hNLUrNTUwtSi2D6
- mDg4pRoYF63cvCfwQ3td9TW2JCnxQjfXzFtL9Ww/iu7/VVFx5rC5Z3FEelwnuy7TsU+Rr5Ze
- LN8b/l18f+GljD+Tn+y4f6fSuaruW0h/fBWrwp7Gdx2LfjTVLIhZlLz5seal6gV9bL+qbv/l
- 99nI//51VYeE7/uZm8r47/9q7Z/l+M/vqlzi+p8+DD/MlViKMxINtZiLihMBqTtoY78CAAA=
-X-CMS-MailID: 20200213073508eucas1p22d36cf1b15ea9ecd7a22d245e145fe05
-X-Msg-Generator: CA
-X-RootMTR: 20200212102022eucas1p1c49daf15d3e63eda9a56124bc4eafb57
-X-EPHeader: CA
-CMS-TYPE: 201P
-X-CMS-RootMailID: 20200212102022eucas1p1c49daf15d3e63eda9a56124bc4eafb57
 References: <CGME20200212102022eucas1p1c49daf15d3e63eda9a56124bc4eafb57@eucas1p1.samsung.com>
  <20200212102009.17428-1-m.szyprowski@samsung.com>
  <a1d66025baa13b2276b12405544fc7107aac8d6c.camel@suse.de>
+ <5adcb2de-3570-9c4d-5e5b-726b94fb2029@samsung.com>
+From: Stefan Wahren <stefan.wahren@i2se.com>
+Message-ID: <916c0113-9910-26cd-3720-15399fde507b@i2se.com>
+Date: Thu, 13 Feb 2020 10:59:46 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.9.0
+MIME-Version: 1.0
+In-Reply-To: <5adcb2de-3570-9c4d-5e5b-726b94fb2029@samsung.com>
+Content-Language: en-US
+X-Provags-ID: V03:K1:rqjER1Wpxcp48iehpHocS30UWq5iynTkVomtysQANDNAsxQUZBr
+ dpG3OaBTB/7yXyaPOULjiyFytd/2r48rtEt52nhmdVwrYdmJOoirHVd7MchHYtFRr7Y00gi
+ 5ErUxFr/yw4yv3YsuIMklWSjllbk5ohw+Sv8VeE5QsRBC4kDpp/Ck4JXGluZY0StD5xyV7P
+ LaZo/d6mNLiZZuX8hNVkg==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:yn/y25ko+sQ=:YBuWtfcDihwiPv5UiEgeWY
+ jlFhaWYcVsFAfdHx5jBoBUsOOUghY+Eys6ivMNx3FQeaffWvEeWMMRG59zWPnpR5YqMoRUQbt
+ NpYqHR2yUadaSWgLI5CW2H9rOHI8FVuE+hSvtt6FhFTlP6BlbqNlhl2935J93m2hCLAIGjg1E
+ TjmBFmxq6700QQTt+kUUUbtMqst7dT13JxJJlodaIv5JUQ0xPx/y9g87nEUN+49LJ62sfEUkC
+ cyeuG6U7Zh8SmC+kF2ZQfKBJujfROi34DYMHF3JWrVe4NMfukhJ8KiS37Z58XlXPr99CQwUH2
+ 4TfTC2GzjYfXQ4apGzqciPfqqC9QyeO4LMicxdBmcdgDtr4diOMs30PvPhWvFCaQow4bJ/RaD
+ VgfXZ1vFgC5/Fo+orsheeYfYkX0aHHOqmqrAUl32DKb7JYinKAvuWINkJ3LMVcNvCwCT0C4Gx
+ Zmo5Xeca0odMP8jZaQHShEh89IUE2TXTLkxKGoPvjDmJyS+6lZRz3R2Vh5sKJb5Ql1rXAwdBK
+ 7zTYNTZHkTZ4F7Z/x7erJ9LKn1mZv3LpT2uZHdWOr+M7x90L9NYhn9r0uKFL3ZFS7xKcsYLYW
+ LZyG8GC28T8FWMv00i8IWS0mC8x+oyBXB5O1oBcDKqiQK6CMbmGkr/KIK19NaTOVcTUM1YD85
+ SrOI0ajNQVxmCmrpFLPnnaCsyyAeTDvGwSDpac58HvNXSx2tPPNeMNBMCaK/PyGMumbGlAVMh
+ CicEIcSBivprYSwdWuY1OJ9pPgFI7hNs2VV3TaYdv055qjXjhSAq9U8zVuJ9b6/3ZGsVDH6lq
+ neGrgMY1FV3+tGsWkrMTGurrs22zKA69eECG4QzMtf+FxmcDzqlgPvYSmIZijp5qHZ4fYKK
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200212_233513_211407_1B34FAD0 
-X-CRM114-Status: GOOD (  15.80  )
-X-Spam-Score: -5.2 (-----)
+X-CRM114-CacheID: sfid-20200213_020001_902726_000752DF 
+X-CRM114-Status: GOOD (  13.64  )
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-5.2 points)
+ Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [210.118.77.12 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [210.118.77.12 listed in wl.mailspike.net]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [217.72.192.74 listed in list.dnswl.org]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [217.72.192.74 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -147,37 +93,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-Hi Nicolas
+Hi Marek,
 
-On 12.02.2020 19:31, Nicolas Saenz Julienne wrote:
-> Hi Marek,
-> On Wed, 2020-02-12 at 11:20 +0100, Marek Szyprowski wrote:
->> Add drivers for the minimal set of devices needed to boot Raspberry Pi4
->> board.
->>
->> Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> Just so you know, the amount of support on the RPi4 you might be able to get
-> updating bcm2835_defconfig's config is very limited. Only 1GB of ram and no
-> PCIe (so no USBs).
-
-Yes, I know. A lots of core features is missing: SMP, HIGHMEM, LPAE, PCI 
-and so on, but having a possibility to boot RPi4 with this defconfig 
-increases the test coverage.
-
-> FYI I've been working on getting a workable configuration for arm32, short of
-> creating a new config altogether:
-> https://www.mail-archive.com/linuxppc-dev@lists.ozlabs.org/msg163770.html
+On 13.02.20 08:35, Marek Szyprowski wrote:
+> Hi Nicolas
 >
-> That said, if you insist on booting with bcm2835_defconfig, I have no problem
-> with the patch.
+> On 12.02.2020 19:31, Nicolas Saenz Julienne wrote:
+>> Hi Marek,
+>> On Wed, 2020-02-12 at 11:20 +0100, Marek Szyprowski wrote:
+>>> Add drivers for the minimal set of devices needed to boot Raspberry Pi4
+>>> board.
+>>>
+>>> Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
+>> Just so you know, the amount of support on the RPi4 you might be able to get
+>> updating bcm2835_defconfig's config is very limited. Only 1GB of ram and no
+>> PCIe (so no USBs).
+> Yes, I know. A lots of core features is missing: SMP, HIGHMEM, LPAE, PCI 
+> and so on, but having a possibility to boot RPi4 with this defconfig 
+> increases the test coverage.
 
-Right, having a proper multi defconfig with LPAE is also needed on other 
-boards. I would add VIRTUALIZATION and KVM to it too.
+in case you want to increase test coverage, we better enable all
+Raspberry Pi 4 relevant hardware parts (hwrng, thermal, PCI ...). This
+is what we did for older Pi boards.
+
+SMP, HIGHMEM, LPAE are different and shouldn't be enabled in
+bcm2835_defconfig from my PoV.
 
 Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+Stefan
 
 
 _______________________________________________
