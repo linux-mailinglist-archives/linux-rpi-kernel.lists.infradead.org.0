@@ -2,55 +2,80 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id F27C215F297
-	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 14 Feb 2020 19:15:39 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id AC01C15FAB4
+	for <lists+linux-rpi-kernel@lfdr.de>; Sat, 15 Feb 2020 00:37:47 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=a3xPX4HWDqEVgMaBYOCYTxlPcg3mh4ydvciqjX1Nkek=; b=edrrY4nT1QdEfz
-	m839RNHHKFwh1D8bhC9o8XtlTsMshWfsHkV9+lL2FnQNRoRRG+tl66kfRSQ33tybuXoVmZgKXvje+
-	B7axOZnT8R+kbbvZdeCDpW4xv3LQehv8oXPPa/z97nHr6YOJbJ6joEbp8waYrCnfQTVZgmCLBKFoF
-	zxsGMoyxQbxdV2ki8CY6nhjJTqZcFd8NyXo2FBmH2aRUzYBk0PP6h5xgunQoPa7Wv4GOzhDK0v4vz
-	zoLhnOq/vWTfhPq0XAvCiI0Dvn3XyBXoWJke9O6c+XVnNWslpbB6A3w53EP9ZqrdBQ5QkBH4T+kie
-	4jbQ0GFIwevxS0ZG8C4w==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=gbrnno0PFhIt2EivUuLGoQ0v6SrP/5gT+AaZJMpwiOo=; b=d0wYxPr9CYhOoYGfr7H6PJpvV
+	dcUnPVNdwJlHeEJNCQCf8JagMD41cBpJRcV5M35F55scYFypIJX+OeMFHBuMh6W3FRLIUuFRxl+3I
+	n4RUTh6rSU/ciaqOh6p/wm/sXe6/04pgN/wQTdbzvbx1HwKKKs0PW+1EIVX/PU7IekGfJmcvlbO6X
+	TWwiwHL9/MdTwxMHP8Bv74Xi5IxcxLBePB6AXpJM8SC2jDzGumDXlISI4l9s+33rhWRcgAg7/AG3B
+	DpOWMQj0R5OynvMOtlGuxUIvUxoDtSRXm0GQAgDSbXZfjUrTE3EMj8z92eoWUxiMzg/aa3xR4llGK
+	d77iloZ3w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j2fV4-0002bX-Br; Fri, 14 Feb 2020 18:15:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j2fUv-0002Tj-R6; Fri, 14 Feb 2020 18:15:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5531C328;
- Fri, 14 Feb 2020 10:15:29 -0800 (PST)
-Received: from [10.1.196.105] (eglon.cambridge.arm.com [10.1.196.105])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6F09B3F68E;
- Fri, 14 Feb 2020 10:15:28 -0800 (PST)
-Subject: Re: RPI4: fail too boot with an initrd
-To: LABBE Corentin <clabbe@baylibre.com>
-References: <20200214132748.GA23276@Red>
-From: James Morse <james.morse@arm.com>
-Message-ID: <b726290c-1038-3771-5187-6ac370bc92c9@arm.com>
-Date: Fri, 14 Feb 2020 18:15:27 +0000
-User-Agent: Mozilla/5.0 (X11; Linux aarch64; rv:60.0) Gecko/20100101
- Thunderbird/60.9.0
+	id 1j2kWo-0004ri-4E; Fri, 14 Feb 2020 23:37:46 +0000
+Received: from smtpng3.m.smailru.net ([94.100.177.149])
+ by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1j2kWk-0004rG-7h
+ for linux-rpi-kernel@lists.infradead.org; Fri, 14 Feb 2020 23:37:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=orpaltech.com; s=mailru; 
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:Subject;
+ bh=99A7y4Q+ZabfPayhxmh0RzeYjhdihMY9+NsR5YRAt/I=; 
+ b=TeQQLULNhpazbpOGaspv/O9hof/x/NQbw88H/LOajxritOXfhrTb2oViFxceiR5UbV/YmntFcaC+P07kzJBe27D+DOR7GKjsB71o0LXdBLgR/uynjCOAWUJCjVaIuigwZ1lNR3E10EoDu1N1tFu0f3SDv8UddatLT8UisaZKfSw=;
+Received: by smtpng3.m.smailru.net with esmtpa (envelope-from
+ <ssuloev@orpaltech.com>)
+ id 1j2kWe-00011L-B2; Sat, 15 Feb 2020 02:37:36 +0300
+Subject: Re: bcm2835 SPI issue
+To: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>,
+ Phil Elwell <phil@raspberrypi.com>
+References: <4172f542-71a8-0186-fe4c-29a8148b7844@orpaltech.com>
+ <09f2d0fd-19bc-0884-2f78-b0143f3279ef@raspberrypi.com>
+ <e51f3e59-0915-27b7-05a1-e1a2fb8c10d0@orpaltech.com>
+ <cf8c2169-7987-5b82-1533-d9a34cd09b41@raspberrypi.com>
+ <2b973c0c-08ec-8b6a-1a97-4d676fdb2dc6@orpaltech.com>
+ <a878deeefca46e0b9cba601d8ac2a76e2470addc.camel@suse.de>
+From: Sergey Suloev <ssuloev@orpaltech.com>
+Message-ID: <27617227-181c-9be4-8f28-b80fb08ea714@orpaltech.com>
+Date: Sat, 15 Feb 2020 02:37:35 +0300
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.4.1
 MIME-Version: 1.0
-In-Reply-To: <20200214132748.GA23276@Red>
-Content-Language: en-GB
+In-Reply-To: <a878deeefca46e0b9cba601d8ac2a76e2470addc.camel@suse.de>
+Content-Language: en-US
+Authentication-Results: smtpng3.m.smailru.net;
+ auth=pass smtp.auth=ssuloev@orpaltech.com
+ smtp.mailfrom=ssuloev@orpaltech.com
+X-7564579A: 646B95376F6C166E
+X-77F55803: 0A44E481635329DB0E1AA8A03B392317F65658A2B47C0803182E8BADE9E55416650786966381A4B9F688BCB05C26794D5666173452F3B2F94890B8077626A9E26BFC7BC634313829C17F7BFAE0FDF33F
+X-7FA49CB5: 0D63561A33F958A58BC971E2054052A44B49536365EFB26C6989E130A5C608DB8941B15DA834481FA18204E546F3947C86A7C529F68B8E5CF6B57BC7E64490618DEB871D839B7333395957E7521B51C2545D4CF71C94A83E9FA2833FD35BB23D27C277FBC8AE2E8B974A882099E279BDA471835C12D1D977C4224003CC836476C0CAF46E325F83A522CA9DD8327EE4930A3850AC1BE2E7352629B07FD02F83A6C4224003CC836476C0CAF46E325F83A50BF2EBBBDD9D6B0F05F538519369F3743B503F486389A921A5CC5B56E945C8DA
+X-D57D3AED: Y8kq8+OzVoxvgW9Op3aR8Fxwo7H2ZNxGP5qz8aO2mjTJzjHGC4ogvVuzB3zfVUBtENeZ6b5av1fnCBE34JUDkaJinJwwHx5ysVv9/YfT9ueolnh9F6cyFg==
+X-Mailru-Sender: 689FA8AB762F73930799C7A3FA23A27058C6A8B9A5AE7AEF363FB69561EBCAD8778B5FB1219D8779F6BCD4B1DE95BF653AE5922765F965CDF1D7D1B96E5495AE10FCEA6DFE3E0A150D4ABDE8C577C2ED
+X-Mras: Ok
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200214_101529_920554_EEB06B45 
-X-CRM114-Status: GOOD (  15.59  )
-X-Spam-Score: -2.3 (--)
+X-CRM114-CacheID: sfid-20200214_153742_467001_5C401442 
+X-CRM114-Status: GOOD (  17.41  )
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [217.140.110.172 listed in list.dnswl.org]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [94.100.177.149 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -62,82 +87,113 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: linux-kernel@vger.kernel.org, u-boot@lists.denx.de,
- bcm-kernel-feedback-list@broadcom.com, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
+Cc: linux-rpi-kernel@lists.infradead.org
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-Hi Corentin,
+hi, Nicolas,
 
-On 14/02/2020 13:27, LABBE Corentin wrote:
-> Since the inclusion of the "enable network support in RPi4 config" serie on uboot, I
-> have started to work on adding the rpi4 in kernelCI.
-> But I fail to succeed in using a kernel/dtb/ramdisk downloaded via tftp.
-> 
-> Using booti I hit:
-> [    0.000000] Linux version 5.6.0-rc1-next-20200212 (clabbe@build2-bionic-1804) (gcc version 7.4.1 20181213 [linaro-7.4-2019.02 revision 56ec6f6b99cc167ff0c2f8e1a2eed33b1edc85d4] (Linaro    GCC 7.4-2019.02)) #66 SMP PREEMPT Wed Feb 12 10:14:20 UTC 2020
-> [    0.000000] Machine model: Raspberry Pi 4 Model B
-> [    0.000000] earlycon: uart0 at MMIO32 0x00000000fe215040 (options '')
-> [    0.000000] printk: bootconsole [uart0] enabled
-> [    0.000000] efi: Getting EFI parameters from FDT:
-> [    0.000000] efi: UEFI not found.
+On 2/14/20 11:50 AM, Nicolas Saenz Julienne wrote:
+> Hi Sergey,
+>
+> On Fri, 2020-02-14 at 01:58 +0300, Sergey Suloev wrote:
+>> hi, Phil,
+>>
+>> On 2/14/20 1:45 AM, Phil Elwell wrote:
+>>> Hi Sergey,
+>>>
+>>> On 13/02/2020 22:37, Sergey Suloev wrote:
+>>>> hi, Phil,
+>>>>
+>>>> On 2/14/20 1:22 AM, Phil Elwell wrote:
+>>>>> Hi Sergey,
+>>>>>
+>>>>> On 13/02/2020 22:09, Sergey Suloev wrote:
+>>>>>> hi, Nicolas,
+>>>>>>
+>>>>>> I noticed that bcm2835  SPI driver  isn't functioning anymore in
+>>>>>> kernels 5.5 - 5.6. I know this because it was used successfully
+>>>>>> with previous versions (very latest v4.x and earlier v5.x).
+>>>>>>
+>>>>>> I am testing rpi3b and rpi3a+  and multiple SPI peripherals
+>>>>>> (displays, wireless transceiver, etc) and none of them are working
+>>>>>> anymore. Hardware connections stay the same as before so I don't
+>>>>>> think this is a hardware issue.
+>>>>>>
+>>>>>> I am using the following patch in my build to enable SPI pins:
+>>>>>>
+>>>>>>
+> https://github.com/orpaltech/armlinux/blob/master/patch/kernel/armlinux/stable/v5.5/rpi/0017-spi-bcm2835-Add-SPI-controller-pins.patch
+>   
+>>>>>>
+>>>>>> It was enough in previous kernels for SPI to work. Is there
+>>>>>> anything else I should do now ?
+>>>>> I think you need to add:
+>>>>>
+>>>>>      status = "okay";
+>>>>>
+>>>>> Otherwise, the spi node will remain disabled.
+>>>>>
+>>>>> Phil
+>>>>>
+>>>> thanks for reply.
+>>>>
+>>>> It is already done by the dt-overlays.
+>>>>
+>>>> Again: it was working before! It just stopped working after moving to
+>>>> 5.5.
+>>> I don't think that bcm2837-rpi-3-b.dtb has changed significantly
+>>> between 5.4 and 5.5.
+>>> Have you tried the 5.5 DTB with the 5.4 kernel?
+>>>
+>>> Phil
+>>>
+>> no, not yet.
+>>
+>>
+>> I forgot to attach logs in my previous email, here it is
+>> https://pastebin.com/v5mFpN2G
+>>
+>>   From this log you can see that SPI display "works" well:
+>>
+>> root@rpi3-b-arm-stretch:~# dmesg | grep spi
+>> [    3.011567] spi spi0.1: setting up native-CS1 to use GPIO
+>> [    3.019620] spi spi0.0: setting up native-CS0 to use GPIO
+>> [    3.367637] [drm] Initialized ili9486 1.0.0 20171208 for spi0.0 on
+>> minor 1
+>> [    3.390109] ads7846 spi0.1: touchscreen, irq 94
+>> [    3.396306] input: ADS7846 Touchscreen as
+>> /devices/platform/soc/3f204000.spi/spi_master/spi0/spi0.1/input/input0
+>> [    3.408486] ili9486 spi0.0: waveshare35_enable: enter
+>> [   37.821112] ili9486 spi0.0: fb1: ili9486drmfb frame buffer device
+>>
+>>
+>> But the display isn't working. The same scenario with any other SPI
+>> peripheral : no errors in the log but the peripheral is malfunctioning.
+>>
+>> I am not a big expert in SPI, but I connected my oscilloscope and I can
+>> see some activity on CLK and MOSI.
+>>
+>> All this makes me think that current SPI driver doesn't produce the
+>> "correct" SPI protocol messages anymore.
+> Lets see if we can fid out the fautly patch.
+>
+> I get from your message that you tested successfully v5.4 but v5.5 fails right?
+>
+> I see no changes in the SPI driver between those release, so we'd need to do a
+> git bisect. But first lets find our the last working version.
+>
+> Regards,
+> Nicolas
+>
 
-So no EFI,
-
-> [    0.000000] OF: reserved mem: failed to allocate memory for node 'linux,cma'
-
-Out of memory.
-
-> [    0.000000] cma: Failed to reserve 32 MiB
-> [    0.000000] Kernel panic - not syncing: Failed to allocate page table page
-
-Out of memory...
-
-> [    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 5.6.0-rc1-next-20200212 #66
-> [    0.000000] Hardware name: Raspberry Pi 4 Model B (DT)
-> [    0.000000] Call trace:
-> [    0.000000]  dump_backtrace+0x0/0x1a0
-> [    0.000000]  show_stack+0x14/0x20
-> [    0.000000]  dump_stack+0xbc/0x104
-> [    0.000000]  panic+0x16c/0x37c
-> [    0.000000]  early_pgtable_alloc+0x30/0xa0
-
-... really early!
-
-> [    0.000000]  __create_pgd_mapping+0x36c/0x588
-> [    0.000000]  map_kernel_segment+0x70/0xa4
-> [    0.000000]  paging_init+0xf4/0x528
-> [    0.000000]  setup_arch+0x250/0x5d8
-> [    0.000000]  start_kernel+0x90/0x6d8
-> 
->  
-> Since the same kernel boot with bootefi and that bootefi lack ramdisk address,
-
-Booting with EFI will cause linux to use the EFI memory map.
-
-Does your DT have a memory node? (or does it expect EFI to provide the information)
+it works in 5.3
 
 
-> I tried to add the address in the dtb via:
-> fdt addr 0x02400000; fdt resize; fdt set /chosen linux,initrd-start 0x02700000; fdt set /chosen linux,initrd-end 0x10000000; bootefi 0x00080000 0x02400000
-> But with that, I get:
-> initrd not fully accessible via the linear mapping -- please check your bootloader ...
+Sergey
 
-So this one is an EFI boot, but you can't find where to put the initramfs such that the
-kernel agrees its in memory.
-
-If you boot with 'efi=debug', linux will print the EFI memory map. Could you compare that
-to where U-Boot thinks memory is?
-
-(it sounds like your DT memory node is missing, and your EFI memory map is surprisingly small)
-
-
-Thanks,
-
-James
 
 _______________________________________________
 linux-rpi-kernel mailing list
