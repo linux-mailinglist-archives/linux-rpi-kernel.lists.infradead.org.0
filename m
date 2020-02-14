@@ -2,54 +2,72 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id B38D815DA7E
-	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 14 Feb 2020 16:18:55 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5ADF815DC5E
+	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 14 Feb 2020 16:53:42 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Subject:To:From:
-	Date:In-Reply-To:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=n0g5op4PuU1RLNckybFANFuuS5qsV1XghFp396lnCeQ=; b=ebCXAITTxBfE2V
-	x8KQ3kpQnlVb39Ucary23+HN/8S+sXISenLKvZuY8lkXBbp+iiUTKnqaF6wqfwwVXasBV9/OM9Z+e
-	PGGLvNlRLZRId6OfUyz2o7aK1EOzw1YVdqFMAgjnPOg0BjYz6oe3li2HIGkVye6F5STjo/DVVYq5Z
-	rwGcUjnM9y7Md69cmnrm3D4TozEpU0VYyec8PoQwbKP7VhUj59KJuFDS0W8Wj9NO3p7OfF0LJ5VsS
-	JfPWKXktNcQi4BAGrzPtWiy8oi0j7FP314DbZaQFH1CLgCVO/vwdRCltXShvq5nuI1Y3CQ/vz2f/M
-	bni4k3fjxv2fwEjeKLoA==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=mDB/ZfmT4blDZZkYSKFE42TgV5h8WDiW/Hx5N84b9gU=; b=ZfGC++ny4Eh0dU
+	l0BsKwhBTJTNsdiMihTBFzGlnEx8F5Bfjy3pgodv9u1DpZ0DuwaXSLE218eVEJf3RIs7o1WOH6fH9
+	IwoNa2JMIaBBeXUzJQDz1/mJ4wGDRHcrfIr9QlLaRXWAep+n2WFIWQ0jbJEJ9ahmodgT0mvhQ9RHk
+	9bwxTeX7lEmSOj24iAmrTCMXFm5vlsN76/dQ7idDgN/wlqeVpGxkhebgfrwUG7ZDLVGYqUj5c/G+M
+	5b98xZl6cBtPcnCcH6JDJx1GAG5M/4CkLFdgBmgEUFBqAVRwLXDqvXSlHIppxD0riRxbeqe32RE8+
+	6RhS5j5O457zgWbFDMZw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j2ck1-0006gn-VD; Fri, 14 Feb 2020 15:18:53 +0000
-Received: from mx2.suse.de ([195.135.220.15])
+	id 1j2dHe-0006by-GA; Fri, 14 Feb 2020 15:53:38 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j2cjl-0006Ql-BT; Fri, 14 Feb 2020 15:18:39 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx2.suse.de (Postfix) with ESMTP id 3CB97AF57;
- Fri, 14 Feb 2020 15:18:35 +0000 (UTC)
-In-Reply-To: <8bd7a25a-359d-5b30-4c95-004032d78cb6@samsung.com>
-Date: Fri, 14 Feb 2020 16:14:23 +0100
-From: "Nicolas Saenz Julienne" <nsaenzjulienne@suse.de>
-To: "Marek Szyprowski" <m.szyprowski@samsung.com>, "Stefan Wahren"
- <stefan.wahren@i2se.com>, <linux-rpi-kernel@lists.infradead.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] ARM: bcm2835_defconfig: add minimal support for
- Raspberry Pi4
-Message-Id: <C0LZGU1IU7QO.9VKWHWJ56XZV@vian>
+ id 1j2dEi-0003e7-Iw; Fri, 14 Feb 2020 15:50:41 +0000
+Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net
+ [73.47.72.35])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 6169C22314;
+ Fri, 14 Feb 2020 15:50:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1581695436;
+ bh=6lKOMqR9i+K8QwMDVdaLd2gD/Oq+Ml/qLNpP7AQyCxU=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=Fg5E46S00wKwEYkmJBoCPUhOQw95JH7FxUEMNyU5agGUHwjBTF4adI5SNIYY3h9f1
+ 0nVklbuGG/Q7k/K5IOB8B8pQwywMUBHjBejypd6ENVWmkZfxeAHGQ48FtHJRD06T5X
+ fyT8kJso8KaQk25+pfC1mXggDSk4uu9p7WvYseSs=
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH AUTOSEL 5.5 078/542] clocksource/drivers/bcm2835_timer: Fix
+ memory leak of timer
+Date: Fri, 14 Feb 2020 10:41:10 -0500
+Message-Id: <20200214154854.6746-78-sashal@kernel.org>
+X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20200214154854.6746-1-sashal@kernel.org>
+References: <20200214154854.6746-1-sashal@kernel.org>
+MIME-Version: 1.0
+X-stable: review
+X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200214_071837_565841_F94DEDA2 
-X-CRM114-Status: GOOD (  16.86  )
-X-Spam-Score: -2.3 (--)
+X-CRM114-CacheID: sfid-20200214_075037_953007_B7774742 
+X-CRM114-Status: GOOD (  10.92  )
+X-Spam-Score: -5.2 (-----)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (-5.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [195.135.220.15 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [195.135.220.15 listed in wl.mailspike.net]
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [198.145.29.99 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -61,52 +79,61 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
+Cc: Sasha Levin <sashal@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+ bcm-kernel-feedback-list@broadcom.com, linux-rpi-kernel@lists.infradead.org,
+ Colin Ian King <colin.king@canonical.com>,
+ linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-On Fri Feb 14, 2020 at 1:25 PM, Marek Szyprowski wrote:
-> Hi Stefan,
->
-> On 13.02.2020 10:59, Stefan Wahren wrote:
-> > On 13.02.20 08:35, Marek Szyprowski wrote:
-> >> On 12.02.2020 19:31, Nicolas Saenz Julienne wrote:
-> >>> On Wed, 2020-02-12 at 11:20 +0100, Marek Szyprowski wrote:
-> >>>> Add drivers for the minimal set of devices needed to boot Raspberry Pi4
-> >>>> board.
-> >>>>
-> >>>> Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> >>> Just so you know, the amount of support on the RPi4 you might be able to get
-> >>> updating bcm2835_defconfig's config is very limited. Only 1GB of ram and no
-> >>> PCIe (so no USBs).
-> >> Yes, I know. A lots of core features is missing: SMP, HIGHMEM, LPAE, PCI
-> >> and so on, but having a possibility to boot RPi4 with this defconfig
-> >> increases the test coverage.
-> > in case you want to increase test coverage, we better enable all
-> > Raspberry Pi 4 relevant hardware parts (hwrng, thermal, PCI ...). This
-> > is what we did for older Pi boards.
->
-> Okay, I will add thermal in v2. HWRNG is already selected as module.
-> Enabling PCI without LPAE makes no sense as the driver won't be able to
-> initialize properly.
+From: Colin Ian King <colin.king@canonical.com>
 
-Agree on this.
+[ Upstream commit 2052d032c06761330bca4944bb7858b00960e868 ]
 
-> > SMP, HIGHMEM, LPAE are different and shouldn't be enabled in
-> > bcm2835_defconfig from my PoV.
->
-> Maybe it would make sense to also add bcm2711_defconfig or
-> bcm2835_lpae_defconfig?
+Currently when setup_irq fails the error exit path will leak the
+recently allocated timer structure.  Originally the code would
+throw a panic but a later commit changed the behaviour to return
+via the err_iounmap path and hence we now have a memory leak. Fix
+this by adding a err_timer_free error path that kfree's timer.
 
-IMO bcm2711_defconfig if the last resort solution. I don't think you can
-do bcm2835_lpae_defconfig as RPi and RPi2 SoCs don't support LPAE. An
-intemediate solution is being discussed here:
-https://lkml.org/lkml/2020/1/10/694
+Addresses-Coverity: ("Resource Leak")
+Fixes: 524a7f08983d ("clocksource/drivers/bcm2835_timer: Convert init function to return error")
+Signed-off-by: Colin Ian King <colin.king@canonical.com>
+Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
+Link: https://lore.kernel.org/r/20191219213246.34437-1-colin.king@canonical.com
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ drivers/clocksource/bcm2835_timer.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-Regards,
-Nicolas
+diff --git a/drivers/clocksource/bcm2835_timer.c b/drivers/clocksource/bcm2835_timer.c
+index 2b196cbfadb62..b235f446ee50f 100644
+--- a/drivers/clocksource/bcm2835_timer.c
++++ b/drivers/clocksource/bcm2835_timer.c
+@@ -121,7 +121,7 @@ static int __init bcm2835_timer_init(struct device_node *node)
+ 	ret = setup_irq(irq, &timer->act);
+ 	if (ret) {
+ 		pr_err("Can't set up timer IRQ\n");
+-		goto err_iounmap;
++		goto err_timer_free;
+ 	}
+ 
+ 	clockevents_config_and_register(&timer->evt, freq, 0xf, 0xffffffff);
+@@ -130,6 +130,9 @@ static int __init bcm2835_timer_init(struct device_node *node)
+ 
+ 	return 0;
+ 
++err_timer_free:
++	kfree(timer);
++
+ err_iounmap:
+ 	iounmap(base);
+ 	return ret;
+-- 
+2.20.1
+
 
 _______________________________________________
 linux-rpi-kernel mailing list
