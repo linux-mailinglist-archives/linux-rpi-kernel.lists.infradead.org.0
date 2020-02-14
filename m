@@ -2,54 +2,54 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id A684F15E4E1
-	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 14 Feb 2020 17:39:17 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 772CA15E66C
+	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 14 Feb 2020 17:48:13 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xcbwqjTw3vcDfPV9xjhtS+PbFOykr+f3N/Y2PfQnvts=; b=CCniOMkEnCxdR4
-	NEYwDxrylw37oFzqPVQI3nrtGee5xEYHXuqnxbl6NS5cSfsIwS7jZF8ES7iDZFjuC/5uvnOUiwt9c
-	flBBvuzbmF3mtpG4Z6zwtucTyDwnv5KknUUlUXO7+J05/GdLKfCJ8CjFa+K6SXvclNZcmPv9Tbgjf
-	eILQfi2wj/FF56VX/yeRhZ3vmZr3WxC9d4SEmRNP7WQSaAzRjZC6pqBcqBlK0xs2yqli8MZo1ywDC
-	oXqD1L3HtcUojrU65UERAKFEqzPEtxNDReC5RZ8w3mMHcChV7zmJE1SzmRejx4WEFLoSVa9PWDi/l
-	gqwUG00CezdSseNsfNEA==;
+	List-Owner; bh=hrmoTXT2BsCDRnWxuoM5LG1VYIqKmga/krGcbQxFC2o=; b=g/S9Tlg5UxTzrM
+	oaEleuKIXhHVo2PAX/Z+S4M2BZKCKj8UiEbznFc1tA1nY95sRJqPtv1a92VdS5QzqSIHXKWA5hD/8
+	D/NFJCv0IL9W6ijgykhPi9NHpcXrQzeXobg6NgV4UdspUUDBDy/HpTx73NjpnPhdTVhFUc+p32yr3
+	LuMXiLPXw8oyve4XmELOgTNoBXQ0sz74gliQsZ5t0DQ7hMugTeNPSrkEeY8xo2GI2KaJ57YYbcxq+
+	M2Kr7wyYTk55y4KcyWyrJy/ioNBc3a9ffHzGdwO9ekMHElDYVDz5+lzv0QEbzBv+xD7Ic/SWEuioU
+	mX6PFSw4D3IF+bpBE+aQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j2dzk-0008EA-9a; Fri, 14 Feb 2020 16:39:12 +0000
+	id 1j2e8P-0002cg-Vf; Fri, 14 Feb 2020 16:48:09 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j2dZu-0004bm-MJ; Fri, 14 Feb 2020 16:12:32 +0000
+ id 1j2dfB-0001Q1-Bl; Fri, 14 Feb 2020 16:18:01 +0000
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net
  [73.47.72.35])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id E2273246A5;
- Fri, 14 Feb 2020 16:12:28 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 98FC2246E1;
+ Fri, 14 Feb 2020 16:17:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1581696749;
- bh=UnMsQWUsQjYWat8/BAwihbk8GHrMfLjbO5UNSPoj6uE=;
+ s=default; t=1581697076;
+ bh=lAkB0FGYBEcU1ex+SWbExJA6tcMV4n0xw9kTIpdIvV8=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=eN0uNH4tSwcDPnEASGL6inodiwpPxiPPKLFqDyR3GYlKETuBPJnMmEROk6EpPGylw
- rm4ys6L8pJoCNCggvXyTt7TvEFIseQOWHOn1NlPPAXhnxrHeowQpYXQ+Z0IzJJqj3T
- vbuHz5QbH23wy6a9q1laYSN34he0KyowrrUakcwk=
+ b=dHjQrqi1fyi4TItM82NwindJ/fhK07qXK5wzohQV8lOgN7ym+fQa/FaFoH8HkZJLM
+ zthgeTeux/Z2YBZYe/8Dx10fB8iHn63bBOE1aaC02jsJ+DFLjTN2ZPRGgMbq+pygD1
+ 1eSuuE15MhYUm2qFtcf3a3IPGCjAC0U3Xqf6FlN8=
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: [PATCH AUTOSEL 4.19 032/252] clocksource/drivers/bcm2835_timer: Fix
+Subject: [PATCH AUTOSEL 4.14 031/186] clocksource/drivers/bcm2835_timer: Fix
  memory leak of timer
-Date: Fri, 14 Feb 2020 11:08:07 -0500
-Message-Id: <20200214161147.15842-32-sashal@kernel.org>
+Date: Fri, 14 Feb 2020 11:14:40 -0500
+Message-Id: <20200214161715.18113-31-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20200214161147.15842-1-sashal@kernel.org>
-References: <20200214161147.15842-1-sashal@kernel.org>
+In-Reply-To: <20200214161715.18113-1-sashal@kernel.org>
+References: <20200214161715.18113-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200214_081230_831325_9C71C052 
+X-CRM114-CacheID: sfid-20200214_081757_456951_854C523B 
 X-CRM114-Status: GOOD (  10.92  )
 X-Spam-Score: -5.2 (-----)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
@@ -109,7 +109,7 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/clocksource/bcm2835_timer.c b/drivers/clocksource/bcm2835_timer.c
-index 60da2537bef93..1082dcef17d17 100644
+index 39e489a96ad74..8894cfc32be06 100644
 --- a/drivers/clocksource/bcm2835_timer.c
 +++ b/drivers/clocksource/bcm2835_timer.c
 @@ -134,7 +134,7 @@ static int __init bcm2835_timer_init(struct device_node *node)
