@@ -2,72 +2,55 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 772CA15E66C
-	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 14 Feb 2020 17:48:13 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id F27C215F297
+	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 14 Feb 2020 19:15:39 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hrmoTXT2BsCDRnWxuoM5LG1VYIqKmga/krGcbQxFC2o=; b=g/S9Tlg5UxTzrM
-	oaEleuKIXhHVo2PAX/Z+S4M2BZKCKj8UiEbznFc1tA1nY95sRJqPtv1a92VdS5QzqSIHXKWA5hD/8
-	D/NFJCv0IL9W6ijgykhPi9NHpcXrQzeXobg6NgV4UdspUUDBDy/HpTx73NjpnPhdTVhFUc+p32yr3
-	LuMXiLPXw8oyve4XmELOgTNoBXQ0sz74gliQsZ5t0DQ7hMugTeNPSrkEeY8xo2GI2KaJ57YYbcxq+
-	M2Kr7wyYTk55y4KcyWyrJy/ioNBc3a9ffHzGdwO9ekMHElDYVDz5+lzv0QEbzBv+xD7Ic/SWEuioU
-	mX6PFSw4D3IF+bpBE+aQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=a3xPX4HWDqEVgMaBYOCYTxlPcg3mh4ydvciqjX1Nkek=; b=edrrY4nT1QdEfz
+	m839RNHHKFwh1D8bhC9o8XtlTsMshWfsHkV9+lL2FnQNRoRRG+tl66kfRSQ33tybuXoVmZgKXvje+
+	B7axOZnT8R+kbbvZdeCDpW4xv3LQehv8oXPPa/z97nHr6YOJbJ6joEbp8waYrCnfQTVZgmCLBKFoF
+	zxsGMoyxQbxdV2ki8CY6nhjJTqZcFd8NyXo2FBmH2aRUzYBk0PP6h5xgunQoPa7Wv4GOzhDK0v4vz
+	zoLhnOq/vWTfhPq0XAvCiI0Dvn3XyBXoWJke9O6c+XVnNWslpbB6A3w53EP9ZqrdBQ5QkBH4T+kie
+	4jbQ0GFIwevxS0ZG8C4w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j2e8P-0002cg-Vf; Fri, 14 Feb 2020 16:48:09 +0000
-Received: from mail.kernel.org ([198.145.29.99])
- by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j2dfB-0001Q1-Bl; Fri, 14 Feb 2020 16:18:01 +0000
-Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net
- [73.47.72.35])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 98FC2246E1;
- Fri, 14 Feb 2020 16:17:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1581697076;
- bh=lAkB0FGYBEcU1ex+SWbExJA6tcMV4n0xw9kTIpdIvV8=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=dHjQrqi1fyi4TItM82NwindJ/fhK07qXK5wzohQV8lOgN7ym+fQa/FaFoH8HkZJLM
- zthgeTeux/Z2YBZYe/8Dx10fB8iHn63bBOE1aaC02jsJ+DFLjTN2ZPRGgMbq+pygD1
- 1eSuuE15MhYUm2qFtcf3a3IPGCjAC0U3Xqf6FlN8=
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH AUTOSEL 4.14 031/186] clocksource/drivers/bcm2835_timer: Fix
- memory leak of timer
-Date: Fri, 14 Feb 2020 11:14:40 -0500
-Message-Id: <20200214161715.18113-31-sashal@kernel.org>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20200214161715.18113-1-sashal@kernel.org>
-References: <20200214161715.18113-1-sashal@kernel.org>
+	id 1j2fV4-0002bX-Br; Fri, 14 Feb 2020 18:15:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+ by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1j2fUv-0002Tj-R6; Fri, 14 Feb 2020 18:15:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5531C328;
+ Fri, 14 Feb 2020 10:15:29 -0800 (PST)
+Received: from [10.1.196.105] (eglon.cambridge.arm.com [10.1.196.105])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6F09B3F68E;
+ Fri, 14 Feb 2020 10:15:28 -0800 (PST)
+Subject: Re: RPI4: fail too boot with an initrd
+To: LABBE Corentin <clabbe@baylibre.com>
+References: <20200214132748.GA23276@Red>
+From: James Morse <james.morse@arm.com>
+Message-ID: <b726290c-1038-3771-5187-6ac370bc92c9@arm.com>
+Date: Fri, 14 Feb 2020 18:15:27 +0000
+User-Agent: Mozilla/5.0 (X11; Linux aarch64; rv:60.0) Gecko/20100101
+ Thunderbird/60.9.0
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
+In-Reply-To: <20200214132748.GA23276@Red>
+Content-Language: en-GB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200214_081757_456951_854C523B 
-X-CRM114-Status: GOOD (  10.92  )
-X-Spam-Score: -5.2 (-----)
+X-CRM114-CacheID: sfid-20200214_101529_920554_EEB06B45 
+X-CRM114-Status: GOOD (  15.59  )
+X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-5.2 points)
+ Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [198.145.29.99 listed in list.dnswl.org]
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [217.140.110.172 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -79,61 +62,82 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Sasha Levin <sashal@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+Cc: linux-kernel@vger.kernel.org, u-boot@lists.denx.de,
  bcm-kernel-feedback-list@broadcom.com, linux-rpi-kernel@lists.infradead.org,
- Colin Ian King <colin.king@canonical.com>,
  linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-From: Colin Ian King <colin.king@canonical.com>
+Hi Corentin,
 
-[ Upstream commit 2052d032c06761330bca4944bb7858b00960e868 ]
+On 14/02/2020 13:27, LABBE Corentin wrote:
+> Since the inclusion of the "enable network support in RPi4 config" serie on uboot, I
+> have started to work on adding the rpi4 in kernelCI.
+> But I fail to succeed in using a kernel/dtb/ramdisk downloaded via tftp.
+> 
+> Using booti I hit:
+> [    0.000000] Linux version 5.6.0-rc1-next-20200212 (clabbe@build2-bionic-1804) (gcc version 7.4.1 20181213 [linaro-7.4-2019.02 revision 56ec6f6b99cc167ff0c2f8e1a2eed33b1edc85d4] (Linaro    GCC 7.4-2019.02)) #66 SMP PREEMPT Wed Feb 12 10:14:20 UTC 2020
+> [    0.000000] Machine model: Raspberry Pi 4 Model B
+> [    0.000000] earlycon: uart0 at MMIO32 0x00000000fe215040 (options '')
+> [    0.000000] printk: bootconsole [uart0] enabled
+> [    0.000000] efi: Getting EFI parameters from FDT:
+> [    0.000000] efi: UEFI not found.
 
-Currently when setup_irq fails the error exit path will leak the
-recently allocated timer structure.  Originally the code would
-throw a panic but a later commit changed the behaviour to return
-via the err_iounmap path and hence we now have a memory leak. Fix
-this by adding a err_timer_free error path that kfree's timer.
+So no EFI,
 
-Addresses-Coverity: ("Resource Leak")
-Fixes: 524a7f08983d ("clocksource/drivers/bcm2835_timer: Convert init function to return error")
-Signed-off-by: Colin Ian King <colin.king@canonical.com>
-Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
-Link: https://lore.kernel.org/r/20191219213246.34437-1-colin.king@canonical.com
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- drivers/clocksource/bcm2835_timer.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+> [    0.000000] OF: reserved mem: failed to allocate memory for node 'linux,cma'
 
-diff --git a/drivers/clocksource/bcm2835_timer.c b/drivers/clocksource/bcm2835_timer.c
-index 39e489a96ad74..8894cfc32be06 100644
---- a/drivers/clocksource/bcm2835_timer.c
-+++ b/drivers/clocksource/bcm2835_timer.c
-@@ -134,7 +134,7 @@ static int __init bcm2835_timer_init(struct device_node *node)
- 	ret = setup_irq(irq, &timer->act);
- 	if (ret) {
- 		pr_err("Can't set up timer IRQ\n");
--		goto err_iounmap;
-+		goto err_timer_free;
- 	}
- 
- 	clockevents_config_and_register(&timer->evt, freq, 0xf, 0xffffffff);
-@@ -143,6 +143,9 @@ static int __init bcm2835_timer_init(struct device_node *node)
- 
- 	return 0;
- 
-+err_timer_free:
-+	kfree(timer);
-+
- err_iounmap:
- 	iounmap(base);
- 	return ret;
--- 
-2.20.1
+Out of memory.
 
+> [    0.000000] cma: Failed to reserve 32 MiB
+> [    0.000000] Kernel panic - not syncing: Failed to allocate page table page
+
+Out of memory...
+
+> [    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 5.6.0-rc1-next-20200212 #66
+> [    0.000000] Hardware name: Raspberry Pi 4 Model B (DT)
+> [    0.000000] Call trace:
+> [    0.000000]  dump_backtrace+0x0/0x1a0
+> [    0.000000]  show_stack+0x14/0x20
+> [    0.000000]  dump_stack+0xbc/0x104
+> [    0.000000]  panic+0x16c/0x37c
+> [    0.000000]  early_pgtable_alloc+0x30/0xa0
+
+... really early!
+
+> [    0.000000]  __create_pgd_mapping+0x36c/0x588
+> [    0.000000]  map_kernel_segment+0x70/0xa4
+> [    0.000000]  paging_init+0xf4/0x528
+> [    0.000000]  setup_arch+0x250/0x5d8
+> [    0.000000]  start_kernel+0x90/0x6d8
+> 
+>  
+> Since the same kernel boot with bootefi and that bootefi lack ramdisk address,
+
+Booting with EFI will cause linux to use the EFI memory map.
+
+Does your DT have a memory node? (or does it expect EFI to provide the information)
+
+
+> I tried to add the address in the dtb via:
+> fdt addr 0x02400000; fdt resize; fdt set /chosen linux,initrd-start 0x02700000; fdt set /chosen linux,initrd-end 0x10000000; bootefi 0x00080000 0x02400000
+> But with that, I get:
+> initrd not fully accessible via the linear mapping -- please check your bootloader ...
+
+So this one is an EFI boot, but you can't find where to put the initramfs such that the
+kernel agrees its in memory.
+
+If you boot with 'efi=debug', linux will print the EFI memory map. Could you compare that
+to where U-Boot thinks memory is?
+
+(it sounds like your DT memory node is missing, and your EFI memory map is surprisingly small)
+
+
+Thanks,
+
+James
 
 _______________________________________________
 linux-rpi-kernel mailing list
