@@ -2,77 +2,59 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3820D15CE65
-	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 13 Feb 2020 23:58:24 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 42BB015D416
+	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 14 Feb 2020 09:51:09 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=HTf96M/R4ZQX8BRY7/jtGUmajC2nhLuVbllqUk4r+So=; b=s8p3DDn50cdOktkMy1HzsuEBV
-	pzxd73u7JkCFJvJy7QcB1iFf2q0cPJ+3vBAWXV2AFn8RMywBA28RMiLvfQuLKtX3QBELd69obZc8q
-	QrrUIn1avIt42D/GOiZfa8AegqGvrXdLpoSjmUEFg0WPoxldfeEPHQKlMNkjZNlwDVvAi1FqP+Bnb
-	z6i1sL4xVsL7pyp1sGQj5u7raKiEc75xb5X4m/YmLGHIgfEVZKArUAk4U2hPTlXzwIqjiVjMYn4Bl
-	5oU5jTknj+kR5Wc4/ILck8uhmVbarmazXmf2NbxC2/Pf5ai0BRyaGsfPSceIgxBpCrOR9oz7UD4e8
-	oKVI/xcyg==;
+	 bh=yf/3yMNeQU5qtGFYFQQk39jjb7hHc+EqeNtzjRj8MDc=; b=BQxc75i+74BxBSWHwi4lZOj1F
+	lsUzooOzJ0jsXDtF0m98CSHoOmGWiRqeBMsf9wEeFpPnH47Tw30kBM2Lh+iRxN+UNzFoCgnvHdxYZ
+	45sR3yCNYED0e3rWyhDs8WxOemdW2KaA7DuUFuNsKGdAfYUh8kJeEWhAl9YocS0fDPxDvGiHmkSPn
+	7BNshQDDPmIt31RGSLvOUujhLVJdCKC4xMfjjheFjrgnJGCG+L/UcPyz/AGe0enBm7im4Ayg8NZCa
+	AnkId1rlvw/lYc25AREOuY9z/s2YS6XPl4QJlfrlLexNHUrR2DnjoY0mW0wpgmwHmVJ5n/2Id7H6V
+	LlTZXloVg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j2NR8-0002CS-Jo; Thu, 13 Feb 2020 22:58:22 +0000
-Received: from smtpng2.m.smailru.net ([94.100.179.3])
+	id 1j2Wgl-0001tm-JX; Fri, 14 Feb 2020 08:51:07 +0000
+Received: from mx2.suse.de ([195.135.220.15])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j2NR5-0002Bp-EQ
- for linux-rpi-kernel@lists.infradead.org; Thu, 13 Feb 2020 22:58:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=orpaltech.com; s=mailru; 
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:Subject;
- bh=soTPxmtIEMJsVOV2VAU49Ux3YkfwGUh07Pcc0E5K2p0=; 
- b=eOg6jBSlSdUT9tEzxlaGkTLD294Y9BMVGrdt938JDlKTizHfPanb1QLOMUyPVyjroHo+YypOpjgQscL21QF30xr6vBUmv6V9npIjumK7/pEMlwicctgkIBDo6tURbX6/9IVD7TJqUh9LED1WegwUtWKoMJmzZX/mf7zm8SM3/Xk=;
-Received: by smtpng2.m.smailru.net with esmtpa (envelope-from
- <ssuloev@orpaltech.com>)
- id 1j2NR1-0005sD-6e; Fri, 14 Feb 2020 01:58:15 +0300
+ id 1j2Wgh-0001tP-3p
+ for linux-rpi-kernel@lists.infradead.org; Fri, 14 Feb 2020 08:51:05 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+ by mx2.suse.de (Postfix) with ESMTP id B7FB5ACE1;
+ Fri, 14 Feb 2020 08:50:58 +0000 (UTC)
+Message-ID: <a878deeefca46e0b9cba601d8ac2a76e2470addc.camel@suse.de>
 Subject: Re: bcm2835 SPI issue
-To: Phil Elwell <phil@raspberrypi.com>
+From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+To: Sergey Suloev <ssuloev@orpaltech.com>, Phil Elwell <phil@raspberrypi.com>
+Date: Fri, 14 Feb 2020 09:50:54 +0100
+In-Reply-To: <2b973c0c-08ec-8b6a-1a97-4d676fdb2dc6@orpaltech.com>
 References: <4172f542-71a8-0186-fe4c-29a8148b7844@orpaltech.com>
  <09f2d0fd-19bc-0884-2f78-b0143f3279ef@raspberrypi.com>
  <e51f3e59-0915-27b7-05a1-e1a2fb8c10d0@orpaltech.com>
  <cf8c2169-7987-5b82-1533-d9a34cd09b41@raspberrypi.com>
-From: Sergey Suloev <ssuloev@orpaltech.com>
-Message-ID: <2b973c0c-08ec-8b6a-1a97-4d676fdb2dc6@orpaltech.com>
-Date: Fri, 14 Feb 2020 01:58:14 +0300
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.4.1
+ <2b973c0c-08ec-8b6a-1a97-4d676fdb2dc6@orpaltech.com>
+User-Agent: Evolution 3.34.3 
 MIME-Version: 1.0
-In-Reply-To: <cf8c2169-7987-5b82-1533-d9a34cd09b41@raspberrypi.com>
-Content-Language: en-US
-Authentication-Results: smtpng2.m.smailru.net;
- auth=pass smtp.auth=ssuloev@orpaltech.com
- smtp.mailfrom=ssuloev@orpaltech.com
-X-7564579A: B8F34718100C35BD
-X-77F55803: 0A44E481635329DB0E1AA8A03B392317D32E5E48865217369CDB5185B45D02FA993422D5AC3DDFC3556F68EC540A45328E0E727ED1CD7EFCB269636821986601478D4FB570D49342D13A8F1ABAE2A586
-X-7FA49CB5: 0D63561A33F958A522E1A17A1D8F0401FFBF734393EFDF654A6275DE01DE06B18941B15DA834481FA18204E546F3947C093C2F12201C912AF6B57BC7E64490618DEB871D839B7333395957E7521B51C2545D4CF71C94A83E9FA2833FD35BB23D27C277FBC8AE2E8BE2CCD8F0CAA010FB389733CBF5DBD5E9B5C8C57E37DE458B4C7702A67D5C33162DBA43225CD8A89FB26E97DCB74E6252262FEC7FBD7D1F5BB5C8C57E37DE458B4C7702A67D5C3316FA3894348FB808DB48C21F01D89DB561574AF45C6390F7469DAA53EE0834AAEE
-X-D57D3AED: Y8kq8+OzVoxvgW9Op3aR8Fxwo7H2ZNxGP5qz8aO2mjTJzjHGC4ogvVuzB3zfVUBtENeZ6b5av1fnCBE34JUDkaJinJwwHx5ysVv9/YfT9uccQVYwite5Tg==
-X-Mailru-Sender: 689FA8AB762F73930799C7A3FA23A270E14777B4624677AA3813980B12F859C1778B5FB1219D8779F6BCD4B1DE95BF653AE5922765F965CDF1D7D1B96E5495AE10FCEA6DFE3E0A150D4ABDE8C577C2ED
-X-Mras: Ok
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200213_145819_665889_3B17A67F 
-X-CRM114-Status: GOOD (  16.49  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20200214_005103_989309_021D3819 
+X-CRM114-Status: GOOD (  22.50  )
+X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [94.100.179.3 listed in list.dnswl.org]
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [195.135.220.15 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [195.135.220.15 listed in wl.mailspike.net]
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -85,57 +67,158 @@ List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
 Cc: linux-rpi-kernel@lists.infradead.org
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============5565450807124416463=="
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-aGksIFBoaWwsCgpPbiAyLzE0LzIwIDE6NDUgQU0sIFBoaWwgRWx3ZWxsIHdyb3RlOgo+IEhpIFNl
-cmdleSwKPgo+IE9uIDEzLzAyLzIwMjAgMjI6MzcsIFNlcmdleSBTdWxvZXYgd3JvdGU6Cj4+IGhp
-LCBQaGlsLAo+Pgo+PiBPbiAyLzE0LzIwIDE6MjIgQU0sIFBoaWwgRWx3ZWxsIHdyb3RlOgo+Pj4g
-SGkgU2VyZ2V5LAo+Pj4KPj4+IE9uIDEzLzAyLzIwMjAgMjI6MDksIFNlcmdleSBTdWxvZXYgd3Jv
-dGU6Cj4+Pj4gaGksIE5pY29sYXMsCj4+Pj4KPj4+PiBJIG5vdGljZWQgdGhhdCBiY20yODM1wqAg
-U1BJIGRyaXZlcsKgIGlzbid0IGZ1bmN0aW9uaW5nIGFueW1vcmUgaW4gCj4+Pj4ga2VybmVscyA1
-LjUgLSA1LjYuIEkga25vdyB0aGlzIGJlY2F1c2UgaXQgd2FzIHVzZWQgc3VjY2Vzc2Z1bGx5IAo+
-Pj4+IHdpdGggcHJldmlvdXMgdmVyc2lvbnMgKHZlcnkgbGF0ZXN0IHY0LnggYW5kIGVhcmxpZXIg
-djUueCkuCj4+Pj4KPj4+PiBJIGFtIHRlc3RpbmcgcnBpM2IgYW5kIHJwaTNhK8KgIGFuZCBtdWx0
-aXBsZSBTUEkgcGVyaXBoZXJhbHMgCj4+Pj4gKGRpc3BsYXlzLCB3aXJlbGVzcyB0cmFuc2NlaXZl
-ciwgZXRjKSBhbmQgbm9uZSBvZiB0aGVtIGFyZSB3b3JraW5nIAo+Pj4+IGFueW1vcmUuIEhhcmR3
-YXJlIGNvbm5lY3Rpb25zIHN0YXkgdGhlIHNhbWUgYXMgYmVmb3JlIHNvIEkgZG9uJ3QgCj4+Pj4g
-dGhpbmsgdGhpcyBpcyBhIGhhcmR3YXJlIGlzc3VlLgo+Pj4+Cj4+Pj4gSSBhbSB1c2luZyB0aGUg
-Zm9sbG93aW5nIHBhdGNoIGluIG15IGJ1aWxkIHRvIGVuYWJsZSBTUEkgcGluczoKPj4+Pgo+Pj4+
-IGh0dHBzOi8vZ2l0aHViLmNvbS9vcnBhbHRlY2gvYXJtbGludXgvYmxvYi9tYXN0ZXIvcGF0Y2gv
-a2VybmVsL2FybWxpbnV4L3N0YWJsZS92NS41L3JwaS8wMDE3LXNwaS1iY20yODM1LUFkZC1TUEkt
-Y29udHJvbGxlci1waW5zLnBhdGNoIAo+Pj4+Cj4+Pj4KPj4+PiBJdCB3YXMgZW5vdWdoIGluIHBy
-ZXZpb3VzIGtlcm5lbHMgZm9yIFNQSSB0byB3b3JrLiBJcyB0aGVyZSAKPj4+PiBhbnl0aGluZyBl
-bHNlIEkgc2hvdWxkIGRvIG5vdyA/Cj4+Pgo+Pj4gSSB0aGluayB5b3UgbmVlZCB0byBhZGQ6Cj4+
-Pgo+Pj4gwqDCoMKgIHN0YXR1cyA9ICJva2F5IjsKPj4+Cj4+PiBPdGhlcndpc2UsIHRoZSBzcGkg
-bm9kZSB3aWxsIHJlbWFpbiBkaXNhYmxlZC4KPj4+Cj4+PiBQaGlsCj4+Pgo+PiB0aGFua3MgZm9y
-IHJlcGx5Lgo+Pgo+PiBJdCBpcyBhbHJlYWR5IGRvbmUgYnkgdGhlIGR0LW92ZXJsYXlzLgo+Pgo+
-PiBBZ2FpbjogaXQgd2FzIHdvcmtpbmcgYmVmb3JlISBJdCBqdXN0IHN0b3BwZWQgd29ya2luZyBh
-ZnRlciBtb3ZpbmcgdG8gCj4+IDUuNS4KPgo+IEkgZG9uJ3QgdGhpbmsgdGhhdCBiY20yODM3LXJw
-aS0zLWIuZHRiIGhhcyBjaGFuZ2VkIHNpZ25pZmljYW50bHkgCj4gYmV0d2VlbiA1LjQgYW5kIDUu
-NS4KPiBIYXZlIHlvdSB0cmllZCB0aGUgNS41IERUQiB3aXRoIHRoZSA1LjQga2VybmVsPwo+Cj4g
-UGhpbAo+Cm5vLCBub3QgeWV0LgoKCkkgZm9yZ290IHRvIGF0dGFjaCBsb2dzIGluIG15IHByZXZp
-b3VzIGVtYWlsLCBoZXJlIGl0IGlzIApodHRwczovL3Bhc3RlYmluLmNvbS92NW1GcE4yRwoKIEZy
-b20gdGhpcyBsb2cgeW91IGNhbiBzZWUgdGhhdCBTUEkgZGlzcGxheSAid29ya3MiIHdlbGw6Cgpy
-b290QHJwaTMtYi1hcm0tc3RyZXRjaDp+IyBkbWVzZyB8IGdyZXAgc3BpClvCoMKgwqAgMy4wMTE1
-NjddIHNwaSBzcGkwLjE6IHNldHRpbmcgdXAgbmF0aXZlLUNTMSB0byB1c2UgR1BJTwpbwqDCoMKg
-IDMuMDE5NjIwXSBzcGkgc3BpMC4wOiBzZXR0aW5nIHVwIG5hdGl2ZS1DUzAgdG8gdXNlIEdQSU8K
-W8KgwqDCoCAzLjM2NzYzN10gW2RybV0gSW5pdGlhbGl6ZWQgaWxpOTQ4NiAxLjAuMCAyMDE3MTIw
-OCBmb3Igc3BpMC4wIG9uIAptaW5vciAxClvCoMKgwqAgMy4zOTAxMDldIGFkczc4NDYgc3BpMC4x
-OiB0b3VjaHNjcmVlbiwgaXJxIDk0ClvCoMKgwqAgMy4zOTYzMDZdIGlucHV0OiBBRFM3ODQ2IFRv
-dWNoc2NyZWVuIGFzIAovZGV2aWNlcy9wbGF0Zm9ybS9zb2MvM2YyMDQwMDAuc3BpL3NwaV9tYXN0
-ZXIvc3BpMC9zcGkwLjEvaW5wdXQvaW5wdXQwClvCoMKgwqAgMy40MDg0ODZdIGlsaTk0ODYgc3Bp
-MC4wOiB3YXZlc2hhcmUzNV9lbmFibGU6IGVudGVyClvCoMKgIDM3LjgyMTExMl0gaWxpOTQ4NiBz
-cGkwLjA6IGZiMTogaWxpOTQ4NmRybWZiIGZyYW1lIGJ1ZmZlciBkZXZpY2UKCgpCdXQgdGhlIGRp
-c3BsYXkgaXNuJ3Qgd29ya2luZy4gVGhlIHNhbWUgc2NlbmFyaW8gd2l0aCBhbnkgb3RoZXIgU1BJ
-IApwZXJpcGhlcmFsIDogbm8gZXJyb3JzIGluIHRoZSBsb2cgYnV0IHRoZSBwZXJpcGhlcmFsIGlz
-IG1hbGZ1bmN0aW9uaW5nLgoKSSBhbSBub3QgYSBiaWcgZXhwZXJ0IGluIFNQSSwgYnV0IEkgY29u
-bmVjdGVkIG15IG9zY2lsbG9zY29wZSBhbmQgSSBjYW4gCnNlZSBzb21lIGFjdGl2aXR5IG9uIENM
-SyBhbmQgTU9TSS4KCkFsbCB0aGlzIG1ha2VzIG1lIHRoaW5rIHRoYXQgY3VycmVudCBTUEkgZHJp
-dmVyIGRvZXNuJ3QgcHJvZHVjZSB0aGUgCiJjb3JyZWN0IiBTUEkgcHJvdG9jb2wgbWVzc2FnZXMg
-YW55bW9yZS4KCgpTZXJnZXkKCgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCmxpbnV4LXJwaS1rZXJuZWwgbWFpbGluZyBsaXN0CmxpbnV4LXJwaS1rZXJu
-ZWxAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJwaS1rZXJuZWwK
+
+--===============5565450807124416463==
+Content-Type: multipart/signed; micalg="pgp-sha256";
+	protocol="application/pgp-signature"; boundary="=-qhPKMS5zuFuvhoSlmvsW"
+
+
+--=-qhPKMS5zuFuvhoSlmvsW
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Sergey,
+
+On Fri, 2020-02-14 at 01:58 +0300, Sergey Suloev wrote:
+> hi, Phil,
+>=20
+> On 2/14/20 1:45 AM, Phil Elwell wrote:
+> > Hi Sergey,
+> >=20
+> > On 13/02/2020 22:37, Sergey Suloev wrote:
+> > > hi, Phil,
+> > >=20
+> > > On 2/14/20 1:22 AM, Phil Elwell wrote:
+> > > > Hi Sergey,
+> > > >=20
+> > > > On 13/02/2020 22:09, Sergey Suloev wrote:
+> > > > > hi, Nicolas,
+> > > > >=20
+> > > > > I noticed that bcm2835  SPI driver  isn't functioning anymore in=
+=20
+> > > > > kernels 5.5 - 5.6. I know this because it was used successfully=
+=20
+> > > > > with previous versions (very latest v4.x and earlier v5.x).
+> > > > >=20
+> > > > > I am testing rpi3b and rpi3a+  and multiple SPI peripherals=20
+> > > > > (displays, wireless transceiver, etc) and none of them are workin=
+g=20
+> > > > > anymore. Hardware connections stay the same as before so I don't=
+=20
+> > > > > think this is a hardware issue.
+> > > > >=20
+> > > > > I am using the following patch in my build to enable SPI pins:
+> > > > >=20
+> > > > >=20
+https://github.com/orpaltech/armlinux/blob/master/patch/kernel/armlinux/sta=
+ble/v5.5/rpi/0017-spi-bcm2835-Add-SPI-controller-pins.patch
+=20
+> > > > >=20
+> > > > >=20
+> > > > > It was enough in previous kernels for SPI to work. Is there=20
+> > > > > anything else I should do now ?
+> > > >=20
+> > > > I think you need to add:
+> > > >=20
+> > > >     status =3D "okay";
+> > > >=20
+> > > > Otherwise, the spi node will remain disabled.
+> > > >=20
+> > > > Phil
+> > > >=20
+> > > thanks for reply.
+> > >=20
+> > > It is already done by the dt-overlays.
+> > >=20
+> > > Again: it was working before! It just stopped working after moving to=
+=20
+> > > 5.5.
+> >=20
+> > I don't think that bcm2837-rpi-3-b.dtb has changed significantly=20
+> > between 5.4 and 5.5.
+> > Have you tried the 5.5 DTB with the 5.4 kernel?
+> >=20
+> > Phil
+> >=20
+> no, not yet.
+>=20
+>=20
+> I forgot to attach logs in my previous email, here it is=20
+> https://pastebin.com/v5mFpN2G
+>=20
+>  From this log you can see that SPI display "works" well:
+>=20
+> root@rpi3-b-arm-stretch:~# dmesg | grep spi
+> [    3.011567] spi spi0.1: setting up native-CS1 to use GPIO
+> [    3.019620] spi spi0.0: setting up native-CS0 to use GPIO
+> [    3.367637] [drm] Initialized ili9486 1.0.0 20171208 for spi0.0 on=20
+> minor 1
+> [    3.390109] ads7846 spi0.1: touchscreen, irq 94
+> [    3.396306] input: ADS7846 Touchscreen as=20
+> /devices/platform/soc/3f204000.spi/spi_master/spi0/spi0.1/input/input0
+> [    3.408486] ili9486 spi0.0: waveshare35_enable: enter
+> [   37.821112] ili9486 spi0.0: fb1: ili9486drmfb frame buffer device
+>=20
+>=20
+> But the display isn't working. The same scenario with any other SPI=20
+> peripheral : no errors in the log but the peripheral is malfunctioning.
+>=20
+> I am not a big expert in SPI, but I connected my oscilloscope and I can=
+=20
+> see some activity on CLK and MOSI.
+>=20
+> All this makes me think that current SPI driver doesn't produce the=20
+> "correct" SPI protocol messages anymore.
+
+Lets see if we can fid out the fautly patch.
+
+I get from your message that you tested successfully v5.4 but v5.5 fails ri=
+ght?
+
+I see no changes in the SPI driver between those release, so we'd need to d=
+o a
+git bisect. But first lets find our the last working version.
+
+Regards,
+Nicolas
+
+
+--=-qhPKMS5zuFuvhoSlmvsW
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCAAdFiEErOkkGDHCg2EbPcGjlfZmHno8x/4FAl5GX24ACgkQlfZmHno8
+x/4cTAgAlrwn7zk17viP8f9PMa3NqgCg7VP8lYVrH16iaJmkMxsLvzeUEgXu9jo4
+U7FqN3ujHfci7dWWBP57bokN7o3LdNWPV9i5aTbMSSpIMlyxRI39YTWHF8xQGtBO
+URsBpi5t9V1CQLtJWf/e225Q2p+TVUrqIrqq85kWy6IL3Fa3UHE4ZsKtfq/ej7f+
+snQPAk4/xo5lKpoaA7NLRnAV3U+NvCvDOdJQihFGR4Bkbq0FtycB+g9+WjJi5LcN
+iRuVzgDIX0xpf2vnRZ2GmD71CpP4BMqZKNDIzQM612cAlOPHD9sC/b947rhdyIwl
+aQugYOAAJl72STPWWfixo++y//gzRg==
+=7hCh
+-----END PGP SIGNATURE-----
+
+--=-qhPKMS5zuFuvhoSlmvsW--
+
+
+
+--===============5565450807124416463==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-rpi-kernel mailing list
+linux-rpi-kernel@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
+
+--===============5565450807124416463==--
+
+
