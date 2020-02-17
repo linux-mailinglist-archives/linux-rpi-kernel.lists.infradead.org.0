@@ -2,134 +2,90 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6EFF31611F4
-	for <lists+linux-rpi-kernel@lfdr.de>; Mon, 17 Feb 2020 13:22:54 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 653AE161263
+	for <lists+linux-rpi-kernel@lfdr.de>; Mon, 17 Feb 2020 13:53:37 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:MIME-Version:
-	Date:Message-ID:From:To:Subject:Reply-To:Cc:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wOKV0nRC/+tN2RBAreCg4vJ6R5ABdwDYivRUom5ml5c=; b=QeA4W4HTq07s9y
-	QUmf44W5Mn49pFVhRlyvjM4TYsRCaCmlsGPB3kUgqWHvxzNyNpuxUdfIWs3oC3hQfSMxbC6YxLx+A
-	1AKBxXYdd/D8yhi6SaZ2DmeVEreda99AnVj3z+abspWpIawmN884iImE8GnvR7ebEZgNN0wVmOn0v
-	KYFkkkEmrTX+RYY+bnfflOWOMNyvSbLcSACbjWR0p29jUWdZvo1JtykHrO8Vsl2Yn+2JK2OuYVuUv
-	7p3fwyJqMS4LP2wvtB/sbYer7yM8CbkwCJE2GMYZPg14FGLt3HZgHk3xZtshEutL9dOsYFr1LQqlH
-	Dj8DhbCWKWsT7Pkd/D5A==;
+	List-Owner; bh=V67TpyqHa60LEimEFkAuwwkbwElv59M+Ro88kZzy7W0=; b=YvaCuCXlLP54rd
+	5NJ6ko9H2TNsfOdBxbv3yiqA9aUUB+0tes2m+bLoJE6qrVqIQxF3XfDV7WSeP32Xxrw47w/lIwVxk
+	W434+ofkjJ/ZS6NTObBjSiSIBJhJ2vbcI9l85y6a0APN2Iu8dlCqKRZrMtOtsIh1pc66h3OeKaJHQ
+	ckCqT3tW5/y77RwJXWorYKsz1ZrqPEdKwoOe8eIjmmbKQIkGMy69SB/RQphx+1yjEDBLKGmdLG/kO
+	Yb/l+7Uz7Sr88mAXfUE3FWXSP2kxzStl6Q5ezthk4g+RL/9Wb7nzzXWXvTCTEy5oAt3DOu2ARDeGw
+	u3FSgR2uUjaw3Nv9UDjQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j3fQ7-0004Ej-Ax; Mon, 17 Feb 2020 12:22:39 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1j3ftl-0005Un-Lr; Mon, 17 Feb 2020 12:53:17 +0000
+Received: from mail-wr1-x442.google.com ([2a00:1450:4864:20::442])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j3fPu-00045O-Ed
- for linux-rpi-kernel@lists.infradead.org; Mon, 17 Feb 2020 12:22:28 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
- by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id
- 20200217122224euoutp01ff8d8ae5aef1003b9a5ee37d63d882a6~0L-_iDCMS0352903529euoutp01h
+ id 1j3ftZ-0005Lq-TP
+ for linux-rpi-kernel@lists.infradead.org; Mon, 17 Feb 2020 12:53:08 +0000
+Received: by mail-wr1-x442.google.com with SMTP id z7so19564223wrl.13
  for <linux-rpi-kernel@lists.infradead.org>;
- Mon, 17 Feb 2020 12:22:24 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com
- 20200217122224euoutp01ff8d8ae5aef1003b9a5ee37d63d882a6~0L-_iDCMS0352903529euoutp01h
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
- s=mail20170921; t=1581942144;
- bh=pepeLGM6JPh2niWR4Zq0KSrOrfT2c2MNZvG/qj9b8mA=;
- h=Subject:To:From:Date:In-Reply-To:References:From;
- b=E6dknFPREmy9aW6ZSNCTO1egqzsjCrjIE+w7aFdYtuN3R1drjQlxQE+Y/HJ7Q/Mnr
- JHMd50lLLzQT31sVQnRsvjdujj6DhcOBILImhntu+6J9R4QPS6ycddlCVBVvrNR1eB
- uRuYz2tu2MPMrsWvp752zIRjKrs+KPU7EDXVNupU=
-Received: from eusmges3new.samsung.com (unknown [203.254.199.245]) by
- eucas1p2.samsung.com (KnoxPortal) with ESMTP id
- 20200217122223eucas1p208d0aa69d3df2975b123de0e39411e46~0L-_Y6yJh3165531655eucas1p2s;
- Mon, 17 Feb 2020 12:22:23 +0000 (GMT)
-Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
- eusmges3new.samsung.com (EUCPMTA) with SMTP id 98.8A.60698.F758A4E5; Mon, 17
- Feb 2020 12:22:23 +0000 (GMT)
-Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
- eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
- 20200217122223eucas1p22e5947908dcdc0c2ea1dfe958b851a4e~0L-_C7eBG3165531655eucas1p2r;
- Mon, 17 Feb 2020 12:22:23 +0000 (GMT)
-Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
- eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
- 20200217122223eusmtrp1603ff6a3bd2c59d746cd03352112cea1~0L-_CTqhZ1377413774eusmtrp18;
- Mon, 17 Feb 2020 12:22:23 +0000 (GMT)
-X-AuditID: cbfec7f5-a0fff7000001ed1a-e6-5e4a857f0170
-Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
- eusmgms2.samsung.com (EUCPMTA) with SMTP id 4C.14.07950.F758A4E5; Mon, 17
- Feb 2020 12:22:23 +0000 (GMT)
-Received: from [106.120.51.15] (unknown [106.120.51.15]) by
- eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
- 20200217122223eusmtip2333914dac7ae29e7a91441ce3791af8d~0L-9qcuW-1085210852eusmtip2N;
- Mon, 17 Feb 2020 12:22:23 +0000 (GMT)
-Subject: Re: [PATCH] ARM: bcm2835_defconfig: add minimal support for
- Raspberry Pi4
-To: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>, Stefan Wahren
- <stefan.wahren@i2se.com>, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-Message-ID: <9330d511-dc7d-8d67-043a-acee7e6ebd73@samsung.com>
-Date: Mon, 17 Feb 2020 13:22:22 +0100
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
- Thunderbird/68.5.0
+ Mon, 17 Feb 2020 04:53:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=baylibre-com.20150623.gappssmtp.com; s=20150623;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to:user-agent;
+ bh=7R3FILuhN3p+BWRLtBUphGrRXpUsVgK4QWh6n4wz7vw=;
+ b=il+X/6zFWwdWFU3GQKLEpKcseKN2qM3E2084edwN17B85FuunBp2lxJhWag48GRblK
+ 940c3HGHFlq1jcKqiSn8/uURdeuljU2YFjF+Sz2O2jL1jeMSLU89MvA/nut5hDK5HAV2
+ hprFcLRI6WKiAhbAO9oEdStZUeIqv9HgyAi5AXGo1clb2kJVzdEyTVXQ+iG+7A1euEBc
+ la8FKNxub7fRXIi28kmOTKAcBob/UiRdy21pcJK3KiuInP9AnzjrQ5KHofSRab7UpkUo
+ 0urdQB9Hzht7pWLYyXRkJXJdRjP06ms2rsnyDxEj7tOzg4rhKfJWyRnTPbuYikDTGpsK
+ tTVg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=7R3FILuhN3p+BWRLtBUphGrRXpUsVgK4QWh6n4wz7vw=;
+ b=tqPaJ8f7QBgBut/2J3embfBVGgZHu41dFaDYlhDE2JC5TQt5vWF/49HpInE+oBPQkX
+ fY4GBLqHo5NoDEjHtnAWPGr0b4U2N++SI1GAiassUPeowfqWBqLsNp9mA1miHVPkwoGp
+ 4ecAUr8yXLmiKZhJm3k0YPL9QEln9bXqW/v5oqml3aB+7QUaPb7gZa/3j0lQslnhp9u9
+ PyEWB0k4Wtbl6ZSHNeuWMqOp81sx06XbUpo/y6ILI2ZgiYoD4sJgFQJ+EdrmNTKNADUF
+ 62n5Zpaouq5SXen+mb/XCupTbq4T8zc0qxu285qEIe58BpvaObVjiPjLpYleMIiDGhxA
+ 2DdQ==
+X-Gm-Message-State: APjAAAV+YnAN1KJ5KE5CUroYAKTW4J0kaays/Knr67lqfjqeH++/3dSA
+ XhYiMMHfI3raxNWj+Wodw+/HgA==
+X-Google-Smtp-Source: APXvYqzVuuAh0xeYF6cOBMa65EbD6xNASq5s4P4o8y3g+Sr134xF2ST8a695PSriNM9d2l7k1jFAvQ==
+X-Received: by 2002:adf:f103:: with SMTP id r3mr22193162wro.295.1581943984139; 
+ Mon, 17 Feb 2020 04:53:04 -0800 (PST)
+Received: from Red ([2a01:cb1d:3d5:a100:2e56:dcff:fed2:c6d6])
+ by smtp.googlemail.com with ESMTPSA id j14sm845668wrn.32.2020.02.17.04.53.02
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 17 Feb 2020 04:53:03 -0800 (PST)
+Date: Mon, 17 Feb 2020 13:53:01 +0100
+From: LABBE Corentin <clabbe@baylibre.com>
+To: Matthias Brugger <matthias.bgg@gmail.com>
+Subject: Re: RPI4: fail too boot with an initrd
+Message-ID: <20200217125301.GA31847@Red>
+References: <20200214132748.GA23276@Red>
+ <b726290c-1038-3771-5187-6ac370bc92c9@arm.com>
+ <20200217103733.GA11379@Red>
+ <c5a959d7-44b2-fab9-8269-d8e858790925@gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <C0LZGU1IU7QO.9VKWHWJ56XZV@vian>
-Content-Language: en-US
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprOKsWRmVeSWpSXmKPExsWy7djPc7r1rV5xBsd2m1psenyN1eLyrjls
- FhNvb2C32DZrOZvFphU32BxYPbbeMvXYvKTeY/Ppao/Pm+QCWKK4bFJSczLLUov07RK4Mlr/
- XmYpeMNfcbwnqoHxLU8XIyeHhICJxLt7XYxdjFwcQgIrGCUWXtrIDuF8YZTY+OM+VOYzo8S2
- j7eZYFrmP1zMBmILCSxnlPh+WRKi6C2jxMdLvcwgCWGBEIktnXOYQRIiAicZJSbvP8cKkmAT
- MJToetsF1s0rYCfxu6mJHcRmEVCV+PT9AtgGUYFYidkrD7NA1AhKnJz5BMjm4OAU0JU4MFkQ
- JMwsIC+x/e0cZghbXOLWk/lMILskBNrZJabu+8wKcamLxMeDk9ghbGGJV8e3QNkyEqcn97BA
- NDQzSjw8t5YdwulhlLjcNIMRospa4s65X2wgm5kFNCXW79KHCDtK/Lu2igkkLCHAJ3HjLdRB
- fBKTtk1nhgjzSnS0CUFUq0nMOr4Obu3BC5egSjwk1j8Mn8CoOAvJk7OQfDYLyWezEE5YwMiy
- ilE8tbQ4Nz212DgvtVyvODG3uDQvXS85P3cTIzC5nP53/OsOxn1/kg4xCnAwKvHwOoR4xgmx
- JpYVV+YeYpTgYFYS4fUW94oT4k1JrKxKLcqPLyrNSS0+xCjNwaIkzmu86GWskEB6Yklqdmpq
- QWoRTJaJg1OqgbE0M6/0azlL09/N6fWTBfX57kg+/hPfcvRL8wRv9Ryz0r1TM97E798j7Opv
- EahyUX3NsT8thZV+Z7KtOv13b3masu/Apck/nqTNWfl3spxi+aKlfunOe8uvtEyxe6TszvNh
- kVb67CMv+/O10jiPTrrTYrpe0kTBV1Dh8oE7LYEruaT/12x/lqHEUpyRaKjFXFScCAC2bjZc
- KgMAAA==
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprPIsWRmVeSWpSXmKPExsVy+t/xe7r1rV5xBvcXy1hsenyN1eLyrjls
- FhNvb2C32DZrOZvFphU32BxYPbbeMvXYvKTeY/Ppao/Pm+QCWKL0bIryS0tSFTLyi0tslaIN
- LYz0DC0t9IxMLPUMjc1jrYxMlfTtbFJSczLLUov07RL0Mlr/XmYpeMNfcbwnqoHxLU8XIyeH
- hICJxPyHi9m6GLk4hASWMkrMnHiJHSIhI3FyWgMrhC0s8edaF1TRa0aJyW86wRLCAiEST3qX
- sYMkRAROM0r8v3gYqqqBUeLVss9sIFVsAoYSXW+7wGxeATuJ301NYCtYBFQlPn2/wARiiwrE
- StyY2cEEUSMocXLmE5YuRg4OTgFdiQOTBUHCzAJmEvM2P2SGsOUltr+dA2WLS9x6Mp9pAqPg
- LCTds5C0zELSMgtJywJGllWMIqmlxbnpucVGesWJucWleel6yfm5mxiBkbPt2M8tOxi73gUf
- YhTgYFTi4XUI8YwTYk0sK67MPcQowcGsJMLrLe4VJ8SbklhZlVqUH19UmpNafIjRFOi3icxS
- osn5wKjOK4k3NDU0t7A0NDc2NzazUBLn7RA4GCMkkJ5YkpqdmlqQWgTTx8TBKdXAqPriUpCD
- HOs3071czxKEKwtmfwnpX/ZXr7nwyIE51eePzLkyxbddx5qDyYzvcuK57VM+R54SPfxLeUNu
- xvnizRxcv9PPsva+NLRQkVr0wpon8OT5xU/ztnfO4W76bqUU9WIm1+bYo+7fb73pZF9695G1
- o8t0PokTxe8Y15Z2Pw0wtjMzFZj/SImlOCPRUIu5qDgRALGTGb2yAgAA
-X-CMS-MailID: 20200217122223eucas1p22e5947908dcdc0c2ea1dfe958b851a4e
-X-Msg-Generator: CA
-X-RootMTR: 20200214151840eucas1p2ccd15a69aea02a20eda1e4b6e9c8f44e
-X-EPHeader: CA
-CMS-TYPE: 201P
-X-CMS-RootMailID: 20200214151840eucas1p2ccd15a69aea02a20eda1e4b6e9c8f44e
-References: <CGME20200214151840eucas1p2ccd15a69aea02a20eda1e4b6e9c8f44e@eucas1p2.samsung.com>
- <C0LZGU1IU7QO.9VKWHWJ56XZV@vian>
+Content-Disposition: inline
+In-Reply-To: <c5a959d7-44b2-fab9-8269-d8e858790925@gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200217_042226_620057_D24E9C6E 
-X-CRM114-Status: GOOD (  13.84  )
-X-Spam-Score: -5.2 (-----)
+X-CRM114-CacheID: sfid-20200217_045306_091550_F35C52AC 
+X-CRM114-Status: GOOD (  27.39  )
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-5.2 points)
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [210.118.77.11 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [210.118.77.11 listed in wl.mailspike.net]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2a00:1450:4864:20:0:0:0:442 listed in]
+ [list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -141,58 +97,127 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ u-boot@lists.denx.de, James Morse <james.morse@arm.com>,
+ linux-rpi-kernel@lists.infradead.org, bcm-kernel-feedback-list@broadcom.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-Hi Nicolas,
+On Mon, Feb 17, 2020 at 11:50:04AM +0100, Matthias Brugger wrote:
+> 
+> 
+> On 17/02/2020 11:37, LABBE Corentin wrote:
+> > On Fri, Feb 14, 2020 at 06:15:27PM +0000, James Morse wrote:
+> >> Hi Corentin,
+> >>
+> >> On 14/02/2020 13:27, LABBE Corentin wrote:
+> >>> Since the inclusion of the "enable network support in RPi4 config" serie on uboot, I
+> >>> have started to work on adding the rpi4 in kernelCI.
+> >>> But I fail to succeed in using a kernel/dtb/ramdisk downloaded via tftp.
+> >>>
+> >>> Using booti I hit:
+> >>> [    0.000000] Linux version 5.6.0-rc1-next-20200212 (clabbe@build2-bionic-1804) (gcc version 7.4.1 20181213 [linaro-7.4-2019.02 revision 56ec6f6b99cc167ff0c2f8e1a2eed33b1edc85d4] (Linaro    GCC 7.4-2019.02)) #66 SMP PREEMPT Wed Feb 12 10:14:20 UTC 2020
+> >>> [    0.000000] Machine model: Raspberry Pi 4 Model B
+> >>> [    0.000000] earlycon: uart0 at MMIO32 0x00000000fe215040 (options '')
+> >>> [    0.000000] printk: bootconsole [uart0] enabled
+> >>> [    0.000000] efi: Getting EFI parameters from FDT:
+> >>> [    0.000000] efi: UEFI not found.
+> >>
+> >> So no EFI,
+> >>
+> >>> [    0.000000] OF: reserved mem: failed to allocate memory for node 'linux,cma'
+> >>
+> >> Out of memory.
+> >>
+> >>> [    0.000000] cma: Failed to reserve 32 MiB
+> >>> [    0.000000] Kernel panic - not syncing: Failed to allocate page table page
+> >>
+> >> Out of memory...
+> >>
+> >>> [    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 5.6.0-rc1-next-20200212 #66
+> >>> [    0.000000] Hardware name: Raspberry Pi 4 Model B (DT)
+> >>> [    0.000000] Call trace:
+> >>> [    0.000000]  dump_backtrace+0x0/0x1a0
+> >>> [    0.000000]  show_stack+0x14/0x20
+> >>> [    0.000000]  dump_stack+0xbc/0x104
+> >>> [    0.000000]  panic+0x16c/0x37c
+> >>> [    0.000000]  early_pgtable_alloc+0x30/0xa0
+> >>
+> >> ... really early!
+> >>
+> >>> [    0.000000]  __create_pgd_mapping+0x36c/0x588
+> >>> [    0.000000]  map_kernel_segment+0x70/0xa4
+> >>> [    0.000000]  paging_init+0xf4/0x528
+> >>> [    0.000000]  setup_arch+0x250/0x5d8
+> >>> [    0.000000]  start_kernel+0x90/0x6d8
+> >>>
+> >>>  
+> >>> Since the same kernel boot with bootefi and that bootefi lack ramdisk address,
+> >>
+> >> Booting with EFI will cause linux to use the EFI memory map.
+> >>
+> >> Does your DT have a memory node? (or does it expect EFI to provide the information)
+> >>
+> >>
+> >>> I tried to add the address in the dtb via:
+> >>> fdt addr 0x02400000; fdt resize; fdt set /chosen linux,initrd-start 0x02700000; fdt set /chosen linux,initrd-end 0x10000000; bootefi 0x00080000 0x02400000
+> >>> But with that, I get:
+> >>> initrd not fully accessible via the linear mapping -- please check your bootloader ...
+> >>
+> >> So this one is an EFI boot, but you can't find where to put the initramfs such that the
+> >> kernel agrees its in memory.
+> >>
+> >> If you boot with 'efi=debug', linux will print the EFI memory map. Could you compare that
+> >> to where U-Boot thinks memory is?
+> >>
+> >> (it sounds like your DT memory node is missing, and your EFI memory map is surprisingly small)
+> > 
+> > Hello
+> > 
+> > Thanks for your advices.
+> > 
+> > In the dtb of mainline linux:
+> > 	/* Will be filled by the bootloader */
+> > 	memory@0 {
+> > 		device_type = "memory";
+> > 		reg = <0 0 0>;
+> > 	};
+> > 
+> > In uboot I have:
+> > static struct mm_region bcm2711_mem_map[] = {
+> >         {
+> >                 .virt = 0x00000000UL,
+> >                 .phys = 0x00000000UL,
+> >                 .size = 0xfe000000UL,
+> >                 .attrs = PTE_BLOCK_MEMTYPE(MT_NORMAL) |
+> >                          PTE_BLOCK_INNER_SHARE
+> >         }, {
+> >                 .virt = 0xfc000000UL,
+> >                 .phys = 0xfc000000UL,
+> >                 .size = 0x03800000UL,
+> >                 .attrs = PTE_BLOCK_MEMTYPE(MT_DEVICE_NGNRNE) |
+> >                          PTE_BLOCK_NON_SHARE |
+> >                          PTE_BLOCK_PXN | PTE_BLOCK_UXN
+> >         }, {
+> >                 /* List terminator */
+> >                 0,
+> >         }
+> > };
+> > But I dont know if uboot use that for filling the memory node.
+> 
+> No it doesn't. U-Boot uses the DT from the firmware and passes this to the
+> kernel. But it seems you pass instead your own device-tree to the kernel, so you
+> will need to update the memory node to show the available memory on you board.
+> 
 
-On 14.02.2020 16:14, Nicolas Saenz Julienne wrote:
-> On Fri Feb 14, 2020 at 1:25 PM, Marek Szyprowski wrote:
->> On 13.02.2020 10:59, Stefan Wahren wrote:
->>> On 13.02.20 08:35, Marek Szyprowski wrote:
->>>> On 12.02.2020 19:31, Nicolas Saenz Julienne wrote:
->>>>> On Wed, 2020-02-12 at 11:20 +0100, Marek Szyprowski wrote:
->>>>>> Add drivers for the minimal set of devices needed to boot Raspberry Pi4
->>>>>> board.
->>>>>>
->>>>>> Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
->>>>> Just so you know, the amount of support on the RPi4 you might be able to get
->>>>> updating bcm2835_defconfig's config is very limited. Only 1GB of ram and no
->>>>> PCIe (so no USBs).
->>>> Yes, I know. A lots of core features is missing: SMP, HIGHMEM, LPAE, PCI
->>>> and so on, but having a possibility to boot RPi4 with this defconfig
->>>> increases the test coverage.
->>> in case you want to increase test coverage, we better enable all
->>> Raspberry Pi 4 relevant hardware parts (hwrng, thermal, PCI ...). This
->>> is what we did for older Pi boards.
->> Okay, I will add thermal in v2. HWRNG is already selected as module.
->> Enabling PCI without LPAE makes no sense as the driver won't be able to
->> initialize properly.
-> Agree on this.
->>> SMP, HIGHMEM, LPAE are different and shouldn't be enabled in
->>> bcm2835_defconfig from my PoV.
->> Maybe it would make sense to also add bcm2711_defconfig or
->> bcm2835_lpae_defconfig?
-> IMO bcm2711_defconfig if the last resort solution. I don't think you can
-> do bcm2835_lpae_defconfig as RPi and RPi2 SoCs don't support LPAE.
+I dont understand, in the Linux commit "ARM: dts: Add minimal Raspberry Pi 4 support" I read:
+The RPi 4 is available in 3 different variants (1, 2 and 4 GB RAM), so leave the memory size to zero and let the bootloader take care of it.
+But if uboot dont fill that...
+So the DTB in mainline is wrong, right ?
 
-Okay, if you want I can send a patch adding bcm2711_defconfig.
-
->   An
-> intemediate solution is being discussed here:
-> https://lkml.org/lkml/2020/1/10/694
-
-Right, I also agree that multi_v7_lpae_defconfig is needed. Best would 
-be to have both (bcm2711 for quick tests of board-dedicated kernel and 
-multi for distributions).
-
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
-
+Regards
 
 _______________________________________________
 linux-rpi-kernel mailing list
