@@ -2,54 +2,126 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id AA7F91616CE
-	for <lists+linux-rpi-kernel@lfdr.de>; Mon, 17 Feb 2020 16:55:48 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id E22A71616C8
+	for <lists+linux-rpi-kernel@lfdr.de>; Mon, 17 Feb 2020 16:55:21 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:To:From:
-	Subject:Date:In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=2tQnPoGb+BWV1eJakF1agBRXBy3HMLbx9KoyyrNKxnk=; b=hUnJiBY7oc8HAA
-	//ZSPgcffTRB2JcknH1Y+emzPWMnOuIPUy/13tBWcK1jaYnOZTu6I0dibwL+65cyM7bB+CAlBKNL7
-	gqpz5X4lWA85YVeHPfJmzSpDkv+XRxD4tEenwPV8+1dhLZwwdUyI5qjT8VnbOpf4Mzu0tLgAE/27M
-	Zl/T0QszHMARIUe0Orh8mfgB8ram6eJkvw0NF80eTQ1cOafMi0UmzbPhbrXU1OiQqO8xg3NUFR/rb
-	nKbY66Q9iuNF+hrtDn4La3b+31H1UTSkZ2euv++cT1k77BfPWFE/dy7wWPtxqWEfO7OJup5qyWkpN
-	za1jmcZqe8+jAE3Qbb1A==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:List-Owner; bh=af9I7lNhCD2jKfljbuytGISWhhsUojIYk3Ghw6FqZTE=; b=oq
+	DG8bVksY0tdKD7sTAnPNddlGcJ3ATZS+fb2B2rUdGjRbIYN2dJRg5SlgEI3RZCaUWDDM7wUB4QYjV
+	Y+7CK+zW6IYltKLObKS96RlYOTkF8HKg2B1S5Hf7MNK5vqhEi4M2sL5YEPeWZE/MwkNJPvk68aoie
+	Fg+veGWYhxmQwYxDR8w8xvjAVXU8BYM6hLlWArQWOGMUps6toh3Jn2Wz9bt/XpglQ2PADVxV8qGE4
+	2bfi9K978hlMuOBg5eY8tdMYP9tEcd8tpjuDby7xcUOoLjNvhj8CMT5gGuOgrKgAZZhp/1m/HSX/c
+	OsbqzzLCNmTeP/tilCai3J9t74WiV9oQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j3ikN-0000za-3G; Mon, 17 Feb 2020 15:55:47 +0000
-Received: from mx2.suse.de ([195.135.220.15])
+	id 1j3ijw-0000eL-BN; Mon, 17 Feb 2020 15:55:20 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j3ikB-0000sW-9U
- for linux-rpi-kernel@lists.infradead.org; Mon, 17 Feb 2020 15:55:37 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx2.suse.de (Postfix) with ESMTP id 5D12CB147;
- Mon, 17 Feb 2020 15:55:33 +0000 (UTC)
-In-Reply-To: <20200213194001.130110-1-marcgonzalez@google.com>
-Date: Mon, 17 Feb 2020 16:49:36 +0100
-Subject: Re: [PATCH] staging: vc04_services: Fix wrong early return in
- next_service_by_instance()
-From: "Nicolas Saenz Julienne" <nsaenzjulienne@suse.de>
-To: "Marcelo Diop-Gonzalez" <marcgonzalez@google.com>,
- <gregkh@linuxfoundation.org>
-Message-Id: <C0OK3FSV7XIN.MMMEHI9F14QG@linux-9qgx>
+ id 1j3ijs-0000cT-FN
+ for linux-rpi-kernel@lists.infradead.org; Mon, 17 Feb 2020 15:55:18 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+ by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id
+ 20200217155513euoutp02a46dc5d6140f6f2bc96638961b711be0~0O5zW2hQY3072930729euoutp024
+ for <linux-rpi-kernel@lists.infradead.org>;
+ Mon, 17 Feb 2020 15:55:13 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com
+ 20200217155513euoutp02a46dc5d6140f6f2bc96638961b711be0~0O5zW2hQY3072930729euoutp024
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+ s=mail20170921; t=1581954913;
+ bh=/MCPIp7JR90nH/q9PqMYouhBTbhTCPX9OW6qy3nNNL8=;
+ h=From:To:Cc:Subject:Date:References:From;
+ b=N4pq87+bP6H3f2TnlO5D+v6w+CsW/H4/J94Klxzeh4WMv3udRqM21sH74Nc+Gha3y
+ J131scv+fUUc9hWP7L2pRs6VAA2/ClBOQ++GkzTv5QZs/9iJjlrsK7pkYQ+1S3Luab
+ VG68oHDAaMnKYGHi+ShTNrV/UBQUqg73oxdBCH88=
+Received: from eusmges2new.samsung.com (unknown [203.254.199.244]) by
+ eucas1p1.samsung.com (KnoxPortal) with ESMTP id
+ 20200217155513eucas1p18f1c83e6f03d828c0261131b26580bd2~0O5zKznIM2953229532eucas1p1e;
+ Mon, 17 Feb 2020 15:55:13 +0000 (GMT)
+Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
+ eusmges2new.samsung.com (EUCPMTA) with SMTP id 62.65.60679.167BA4E5; Mon, 17
+ Feb 2020 15:55:13 +0000 (GMT)
+Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
+ eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+ 20200217155513eucas1p2f97cb31428fd50181a4fe16682322d8f~0O5y1JRIm0042400424eucas1p2E;
+ Mon, 17 Feb 2020 15:55:13 +0000 (GMT)
+Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
+ eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
+ 20200217155513eusmtrp1b168aa000ee729f1d2adae6b6a64e790~0O5y0gCum0829708297eusmtrp1a;
+ Mon, 17 Feb 2020 15:55:13 +0000 (GMT)
+X-AuditID: cbfec7f4-0e5ff7000001ed07-c2-5e4ab761cb96
+Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
+ eusmgms1.samsung.com (EUCPMTA) with SMTP id C2.17.08375.167BA4E5; Mon, 17
+ Feb 2020 15:55:13 +0000 (GMT)
+Received: from AMDC2765.digital.local (unknown [106.120.51.73]) by
+ eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+ 20200217155512eusmtip2bd7766ba51e8169a7dde89d471308b11~0O5ye6Uz32743127431eusmtip2N;
+ Mon, 17 Feb 2020 15:55:12 +0000 (GMT)
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+To: linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v2] ARM: bcm2835_defconfig: add support for Raspberry Pi4
+Date: Mon, 17 Feb 2020 16:55:06 +0100
+Message-Id: <20200217155506.5245-1-m.szyprowski@samsung.com>
+X-Mailer: git-send-email 2.17.1
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrCIsWRmVeSWpSXmKPExsWy7djPc7qJ273iDPrnalhsenyN1eLyrjls
+ FhNvb2C3WHvkLrvFtlnL2Sw2rbjB5sDmsfWWqcfmJfUefVtWMXpsPl3t8XmTXABrFJdNSmpO
+ Zllqkb5dAlfGvDmnWAuaOSo+HHrO2MDYyN7FyMEhIWAi0Xnfp4uRi0NIYAWjxJ+u1SwQzhdG
+ iWNL3rBBOJ8ZJY5v/Q3kcIJ1nNl1iQkisRyo6vkiZriWj1f3MYNUsQkYSnS97WID2SEikCex
+ 9lMySJhZoItR4ncbN0hYWMBT4uY6aZAwi4CqxPldnWCdvAI2Eq+mfWaC2CUvsXrDAWYI+wyb
+ xOY9QhC2i8SGu91QcWGJV8e3sEPYMhKnJ/eAfSAh0Mwo8fDcWnYIp4dR4nLTDEaIKmuJO+d+
+ gd3GLKApsX6XPkTYUaJp6hFWSLDwSdx4KwhxMp/EpG3TmSHCvBIdbVAnqEnMOr4Obu3BC5eg
+ zvGQWPZ8FziohARiJX5+2Mg6gVFuFsKuBYyMqxjFU0uLc9NTi43yUsv1ihNzi0vz0vWS83M3
+ MQLj/vS/4192MO76k3SIUYCDUYmHN6DPK06INbGsuDL3EKMEB7OSCK+3OFCINyWxsiq1KD++
+ qDQntfgQozQHi5I4r/Gil7FCAumJJanZqakFqUUwWSYOTqkGRq11+68/64/dJKRb71+fwnDP
+ u90oeE9m8LmzKuet2I+EffX8weKbaWbdu5zvgeBX1tcrPqQIXvmrtT6mIXESz5qkc98C+uyb
+ vu5h2BN4g+XenbMmdpfzPjw8tktAijeo6e6Z2QeYxQS5t6aGTiravtdeaUNl1qF6neuXvq4N
+ +f5wxaxv73vN9yuxFGckGmoxFxUnAgCiDBhp9wIAAA==
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrLLMWRmVeSWpSXmKPExsVy+t/xe7qJ273iDH7NELHY9Pgaq8XlXXPY
+ LCbe3sBusfbIXXaLbbOWs1lsWnGDzYHNY+stU4/NS+o9+rasYvTYfLra4/MmuQDWKD2bovzS
+ klSFjPziElulaEMLIz1DSws9IxNLPUNj81grI1MlfTublNSczLLUIn27BL2MeXNOsRY0c1R8
+ OPScsYGxkb2LkZNDQsBE4syuS0xdjFwcQgJLGSV2fbvGCJGQkTg5rYEVwhaW+HOtiw2i6BOj
+ xMeju8CK2AQMJbregiQ4OUQECiROfvnGClLELNDDKHHqyDugsRwcwgKeEjfXSYPUsAioSpzf
+ 1ckMYvMK2Ei8mvaZCWKBvMTqDQeYJzDyLGBkWMUoklpanJueW2yoV5yYW1yal66XnJ+7iREY
+ dNuO/dy8g/HSxuBDjAIcjEo8vAF9XnFCrIllxZW5hxglOJiVRHi9xYFCvCmJlVWpRfnxRaU5
+ qcWHGE2Blk9klhJNzgdGRF5JvKGpobmFpaG5sbmxmYWSOG+HwMEYIYH0xJLU7NTUgtQimD4m
+ Dk6pBkbnEp8v/LfKHp8v8KstkT4nuK7+7SmPa83Czzkllqz775kxsTBx4bFr9X+nijtqcjNM
+ ODSrk2GGgnndtccRbM0HVPILDDb97T2amfko0qHzb/HERyFPX81bFfu8TqVaP6797vEQ/Zst
+ 22+/2HNTh19ekEHxE3ddZMqRz8LM4Zke9avPSK++4K7EUpyRaKjFXFScCAA+XfO+UAIAAA==
+X-CMS-MailID: 20200217155513eucas1p2f97cb31428fd50181a4fe16682322d8f
+X-Msg-Generator: CA
+X-RootMTR: 20200217155513eucas1p2f97cb31428fd50181a4fe16682322d8f
+X-EPHeader: CA
+CMS-TYPE: 201P
+X-CMS-RootMailID: 20200217155513eucas1p2f97cb31428fd50181a4fe16682322d8f
+References: <CGME20200217155513eucas1p2f97cb31428fd50181a4fe16682322d8f@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200217_075535_576353_34D9A360 
-X-CRM114-Status: GOOD (  14.54  )
-X-Spam-Score: -2.3 (--)
+X-CRM114-CacheID: sfid-20200217_075516_818653_AD4FCDE3 
+X-CRM114-Status: UNSURE (   9.63  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -5.2 (-----)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (-5.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [195.135.220.15 listed in list.dnswl.org]
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [210.118.77.12 listed in list.dnswl.org]
  0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [195.135.220.15 listed in wl.mailspike.net]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ [210.118.77.12 listed in wl.mailspike.net]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -61,60 +133,51 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: devel@driverdev.osuosl.org, linux-rpi-kernel@lists.infradead.org,
- dan.carpenter@oracle.com
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-On Thu Feb 13, 2020 at 2:40 PM, Marcelo Diop-Gonzalez wrote:
-> If kref_get_unless_zero() fails, we should keep looking for the
-> next service, since the callers of this function expect that a NULL
-> return value means there are no more.
->
-> Signed-off-by: Marcelo Diop-Gonzalez <marcgonzalez@google.com>
+Add drivers needed to boot Raspberry Pi4 board.
 
-Reviewed-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-Tested-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
+---
+v2:
+- added BCM2711_THERMAL
+---
+ arch/arm/configs/bcm2835_defconfig | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Note that, as Dan says, picking up the Fixes tag would be nice.
-
-> ---
-> .../vc04_services/interface/vchiq_arm/vchiq_core.c | 14 +++++++++-----
-> 1 file changed, 9 insertions(+), 5 deletions(-)
->
-> diff --git
-> a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
-> b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
-> index d7d7f4d9d57f..edcd97373809 100644
-> --- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
-> +++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
-> @@ -252,11 +252,15 @@ next_service_by_instance(struct vchiq_state
-> *state,
-> struct vchiq_service *service;
->  
-> rcu_read_lock();
-> - service = __next_service_by_instance(state, instance, pidx);
-> - if (service && kref_get_unless_zero(&service->ref_count))
-> - service = rcu_pointer_handoff(service);
-> - else
-> - service = NULL;
-> + while (1) {
-> + service = __next_service_by_instance(state, instance, pidx);
-> + if (!service)
-> + break;
-> + if (kref_get_unless_zero(&service->ref_count)) {
-> + service = rcu_pointer_handoff(service);
-> + break;
-> + }
-> + }
-> rcu_read_unlock();
-> return service;
-> }
-> --
-> 2.25.0.225.g125e21ebc7-goog
+diff --git a/arch/arm/configs/bcm2835_defconfig b/arch/arm/configs/bcm2835_defconfig
+index 519ff58e67b3..38437541ea76 100644
+--- a/arch/arm/configs/bcm2835_defconfig
++++ b/arch/arm/configs/bcm2835_defconfig
+@@ -72,6 +72,7 @@ CONFIG_BLK_DEV_SD=y
+ CONFIG_SCSI_CONSTANTS=y
+ CONFIG_SCSI_SCAN_ASYNC=y
+ CONFIG_NETDEVICES=y
++CONFIG_BCMGENET=y
+ CONFIG_USB_LAN78XX=y
+ CONFIG_USB_USBNET=y
+ CONFIG_USB_NET_SMSC95XX=y
+@@ -96,9 +97,13 @@ CONFIG_SPI_BCM2835AUX=y
+ CONFIG_GPIO_SYSFS=y
+ CONFIG_SENSORS_RASPBERRYPI_HWMON=m
+ CONFIG_THERMAL=y
++CONFIG_BCM2711_THERMAL=y
+ CONFIG_BCM2835_THERMAL=y
+ CONFIG_WATCHDOG=y
+ CONFIG_BCM2835_WDT=y
++CONFIG_MFD_SYSCON=y
++CONFIG_REGULATOR=y
++CONFIG_REGULATOR_GPIO=y
+ CONFIG_MEDIA_SUPPORT=y
+ CONFIG_MEDIA_CAMERA_SUPPORT=y
+ CONFIG_DRM=y
+-- 
+2.17.1
 
 
 _______________________________________________
