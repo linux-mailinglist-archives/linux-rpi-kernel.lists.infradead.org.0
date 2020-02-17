@@ -2,80 +2,87 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9F51215FE25
-	for <lists+linux-rpi-kernel@lfdr.de>; Sat, 15 Feb 2020 12:42:44 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id BF841161030
+	for <lists+linux-rpi-kernel@lfdr.de>; Mon, 17 Feb 2020 11:37:44 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=td/F1gYXdiUFxd2iKPM+5nh0M/tYpeEjXNWk9WmrVBg=; b=QOKWRI2t+r2vTvm0mcWqivaCf
-	6koym+sr22RKa+T93HoXHQiBspM0Kngj/QwuWx9tqbCZAm9p05JwDOrh5WmFnUs8JdTqFnMiUB2yA
-	RQyXeOPF/AN9EMkG7fU+lhKvBVIoPmGACynDX6kYYAaT7ZXnMs+6Hnu7ukjc9RHyWAuZ8uNjCC22I
-	6w4LlXP7TB38rCPVKa3Yrz01sWvSHvzsxtDhp8Y0oMnn7y849aGKQf93xn/XD2HQlV4HFVZndIMtx
-	h7aFfuqoc8nz5fpctFgRixAFnWtvBjIwNEKMdTX+PnF1lqzU6HiNUMiKDINo8pHirJelomyKnMix2
-	S9BQxI2AQ==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=mELfpNgrL50u3vuw6NwsLR/3zAmVRql1+F7ZJlsfrLQ=; b=aSlPZqgSM6eQH0
+	5P10N7JhgymNnHWGyS7oud1HZGDqQBzlr7NVnjayUsWf9U5UFZ4wXhz4A3A948DbdliMVKiPUSiFV
+	qbBpEo0GVmn9Q23TyUmORbTQmpZZYUPFQxs9gB1JoHnQsFFss2wU9uBp2stihscdCywOZ7ba/2IgJ
+	vO19ZVWBjRt0wb/mGgtXDjWLtWswMSCaK6Fk2CBBfWqzeZS/in5YciZMk8tlPEAe5Pd6+nLlNZOoH
+	2F4h1M7QYfDh8qb6f4Ri2S1OYlEXROgfXBFD8XL90OiZ2257g2HnsKiCez6J97NVM4lZB+kF+DwPU
+	RAMBpvIrlUtQhpbmVXMA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j2vq0-0000CK-EG; Sat, 15 Feb 2020 11:42:20 +0000
-Received: from smtpng1.m.smailru.net ([94.100.181.251])
+	id 1j3dmY-0006jR-JU; Mon, 17 Feb 2020 10:37:42 +0000
+Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j2vpx-0000Bi-7a
- for linux-rpi-kernel@lists.infradead.org; Sat, 15 Feb 2020 11:42:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=orpaltech.com; s=mailru; 
- h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:Subject;
- bh=baQwV0bwYKlqRlE9JJJCEGFQs6gn2OB3/2fXkrzfEsI=; 
- b=DQonXyJJ5R1Hreukqbw6gLRbRBcKhnSuONVswGZ8Jd99ewk27ISzJK9m633x5u0u7T/Tir5LsxUpL6FPEuopw8zTWKpuZVC+dNuDH/osOdijLB+Rd6AP/IeHA+kkrs3ZTStmYRFEO+WPGLNLg5Trllno/JnWlLePrYsqQxF+x2w=;
-Received: by smtpng1.m.smailru.net with esmtpa (envelope-from
- <ssuloev@orpaltech.com>)
- id 1j2vpr-0004Gz-Kl; Sat, 15 Feb 2020 14:42:12 +0300
-Subject: Re: bcm2835 SPI issue
-To: Lukas Wunner <lukas@wunner.de>
-References: <4172f542-71a8-0186-fe4c-29a8148b7844@orpaltech.com>
- <09f2d0fd-19bc-0884-2f78-b0143f3279ef@raspberrypi.com>
- <e51f3e59-0915-27b7-05a1-e1a2fb8c10d0@orpaltech.com>
- <cf8c2169-7987-5b82-1533-d9a34cd09b41@raspberrypi.com>
- <2b973c0c-08ec-8b6a-1a97-4d676fdb2dc6@orpaltech.com>
- <a878deeefca46e0b9cba601d8ac2a76e2470addc.camel@suse.de>
- <27617227-181c-9be4-8f28-b80fb08ea714@orpaltech.com>
- <20200215075439.ire4t43hdjr2c2qm@wunner.de>
-From: Sergey Suloev <ssuloev@orpaltech.com>
-Message-ID: <d522db93-08fd-5444-4e44-1d9f2aa8c2a4@orpaltech.com>
-Date: Sat, 15 Feb 2020 14:42:10 +0300
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.4.1
+ id 1j3dmT-0006iK-VS
+ for linux-rpi-kernel@lists.infradead.org; Mon, 17 Feb 2020 10:37:40 +0000
+Received: by mail-wm1-x343.google.com with SMTP id b17so17867168wmb.0
+ for <linux-rpi-kernel@lists.infradead.org>;
+ Mon, 17 Feb 2020 02:37:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=baylibre-com.20150623.gappssmtp.com; s=20150623;
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to:user-agent;
+ bh=x83o5K4H6p4Txvf+BbyKgySTjH0wJwSg0fvGXhsTofs=;
+ b=tvR9YJxTrg99hkhnZGl1sMuhy3QeyXAh6Bv8GcwN9v9nu0rL/mN6CohWX0bdidFO/9
+ guQV8ywdbzRosjv1bTxhkqTk9nHfQVdQnpzGKdEqBtv8ORjIlH69KJyHx0vBHcG3jpAW
+ eK4bj5CXtRb0Rj9mJq8RhAP6FKHC/zIoyzIgFz7GG6NIAZCZBM1GEB4Ti7gCJS5e//N2
+ ZKHocQsqFCYCcxywSt6UH22cm5O+whiyj3XPUVs/LCYQOk682HB+/hpsWbiWzhEyOdmn
+ gEvxN13qqTEfXz6nELHwPrMG62rdEgo3GAYuKEIOR8d9QPNZ9RH6p2NAt6z2O29rdhOT
+ j/2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=x83o5K4H6p4Txvf+BbyKgySTjH0wJwSg0fvGXhsTofs=;
+ b=bYx+Htxwu2b8rtjoOXXGCFxOoMQ0a9P4FFQ777TuPdWG7XnL3cEJEIVayQmZBZAE5k
+ Tcl7fsOGjZKk529j3hIn9B6NiRkr8iK1wS8al0JzXeUxe2LJcQfUtIiPRfiG2fqLl0ct
+ 1NYQlrYilY3Z7laIv2WRvqsJlVyTxsWuzJxk8RJaGZEuYxHGxctzKr5oKRgX4IZpMhAT
+ NIUmKzBN+JhSS0Io9rZe8QPmY2pF37VZ7VnyYKefuidshIGpn3x+90tPHo1YAWN9m83o
+ sc+nW0XycXC1H4BmqL+TDEilZjFgExEhZ1mQ+avvtvwIEMCZR4iuZ/fW2bivTVmy7Nk7
+ etbA==
+X-Gm-Message-State: APjAAAW0XzggyDjy5swmqE/ldBecl7dZozTR8tu+Zwud2xgeDcPV2PCg
+ DBhwP1F6J/YP/pFAm46Z2fqwPQ==
+X-Google-Smtp-Source: APXvYqxP5y0YSdC1YVMxY92WB7hnIFD3rx/SAWTNQpCjT0PW+oVaZHureZypI7UkkJClVDgwF1sa3w==
+X-Received: by 2002:a1c:4c5:: with SMTP id 188mr21335773wme.82.1581935856168; 
+ Mon, 17 Feb 2020 02:37:36 -0800 (PST)
+Received: from Red ([2a01:cb1d:3d5:a100:2e56:dcff:fed2:c6d6])
+ by smtp.googlemail.com with ESMTPSA id v14sm368024wrm.28.2020.02.17.02.37.34
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 17 Feb 2020 02:37:35 -0800 (PST)
+Date: Mon, 17 Feb 2020 11:37:33 +0100
+From: LABBE Corentin <clabbe@baylibre.com>
+To: James Morse <james.morse@arm.com>
+Subject: Re: RPI4: fail too boot with an initrd
+Message-ID: <20200217103733.GA11379@Red>
+References: <20200214132748.GA23276@Red>
+ <b726290c-1038-3771-5187-6ac370bc92c9@arm.com>
 MIME-Version: 1.0
-In-Reply-To: <20200215075439.ire4t43hdjr2c2qm@wunner.de>
-Content-Language: en-US
-Authentication-Results: smtpng1.m.smailru.net;
- auth=pass smtp.auth=ssuloev@orpaltech.com
- smtp.mailfrom=ssuloev@orpaltech.com
-X-7564579A: 646B95376F6C166E
-X-77F55803: 0A44E481635329DB0E1AA8A03B392317F65658A2B47C0803182E8BADE9E554165E8AE89331AB255EF688BCB05C26794D067AD130C63776EB43FC038A8A3B01723C455C7F039229F9B26260233B75A04C
-X-7FA49CB5: 0D63561A33F958A50BB295F39D70A97415C1AFB125678A38D49D23DA4F9259428941B15DA834481FA18204E546F3947C86A7C529F68B8E5CF6B57BC7E64490618DEB871D839B7333395957E7521B51C2545D4CF71C94A83E9FA2833FD35BB23D27C277FBC8AE2E8B1BE95B8C87527B4BA471835C12D1D977C4224003CC836476C0CAF46E325F83A522CA9DD8327EE4930A3850AC1BE2E73589424AA0EF8DE9BAC4224003CC836476C0CAF46E325F83A50BF2EBBBDD9D6B0F05F538519369F3743B503F486389A921A5CC5B56E945C8DA
-X-D57D3AED: Y8kq8+OzVoxvgW9Op3aR8Fxwo7H2ZNxGP5qz8aO2mjTJzjHGC4ogvVuzB3zfVUBtENeZ6b5av1fnCBE34JUDkaJinJwwHx5ysVv9/YfT9ue1i86nvLVpHQ==
-X-Mailru-Sender: 689FA8AB762F73930799C7A3FA23A2705FBE5E9611996E7CA6A7E648BD526C95778B5FB1219D8779F6BCD4B1DE95BF653AE5922765F965CDF1D7D1B96E5495AE10FCEA6DFE3E0A150D4ABDE8C577C2ED
-X-Mras: Ok
+Content-Disposition: inline
+In-Reply-To: <b726290c-1038-3771-5187-6ac370bc92c9@arm.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200215_034217_464167_484AE5B8 
-X-CRM114-Status: GOOD (  17.85  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20200217_023738_381958_9FEB1AF6 
+X-CRM114-Status: GOOD (  21.53  )
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [94.100.181.251 listed in list.dnswl.org]
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ no trust [2a00:1450:4864:20:0:0:0:343 listed in]
+ [list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -88,57 +95,162 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Phil Elwell <phil@raspberrypi.com>, linux-rpi-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, u-boot@lists.denx.de,
+ bcm-kernel-feedback-list@broadcom.com, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-On 2/15/20 10:54 AM, Lukas Wunner wrote:
-> On Sat, Feb 15, 2020 at 02:37:35AM +0300, Sergey Suloev wrote:
->> On 2/14/20 11:50 AM, Nicolas Saenz Julienne wrote:
->>>>>>> On 13/02/2020 22:09, Sergey Suloev wrote:
->>>>>>>> I noticed that bcm2835  SPI driver  isn't functioning anymore in
->>>>>>>> kernels 5.5 - 5.6. I know this because it was used successfully
->>>>>>>> with previous versions (very latest v4.x and earlier v5.x).
->>>>>>>>
->>>>>>>> I am testing rpi3b and rpi3a+  and multiple SPI peripherals
->>>>>>>> (displays, wireless transceiver, etc) and none of them are working
->>>>>>>> anymore. Hardware connections stay the same as before so I don't
->>>>>>>> think this is a hardware issue.
-> [...]
->>> first lets find our the last working version.
->> it works in 5.3
-> Does it not work with v5.4?
-no, it does not
-> If so, there have been two major changes
-> to drivers/spi/spi-bcm2835.c between v5.3 and v5.4:
->
-> One is a change to how Chip Select is handled if no cs-gpios are specified
-> in the DT.  That change was commit 3bd158c56a56.  You seem to be missing
-> cs-gpios in the DT, so that commit would be an obvious candidate.
-> Try reverting it and see if that fixes the issue.
->
-> The other change that went into v5.4 was a speedup for simplex transfers
-> autored by me and spans multiple commits.  I can't really imagine how
-> that would break your setup.  SPI messages to your display are split
-> and then transferred as smaller simplex messages.  Perhaps there's an
-> issue with how split simplex messages are handled?
->
-> Anyway, try reverting 3bd158c56a56 first or adding a cs-gpios property
-> and let's go from there.
->
-> Thanks,
->
-> Lukas
+On Fri, Feb 14, 2020 at 06:15:27PM +0000, James Morse wrote:
+> Hi Corentin,
+> 
+> On 14/02/2020 13:27, LABBE Corentin wrote:
+> > Since the inclusion of the "enable network support in RPi4 config" serie on uboot, I
+> > have started to work on adding the rpi4 in kernelCI.
+> > But I fail to succeed in using a kernel/dtb/ramdisk downloaded via tftp.
+> > 
+> > Using booti I hit:
+> > [    0.000000] Linux version 5.6.0-rc1-next-20200212 (clabbe@build2-bionic-1804) (gcc version 7.4.1 20181213 [linaro-7.4-2019.02 revision 56ec6f6b99cc167ff0c2f8e1a2eed33b1edc85d4] (Linaro    GCC 7.4-2019.02)) #66 SMP PREEMPT Wed Feb 12 10:14:20 UTC 2020
+> > [    0.000000] Machine model: Raspberry Pi 4 Model B
+> > [    0.000000] earlycon: uart0 at MMIO32 0x00000000fe215040 (options '')
+> > [    0.000000] printk: bootconsole [uart0] enabled
+> > [    0.000000] efi: Getting EFI parameters from FDT:
+> > [    0.000000] efi: UEFI not found.
+> 
+> So no EFI,
+> 
+> > [    0.000000] OF: reserved mem: failed to allocate memory for node 'linux,cma'
+> 
+> Out of memory.
+> 
+> > [    0.000000] cma: Failed to reserve 32 MiB
+> > [    0.000000] Kernel panic - not syncing: Failed to allocate page table page
+> 
+> Out of memory...
+> 
+> > [    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 5.6.0-rc1-next-20200212 #66
+> > [    0.000000] Hardware name: Raspberry Pi 4 Model B (DT)
+> > [    0.000000] Call trace:
+> > [    0.000000]  dump_backtrace+0x0/0x1a0
+> > [    0.000000]  show_stack+0x14/0x20
+> > [    0.000000]  dump_stack+0xbc/0x104
+> > [    0.000000]  panic+0x16c/0x37c
+> > [    0.000000]  early_pgtable_alloc+0x30/0xa0
+> 
+> ... really early!
+> 
+> > [    0.000000]  __create_pgd_mapping+0x36c/0x588
+> > [    0.000000]  map_kernel_segment+0x70/0xa4
+> > [    0.000000]  paging_init+0xf4/0x528
+> > [    0.000000]  setup_arch+0x250/0x5d8
+> > [    0.000000]  start_kernel+0x90/0x6d8
+> > 
+> >  
+> > Since the same kernel boot with bootefi and that bootefi lack ramdisk address,
+> 
+> Booting with EFI will cause linux to use the EFI memory map.
+> 
+> Does your DT have a memory node? (or does it expect EFI to provide the information)
+> 
+> 
+> > I tried to add the address in the dtb via:
+> > fdt addr 0x02400000; fdt resize; fdt set /chosen linux,initrd-start 0x02700000; fdt set /chosen linux,initrd-end 0x10000000; bootefi 0x00080000 0x02400000
+> > But with that, I get:
+> > initrd not fully accessible via the linear mapping -- please check your bootloader ...
+> 
+> So this one is an EFI boot, but you can't find where to put the initramfs such that the
+> kernel agrees its in memory.
+> 
+> If you boot with 'efi=debug', linux will print the EFI memory map. Could you compare that
+> to where U-Boot thinks memory is?
+> 
+> (it sounds like your DT memory node is missing, and your EFI memory map is surprisingly small)
 
-reverting the driver back to 5.3 by a patch works well for my project.
-I understand that the issue remains in the kernel source but I'm not an 
-SPI expert and so I let you (or someone else) fix it.
+Hello
 
-Thank you,
-Sergey
+Thanks for your advices.
 
+In the dtb of mainline linux:
+	/* Will be filled by the bootloader */
+	memory@0 {
+		device_type = "memory";
+		reg = <0 0 0>;
+	};
+
+In uboot I have:
+static struct mm_region bcm2711_mem_map[] = {
+        {
+                .virt = 0x00000000UL,
+                .phys = 0x00000000UL,
+                .size = 0xfe000000UL,
+                .attrs = PTE_BLOCK_MEMTYPE(MT_NORMAL) |
+                         PTE_BLOCK_INNER_SHARE
+        }, {
+                .virt = 0xfc000000UL,
+                .phys = 0xfc000000UL,
+                .size = 0x03800000UL,
+                .attrs = PTE_BLOCK_MEMTYPE(MT_DEVICE_NGNRNE) |
+                         PTE_BLOCK_NON_SHARE |
+                         PTE_BLOCK_PXN | PTE_BLOCK_UXN
+        }, {
+                /* List terminator */
+                0,
+        }
+};
+But I dont know if uboot use that for filling the memory node.
+
+
+Booting the rpi4 with efi=debug give:
+EFI stub: Booting Linux Kernel...
+EFI stub: EFI_RNG_PROTOCOL unavailable, no randomness supplied
+EFI stub: Using DTB from configuration table
+EFI stub: Exiting boot services and installing virtual address map...
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd083]
+[    0.000000] Linux version 5.6.0-rc1-next-20200214 (clabbe@build2-bionic-1804) (gcc version 7.4.1 20181213 [linaro-7.4-2019.02 revision 56ec6f6b99cc167ff0c2f8e1a2eed33b1edc85d4] (Linaro GCC 7.4-2019.02)) #70 SMP PREEMPT Fri Feb 14 10:54:54 UTC 2020
+[    0.000000] Machine model: Raspberry Pi 4 Model B
+[    0.000000] earlycon: uart0 at MMIO32 0x00000000fe215040 (options '')
+[    0.000000] printk: bootconsole [uart0] enabled
+[    0.000000] efi: Getting EFI parameters from FDT:
+[    0.000000] efi:   System Table: 0x000000003b365590
+[    0.000000] efi:   MemMap Address: 0x0000000038484040
+[    0.000000] efi:   MemMap Size: 0x00000410
+[    0.000000] efi:   MemMap Desc. Size: 0x00000028
+[    0.000000] efi:   MemMap Desc. Version: 0x00000001
+[    0.000000] efi: EFI v2.80 by Das U-Boot
+[    0.000000] efi:  SMBIOS=0x39f46000  MEMRESERVE=0x38487040 
+[    0.000000] efi: Processing EFI memory map:
+[    0.000000] efi:   0x000000000000-0x000000000fff [Reserved           |   |  |  |  |  |  |  |  |   |WB|  |  |  ]
+[    0.000000] efi:   0x000000001000-0x00000007ffff [Conventional Memory|   |  |  |  |  |  |  |  |   |WB|  |  |  ]
+[    0.000000] efi:   0x000000080000-0x000001b3ffff [Loader Data        |   |  |  |  |  |  |  |  |   |WB|  |  |  ]
+[    0.000000] efi:   0x000001b40000-0x000007efffff [Conventional Memory|   |  |  |  |  |  |  |  |   |WB|  |  |  ]
+[    0.000000] efi:   0x000007f00000-0x000007f08fff [Boot Data          |   |  |  |  |  |  |  |  |   |WB|  |  |  ]
+[    0.000000] efi:   0x000007f09000-0x0000381fffff [Conventional Memory|   |  |  |  |  |  |  |  |   |WB|  |  |  ]
+[    0.000000] efi:   0x000038200000-0x0000383fffff [Loader Data        |   |  |  |  |  |  |  |  |   |WB|  |  |  ]
+[    0.000000] efi:   0x000038400000-0x00003846ffff [Conventional Memory|   |  |  |  |  |  |  |  |   |WB|  |  |  ]
+[    0.000000] efi:   0x000038470000-0x00003847ffff [Loader Data        |   |  |  |  |  |  |  |  |   |WB|  |  |  ]
+[    0.000000] efi:   0x000038480000-0x000038483fff [Conventional Memory|   |  |  |  |  |  |  |  |   |WB|  |  |  ]
+[    0.000000] efi:   0x000038484000-0x000038487fff [Loader Data        |   |  |  |  |  |  |  |  |   |WB|  |  |  ]
+[    0.000000] efi:   0x000038488000-0x000039f40fff [Loader Code        |   |  |  |  |  |  |  |  |   |WB|  |  |  ]
+[    0.000000] efi:   0x000039f41000-0x000039f44fff [Reserved           |   |  |  |  |  |  |  |  |   |WB|  |  |  ]
+[    0.000000] efi:   0x000039f45000-0x000039f45fff [Boot Data          |   |  |  |  |  |  |  |  |   |WB|  |  |  ]
+[    0.000000] efi:   0x000039f46000-0x000039f46fff [Runtime Data       |RUN|  |  |  |  |  |  |  |   |WB|  |  |  ]
+[    0.000000] efi:   0x000039f47000-0x000039f48fff [Boot Data          |   |  |  |  |  |  |  |  |   |WB|  |  |  ]
+[    0.000000] efi:   0x000039f49000-0x000039f4cfff [Reserved           |   |  |  |  |  |  |  |  |   |WB|  |  |  ]
+[    0.000000] efi:   0x000039f4d000-0x000039f4efff [Boot Data          |   |  |  |  |  |  |  |  |   |WB|  |  |  ]
+[    0.000000] efi:   0x000039f4f000-0x000039f52fff [Reserved           |   |  |  |  |  |  |  |  |   |WB|  |  |  ]
+[    0.000000] efi:   0x000039f53000-0x000039f53fff [Runtime Data       |RUN|  |  |  |  |  |  |  |   |WB|  |  |  ]
+[    0.000000] efi:   0x000039f54000-0x000039f54fff [Reserved           |   |  |  |  |  |  |  |  |   |WB|  |  |  ]
+[    0.000000] efi:   0x000039f55000-0x00003b35ffff [Loader Data        |   |  |  |  |  |  |  |  |   |WB|  |  |  ]
+[    0.000000] efi:   0x00003b360000-0x00003b36ffff [Runtime Code       |RUN|  |  |  |  |  |  |  |   |WB|  |  |  ]
+[    0.000000] efi:   0x00003b370000-0x00003b3fffff [Loader Data        |   |  |  |  |  |  |  |  |   |WB|  |  |  ]
+[    0.000000] efi:   0x000040000000-0x0000fbffffff [Boot Data          |   |  |  |  |  |  |  |  |   |WB|  |  |  ]
+[    0.000000] efi:   0x0000fe100000-0x0000fe100fff [Memory Mapped I/O  |RUN|  |  |  |  |  |  |  |   |  |  |  |  ]
+[    0.000000] ------------[ cut here ]------------
+[    0.000000] initrd not fully accessible via the linear mapping -- please check your bootloader ...
+
+Regards
 
 _______________________________________________
 linux-rpi-kernel mailing list
