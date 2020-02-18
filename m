@@ -2,146 +2,123 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 63FE3161CEE
-	for <lists+linux-rpi-kernel@lfdr.de>; Mon, 17 Feb 2020 22:44:30 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1CF9616211A
+	for <lists+linux-rpi-kernel@lfdr.de>; Tue, 18 Feb 2020 07:47:59 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:To:Subject:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=1nIOuZYVGQkRyt1eRPE/WkvZh34Wym31nOFNPD+PP0U=; b=WjxjmSUc4Qv3RdlNiS+1Cfo/Ii
-	6KPVEuwX31sAt4vSZMJ0RTTplEVQPfOTQYlVixeKYKmoVSAXkisjDTlN+BqJK5AirHi4++x961DS9
-	qnVkMk14qc2x7KcUXyQX+lkXva01a/L4SM4gk1NMBUqhaIosW8soVcypQKSQ9kv1HUnTGxxtNOD6Q
-	+uQmafNfr2XUvoq2kukpyswsCwQwpv3/mhLVcJ8KqlxqlSAla6g77Ig/qER3gtMnrxkw5Rym/11s2
-	Y696H8L3aI9747FkRSvMfshuWwL5HQ+AfInwNIgGmnveYZpsHeiQPkG+Wrznr4eD4XkRZfSrPi8k0
-	34On4fSA==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:MIME-Version:
+	Date:Message-ID:From:To:Subject:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=PA9iuIMEWoy8h0Fw9G5zxxKY1gFSCCmFBHClNmNZmCo=; b=XiSISTT0UfmwaY
+	quLivaII3HDywm2Q6V6xRTIg0RMBzR8xDurdIuJHCIjWAG7Zn9Qg2V0omaKkWTqtaNarQThsWPHhS
+	zc28W0wIWUmyffQqGC5HimhUu6PBfnnspWNtrN8vJRXPKVU3B5LeadUSqi2W/vlCSpwrshoZ5T/TR
+	C8aOxzsWmD3rngP9hlddXRpsBC2mgWF13v8Yiw5McEqCO7JZ/MR5JKbYa75fKzk2FZk4jq2eFhSP1
+	kQIgiW9MpWrr4CkozenRZjbc+PCyseTN31kGQJf59/k6KrPCLfBgLIDeVsGtJCcF9IbY1ywWqnAoN
+	ApGykJfw8IXFTiChPEvA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j3oBo-0005Qr-L3; Mon, 17 Feb 2020 21:44:28 +0000
-Received: from mail-pj1-x1042.google.com ([2607:f8b0:4864:20::1042])
+	id 1j3wfl-0003Gz-Hl; Tue, 18 Feb 2020 06:47:57 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j3oBc-0005Gl-6m; Mon, 17 Feb 2020 21:44:17 +0000
-Received: by mail-pj1-x1042.google.com with SMTP id e9so81672pjr.4;
- Mon, 17 Feb 2020 13:44:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=subject:to:references:from:autocrypt:message-id:date:user-agent
- :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=w27qsuZx10Vbc69sZj4Y3pLHnEYu9JJkWVQ759WZqtU=;
- b=UZqg+07MWOqDsnws7h2aUem4u/TKIUGWLEhMcVMpkH9eXKTitWP0RkoR7vGmBsNp8m
- POzBFT7mAGEUZRdxrHn2bhSfmmUIBiUFRQORhC5q1LgOLEBqyppecBoCYmJ2aIoIydi6
- 73lAtAdDAEpmIs9Ql9pA6iqjKshfKUXCBd82wc+Ob3il4k0xOxkzEq8KLEOdnH5PkTuS
- KBB8vE5rL0cKTD4bNVvB/0QzRi9m3yuZKPV5Kf8xfxMlnEhfb7FKJCRJ8faXCPMGGtxw
- L+TEs/G2JysfOLxEoydIYFVSn5MJi7XQxhsvSi5hDrmba0Yfs5ZFtW4yoHT86MjkpnlB
- DOEA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:subject:to:references:from:autocrypt:message-id
- :date:user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=w27qsuZx10Vbc69sZj4Y3pLHnEYu9JJkWVQ759WZqtU=;
- b=EB/tnhI1XwTKiKu/NRfu9neE5YxPSYPVvtb1zthnEPqbhezRY6Qz4UtPbaocmgkqf1
- aFv+SUgwUK5uzvtHR/NyRynYDmiHIk3lNNNlmpjBT+mqAUax38dDJr5ooHVCQvoIDHHr
- /Kf3ITWhUL4PKWm7cZA+veVmfTMaWDhDEipXtK0MghELK+12r3aRFv+2+VOzicYkDpd0
- bCndLr9namnSCjUasio+KsBxvR0pe7yMCZN+R+IvK2N8u/0hzwaRH/AkZ2pqwC2+l9OR
- ZivW4LBwaXaJF+xVHWACvaQLiDLlJwb02Dyv4Lh7lcyMdGRV9EmZs947ktvLPYaOvjMo
- nE5g==
-X-Gm-Message-State: APjAAAUay55GwZ/kNLbKCqTCjCYHG4OgWBs04lzC5h3AcNZFdqU+cYAR
- T16HS5nCuY6lIh8qH52h/4Q=
-X-Google-Smtp-Source: APXvYqyGI/8Yqw3R47rMKwanH0TzIGNPPefYMJrfqYHx6FaudyVxDpIa20dsA8w3QY/IfaQ4p0jokg==
-X-Received: by 2002:a17:90a:d986:: with SMTP id
- d6mr1230336pjv.78.1581975855591; 
- Mon, 17 Feb 2020 13:44:15 -0800 (PST)
-Received: from [192.168.1.3] (ip68-111-84-250.oc.oc.cox.net. [68.111.84.250])
- by smtp.gmail.com with ESMTPSA id
- w26sm1358047pfj.119.2020.02.17.13.44.14
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 17 Feb 2020 13:44:15 -0800 (PST)
-Subject: Re: [PATCH] ARM: bcm2835_defconfig: add minimal support for Raspberry
- Pi4
-To: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Stefan Wahren <stefan.wahren@i2se.com>,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <CGME20200214151840eucas1p2ccd15a69aea02a20eda1e4b6e9c8f44e@eucas1p2.samsung.com>
- <C0LZGU1IU7QO.9VKWHWJ56XZV@vian>
- <9330d511-dc7d-8d67-043a-acee7e6ebd73@samsung.com>
- <5eca1bbe77c8731f1eafd11a3bf0df25196d08d4.camel@suse.de>
-From: Florian Fainelli <f.fainelli@gmail.com>
-Autocrypt: addr=f.fainelli@gmail.com; keydata=
- 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
- a9BQwACgnzGuH1BVeT2J0Ra+ZYgkx7DaPR0=
-Message-ID: <d9833996-3163-fc82-3d0a-673fd5d1bd80@gmail.com>
-Date: Mon, 17 Feb 2020 13:44:13 -0800
+ id 1j3wfh-0003GD-V6
+ for linux-rpi-kernel@lists.infradead.org; Tue, 18 Feb 2020 06:47:55 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+ by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id
+ 20200218064748euoutp0232018ba9e3164e4a1683349046626f56~0bFHxLXQY1822218222euoutp02E
+ for <linux-rpi-kernel@lists.infradead.org>;
+ Tue, 18 Feb 2020 06:47:48 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com
+ 20200218064748euoutp0232018ba9e3164e4a1683349046626f56~0bFHxLXQY1822218222euoutp02E
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+ s=mail20170921; t=1582008468;
+ bh=5OmFQvW0+eYHX8EYUo3b9SjCwA/SO59ajoq9b2DMIq8=;
+ h=Subject:To:Cc:From:Date:In-Reply-To:References:From;
+ b=ZHdJvTjcPN90qmVxCvoGQndNDGlAFiQa+V8O3y930gFHsE6jjYpn/AkxDwOtJvlEY
+ lC74jHU67nA6L+i7OohdfbFMLE7p1FjeKfgMZPAF1KsuI4NtIq6NNv6VALTuvgeurd
+ AqkCIUaKjG57hj6Wan1xxmkDpfv02j5v9yAqg0fY=
+Received: from eusmges2new.samsung.com (unknown [203.254.199.244]) by
+ eucas1p2.samsung.com (KnoxPortal) with ESMTP id
+ 20200218064748eucas1p245e9a8e6d083311597cea7cd64e9515a~0bFHpLKtl2478324783eucas1p2M;
+ Tue, 18 Feb 2020 06:47:48 +0000 (GMT)
+Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
+ eusmges2new.samsung.com (EUCPMTA) with SMTP id BD.5F.60679.4988B4E5; Tue, 18
+ Feb 2020 06:47:48 +0000 (GMT)
+Received: from eusmtrp2.samsung.com (unknown [182.198.249.139]) by
+ eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+ 20200218064747eucas1p1d65dab715088fdefd0c3a50061ee2dca~0bFHTgj971065510655eucas1p1J;
+ Tue, 18 Feb 2020 06:47:47 +0000 (GMT)
+Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
+ eusmtrp2.samsung.com (KnoxPortal) with ESMTP id
+ 20200218064747eusmtrp22169b3909a757538c24950a0c2da7550~0bFHS6I5E3148231482eusmtrp2Q;
+ Tue, 18 Feb 2020 06:47:47 +0000 (GMT)
+X-AuditID: cbfec7f4-0e5ff7000001ed07-cc-5e4b8894e801
+Received: from eusmtip1.samsung.com ( [203.254.199.221]) by
+ eusmgms2.samsung.com (EUCPMTA) with SMTP id 46.C9.07950.3988B4E5; Tue, 18
+ Feb 2020 06:47:47 +0000 (GMT)
+Received: from [106.120.51.15] (unknown [106.120.51.15]) by
+ eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+ 20200218064747eusmtip19a20528bc2d5b68f3affc9c168fa0bf6~0bFG6_1kO3273132731eusmtip1-;
+ Tue, 18 Feb 2020 06:47:47 +0000 (GMT)
+Subject: Re: [RFT/DONTMERGE] ASoC: devm_snd_soc_register_component fixup
+To: Jerome Brunet <jbrunet@baylibre.com>, Mark Brown <broonie@kernel.org>
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+Message-ID: <e70bb7a5-21b0-0e71-871e-2c02b35f86ea@samsung.com>
+Date: Tue, 18 Feb 2020 07:47:45 +0100
 User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
  Thunderbird/68.5.0
 MIME-Version: 1.0
-In-Reply-To: <5eca1bbe77c8731f1eafd11a3bf0df25196d08d4.camel@suse.de>
+In-Reply-To: <20200217180626.593909-1-jbrunet@baylibre.com>
 Content-Language: en-US
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrNKsWRmVeSWpSXmKPExsWy7djPc7pTOrzjDCa+YbK4cvEQk8XUh0/Y
+ LN48OsJs8e1KB5PF5V1z2Cwm3t7A7sDmseFzE5vH+xut7B47Z91l99i0qpPNY/OSeo/Pm+QC
+ 2KK4bFJSczLLUov07RK4Mk7t62EqWKZSMfN6J1MD43bZLkZODgkBE4mpq28ydzFycQgJrGCU
+ +PBxFxOE84VR4uG8XlYI5zOjxP4JU9hgWq4ueQKVWM4oMe34RkaQhJDAW0aJ1bPLQWxhAQ+J
+ 9lkX2EFsEQFPiYUL/4PtYBaYzyhx9PN0sASbgKFE19susKm8AnYSCzrmsoLYLAKqEkt/LGQB
+ sUUFYiVmrzzMAlEjKHFy5hMwm1PAWuLooUNgNrOAvMT2t3OYIWxxiVtP5oP9ICGwjl3i5+cH
+ UGe7SBw5P5sdwhaWeHV8C5QtI/F/J0xDM9DT59ayQzg9jBKXm2YwQlRZS9w59wtoEgfQCk2J
+ 9bv0IcKOEgt6vrGChCUE+CRuvBWEOIJPYtK26cwQYV6JjjYhiGo1iVnH18GtPXjhEvMERqVZ
+ SF6bheSdWUjemYWwdwEjyypG8dTS4tz01GKjvNRyveLE3OLSvHS95PzcTYzAJHT63/EvOxh3
+ /Uk6xCjAwajEwxvQ5xUnxJpYVlyZe4hRgoNZSYTXWxwoxJuSWFmVWpQfX1Sak1p8iFGag0VJ
+ nNd40ctYIYH0xJLU7NTUgtQimCwTB6dUA2MW81mfrtan5817z/NXngs5FORv+uHeocZM/w0C
+ Ud9bV7Pc6Xd2F7has8Q7dd/TnT/yPq9tz72c++z5yaKz689l+ewKqrLmDRay3xqlrn+ta8IO
+ 4WKVhj/JVxyzNm+0/ikf/mRegOWH3kSb5olnrycdZj9v5vdqxsLAS8lHDiV97lSdWNrKn6/E
+ UpyRaKjFXFScCACqTel6PgMAAA==
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrHIsWRmVeSWpSXmKPExsVy+t/xu7qTO7zjDN5+17S4cvEQk8XUh0/Y
+ LN48OsJs8e1KB5PF5V1z2Cwm3t7A7sDmseFzE5vH+xut7B47Z91l99i0qpPNY/OSeo/Pm+QC
+ 2KL0bIryS0tSFTLyi0tslaINLYz0DC0t9IxMLPUMjc1jrYxMlfTtbFJSczLLUov07RL0Mk7t
+ 62EqWKZSMfN6J1MD43bZLkZODgkBE4mrS56wdjFycQgJLGWU6Jr3hwUiISNxcloDK4QtLPHn
+ WhcbRNFrRolb556DFQkLeEi0z7rADmKLCHhKLFz4nxmkiFlgPqPE3HWXmSE6DjNKNLT3g1Wx
+ CRhKdL0FGcXJwStgJ7GgYy7YChYBVYmlPxaCTRUViJW4MbODCaJGUOLkzCdgcU4Ba4mjhw6B
+ 2cwCZhLzNj9khrDlJba/nQNli0vcejKfaQKj0Cwk7bOQtMxC0jILScsCRpZVjCKppcW56bnF
+ RnrFibnFpXnpesn5uZsYgXG37djPLTsYu94FH2IU4GBU4uFdMcErTog1say4MvcQowQHs5II
+ r7c4UIg3JbGyKrUoP76oNCe1+BCjKdBzE5mlRJPzgSkhryTe0NTQ3MLS0NzY3NjMQkmct0Pg
+ YIyQQHpiSWp2ampBahFMHxMHp1QDo++sijyT7ZeWtp8PkFr5xmDL1NulsSu/vLvP3nS/MNXJ
+ JdLPVXHO9Kc1yWd4xC6yJna6qAZ8WrTYLsL2zQT71dnXfmzPnXecQzfv6IOwazr+6XMsS+WE
+ 1thX+7uZrdpn6F16XIRrcqZMmXzC85QNTx7tL62ym/xtW/3sDzI9iXrmEVGRTWcFlViKMxIN
+ tZiLihMBH7SAQ9ECAAA=
+X-CMS-MailID: 20200218064747eucas1p1d65dab715088fdefd0c3a50061ee2dca
+X-Msg-Generator: CA
+X-RootMTR: 20200217180640eucas1p220a8a33489d01a860821370060953153
+X-EPHeader: CA
+CMS-TYPE: 201P
+X-CMS-RootMailID: 20200217180640eucas1p220a8a33489d01a860821370060953153
+References: <20557448-d6d2-7584-e2ac-c46d337e1778@samsung.com>
+ <CGME20200217180640eucas1p220a8a33489d01a860821370060953153@eucas1p2.samsung.com>
+ <20200217180626.593909-1-jbrunet@baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200217_134416_341181_FE24CD73 
-X-CRM114-Status: GOOD (  15.84  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20200217_224754_216512_A7334B5A 
+X-CRM114-Status: GOOD (  19.59  )
+X-Spam-Score: -5.2 (-----)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (-5.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [f.fainelli[at]gmail.com]
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [210.118.77.12 listed in list.dnswl.org]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [210.118.77.12 listed in wl.mailspike.net]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
@@ -150,6 +127,8 @@ X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -161,56 +140,147 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: alsa-devel@alsa-project.org, Liam Girdwood <lgirdwood@gmail.com>,
+ linux-rpi-kernel <linux-rpi-kernel@lists.infradead.org>,
+ linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
+Hi Jerome,
 
+On 17.02.2020 19:06, Jerome Brunet wrote:
+> Hi Marek, would you mind trying the following patch. It should target the
+> component removal intead of removing them all. I'd like to comfirm this is
+> your problem before pushing in this direction. Thanks
+>
+> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
 
-On 2/17/2020 12:18 PM, Nicolas Saenz Julienne wrote:
-> [ Adding Florian to the coversation ]
-> 
-> On Mon, 2020-02-17 at 13:22 +0100, Marek Szyprowski wrote:
->> Hi Nicolas,
->> On 14.02.2020 16:14, Nicolas Saenz Julienne wrote:
->>> IMO bcm2711_defconfig if the last resort solution. I don't think you can
->>> do bcm2835_lpae_defconfig as RPi and RPi2 SoCs don't support LPAE.
->>
->> Okay, if you want I can send a patch adding bcm2711_defconfig.
->>
->>> An intemediate solution is being discussed here:
->>> https://lkml.org/lkml/2020/1/10/694
->>
->> Right, I also agree that multi_v7_lpae_defconfig is needed. Best would 
->> be to have both (bcm2711 for quick tests of board-dedicated kernel and 
->> multi for distributions).
-> 
-> So I understand you'd be creating a new bcm2711_defconfig based on
-> bcm2835_defconfig plus whatever is needed. Sounds OK to me. It'd be nice to
-> have a small kernel config to do bisects with.
-> 
-> Any comments Florian, Stefan?
+It helps a bit. There is no warning from sysfs, but vc4-drm is still not 
+registered properly:
 
-If we can make bcm2711_defconfig a fragment that applies to
-bcm2835_defconfig then we are not maintaining a completely new
-configuration file and we take advantage of all existing coverage from
-bcm2835_defconfig. A completely new bcm2711_defconfig would be hard to
-justify IMHO when multi_v7_lpae_defconfig is sort of what we would prefer.
+raspberrypi-firmware soc:firmware: Attached to firmware from 2019-07-09 
+14:40
+raspberrypi-clk raspberrypi-clk: CPU frequency range: min 600000000, max 
+1200000000
+vc4_hdmi 3f902000.hdmi: ASoC: CODEC DAI vc4-hdmi-hifi not registered
+vc4_hdmi 3f902000.hdmi: Could not register sound card: -517
+vc4-drm soc:gpu: failed to bind 3f902000.hdmi (ops vc4_hdmi_ops): -517
+vc4-drm soc:gpu: master bind failed: -517
 
-BTW, if you register the PCI outbound window as part of 2711's machine
-descriptor map_io callback, you should have it trickled down from
-iotable_init() -> create_mapping() -> __create_mapping() ->
-create_36bit_mapping which should allow the creation of such a mapping
-into the 32-bit virtual address space of the kernel. You would not quite
-be able to use the entire 4GB of DRAM in such a configuration because
-your virtual address space already needs ~41MB of register space + 64MB
-of PCIe outbound space but at least bcm2835_defconfig would keep working.
+> ---
+>   include/sound/soc.h                   |  1 +
+>   sound/soc/soc-core.c                  |  8 +++++++
+>   sound/soc/soc-devres.c                | 32 ++++++++++++++++++---------
+>   sound/soc/soc-generic-dmaengine-pcm.c |  2 +-
+>   4 files changed, 31 insertions(+), 12 deletions(-)
+>
+> diff --git a/include/sound/soc.h b/include/sound/soc.h
+> index f0e4f36f83bf..e5bfe2609110 100644
+> --- a/include/sound/soc.h
+> +++ b/include/sound/soc.h
+> @@ -442,6 +442,7 @@ int snd_soc_add_component(struct device *dev,
+>   		const struct snd_soc_component_driver *component_driver,
+>   		struct snd_soc_dai_driver *dai_drv,
+>   		int num_dai);
+> +void snd_soc_del_component(struct snd_soc_component *component);
+>   int snd_soc_register_component(struct device *dev,
+>   			 const struct snd_soc_component_driver *component_driver,
+>   			 struct snd_soc_dai_driver *dai_drv, int num_dai);
+> diff --git a/sound/soc/soc-core.c b/sound/soc/soc-core.c
+> index 6a58a8f6e3c4..bf6a64fbfa52 100644
+> --- a/sound/soc/soc-core.c
+> +++ b/sound/soc/soc-core.c
+> @@ -2599,6 +2599,14 @@ static void snd_soc_del_component_unlocked(struct snd_soc_component *component)
+>   	list_del(&component->list);
+>   }
+>   
+> +void snd_soc_del_component(struct snd_soc_component *component)
+> +{
+> +	mutex_lock(&client_mutex);
+> +	snd_soc_del_component_unlocked(component);
+> +	mutex_unlock(&client_mutex);
+> +}
+> +EXPORT_SYMBOL_GPL(snd_soc_del_component);
+> +
+>   int snd_soc_add_component(struct device *dev,
+>   			struct snd_soc_component *component,
+>   			const struct snd_soc_component_driver *component_driver,
+> diff --git a/sound/soc/soc-devres.c b/sound/soc/soc-devres.c
+> index a9ea172a66a7..d5e9e2bed2ce 100644
+> --- a/sound/soc/soc-devres.c
+> +++ b/sound/soc/soc-devres.c
+> @@ -11,7 +11,7 @@
+>   
+>   static void devm_component_release(struct device *dev, void *res)
+>   {
+> -	snd_soc_unregister_component(*(struct device **)res);
+> +	snd_soc_del_component(*(struct snd_soc_component **)res);
+>   }
+>   
+>   /**
+> @@ -28,21 +28,31 @@ int devm_snd_soc_register_component(struct device *dev,
+>   			 const struct snd_soc_component_driver *cmpnt_drv,
+>   			 struct snd_soc_dai_driver *dai_drv, int num_dai)
+>   {
+> -	struct device **ptr;
+> -	int ret;
+> +	struct snd_soc_component *component;
+> +	struct snd_soc_component **ptr;
+> +	int ret = -ENOMEM;
+> +
+> +	component = devm_kzalloc(dev, sizeof(*component), GFP_KERNEL);
+> +	if (!component)
+> +		return -ENOMEM;
+>   
+>   	ptr = devres_alloc(devm_component_release, sizeof(*ptr), GFP_KERNEL);
+>   	if (!ptr)
+> -		return -ENOMEM;
+> +	        goto err_devres;
+>   
+> -	ret = snd_soc_register_component(dev, cmpnt_drv, dai_drv, num_dai);
+> -	if (ret == 0) {
+> -		*ptr = dev;
+> -		devres_add(dev, ptr);
+> -	} else {
+> -		devres_free(ptr);
+> -	}
+> +	ret = snd_soc_add_component(dev, component, cmpnt_drv, dai_drv,
+> +				    num_dai);
+> +	if (ret)
+> +		goto err_add;
+> +
+> +	*ptr = component;
+> +	devres_add(dev, ptr);
+> +	return 0;
+>   
+> +err_add:
+> +	devres_free(ptr);
+> +err_devres:
+> +	devm_kfree(dev, component);
+>   	return ret;
+>   }
+>   EXPORT_SYMBOL_GPL(devm_snd_soc_register_component);
+> diff --git a/sound/soc/soc-generic-dmaengine-pcm.c b/sound/soc/soc-generic-dmaengine-pcm.c
+> index 2cc25651661c..a33f21ce2d7a 100644
+> --- a/sound/soc/soc-generic-dmaengine-pcm.c
+> +++ b/sound/soc/soc-generic-dmaengine-pcm.c
+> @@ -474,7 +474,7 @@ void snd_dmaengine_pcm_unregister(struct device *dev)
+>   
+>   	pcm = soc_component_to_pcm(component);
+>   
+> -	snd_soc_unregister_component(dev);
+> +	snd_soc_del_component(component);
+>   	dmaengine_pcm_release_chan(pcm);
+>   	kfree(pcm);
+>   }
 
-NB: this only works AFAICT if you do this at map_io() time, not sure if
-ioremap() will accept a >= 4GB physical address.
+Best regards
 -- 
-Florian
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
+
 
 _______________________________________________
 linux-rpi-kernel mailing list
