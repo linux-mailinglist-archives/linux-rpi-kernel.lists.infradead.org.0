@@ -2,86 +2,87 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4FFBF16236C
-	for <lists+linux-rpi-kernel@lfdr.de>; Tue, 18 Feb 2020 10:32:56 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 01F0816241B
+	for <lists+linux-rpi-kernel@lfdr.de>; Tue, 18 Feb 2020 11:01:36 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:
-	In-reply-to:Subject:To:From:References:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=2iwaV1mrtXZKad+53WPh1Zr7p9SlmxC8qr/ToTdf31c=; b=DQ1f6JrpwUysX2HSJRcRkINP4v
-	JODPHS8Tq/Tl5DzG9epL0fIS3dUIfPdooKu5khH6k2gN+LoZEA41DhdNwU2NQlRK8Ul2r9k6c3jwR
-	Kmb+0rSRliV95aSqRUgUfrngb4ZG2hpHnw0iVHUyruAgybqNn3Bv8f5fHRm1st8atPPA5Q1WIGxPY
-	cuTl74LNmxIPxgWo7s6/GlOpFP/7KUmZgH3UaLxSozv6+04NtwDqB6HsXy625BGxQUzaZGbU6Vw2K
-	JRn/Kh/Hk4MglUpEfvaB+Yt5waFsn6M7/030A71s5ZuY+129y34BNSXNG2RxBfN4D4q4K1FM1la10
-	Nc8AIZiA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=PGWyyVfa5EX1RMaSfwPt03Qp2w9bCeLf1cNGyzUEH8k=; b=Kj9SpD+cP0M+L3
+	WNSsgte2kWjCWHug1BhP947LBoiV0zJr2s5zF1c0lK3h09ryCBsgN7cbfWUjVrRJW/tvJPll3pnDL
+	nSEszMnenKbVNFG78tkL0aPSJiNlnph2ZLld9w3zD4v3PZoCFtMUsZHzIDBWgmLGlZhI+AMWpuwEq
+	6pD18Cc8vpvpo7XKb3v5CA5L0nLy/yUvOjmMVyi0LSwbsVPG8vZsWa0GHdHMH9aXDDnDh7x840JFz
+	MJ0mpP8t7EMy64jy056MqR7UGoqR7fshgEzcPIrTYDGDi8GUDLqC0YlpA7DBImjExscWWPtdmemhD
+	SwMyPkMfXGmlF5HPS4GQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j3zFN-0004kv-MF; Tue, 18 Feb 2020 09:32:53 +0000
-Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
+	id 1j3zh9-0001i6-F1; Tue, 18 Feb 2020 10:01:35 +0000
+Received: from mail-wm1-x344.google.com ([2a00:1450:4864:20::344])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j3zFJ-0004kK-Qr
- for linux-rpi-kernel@lists.infradead.org; Tue, 18 Feb 2020 09:32:51 +0000
-Received: by mail-wm1-x342.google.com with SMTP id c84so2047049wme.4
+ id 1j3zh6-0001hL-9Z
+ for linux-rpi-kernel@lists.infradead.org; Tue, 18 Feb 2020 10:01:34 +0000
+Received: by mail-wm1-x344.google.com with SMTP id t14so2149021wmi.5
  for <linux-rpi-kernel@lists.infradead.org>;
- Tue, 18 Feb 2020 01:32:48 -0800 (PST)
+ Tue, 18 Feb 2020 02:01:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=baylibre-com.20150623.gappssmtp.com; s=20150623;
- h=references:user-agent:from:to:cc:subject:in-reply-to:date
- :message-id:mime-version;
- bh=5Vu5NREMqZNgn/ugbyRfT/sUu90ARmdAjTNhjJow4ng=;
- b=VTaMuOJvmVCVZGf1e9CGkyUz0S7jnNLCV/LN8dgXGfFMuX4otjCtJEleDAkB7PKZ8o
- finjLiRZn9hxUlDm5FFUzNrUqi5yMCiAIiE3kgiOhaMxk1Wxm95lDMK3z7G/5cA3e+oC
- 5tmZTCUDAQITGFsC0xMfCZxzU/LqxSN7r1HyZgmlAJb3sartwnrRAfr5I4MXHIuO6noq
- 3pm+SVBsJdPEFJjLePstjpAErRzCtPbQbNgwb2Us2U735qsUQzMZQY6h7b5CFezJMa2s
- RbSYFS4nwDvDaQY8mUkapbLA+9QXUaxNH/M4xrdZrgOpewi+H95lc3Svb9hC9XQD9SXN
- Pt5A==
+ h=date:from:to:cc:subject:message-id:references:mime-version
+ :content-disposition:in-reply-to:user-agent;
+ bh=8jbBtKgyBhIwFGIT+8sjpsB6jtwpVCvsQcBSC4TtqqM=;
+ b=C0LZVYum0P4wm2ftH/cfvhrBK/7igtgfDMc4hJsSBPAgOWE34HJ/xnm6wtjp1zLFtd
+ tJ8kdU5wbCwnBDwFG/Dbk+G8qF3T3Qw4nFgv/vJ6FWvWf14P5oBAaZ5Ox7yFn32ThF0P
+ WDMeReG1eyCz3F46brENp8NLoMona0npa8ptFT4BpeuLxg+JExUH0vDB3DgKyetHvw6O
+ aSREn2jQUAHe7Zzy3ADvyxSXCOA38waCKVgUF4CdZw8vPhswi9LNVqCum5BzPcQs3DRS
+ 2ly21PjPc0QKRMp3iwfbKnIyYt2J1FTc5On5SPT41EoLmdEhaczb3R/eEWj/XVWJSCig
+ HeEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:references:user-agent:from:to:cc:subject
- :in-reply-to:date:message-id:mime-version;
- bh=5Vu5NREMqZNgn/ugbyRfT/sUu90ARmdAjTNhjJow4ng=;
- b=lekMnr8JTFTbrMEjp/n/umKSexcYFhC/sJDLnyWZtbPzKwrB1rvpQldnlTSzXJy3rl
- J+w0pObOC3gPnJV+ENNlADmiKdlQSltEtMP8AYc29rDVePWRLC8JxYwCdErBbrWJWu/H
- b/lZ3jHrOL6aFQMcnDKvkLtAbJExfXaOyg4sXyDilMrL/js0ZRTbrfebklPQpI/HqYty
- EzAJpIGWuakUplQtBry2eFmpkpD4MvfGaJ+kg/PkEwAoAaqVosnRH7nfi+E2pljRJ0IB
- zB7bI7fi5aDumABRvJJRVJHBbFGieEyHVQDeaYVv81sVU/klg8cMGTtz+/0eI2SV4cSb
- QJTQ==
-X-Gm-Message-State: APjAAAXSeuGCu16F7g6GTnZuIjZD/R8LdWJ4aSwNxxtXf+IchUHZ1QYL
- kCngLzEfHDQ2ozi+75YAlmdtNQ==
-X-Google-Smtp-Source: APXvYqwA4p4xTRLmc1PHQhlRYoA9irCDEUh5d1GD4hj2Qv/UyOsb4cp+cyo8BLIu2TaPKadjOksZpw==
-X-Received: by 2002:a1c:1fc5:: with SMTP id f188mr2117144wmf.55.1582018367152; 
- Tue, 18 Feb 2020 01:32:47 -0800 (PST)
-Received: from localhost (cag06-3-82-243-161-21.fbx.proxad.net.
- [82.243.161.21])
- by smtp.gmail.com with ESMTPSA id y1sm5239049wrq.16.2020.02.18.01.32.46
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to:user-agent;
+ bh=8jbBtKgyBhIwFGIT+8sjpsB6jtwpVCvsQcBSC4TtqqM=;
+ b=a7PohoKKV+9kRbYO+LmK8miTxgcHxi2Sopif9pBFtZAy9/k4sd6TvQvMP7wSQGsaFO
+ d8AkyWdku7otMnsvsTO/nAs/VSHuWR3EIIHuee/XDXurQ+yHwONJdsfsvuBlj8Zj5QZT
+ ntAYYHnfiP9vQWRmE1iJ5fF97nQsvPvBsqHgBfRbHC8KJ1TwHv8yhQoABRo7O6mb1Qjb
+ KQJ8z1t3OCP4S3EH0RwH5QNde3lovPtX1qBEW52kj9xBmlGBjViH1tffVQTrQNM0f2E6
+ IlH/41i7EB3LGQSXl90kTOyfpDM+oF8/WE2SkSAEbhCrNCV/7Kkb5RTVJHQfG+g6qDUv
+ rPZw==
+X-Gm-Message-State: APjAAAW+ivEfPzEH7Dip7ZGZCQgrx5c+lqMZ2fUuwn5SUhd9Vuj3fUMa
+ IPTOpq5Q7xFdUhfRy0MmSwzO2Q==
+X-Google-Smtp-Source: APXvYqxYJDmh63jmfkm2GOW8w8Ijc3bfBXuFlOT6L5xNu7HJtOjFb6+k4K1dSuLWZGR0pXtox+y5eA==
+X-Received: by 2002:a05:600c:2104:: with SMTP id
+ u4mr2239205wml.93.1582020090596; 
+ Tue, 18 Feb 2020 02:01:30 -0800 (PST)
+Received: from Red ([2a01:cb1d:3d5:a100:2e56:dcff:fed2:c6d6])
+ by smtp.googlemail.com with ESMTPSA id d9sm5256014wrx.94.2020.02.18.02.01.29
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 18 Feb 2020 01:32:46 -0800 (PST)
-References: <20557448-d6d2-7584-e2ac-c46d337e1778@samsung.com>
- <CGME20200217180640eucas1p220a8a33489d01a860821370060953153@eucas1p2.samsung.com>
- <20200217180626.593909-1-jbrunet@baylibre.com>
- <e70bb7a5-21b0-0e71-871e-2c02b35f86ea@samsung.com>
-User-agent: mu4e 1.3.3; emacs 26.3
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Marek Szyprowski <m.szyprowski@samsung.com>,
- Mark Brown <broonie@kernel.org>
-Subject: Re: [RFT/DONTMERGE] ASoC: devm_snd_soc_register_component fixup
-In-reply-to: <e70bb7a5-21b0-0e71-871e-2c02b35f86ea@samsung.com>
-Date: Tue, 18 Feb 2020 10:32:45 +0100
-Message-ID: <1jblpw5jgi.fsf@starbuckisacylon.baylibre.com>
+ Tue, 18 Feb 2020 02:01:30 -0800 (PST)
+Date: Tue, 18 Feb 2020 11:01:28 +0100
+From: LABBE Corentin <clabbe@baylibre.com>
+To: Matthias Brugger <matthias.bgg@gmail.com>
+Subject: Re: RPI4: fail too boot with an initrd
+Message-ID: <20200218100128.GB10369@Red>
+References: <20200214132748.GA23276@Red>
+ <b726290c-1038-3771-5187-6ac370bc92c9@arm.com>
+ <20200217103733.GA11379@Red>
+ <c5a959d7-44b2-fab9-8269-d8e858790925@gmail.com>
+ <20200217125301.GA31847@Red>
+ <982c710c-d606-2c04-03ee-604626230bbc@gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <982c710c-d606-2c04-03ee-604626230bbc@gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200218_013249_871245_9D8F9BB4 
-X-CRM114-Status: GOOD (  17.90  )
+X-CRM114-CacheID: sfid-20200218_020132_340285_7E4D5481 
+X-CRM114-Status: GOOD (  30.54  )
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:342 listed in]
+ no trust [2a00:1450:4864:20:0:0:0:344 listed in]
  [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
@@ -99,165 +100,146 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: alsa-devel@alsa-project.org, Liam Girdwood <lgirdwood@gmail.com>,
- linux-rpi-kernel <linux-rpi-kernel@lists.infradead.org>,
- linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ u-boot@lists.denx.de, James Morse <james.morse@arm.com>,
+ linux-rpi-kernel@lists.infradead.org, bcm-kernel-feedback-list@broadcom.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
+On Mon, Feb 17, 2020 at 02:07:09PM +0100, Matthias Brugger wrote:
+> 
+> 
+> On 17/02/2020 13:53, LABBE Corentin wrote:
+> > On Mon, Feb 17, 2020 at 11:50:04AM +0100, Matthias Brugger wrote:
+> >>
+> >>
+> >> On 17/02/2020 11:37, LABBE Corentin wrote:
+> >>> On Fri, Feb 14, 2020 at 06:15:27PM +0000, James Morse wrote:
+> >>>> Hi Corentin,
+> >>>>
+> >>>> On 14/02/2020 13:27, LABBE Corentin wrote:
+> >>>>> Since the inclusion of the "enable network support in RPi4 config" serie on uboot, I
+> >>>>> have started to work on adding the rpi4 in kernelCI.
+> >>>>> But I fail to succeed in using a kernel/dtb/ramdisk downloaded via tftp.
+> >>>>>
+> >>>>> Using booti I hit:
+> >>>>> [    0.000000] Linux version 5.6.0-rc1-next-20200212 (clabbe@build2-bionic-1804) (gcc version 7.4.1 20181213 [linaro-7.4-2019.02 revision 56ec6f6b99cc167ff0c2f8e1a2eed33b1edc85d4] (Linaro    GCC 7.4-2019.02)) #66 SMP PREEMPT Wed Feb 12 10:14:20 UTC 2020
+> >>>>> [    0.000000] Machine model: Raspberry Pi 4 Model B
+> >>>>> [    0.000000] earlycon: uart0 at MMIO32 0x00000000fe215040 (options '')
+> >>>>> [    0.000000] printk: bootconsole [uart0] enabled
+> >>>>> [    0.000000] efi: Getting EFI parameters from FDT:
+> >>>>> [    0.000000] efi: UEFI not found.
+> >>>>
+> >>>> So no EFI,
+> >>>>
+> >>>>> [    0.000000] OF: reserved mem: failed to allocate memory for node 'linux,cma'
+> >>>>
+> >>>> Out of memory.
+> >>>>
+> >>>>> [    0.000000] cma: Failed to reserve 32 MiB
+> >>>>> [    0.000000] Kernel panic - not syncing: Failed to allocate page table page
+> >>>>
+> >>>> Out of memory...
+> >>>>
+> >>>>> [    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 5.6.0-rc1-next-20200212 #66
+> >>>>> [    0.000000] Hardware name: Raspberry Pi 4 Model B (DT)
+> >>>>> [    0.000000] Call trace:
+> >>>>> [    0.000000]  dump_backtrace+0x0/0x1a0
+> >>>>> [    0.000000]  show_stack+0x14/0x20
+> >>>>> [    0.000000]  dump_stack+0xbc/0x104
+> >>>>> [    0.000000]  panic+0x16c/0x37c
+> >>>>> [    0.000000]  early_pgtable_alloc+0x30/0xa0
+> >>>>
+> >>>> ... really early!
+> >>>>
+> >>>>> [    0.000000]  __create_pgd_mapping+0x36c/0x588
+> >>>>> [    0.000000]  map_kernel_segment+0x70/0xa4
+> >>>>> [    0.000000]  paging_init+0xf4/0x528
+> >>>>> [    0.000000]  setup_arch+0x250/0x5d8
+> >>>>> [    0.000000]  start_kernel+0x90/0x6d8
+> >>>>>
+> >>>>>  
+> >>>>> Since the same kernel boot with bootefi and that bootefi lack ramdisk address,
+> >>>>
+> >>>> Booting with EFI will cause linux to use the EFI memory map.
+> >>>>
+> >>>> Does your DT have a memory node? (or does it expect EFI to provide the information)
+> >>>>
+> >>>>
+> >>>>> I tried to add the address in the dtb via:
+> >>>>> fdt addr 0x02400000; fdt resize; fdt set /chosen linux,initrd-start 0x02700000; fdt set /chosen linux,initrd-end 0x10000000; bootefi 0x00080000 0x02400000
+> >>>>> But with that, I get:
+> >>>>> initrd not fully accessible via the linear mapping -- please check your bootloader ...
+> >>>>
+> >>>> So this one is an EFI boot, but you can't find where to put the initramfs such that the
+> >>>> kernel agrees its in memory.
+> >>>>
+> >>>> If you boot with 'efi=debug', linux will print the EFI memory map. Could you compare that
+> >>>> to where U-Boot thinks memory is?
+> >>>>
+> >>>> (it sounds like your DT memory node is missing, and your EFI memory map is surprisingly small)
+> >>>
+> >>> Hello
+> >>>
+> >>> Thanks for your advices.
+> >>>
+> >>> In the dtb of mainline linux:
+> >>> 	/* Will be filled by the bootloader */
+> >>> 	memory@0 {
+> >>> 		device_type = "memory";
+> >>> 		reg = <0 0 0>;
+> >>> 	};
+> >>>
+> >>> In uboot I have:
+> >>> static struct mm_region bcm2711_mem_map[] = {
+> >>>         {
+> >>>                 .virt = 0x00000000UL,
+> >>>                 .phys = 0x00000000UL,
+> >>>                 .size = 0xfe000000UL,
+> >>>                 .attrs = PTE_BLOCK_MEMTYPE(MT_NORMAL) |
+> >>>                          PTE_BLOCK_INNER_SHARE
+> >>>         }, {
+> >>>                 .virt = 0xfc000000UL,
+> >>>                 .phys = 0xfc000000UL,
+> >>>                 .size = 0x03800000UL,
+> >>>                 .attrs = PTE_BLOCK_MEMTYPE(MT_DEVICE_NGNRNE) |
+> >>>                          PTE_BLOCK_NON_SHARE |
+> >>>                          PTE_BLOCK_PXN | PTE_BLOCK_UXN
+> >>>         }, {
+> >>>                 /* List terminator */
+> >>>                 0,
+> >>>         }
+> >>> };
+> >>> But I dont know if uboot use that for filling the memory node.
+> >>
+> >> No it doesn't. U-Boot uses the DT from the firmware and passes this to the
+> >> kernel. But it seems you pass instead your own device-tree to the kernel, so you
+> >> will need to update the memory node to show the available memory on you board.
+> >>
+> > 
+> > I dont understand, in the Linux commit "ARM: dts: Add minimal Raspberry Pi 4 support" I read:
+> > The RPi 4 is available in 3 different variants (1, 2 and 4 GB RAM), so leave the memory size to zero and let the bootloader take care of it.
+> > But if uboot dont fill that...
+> > So the DTB in mainline is wrong, right ?
+> > 
+> 
+> How do you pass your DTB to the kernel? Does the FW uses your DTB by putting it
+> as bcm2711-rpi-4-b.dtb in the first FAT partition? Or do you load it from U-Boot
+> afterwards? In the latter case you have to take care to add the needed size of
+> memory. In the first case you use what is the default behavior for U-Boot; the
+> RPi FW updates the node and then passes it to U-Boot then it get's passed to the
+> kernel.
+> 
 
-On Tue 18 Feb 2020 at 07:47, Marek Szyprowski <m.szyprowski@samsung.com> wrote:
+Hello
 
-> Hi Jerome,
->
-> On 17.02.2020 19:06, Jerome Brunet wrote:
->> Hi Marek, would you mind trying the following patch. It should target the
->> component removal intead of removing them all. I'd like to comfirm this is
->> your problem before pushing in this direction. Thanks
->>
->> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
->
-> It helps a bit. There is no warning from sysfs, but vc4-drm is still not 
-> registered properly:
->
-> raspberrypi-firmware soc:firmware: Attached to firmware from 2019-07-09 
-> 14:40
-> raspberrypi-clk raspberrypi-clk: CPU frequency range: min 600000000, max 
-> 1200000000
-> vc4_hdmi 3f902000.hdmi: ASoC: CODEC DAI vc4-hdmi-hifi not registered
-> vc4_hdmi 3f902000.hdmi: Could not register sound card: -517
-> vc4-drm soc:gpu: failed to bind 3f902000.hdmi (ops vc4_hdmi_ops): -517
-> vc4-drm soc:gpu: master bind failed: -517
+I load the dtb via uboot/tftp.
+On another thread, I got the hint to enable CONFIG_ARCH_FIXUP_FDT_MEMORY and it made my problem solved.
 
-It explains why the original patch of this thread triggered the issue.
-
-The problem is at drivers/gpu/drm/vc4/vc4-hdmi.c:1108
-The driver derives the component name directly from the device name and
-assume all 3 components have the same name.
-
-This is not ideal:
-* We seen that debugfs was already warning about the name collision
-* ASoC should be allowed to set the name
-
-With this patch, the component name of the 2nd and 3rd component changed
-but the name claimed by the card driver remain unchanged which is why the
-card probe defers.
-
-This particular issue can probably be solved with lookup of the
-component name instead of a direct derivation. I'll check.
-
->
->> ---
->>   include/sound/soc.h                   |  1 +
->>   sound/soc/soc-core.c                  |  8 +++++++
->>   sound/soc/soc-devres.c                | 32 ++++++++++++++++++---------
->>   sound/soc/soc-generic-dmaengine-pcm.c |  2 +-
->>   4 files changed, 31 insertions(+), 12 deletions(-)
->>
->> diff --git a/include/sound/soc.h b/include/sound/soc.h
->> index f0e4f36f83bf..e5bfe2609110 100644
->> --- a/include/sound/soc.h
->> +++ b/include/sound/soc.h
->> @@ -442,6 +442,7 @@ int snd_soc_add_component(struct device *dev,
->>   		const struct snd_soc_component_driver *component_driver,
->>   		struct snd_soc_dai_driver *dai_drv,
->>   		int num_dai);
->> +void snd_soc_del_component(struct snd_soc_component *component);
->>   int snd_soc_register_component(struct device *dev,
->>   			 const struct snd_soc_component_driver *component_driver,
->>   			 struct snd_soc_dai_driver *dai_drv, int num_dai);
->> diff --git a/sound/soc/soc-core.c b/sound/soc/soc-core.c
->> index 6a58a8f6e3c4..bf6a64fbfa52 100644
->> --- a/sound/soc/soc-core.c
->> +++ b/sound/soc/soc-core.c
->> @@ -2599,6 +2599,14 @@ static void snd_soc_del_component_unlocked(struct snd_soc_component *component)
->>   	list_del(&component->list);
->>   }
->>   
->> +void snd_soc_del_component(struct snd_soc_component *component)
->> +{
->> +	mutex_lock(&client_mutex);
->> +	snd_soc_del_component_unlocked(component);
->> +	mutex_unlock(&client_mutex);
->> +}
->> +EXPORT_SYMBOL_GPL(snd_soc_del_component);
->> +
->>   int snd_soc_add_component(struct device *dev,
->>   			struct snd_soc_component *component,
->>   			const struct snd_soc_component_driver *component_driver,
->> diff --git a/sound/soc/soc-devres.c b/sound/soc/soc-devres.c
->> index a9ea172a66a7..d5e9e2bed2ce 100644
->> --- a/sound/soc/soc-devres.c
->> +++ b/sound/soc/soc-devres.c
->> @@ -11,7 +11,7 @@
->>   
->>   static void devm_component_release(struct device *dev, void *res)
->>   {
->> -	snd_soc_unregister_component(*(struct device **)res);
->> +	snd_soc_del_component(*(struct snd_soc_component **)res);
->>   }
->>   
->>   /**
->> @@ -28,21 +28,31 @@ int devm_snd_soc_register_component(struct device *dev,
->>   			 const struct snd_soc_component_driver *cmpnt_drv,
->>   			 struct snd_soc_dai_driver *dai_drv, int num_dai)
->>   {
->> -	struct device **ptr;
->> -	int ret;
->> +	struct snd_soc_component *component;
->> +	struct snd_soc_component **ptr;
->> +	int ret = -ENOMEM;
->> +
->> +	component = devm_kzalloc(dev, sizeof(*component), GFP_KERNEL);
->> +	if (!component)
->> +		return -ENOMEM;
->>   
->>   	ptr = devres_alloc(devm_component_release, sizeof(*ptr), GFP_KERNEL);
->>   	if (!ptr)
->> -		return -ENOMEM;
->> +	        goto err_devres;
->>   
->> -	ret = snd_soc_register_component(dev, cmpnt_drv, dai_drv, num_dai);
->> -	if (ret == 0) {
->> -		*ptr = dev;
->> -		devres_add(dev, ptr);
->> -	} else {
->> -		devres_free(ptr);
->> -	}
->> +	ret = snd_soc_add_component(dev, component, cmpnt_drv, dai_drv,
->> +				    num_dai);
->> +	if (ret)
->> +		goto err_add;
->> +
->> +	*ptr = component;
->> +	devres_add(dev, ptr);
->> +	return 0;
->>   
->> +err_add:
->> +	devres_free(ptr);
->> +err_devres:
->> +	devm_kfree(dev, component);
->>   	return ret;
->>   }
->>   EXPORT_SYMBOL_GPL(devm_snd_soc_register_component);
->> diff --git a/sound/soc/soc-generic-dmaengine-pcm.c b/sound/soc/soc-generic-dmaengine-pcm.c
->> index 2cc25651661c..a33f21ce2d7a 100644
->> --- a/sound/soc/soc-generic-dmaengine-pcm.c
->> +++ b/sound/soc/soc-generic-dmaengine-pcm.c
->> @@ -474,7 +474,7 @@ void snd_dmaengine_pcm_unregister(struct device *dev)
->>   
->>   	pcm = soc_component_to_pcm(component);
->>   
->> -	snd_soc_unregister_component(dev);
->> +	snd_soc_del_component(component);
->>   	dmaengine_pcm_release_chan(pcm);
->>   	kfree(pcm);
->>   }
->
-> Best regards
-
+Thanks
+Regards
 
 _______________________________________________
 linux-rpi-kernel mailing list
