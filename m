@@ -2,93 +2,134 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 01F0816241B
-	for <lists+linux-rpi-kernel@lfdr.de>; Tue, 18 Feb 2020 11:01:36 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 197301624B3
+	for <lists+linux-rpi-kernel@lfdr.de>; Tue, 18 Feb 2020 11:37:01 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PGWyyVfa5EX1RMaSfwPt03Qp2w9bCeLf1cNGyzUEH8k=; b=Kj9SpD+cP0M+L3
-	WNSsgte2kWjCWHug1BhP947LBoiV0zJr2s5zF1c0lK3h09ryCBsgN7cbfWUjVrRJW/tvJPll3pnDL
-	nSEszMnenKbVNFG78tkL0aPSJiNlnph2ZLld9w3zD4v3PZoCFtMUsZHzIDBWgmLGlZhI+AMWpuwEq
-	6pD18Cc8vpvpo7XKb3v5CA5L0nLy/yUvOjmMVyi0LSwbsVPG8vZsWa0GHdHMH9aXDDnDh7x840JFz
-	MJ0mpP8t7EMy64jy056MqR7UGoqR7fshgEzcPIrTYDGDi8GUDLqC0YlpA7DBImjExscWWPtdmemhD
-	SwMyPkMfXGmlF5HPS4GQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=dUwo017Vrujh7Maz5OXjVHVHmEiDUu99tubGyle7y4E=; b=S948WXPLsJHbML
+	cqsaWpXp65ZwYdsfafCDLzEUtYtR5U3+oSnFuDabAEnLBfQEypw9gt9KjZrcFIM3goKAosNDe8q8q
+	S0E7+zynk7i3YkUEBJ0scPH0TKWAB047RUsZnn9YSmf5pT4K5PQxgUrJN9PbVuZ5vw7IcGb39CGb5
+	MnT8vbsBosKPK/nh+YNcZPg/PEXUZ+mlrBOVA44K+iMuTosu577ifogCahJenHyWllXLQvtYjbQiS
+	LTSN70Ma7pwXPow78wATAgIEJ7td4qS2GAEF/KTeCYH81mxHCmaTV0uQzlL4FwaQlGlYm7NB+EJUZ
+	Y/1zjdXkNUVv/1bL4X8g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j3zh9-0001i6-F1; Tue, 18 Feb 2020 10:01:35 +0000
-Received: from mail-wm1-x344.google.com ([2a00:1450:4864:20::344])
+	id 1j40FO-0001Eb-Ta; Tue, 18 Feb 2020 10:36:58 +0000
+Received: from mx2.suse.de ([195.135.220.15])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j3zh6-0001hL-9Z
- for linux-rpi-kernel@lists.infradead.org; Tue, 18 Feb 2020 10:01:34 +0000
-Received: by mail-wm1-x344.google.com with SMTP id t14so2149021wmi.5
- for <linux-rpi-kernel@lists.infradead.org>;
- Tue, 18 Feb 2020 02:01:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=baylibre-com.20150623.gappssmtp.com; s=20150623;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to:user-agent;
- bh=8jbBtKgyBhIwFGIT+8sjpsB6jtwpVCvsQcBSC4TtqqM=;
- b=C0LZVYum0P4wm2ftH/cfvhrBK/7igtgfDMc4hJsSBPAgOWE34HJ/xnm6wtjp1zLFtd
- tJ8kdU5wbCwnBDwFG/Dbk+G8qF3T3Qw4nFgv/vJ6FWvWf14P5oBAaZ5Ox7yFn32ThF0P
- WDMeReG1eyCz3F46brENp8NLoMona0npa8ptFT4BpeuLxg+JExUH0vDB3DgKyetHvw6O
- aSREn2jQUAHe7Zzy3ADvyxSXCOA38waCKVgUF4CdZw8vPhswi9LNVqCum5BzPcQs3DRS
- 2ly21PjPc0QKRMp3iwfbKnIyYt2J1FTc5On5SPT41EoLmdEhaczb3R/eEWj/XVWJSCig
- HeEA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to:user-agent;
- bh=8jbBtKgyBhIwFGIT+8sjpsB6jtwpVCvsQcBSC4TtqqM=;
- b=a7PohoKKV+9kRbYO+LmK8miTxgcHxi2Sopif9pBFtZAy9/k4sd6TvQvMP7wSQGsaFO
- d8AkyWdku7otMnsvsTO/nAs/VSHuWR3EIIHuee/XDXurQ+yHwONJdsfsvuBlj8Zj5QZT
- ntAYYHnfiP9vQWRmE1iJ5fF97nQsvPvBsqHgBfRbHC8KJ1TwHv8yhQoABRo7O6mb1Qjb
- KQJ8z1t3OCP4S3EH0RwH5QNde3lovPtX1qBEW52kj9xBmlGBjViH1tffVQTrQNM0f2E6
- IlH/41i7EB3LGQSXl90kTOyfpDM+oF8/WE2SkSAEbhCrNCV/7Kkb5RTVJHQfG+g6qDUv
- rPZw==
-X-Gm-Message-State: APjAAAW+ivEfPzEH7Dip7ZGZCQgrx5c+lqMZ2fUuwn5SUhd9Vuj3fUMa
- IPTOpq5Q7xFdUhfRy0MmSwzO2Q==
-X-Google-Smtp-Source: APXvYqxYJDmh63jmfkm2GOW8w8Ijc3bfBXuFlOT6L5xNu7HJtOjFb6+k4K1dSuLWZGR0pXtox+y5eA==
-X-Received: by 2002:a05:600c:2104:: with SMTP id
- u4mr2239205wml.93.1582020090596; 
- Tue, 18 Feb 2020 02:01:30 -0800 (PST)
-Received: from Red ([2a01:cb1d:3d5:a100:2e56:dcff:fed2:c6d6])
- by smtp.googlemail.com with ESMTPSA id d9sm5256014wrx.94.2020.02.18.02.01.29
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 18 Feb 2020 02:01:30 -0800 (PST)
-Date: Tue, 18 Feb 2020 11:01:28 +0100
-From: LABBE Corentin <clabbe@baylibre.com>
-To: Matthias Brugger <matthias.bgg@gmail.com>
+ id 1j40FD-00015Q-5I; Tue, 18 Feb 2020 10:36:49 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+ by mx2.suse.de (Postfix) with ESMTP id 4DFEDBD96;
+ Tue, 18 Feb 2020 10:36:43 +0000 (UTC)
 Subject: Re: RPI4: fail too boot with an initrd
-Message-ID: <20200218100128.GB10369@Red>
+To: LABBE Corentin <clabbe@baylibre.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>
 References: <20200214132748.GA23276@Red>
- <b726290c-1038-3771-5187-6ac370bc92c9@arm.com>
- <20200217103733.GA11379@Red>
- <c5a959d7-44b2-fab9-8269-d8e858790925@gmail.com>
- <20200217125301.GA31847@Red>
- <982c710c-d606-2c04-03ee-604626230bbc@gmail.com>
+ <b726290c-1038-3771-5187-6ac370bc92c9@arm.com> <20200217103733.GA11379@Red>
+ <c5a959d7-44b2-fab9-8269-d8e858790925@gmail.com> <20200217125301.GA31847@Red>
+ <982c710c-d606-2c04-03ee-604626230bbc@gmail.com> <20200218100128.GB10369@Red>
+From: Matthias Brugger <mbrugger@suse.com>
+Autocrypt: addr=mbrugger@suse.com; prefer-encrypt=mutual; keydata=
+ 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
+ HxUCQ9Y1Y/Ct
+Message-ID: <d9727fac-e7fd-7dfb-ce39-da0c5b0d12a2@suse.com>
+Date: Tue, 18 Feb 2020 11:36:41 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.5.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <982c710c-d606-2c04-03ee-604626230bbc@gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <20200218100128.GB10369@Red>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200218_020132_340285_7E4D5481 
-X-CRM114-Status: GOOD (  30.54  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20200218_023647_502858_69E02453 
+X-CRM114-Status: GOOD (  25.31  )
+X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (0.0 points)
+ Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:344 listed in]
- [list.dnswl.org]
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [195.135.220.15 listed in list.dnswl.org]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [195.135.220.15 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -100,146 +141,152 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- u-boot@lists.denx.de, James Morse <james.morse@arm.com>,
- linux-rpi-kernel@lists.infradead.org, bcm-kernel-feedback-list@broadcom.com
+Cc: linux-kernel@vger.kernel.org, u-boot@lists.denx.de,
+ bcm-kernel-feedback-list@broadcom.com, linux-rpi-kernel@lists.infradead.org,
+ James Morse <james.morse@arm.com>, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-On Mon, Feb 17, 2020 at 02:07:09PM +0100, Matthias Brugger wrote:
-> 
-> 
-> On 17/02/2020 13:53, LABBE Corentin wrote:
-> > On Mon, Feb 17, 2020 at 11:50:04AM +0100, Matthias Brugger wrote:
-> >>
-> >>
-> >> On 17/02/2020 11:37, LABBE Corentin wrote:
-> >>> On Fri, Feb 14, 2020 at 06:15:27PM +0000, James Morse wrote:
-> >>>> Hi Corentin,
-> >>>>
-> >>>> On 14/02/2020 13:27, LABBE Corentin wrote:
-> >>>>> Since the inclusion of the "enable network support in RPi4 config" serie on uboot, I
-> >>>>> have started to work on adding the rpi4 in kernelCI.
-> >>>>> But I fail to succeed in using a kernel/dtb/ramdisk downloaded via tftp.
-> >>>>>
-> >>>>> Using booti I hit:
-> >>>>> [    0.000000] Linux version 5.6.0-rc1-next-20200212 (clabbe@build2-bionic-1804) (gcc version 7.4.1 20181213 [linaro-7.4-2019.02 revision 56ec6f6b99cc167ff0c2f8e1a2eed33b1edc85d4] (Linaro    GCC 7.4-2019.02)) #66 SMP PREEMPT Wed Feb 12 10:14:20 UTC 2020
-> >>>>> [    0.000000] Machine model: Raspberry Pi 4 Model B
-> >>>>> [    0.000000] earlycon: uart0 at MMIO32 0x00000000fe215040 (options '')
-> >>>>> [    0.000000] printk: bootconsole [uart0] enabled
-> >>>>> [    0.000000] efi: Getting EFI parameters from FDT:
-> >>>>> [    0.000000] efi: UEFI not found.
-> >>>>
-> >>>> So no EFI,
-> >>>>
-> >>>>> [    0.000000] OF: reserved mem: failed to allocate memory for node 'linux,cma'
-> >>>>
-> >>>> Out of memory.
-> >>>>
-> >>>>> [    0.000000] cma: Failed to reserve 32 MiB
-> >>>>> [    0.000000] Kernel panic - not syncing: Failed to allocate page table page
-> >>>>
-> >>>> Out of memory...
-> >>>>
-> >>>>> [    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 5.6.0-rc1-next-20200212 #66
-> >>>>> [    0.000000] Hardware name: Raspberry Pi 4 Model B (DT)
-> >>>>> [    0.000000] Call trace:
-> >>>>> [    0.000000]  dump_backtrace+0x0/0x1a0
-> >>>>> [    0.000000]  show_stack+0x14/0x20
-> >>>>> [    0.000000]  dump_stack+0xbc/0x104
-> >>>>> [    0.000000]  panic+0x16c/0x37c
-> >>>>> [    0.000000]  early_pgtable_alloc+0x30/0xa0
-> >>>>
-> >>>> ... really early!
-> >>>>
-> >>>>> [    0.000000]  __create_pgd_mapping+0x36c/0x588
-> >>>>> [    0.000000]  map_kernel_segment+0x70/0xa4
-> >>>>> [    0.000000]  paging_init+0xf4/0x528
-> >>>>> [    0.000000]  setup_arch+0x250/0x5d8
-> >>>>> [    0.000000]  start_kernel+0x90/0x6d8
-> >>>>>
-> >>>>>  
-> >>>>> Since the same kernel boot with bootefi and that bootefi lack ramdisk address,
-> >>>>
-> >>>> Booting with EFI will cause linux to use the EFI memory map.
-> >>>>
-> >>>> Does your DT have a memory node? (or does it expect EFI to provide the information)
-> >>>>
-> >>>>
-> >>>>> I tried to add the address in the dtb via:
-> >>>>> fdt addr 0x02400000; fdt resize; fdt set /chosen linux,initrd-start 0x02700000; fdt set /chosen linux,initrd-end 0x10000000; bootefi 0x00080000 0x02400000
-> >>>>> But with that, I get:
-> >>>>> initrd not fully accessible via the linear mapping -- please check your bootloader ...
-> >>>>
-> >>>> So this one is an EFI boot, but you can't find where to put the initramfs such that the
-> >>>> kernel agrees its in memory.
-> >>>>
-> >>>> If you boot with 'efi=debug', linux will print the EFI memory map. Could you compare that
-> >>>> to where U-Boot thinks memory is?
-> >>>>
-> >>>> (it sounds like your DT memory node is missing, and your EFI memory map is surprisingly small)
-> >>>
-> >>> Hello
-> >>>
-> >>> Thanks for your advices.
-> >>>
-> >>> In the dtb of mainline linux:
-> >>> 	/* Will be filled by the bootloader */
-> >>> 	memory@0 {
-> >>> 		device_type = "memory";
-> >>> 		reg = <0 0 0>;
-> >>> 	};
-> >>>
-> >>> In uboot I have:
-> >>> static struct mm_region bcm2711_mem_map[] = {
-> >>>         {
-> >>>                 .virt = 0x00000000UL,
-> >>>                 .phys = 0x00000000UL,
-> >>>                 .size = 0xfe000000UL,
-> >>>                 .attrs = PTE_BLOCK_MEMTYPE(MT_NORMAL) |
-> >>>                          PTE_BLOCK_INNER_SHARE
-> >>>         }, {
-> >>>                 .virt = 0xfc000000UL,
-> >>>                 .phys = 0xfc000000UL,
-> >>>                 .size = 0x03800000UL,
-> >>>                 .attrs = PTE_BLOCK_MEMTYPE(MT_DEVICE_NGNRNE) |
-> >>>                          PTE_BLOCK_NON_SHARE |
-> >>>                          PTE_BLOCK_PXN | PTE_BLOCK_UXN
-> >>>         }, {
-> >>>                 /* List terminator */
-> >>>                 0,
-> >>>         }
-> >>> };
-> >>> But I dont know if uboot use that for filling the memory node.
-> >>
-> >> No it doesn't. U-Boot uses the DT from the firmware and passes this to the
-> >> kernel. But it seems you pass instead your own device-tree to the kernel, so you
-> >> will need to update the memory node to show the available memory on you board.
-> >>
-> > 
-> > I dont understand, in the Linux commit "ARM: dts: Add minimal Raspberry Pi 4 support" I read:
-> > The RPi 4 is available in 3 different variants (1, 2 and 4 GB RAM), so leave the memory size to zero and let the bootloader take care of it.
-> > But if uboot dont fill that...
-> > So the DTB in mainline is wrong, right ?
-> > 
-> 
-> How do you pass your DTB to the kernel? Does the FW uses your DTB by putting it
-> as bcm2711-rpi-4-b.dtb in the first FAT partition? Or do you load it from U-Boot
-> afterwards? In the latter case you have to take care to add the needed size of
-> memory. In the first case you use what is the default behavior for U-Boot; the
-> RPi FW updates the node and then passes it to U-Boot then it get's passed to the
-> kernel.
-> 
 
-Hello
 
-I load the dtb via uboot/tftp.
-On another thread, I got the hint to enable CONFIG_ARCH_FIXUP_FDT_MEMORY and it made my problem solved.
+On 18/02/2020 11:01, LABBE Corentin wrote:
+> On Mon, Feb 17, 2020 at 02:07:09PM +0100, Matthias Brugger wrote:
+>>
+>>
+>> On 17/02/2020 13:53, LABBE Corentin wrote:
+>>> On Mon, Feb 17, 2020 at 11:50:04AM +0100, Matthias Brugger wrote:
+>>>>
+>>>>
+>>>> On 17/02/2020 11:37, LABBE Corentin wrote:
+>>>>> On Fri, Feb 14, 2020 at 06:15:27PM +0000, James Morse wrote:
+>>>>>> Hi Corentin,
+>>>>>>
+>>>>>> On 14/02/2020 13:27, LABBE Corentin wrote:
+>>>>>>> Since the inclusion of the "enable network support in RPi4 config" serie on uboot, I
+>>>>>>> have started to work on adding the rpi4 in kernelCI.
+>>>>>>> But I fail to succeed in using a kernel/dtb/ramdisk downloaded via tftp.
+>>>>>>>
+>>>>>>> Using booti I hit:
+>>>>>>> [    0.000000] Linux version 5.6.0-rc1-next-20200212 (clabbe@build2-bionic-1804) (gcc version 7.4.1 20181213 [linaro-7.4-2019.02 revision 56ec6f6b99cc167ff0c2f8e1a2eed33b1edc85d4] (Linaro    GCC 7.4-2019.02)) #66 SMP PREEMPT Wed Feb 12 10:14:20 UTC 2020
+>>>>>>> [    0.000000] Machine model: Raspberry Pi 4 Model B
+>>>>>>> [    0.000000] earlycon: uart0 at MMIO32 0x00000000fe215040 (options '')
+>>>>>>> [    0.000000] printk: bootconsole [uart0] enabled
+>>>>>>> [    0.000000] efi: Getting EFI parameters from FDT:
+>>>>>>> [    0.000000] efi: UEFI not found.
+>>>>>>
+>>>>>> So no EFI,
+>>>>>>
+>>>>>>> [    0.000000] OF: reserved mem: failed to allocate memory for node 'linux,cma'
+>>>>>>
+>>>>>> Out of memory.
+>>>>>>
+>>>>>>> [    0.000000] cma: Failed to reserve 32 MiB
+>>>>>>> [    0.000000] Kernel panic - not syncing: Failed to allocate page table page
+>>>>>>
+>>>>>> Out of memory...
+>>>>>>
+>>>>>>> [    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 5.6.0-rc1-next-20200212 #66
+>>>>>>> [    0.000000] Hardware name: Raspberry Pi 4 Model B (DT)
+>>>>>>> [    0.000000] Call trace:
+>>>>>>> [    0.000000]  dump_backtrace+0x0/0x1a0
+>>>>>>> [    0.000000]  show_stack+0x14/0x20
+>>>>>>> [    0.000000]  dump_stack+0xbc/0x104
+>>>>>>> [    0.000000]  panic+0x16c/0x37c
+>>>>>>> [    0.000000]  early_pgtable_alloc+0x30/0xa0
+>>>>>>
+>>>>>> ... really early!
+>>>>>>
+>>>>>>> [    0.000000]  __create_pgd_mapping+0x36c/0x588
+>>>>>>> [    0.000000]  map_kernel_segment+0x70/0xa4
+>>>>>>> [    0.000000]  paging_init+0xf4/0x528
+>>>>>>> [    0.000000]  setup_arch+0x250/0x5d8
+>>>>>>> [    0.000000]  start_kernel+0x90/0x6d8
+>>>>>>>
+>>>>>>>  
+>>>>>>> Since the same kernel boot with bootefi and that bootefi lack ramdisk address,
+>>>>>>
+>>>>>> Booting with EFI will cause linux to use the EFI memory map.
+>>>>>>
+>>>>>> Does your DT have a memory node? (or does it expect EFI to provide the information)
+>>>>>>
+>>>>>>
+>>>>>>> I tried to add the address in the dtb via:
+>>>>>>> fdt addr 0x02400000; fdt resize; fdt set /chosen linux,initrd-start 0x02700000; fdt set /chosen linux,initrd-end 0x10000000; bootefi 0x00080000 0x02400000
+>>>>>>> But with that, I get:
+>>>>>>> initrd not fully accessible via the linear mapping -- please check your bootloader ...
+>>>>>>
+>>>>>> So this one is an EFI boot, but you can't find where to put the initramfs such that the
+>>>>>> kernel agrees its in memory.
+>>>>>>
+>>>>>> If you boot with 'efi=debug', linux will print the EFI memory map. Could you compare that
+>>>>>> to where U-Boot thinks memory is?
+>>>>>>
+>>>>>> (it sounds like your DT memory node is missing, and your EFI memory map is surprisingly small)
+>>>>>
+>>>>> Hello
+>>>>>
+>>>>> Thanks for your advices.
+>>>>>
+>>>>> In the dtb of mainline linux:
+>>>>> 	/* Will be filled by the bootloader */
+>>>>> 	memory@0 {
+>>>>> 		device_type = "memory";
+>>>>> 		reg = <0 0 0>;
+>>>>> 	};
+>>>>>
+>>>>> In uboot I have:
+>>>>> static struct mm_region bcm2711_mem_map[] = {
+>>>>>         {
+>>>>>                 .virt = 0x00000000UL,
+>>>>>                 .phys = 0x00000000UL,
+>>>>>                 .size = 0xfe000000UL,
+>>>>>                 .attrs = PTE_BLOCK_MEMTYPE(MT_NORMAL) |
+>>>>>                          PTE_BLOCK_INNER_SHARE
+>>>>>         }, {
+>>>>>                 .virt = 0xfc000000UL,
+>>>>>                 .phys = 0xfc000000UL,
+>>>>>                 .size = 0x03800000UL,
+>>>>>                 .attrs = PTE_BLOCK_MEMTYPE(MT_DEVICE_NGNRNE) |
+>>>>>                          PTE_BLOCK_NON_SHARE |
+>>>>>                          PTE_BLOCK_PXN | PTE_BLOCK_UXN
+>>>>>         }, {
+>>>>>                 /* List terminator */
+>>>>>                 0,
+>>>>>         }
+>>>>> };
+>>>>> But I dont know if uboot use that for filling the memory node.
+>>>>
+>>>> No it doesn't. U-Boot uses the DT from the firmware and passes this to the
+>>>> kernel. But it seems you pass instead your own device-tree to the kernel, so you
+>>>> will need to update the memory node to show the available memory on you board.
+>>>>
+>>>
+>>> I dont understand, in the Linux commit "ARM: dts: Add minimal Raspberry Pi 4 support" I read:
+>>> The RPi 4 is available in 3 different variants (1, 2 and 4 GB RAM), so leave the memory size to zero and let the bootloader take care of it.
+>>> But if uboot dont fill that...
+>>> So the DTB in mainline is wrong, right ?
+>>>
+>>
+>> How do you pass your DTB to the kernel? Does the FW uses your DTB by putting it
+>> as bcm2711-rpi-4-b.dtb in the first FAT partition? Or do you load it from U-Boot
+>> afterwards? In the latter case you have to take care to add the needed size of
+>> memory. In the first case you use what is the default behavior for U-Boot; the
+>> RPi FW updates the node and then passes it to U-Boot then it get's passed to the
+>> kernel.
+>>
+> 
+> Hello
+> 
+> I load the dtb via uboot/tftp.
+> On another thread, I got the hint to enable CONFIG_ARCH_FIXUP_FDT_MEMORY and it made my problem solved.
 
-Thanks
-Regards
+Hm, so should we enable that for all RPi3/4/arm64 configs then?
+
+Regards,
+Matthias
+
 
 _______________________________________________
 linux-rpi-kernel mailing list
