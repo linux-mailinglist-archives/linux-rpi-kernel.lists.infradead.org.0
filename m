@@ -2,91 +2,87 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id E6D8A1628CA
-	for <lists+linux-rpi-kernel@lfdr.de>; Tue, 18 Feb 2020 15:45:33 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 27F20164205
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 19 Feb 2020 11:25:51 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OFj4odGhI3xKYoG0reY+k2IRj59Kg7o9mb07O52+3SY=; b=sBwbM4pb4+jI2V
-	5rthiBqA7RMrkcZQ78dEUHl4Nn4Y7rrKMCk1fji54hwUEF0AziGevzbxyKgzQkC6gCoP34rbStZpY
-	G+LlFwkbGq+AtYa0YqSSPzsUs71xjYvuVqPP+TED3AWBPiP51FlH/3IxpCabL2GpP2vDleD24tXRD
-	jjntIYAGChIfeD12bQqrXRkA1FeLf0qzPjJGqbJr8ruUxhTKeukJoKIhzvfrVgdkEUoFN9S4GG60Q
-	7JiHjo5lXDdpV2mFSPcmIP7pxWBZb0cLxB1eksFpOlfJ8Yb5jOV0k7PNQhCImNNFMTtbsvYYZLLJx
-	U8oNupWD+EDqBshv8iQg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ln1PE7R2dx+0uO59D3uekQrQ/PLQRTc42yz8bO+6EYs=; b=g0IEuwO7EsKXR/
+	emKwEvAhC8kGYcUuj0weoC5TnkizXdn3i5zjLuwiANQLP28f2+Vw88CnrmuGOubZ+gwR8R3+3ulaH
+	jw6tK5DPy4kuXir6rt4eJ+oTopLDzDRqKFLmXEHdbb/5QZ/6Phku/Fyqh1u0bOqmMdyr00Q0UGN57
+	8L7P+p0dcg63KwIeCbDZ3qwcDQEU2uSImuytqKo89ZMqSP9jv8h3Q8oYP35tl6Qv9CIw6aDdMVywM
+	OgeLjcQnfCLOrw4/eBsuLFbU7UmLsCxpzp6R7ZAOG+bIk0/dntj6hyuCdMx1hbm8hGGaHu4DqvL8D
+	ztYdZ41E3c3/k3XC6Xeg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j447w-000349-I5; Tue, 18 Feb 2020 14:45:32 +0000
-Received: from mail-pg1-x543.google.com ([2607:f8b0:4864:20::543])
+	id 1j4MY9-0008Eu-7K; Wed, 19 Feb 2020 10:25:49 +0000
+Received: from mail-wm1-x344.google.com ([2a00:1450:4864:20::344])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j447t-000333-Fd
- for linux-rpi-kernel@lists.infradead.org; Tue, 18 Feb 2020 14:45:30 +0000
-Received: by mail-pg1-x543.google.com with SMTP id z12so11070134pgl.4
+ id 1j4MY5-0008Dl-OJ
+ for linux-rpi-kernel@lists.infradead.org; Wed, 19 Feb 2020 10:25:47 +0000
+Received: by mail-wm1-x344.google.com with SMTP id a6so6157529wme.2
  for <linux-rpi-kernel@lists.infradead.org>;
- Tue, 18 Feb 2020 06:45:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=PgVA74rw/Os3jpwsoZ9ssKAAiF6uv0dDc1ODzO4kp7U=;
- b=YYlZcWxAZ6/+b94Q2vrpNWGl5UwkzRE+JT0dBBLtNUmGuBlYmIZMs0N6T0ItKKo/Ai
- 6fIrMhA+uw2F+TUfgwdlcNuZ133c8dPrMl5NMH1di9R3USLjf3AEmThFuZmVu2p0vBV7
- JLavjooBGQpWu8bBYaOcXCrEAIsZaGGdO5iA3nQ24mkUGZRifufirPwsivRlamIn76IS
- L4vXM2VBiThAYeQvxMWhkelFCfROh36JWDW6Aac7aDAXQ73Zjr9+SdtvQ+BuCwU6r62N
- z5TuWdAC8OUlZQS+9eOGDxUhR7iiPqFpTqxk5OBH35IVtDVdaSDNXAodW/d4xKKtDfSI
- FlYg==
+ Wed, 19 Feb 2020 02:25:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=baylibre-com.20150623.gappssmtp.com; s=20150623;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=RejVam6fDIBD/171nva4YA9frryDk02n9j0DCZJ4htM=;
+ b=pxiG/15fBub6+F881mK1MfCTN7rUOq+Hm4jea2zZdHSx0shyFznlZv0NXH31Bw/H0M
+ /rT0ZsZbEnUTjIxyopaVx0iiXOGuKnCwfOPjHMY3md42nvjdpgPNR6qEsSbGP97BnDNK
+ UPLZgYuWV0bk3aR8UPujgHOoxo2hXsJKOltOi2FwTqRfqDIXQuqSUAMRR6PV/awINDLb
+ hB8hRkr75zSIVf6CWuQaJQ3MHBsJCvpqdJbvamXjRuFbo6q4VRvjweZu/0+0/8ACzOxI
+ FHfT9tphxZTayrfS6uk2/B6ICtsxaO0t/FwZJD8weSuqkT1cTGjBsu+Fs12EBaF/6DPe
+ uQBw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=PgVA74rw/Os3jpwsoZ9ssKAAiF6uv0dDc1ODzO4kp7U=;
- b=tKQ4OguFg1q2SAS0n/ZatqoCgkO7MLfxjGgY12rnr2lK0kmTgMJ8B6gv2IMtqJwzOy
- fa7aQSf+zOp8y7FFI2Qgbla8cUYpJXz/l+T8vguhSKqSCvtlnW4KEEN8T76B2UxdhmS/
- CI8qQ9pKAW0yq68hvdOsZ5lBzrQDPDULMhIIzP/6QmMAmRF3kT7fjm6biyBPTpCuf8WX
- a5xnmHZutTSV8mCEJlPTTgMbbZIi/46b2H7N7dz2ZkXQYKQvcuNK9MQ065dAJzNWXhpA
- 3qqriZXU8voltYbB4WclbaliQou2g1ircUB/75iuIq+j4MRbMbush3/ZjK67RXC9okMB
- Tfdw==
-X-Gm-Message-State: APjAAAU91lxSZateR1WZfG/pJASngvV3Q88XYfTsHssxt4P8kRpOoKZW
- pUjli5rfcfx6F1yrdaww7jEZ68kTdzqrvEBbeHJH7A==
-X-Google-Smtp-Source: APXvYqwbiIt8Ld0kUAUr8Ptx7Nq+Jjuf5kDvUZWTU/Gh1LifVVyYDVuEb39rLiPuZCBOKca262/gj3E05azYltgr1Xs=
-X-Received: by 2002:a63:3c2:: with SMTP id 185mr22342627pgd.72.1582037126783; 
- Tue, 18 Feb 2020 06:45:26 -0800 (PST)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=RejVam6fDIBD/171nva4YA9frryDk02n9j0DCZJ4htM=;
+ b=sW40OCTRJUKaHJM64DX9aMQuiwY/NEJ/yQC+LCNLz42uUKKz6eSStY81wS5oI6qFqZ
+ lAFy8VCYC/FvdmjsmcYcnG/luimOy0Ih+WmU+xhThCzZQ0n2Zm6s4UigP2uOnrPQ7OlN
+ e+rgMiYzzkog/1oXAP/LYOwg4KIX6Zh1+HLye9bWt+XVQHys9+8FjTveb1AY+aBGXcEW
+ p1P5/VURbBeyQbVFEMGWIuT5OcIcOTBeSrtqjV3uz2IY9pKWw/UT56xna5AgyqyuI/6B
+ 9D+rc/Y7IJVeyiSZ+eegmBiGs8lDI0VgRH5EuvT/coZIlFBauta1HlXk/M+mFskS6X+k
+ s8pw==
+X-Gm-Message-State: APjAAAU0TNU7YippwLpcrbp8FDvLyMj1YpE4Lihh2ASy71A3uNQD09xv
+ w6ownq42Tg9hexrgk1WbEmCQSpjgvKg=
+X-Google-Smtp-Source: APXvYqw7/FkSHHxus/ih0u10TbKNOBGCz51zlpX/Ia7XtXiPnjDJYWOyfUo95tzExyHbfRKjRVF68Q==
+X-Received: by 2002:a1c:5419:: with SMTP id i25mr9323161wmb.150.1582107943441; 
+ Wed, 19 Feb 2020 02:25:43 -0800 (PST)
+Received: from localhost.localdomain (cag06-3-82-243-161-21.fbx.proxad.net.
+ [82.243.161.21])
+ by smtp.googlemail.com with ESMTPSA id 133sm2678562wmd.5.2020.02.19.02.25.42
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 19 Feb 2020 02:25:42 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Mark Brown <broonie@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>
+Subject: [PATCH] ASoC: fix card registration regression.
+Date: Wed, 19 Feb 2020 11:25:26 +0100
+Message-Id: <20200219102526.692126-1-jbrunet@baylibre.com>
+X-Mailer: git-send-email 2.24.1
 MIME-Version: 1.0
-References: <20200213194001.130110-1-marcgonzalez@google.com>
- <C0OK3FSV7XIN.MMMEHI9F14QG@linux-9qgx>
-In-Reply-To: <C0OK3FSV7XIN.MMMEHI9F14QG@linux-9qgx>
-From: Marcelo Diop-Gonzalez <marcgonzalez@google.com>
-Date: Tue, 18 Feb 2020 09:45:15 -0500
-Message-ID: <CAKvFj6qR+1fdVWAivo-pddsFk8zNhbrO3JjXj-qBa-CA0M9-EA@mail.gmail.com>
-Subject: Re: [PATCH] staging: vc04_services: Fix wrong early return in
- next_service_by_instance()
-To: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+X-Patchwork-Bot: notify
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200218_064529_523360_CA7023F9 
-X-CRM114-Status: GOOD (  15.44  )
-X-Spam-Score: -15.7 (---------------)
+X-CRM114-CacheID: sfid-20200219_022545_794871_152151AE 
+X-CRM114-Status: GOOD (  14.23  )
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-15.7 points)
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:543 listed in]
+ no trust [2a00:1450:4864:20:0:0:0:344 listed in]
  [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -7.5 USER_IN_DEF_SPF_WL     From: address is in the default SPF
- white-list
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -7.5 USER_IN_DEF_DKIM_WL    From: address is in the default DKIM
- white-list
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.5 ENV_AND_HDR_SPF_MATCH  Env and Hdr From used in default SPF WL
- Match -0.0 DKIMWL_WL_MED          DKIMwl.org - Medium sender
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -98,66 +94,88 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: devel@driverdev.osuosl.org, Greg KH <gregkh@linuxfoundation.org>,
- linux-rpi-kernel@lists.infradead.org, Dan Carpenter <dan.carpenter@oracle.com>
+Cc: devicetree@vger.kernel.org, alsa-devel@alsa-project.org,
+ linux-kernel@vger.kernel.org,
+ linux-rpi-kernel <linux-rpi-kernel@lists.infradead.org>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-On Mon, Feb 17, 2020 at 10:55 AM Nicolas Saenz Julienne
-<nsaenzjulienne@suse.de> wrote:
->
-> On Thu Feb 13, 2020 at 2:40 PM, Marcelo Diop-Gonzalez wrote:
-> > If kref_get_unless_zero() fails, we should keep looking for the
-> > next service, since the callers of this function expect that a NULL
-> > return value means there are no more.
-> >
-> > Signed-off-by: Marcelo Diop-Gonzalez <marcgonzalez@google.com>
->
-> Reviewed-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-> Tested-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+This reverts commit b2354e4009a773c00054b964d937e1b81cb92078.
 
-thanks for reviewing!
+This change might have been desirable to ensure the uniqueness of
+the component name. It would have helped to better support linux
+devices which register multiple components, something is which more
+common than initially thought.
 
->
-> Note that, as Dan says, picking up the Fixes tag would be nice.
->
-> > ---
-> > .../vc04_services/interface/vchiq_arm/vchiq_core.c | 14 +++++++++-----
-> > 1 file changed, 9 insertions(+), 5 deletions(-)
-> >
-> > diff --git
-> > a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
-> > b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
-> > index d7d7f4d9d57f..edcd97373809 100644
-> > --- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
-> > +++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
-> > @@ -252,11 +252,15 @@ next_service_by_instance(struct vchiq_state
-> > *state,
-> > struct vchiq_service *service;
-> >
-> > rcu_read_lock();
-> > - service = __next_service_by_instance(state, instance, pidx);
-> > - if (service && kref_get_unless_zero(&service->ref_count))
-> > - service = rcu_pointer_handoff(service);
-> > - else
-> > - service = NULL;
-> > + while (1) {
-> > + service = __next_service_by_instance(state, instance, pidx);
-> > + if (!service)
-> > + break;
-> > + if (kref_get_unless_zero(&service->ref_count)) {
-> > + service = rcu_pointer_handoff(service);
-> > + break;
-> > + }
-> > + }
-> > rcu_read_unlock();
-> > return service;
-> > }
-> > --
-> > 2.25.0.225.g125e21ebc7-goog
->
+However, some card driver are directly using dev_name() to fill the
+component names of the dai_link which is a problem if want to change
+the way ASoC generates the component names.
+
+Until we figure out the appropriate way to deal with this, revert the
+change and keep the names as they were. There might be a couple of warning
+related to debugfs (which were already present before the change) but it
+is still better than breaking working audio cards.
+
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>
+Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+---
+ sound/soc/soc-core.c | 29 +----------------------------
+ 1 file changed, 1 insertion(+), 28 deletions(-)
+
+diff --git a/sound/soc/soc-core.c b/sound/soc/soc-core.c
+index 30c17fde14ca..518b652cf872 100644
+--- a/sound/soc/soc-core.c
++++ b/sound/soc/soc-core.c
+@@ -2442,33 +2442,6 @@ static int snd_soc_register_dais(struct snd_soc_component *component,
+ 	return ret;
+ }
+ 
+-static char *snd_soc_component_unique_name(struct device *dev,
+-					   struct snd_soc_component *component)
+-{
+-	struct snd_soc_component *pos;
+-	int count = 0;
+-	char *name, *unique;
+-
+-	name = fmt_single_name(dev, &component->id);
+-	if (!name)
+-		return name;
+-
+-	/* Count the number of components registred by the device */
+-	for_each_component(pos) {
+-		if (dev == pos->dev)
+-			count++;
+-	}
+-
+-	/* Keep naming as it is for the 1st component */
+-	if (!count)
+-		return name;
+-
+-	unique = devm_kasprintf(dev, GFP_KERNEL, "%s-%d", name, count);
+-	devm_kfree(dev, name);
+-
+-	return unique;
+-}
+-
+ static int snd_soc_component_initialize(struct snd_soc_component *component,
+ 	const struct snd_soc_component_driver *driver, struct device *dev)
+ {
+@@ -2477,7 +2450,7 @@ static int snd_soc_component_initialize(struct snd_soc_component *component,
+ 	INIT_LIST_HEAD(&component->card_list);
+ 	mutex_init(&component->io_mutex);
+ 
+-	component->name = snd_soc_component_unique_name(dev, component);
++	component->name = fmt_single_name(dev, &component->id);
+ 	if (!component->name) {
+ 		dev_err(dev, "ASoC: Failed to allocate name\n");
+ 		return -ENOMEM;
+-- 
+2.24.1
+
 
 _______________________________________________
 linux-rpi-kernel mailing list
