@@ -2,55 +2,75 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5EB32165A18
-	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 20 Feb 2020 10:26:02 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 39C80165A53
+	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 20 Feb 2020 10:40:19 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=tprbIXV+EPUQ17bgjY+7ZiTIzXArn9nRc3nGOoSa808=; b=aDC6mG74KPCarKtU/9xto32SN
-	C/4i8mRhhWUaieCdIZZH+jIvj2bcYNRvogK+XoeTKSK6OAi8eOBTUATcV2y4mNgL5vmseu6sg1XHO
-	goWw/ekETa2N4B/FdTPvugVlIn768k6aHy46QK1odzqGdLkmRNM/EkJ/bpNNShCzHxCfS9ApHbrrm
-	1S4W0B+ySG2eqAPVC/q8TVzAY6Iu15W+p45VVnSAxlvjmiB94pOdHC4tqZNAvgHv+jFiV99m6igxZ
-	sHRc7maIODqL1MKmIgCp4rf889s9B8H4KQgnmuNK5eTyE+NBeievYW3TA7cpl4TOPnEhU50Y82o3W
-	7UE2vt7VA==;
+	 bh=W09Cp0pnEmGzQ8Y8nLB/zvr5hIDT/NrN4bq4N4kfamw=; b=R59iKqsyDGAvHfwsSqw+mx1Gx
+	v/PZj547iAUYnayDQBlwyzkMLyGt6q5raJMzQot7nJz1dE87p76dBSe4PKlUn4abaMn6AS2QoYcOX
+	Ba+R+VtnBn7sCNZn0Pf7GtYCe9LDKVNb29G0ZQWuXqn0PON0OgurkfJL70y3yxS2zmAw2Idp0to4U
+	05x4oEsR9yZ1Qb6iErPbwCplJ4cB20AqAWV8yncgiqCr6WpRNZpMEJSXvkiY/4zYbAW8/zaOJ9dUC
+	5ubPZYNa1eAK/pAGijYKNYtClPZznMpt3BzI+p48Te4LmwVwGp62LQ1SxN6F8IxdUBvKy+XAz+KHC
+	P61Mf3QUQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j4i5n-0003yW-IF; Thu, 20 Feb 2020 09:25:59 +0000
-Received: from mx2.suse.de ([195.135.220.15])
+	id 1j4iJc-00032U-UH; Thu, 20 Feb 2020 09:40:16 +0000
+Received: from smtpng3.m.smailru.net ([94.100.177.149])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j4i5e-0003rU-ET; Thu, 20 Feb 2020 09:25:52 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx2.suse.de (Postfix) with ESMTP id 0EB60AFBB;
- Thu, 20 Feb 2020 09:25:47 +0000 (UTC)
-Message-ID: <4850fa1006d5a329c2e6d4e61ec6fb9420125414.camel@suse.de>
+ id 1j4iJI-0001fa-JE; Thu, 20 Feb 2020 09:39:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=orpaltech.com; s=mailru; 
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:Subject;
+ bh=OES7JJvnqepbXgyoMgEAG1SAAmY/kMnmMbHdJqc5z9M=; 
+ b=hl8jSZ+MrjrP7c0kUjByh4tDjrlTP6Emf6tG+SASLTehOueGYwPuCBQjWrAVLY2IDea4mFyAzbU7sj9EvZ09LsVrzLJ/2qCg80KlD/oNgZsR+DHM8AEyBBjb8CnhTrbv1JZAX2453MqvmJ7dQ/SpsbJ0KCRSnlQRNNcE4VApQVA=;
+Received: by smtpng3.m.smailru.net with esmtpa (envelope-from
+ <ssuloev@orpaltech.com>)
+ id 1j4iJF-0000Y6-3z; Thu, 20 Feb 2020 12:39:53 +0300
 Subject: Re: vc4 on rpi3 A+
-From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-To: Sergey Suloev <ssuloev@orpaltech.com>, 
+To: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>,
  linux-rpi-kernel@lists.infradead.org
-Date: Thu, 20 Feb 2020 10:25:46 +0100
-In-Reply-To: <8b353626-f62a-2aff-96b4-91712ed36095@orpaltech.com>
 References: <8b353626-f62a-2aff-96b4-91712ed36095@orpaltech.com>
-User-Agent: Evolution 3.34.3 
+ <4850fa1006d5a329c2e6d4e61ec6fb9420125414.camel@suse.de>
+From: Sergey Suloev <ssuloev@orpaltech.com>
+Message-ID: <4a952494-ba96-289d-cc14-06710912b53b@orpaltech.com>
+Date: Thu, 20 Feb 2020 12:39:52 +0300
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.4.1
 MIME-Version: 1.0
+In-Reply-To: <4850fa1006d5a329c2e6d4e61ec6fb9420125414.camel@suse.de>
+Content-Language: en-US
+Authentication-Results: smtpng3.m.smailru.net;
+ auth=pass smtp.auth=ssuloev@orpaltech.com
+ smtp.mailfrom=ssuloev@orpaltech.com
+X-7564579A: 646B95376F6C166E
+X-77F55803: 0A44E481635329DB0E1AA8A03B392317D32E5E4886521736714D0EA31FF800925E83A0BB7DE7076BF688BCB05C26794D2348F7A7273D6CFEF5D917ECAE3295864D64855D34DF09DAF89A037ECDBE229E
+X-7FA49CB5: 0D63561A33F958A553E4AB105E070E69CAB8E048BCD64ED293B7E9EBEF9456648941B15DA834481FA18204E546F3947C2FFDA4F57982C5F4F6B57BC7E64490618DEB871D839B7333395957E7521B51C2545D4CF71C94A83E9FA2833FD35BB23D27C277FBC8AE2E8BF1175FABE1C0F9B6A471835C12D1D977C4224003CC836476C0CAF46E325F83A522CA9DD8327EE4930A3850AC1BE2E735B58781B77DE60D36C4224003CC836476C0CAF46E325F83A50BF2EBBBDD9D6B0F05F538519369F3743B503F486389A921A5CC5B56E945C8DA
+X-D57D3AED: Y8kq8+OzVoxvgW9Op3aR8Fxwo7H2ZNxGP5qz8aO2mjTJzjHGC4ogvVuzB3zfVUBtENeZ6b5av1fnCBE34JUDkaJinJwwHx5ysVv9/YfT9uf4zO+KPnsJxQ==
+X-Mailru-Sender: 689FA8AB762F73930799C7A3FA23A27097B8E314F6257074E2A9538A8FDA340A778B5FB1219D8779F6BCD4B1DE95BF653AE5922765F965CDF1D7D1B96E5495AE10FCEA6DFE3E0A150D4ABDE8C577C2ED
+X-Mras: Ok
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200220_012550_634048_C7CD1DA8 
-X-CRM114-Status: GOOD (  13.69  )
-X-Spam-Score: -2.3 (--)
+X-CRM114-CacheID: sfid-20200220_013956_825694_70881F15 
+X-CRM114-Status: GOOD (  17.04  )
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [195.135.220.15 listed in list.dnswl.org]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [94.100.177.149 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [195.135.220.15 listed in wl.mailspike.net]
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -62,109 +82,70 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Noralf =?ISO-8859-1?Q?Tr=F8nnes?= <noralf@tronnes.org>,
+Cc: =?UTF-8?Q?Noralf_Tr=c3=b8nnes?= <noralf@tronnes.org>,
  bcm-kernel-feedback-list@broadcom.com,
  linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
-Content-Type: multipart/mixed; boundary="===============3445090274454405517=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
+Ni, Nicolas,
 
---===============3445090274454405517==
-Content-Type: multipart/signed; micalg="pgp-sha256";
-	protocol="application/pgp-signature"; boundary="=-59PIKRQrpnnTBwjfWSBp"
+On 2/20/20 12:25 PM, Nicolas Saenz Julienne wrote:
+> Hi Sergey,
+>
+> On Thu, 2020-02-20 at 11:21 +0300, Sergey Suloev wrote:
+>> Hello, guys,
+>>
+>> could anyone clarify the status of vc4 drm support on RPI 3A+ ?
+> I don't have one so I can't really tell for that specific board, but I'm going
+> to try to reproduce it on a rpi3b.
+>
+>> I tried to build kernel 5.5 and 5.6-rc2 in 32bit and aarch64
+>> configurations with VC4 turned ON but both unsuccessful - vc4 drm driver
+>> is listed in memory but not working and not producing any typical DRM
+>> log output.
+> AFAIK there is a known issue in 5.6-rc2, which has already been addressed[1].
+> Note that the driver fails on probe so there is some amount of DRM output.
+>
+> I tried to reproduce your issue with v5.5, but vc4 seems to probe alright
+> (rpi3b+aarch64+defconfig):
+>
+> 	[   15.443047] vc4_hdmi 3f902000.hdmi: vc4-hdmi-hifi <-> 3f902000.hdmi mapping ok
+> 	[   15.452864] vc4_hdmi 3f902000.hdmi: ASoC: no DMI vendor name!
+> 	[   15.459836] vc4-drm soc:gpu: bound 3f902000.hdmi (ops vc4_hdmi_ops [vc4])
+> 	[   15.467062] vc4-drm soc:gpu: bound 3f806000.vec (ops vc4_vec_ops [vc4])
+> 	[   15.478722] vc4-drm soc:gpu: bound 3f004000.txp (ops vc4_txp_ops [vc4])
+> 	[   15.485749] vc4-drm soc:gpu: bound 3f400000.hvs (ops vc4_hvs_ops [vc4])
+> 	[   15.499009] vc4-drm soc:gpu: bound 3f206000.pixelvalve (ops vc4_crtc_ops [vc4])
+> 	[   15.526217] vc4-drm soc:gpu: bound 3f207000.pixelvalve (ops vc4_crtc_ops [vc4])
+> 	[   15.542257] vc4-drm soc:gpu: bound 3f807000.pixelvalve (ops vc4_crtc_ops [vc4])
+> 	[   15.560113] vc4-drm soc:gpu: bound 3fc00000.v3d (ops vc4_v3d_ops [vc4])
+> 	[   15.574684] [drm] Supports vblank timestamp caching Rev 2 (21.10.2013).
+> 	[   15.587375] [drm] Driver supports precise vblank timestamp query.
+> 	[   15.606831] [drm] Initialized vc4 0.0.0 20140616 for soc:gpu on minor 0
+> 	[   15.617505] Console: switching to colour frame buffer device 90x30
+> 	[   15.627858] vc4-drm soc:gpu: fb0: vc4drmfb frame buffer device
+>
+> Could it be that you forgot to update the device tree or kernel modules?
+>
+> Regards,
+> Nicolas
+>
+> [1] https://lkml.kernel.org/lkml/20200219102526.692126-1-jbrunet@baylibre.com/T/
+>
 
+thanks for reply.
 
---=-59PIKRQrpnnTBwjfWSBp
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-Hi Sergey,
-
-On Thu, 2020-02-20 at 11:21 +0300, Sergey Suloev wrote:
-> Hello, guys,
->=20
-> could anyone clarify the status of vc4 drm support on RPI 3A+ ?
-
-I don't have one so I can't really tell for that specific board, but I'm go=
-ing
-to try to reproduce it on a rpi3b.
-
-> I tried to build kernel 5.5 and 5.6-rc2 in 32bit and aarch64=20
-> configurations with VC4 turned ON but both unsuccessful - vc4 drm driver=
-=20
-> is listed in memory but not working and not producing any typical DRM=20
-> log output.
-
-AFAIK there is a known issue in 5.6-rc2, which has already been addressed[1=
-].
-Note that the driver fails on probe so there is some amount of DRM output.
-
-I tried to reproduce your issue with v5.5, but vc4 seems to probe alright
-(rpi3b+aarch64+defconfig):
-
-	[   15.443047] vc4_hdmi 3f902000.hdmi: vc4-hdmi-hifi <-> 3f902000.hdmi map=
-ping ok
-	[   15.452864] vc4_hdmi 3f902000.hdmi: ASoC: no DMI vendor name!
-	[   15.459836] vc4-drm soc:gpu: bound 3f902000.hdmi (ops vc4_hdmi_ops [vc4=
-])
-	[   15.467062] vc4-drm soc:gpu: bound 3f806000.vec (ops vc4_vec_ops [vc4])
-	[   15.478722] vc4-drm soc:gpu: bound 3f004000.txp (ops vc4_txp_ops [vc4])
-	[   15.485749] vc4-drm soc:gpu: bound 3f400000.hvs (ops vc4_hvs_ops [vc4])
-	[   15.499009] vc4-drm soc:gpu: bound 3f206000.pixelvalve (ops vc4_crtc_op=
-s [vc4])
-	[   15.526217] vc4-drm soc:gpu: bound 3f207000.pixelvalve (ops vc4_crtc_op=
-s [vc4])
-	[   15.542257] vc4-drm soc:gpu: bound 3f807000.pixelvalve (ops vc4_crtc_op=
-s [vc4])
-	[   15.560113] vc4-drm soc:gpu: bound 3fc00000.v3d (ops vc4_v3d_ops [vc4])
-	[   15.574684] [drm] Supports vblank timestamp caching Rev 2 (21.10.2013).
-	[   15.587375] [drm] Driver supports precise vblank timestamp query.
-	[   15.606831] [drm] Initialized vc4 0.0.0 20140616 for soc:gpu on minor 0
-	[   15.617505] Console: switching to colour frame buffer device 90x30
-	[   15.627858] vc4-drm soc:gpu: fb0: vc4drmfb frame buffer device
-
-Could it be that you forgot to update the device tree or kernel modules?
-
-Regards,
-Nicolas
-
-[1] https://lkml.kernel.org/lkml/20200219102526.692126-1-jbrunet@baylibre.c=
-om/T/
+It works fine with Rpi3B, I agree with you. The issue happens with RPi 
+3A+ only.
 
 
---=-59PIKRQrpnnTBwjfWSBp
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+Thank you
 
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCAAdFiEErOkkGDHCg2EbPcGjlfZmHno8x/4FAl5OUJoACgkQlfZmHno8
-x/42Igf/SAjMmOECt00Cgncnhj1oSKEwH2OE87BSJbrSQQc7y9rhB5MdUh2wWju/
-eRLnS6ObvcyMlziqpFbTshJEkMlEtk3KgOmV0IWP2t2jAz3GdP05T0xbb+0guhKd
-vnCxPuJNkqvsqoWZsq/4yoiI9WpU2znTWPOlOT9x2F/i/4hM5IH3Gc7kBgKlVgFi
-60OLuR2Y7r8vTJb5QiLha0FdyV4VMcsZR15RoZjnpv/FDWImP024wdGYIed+Fbh7
-NFNx6RearJlh0/IcXLT1AW3mgvDxcYvx2RY2aGAlpI0VOelLdgM7LQxlS6pB+Pk5
-n4lbbJ5MuDk5qugtFKHsJwqsV5pQJg==
-=EXD8
------END PGP SIGNATURE-----
-
---=-59PIKRQrpnnTBwjfWSBp--
-
-
-
---===============3445090274454405517==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-rpi-kernel mailing list
 linux-rpi-kernel@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
-
---===============3445090274454405517==--
-
-
