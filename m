@@ -2,68 +2,67 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 36C4B166791
-	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 20 Feb 2020 20:52:39 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5A013169799
+	for <lists+linux-rpi-kernel@lfdr.de>; Sun, 23 Feb 2020 14:04:43 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:
-	Subject:To:From:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=m8/6/BRI9LgU4rQHhPm4wrsCkzfKVNqGb/AK+cWy84k=; b=tdqtTiclLfHYUS
-	G0Vq8RUKgBcuE0J2WxDG6E5jMIXSq9OzL3kMtHDP/64/kjxkHJHYrurkgwyqP6udt7trFxn8hG80C
-	cHtY0e2/1BdEkKj8aaBazrhS+iVmhP5qunAYsnN3PP9RR+YJc7bUB8RMdlFqcbcFWLk1nff0/mBxD
-	aIxu0L8rKypDewr130ZdarWpxut/UMCCysmL4UiWNlEBqWeXbJT9JmhBRcyR1YdxwzuLV9U8IfMe1
-	cajlQydxL4wqt+xC3gQrhS19g/vZtMXKEA1dg4msnooCPonpsyaSWjBd0MBDJ0tg3Fa2g0API+pRk
-	aAttWmYHAF544TFDBlZA==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=3601JLbmmXjnTqOhxsBlqQbY4H+2XQm+8Fy0ec1wDGQ=; b=iFR
+	mmfr+E3PH1PIsBS69tvBPX1m8TOz+0KqgORJllJ3/wapG05Sb+UdBYRu79qLsP0ihztVjE/FVhSZ9
+	QmV7uI6la8eUYw6qyAwxqJFUQdkn65APnBXGc5/DIAay1AEL7jr7MF9rWmU5L3/FwvlUtzPNkHEmH
+	ujj2mSg2Wu76endUJfun0TIQW6H1+PdDxlETsHCneVKsa1YP00Ps1iGtQ2HCQw5u1Qs4gcnaO5fxY
+	GlaoyyvAXKuRNdlvt9+ngXSFRXn9gpeNJOGG3vAI45o/jJ4yK5uumBhIC+sHbP5okk8ABTKUPpOQC
+	kOBu6AD9FU7BTafVZR4tO1vLRBBZ8Pw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j4rsC-0007d2-0m; Thu, 20 Feb 2020 19:52:36 +0000
-Received: from merlin.infradead.org ([2001:8b0:10b:1231::1])
+	id 1j5qvt-00019c-Rn; Sun, 23 Feb 2020 13:04:29 +0000
+Received: from mout.kundenserver.de ([212.227.126.135])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j4rsA-0007ch-GS
- for linux-rpi-kernel@bombadil.infradead.org; Thu, 20 Feb 2020 19:52:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=merlin.20170209; h=Content-Transfer-Encoding:Content-Type:
- MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Sender:Cc:Content-ID:
- Content-Description:In-Reply-To:References;
- bh=8w7bKYTtADHLVIhvvrRu3AhNjWaymp5D5LUBvhQ1Lvs=; b=T9gF7uySztfudYNCKjkYppvh4b
- ZoKPWPcOQhXt8frUgqxiJNAYKPpRwpUsTSfXN+9OHEscEPo5P0VQmHoNaS2puahdHXzX30p25EOkb
- M8OXquNRQLEUlMzZ/SX5JDnRftoD8PZcdDPZmbh6gRScsKWJGeAY7Ml8An7YM+T9tlJxKxVFlOwyR
- EH92ampMqjf+Vhv3+Q6/e/SvUH9CQhrXBsi9cZF9bM+nCMTtCw+fbn3rM7Pm0EUdq2VI9/89mwA5o
- xhvw+h5rJLHFT9oX0RwdxSQog/VIPYNvgdKhtr2ItxcMiM0HkCiHcgqbeaQGSaHb2tTKNr38frHVq
- nlqJsSHA==;
-Received: from rbpf.bs ([24.51.93.195] helo=mail2.rbpf.bs)
- by merlin.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j4rs8-0003xW-1m
- for linux-rpi-kernel@lists.infradead.org; Thu, 20 Feb 2020 19:52:32 +0000
-Received: from unknown (HELO corisbank.com) ([103.207.36.17])
- by mail2.rbpf.bs with ESMTP; 20 Feb 2020 14:46:19 -0500
-From: Coris Bank <derek@corisbank.com>
-To: linux-rpi-kernel@lists.infradead.org
-Subject: Are you still alive? Urgent reply is needed
-Date: 20 Feb 2020 11:46:16 -0800
-Message-ID: <20200220114615.33CCA0719618A1C2@corisbank.com>
-MIME-Version: 1.0
-X-Spam-Note: CRM114 invocation failed
-X-Spam-Score: 9.4 (+++++++++)
-X-Spam-Report: SpamAssassin version 3.4.2 on merlin.infradead.org summary:
- Content analysis details:   (9.4 points)
+ id 1j5qvk-00014I-67; Sun, 23 Feb 2020 13:04:21 +0000
+Received: from localhost.localdomain ([37.4.249.121]) by
+ mrelayeu.kundenserver.de (mreue009 [212.227.15.167]) with ESMTPSA (Nemesis)
+ id 1MhDEo-1jaDwE2jC6-00eMCo; Sun, 23 Feb 2020 14:04:12 +0100
+From: Stefan Wahren <stefan.wahren@i2se.com>
+To: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>,
+ Florian Fainelli <f.fainelli@gmail.com>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>
+Subject: [PATCH] ARM: bcm2835_defconfig: Explicitly restore CONFIG_DEBUG_FS
+Date: Sun, 23 Feb 2020 14:02:56 +0100
+Message-Id: <1582462976-30646-1-git-send-email-stefan.wahren@i2se.com>
+X-Mailer: git-send-email 2.7.4
+X-Provags-ID: V03:K1:CoVY1sXEwV2l9EVwIL4/vKabbkLRc6PDSydEJoCPv/DceZV9G+X
+ +4Lsl2DE3ev9q4tPi8ZfMi/sOcG/535sYaOvQ8AHxonjQuQCe/C5BxhTPft9VB5KrlsG/lJ
+ Z8h8KdxVCkJinnAxuTDG1iz2VQnIHWdlSxr1PA03By5GpXGJrMUbaxDYbZYp66bq833slJr
+ iLFFf9mNBOocesZpllMkw==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:c/XCZm9674I=:VfT84tFuX8f64fMm1J1I52
+ sETxGV0spQSxtdN+tGh2miB5BCFLH+o2mTomzwgHSML9CzEZI9eaz78tA5uguEJHcpKDAzZq+
+ iLISvMKoMyfet3y/7h90bzjb8BdJ5pEyvi4l9pnym2U8h0UC0J0eWOLIM/gLZGzWDRtDAif4L
+ gk/AP4DxHWsocnwJlx6UQaiiVoAGVwt/YlRlYqQcQz6LIN0j+95m69ISV954nqSRtH0GvbU2c
+ Ta663VWP/N8kdtlurTuWGPc6HHjZzV+g6N2kWpmhWu8eqDtb2fLWLDNKMvvwKrgUOcamFciSP
+ dCZMtu6YnFdS4QNNDZII7uf+99l1zxzagL376n/iNEOKPaPpdJTTu+5Bd+j5fVy1qYebg95da
+ c/hMB+zc3wfj1dWrfHUmJEycA88ZEDp2Uu205mtxY+loQKGWnfeqqt6iivb0Hllynp3s04q7l
+ nToDN5fxpbTdZ6/zd9UULcXp1liYXAM1QlHiQ1pYVVw6dAXWMy4msMHozTRuGUexy/IKX+6eR
+ 8qiv5EFabZRR7IVuAqPFSTi0w+Tu34Fmt0uuBd8F7juho2/5GlMDSMIv+hm/jYH2HctlECXK5
+ Fo4k1/LBUvK3PvAQPs7sP2eTIa71Dil3Mrpm53Qw2WPtYWAPmXq4H0O1M2pMeTxXgF/buGUJJ
+ lCshihATi/XM/W2/HaNKUjNwUnSNguYFO8AO+odzp3WB5hCp0VNp5clkG+fehT7Kkzd8JCNo2
+ ihs7cHFL7lcPUBb900AAl5cn9rmeE4T/ODPCgBXRt/lHmoiOMjdAXrGn0x7esNvZfb9iO4NeD
+ y7h42kMEwIopee0l1dxQ6mBJQZril99E0odWq4nQnRHhg8m9Ei5YYGhGNSWYQVBVKFcJ7Nr
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20200223_050420_532694_707ED5F9 
+X-CRM114-Status: GOOD (  10.39  )
+X-Spam-Score: 0.0 (/)
+X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 2.7 RCVD_IN_PSBL           RBL: Received via a relay in PSBL
- [24.51.93.195 listed in psbl.surriel.com]
- 1.3 RCVD_IN_RP_RNBL        RBL: Relay in RNBL,
- https://senderscore.org/blacklistlookup/
- [24.51.93.195 listed in bl.score.senderscore.com]
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [212.227.126.135 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 DEAR_BENEFICIARY       BODY: Dear Beneficiary:
- 0.9 URG_BIZ                BODY: Contains urgent matter
- 2.0 HK_SCAM                No description available.
- 2.5 FREEMAIL_FORGED_REPLYTO Freemail in Reply-To, but not From
- 0.0 ADVANCE_FEE_4_NEW      Appears to be advance fee fraud (Nigerian 419)
-X-Spam-Flag: YES
+ -0.0 SPF_PASS               SPF: sender matches SPF record
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -75,29 +74,42 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: kentpace@sina.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: devicetree@vger.kernel.org, bcm-kernel-feedback-list@broadcom.com,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-RGVhciBCZW5lZmljaWFyeSwKCgpQbGVhc2UgY29uZmlybSBpZiB5b3UgYXJlIHN0aWxsIGFsaXZl
-IGJlY2F1c2UgdHdvIGdlbnRsZSBtZW4gCndhbGtlZCBpbnRvIG15IG9mZmljZSB0aGlzIG1vcm5p
-bmcgdG8gY2xhaW0geW91ciBpbmhlcml0YW5jZSAKZnVuZHMgd2l0aCBvdXIgYmFuay4gVGhleSBz
-YWlkIHlvdSBhcmUgZGVhZCBhbmQgdGhhdCB0aGV5IGFyZSAKeW91ciByZXByZXNlbnRhdGl2ZXMu
-IAoKT24gTm92ZW1iZXIgMjEsIDIwMDguIEEgYnVzaW5lc3MgbWFuIChuYW1lIHdpdGhoZWxkIGZv
-ciBzZWN1cml0eSAKcmVhc29ucykgd2Fsa2VkIGludG8gb3VyIGJhbmsgdG8gb3BlbiBhIE5PTiBS
-RVNJREVOQ0UgQUNDT1VOVCBhbmQgCm1hZGUgeW91IGhpcyBORVhUIE9GIEtJTi4KSSBnb3QgeW91
-ciBlbWFpbCBhZGRyZXNzIGZyb20gdGhlIGZpbGUgb2YgeW91ciBiZW5lZmFjdG9yIGFzIGhpcyAK
-TkVYVCBPRiBLSU4uCkl0J3MgYmVlbiB5ZWFycyB3ZSBjb25maXJtZWQgeW91ciBiZW5lZmFjdG9y
-J3MgZGVhdGggYW5kIHlvdSBoYXZlIApub3QgY29udGFjdGVkIG91ciBiYW5rIHRvIGNsYWltIHlv
-dXIgaW5oZXJpdGFuY2UuIFlvdSBoYXZlIGEgCnRvdGFsIGJhbGFuY2Ugb2Yg4oKsMjksMDcxLDk3
-MC4wMC4KClRoZSBnZW50bGVtZW4gc3VibWl0dGVkIGFuIGFkZHJlc3Mgd2hlcmUgdGhleSB3YW50
-IHlvdXIgVklTQSAKREVCSVQKQVRNIENBUkQgc2VudC4KCklmIHlvdSBhcmUgc3RpbGwgYWxpdmUs
-IHBsZWFzZSBpbmRpY2F0ZSBieSBzZW5kaW5nIHlvdXIgZnVsbApjb250YWN0IGRldGFpbHMgd2l0
-aGluIDcgZGF5IG9mIHJlY2VpdmluZyB0aGlzIG1lc3NhZ2UsIGZhaWx1cmUKdG8gZG8gc28sIEkg
-d2lsbCBzZW5kIHRoZSBjYXJkIHRvIHRoZSBhZGRyZXNzIHN1Ym1pdHRlZCBieSB5b3VyCnJlcHJl
-c2VudGF0aXZlcy4KCgpSZWdhcmRzCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwpsaW51eC1ycGkta2VybmVsIG1haWxpbmcgbGlzdApsaW51eC1ycGkta2Vy
-bmVsQGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
-bi9saXN0aW5mby9saW51eC1ycGkta2VybmVsCg==
+The commit 0e4a459f56c3 ("tracing: Remove unnecessary DEBUG_FS dependency")
+accidentally dropped the DEBUG FS support in bcm2835_defconfig. So
+restore the config as before the commit.
+
+Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
+Fixes: 0e4a459f56c3 ("tracing: Remove unnecessary DEBUG_FS dependency")
+Signed-off-by: Stefan Wahren <stefan.wahren@i2se.com>
+---
+ arch/arm/configs/bcm2835_defconfig | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm/configs/bcm2835_defconfig b/arch/arm/configs/bcm2835_defconfig
+index 3843754..8e7a3ed 100644
+--- a/arch/arm/configs/bcm2835_defconfig
++++ b/arch/arm/configs/bcm2835_defconfig
+@@ -183,6 +183,7 @@ CONFIG_SCHED_TRACER=y
+ CONFIG_STACK_TRACER=y
+ CONFIG_FUNCTION_PROFILER=y
+ CONFIG_TEST_KSTRTOX=y
++CONFIG_DEBUG_FS=y
+ CONFIG_KGDB=y
+ CONFIG_KGDB_KDB=y
+ CONFIG_STRICT_DEVMEM=y
+-- 
+2.7.4
+
+
+_______________________________________________
+linux-rpi-kernel mailing list
+linux-rpi-kernel@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
