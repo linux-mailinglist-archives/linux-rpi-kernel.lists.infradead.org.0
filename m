@@ -2,29 +2,29 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id B014B173CC3
-	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 28 Feb 2020 17:23:16 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5C9731746A3
+	for <lists+linux-rpi-kernel@lfdr.de>; Sat, 29 Feb 2020 13:07:49 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
 	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
 	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wqpJ8Ldx5BMSmoRVCN1k1VD5mYiZHy2zb9JBzxntfY0=; b=VJ5jeQDUVw9vjk
-	gZ8gsirmsUT4RQhaHHMmEOpBEtvDP5sQajFbbpymJjmTeSMpY8sFj6COMu2IST+NqT0EuebPvZf9k
-	eUyCawvkDMvClQGbP0f/eGJOfOu0nSQBH4M8BPe0dh6oQefgjHg4rRf1Fqpg/LSakkruwOl4stdk+
-	VJf7BCjls/ZVE3ZweahVkg/iTqFnBXqPH1dHnTDPqYiJenX5kAbLSIRh2OHvQtyGWnE8BSbqHSO5j
-	xTVMWUcz0uOPJojB/0ZgfDydTFxX08iplZ9nLEt0ryZiVVuTTRzM2Z3w4FQcO+BXQV6qz5N6IeR2a
-	cNM+H6Z0OQno5URY7wlA==;
+	List-Owner; bh=FPHjYRVoly1gp2eYtjLYAYShV4mj/HvU8fvBPONFKPs=; b=JNFNyP+dtS9jvP
+	Y0J2bRwfkkMlwYegcEzYEgVX9shPNXG1s9o4RSdI2GrMs2ueE5zCFBOlqYyWp454Ck4CA7HQ8Fmg/
+	0Jg+ArkjYjBGeUDldTwd8OdsOKuDMTMen42UDes6KEAR1PDS9P0amcs1XHZCIGfHvRGJyP8HjGpPJ
+	2hAm3rxUVnLn5s5to0bEoQFolXwLxd+ybYvVJ8OkrRbiJg3Fdb2YGf7RIFR1sQhlNiYqMWbLXA3kI
+	yfGlDI7O3Yn0C2Fm8zACMH1JhITQgIo+w/vUKkH6RXfE4c5fRV9lhbdi3nkd5Knm1ywzgKChDGF8C
+	kHSw/K803caCNgUxsDNw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j7iPn-0007ts-ET; Fri, 28 Feb 2020 16:23:03 +0000
-Received: from mout.kundenserver.de ([217.72.192.73])
+	id 1j80uC-000112-CF; Sat, 29 Feb 2020 12:07:40 +0000
+Received: from mout.kundenserver.de ([212.227.17.13])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j7iPj-0007tQ-91; Fri, 28 Feb 2020 16:23:01 +0000
+ id 1j80u8-00010g-IE; Sat, 29 Feb 2020 12:07:38 +0000
 Received: from [192.168.1.183] ([37.4.249.171]) by mrelayeu.kundenserver.de
  (mreue106 [212.227.15.183]) with ESMTPSA (Nemesis) id
- 1MeTD8-1ji99y2Og8-00aVCV; Fri, 28 Feb 2020 17:22:50 +0100
+ 1MFL8J-1jAVrG184f-00Fg8F; Sat, 29 Feb 2020 13:07:23 +0100
 Subject: Re: vc4 on rpi3 A+
 To: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>,
  Sergey Suloev <ssuloev@orpaltech.com>, linux-rpi-kernel@lists.infradead.org,
@@ -75,41 +75,41 @@ Autocrypt: addr=stefan.wahren@i2se.com; keydata=
  AZYZD+/iLm5TaKWN6oGIti0VjJv8ZZOZOfCb6vqFIkJW+aOu4orTLFMz28aoU3QyWpNC8FFm
  dYsVua8s6gN1NIa6y3qa/ZB8bA/iky59AEz4iDIRrgUzMEg8Ak7Tfm1KiYeiTtBDCo25BvXj
  bqsyxkQD1nkRm6FAVzEuOPIe8JuqW2xD9ixGYvjU5hkRgJp3gP5b+cnG3LPqquQ2E6goKUML AQ==
-Message-ID: <1f7e4f5d-d217-9455-9823-00f76dc661fb@i2se.com>
-Date: Fri, 28 Feb 2020 17:22:49 +0100
+Message-ID: <d64d8f9b-d5bb-6e0c-04f9-86ef957f24c9@i2se.com>
+Date: Sat, 29 Feb 2020 13:07:22 +0100
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
  Thunderbird/60.9.0
 MIME-Version: 1.0
 In-Reply-To: <b71f1af17d68ee66a2781a694e8a77dcafedd76b.camel@suse.de>
 Content-Language: en-US
-X-Provags-ID: V03:K1:fOIc7xPoTGEw3yuFqyT/1YM5F5tP81VygguRyubmvFtnC9dH6xf
- TFweHp5RFsoG5HXttJH5MlA461qfUVSFM9xASlMBAXRkLq+Ppp/EGx818UVClNz6tzcSfoR
- zyz4r8E0kif0iTY0HyBRkv4PxjiCtO3xVLxXo0/7YcfgdwDp79DAag0VowI0qJ0HfG6OGlF
- pt9cq5nMiz8hFhjE+wu1g==
+X-Provags-ID: V03:K1:zXMMUqM6HIM3RqHNTlTnaEKYsggOrGB3nNs0enAEnW3CKo5LWvY
+ HeRjdZlYIc1uO50OysB0A2TVMr6DY/J2tukoMViGYCn61TZSMM5ymCpoGYZ1nW2zsoNOCtv
+ +XuP9lB/kh7PTytq6jgzpzwCj/DUe8UscrnzJ6Jioq015PBqFtZETgzFljHWST5lpXQDB4N
+ lNfzGtSM0u+Mum6DvAEUQ==
 X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:geo2tEESk1I=:wL+QVDkLiOsY0qgtdgKHYo
- igPs8gIuqbAdmpnovefi5LFQZXolyA97WLodzmcT2X3COIXhjCcyondy/5lQWfj70qmKBL90y
- 66KG8BL1FwzWe5JldstlZRHmq5FUpCaph0HSN6X5JWisHrobYoN8TEsFNrFH6bc26FVLyE/yw
- hYOwUHKHIauMFr3mqOpqPqVnjGi7NxPTKzwv8E4Ly8sS9SlKaoGw0xNzOn7rxJdqdUVY2Cwqr
- EsHsr8kGlnIGc8S+pH6+RvMzKn3YzZgPKUSQnOjf7CIA/agWmC0TxmmIAqT13od124655M26b
- waBkSbuUhf/6l5v3OrsSFEKXkpfw+XiETc/9aJmx5SkNjVjYbEcxjYJc+JSLM27OvNkLmtz8R
- OSUmdoD/cLPnUXe/h5lMEk9+Xtj00I+EMowmyC4YkZuVvYLDU+yD6BBSW5ZX+nAn0fO9rOiVs
- 9oS4xS4UdDOVqO+/GLs9RfTYFmqoaOYM4eXhr6jjBDpbBmlzI33kfpRTxDb8jNPXJi9bxMwbI
- TwNOPNnaFwiYigPkJtLny7R/ly80g6Qdf5UWZ4PDWMsFt3YRqneV7e0gKWRXFtAiRJwl7BpVu
- NJTLc0gL8cvsGZhfaOoYlsN8cCLz/I4EO/jIMy6Sf7bF1x9TQ806wbMi61mYVWRAEHYJ1375u
- yQgUtgGRgh3zRI0cZMEZf49jZmlFgpzbkyXtW2e1QNYaMP/OUMM1e1J75OaUqRauESGxgQ6dg
- sNQ3TqW+oJvCL8wU36a9CT9bc8oSP6WOCPjYSB0FVHxpAlT6G0bW3hRFuQXJWxMY7G7JyeMM2
- OdjBruF60NY40L/cBEaUHp/Ob33KF4Efbj0E0wBfkmXAm97u0vlSMZVls85oKMqjxJQhIlL
+X-UI-Out-Filterresults: notjunk:1;V03:K0:BkwjAw4Spww=:CEIOVYRVRVBJKAjsnLd7Mq
+ FuRVELYjstjtKJ93n2jFuSgSaHONVim3LFtjQVS1GtAmL/Csw9TAYeZQReFjgCFCm8VyWH5Ah
+ WS9LVqEb4RlwLFGesvtxWiZFzTVNzF+fUd2vAaacmKLqVxCt1sq8bDyUgKH6XIfZ//Li4j90Z
+ LbcvGgtrCnh6fU8ArIBrFe2ep0t/KwTHNyMymfBnsiOyG8/NIWcrwCqPeSur11ObUPI+Kpl72
+ +acr4yEedqWxjSTpVRnYffgp993z8LiFF+sAwBTeMz/bURDjQ61LduhMt6gDE++kcQUSALw6m
+ cigzwGBzetnq87N37I/i6OtesuoaEWokaDyTJhWPdrHcJdG2JZCLfzzZQXdPfEI2TJcNWDuYP
+ s5Y74c+68cv/WuDP5sqv59zqut5hzZXFYGgNFe4uRMmOfL/MKbqjlmb8Pf/D4eII5r2FRyj6d
+ G821Kb2g1Z3ft3U2bf5DKqiwGx9szacvzTC/dW6xAeT1WJWjIcXTG2vQASRrGNNVDp3Hj0tdl
+ p6YUsEJEXHpJC8uyCblTY2mzcR1zRyB3i3QHfD9Ojla6XaLhmbjkHHA+9V5CNrc1UGSIn5ccO
+ uHcOJ7FmlDqAxVMplz/XgEAIHIlbTk02a0pr46k8Ki3jiIyF7U3yptpalRaFcN6Hrky7zF25l
+ j904Q0SnRwoc9uaYpGGF/Hsxm0YeWjXWBizGX4Vn4W++f+Ue5u43ihTgdEjh8BRIl0FYo+z1n
+ oTQOzNmEnEAmlqpaqnmoehfirUB/yY7cE9iXih2pQDtjg4Nq84ABQbJ/zSXCfnZtCb077z8Yj
+ fEMDv2R9C1/1t5IwIWP9BZyyoEb6oEhwTOtmRQenhD1XKMaoB3nvN+Iz1qrRnxdD+opmEq9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200228_082259_611810_AF3D0149 
-X-CRM114-Status: GOOD (  15.11  )
+X-CRM114-CacheID: sfid-20200229_040736_895030_182E35A3 
+X-CRM114-Status: GOOD (  16.10  )
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [217.72.192.73 listed in list.dnswl.org]
+ no trust [212.227.17.13 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
@@ -124,7 +124,7 @@ List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
 Cc: =?UTF-8?Q?Noralf_Tr=c3=b8nnes?= <noralf@tronnes.org>,
- bcm-kernel-feedback-list@broadcom.com,
+ bcm-kernel-feedback-list@broadcom.com, Maxime Ripard <maxime@cerno.tech>,
  linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
@@ -153,17 +153,24 @@ Am 28.02.20 um 14:09 schrieb Nicolas Saenz Julienne:
 > This is a known issue, see https://github.com/raspberrypi/linux/issues/3046.
 > I attached a device-tree patch in case you want to verify it fixes the issue on
 > your board.
+
+i tested recent linux-next (multi_v7_defconfig) on my Raspberry Pi 3A+
+with current Raspbian.
+
+Without your patch the LXDE does come up, but i also see those timeouts
+and the v3d part hangs in a deferrred probe.
+
+With your patch the LXDE doesn't come up.
+
+Unfortunately i don't have any newer suggestions other the mentioned in
+the github issue.
+
+Best regards
+Stefan
+
 >
 > @Stefan I guess I'm going to have to revert the pm patch, any comments before I
 > do?
-
-last time i try to revert the pm patch causes reliable hang of Raspbian.
-
-I will try to test it again.
-
-Regards
-Stefan
-
 >
 > Regards,
 > Nicolas
