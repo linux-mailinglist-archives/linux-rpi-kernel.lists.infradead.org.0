@@ -2,55 +2,92 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 87951177E76
-	for <lists+linux-rpi-kernel@lfdr.de>; Tue,  3 Mar 2020 19:33:13 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 3DB13178B74
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed,  4 Mar 2020 08:34:13 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:References:
+	To:From:Subject:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=h0NCZK0FPoaQNeHSP1C6/6tWCcybIqyNz8CXvAh5I4I=; b=LlVFByHQUJ7ivk67TIkwq51ee
-	e8kIMx6CK8jNv31e3kyR+8RsRXPFvb6rz6EE5hSjiEyVqEYXoSAeVZnMHqxwq3vTIjqVLqR2Leb5X
-	trWTVgts3HsyuQVeXg5ZQh1tqh4L1hERx1UG1WQfhIm3SVCBgCbz1xOsoVQRBRIQbI5izV9eCp2h5
-	w8YF2YwcDlhgwjcWA48ntepf0uzv8MST1uevMDPtfVP640yxipgvg7fg/mdPABCAaxpokkFW9gcSk
-	YBhYZO17lAzexA6sjix9NWLxg/Gk73lL6HQ1pBCM0NMZzsj4vEnMTT0+oKvFQ9MjibRe8i+BdYx3j
-	9raberQbA==;
+	 bh=I7OpFJAnncVD6QKIPVTWh+nhmH8P57cF7X0VObZhoYg=; b=u+9zaFqjnjUkJLyIzSjpMU7Y5
+	j7taZfMNmZyFmkRX2nwCPA4OU9rRy45LRXOLvbCh+cPuzL6IMbEeEI3PoGFXVWzLM6l7/o4cU5o91
+	Ay7f19QKMTYIAYH5msDH9Mf+H46Gx+pwAWqY3rNA0zkkkPRNiY0FQwAWyXNn3Cjx5EsyXzXx7QPYb
+	wPFJqMs35q53PwGAI80Qd3WbYWMUFW+9AQcrC8imwCDUrKM1Cosw8F+1YyhS0eFVG2LPywSR+18sW
+	8OARaCDjZ/okvtGlfkyzPaca5qDo3K2pTcCheDwOO6q+uO0PT2RNhESrWybNyY3/yBqzTrB90lljh
+	zMXWCHl2w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j9CLo-0006c4-OU; Tue, 03 Mar 2020 18:33:04 +0000
-Received: from mx2.suse.de ([195.135.220.15])
+	id 1j9OXg-0000kV-MF; Wed, 04 Mar 2020 07:34:08 +0000
+Received: from mout.gmx.net ([212.227.15.15])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j9CLd-0006Ui-TJ; Tue, 03 Mar 2020 18:32:55 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx2.suse.de (Postfix) with ESMTP id D161BB259;
- Tue,  3 Mar 2020 18:32:51 +0000 (UTC)
-Message-ID: <d706df27ceb8af106f15a328c2ffbe20f62d61c6.camel@suse.de>
-Subject: Re: [PATCH] DTS: bcm2711: Move emmc2 into its own bus
-From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-To: Florian Fainelli <f.fainelli@gmail.com>, Rob Herring <robh+dt@kernel.org>
-Date: Tue, 03 Mar 2020 19:32:49 +0100
-In-Reply-To: <b1b49120-701c-5ebd-8f2d-fd3c88ff3fac@gmail.com>
-References: <20200303120820.4377-1-nsaenzjulienne@suse.de>
- <b1b49120-701c-5ebd-8f2d-fd3c88ff3fac@gmail.com>
-User-Agent: Evolution 3.34.4 
+ id 1j9OXd-0000js-Kq
+ for linux-rpi-kernel@lists.infradead.org; Wed, 04 Mar 2020 07:34:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
+ s=badeba3b8450; t=1583307238;
+ bh=y6n4po5Alwq3VMFio5BEbbgBVfEtj5n/bbVdCcRd/+I=;
+ h=X-UI-Sender-Class:Subject:From:To:Cc:References:Date:In-Reply-To;
+ b=OcC3n5a12+eK10lEyJwC/TARtjatN6EPDOSWxjU1aVqb5Wbebq6/FcYG0ijKnrheE
+ veeKLXpSPfP8o/2HckJ4b3hmo4rLdB7zaSaMs/WxWayBhdB+nMRhkDZW2zHOHf7kmb
+ x6iqnNhSr4MX//M69wZNTgH6HZSoNzPsT2t1jfDA=
+X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
+Received: from [192.168.0.43] ([188.223.33.120]) by mail.gmx.com (mrgmx005
+ [212.227.17.184]) with ESMTPSA (Nemesis) id 1MKbkM-1ioQHJ3hFM-00Kukw; Wed, 04
+ Mar 2020 08:33:58 +0100
+Subject: Re: [PATCH] define rpi0w sdhci pinctrl state
+From: Nick Hudson <nick.hudson@gmx.co.uk>
+To: Stefan Wahren <stefan.wahren@i2se.com>,
+ linux-rpi-kernel@lists.infradead.org, devicetree@vger.kernel.org
+References: <c34db439-3539-88c0-99f1-308d75afd1aa@gmx.co.uk>
+ <23a936db-fc89-6259-3991-5791fa88beb7@i2se.com>
+ <bd4bd5dc-307f-d058-8f94-00b61a8b8c87@gmx.co.uk>
+Message-ID: <c97f3704-a671-be70-4323-181f84d657f8@gmx.co.uk>
+Date: Wed, 4 Mar 2020 07:33:55 +0000
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.5.0
 MIME-Version: 1.0
+In-Reply-To: <bd4bd5dc-307f-d058-8f94-00b61a8b8c87@gmx.co.uk>
+Content-Language: en-GB
+X-Provags-ID: V03:K1:nLv9yfsm5lvOIhWzxRz31QdaSxTY/XyD93XIAgdBmTPOcSaqx27
+ hUhyOa44vulsq5f3aLk3bVYVwRokx5VSfZyo+/0Ev8HgrHQ3wTbDMi8tzgVZIq3llXec3cJ
+ 6d24o2nBS3ZTFzhdil1frjM3+FxICIkahWGlxHf6a4K190taW+TldZhIsuQ2HdHGCB/bTqk
+ foif8YM5ZFLJcsWniYkOQ==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:4spx8eQL8tg=:wmxU2yu/UX6tch62SyMkVZ
+ 3JuxYqCYHiMX89rqg3nYZplMK3WXbOapt93+lse23d5EhdSveeENbF5NCHd1cf3RQ4AcgBGLP
+ yBjDo88Ix5FMwH8yRqmzyIkgoJO5JTj+/SlR1Tk2PA2juKTGvCDhVI2t4BN4ZOKMmOBYVqi02
+ EZveMzMBgmWRf8EwloS+ES8I9MisJK0kgsyKYimXL2KFFRXCNGlgWIj88HFjJFmL91w2IVgqQ
+ Li88trYJEyNPP763UtNYb6YAuR/a8p4N94p8DYM/BA5mLEW1i2hh+GLKPBr3mXA7xODCCoVuD
+ s7MS9ffgDWOrpz2oFhS6HZN+Kf69i4nZIoLzoG5YnlghoPxU7rZ5JzZPs82cq1itZ886XIWvA
+ ATEXOOaz5Be9B0x1rLRAI9Zgl602afR28AfHMiFDTf16cbxsqQdCeomMAn3vWnB8rocbBd9JB
+ 0MCos75H2TLZsTLtsLPyPVNFof88IOMRCGnPc9PbDkJ4WepXLvIZbLgCKOe8DwZixRZ3QKu+T
+ 7C47PRQepcG3DebCFRf/fbLCpUHEa3UqnEKXyhhMDnJWnOdIO689Ehn4cI3PMDAo8k4WgIsTe
+ Jh1oXw4UPPO4F7ojOeZ0zggoQAeTpUlihuVIargzTTmajXxYs9KwX5AOCYF21iHtEdJTNtvH1
+ E86Kla6vBVAF1BxhBY3XWekDrqSUF0ivOD0fA45YI+kWZXa9Ddu2UGysHsoBtLE3jpmBdxDPf
+ KD9IKrrFpvYGZdMZNtc8fV9xMaiGWZ01Qx97wneksohxGjH9cWmegjaFGkyUcgyPt6t6nLYLW
+ d0vDvLYV/fb/eED5bjJ9KUM2EkroBqONvu7OY62ISmnYcb1czQW2natdzCysDARRNj2CY1J1n
+ YPKJTqEoD3y265ZNAaZw5mBfQUnIJRCAEsWnlgHKPlhl9t2huFPCnfrr664PwxUyCbOanO68W
+ XtBdxYU3GFo6s9ODNMkJvM/pXzsZ8dCPMu+ZlNrUi+iU1/1+8MynT4eWc8eu7HwgCNy7IeTKZ
+ MHubLi23Pt5H/tMfUKVfvuJWJEvizIWO22ugNSzgm5cGD7UUrLb0xMQL2yAsOfpFcNGSJerIL
+ snf0jcZKVCy87cQsyyD5+pf+no1sg7J2NmL8PvROmwHtyZW+N8v69Hu4qCp0YJSGns3pXtnhV
+ DiEiAtOAB3XvozhxGPnBAgoAg5+wiyGfu8iNQ2kImQixz2f44Cgzk/spULXc4tB8KXAZdjM+8
+ aMeqyJhvAEmMFQ3Il
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200303_103254_237151_0D9658EB 
-X-CRM114-Status: GOOD (  21.00  )
-X-Spam-Score: -2.3 (--)
+X-CRM114-CacheID: sfid-20200303_233406_021673_BF9D132A 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [195.135.220.15 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [195.135.220.15 listed in wl.mailspike.net]
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [212.227.15.15 listed in list.dnswl.org]
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -62,161 +99,40 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, florian.fainelli@broadcom.com,
- phil@raspberrypi.org, linux-kernel@vger.kernel.org,
- bcm-kernel-feedback-list@broadcom.com, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-Content-Type: multipart/mixed; boundary="===============0154455026961001708=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
 
---===============0154455026961001708==
-Content-Type: multipart/signed; micalg="pgp-sha256";
-	protocol="application/pgp-signature"; boundary="=-RFl3Qiw92Rz2LT1BjykV"
 
+On 28/02/2020 11:52, Nick Hudson wrote:
+>
+>
+> On 27/02/2020 17:53, Stefan Wahren wrote:
+>> Hi Nick,
+>>
+>> Am 27.02.20 um 00:33 schrieb Nick Hudson:
+>>> I'm still not sure where I should be sending this, but here goes.
+>>
+>> the addresses are right. Please rebase your change against recent Linux
+>> git tree and generate a git patch, otherwise we cannot apply your it.
+> Oops, I see I sent the comletely the wrong diff... will fix.
+>
+>>
+>> I suggest the following subject:
+>>
+>> ARM: bcm2835-rpi-zero-w: Add missing pinctrl name
 
---=-RFl3Qiw92Rz2LT1BjykV
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+So, I did this, but it's stuck pending ML moderator approval :(
+I sent it on Saturday.
 
-Hi Florian,
+Do I need to try again?
 
-On Tue, 2020-03-03 at 10:21 -0800, Florian Fainelli wrote:
-> On 3/3/20 4:08 AM, Nicolas Saenz Julienne wrote:
-> > Depending on bcm2711's revision its emmc2 controller might have
-> > different DMA constraints. Raspberry Pi 4's firmware will take care of
-> > updating those, but only if a certain alias is found in the device tree=
-.
-> > So, move emmc2 into its own bus, so as not to pollute other devices wit=
-h
-> > dma-ranges changes and create the emmc2bus alias.
-> >=20
-> > Based in Phil ELwell's downstream implementation.
-> >=20
-> > Signed-off-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
->=20
-> Nit: the subject should be ARM: dts: bcm2711. Some more comments below.
-
-Of course, should have known better.
-
-> > ---
-> >  arch/arm/boot/dts/bcm2711-rpi-4-b.dts |  1 +
-> >  arch/arm/boot/dts/bcm2711.dtsi        | 19 ++++++++++++++-----
-> >  2 files changed, 15 insertions(+), 5 deletions(-)
-> >=20
-> > diff --git a/arch/arm/boot/dts/bcm2711-rpi-4-b.dts
-> > b/arch/arm/boot/dts/bcm2711-rpi-4-b.dts
-> > index 1d4b589fe233..e26ea9006378 100644
-> > --- a/arch/arm/boot/dts/bcm2711-rpi-4-b.dts
-> > +++ b/arch/arm/boot/dts/bcm2711-rpi-4-b.dts
-> > @@ -20,6 +20,7 @@ memory@0 {
-> >  	};
-> > =20
-> >  	aliases {
-> > +		emmc2bus =3D &emmc2bus;
-> >  		ethernet0 =3D &genet;
-> >  		pcie0 =3D &pcie0;
-> >  	};
-> > diff --git a/arch/arm/boot/dts/bcm2711.dtsi b/arch/arm/boot/dts/bcm2711=
-.dtsi
-> > index d1e684d0acfd..61ea8b44c51e 100644
-> > --- a/arch/arm/boot/dts/bcm2711.dtsi
-> > +++ b/arch/arm/boot/dts/bcm2711.dtsi
-> > @@ -241,17 +241,26 @@ pwm1: pwm@7e20c800 {
-> >  			status =3D "disabled";
-> >  		};
-> > =20
-> > +		hvs@7e400000 {
-> > +			interrupts =3D <GIC_SPI 97 IRQ_TYPE_LEVEL_HIGH>;
-> > +		};
-> > +	};
-> > +
-> > +	emmc2bus: emmc2bus {
-> > +		compatible =3D "simple-bus";
-> > +		#address-cells =3D <2>;
-> > +		#size-cells =3D <1>;
-> > +
-> > +		ranges =3D <0x0 0x7e000000  0x0 0xfe000000  0x01800000>;
-> > +		dma-ranges =3D <0x0 0xc0000000  0x0 0x00000000  0x40000000>;
->=20
-> This deserves a comment for two reasons:
->=20
-> - explaining which of these properties is getting patched by the
-> firmware (and it would be really nice if we had a concept of annotation
-> attributes for Device Tree such that you could express something like:
->=20
-> 	dma-ranges =3D <> __patchable;
-
-Something like this would've been useful to me some time ago while debuggin=
-g
-CMA issues on a random arm64 Board. I was left wondering if the memory node=
-s on
-that specific board were set in stone or just a placeholder.
-
-> - explaining why this is not collapsed in the soc bus node, because the
-> dma-ranges constraint can be different based on the Pi4 revision
-
-Noted
-
-> With that fixed, this looks good to me!
-
-Thanks!
-
->=20
-> > +
-> >  		emmc2: emmc2@7e340000 {
-> >  			compatible =3D "brcm,bcm2711-emmc2";
-> > -			reg =3D <0x7e340000 0x100>;
-> > +			reg =3D <0x0 0x7e340000 0x100>;
-> >  			interrupts =3D <GIC_SPI 126 IRQ_TYPE_LEVEL_HIGH>;
-> >  			clocks =3D <&clocks BCM2711_CLOCK_EMMC2>;
-> >  			status =3D "disabled";
-> >  		};
-> > -
-> > -		hvs@7e400000 {
-> > -			interrupts =3D <GIC_SPI 97 IRQ_TYPE_LEVEL_HIGH>;
-> > -		};
-> >  	};
-> > =20
-> >  	arm-pmu {
-> >=20
->=20
->=20
-
-
---=-RFl3Qiw92Rz2LT1BjykV
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCAAdFiEErOkkGDHCg2EbPcGjlfZmHno8x/4FAl5eotEACgkQlfZmHno8
-x/65SQgAjizh4jYhQUUdPkHWpK1vmzYwARYZ9gDu0tyF+J26+4j7LFgytfLPEUMg
-JHjH0xmFXW7cG80ISt2NxRInXjq/eaFytgby5zsBxG1DJhspUYn2zBb7VXWDevZ2
-FHWjiKw2adk6mzNkO4sNG4P/D9WTtUlSvwAFDuNvsHEV8kUmtIldA6iItq4Xtyg6
-BgojLHH0tqNjzdDeB0aOFaDXJMM7svxHiupbP0Li50uQByQgGoxiwsOVt2SBBdFa
-qa6ucFjQstOAn207YYZeAYZinMZaMa0K1+0VeQ/SuVsUCNHCavKLkl4c7JEqixUR
-TrQHZbzYvV//fJJISCqUAFBpdMNnTg==
-=9Zb+
------END PGP SIGNATURE-----
-
---=-RFl3Qiw92Rz2LT1BjykV--
-
-
-
---===============0154455026961001708==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+Nick
 
 _______________________________________________
 linux-rpi-kernel mailing list
 linux-rpi-kernel@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
-
---===============0154455026961001708==--
-
-
