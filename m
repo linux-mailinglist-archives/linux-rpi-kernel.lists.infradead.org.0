@@ -2,67 +2,65 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 041F517EA75
-	for <lists+linux-rpi-kernel@lfdr.de>; Mon,  9 Mar 2020 21:52:05 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 87A0417EA98
+	for <lists+linux-rpi-kernel@lfdr.de>; Mon,  9 Mar 2020 21:58:42 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
 	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
 	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=L0laYJyLIpX88ImfCciQ2wOQFnttOcz8ZfpH/JDxHLs=; b=J2ahGvtziKq8eK
-	pZqrEYKZM0ctYSwxATuHOqGlmOn5yKOG+cb6RYzIoA4witboto5u/5owCtOWDnvr+VbG1mevY68/Z
-	xmIdmfnYiP2zp8zYTmk4hgo3PjfnxySQ3PtX2CdNlHvBYvt/l4PNuQuUD3iEukSGw0nZS0LIXwc8k
-	xPqfKh7StznpTHJ9+tPFism61m8FnSOagw6KeVULUJsyTOocTtKgHD+f5Cv418PqGmHdj1Oyig7TC
-	HHsj6fish60fh2q0xkES/13aoyHbYfgVGbjEbJWH/MNP2ZcVh6wfU/rYTMGkpBYIUN8XWaBx1VZDy
-	X9BZnk9v/C8gnIZytcrg==;
+	List-Owner; bh=CAbBJLCCpGENWbFS1y2eSTzpwAaneU6BHwG8INHOSPc=; b=MIhe0XeC29WPfv
+	a7909nWANpXV4qxqcRDe91UDj1/plgEO+jBkPxigRZ7NPMnuO3xIZbuBAIh/93tkt15OFQnMW0EOY
+	Nko6j6ZegRlBrD8peesjly4J5lcDKNmqfuCM3jEf+gZbrDiVM3Bm0Mj0hYgDGJAxUhIFpSkz4TOlI
+	6doyJhNF26lGNdVdU6bJDRKj6wgtrK7j69TXYG/OYwYSImu6+KPFRlU/rx1nVrjH+1x3eWt20BPcQ
+	WhmjgLP7XzlO6wQiCHlQ8OA4RkLKAbdnMtZxGpYIqpIC0VjNMxuPL99K5P4oqZ2JGhdd+2N9fKY5n
+	obZaRYgjTHjBw0z40qYA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jBPNa-0006Nj-C6; Mon, 09 Mar 2020 20:52:02 +0000
-Received: from mail-ed1-x541.google.com ([2a00:1450:4864:20::541])
+	id 1jBPTy-0000Nu-6c; Mon, 09 Mar 2020 20:58:38 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jBPNW-0006Mu-Vc
- for linux-rpi-kernel@lists.infradead.org; Mon, 09 Mar 2020 20:52:00 +0000
-Received: by mail-ed1-x541.google.com with SMTP id c21so13679582edt.1
+ id 1jBPTw-0000NP-5p
+ for linux-rpi-kernel@lists.infradead.org; Mon, 09 Mar 2020 20:58:37 +0000
+Received: by mail-ed1-x530.google.com with SMTP id dc19so13650421edb.10
  for <linux-rpi-kernel@lists.infradead.org>;
- Mon, 09 Mar 2020 13:51:57 -0700 (PDT)
+ Mon, 09 Mar 2020 13:58:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=subject:to:cc:references:from:autocrypt:message-id:date:user-agent
  :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=t1/tQO7ScCacraf64I25ikdRmSj7nncqRyTrMrLoByc=;
- b=I/h35p5ZqhFEXKIglmPBQ5ryPy8ZQ3kZ8EkvxY0QIjPtYqXIwDOxumlAa296c8Dyo0
- WYNbpv1jFvcs8s7chpv0oTLYHShJj0RGTv8+uEOXL+aeEAjL88tZQTOGaxXK22mO0VmD
- TTAT1iyIUdzGzehwjF1M0sktzk1PEpdWkTg8/Wixww6YFobaAWihSZPsV5/R4wiZoACO
- CllXavEihPgF/xPbiA6E5M6/ymZeNXth2pH+1fmpd98t0IPey2NzHRbg0aKf183lHn0f
- 6D4QHoegInFZ/VUue78vV0vNTjcJUwOPRlSNDnIOiQ+GUQhyWdbALnB333Dj39GDE6B1
- 5PFg==
+ bh=jOVm7c3rgJ5YSOMm2zjetleLfNRcuiqhNNmLID382ew=;
+ b=hEOY1R1Jf8RrT/+ZF+Q7sB5L605m/svyodf/pxGu2FtD8DROVrdAfwLjDyz9ZhR6mP
+ nqo/1mavApv+EhGi9OsTQV3pdsM4KMcV8P9rxstzNRXz9zsDC3xQOCUcuy9t0qdSr1Et
+ wEFMHB/Dt80RZ0ZEbu+MIkc4F4fOaF+Vp/MmN5qntjh7T5ttCkngErCw8A5GVHbMS22q
+ WZ+I4hHbQiFCWExickxt6oxGcoWl2QA2TRVngXiMYNXm4+TItUvMZTBo/hEN/SetoLXv
+ Txw7LaGmnEvk0tjpSOYYNDENruELlwGHJ4KJmSDuIyW1dWWsGzG3bzW1qkgIlomWqg6/
+ N9DQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:subject:to:cc:references:from:autocrypt
  :message-id:date:user-agent:mime-version:in-reply-to
  :content-language:content-transfer-encoding;
- bh=t1/tQO7ScCacraf64I25ikdRmSj7nncqRyTrMrLoByc=;
- b=KxBImaCo7aZYXw90Dmhq5oAuaNCISXvVTvsws72wvvl1RE8yXH6704vZnXTMeKW1ns
- 2EtYOhfkvqanNWnqLyooL9uTb7mUdgJjYGtG0JRTfNuz1g6wvL21Fs/n16M2z0KchZlp
- f7EPckoY5YgWXBjpRZgBMjFPoxZyRMaTlKQnQOSJ97JQiIh6cAPgnY39ZAXN7dsBxwcm
- JkDogUMvGrfdx+b80u/Y/RvCcdGC6fcl17Z/OQ33YQm50NeD2oMMv8bRHmdoOKSF0dkM
- yT7vkM6CdZjL9s6d5H4Zl5lMLr/GIFR3un76h9eFMNLaj1kkNbzZijY8iNm7bmqt5YKY
- PxUQ==
-X-Gm-Message-State: ANhLgQ2qPizad/1lGM4BxnUCMGe6Ng4QDi8vLx6rCPhmULZLdyg4FESv
- 7AS3ijMN4K8fnEpbNSfnt3A=
-X-Google-Smtp-Source: ADFU+vvEqRdMsP6ltiXblRnGNbb0aVgrt68sLYFP+1qn+FyfvmQIB4cqzWGfyduN5LVWlyFdtKy5rA==
-X-Received: by 2002:a05:6402:3c6:: with SMTP id
- t6mr17963839edw.110.1583787116660; 
- Mon, 09 Mar 2020 13:51:56 -0700 (PDT)
+ bh=jOVm7c3rgJ5YSOMm2zjetleLfNRcuiqhNNmLID382ew=;
+ b=m+hy5RDEZ5pcWEdwe5WOrlzlhikIWi17jpQVG8V8NYNvG1088o/1eGkufuqY3jXy3E
+ evQvNsjqkY9Au9YPM+NzdTJ7d9KIxFA3Ei0IHIFYXST9DCeI6WVXrEbRKmroGk4JDZNT
+ tdGHhsDFNXCNB9McXT7DFj7ePt+YZxp7z3B6NK0d6L8XBHOajjXf5K8kZb5WSckPskN/
+ od+q2ec2vdqYTJQS30/SmBs9ZoEruC7lEeBMewwgB9igYGL4elBrJ5FEiK2UmjN/qIfv
+ O8ukjHfNCEvsbi05x9nsbpdsFLTwxVoBObJWZJAy5MZAqRmWPVq3+BRLrW3Ydkxhz9am
+ icYg==
+X-Gm-Message-State: ANhLgQ10U+PAUGRqRJXE6K4uYEPyI3mvWVt3yVlfoMFLLs9lCCjOiMOy
+ /oTnMF9I8zHlBh9iDjFhKs/5SG1j
+X-Google-Smtp-Source: ADFU+vslGzDtP7Cw0QSsrj6FZKTyzh2cQkJTF4BLjLybRluCb5+6mw3icUo5bPbS2XyrSMqRE65fyw==
+X-Received: by 2002:a05:6402:1c0c:: with SMTP id
+ ck12mr15979749edb.145.1583787513859; 
+ Mon, 09 Mar 2020 13:58:33 -0700 (PDT)
 Received: from [10.67.48.239] ([192.19.223.252])
- by smtp.googlemail.com with ESMTPSA id x23sm1067412ejb.78.2020.03.09.13.51.54
+ by smtp.googlemail.com with ESMTPSA id g24sm1599549edu.0.2020.03.09.13.58.32
  (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 09 Mar 2020 13:51:55 -0700 (PDT)
-Subject: Re: ARM: bcm2835-rpi-zero-w: Add missing pinctrl name
-To: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>, nick.hudson@gmx.co.uk,
- linux-rpi-kernel@lists.infradead.org, devicetree@vger.kernel.org
-References: <20200309164842.8184-1-nick.hudson@gmx.co.uk>
- <8609efe72001a183452c4bd4f1f1a827eb789406.camel@suse.de>
+ Mon, 09 Mar 2020 13:58:33 -0700 (PDT)
+Subject: Re: [GIT PULL 1/2] bcm2835-dt-next-2020-03-09
+To: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+References: <f10d43777bf17eed98c1fb36660f9189ea8b83d6.camel@suse.de>
 From: Florian Fainelli <f.fainelli@gmail.com>
 Autocrypt: addr=f.fainelli@gmail.com; prefer-encrypt=mutual; keydata=
  xsDiBEjPuBIRBACW9MxSJU9fvEOCTnRNqG/13rAGsj+vJqontvoDSNxRgmafP8d3nesnqPyR
@@ -118,23 +116,23 @@ Autocrypt: addr=f.fainelli@gmail.com; prefer-encrypt=mutual; keydata=
  HvsHIcv4lxCWkFXkwsuWqzEKK6kxVpRDoEQPDj+Oy/ZJ5fYuMbkdHrlegwoQ64LrqdmiVVPC
  TwQYEQIADwIbDAUCVF/S8QUJHlwd3wAKCRBhV5kVtWN2Do+FAJ956xSz2XpDHql+Wg/2qv3b
  G10n8gCguORqNGMsVRxrlLs7/himep7MrCc=
-Message-ID: <47bc256f-d8f2-6f42-1421-12e19c09d0ce@gmail.com>
-Date: Mon, 9 Mar 2020 13:51:52 -0700
+Message-ID: <50deb8d8-54b5-ba89-10ee-0d69c087b62c@gmail.com>
+Date: Mon, 9 Mar 2020 13:58:31 -0700
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
  Thunderbird/68.4.1
 MIME-Version: 1.0
-In-Reply-To: <8609efe72001a183452c4bd4f1f1a827eb789406.camel@suse.de>
+In-Reply-To: <f10d43777bf17eed98c1fb36660f9189ea8b83d6.camel@suse.de>
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200309_135159_021863_E8A34355 
-X-CRM114-Status: GOOD (  12.21  )
+X-CRM114-CacheID: sfid-20200309_135836_220750_73D6C322 
+X-CRM114-Status: GOOD (  13.69  )
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:541 listed in]
+ no trust [2a00:1450:4864:20:0:0:0:530 listed in]
  [list.dnswl.org]
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
  provider [f.fainelli[at]gmail.com]
@@ -158,30 +156,36 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Nick Hudson <skrll@netbsd.org>
+Cc: linux-rpi-kernel <linux-rpi-kernel@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-On 3/9/20 1:15 PM, Nicolas Saenz Julienne wrote:
-> Hi Nick,
+On 3/9/20 1:33 PM, Nicolas Saenz Julienne wrote:
+> Hi Florian,
 > 
-> On Mon, 2020-03-09 at 16:48 +0000, nick.hudson@gmx.co.uk wrote:
->> From: Nick Hudson <nick.hudson@gmx.co.uk>
->>
->> Define the sdhci pinctrl state as "default" so it gets applied
->> correctly and to match all other RPis.
->>
->> Signed-off-by: Nick Hudson <skrll@netbsd.org>
->> ---
+> The following changes since commit bb6d3fb354c5ee8d6bde2d576eb7220ea09862b9:
 > 
-> you should add the [PATCH] prefix in your subject when submitting patches. Also
-> make sure you CC everyone listed by ./sripts/get_maintainer.pl, so they can
-> properly review the patch.
+> Linux 5.6-rc1 (2020-02-09 16:08:48 -0800)
+> 
+> are available in the Git repository at:
+> 
+> git://git.kernel.org/pub/scm/linux/kernel/git/nsaenz/linux-rpi.git tags/bcm2835-dt-next-2020-03-09
+> 
+> for you to fetch changes up to 3d2cbb64483691c8f8cf88e17d7d581d9402ac4b:
+> 
+> ARM: dts: bcm2711: Move emmc2 into its own bus (2020-03-09 21:18:03 +0100)
+> 
+> ----------------------------------------------------------------
+> This tag adds GPIO labels to RPi4 and moves emmc2 to its own bus in
+> order for RPi4's firmware to correct its DMA constraints.
+> 
+> ----------------------------------------------------------------
 
-It would also be nice to get a Fixes: tag such that this could be
-backported to stable kernels. Thank you.
+Can you resend and copy the appropriate mailing-list entries listed in
+the MAINTAINERS file for BCM283x? That way all the tools behind those
+mailing lists can be used. Thank you!
 -- 
 Florian
 
