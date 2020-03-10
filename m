@@ -2,48 +2,41 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id F022C17F421
-	for <lists+linux-rpi-kernel@lfdr.de>; Tue, 10 Mar 2020 10:50:49 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id A5B8717F768
+	for <lists+linux-rpi-kernel@lfdr.de>; Tue, 10 Mar 2020 13:28:06 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:
+	MIME-Version:Date:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=kBH+dAVmyH6ZiRagquc5eFM143GyFk2b7V/AsDkDLnU=; b=Dh2mtbs7H/O2Lo0izX9qgu7Sd
-	AvbRNAJuiGcVof1rNqWS4OfMKGspT4rz0n4xy9zKIj/DLtt+2j9Sx6nBq4Ur2P+qFjWRzLkOZ9mDM
-	Uk8GePWVRytZ2V0tUMQi/3ErdOjEHB79f65/lk3ZnIWtea+YZanxE4zXsDJlhAvi4MStUFCO49X00
-	rtKP9evmGZWlggKTCfDNPqumhB01px8G/o812nl/HEvhCGkcL5EeOcxOHmQSvUhjWMWqxT9BmXpw+
-	3+Zx6AJpPD+TEZVysXRaQrn3vILT4Id6HVNk4SVcBnAYmQKfhAZKCjSTuJqLPLeQa439l6hXyUC30
-	0yPn31wXg==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=m0vaGGypmhJEMidrgbqwzmbkflpor40mRrr2hcXHyhE=; b=EPD
+	cbgXJILQaYqwpNSwwtGrzkeyykmHpTzSSVDRsB3Pi6YsH2YS660HOkh+FvfQqiABCMX3vIxQT2y1v
+	/r63gViITNfXIdBAbq3cEwEu9ab6L+bwMEjtRRSvWDYqF7mHVmovQT66f3Og6+DpuSrs4p7GaJTu/
+	//VoaeS9YV1eua0i96bMU/LU3oY+10KtM+7aB/QMvGX41ZvDn18+EYyks5suZz5bI+T/MwdCF65pg
+	w0cfg+kfe9swkJKC1OzfYyrhQdLL7Zwfz/I8brTO0KEB/P1uPuDYesiTCRvxsXGkZ6mz1R8uDHqda
+	3RgVXrSIKAOZfVvfqZGJypEhX6XCPJg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jBbX9-0007yp-Ni; Tue, 10 Mar 2020 09:50:43 +0000
+	id 1jBdzG-00019h-Po; Tue, 10 Mar 2020 12:27:54 +0000
 Received: from mx2.suse.de ([195.135.220.15])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jBbX6-0007xQ-Fi
- for linux-rpi-kernel@lists.infradead.org; Tue, 10 Mar 2020 09:50:41 +0000
+ id 1jBdz3-00011Z-1Q; Tue, 10 Mar 2020 12:27:42 +0000
 X-Virus-Scanned: by amavisd-new at test-mx.suse.de
 Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx2.suse.de (Postfix) with ESMTP id 2A65FAC37;
- Tue, 10 Mar 2020 09:50:38 +0000 (UTC)
-Message-ID: <2f4f739422ba70e9578d020aa5c578588b0a54d6.camel@suse.de>
-Subject: Re: ARM: bcm2835-rpi-zero-w: Add missing pinctrl name
+ by mx2.suse.de (Postfix) with ESMTP id 5DD49AC4A;
+ Tue, 10 Mar 2020 12:27:37 +0000 (UTC)
+Message-ID: <91044910d494a12d06e7098561fe1be86a61f033.camel@suse.de>
+Subject: [GIT PULL RESEND 1/2]  bcm2835-dt-next-2020-03-09
 From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-To: Nick Hudson <nick.hudson@gmx.co.uk>, Florian Fainelli
- <f.fainelli@gmail.com>,  linux-rpi-kernel@lists.infradead.org,
- devicetree@vger.kernel.org
-Date: Tue, 10 Mar 2020 10:50:37 +0100
-In-Reply-To: <b9b15470-deb0-6434-8e42-6482ea4bec9d@gmx.co.uk>
-References: <20200309164842.8184-1-nick.hudson@gmx.co.uk>
- <8609efe72001a183452c4bd4f1f1a827eb789406.camel@suse.de>
- <47bc256f-d8f2-6f42-1421-12e19c09d0ce@gmail.com>
- <b9b15470-deb0-6434-8e42-6482ea4bec9d@gmx.co.uk>
+To: Florian Fainelli <f.fainelli@gmail.com>
+Date: Tue, 10 Mar 2020 13:27:35 +0100
 User-Agent: Evolution 3.34.4 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200310_025040_673164_8B0727F1 
-X-CRM114-Status: GOOD (  17.04  )
+X-CRM114-CacheID: sfid-20200310_052741_227371_64D72EFF 
+X-CRM114-Status: UNSURE (   9.37  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  Content analysis details:   (-2.3 points)
@@ -67,87 +60,78 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Nick Hudson <skrll@netbsd.org>
-Content-Type: multipart/mixed; boundary="===============1250781236205692558=="
+Cc: bcm-kernel-feedback-list <bcm-kernel-feedback-list@broadcom.com>,
+ linux-rpi-kernel <linux-rpi-kernel@lists.infradead.org>,
+ linux-arm-kernel@lists.infradead.org
+Content-Type: multipart/mixed; boundary="===============7221108338534536858=="
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
 
---===============1250781236205692558==
+--===============7221108338534536858==
 Content-Type: multipart/signed; micalg="pgp-sha256";
-	protocol="application/pgp-signature"; boundary="=-mHkaeGvwgsTfYPjnj29j"
+	protocol="application/pgp-signature"; boundary="=-uUrpCZAmsEtDFdsgFQJN"
 
 
---=-mHkaeGvwgsTfYPjnj29j
+--=-uUrpCZAmsEtDFdsgFQJN
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Hi Nick,
+Hi Florian,
 
-On Tue, 2020-03-10 at 06:46 +0000, Nick Hudson wrote:
->=20
-> On 09/03/2020 20:51, Florian Fainelli wrote:
-> > On 3/9/20 1:15 PM, Nicolas Saenz Julienne wrote:
-> > > Hi Nick,
-> > >=20
-> > > On Mon, 2020-03-09 at 16:48 +0000, nick.hudson@gmx.co.uk wrote:
-> > > > From: Nick Hudson <nick.hudson@gmx.co.uk>
-> > > >=20
-> > > > Define the sdhci pinctrl state as "default" so it gets applied
-> > > > correctly and to match all other RPis.
-> > > >=20
-> > > > Signed-off-by: Nick Hudson <skrll@netbsd.org>
-> > > > ---
-> > >=20
-> > > you should add the [PATCH] prefix in your subject when submitting pat=
-ches.
-> > > Also
-> > > make sure you CC everyone listed by ./sripts/get_maintainer.pl, so th=
-ey
-> > > can
-> > > properly review the patch.
-> >=20
-> > It would also be nice to get a Fixes: tag such that this could be
-> > backported to stable kernels. Thank you.
->=20
-> If you haven't already guessed... I have no idea what I'm doing here so s=
-ome
-> guidance would be nice.
+The following changes since commit bb6d3fb354c5ee8d6bde2d576eb7220ea09862b9=
+:
 
-No worries, we're happy to guide you :)
+Linux 5.6-rc1 (2020-02-09 16:08:48 -0800)
 
-> I guess it's been wrong from day one and so I should have something like
->=20
-> Fixes: 2c7c040c73e9 ("ARM: dts: bcm2835: Add Raspberry Pi Zero W")
+are available in the Git repository at:
 
-Yes that's perfect.
+git://git.kernel.org/pub/scm/linux/kernel/git/nsaenz/linux-rpi.git tags/bcm=
+2835-dt-next-2020-03-09
 
-Regards,
-Nicolas
+for you to fetch changes up to 3d2cbb64483691c8f8cf88e17d7d581d9402ac4b:
+
+ARM: dts: bcm2711: Move emmc2 into its own bus (2020-03-09 21:18:03 +0100)
+
+----------------------------------------------------------------
+This tag adds GPIO labels to RPi4 and moves emmc2 to its own bus in
+order for RPi4's firmware to correct its DMA constraints.
+
+----------------------------------------------------------------
+Nicolas Saenz Julienne (1):
+ARM: dts: bcm2711: Move emmc2 into its own bus
+
+Stefan Wahren (1):
+ARM: dts: bcm2711-rpi-4-b: Add SoC GPIO labels
+
+arch/arm/boot/dts/bcm2711-rpi-4-b.dts | 74 ++++++++++++++++++++++++++++++++=
+++++++++++++++++++++++++++++++++++++++++++
+arch/arm/boot/dts/bcm2711.dtsi        | 25 ++++++++++++++++++++-----
+2 files changed, 94 insertions(+), 5 deletions(-)
 
 
---=-mHkaeGvwgsTfYPjnj29j
+--=-uUrpCZAmsEtDFdsgFQJN
 Content-Type: application/pgp-signature; name="signature.asc"
 Content-Description: This is a digitally signed message part
 Content-Transfer-Encoding: 7bit
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCAAdFiEErOkkGDHCg2EbPcGjlfZmHno8x/4FAl5nYu0ACgkQlfZmHno8
-x/64UQf/RNsxZ7PyQ4lGZTSVTRgV+qs1m5fhYeQnZV0WkEex3ig5tRbckO8N2RXb
-s6uHOtVAlwo4VlNcjZMtMijMOwthBNxpCIBDVvLcpooBx3ur8XjpQ1WaMa/KNYm/
-ZfaCRMipmOQHS2we7eUSyyUJr4PO5YMDxV9OhSkb8JKFRNLbI6z84NbXnxjMVzL7
-458oZLg6jWSSRw/BoRELRA8MhjfgnOylG1SiDIWSpWtRis3vyJTsS/iX2z0IK9zH
-vPoDpMw0VGbeEPMj1yWYe4X/4VI4VNqpVEb9GW2svdhW7cAkffkucf/3xoYsy6N1
-de19UCwTGwl8LrGj7KBc6ztUY4wzxw==
-=VQBn
+iQEzBAABCAAdFiEErOkkGDHCg2EbPcGjlfZmHno8x/4FAl5nh7cACgkQlfZmHno8
+x/5pkgf/bwl7xaytsli5RX03TEd5WtJ8OWiseWbNwjc8rJLK4AbmSkpraW5m2sFu
+ouKF4h3bzW7q7FKfR/XCDXR28OC/l5pTY/0Y1/MG4wIa52Gi22danx5nS3pWL5Q9
+X1RwIuW2lKMNux5DVtsmzKgST3mZu0xCuNQwV3FbOpvY6F75qFNkcnC9i5JmrlvU
+9x+Dzq/khDwrsG5f3db3lE956dZdKRW0iaralgyQp2H36U1HYuVfCaTjjLf6ZBXr
+FuB0Dcby4Et+Dj7OTrNAXvhJZq3mMEJGIhg6El8p7ChXyjzOeckfuIV2+v4x8c+Y
+aBJrVwJvHFmmfJkqiejURbOHnx/lTg==
+=H9tH
 -----END PGP SIGNATURE-----
 
---=-mHkaeGvwgsTfYPjnj29j--
+--=-uUrpCZAmsEtDFdsgFQJN--
 
 
 
---===============1250781236205692558==
+--===============7221108338534536858==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -158,6 +142,6 @@ linux-rpi-kernel mailing list
 linux-rpi-kernel@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
 
---===============1250781236205692558==--
+--===============7221108338534536858==--
 
 
