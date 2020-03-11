@@ -2,57 +2,147 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8454F1817DB
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 11 Mar 2020 13:21:32 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0F4B71823C8
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 11 Mar 2020 22:23:29 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=KPu7MyoSQa5xYvEzWembE/20HHyQGUmVexXI+H8INbo=; b=pFcxJtdB+OjSDAsAizT8ePUB3
-	i05bETE0V2eFY521y7BXqV/W3Bw9tnR77md0KqZevHD7dqjsrjj+z7bdGJbjaULdwVY5BVrBOGNdC
-	hVAT62pV5KJkym5mU8USuoue7jUOok0fLyN10LV8rnlf5vX5aKg4novLNj56tRuUw5lBzQcD1oeX2
-	CzCqNPGG0/wDmuhQuihqGU84ZSTKV7ziI8ExrzSN3MfhaGuLKwssaqEECtXic6Og82x1FBXvU240D
-	QMqeCP6andZJH/RESlvyUq4kBmRYMJO4T46JXQMJiCWq/9westD+Znt3D867bER5sKKl+Af4qw8I2
-	dk7zBZhZA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ldG2akqe8hIbXxZDqS0wsBEvNzZFfSTMg81034nyi5Y=; b=kji397N9rdxCjs
+	rU+7suhFyKIrlONjt4/eTq88yPKMsGDqCk3oNDiYXepkNwqU6RUjmMBaLP432TcXwv5g2bKGYeIyz
+	kedWv6lqfFY818jVazTfghbUalXvCVkkjTDLWz+GN9sFEk8arATGfi8emCKpN7gQhxh0b0/wv+KIm
+	RinyXnj1/UC3lq3xE8k4434pz0HLDSBTsxC6Hk20eEXdQurTu3lEQj4sffT0ZfUXIDgqfWFPFOAyK
+	Q2BwBCeJqiKpjd2SfOpDgyuNg+Ez0woicWqkaNWgu+VI8LRmiC3x1oYr/JIZUQUBhTkYQx03boeJu
+	wfMDY50u545zLSaMCaqQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jC0MT-0005Wr-Jj; Wed, 11 Mar 2020 12:21:21 +0000
-Received: from mx2.suse.de ([195.135.220.15])
+	id 1jC8os-0007Xu-Rq; Wed, 11 Mar 2020 21:23:14 +0000
+Received: from mail-ed1-x543.google.com ([2a00:1450:4864:20::543])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jC0MP-0005U4-69
- for linux-rpi-kernel@lists.infradead.org; Wed, 11 Mar 2020 12:21:19 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx2.suse.de (Postfix) with ESMTP id 3DCBCAE38;
- Wed, 11 Mar 2020 12:21:11 +0000 (UTC)
-Message-ID: <9fd81af85cb60df8d74da4f0c8b9d2eb435b8c49.camel@suse.de>
-Subject: Re: 5.6.0-rc5 fails to boot (MMC/SDHCI related?)
-From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-To: Lucas Nussbaum <lucas@debian.org>
-Date: Wed, 11 Mar 2020 13:21:09 +0100
-In-Reply-To: <20200311120724.GA30432@xanadu.blop.info>
-References: <20200310223403.GA31851@xanadu.blop.info>
- <e3df2e1c87997799babafcd17676b7473d3f5154.camel@suse.de>
- <20200311120724.GA30432@xanadu.blop.info>
-User-Agent: Evolution 3.34.4 
+ id 1jC8oe-0007NX-Br; Wed, 11 Mar 2020 21:23:01 +0000
+Received: by mail-ed1-x543.google.com with SMTP id dc19so4685691edb.10;
+ Wed, 11 Mar 2020 14:22:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=subject:to:cc:references:from:autocrypt:message-id:date:user-agent
+ :mime-version:in-reply-to:content-language:content-transfer-encoding;
+ bh=YJC1ymdLgOCO/JayWr54x/IbbfrzntAjTx/VyJt/DB4=;
+ b=YGhSCq+PBKaSeh7msUAACEq9NtaL7LlJgQgbBw+nGJWXn80PdkpUGWGNX005OSKCpu
+ YGFsBXKe+UiOvOboSxnBWfvrKVHLRkZLfbAbcljSFNvJqc71Riaujqvq7CR1AdYokM8t
+ jmxHBhXoWiF8GNZiVNlos/x6CUhBnDYjw33io2bL7I3KqoJi7uz5d02UJX8NsD/JPoP2
+ a8sGhvO8Ov/3ZVtDOrGhnzi8ZdJwPzwCQElgigb/v+tSvrPUKWW6EChv7W89hY9MO9DW
+ rD0Bt/4z3DuKPoyeI5VLN6pCG1jn9Pj1K7GgYyH5Sxunbq66fVMJ6tYBcc5YJ1kC8EO8
+ 5GlA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:subject:to:cc:references:from:autocrypt
+ :message-id:date:user-agent:mime-version:in-reply-to
+ :content-language:content-transfer-encoding;
+ bh=YJC1ymdLgOCO/JayWr54x/IbbfrzntAjTx/VyJt/DB4=;
+ b=UZG2YeDHglKE8jZCZnM/Kp8UWmfZS1PymyFFFn6Tdb4EFQa4i/HvtHe0CNi+qU2vgF
+ 7PpLoDps8SjXX/FuNHkslqciKgcMtf7KnLlTFJ9PXleA8kSbMhAHDnV1Y2wuXAQHaaaE
+ m8/WNuBIXSTuDp+4bNaw23sh9k9Lt2DtMCa41zvgfLk4FmAVy7c4aYYZqnCtjSz+q1Va
+ xRiRhms2uiHIGXvgUyV2R0TfIjBYadVhcSNkN31nJp8k1wTarTMyxIwkecNL32xJ19qn
+ 1Lb/Wa39jlWOiAFC1TsYJ4Y0HIkquYU3VZoLwdZYlzeMAk22zkijI7ediHdN7ArofjtC
+ /nMg==
+X-Gm-Message-State: ANhLgQ0O34FJ/ekkhjW+K7pAKILURPhaoJuuc30mGL0JC5TU/cN9JM/q
+ teFBGa1+8nN71XYy5dFg8ZFW+BaB
+X-Google-Smtp-Source: ADFU+vvCMoBcisirULpq9AdcdvP2oFudxHn9wxvG9zoe+jKX/drzf01mudvXIup+vAzphD7EUU66Uw==
+X-Received: by 2002:a50:d7d3:: with SMTP id m19mr4716364edj.329.1583961774482; 
+ Wed, 11 Mar 2020 14:22:54 -0700 (PDT)
+Received: from [10.67.48.239] ([192.19.223.252])
+ by smtp.googlemail.com with ESMTPSA id s6sm255555edu.42.2020.03.11.14.22.51
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Wed, 11 Mar 2020 14:22:53 -0700 (PDT)
+Subject: Re: [GIT PULL RESEND 1/2] bcm2835-dt-next-2020-03-09
+To: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>,
+ Florian Fainelli <f.fainelli@gmail.com>
+References: <91044910d494a12d06e7098561fe1be86a61f033.camel@suse.de>
+From: Florian Fainelli <f.fainelli@gmail.com>
+Autocrypt: addr=f.fainelli@gmail.com; prefer-encrypt=mutual; keydata=
+ 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
+ G10n8gCguORqNGMsVRxrlLs7/himep7MrCc=
+Message-ID: <b9658df8-d929-cf6a-a2de-a5b08b5785b9@gmail.com>
+Date: Wed, 11 Mar 2020 14:22:46 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.4.1
 MIME-Version: 1.0
+In-Reply-To: <91044910d494a12d06e7098561fe1be86a61f033.camel@suse.de>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200311_052117_513856_3B3AF434 
-X-CRM114-Status: GOOD (  22.67  )
-X-Spam-Score: -2.3 (--)
+X-CRM114-CacheID: sfid-20200311_142300_403595_1304A7D5 
+X-CRM114-Status: GOOD (  12.82  )
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [195.135.220.15 listed in list.dnswl.org]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2a00:1450:4864:20:0:0:0:543 listed in]
+ [list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [195.135.220.15 listed in wl.mailspike.net]
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider [f.fainelli[at]gmail.com]
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -64,158 +154,39 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: linux-rpi-kernel@lists.infradead.org
-Content-Type: multipart/mixed; boundary="===============1325314222478008522=="
+Cc: bcm-kernel-feedback-list <bcm-kernel-feedback-list@broadcom.com>,
+ linux-rpi-kernel <linux-rpi-kernel@lists.infradead.org>,
+ linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
+On 3/10/20 5:27 AM, Nicolas Saenz Julienne wrote:
+> Hi Florian,
+> 
+> The following changes since commit bb6d3fb354c5ee8d6bde2d576eb7220ea09862b9:
+> 
+> Linux 5.6-rc1 (2020-02-09 16:08:48 -0800)
+> 
+> are available in the Git repository at:
+> 
+> git://git.kernel.org/pub/scm/linux/kernel/git/nsaenz/linux-rpi.git tags/bcm2835-dt-next-2020-03-09
+> 
+> for you to fetch changes up to 3d2cbb64483691c8f8cf88e17d7d581d9402ac4b:
+> 
+> ARM: dts: bcm2711: Move emmc2 into its own bus (2020-03-09 21:18:03 +0100)
+> 
+> ----------------------------------------------------------------
+> This tag adds GPIO labels to RPi4 and moves emmc2 to its own bus in
+> order for RPi4's firmware to correct its DMA constraints.
+> > ----------------------------------------------------------------
 
---===============1325314222478008522==
-Content-Type: multipart/signed; micalg="pgp-sha256";
-	protocol="application/pgp-signature"; boundary="=-Woi6K0x2qwGEmt5R0czZ"
-
-
---=-Woi6K0x2qwGEmt5R0czZ
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, 2020-03-11 at 13:07 +0100, Lucas Nussbaum wrote:
-> > Here you're setting cma=3D64M, which bypasses the device-tree provided =
-CMA
-> > location configuration. As a test you could set it to cma=3D64M@0x0-0x4=
-0000000
-> > ,
-> > which should make your system bootable. That said, you should find out =
-why
-> > is
-> > this being set in your command-line. I could be able to help if you sho=
-w me
-> > your config.txt.
->=20
-> My goal is to create Debian images for the RPI4, using only mainline
-> components. I started by combining an arm64 Ubuntu image (that works)
-> with a Debian image for the RPI3. I could get it to boot using Ubuntu's
-> u-boot, kernel and device tree file, and the Debian userland.
->=20
-> But when I replace Ubuntu's kernel with the one I built, the boot hangs
-> as above.
->=20
-> I guess that you are right, and that the problem is that I did not
-> replace the device tree file by the one from the kernel. However, when I
-> do so, the boot hangs earlier, after:
->=20
-> ----------------------------
-> PM_RSTS: 0x00001000
-> RPi: BOOTLOADER release VERSION:f626c772 Sep 10 2019 10:41:52 BOOTMODE:
-> 0x00000006 part: 0 BUILD_TIMESTAMP=3D1568112110
-> uSD voltage 3.3V
-> SD HOST: 200000000 CTL0: 0x00000000 BUS: 100000 Hz div: 2000 status:
-> 0x1fff0000 delay-ticks: 1080
-> SD HOST: 200000000 CTL0: 0x00000f00 BUS: 100000 Hz div: 2000 status:
-> 0x1fff0000 delay-ticks: 1080
-> CID: 00035344534331364780da9e301d013c
-> CSD: 400e00325b59000076b27f800a404000
-> CSD: VER: 1 logical blocks: 30386 mult: 1024 rd(len: 512 partial: 0 misal=
-ign:
-> 0) sectors: 31116288
-> SD: bus-width: 4 spec: 2 SCR: 0x02358043 0x00000000
-> SWITCH_FUNC:
-> 0000000000000000000000000000000000000000000000000000000000000000000000000=
-00000
-> 0000000000000000010000038001c00180018001800180c800
-> SD HOST: 200000000 CTL0: 0x00000f04 BUS: 40000000 Hz div: 6 status: 0x1ff=
-f0000
-> delay-ticks: 2
-> MBR: 0x00000800, 1021952 type: 0x0c
-> MBR: 0x000fa000,30092288 type: 0x83
-> MBR: 0x00000000,       0 type: 0x00
-> MBR: 0x00000000,       0 type: 0x00
-> part-offset: 2048 oem:  mkfs.fat volume:   V       ^=20
-> rsc: 16 sectors-per-fat: 256 clusters: 63837 cluster-size: 16 root-dir: 1
-> root-sectors: 32
-> WEL: 0x00000a10 0x000f9fff
-> PM_RSTS: 0x00001000
-> Partition: 0
-> part-offset: 2048 oem:  mkfs.fat volume:   V       ^=20
-> rsc: 16 sectors-per-fat: 256 clusters: 63837 cluster-size: 16 root-dir: 1
-> root-sectors: 32
-> Loading config.txt hnd: 0x00001479
-> Initialising SDRAM 'Micron' 16Gb x1 total-size: 16 Gbit 3200
-> Loading recovery.elf hnd: 0x00000000
-> Failed to read recovery.elf error: 6
-> Loading start4.elf hnd: 0x000054aa
-> Loading fixup4.dat hnd: 0x00005206
-> MEM GPU: 76 ARM: 948 TOTAL: 1024
-> FIXUP src: 128 256 dst: 948 1024
-> Starting start4.elf @ 0xfec00200
-> ----------------------------------------
->=20
-> (So it seems that u-boot doesn't start)
->=20
-> I confirm that setting cma=3D64M@0x0-0x40000000 fixes this issue (but the
-> boots still hangs, later).
->=20
-> I will work on building a "clean" u-boot instead of Ubuntu's to see if
-> it fixes the above issue (=3D uboot not starting). I quickly tried
-> replacing the uboot binary with OpenSUSE's and it prints garbage on the
-> serial port, so at least it seems to go further.
-
-Yes, that's an issue with how clocking works on the RPi, the serial console
-clock is linked to the VPU clock, which the firmware tends to change behind=
- the
-serial driver's back, hence the garbage.
-
-A temporary workaround I found is setting gpu_freq=3D400 in config.txt. Or
-directly, use the config.txt provided by openSUSE.
-
-> Is there a system image somewhere using vanilla versions for u-boot and
-> the kernel I could compare with? (it sounds like it would be a better
-> idea than to compare with Ubuntu's).
-
-I suggest using openSUSE's tumbleweed as a starting point for kernel/u-boot
-AFAIK it's the one around that really tracks upstream development and tests=
- it
-(TBH I haven't checked what arch or Gentoo are doing). That said, we use UE=
-FI
-for booting, which might not be what you're looking for. In that regard I
-suggest checking out ARM's EBBR, https://arm-software.github.io/ebbr/.
-
-Regards,
-Nicolas
-
-
---=-Woi6K0x2qwGEmt5R0czZ
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCAAdFiEErOkkGDHCg2EbPcGjlfZmHno8x/4FAl5o17UACgkQlfZmHno8
-x/47qAgAtaW5lyQddIRA09O8zfjhihMowZ1AZFkgERNy7xKDng8uilX7nimEaCjz
-ELsj21xvwsy/Iw0Wi4mh9cJeiWCNmu4yfNi/frnRfiYxIR76lTSsmvgsEPkyFfDf
-YdOFUoYDmkCJn+VnO5viT1NXXBw1DYsZUF2bNPHY0CA7OGyEMAINsWd+Z6P3uwyw
-bMdb1iq2yAIpzXqXY7RUOhsNOUgY1A3MCIZCUxXk6pPlg6+YZbiTIsoLG/NSuA9c
-oe1mF2+ykeQ/nVYWAGcnDjOAiiyrWcdhrbCRubTvk8fWCtmCRCKbozUyyw0FIqCt
-jI6s5cQsHL0NGfhVjRIrp0PmQOC0QA==
-=d3Iu
------END PGP SIGNATURE-----
-
---=-Woi6K0x2qwGEmt5R0czZ--
-
-
-
---===============1325314222478008522==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Merged into devicetree/next, thanks Nicolas.
+-- 
+Florian
 
 _______________________________________________
 linux-rpi-kernel mailing list
 linux-rpi-kernel@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
-
---===============1325314222478008522==--
-
-
