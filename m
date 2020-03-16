@@ -2,73 +2,63 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6AB88186290
-	for <lists+linux-rpi-kernel@lfdr.de>; Mon, 16 Mar 2020 03:39:01 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 88051186B3C
+	for <lists+linux-rpi-kernel@lfdr.de>; Mon, 16 Mar 2020 13:40:44 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=My0n8I43+pIpJOIP4mu4R/5o/bCqQhkPyvnjxB6cyyY=; b=B6lLjhVH/AeFjr
-	cbkc10weXFRoZ0mcRSeaLuWtcfpyJpffvSD3iEcS0gw8rjihvmJR2CBu/LQ0eHskFtRgtnexqdRf9
-	Kx/3F/7pHmcxqWTa5+3hwNE2b5Tm1zJ7oj12RLD+/u5psUroWG0303JlJOk6l+5bavgbcchsSSb0q
-	YQ29LRH/CIRjQtSNyXtiPzdBS0+cqdWtxc5uDUt9X7VZkLqGttBm881gAuYq5CiFfooxW1puqKrqW
-	L6LSpVNBFRElS17qksR68Jru5xkIROKG/iNlzc3D7FOXK7/ZaO16CY06Wg8l9PralXbAhXTFCC0hu
-	0IMTGMl/c9/xtagIGbpA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=HyI4KlPB2x4eeQgkZ8kC4Kw97TlBw5FmJaXWpjvR4hs=; b=io0fJsFm6xzezMONTdOdIXgLv
+	7yNnpujmvL9474XneRLrNKvAjx7pp27RuaDXBmN9YjJSo/vVVPTD9Fqufo+MeITz+yM2XUfLffZCE
+	puwQGK6n8Q20DAtGb7XONZ0QlBRjvTKkoNV+0L2G3VKUae3O0URW3oTZZXO5qYc5mkio93NKnXPSN
+	4+C6zhejrTM4PDqJBYOx4h7t1iUCKaKJNDDX4JTNnPJLaRDwOM2/OXQSYUzKI546EsZ3qSk+aEsrr
+	gTEjduUZ/aJP07kAUo8KofJ5NkY5AxEwHk6egPeVTqAM+574/vYfvD/asBTJhEePBv7WdvIklGfiu
+	IdtLaDy2g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jDfeU-0007zp-T0; Mon, 16 Mar 2020 02:38:50 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1jDp2n-0001g6-RI; Mon, 16 Mar 2020 12:40:33 +0000
+Received: from mx2.suse.de ([195.135.220.15])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jDfZd-0002R5-D7; Mon, 16 Mar 2020 02:33:52 +0000
-Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net
- [73.47.72.35])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 0FB1E20737;
- Mon, 16 Mar 2020 02:33:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1584326029;
- bh=glIX5Z7bJqEDQ5JgvMe9Z3yqwXPHOV3ppkP4+fwmd/g=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=MExo3ygi1aa5Pbf/WpfwN9WQD6IwYAl+52M/EV5jch7Pu3mgrnvb2GIm95TKXDDAU
- Pv75Y/7SSXUJjkh66yPCIVq8rdVMdt9SorUV/NOjYDwXALsXGlVLSCwvnp16/jHn5t
- xTknl9+VbDgNkuw9xDPELxufPAknkJ8mbhC7IIMs=
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH AUTOSEL 5.5 24/41] ARM: bcm2835_defconfig: Explicitly restore
- CONFIG_DEBUG_FS
-Date: Sun, 15 Mar 2020 22:33:02 -0400
-Message-Id: <20200316023319.749-24-sashal@kernel.org>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20200316023319.749-1-sashal@kernel.org>
-References: <20200316023319.749-1-sashal@kernel.org>
+ id 1jDp2d-0001Xm-Gw; Mon, 16 Mar 2020 12:40:25 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+ by mx2.suse.de (Postfix) with ESMTP id CE740B1D1;
+ Mon, 16 Mar 2020 12:40:19 +0000 (UTC)
+Message-ID: <a25b759292901eee3eab4dbf8002d2050edda6d3.camel@suse.de>
+Subject: Re: [PATCH] ARM: dts: bcm283x: Use firmware PM driver for V3D
+From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+To: Stefan Wahren <stefan.wahren@i2se.com>
+Date: Mon, 16 Mar 2020 13:40:17 +0100
+In-Reply-To: <90e92438-00df-520f-c8b1-2e2077934592@i2se.com>
+References: <20200303173217.3987-1-nsaenzjulienne@suse.de>
+ <736f0c59-352b-03b2-f77f-bfc22171b3fb@i2se.com>
+ <03fcb1e2bc7f3ff389b6dfbf3964e159a93ae835.camel@suse.de>
+ <d3d40174-9c08-f42f-e088-08e23c2dc029@i2se.com>
+ <f2ec22160ac86aec8d252ade7d6eb8789777cc42.camel@suse.de>
+ <01ceb60e-a791-b6ca-352e-ad2e79f264e3@i2se.com>
+ <ddcb8fd5-9e35-454c-b38d-d36e7b41ef07@i2se.com>
+ <9e685fce547d808f269e59e2290331e75c66f3e4.camel@suse.de>
+ <bb2c7d99-06b1-d222-7f69-8ce91157bde5@i2se.com>
+ <90e92438-00df-520f-c8b1-2e2077934592@i2se.com>
+User-Agent: Evolution 3.34.4 
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200315_193350_490556_7B7B1FB9 
-X-CRM114-Status: UNSURE (   9.44  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -5.2 (-----)
+X-CRM114-CacheID: sfid-20200316_054023_850877_8A18075E 
+X-CRM114-Status: GOOD (  25.58  )
+X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-5.2 points)
+ Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [198.145.29.99 listed in list.dnswl.org]
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [195.135.220.15 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [195.135.220.15 listed in wl.mailspike.net]
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -80,48 +70,140 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Sasha Levin <sashal@kernel.org>, bcm-kernel-feedback-list@broadcom.com,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- Marek Szyprowski <m.szyprowski@samsung.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ Maxime Ripard <maxime@cerno.tech>
+Content-Type: multipart/mixed; boundary="===============5672888727304472551=="
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-From: Stefan Wahren <stefan.wahren@i2se.com>
 
-[ Upstream commit 1bba60808404b873defa0f3560497eb2e8fe86b8 ]
+--===============5672888727304472551==
+Content-Type: multipart/signed; micalg="pgp-sha256";
+	protocol="application/pgp-signature"; boundary="=-llRo3iQarP3fSJT+BfYK"
 
-The commit 0e4a459f56c3 ("tracing: Remove unnecessary DEBUG_FS dependency")
-accidentally dropped the DEBUG FS support in bcm2835_defconfig. So
-restore the config as before the commit.
 
-Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
-Fixes: 0e4a459f56c3 ("tracing: Remove unnecessary DEBUG_FS dependency")
-Signed-off-by: Stefan Wahren <stefan.wahren@i2se.com>
-Signed-off-by: Florian Fainelli <f.fainelli@gmail.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- arch/arm/configs/bcm2835_defconfig | 1 +
- 1 file changed, 1 insertion(+)
+--=-llRo3iQarP3fSJT+BfYK
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/arch/arm/configs/bcm2835_defconfig b/arch/arm/configs/bcm2835_defconfig
-index 519ff58e67b30..0afcae9f7cf8a 100644
---- a/arch/arm/configs/bcm2835_defconfig
-+++ b/arch/arm/configs/bcm2835_defconfig
-@@ -178,6 +178,7 @@ CONFIG_SCHED_TRACER=y
- CONFIG_STACK_TRACER=y
- CONFIG_FUNCTION_PROFILER=y
- CONFIG_TEST_KSTRTOX=y
-+CONFIG_DEBUG_FS=y
- CONFIG_KGDB=y
- CONFIG_KGDB_KDB=y
- CONFIG_STRICT_DEVMEM=y
--- 
-2.20.1
+Hi Stefan,
+thanks for taking the time with this. That was a hard to find one, speciall=
+y
+given the race in X11.
 
+On Sun, 2020-03-15 at 20:16 +0100, Stefan Wahren wrote:
+> Hi Nicolas,
+>=20
+> [adjust audience]
+>
+> i've narrowed down the issue. From kernel 4.19 until 5.1 the DRM
+> emulated driver was responsible for a working X on my Raspberry Pi 3
+> with HP ZR2440w. Starting with 5.2 the vc4drmfb took over and with 5.3 X
+> didn't start anymore (display freeze).
+>=20
+> So i start bisecting and this was the commit where the freezing started:
+>=20
+> e08ab74bd4 drm/modes: Rewrite the command line parser
+>=20
+> After this i enabled drm debug and saw that suggest mode 1920x1200 by
+> the firmware is rejected by the driver because the pixel clock would be
+> too high (154 MHz, max =3D 148.5). This wasn't a problem before since the
+> firmware provided video cmdline parameter wasn't parseable:
+>=20
+> [drm] parse error at position 69 in video mode
+> '1920x1200M@60,margin_left=3D0,margin_right=3D0,margin_top=3D0,margin_bot=
+tom=3D0'
+>=20
+> After mentioned commit the display just freezes (no try to use
+> 1920x1080, no error message).
+>=20
+> For comparison i switched to the vendor tree with firmware kms driver
+> and noticed that the driver switches to 1920x1200 with a pixel at 154 MHz=
+.
+>=20
+> So this patch works for me:
+>=20
+> ---
+>  drivers/gpu/drm/vc4/vc4_hdmi.c | 9 +++++----
+>  1 file changed, 5 insertions(+), 4 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdm=
+i.c
+> index cea18dc..647803e 100644
+> --- a/drivers/gpu/drm/vc4/vc4_hdmi.c
+> +++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
+> @@ -681,11 +681,12 @@ static enum drm_mode_status
+>  vc4_hdmi_encoder_mode_valid(struct drm_encoder *crtc,
+>                  const struct drm_display_mode *mode)
+>  {
+> -    /* HSM clock must be 108% of the pixel clock.
+
+I think it'd be nice to understand how Eric came by this number. Maybe just
+empirically with 1080p60? That said, I think your change is pretty much
+harmless.
+
+I'll add a reminder to Maxime's series for him to update RPi[0-3]'s max
+frequency to 1920x1200@60's.
+
+> -     * the AXI clock needs to be at least 25% of pixel clock, but
+> -     * HSM ends up being the limiting factor.
+> +    /* According to spec the HSM clock must be 108% of the pixel clock.
+> +     * Additionally, the AXI clock needs to be at least 25% of pixel clo=
+ck,
+> +     * but HSM ends up being the limiting factor.
+> +     * It seems that operating the pixel clock at 154 MHz still works.
+>       */
+> -    if (mode->clock > HSM_CLOCK_FREQ / (1000 * 108 / 100))
+> +    if (mode->clock > HSM_CLOCK_FREQ / (1000 * 106 / 100))
+
+Isn't hard-coding the HSM clock kind of limited, one could overclock it, is=
+n't
+it? I remember reading someone did it to support wider resolutions.
+
+Regards,
+Nicolas
+
+[1] https://www.raspberrypi.org/forums/viewtopic.php?f=3D29&t=3D24679#p3338=
+10
+
+>          return MODE_CLOCK_HIGH;
+>
+>      return MODE_OK;
+
+
+
+--=-llRo3iQarP3fSJT+BfYK
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCAAdFiEErOkkGDHCg2EbPcGjlfZmHno8x/4FAl5vc7EACgkQlfZmHno8
+x/6rqwgAtGp/748O7ODjcZ+MIIJEVrwNuS8oGIcm3532l9f4m0dCOajGLTiISxeE
+DJx8+H1ccmb3OPMD7VpGqYCRyTGwrrEqcC3wl1OTZpuMtvWHerlkkQVk61hQ5lE3
+OXADNYA2awrfQjqCRR2ifGNrzSRHl5TfNpRGnyBtiGNa91I2z7T/KTM6tiXyUSKe
+O2t5415Ohoq+na/qR87ArrOw+K2078LvAxBu79BNz7sTmmPfylBU/cx/ByCCzKWI
+zQOKEhWsBE8Y3g5xkroWUAtdq6DZudRNOM5DYx2rodOCr/WHiNBWCsfFIzQNHh9m
+nVBe4XvzuJFGUle0hpnHYYpDUYuGOg==
+=vmFy
+-----END PGP SIGNATURE-----
+
+--=-llRo3iQarP3fSJT+BfYK--
+
+
+
+--===============5672888727304472551==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-rpi-kernel mailing list
 linux-rpi-kernel@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
+
+--===============5672888727304472551==--
+
+
