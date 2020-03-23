@@ -2,72 +2,57 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id A46ED18F7D0
-	for <lists+linux-rpi-kernel@lfdr.de>; Mon, 23 Mar 2020 15:57:33 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4572A18F904
+	for <lists+linux-rpi-kernel@lfdr.de>; Mon, 23 Mar 2020 16:56:22 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=7RsoTV92h+AdagyAWrEKgL2XvER6wuonwb56UnlhdJ4=; b=lO0KmCZY9Mt918416Yf14vGdT
-	YtONXu11TMCbjWDJaE3be2ekVwkF703h8RBE1OzY43lQXe1Xw/fZUDAaC6znGuYtL+HTemK5LJP03
-	uzfFHn1q6AaBL+bnUuMZIAJ7Re8Lc6Lrve2ubv/DklIaFAgZf+40eTFD7zgPQEZDcQsX03uMZoNxz
-	vB6NKj+m7A25pm873T7J3VB/+jO+mRtBTig1fXWNPE7/qlpMiFX30qcTFOH5KWfRg+dDj9QA5+DeB
-	0uEJq9XhMu3K9j9l0CSCFNb/8X1sHXfEclns+4gmmA/1/K8ZOdnBicHIVSsyXNtNGV3D+a+VbBZMz
-	Jjwy4F9/w==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qUq8V3qsN4YzcTM44FuEbJ/yNm9cZ1MMis0Pswskx9Q=; b=bEygdPN4dC6jgm
+	PLgJL5hlZhfXKD6Ft9YkGf8zadm6fFUHWtNu6pjYCpOeVTxZA3MFOAYknERuPpvemayIKaiSq2Y08
+	TyJrkI7Loth2Nvgi0nH1wk2glaO+vhGOUmHPe2mlyzT/IFwlB1xUziTIQEi7TJxM6qXkgX4hpAePX
+	JvgpmtnThzxHLQAZgbEbEm5lCOZNv3Jo9s0N/JhhECofxGKk94JUSseDQKTzn2SJPKrXvokHB2UWr
+	TFaaSog7/z4k6d7BfZkg2wrHtffMAbsqEmF/H99yi+CHv2CJm/dS4IGPYoOt0AlqDlHZzhbAVlBVq
+	IZujUcQBBT336LzBkZCQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jGOVy-0006nR-JI; Mon, 23 Mar 2020 14:57:18 +0000
-Received: from out2-smtp.messagingengine.com ([66.111.4.26])
+	id 1jGPR2-00020q-Qi; Mon, 23 Mar 2020 15:56:16 +0000
+Received: from mail-wm1-x342.google.com ([2a00:1450:4864:20::342])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jGOVk-0006fz-7t; Mon, 23 Mar 2020 14:57:06 +0000
-Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
- by mailout.nyi.internal (Postfix) with ESMTP id 1E25B5C025E;
- Mon, 23 Mar 2020 10:57:01 -0400 (EDT)
-Received: from mailfrontend1 ([10.202.2.162])
- by compute4.internal (MEProxy); Mon, 23 Mar 2020 10:57:01 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cerno.tech; h=
- date:from:to:cc:subject:message-id:references:mime-version
- :content-type:in-reply-to; s=fm2; bh=eaVY0X7HkQaj5Ami+3v/ZEWRrsw
- FV9JugbUASRnx5wc=; b=OsAInfE1Vm5B+QW1wof7fVJD3uqyLnHsXSwG+X4/JKI
- Xw3WitvFnWUI7GQ7TKqtbH2oLpF+vlp1uFkaZy8ypkfTPbg1fmRKjK25pOp7oDMf
- 93xurvP2WUwEXCfMH/EG8z83UOWOz7NeI3/udFQX/09lDHDhr8ufKlnG42m3k/Uv
- xztPXFFzYnqbP0+8a5G2RMg6G3Dod+ITggz7QrMwMNybejFidlAwWDQwK3fdIZ1b
- h8uC+dhLBZIOvrZWoWxLCCRyVg3HuoP0M1guSt7wrFipZiiSh2kZryBD3Y8N+yYa
- YFDOCMO0kkXvn8La+w1Gus7O9DORUt+KasqOq/sqQvQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
- messagingengine.com; h=cc:content-type:date:from:in-reply-to
- :message-id:mime-version:references:subject:to:x-me-proxy
- :x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; bh=eaVY0X
- 7HkQaj5Ami+3v/ZEWRrswFV9JugbUASRnx5wc=; b=AYSVOoomR8VlW+AF9iTBkE
- qcLOfh00bPrk2SCVpmwu6g+Ymv7k8xmQcDEQ0TnGz7QOwLZRVmEbePDwmPjj1A7w
- 6oYg2eBV3wA+NH/uswl4viKG9xiPycDM2OXkgw0Pwt6q3dJOZoVvx/53amt0cj6u
- 74+uLXsnsfNb/MlAvxbGlebLF2K1KMz/YpCW12jxwwKFGDBu5NvzJ2h0IGC4/EPC
- UAJKEsS7HM64RwepClDBYithVjr+zFG1Jh95MkyZ8mGRCBVefTCXlwBPqOZj8a+C
- ZJdY7OfQrXnLVu0cc0bVyWn0xDKhwkIq0jJliiXUoreGHf24tPaPMQ5qm4yMoZng
- ==
-X-ME-Sender: <xms:PM54Xgt13rxlZjepiW9YvvyW4CszEXvz7paFUr3whtvTbgSngy7vKA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedugedrudegkedgjedtucetufdoteggodetrfdotf
- fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
- uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
- cujfgurhepfffhvffukfhfgggtuggjsehgtderredttddvnecuhfhrohhmpeforgigihhm
- vgcutfhiphgrrhguuceomhgrgihimhgvsegtvghrnhhordhtvggthheqnecukfhppeeltd
- drkeelrdeikedrjeeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghi
- lhhfrhhomhepmhgrgihimhgvsegtvghrnhhordhtvggthh
-X-ME-Proxy: <xmx:PM54XkMIxzr38RtCdfaZgLwgisr6GI2amabCsozuoJk20KWc4ffQKg>
- <xmx:PM54XtiWosKWlYFH8hVVoUtzFCsdl5pY7Do_pRGuP1CDz0LbSQ1Bhw>
- <xmx:PM54Xu4e_th_PwQnCtnWns8GE7Jx1ibJFT771ez7zYPC-tqdYz8rsw>
- <xmx:Pc54XiBMj_ClFKfBO2wZXx6Rl5bBQlwtX9EO8RNR_SmUop4GjCHaEw>
-Received: from localhost (lfbn-tou-1-1502-76.w90-89.abo.wanadoo.fr
- [90.89.68.76])
- by mail.messagingengine.com (Postfix) with ESMTPA id 138E73280066;
- Mon, 23 Mar 2020 10:56:59 -0400 (EDT)
-Date: Mon, 23 Mar 2020 15:56:58 +0100
-From: Maxime Ripard <maxime@cerno.tech>
-To: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Subject: Re: [PATCH] ARM: dts: bcm283x: Use firmware PM driver for V3D
-Message-ID: <20200323145658.gu72lt5wceqw4iwz@gilmour.lan>
+ id 1jGPQy-000203-P8
+ for linux-rpi-kernel@lists.infradead.org; Mon, 23 Mar 2020 15:56:14 +0000
+Received: by mail-wm1-x342.google.com with SMTP id a9so34436wmj.4
+ for <linux-rpi-kernel@lists.infradead.org>;
+ Mon, 23 Mar 2020 08:56:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=raspberrypi.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=yDjhzvVXTfNCzMJXV9kcEXRAmZfTXAd+kZwMZxZQCmI=;
+ b=KxPNTCwfmmsGVraOz65ygQHPnRfg6R+gUi0egeY2KsJYaPDquyRnqfuXthAfycKIwm
+ fUZsw8C9LH5o7ysDkAgNRDOIm+XNLXUj6X6FpWZlaWvhrT4Tn3tFjC5FlqylqW9Oj5cN
+ wE8T6Vr4bxGFIST9pBCGh6VyqeaUVVKW8E7l90MwE9Sulc18aEIIw71a1oYwxyzGUM4U
+ oIkSYAj/xH/GgTthXCeuR2eAy7TueOevrUmA7qnBv8eQfFCUrRXmNyJkJlOZ4kaIaoVT
+ nXbCGobKW885xt9vsibR7qX1MrJGKz6BKKXtGcv6YeZBBY8k5cpzXyGsl9WLcfKrbAQQ
+ 2C+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=yDjhzvVXTfNCzMJXV9kcEXRAmZfTXAd+kZwMZxZQCmI=;
+ b=KHEAs9y4vrIKM18A0N18QEGnVNsJfvpFobUFC6DMon2WQySgX5/QpsJ5EA2JFYF5Hk
+ 02AOC+KPX6y9KmvSaCB9BSm5qGy1bCYSlqeHj9aBYd2GREHmfWthaPzYJwX+lIgglSST
+ oWKKd9V9aHhqLCa6XVfe98+wwhnk6pB1avHIjwbcbnrAASjvJuLNJfTU9QVeII9x5lN1
+ mTDVUETtDHs0J1IVMugTqmSJHcvUC8hn2s/jr06ekL6M4yfyZGjRgt0xssFnb6VOD8Hu
+ 6SeksiyhSqJyMn0s2jA3JP4ePcX9inmXlvdVCS079NNy7V399B5YQSchheNZQtZ+07sT
+ hoaw==
+X-Gm-Message-State: ANhLgQ2p1TjAMct0ZJ4/G9FJhOPFUZVyQBp5bgZc/QemEIU0ZhhqU532
+ 6OBXdyaLwWOKg0WyuRJpjTvNHF+lFrZmDPLDgibuDg==
+X-Google-Smtp-Source: ADFU+vuP32tuCppZiX6ne5IafqrHXCKXZM/L3sfqoPhX8TPOveQs3j6u156rTQLYN+nYtFeNR+jH+6FvZZtc9aj1Ew0=
+X-Received: by 2002:a7b:c3cf:: with SMTP id t15mr27036739wmj.183.1584978970738; 
+ Mon, 23 Mar 2020 08:56:10 -0700 (PDT)
+MIME-Version: 1.0
 References: <03fcb1e2bc7f3ff389b6dfbf3964e159a93ae835.camel@suse.de>
  <d3d40174-9c08-f42f-e088-08e23c2dc029@i2se.com>
  <f2ec22160ac86aec8d252ade7d6eb8789777cc42.camel@suse.de>
@@ -78,22 +63,26 @@ References: <03fcb1e2bc7f3ff389b6dfbf3964e159a93ae835.camel@suse.de>
  <90e92438-00df-520f-c8b1-2e2077934592@i2se.com>
  <a25b759292901eee3eab4dbf8002d2050edda6d3.camel@suse.de>
  <CAPY8ntBB3wwkVj=+fzNRXzAqQs5q5MYmb7t7Be74zADeMCXHVA@mail.gmail.com>
-MIME-Version: 1.0
-In-Reply-To: <CAPY8ntBB3wwkVj=+fzNRXzAqQs5q5MYmb7t7Be74zADeMCXHVA@mail.gmail.com>
+ <20200323145658.gu72lt5wceqw4iwz@gilmour.lan>
+In-Reply-To: <20200323145658.gu72lt5wceqw4iwz@gilmour.lan>
+From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Date: Mon, 23 Mar 2020 15:55:54 +0000
+Message-ID: <CAPY8ntD=VFrb91V7uM5zROxD-r6+bU+Nmj+ZDFCdwvTuq8eF6g@mail.gmail.com>
+Subject: Re: [PATCH] ARM: dts: bcm283x: Use firmware PM driver for V3D
+To: Maxime Ripard <maxime@cerno.tech>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200323_075704_648428_C1ED119D 
-X-CRM114-Status: GOOD (  38.22  )
-X-Spam-Score: -0.9 (/)
+X-CRM114-CacheID: sfid-20200323_085612_863031_6BE44F86 
+X-CRM114-Status: GOOD (  43.87  )
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-0.9 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [66.111.4.26 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [66.111.4.26 listed in wl.mailspike.net]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2a00:1450:4864:20:0:0:0:342 listed in]
+ [list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
@@ -101,7 +90,6 @@ X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  valid
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -114,176 +102,177 @@ List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
 Cc: linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Content-Type: multipart/mixed; boundary="===============5824820034752596027=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
+Hi Maxime
 
---===============5824820034752596027==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="deogfedlsszkwf4x"
-Content-Disposition: inline
-
-
---deogfedlsszkwf4x
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-Hi Dave,
-
-On Mon, Mar 16, 2020 at 01:57:13PM +0000, Dave Stevenson wrote:
->  Hi Stefan and Nicolas
+On Mon, 23 Mar 2020 at 14:57, Maxime Ripard <maxime@cerno.tech> wrote:
 >
-> On Mon, 16 Mar 2020 at 12:40, Nicolas Saenz Julienne
-> <nsaenzjulienne@suse.de> wrote:
+> Hi Dave,
+>
+> On Mon, Mar 16, 2020 at 01:57:13PM +0000, Dave Stevenson wrote:
+> >  Hi Stefan and Nicolas
 > >
-> > Hi Stefan,
-> > thanks for taking the time with this. That was a hard to find one, specially
-> > given the race in X11.
+> > On Mon, 16 Mar 2020 at 12:40, Nicolas Saenz Julienne
+> > <nsaenzjulienne@suse.de> wrote:
+> > >
+> > > Hi Stefan,
+> > > thanks for taking the time with this. That was a hard to find one, specially
+> > > given the race in X11.
+> > >
+> > > On Sun, 2020-03-15 at 20:16 +0100, Stefan Wahren wrote:
+> > > > Hi Nicolas,
+> > > >
+> > > > [adjust audience]
+> > > >
+> > > > i've narrowed down the issue. From kernel 4.19 until 5.1 the DRM
+> > > > emulated driver was responsible for a working X on my Raspberry Pi 3
+> > > > with HP ZR2440w. Starting with 5.2 the vc4drmfb took over and with 5.3 X
+> > > > didn't start anymore (display freeze).
+> > > >
+> > > > So i start bisecting and this was the commit where the freezing started:
+> > > >
+> > > > e08ab74bd4 drm/modes: Rewrite the command line parser
+> > > >
+> > > > After this i enabled drm debug and saw that suggest mode 1920x1200 by
+> > > > the firmware is rejected by the driver because the pixel clock would be
+> > > > too high (154 MHz, max = 148.5). This wasn't a problem before since the
+> > > > firmware provided video cmdline parameter wasn't parseable:
+> > > >
+> > > > [drm] parse error at position 69 in video mode
+> > > > '1920x1200M@60,margin_left=0,margin_right=0,margin_top=0,margin_bottom=0'
+> > > >
+> > > > After mentioned commit the display just freezes (no try to use
+> > > > 1920x1080, no error message).
+> > > >
+> > > > For comparison i switched to the vendor tree with firmware kms driver
+> > > > and noticed that the driver switches to 1920x1200 with a pixel at 154 MHz.
+> > > >
+> > > > So this patch works for me:
+> > > >
+> > > > ---
+> > > >  drivers/gpu/drm/vc4/vc4_hdmi.c | 9 +++++----
+> > > >  1 file changed, 5 insertions(+), 4 deletions(-)
+> > > >
+> > > > diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdmi.c
+> > > > index cea18dc..647803e 100644
+> > > > --- a/drivers/gpu/drm/vc4/vc4_hdmi.c
+> > > > +++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
+> > > > @@ -681,11 +681,12 @@ static enum drm_mode_status
+> > > >  vc4_hdmi_encoder_mode_valid(struct drm_encoder *crtc,
+> > > >                  const struct drm_display_mode *mode)
+> > > >  {
+> > > > -    /* HSM clock must be 108% of the pixel clock.
+> > >
+> > > I think it'd be nice to understand how Eric came by this number. Maybe just
+> > > empirically with 1080p60? That said, I think your change is pretty much
+> > > harmless.
+> > >
+> > > I'll add a reminder to Maxime's series for him to update RPi[0-3]'s max
+> > > frequency to 1920x1200@60's.
+> > >
+> > > > -     * the AXI clock needs to be at least 25% of pixel clock, but
+> > > > -     * HSM ends up being the limiting factor.
+> > > > +    /* According to spec the HSM clock must be 108% of the pixel clock.
+> > > > +     * Additionally, the AXI clock needs to be at least 25% of pixel clock,
+> > > > +     * but HSM ends up being the limiting factor.
+> > > > +     * It seems that operating the pixel clock at 154 MHz still works.
+> > > >       */
+> > > > -    if (mode->clock > HSM_CLOCK_FREQ / (1000 * 108 / 100))
+> > > > +    if (mode->clock > HSM_CLOCK_FREQ / (1000 * 106 / 100))
+> > >
+> > > Isn't hard-coding the HSM clock kind of limited, one could overclock it, isn't
+> > > it? I remember reading someone did it to support wider resolutions.
 > >
-> > On Sun, 2020-03-15 at 20:16 +0100, Stefan Wahren wrote:
-> > > Hi Nicolas,
-> > >
-> > > [adjust audience]
-> > >
-> > > i've narrowed down the issue. From kernel 4.19 until 5.1 the DRM
-> > > emulated driver was responsible for a working X on my Raspberry Pi 3
-> > > with HP ZR2440w. Starting with 5.2 the vc4drmfb took over and with 5.3 X
-> > > didn't start anymore (display freeze).
-> > >
-> > > So i start bisecting and this was the commit where the freezing started:
-> > >
-> > > e08ab74bd4 drm/modes: Rewrite the command line parser
-> > >
-> > > After this i enabled drm debug and saw that suggest mode 1920x1200 by
-> > > the firmware is rejected by the driver because the pixel clock would be
-> > > too high (154 MHz, max = 148.5). This wasn't a problem before since the
-> > > firmware provided video cmdline parameter wasn't parseable:
-> > >
-> > > [drm] parse error at position 69 in video mode
-> > > '1920x1200M@60,margin_left=0,margin_right=0,margin_top=0,margin_bottom=0'
-> > >
-> > > After mentioned commit the display just freezes (no try to use
-> > > 1920x1080, no error message).
-> > >
-> > > For comparison i switched to the vendor tree with firmware kms driver
-> > > and noticed that the driver switches to 1920x1200 with a pixel at 154 MHz.
-> > >
-> > > So this patch works for me:
-> > >
-> > > ---
-> > >  drivers/gpu/drm/vc4/vc4_hdmi.c | 9 +++++----
-> > >  1 file changed, 5 insertions(+), 4 deletions(-)
-> > >
-> > > diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdmi.c
-> > > index cea18dc..647803e 100644
-> > > --- a/drivers/gpu/drm/vc4/vc4_hdmi.c
-> > > +++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
-> > > @@ -681,11 +681,12 @@ static enum drm_mode_status
-> > >  vc4_hdmi_encoder_mode_valid(struct drm_encoder *crtc,
-> > >                  const struct drm_display_mode *mode)
-> > >  {
-> > > -    /* HSM clock must be 108% of the pixel clock.
+> > Checking the docs it does state the restriction that Eric quotes.
 > >
-> > I think it'd be nice to understand how Eric came by this number. Maybe just
-> > empirically with 1080p60? That said, I think your change is pretty much
-> > harmless.
+> > HDMI Core Clock (state machine clock)
+> > Most of the HDMI logic operates on that clock. It
+> > is asynchronous to system core clock and pixel
+> > clock. Source for this clock can be chosen from
+> > various PLLs in the chip. See CPR Manager for
+> > details.
 > >
-> > I'll add a reminder to Maxime's series for him to update RPi[0-3]'s max
-> > frequency to 1920x1200@60's.
+> > This clock is also used for clocking pixel valve
+> > when HDMI peripheral is used. See Pixel Valve
+> > for details.axi_clock >= hdmi_core_clock > 108% of
+> > pixel_clock.
 > >
-> > > -     * the AXI clock needs to be at least 25% of pixel clock, but
-> > > -     * HSM ends up being the limiting factor.
-> > > +    /* According to spec the HSM clock must be 108% of the pixel clock.
-> > > +     * Additionally, the AXI clock needs to be at least 25% of pixel clock,
-> > > +     * but HSM ends up being the limiting factor.
-> > > +     * It seems that operating the pixel clock at 154 MHz still works.
-> > >       */
-> > > -    if (mode->clock > HSM_CLOCK_FREQ / (1000 * 108 / 100))
-> > > +    if (mode->clock > HSM_CLOCK_FREQ / (1000 * 106 / 100))
 > >
-> > Isn't hard-coding the HSM clock kind of limited, one could overclock it, isn't
-> > it? I remember reading someone did it to support wider resolutions.
+> > The default max pixel clock from the firmware side is 162MHz.
+> >
+> > In the firmware source we have a comment
+> >          // HDMI state machine clock must be faster than pixel clock -
+> > infinitessimally faster tested in simulation.
+> >          // Otherwise, exact value is unimportant - for HDMI operation.
+> >          // hdmi state machine clock now derived from PLLC_PER (typ
+> > 500MHz, see relevant platform.c).
+> >          //
+> >          // However, CEC bit clock is derived from the HSM clock, and
+> > the (programmable) CEC timing table
+> >          // is configured for a 40.00kHz CEC clock.
+> >          const unsigned margin = 1*1000*1000;
+> >          unsigned min_hsm_clock = margin + timings->pixel_freq;
+> >          const unsigned max_hsm_clock_for_cec = max(163682864,
+> > hdmi_pixel_freq_limit);
+> >
+> >          unsigned hdmi_state_machine_clock = max_hsm_clock_for_cec;
+> >
+> > So it adds 1MHz to the pixel clock for min_hsm_clock, but then doesn't
+> > use the value.
+> > Unless you do request a higher hdmi_pixel_freq_limit then the HSM is
+> > running at the same 163.68MHz that Eric's driver hard codes, and our
+> > max pixel clock is 162MHz.
+> > Keeping it a fixed value makes sorting the divider for CEC easier.
+> >
+> > Just adopting a 162MHz limit with a suitable comment is probably the
+> > most sensible move here, and Maxime's patches can pick up the same
+> > value.
 >
-> Checking the docs it does state the restriction that Eric quotes.
+> It's kind of related, but one of the changes we did to support the
+> RPi4 is to change that rate calculation to increase the HSM clock for
+> pixel clocks higher than 148.5MHz (so typically 4k), while keeping it
+> as low as possible to reduce the power consumption.
 >
-> HDMI Core Clock (state machine clock)
-> Most of the HDMI logic operates on that clock. It
-> is asynchronous to system core clock and pixel
-> clock. Source for this clock can be chosen from
-> various PLLs in the chip. See CPR Manager for
-> details.
->
-> This clock is also used for clocking pixel valve
-> when HDMI peripheral is used. See Pixel Valve
-> for details.axi_clock >= hdmi_core_clock > 108% of
-> pixel_clock.
->
->
-> The default max pixel clock from the firmware side is 162MHz.
->
-> In the firmware source we have a comment
->          // HDMI state machine clock must be faster than pixel clock -
-> infinitessimally faster tested in simulation.
->          // Otherwise, exact value is unimportant - for HDMI operation.
->          // hdmi state machine clock now derived from PLLC_PER (typ
-> 500MHz, see relevant platform.c).
->          //
->          // However, CEC bit clock is derived from the HSM clock, and
-> the (programmable) CEC timing table
->          // is configured for a 40.00kHz CEC clock.
->          const unsigned margin = 1*1000*1000;
->          unsigned min_hsm_clock = margin + timings->pixel_freq;
->          const unsigned max_hsm_clock_for_cec = max(163682864,
-> hdmi_pixel_freq_limit);
->
->          unsigned hdmi_state_machine_clock = max_hsm_clock_for_cec;
->
-> So it adds 1MHz to the pixel clock for min_hsm_clock, but then doesn't
-> use the value.
-> Unless you do request a higher hdmi_pixel_freq_limit then the HSM is
-> running at the same 163.68MHz that Eric's driver hard codes, and our
-> max pixel clock is 162MHz.
-> Keeping it a fixed value makes sorting the divider for CEC easier.
->
-> Just adopting a 162MHz limit with a suitable comment is probably the
-> most sensible move here, and Maxime's patches can pick up the same
-> value.
+> How would that interact with this change?
 
-It's kind of related, but one of the changes we did to support the
-RPi4 is to change that rate calculation to increase the HSM clock for
-pixel clocks higher than 148.5MHz (so typically 4k), while keeping it
-as low as possible to reduce the power consumption.
+I'd forgotten that your patches mean we change the HSM clock on Pi3.
+As you're aware, whilst I have some extra docs, many of them aren't as
+comprehensive as one would hope. We can go back to the Broadcom and
+RTL if absolutely necessary, but it's a pain. Broadcom don't
+necessarily have the personnel who designed the blocks still working
+there.
 
-How would that interact with this change?
+Your patches appear to recompute the HSM clock based on pixel_clock *
+108%, with a min of 108MHz, so effectively the same limit as the old
+version did by fixing the HSM rate.
 
-Thanks!
-Maxime
+Checking the firmware for Pi4, it sets the HSM (M2MC) clock to
+pixel_rate * 1.01, clipped to 120MHz and 600Mhz. (Audio drops out if
+less than 108MHz. "Pick 120 to have an integer divider with some
+margin." I'd need to check which divider that is referring to).
+As noted above, the Pi3 firmware sets the HSM clock to 163.6MHz.
 
---deogfedlsszkwf4x
-Content-Type: application/pgp-signature; name="signature.asc"
+I'd suggest that we:
+a) Increase max_pixel_clock for vc4 (Pi0-3) to 162MHz.
+b) Set HSM clock to 101% of the pixel clock, with a min of 120MHz
+(4k60 with pixel clock 594MHz would go to a 599.94MHz HSM clock which
+is still within range)
+c) Test it! I know we have some 1920x1200 monitors in the office (when
+I'm back in there).
 
------BEGIN PGP SIGNATURE-----
+Whilst the firmware would appear to use a fixed HSM clock on Pi0-3, I
+don't anticipate there being any issue with varying it. It looks like
+there was the expectation of it being variable in the past, but
+someone has refactored it and either accidentally or deliberately
+given up on the idea.
 
-iHUEABYIAB0WIQRcEzekXsqa64kGDp7j7w1vZxhRxQUCXnjOOgAKCRDj7w1vZxhR
-xUAIAQCowT7C0I4yGXMHZa4SiPouPa6M2EAfXIjT07btqNWTeQEArgPxPTJ2/r6U
-B+Af0xdTxgyC1oQMOsSNjBak/k4IVw4=
-=pxMu
------END PGP SIGNATURE-----
-
---deogfedlsszkwf4x--
-
-
---===============5824820034752596027==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+  Dave
 
 _______________________________________________
 linux-rpi-kernel mailing list
 linux-rpi-kernel@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
-
---===============5824820034752596027==--
-
