@@ -2,40 +2,73 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7B57C18D153
-	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 20 Mar 2020 15:43:52 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id A46ED18F7D0
+	for <lists+linux-rpi-kernel@lfdr.de>; Mon, 23 Mar 2020 15:57:33 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=rPghrsz8psZbR2wzkKGsjQkYRVzJwVRoOgi976EPgdo=; b=t8mgPM1MpwhDPamovb32yiZ6W
-	11cqCYbQ+ZkYiTCQyR7Z8Rc21vgb460sSvsFMEQyElDqy5qk85KBiVPc0+z2GOrULpvAKGsLk+ouY
-	2PUHK/fOW570Lnv89sxcIdrq53zoc20q/dz7lxZC8zzr30vFYK5bzD1yJJTmDSfYLWjux5th0CzcK
-	6lkNfB+cBxRG04jy6u7cwQL1C8W+9HP20GajSHYWCkkzU3OXurEyTrG+O+2WkBABXHfVwm6tPcrqU
-	LXHOFwYT6yASi618g1+tszhnlMOz0/V9BNnE/PhDWDla8VIx+XT3zTgnE3XfeloIoEWsIW59F8LUy
-	dtxVi9Tlg==;
+	 bh=7RsoTV92h+AdagyAWrEKgL2XvER6wuonwb56UnlhdJ4=; b=lO0KmCZY9Mt918416Yf14vGdT
+	YtONXu11TMCbjWDJaE3be2ekVwkF703h8RBE1OzY43lQXe1Xw/fZUDAaC6znGuYtL+HTemK5LJP03
+	uzfFHn1q6AaBL+bnUuMZIAJ7Re8Lc6Lrve2ubv/DklIaFAgZf+40eTFD7zgPQEZDcQsX03uMZoNxz
+	vB6NKj+m7A25pm873T7J3VB/+jO+mRtBTig1fXWNPE7/qlpMiFX30qcTFOH5KWfRg+dDj9QA5+DeB
+	0uEJq9XhMu3K9j9l0CSCFNb/8X1sHXfEclns+4gmmA/1/K8ZOdnBicHIVSsyXNtNGV3D+a+VbBZMz
+	Jjwy4F9/w==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jFIs9-0001hY-5E; Fri, 20 Mar 2020 14:43:41 +0000
-Received: from mx2.suse.de ([195.135.220.15])
+	id 1jGOVy-0006nR-JI; Mon, 23 Mar 2020 14:57:18 +0000
+Received: from out2-smtp.messagingengine.com ([66.111.4.26])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jFIrx-0001a4-Fy; Fri, 20 Mar 2020 14:43:31 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx2.suse.de (Postfix) with ESMTP id 69C2EAD32;
- Fri, 20 Mar 2020 14:43:27 +0000 (UTC)
-Message-ID: <2f198d1afe80e4a4c48703462d63bdb0858fb4a2.camel@suse.de>
+ id 1jGOVk-0006fz-7t; Mon, 23 Mar 2020 14:57:06 +0000
+Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
+ by mailout.nyi.internal (Postfix) with ESMTP id 1E25B5C025E;
+ Mon, 23 Mar 2020 10:57:01 -0400 (EDT)
+Received: from mailfrontend1 ([10.202.2.162])
+ by compute4.internal (MEProxy); Mon, 23 Mar 2020 10:57:01 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cerno.tech; h=
+ date:from:to:cc:subject:message-id:references:mime-version
+ :content-type:in-reply-to; s=fm2; bh=eaVY0X7HkQaj5Ami+3v/ZEWRrsw
+ FV9JugbUASRnx5wc=; b=OsAInfE1Vm5B+QW1wof7fVJD3uqyLnHsXSwG+X4/JKI
+ Xw3WitvFnWUI7GQ7TKqtbH2oLpF+vlp1uFkaZy8ypkfTPbg1fmRKjK25pOp7oDMf
+ 93xurvP2WUwEXCfMH/EG8z83UOWOz7NeI3/udFQX/09lDHDhr8ufKlnG42m3k/Uv
+ xztPXFFzYnqbP0+8a5G2RMg6G3Dod+ITggz7QrMwMNybejFidlAwWDQwK3fdIZ1b
+ h8uC+dhLBZIOvrZWoWxLCCRyVg3HuoP0M1guSt7wrFipZiiSh2kZryBD3Y8N+yYa
+ YFDOCMO0kkXvn8La+w1Gus7O9DORUt+KasqOq/sqQvQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+ messagingengine.com; h=cc:content-type:date:from:in-reply-to
+ :message-id:mime-version:references:subject:to:x-me-proxy
+ :x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; bh=eaVY0X
+ 7HkQaj5Ami+3v/ZEWRrswFV9JugbUASRnx5wc=; b=AYSVOoomR8VlW+AF9iTBkE
+ qcLOfh00bPrk2SCVpmwu6g+Ymv7k8xmQcDEQ0TnGz7QOwLZRVmEbePDwmPjj1A7w
+ 6oYg2eBV3wA+NH/uswl4viKG9xiPycDM2OXkgw0Pwt6q3dJOZoVvx/53amt0cj6u
+ 74+uLXsnsfNb/MlAvxbGlebLF2K1KMz/YpCW12jxwwKFGDBu5NvzJ2h0IGC4/EPC
+ UAJKEsS7HM64RwepClDBYithVjr+zFG1Jh95MkyZ8mGRCBVefTCXlwBPqOZj8a+C
+ ZJdY7OfQrXnLVu0cc0bVyWn0xDKhwkIq0jJliiXUoreGHf24tPaPMQ5qm4yMoZng
+ ==
+X-ME-Sender: <xms:PM54Xgt13rxlZjepiW9YvvyW4CszEXvz7paFUr3whtvTbgSngy7vKA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedugedrudegkedgjedtucetufdoteggodetrfdotf
+ fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+ uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+ cujfgurhepfffhvffukfhfgggtuggjsehgtderredttddvnecuhfhrohhmpeforgigihhm
+ vgcutfhiphgrrhguuceomhgrgihimhgvsegtvghrnhhordhtvggthheqnecukfhppeeltd
+ drkeelrdeikedrjeeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghi
+ lhhfrhhomhepmhgrgihimhgvsegtvghrnhhordhtvggthh
+X-ME-Proxy: <xmx:PM54XkMIxzr38RtCdfaZgLwgisr6GI2amabCsozuoJk20KWc4ffQKg>
+ <xmx:PM54XtiWosKWlYFH8hVVoUtzFCsdl5pY7Do_pRGuP1CDz0LbSQ1Bhw>
+ <xmx:PM54Xu4e_th_PwQnCtnWns8GE7Jx1ibJFT771ez7zYPC-tqdYz8rsw>
+ <xmx:Pc54XiBMj_ClFKfBO2wZXx6Rl5bBQlwtX9EO8RNR_SmUop4GjCHaEw>
+Received: from localhost (lfbn-tou-1-1502-76.w90-89.abo.wanadoo.fr
+ [90.89.68.76])
+ by mail.messagingengine.com (Postfix) with ESMTPA id 138E73280066;
+ Mon, 23 Mar 2020 10:56:59 -0400 (EDT)
+Date: Mon, 23 Mar 2020 15:56:58 +0100
+From: Maxime Ripard <maxime@cerno.tech>
+To: Dave Stevenson <dave.stevenson@raspberrypi.com>
 Subject: Re: [PATCH] ARM: dts: bcm283x: Use firmware PM driver for V3D
-From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-To: Dave Stevenson <dave.stevenson@raspberrypi.com>, Stefan Wahren
- <stefan.wahren@i2se.com>
-Date: Fri, 20 Mar 2020 15:43:25 +0100
-In-Reply-To: <CAPY8ntBB3wwkVj=+fzNRXzAqQs5q5MYmb7t7Be74zADeMCXHVA@mail.gmail.com>
-References: <20200303173217.3987-1-nsaenzjulienne@suse.de>
- <736f0c59-352b-03b2-f77f-bfc22171b3fb@i2se.com>
- <03fcb1e2bc7f3ff389b6dfbf3964e159a93ae835.camel@suse.de>
+Message-ID: <20200323145658.gu72lt5wceqw4iwz@gilmour.lan>
+References: <03fcb1e2bc7f3ff389b6dfbf3964e159a93ae835.camel@suse.de>
  <d3d40174-9c08-f42f-e088-08e23c2dc029@i2se.com>
  <f2ec22160ac86aec8d252ade7d6eb8789777cc42.camel@suse.de>
  <01ceb60e-a791-b6ca-352e-ad2e79f264e3@i2se.com>
@@ -45,22 +78,29 @@ References: <20200303173217.3987-1-nsaenzjulienne@suse.de>
  <90e92438-00df-520f-c8b1-2e2077934592@i2se.com>
  <a25b759292901eee3eab4dbf8002d2050edda6d3.camel@suse.de>
  <CAPY8ntBB3wwkVj=+fzNRXzAqQs5q5MYmb7t7Be74zADeMCXHVA@mail.gmail.com>
-User-Agent: Evolution 3.34.4 
 MIME-Version: 1.0
+In-Reply-To: <CAPY8ntBB3wwkVj=+fzNRXzAqQs5q5MYmb7t7Be74zADeMCXHVA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200320_074329_822506_D30B2962 
-X-CRM114-Status: GOOD (  18.70  )
-X-Spam-Score: -2.3 (--)
+X-CRM114-CacheID: sfid-20200323_075704_648428_C1ED119D 
+X-CRM114-Status: GOOD (  38.22  )
+X-Spam-Score: -0.9 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (-0.9 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [195.135.220.15 listed in list.dnswl.org]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [66.111.4.26 listed in list.dnswl.org]
  0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [195.135.220.15 listed in wl.mailspike.net]
+ [66.111.4.26 listed in wl.mailspike.net]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
@@ -73,42 +113,115 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- Maxime Ripard <maxime@cerno.tech>
-Content-Type: multipart/mixed; boundary="===============4404145389644654162=="
+Cc: linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Content-Type: multipart/mixed; boundary="===============5824820034752596027=="
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
 
---===============4404145389644654162==
-Content-Type: multipart/signed; micalg="pgp-sha256";
-	protocol="application/pgp-signature"; boundary="=-/tkxwxJi1mY/EDU3Qsgm"
+--===============5824820034752596027==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="deogfedlsszkwf4x"
+Content-Disposition: inline
 
 
---=-/tkxwxJi1mY/EDU3Qsgm
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+--deogfedlsszkwf4x
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-On Mon, 2020-03-16 at 13:57 +0000, Dave Stevenson wrote:
+Hi Dave,
+
+On Mon, Mar 16, 2020 at 01:57:13PM +0000, Dave Stevenson wrote:
 >  Hi Stefan and Nicolas
->=20
+>
+> On Mon, 16 Mar 2020 at 12:40, Nicolas Saenz Julienne
+> <nsaenzjulienne@suse.de> wrote:
+> >
+> > Hi Stefan,
+> > thanks for taking the time with this. That was a hard to find one, specially
+> > given the race in X11.
+> >
+> > On Sun, 2020-03-15 at 20:16 +0100, Stefan Wahren wrote:
+> > > Hi Nicolas,
+> > >
+> > > [adjust audience]
+> > >
+> > > i've narrowed down the issue. From kernel 4.19 until 5.1 the DRM
+> > > emulated driver was responsible for a working X on my Raspberry Pi 3
+> > > with HP ZR2440w. Starting with 5.2 the vc4drmfb took over and with 5.3 X
+> > > didn't start anymore (display freeze).
+> > >
+> > > So i start bisecting and this was the commit where the freezing started:
+> > >
+> > > e08ab74bd4 drm/modes: Rewrite the command line parser
+> > >
+> > > After this i enabled drm debug and saw that suggest mode 1920x1200 by
+> > > the firmware is rejected by the driver because the pixel clock would be
+> > > too high (154 MHz, max = 148.5). This wasn't a problem before since the
+> > > firmware provided video cmdline parameter wasn't parseable:
+> > >
+> > > [drm] parse error at position 69 in video mode
+> > > '1920x1200M@60,margin_left=0,margin_right=0,margin_top=0,margin_bottom=0'
+> > >
+> > > After mentioned commit the display just freezes (no try to use
+> > > 1920x1080, no error message).
+> > >
+> > > For comparison i switched to the vendor tree with firmware kms driver
+> > > and noticed that the driver switches to 1920x1200 with a pixel at 154 MHz.
+> > >
+> > > So this patch works for me:
+> > >
+> > > ---
+> > >  drivers/gpu/drm/vc4/vc4_hdmi.c | 9 +++++----
+> > >  1 file changed, 5 insertions(+), 4 deletions(-)
+> > >
+> > > diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdmi.c
+> > > index cea18dc..647803e 100644
+> > > --- a/drivers/gpu/drm/vc4/vc4_hdmi.c
+> > > +++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
+> > > @@ -681,11 +681,12 @@ static enum drm_mode_status
+> > >  vc4_hdmi_encoder_mode_valid(struct drm_encoder *crtc,
+> > >                  const struct drm_display_mode *mode)
+> > >  {
+> > > -    /* HSM clock must be 108% of the pixel clock.
+> >
+> > I think it'd be nice to understand how Eric came by this number. Maybe just
+> > empirically with 1080p60? That said, I think your change is pretty much
+> > harmless.
+> >
+> > I'll add a reminder to Maxime's series for him to update RPi[0-3]'s max
+> > frequency to 1920x1200@60's.
+> >
+> > > -     * the AXI clock needs to be at least 25% of pixel clock, but
+> > > -     * HSM ends up being the limiting factor.
+> > > +    /* According to spec the HSM clock must be 108% of the pixel clock.
+> > > +     * Additionally, the AXI clock needs to be at least 25% of pixel clock,
+> > > +     * but HSM ends up being the limiting factor.
+> > > +     * It seems that operating the pixel clock at 154 MHz still works.
+> > >       */
+> > > -    if (mode->clock > HSM_CLOCK_FREQ / (1000 * 108 / 100))
+> > > +    if (mode->clock > HSM_CLOCK_FREQ / (1000 * 106 / 100))
+> >
+> > Isn't hard-coding the HSM clock kind of limited, one could overclock it, isn't
+> > it? I remember reading someone did it to support wider resolutions.
+>
 > Checking the docs it does state the restriction that Eric quotes.
->=20
+>
 > HDMI Core Clock (state machine clock)
 > Most of the HDMI logic operates on that clock. It
 > is asynchronous to system core clock and pixel
 > clock. Source for this clock can be chosen from
 > various PLLs in the chip. See CPR Manager for
 > details.
->=20
+>
 > This clock is also used for clocking pixel valve
 > when HDMI peripheral is used. See Pixel Valve
-> for details.axi_clock >=3D hdmi_core_clock > 108% of
+> for details.axi_clock >= hdmi_core_clock > 108% of
 > pixel_clock.
->=20
->=20
+>
+>
 > The default max pixel clock from the firmware side is 162MHz.
->=20
+>
 > In the firmware source we have a comment
 >          // HDMI state machine clock must be faster than pixel clock -
 > infinitessimally faster tested in simulation.
@@ -119,64 +232,49 @@ On Mon, 2020-03-16 at 13:57 +0000, Dave Stevenson wrote:
 >          // However, CEC bit clock is derived from the HSM clock, and
 > the (programmable) CEC timing table
 >          // is configured for a 40.00kHz CEC clock.
->          const unsigned margin =3D 1*1000*1000;
->          unsigned min_hsm_clock =3D margin + timings->pixel_freq;
->          const unsigned max_hsm_clock_for_cec =3D max(163682864,
+>          const unsigned margin = 1*1000*1000;
+>          unsigned min_hsm_clock = margin + timings->pixel_freq;
+>          const unsigned max_hsm_clock_for_cec = max(163682864,
 > hdmi_pixel_freq_limit);
->=20
->          unsigned hdmi_state_machine_clock =3D max_hsm_clock_for_cec;
->=20
+>
+>          unsigned hdmi_state_machine_clock = max_hsm_clock_for_cec;
+>
 > So it adds 1MHz to the pixel clock for min_hsm_clock, but then doesn't
 > use the value.
 > Unless you do request a higher hdmi_pixel_freq_limit then the HSM is
 > running at the same 163.68MHz that Eric's driver hard codes, and our
 > max pixel clock is 162MHz.
 > Keeping it a fixed value makes sorting the divider for CEC easier.
->=20
+>
 > Just adopting a 162MHz limit with a suitable comment is probably the
 > most sensible move here, and Maxime's patches can pick up the same
 > value.
 
-I agree with Dave.
+It's kind of related, but one of the changes we did to support the
+RPi4 is to change that rate calculation to increase the HSM clock for
+pixel clocks higher than 148.5MHz (so typically 4k), while keeping it
+as low as possible to reduce the power consumption.
 
-Moreover, this was initially introduced to fix resolution negotiations with=
- 4k
-devices, which use higher pixel clocks than HSM_CLOCK_FREQ. I've been revie=
-wing
-common HDMI resolutions and 1200p60 seems to be the one closer to RPi's HSM
-limitations (as far as widely used aspect ratios are concerned). So I can't
-image how setting a smaller than HSM_CLOCK_FREQ limit here is going to brea=
-k
-anything. That said I'm no expert in this area.
+How would that interact with this change?
 
-Stefan, any opinions? Feel like sending a patch? :)
+Thanks!
+Maxime
 
-Regards,
-Nicolas
-
-
---=-/tkxwxJi1mY/EDU3Qsgm
+--deogfedlsszkwf4x
 Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCAAdFiEErOkkGDHCg2EbPcGjlfZmHno8x/4FAl501o0ACgkQlfZmHno8
-x/5X7gf8Dt1VwHhuwYsFMK0N+kIBlPJFPb020tJAsnrIkw664hu9Cll04EB4MOG9
-EaG3b2Jo9QUseesoKUnxkOMvUk05CxuOhUvhpM3pz5g9cI0BDrqo4n35pEh6F0CV
-p/JQGMzrXznbciEzJVXP2Tyz1HtNeECyOnQwpCrQLuE5c6zd4v+bw3ydexf+0LmH
-IAluJa/u4x3u1jrs4i2VGn2kGT9bWT3q+Y9bBCCwjKkYZigCx6Ab92HZaKC+N+hI
-unHr/aTUSGwUx6qjmtt+WXdXLt+Z1X3PfPzn6g69yLGg9mX64asfQeGoeRQT8x6v
-7qW0Lis2BzrEEv5ih1yUoILIWbx0sA==
-=N/Y7
+iHUEABYIAB0WIQRcEzekXsqa64kGDp7j7w1vZxhRxQUCXnjOOgAKCRDj7w1vZxhR
+xUAIAQCowT7C0I4yGXMHZa4SiPouPa6M2EAfXIjT07btqNWTeQEArgPxPTJ2/r6U
+B+Af0xdTxgyC1oQMOsSNjBak/k4IVw4=
+=pxMu
 -----END PGP SIGNATURE-----
 
---=-/tkxwxJi1mY/EDU3Qsgm--
+--deogfedlsszkwf4x--
 
 
-
---===============4404145389644654162==
+--===============5824820034752596027==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -187,6 +285,5 @@ linux-rpi-kernel mailing list
 linux-rpi-kernel@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
 
---===============4404145389644654162==--
-
+--===============5824820034752596027==--
 
