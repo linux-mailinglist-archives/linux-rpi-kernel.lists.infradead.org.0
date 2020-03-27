@@ -2,96 +2,84 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2E11A18FD58
-	for <lists+linux-rpi-kernel@lfdr.de>; Mon, 23 Mar 2020 20:11:20 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1DEEE194E09
+	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 27 Mar 2020 01:31:17 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n53EKWY5E8h+hZ88WUUwVQOrH/cfMJm7tvYv63zGVRY=; b=hOsRfy5j680zC+
-	7lGf86yg/1WI4G9+yPLfon4ijasrzPlWr9wyoxMijFZyV5EhNUAPNFxDf/oQOn65vWjAWBi3buYKO
-	vm3tEc4X6YvnvBVGh+ezf/g1PkEzF8B9ljf7TayZZlRNBNnyQ0mmEte9s2J6SGPzWxyDWXFk/G8P7
-	jmX/hbloxWLO6JFMkBSB38j9xl3NmC5IKnYJPh/kiqwS/JrNYMkAlb7fDpl/gfNegJLKYHWaeJa9A
-	dbhR1VoBahcLrODvwP8BI1rtcMrE2sA65KQoBW5O0ND6Z+Hn8K/+FztBW9KUyoeBzr908JOBN1bhu
-	qpPko7U428seGWrXjpSQ==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:References:
+	From:Subject:Reply-To:To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=6YcFBKGdh007TieUvzth13s5aeQmlXI/avwzYjHDy/8=; b=kEw+gMWZRRKhLqbsRHSsnpgB+
+	WwnFKm7DMhWQjA+36ifVBkkhBUGlud5Rprwt+91neajNVUfdsMlrxF2sFS0BDRtSMQhwNOzgoz+mj
+	wgxRZQcSk36ohnhbxP9raTPKOeDUMQlaqPxJ7PwNZWTP/o/zD1b7u/ZTElaXsMnnaFevsx1V4oK2o
+	DiQ+srPDvGubnVvlVQErOQDJXsnSGQUSNFBQZCc3mKanHslj99qrXMJbkJcWaxZhCQyS8STJQMl4k
+	F4j7TeJsbmNCULbCURDrtWGsakhlJMWgvrfr6VsZMJPLrMWRe8O1KHAwseZMnWAbnerN3v7oWRoYl
+	6al7335ZA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jGSTj-0000Ew-3a; Mon, 23 Mar 2020 19:11:15 +0000
-Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
+	id 1jHctn-0000M6-3X; Fri, 27 Mar 2020 00:30:59 +0000
+Received: from mx.flatmax.org ([13.55.16.222])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jGSTf-0000ED-CV
- for linux-rpi-kernel@lists.infradead.org; Mon, 23 Mar 2020 19:11:13 +0000
-Received: by mail-wm1-x341.google.com with SMTP id l20so786196wmi.3
- for <linux-rpi-kernel@lists.infradead.org>;
- Mon, 23 Mar 2020 12:11:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=raspberrypi.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=pf+qUh7EBEBDemmA22qZeNyA8zt651mmhnuvEAM+lMU=;
- b=KGNDsz72kXza0P4lMe9mMaNwZHz947JtWcUfoneVfrcVXW1+qa0ymRzAsS8UfKZNae
- 4Ve7rJwmNXbr+LhM6qAf3+DfGUfgdN9iVmlWMw/cvM18z4Js4X13MV3WhMXVvCcMVA8F
- QIfUWaw92rcQ2JBbaRXslKJpTnqQnGkZZD85SmJymORl0XVBJA7yV7r07O7GvuVOFd33
- js+ILbDOVsWj0iF3H/TbS5jIbZyBWZnP3pvlkZ+zaP9x6f1cgtOr/tMJ/R2gTD+Q7Vqz
- Dj2pulSs/7dAM5KNqSVAuUUQoWscY9wScRRU9I6a+NqOlkvwtfAFcH1o7Z1NFP0LXmRU
- oz5g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=pf+qUh7EBEBDemmA22qZeNyA8zt651mmhnuvEAM+lMU=;
- b=KPcfDRAIrlSirILQpD3fYix7k3Cs95frldYzHTt5aocpwxqrDtcNyPKJSIbHy8IN9V
- 4PE6YUHeNgMRUmkmriXhkUItHipCIFuD/gLFnJzAUMDuHXAmj6APQ6fTk9cIsEMwXfl2
- Pu4tuCS1k2kX6xS6JZ/n4QiOVI3Upuncpi7DkW/z7TJhAljhsugy8RoUNPhlMKZltgKe
- VkVsgN7kc7A022ZYMg9xY8wUzeTrjq5dxM7wbtQeJv7MU5+3eI+YeXIg0xafsAQL3IB/
- rjryNduCrMD6/TCaKslJEOLTODQZFuKg++zECooF1HAZUxQlXEqi634uWl4F4GFiMUvQ
- 9S6w==
-X-Gm-Message-State: ANhLgQ2hEMfbU3jImIqoLUyUfgx1i5QgzoFHE9AHhvlPQhPrfMOoCksh
- a0JMmG2bdfbmftsxJvWkm63qYKkJfAEAWQTC9xtowg==
-X-Google-Smtp-Source: ADFU+vsKLKTY5RnDNYB+1EQTfD7qahBL7j0X4NYY89owfLY8KBE1rjQmqRHFkwawi3Kcmp9BLgIAp6njZz7wq8uxn+0=
-X-Received: by 2002:a1c:7c18:: with SMTP id x24mr975857wmc.82.1584990669746;
- Mon, 23 Mar 2020 12:11:09 -0700 (PDT)
+ id 1jHctj-0000Lf-NT
+ for linux-rpi-kernel@lists.infradead.org; Fri, 27 Mar 2020 00:30:57 +0000
+Received: from 41.68.233.220.static.exetel.com.au ([220.233.68.41]
+ helo=[192.168.1.51])
+ by mx.flatmax.org with esmtpsa (TLS1.2:ECDHE_RSA_AES_128_GCM_SHA256:128)
+ (Exim 4.89) (envelope-from <flatmax@flatmax.org>)
+ id 1jHcte-0007rg-U3; Fri, 27 Mar 2020 11:30:51 +1100
+Subject: Re: [PATCH] ASoC: bcm2835-i2s: substream alignment now independent in
+ hwparams
+From: Matt Flax <flatmax@flatmax.org>
+References: <20200324090823.20754-1-flatmax@flatmax.org>
+ <d0684926-3f7a-0b97-a298-4088925442a4@flatmax.org>
+Message-ID: <1dcf128a-4ad3-0efa-81e4-b3ccc7caa8f1@flatmax.org>
+Date: Fri, 27 Mar 2020 11:30:50 +1100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.1.2
 MIME-Version: 1.0
-References: <03fcb1e2bc7f3ff389b6dfbf3964e159a93ae835.camel@suse.de>
- <d3d40174-9c08-f42f-e088-08e23c2dc029@i2se.com>
- <f2ec22160ac86aec8d252ade7d6eb8789777cc42.camel@suse.de>
- <01ceb60e-a791-b6ca-352e-ad2e79f264e3@i2se.com>
- <ddcb8fd5-9e35-454c-b38d-d36e7b41ef07@i2se.com>
- <9e685fce547d808f269e59e2290331e75c66f3e4.camel@suse.de>
- <bb2c7d99-06b1-d222-7f69-8ce91157bde5@i2se.com>
- <90e92438-00df-520f-c8b1-2e2077934592@i2se.com>
- <a25b759292901eee3eab4dbf8002d2050edda6d3.camel@suse.de>
- <CAPY8ntBB3wwkVj=+fzNRXzAqQs5q5MYmb7t7Be74zADeMCXHVA@mail.gmail.com>
- <20200323145658.gu72lt5wceqw4iwz@gilmour.lan>
- <CAPY8ntD=VFrb91V7uM5zROxD-r6+bU+Nmj+ZDFCdwvTuq8eF6g@mail.gmail.com>
- <ab7b5386-2471-006f-0d6f-5230fd92445c@i2se.com>
-In-Reply-To: <ab7b5386-2471-006f-0d6f-5230fd92445c@i2se.com>
-From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Mon, 23 Mar 2020 19:10:52 +0000
-Message-ID: <CAPY8ntCeXD9rsfdN34QucUt236pu2-HgxUXuRPJ0pC_UQ+F36Q@mail.gmail.com>
-Subject: Re: [PATCH] ARM: dts: bcm283x: Use firmware PM driver for V3D
-To: Stefan Wahren <stefan.wahren@i2se.com>
+In-Reply-To: <d0684926-3f7a-0b97-a298-4088925442a4@flatmax.org>
+Content-Language: en-US
+X-Spam-Score: -1.9 (-)
+X-Spam-Report: Spam detection software, running on the system "mx.flatmax.org",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ @@CONTACT_ADDRESS@@ for details.
+ 
+ Content preview:  On 27/3/20 10:56 am, Matt Flax wrote: > > Should this patch
+    be handled through the ALSA team the R. Pi team or > the BCM team ? > Resending
+    again with reduced recipients. > > thanks > > Matt > > On 24/3/20 8:08 pm,
+    Matt Flax wrote: >> Substream sample alignment was being set in hwparams
+   for both >> substreams at the same time. This became a problem when   
+   the Audio [...] 
+ 
+ Content analysis details:   (-1.9 points, 5.0 required)
+ 
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+ -1.0 ALL_TRUSTED            Passed through trusted hosts only via SMTP
+  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+                             blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [URIs: flatmax.org]
+  0.0 TVD_RCVD_IP            Message was received from an IP address
+  1.0 MISSING_HEADERS        Missing To: header
+ -1.9 BAYES_00               BODY: Bayes spam probability is 0 to 1%
+                             [score: 0.0000]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200323_121111_526610_64EC7C5D 
-X-CRM114-Status: GOOD (  43.42  )
-X-Spam-Score: -0.2 (/)
-X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+X-CRM114-CacheID: sfid-20200326_173055_910298_44086AB6 
+X-CRM114-Status: UNSURE (   8.76  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 1.2 (+)
+X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
+ Content analysis details:   (1.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2a00:1450:4864:20:0:0:0:341 listed in]
- [list.dnswl.org]
- -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
+ 1.2 MISSING_HEADERS        Missing To: header
+ -0.0 SPF_PASS               SPF: sender matches SPF record
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -103,210 +91,80 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Maxime Ripard <maxime@cerno.tech>, linux-arm-kernel@lists.infradead.org,
+Cc: alsa-devel@alsa-project.org, Mark Brown <broonie@kernel.org>,
  linux-rpi-kernel@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-Hi Stefan
-
-On Mon, 23 Mar 2020 at 18:53, Stefan Wahren <stefan.wahren@i2se.com> wrote:
->
-> Hi,
->
-> Am 23.03.20 um 16:55 schrieb Dave Stevenson:
-> > Hi Maxime
-> >
-> > On Mon, 23 Mar 2020 at 14:57, Maxime Ripard <maxime@cerno.tech> wrote:
-> >> Hi Dave,
-> >>
-> >> On Mon, Mar 16, 2020 at 01:57:13PM +0000, Dave Stevenson wrote:
-> >>>  Hi Stefan and Nicolas
-> >>>
-> >>> On Mon, 16 Mar 2020 at 12:40, Nicolas Saenz Julienne
-> >>> <nsaenzjulienne@suse.de> wrote:
-> >>>> Hi Stefan,
-> >>>> thanks for taking the time with this. That was a hard to find one, specially
-> >>>> given the race in X11.
-> >>>>
-> >>>> On Sun, 2020-03-15 at 20:16 +0100, Stefan Wahren wrote:
-> >>>>> Hi Nicolas,
-> >>>>>
-> >>>>> [adjust audience]
-> >>>>>
-> >>>>> i've narrowed down the issue. From kernel 4.19 until 5.1 the DRM
-> >>>>> emulated driver was responsible for a working X on my Raspberry Pi 3
-> >>>>> with HP ZR2440w. Starting with 5.2 the vc4drmfb took over and with 5.3 X
-> >>>>> didn't start anymore (display freeze).
-> >>>>>
-> >>>>> So i start bisecting and this was the commit where the freezing started:
-> >>>>>
-> >>>>> e08ab74bd4 drm/modes: Rewrite the command line parser
-> >>>>>
-> >>>>> After this i enabled drm debug and saw that suggest mode 1920x1200 by
-> >>>>> the firmware is rejected by the driver because the pixel clock would be
-> >>>>> too high (154 MHz, max = 148.5). This wasn't a problem before since the
-> >>>>> firmware provided video cmdline parameter wasn't parseable:
-> >>>>>
-> >>>>> [drm] parse error at position 69 in video mode
-> >>>>> '1920x1200M@60,margin_left=0,margin_right=0,margin_top=0,margin_bottom=0'
-> >>>>>
-> >>>>> After mentioned commit the display just freezes (no try to use
-> >>>>> 1920x1080, no error message).
-> >>>>>
-> >>>>> For comparison i switched to the vendor tree with firmware kms driver
-> >>>>> and noticed that the driver switches to 1920x1200 with a pixel at 154 MHz.
-> >>>>>
-> >>>>> So this patch works for me:
-> >>>>>
-> >>>>> ---
-> >>>>>  drivers/gpu/drm/vc4/vc4_hdmi.c | 9 +++++----
-> >>>>>  1 file changed, 5 insertions(+), 4 deletions(-)
-> >>>>>
-> >>>>> diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdmi.c
-> >>>>> index cea18dc..647803e 100644
-> >>>>> --- a/drivers/gpu/drm/vc4/vc4_hdmi.c
-> >>>>> +++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
-> >>>>> @@ -681,11 +681,12 @@ static enum drm_mode_status
-> >>>>>  vc4_hdmi_encoder_mode_valid(struct drm_encoder *crtc,
-> >>>>>                  const struct drm_display_mode *mode)
-> >>>>>  {
-> >>>>> -    /* HSM clock must be 108% of the pixel clock.
-> >>>> I think it'd be nice to understand how Eric came by this number. Maybe just
-> >>>> empirically with 1080p60? That said, I think your change is pretty much
-> >>>> harmless.
-> >>>>
-> >>>> I'll add a reminder to Maxime's series for him to update RPi[0-3]'s max
-> >>>> frequency to 1920x1200@60's.
-> >>>>
-> >>>>> -     * the AXI clock needs to be at least 25% of pixel clock, but
-> >>>>> -     * HSM ends up being the limiting factor.
-> >>>>> +    /* According to spec the HSM clock must be 108% of the pixel clock.
-> >>>>> +     * Additionally, the AXI clock needs to be at least 25% of pixel clock,
-> >>>>> +     * but HSM ends up being the limiting factor.
-> >>>>> +     * It seems that operating the pixel clock at 154 MHz still works.
-> >>>>>       */
-> >>>>> -    if (mode->clock > HSM_CLOCK_FREQ / (1000 * 108 / 100))
-> >>>>> +    if (mode->clock > HSM_CLOCK_FREQ / (1000 * 106 / 100))
-> >>>> Isn't hard-coding the HSM clock kind of limited, one could overclock it, isn't
-> >>>> it? I remember reading someone did it to support wider resolutions.
-> >>> Checking the docs it does state the restriction that Eric quotes.
-> >>>
-> >>> HDMI Core Clock (state machine clock)
-> >>> Most of the HDMI logic operates on that clock. It
-> >>> is asynchronous to system core clock and pixel
-> >>> clock. Source for this clock can be chosen from
-> >>> various PLLs in the chip. See CPR Manager for
-> >>> details.
-> >>>
-> >>> This clock is also used for clocking pixel valve
-> >>> when HDMI peripheral is used. See Pixel Valve
-> >>> for details.axi_clock >= hdmi_core_clock > 108% of
-> >>> pixel_clock.
-> >>>
-> >>>
-> >>> The default max pixel clock from the firmware side is 162MHz.
-> >>>
-> >>> In the firmware source we have a comment
-> >>>          // HDMI state machine clock must be faster than pixel clock -
-> >>> infinitessimally faster tested in simulation.
-> >>>          // Otherwise, exact value is unimportant - for HDMI operation.
-> >>>          // hdmi state machine clock now derived from PLLC_PER (typ
-> >>> 500MHz, see relevant platform.c).
-> >>>          //
-> >>>          // However, CEC bit clock is derived from the HSM clock, and
-> >>> the (programmable) CEC timing table
-> >>>          // is configured for a 40.00kHz CEC clock.
-> >>>          const unsigned margin = 1*1000*1000;
-> >>>          unsigned min_hsm_clock = margin + timings->pixel_freq;
-> >>>          const unsigned max_hsm_clock_for_cec = max(163682864,
-> >>> hdmi_pixel_freq_limit);
-> >>>
-> >>>          unsigned hdmi_state_machine_clock = max_hsm_clock_for_cec;
-> >>>
-> >>> So it adds 1MHz to the pixel clock for min_hsm_clock, but then doesn't
-> >>> use the value.
-> >>> Unless you do request a higher hdmi_pixel_freq_limit then the HSM is
-> >>> running at the same 163.68MHz that Eric's driver hard codes, and our
-> >>> max pixel clock is 162MHz.
-> >>> Keeping it a fixed value makes sorting the divider for CEC easier.
-> >>>
-> >>> Just adopting a 162MHz limit with a suitable comment is probably the
-> >>> most sensible move here, and Maxime's patches can pick up the same
-> >>> value.
-> >> It's kind of related, but one of the changes we did to support the
-> >> RPi4 is to change that rate calculation to increase the HSM clock for
-> >> pixel clocks higher than 148.5MHz (so typically 4k), while keeping it
-> >> as low as possible to reduce the power consumption.
-> >>
-> >> How would that interact with this change?
-> > I'd forgotten that your patches mean we change the HSM clock on Pi3.
-> > As you're aware, whilst I have some extra docs, many of them aren't as
-> > comprehensive as one would hope. We can go back to the Broadcom and
-> > RTL if absolutely necessary, but it's a pain. Broadcom don't
-> > necessarily have the personnel who designed the blocks still working
-> > there.
-> >
-> > Your patches appear to recompute the HSM clock based on pixel_clock *
-> > 108%, with a min of 108MHz, so effectively the same limit as the old
-> > version did by fixing the HSM rate.
-> >
-> > Checking the firmware for Pi4, it sets the HSM (M2MC) clock to
-> > pixel_rate * 1.01, clipped to 120MHz and 600Mhz. (Audio drops out if
-> > less than 108MHz. "Pick 120 to have an integer divider with some
-> > margin." I'd need to check which divider that is referring to).
-> > As noted above, the Pi3 firmware sets the HSM clock to 163.6MHz.
-> >
-> > I'd suggest that we:
-> > a) Increase max_pixel_clock for vc4 (Pi0-3) to 162MHz.
-> > b) Set HSM clock to 101% of the pixel clock, with a min of 120MHz
-> > (4k60 with pixel clock 594MHz would go to a 599.94MHz HSM clock which
-> > is still within range)
-> > c) Test it! I know we have some 1920x1200 monitors in the office (when
-> > I'm back in there).
->
-> i don't think that i'm able to prepare those patches, but i'm happy to
-> test them.
-
-Conversations at slight cross-purposes.
-With the current driver we just need the limit lifting to 162MHz.
-My comment:
-
-> >>> Just adopting a 162MHz limit with a suitable comment is probably the
-> >>> most sensible move here
-
-above. And code change along the lines of:
--    if (mode->clock > HSM_CLOCK_FREQ / (1000 * 108 / 100))
-+    if (mode->clock > 162000000)
-with suitable comment.
-
-Maxime was querying the plan for how the increased pixel rate/HSM
-clock should be reflected in his patch set which adds Pi4 support to
-the vc4 driver.
-
-  Dave
-
-> Thanks
-> Stefan
->
-> >
-> > Whilst the firmware would appear to use a fixed HSM clock on Pi0-3, I
-> > don't anticipate there being any issue with varying it. It looks like
-> > there was the expectation of it being variable in the past, but
-> > someone has refactored it and either accidentally or deliberately
-> > given up on the idea.
-> >
-> >   Dave
-> >
-> > _______________________________________________
-> > linux-arm-kernel mailing list
-> > linux-arm-kernel@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-arm-kernel
->
-
-_______________________________________________
-linux-rpi-kernel mailing list
-linux-rpi-kernel@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
+Ck9uIDI3LzMvMjAgMTA6NTYgYW0sIE1hdHQgRmxheCB3cm90ZToKPgo+IFNob3VsZCB0aGlzIHBh
+dGNoIGJlIGhhbmRsZWQgdGhyb3VnaCB0aGUgQUxTQSB0ZWFtIHRoZSBSLiBQaSB0ZWFtIG9yIAo+
+IHRoZSBCQ00gdGVhbSA/Cj4KClJlc2VuZGluZyBhZ2FpbiB3aXRoIHJlZHVjZWQgcmVjaXBpZW50
+cy4KCgo+Cj4gdGhhbmtzCj4KPiBNYXR0Cj4KPiBPbiAyNC8zLzIwIDg6MDggcG0sIE1hdHQgRmxh
+eCB3cm90ZToKPj4gU3Vic3RyZWFtIHNhbXBsZSBhbGlnbm1lbnQgd2FzIGJlaW5nIHNldCBpbiBo
+d3BhcmFtcyBmb3IgYm90aAo+PiBzdWJzdHJlYW1zIGF0IHRoZSBzYW1lIHRpbWUuIFRoaXMgYmVj
+YW1lIGEgcHJvYmxlbSB3aGVuwqDCoMKgIHRoZSBBdWRpbwo+PiBJbmplY3RvciBpc29sYXRlZCBz
+b3VuZCBjYXJkIG5lZWRlZCB0byBvZmZzZXQgc2FtcGxlIGFsaWdubWVudAo+PiBmb3IgaGlnaCBz
+YW1wbGXCoMKgwqAgcmF0ZXMuIFRoZSBsYXRlbmN5IGRpZmZlcmVuY2UgYmV0d2VlbiBwbGF5YmFj
+awo+PiBhbmQgY2FwdHVyZSBvY2N1cnMgYmVjYXVzZSBvZiB0aGUgZGlnaXRhbCBpc29sYXRpb24g
+Y2hpcAo+PiBwcm9wYWdhdGlvbiB0aW1lLCBwYXJ0aWN1bGFybHkgd2hlbiB0aGUgY29kZWMgaXMg
+bWFzdGVyIGFuZAo+PiB0aGUgREFDIHJldHVybiBpcyB0d2ljZSBkZWxheWVkLgo+Pgo+PiBUaGlz
+IHBhdGNoIHNldHMgc2FtcGxlIGFsaWdubWVudCByZWdpc3RlcnPCoCBiYXNlZCBvbiB0aGUgc3Vi
+c3RyZWFtCj4+IGRpcmVjdGlvbiBpbiBod3BhcmFtcy4gVGhpcyBnaXZlcyB0aGUgbWFjaGluZSBk
+cml2ZXIgbW9yZSBjb250cm9sCj4+IG92ZXIgc2FtcGxlIGFsaWdubWVudCBpbiB0aGUgYmNtMjgz
+NSBpMnMgZHJpdmVyLgo+Pgo+PiBTaWduZWQtb2ZmLWJ5OiBNYXR0IEZsYXggPGZsYXRtYXhAZmxh
+dG1heC5vcmc+Cj4+IC0tLQo+PiDCoCBzb3VuZC9zb2MvYmNtL2JjbTI4MzUtaTJzLmMgfCAzNiAr
+KysrKysrKysrKysrKysrKysrLS0tLS0tLS0tLS0tLS0tLS0KPj4gwqAgMSBmaWxlIGNoYW5nZWQs
+IDE5IGluc2VydGlvbnMoKyksIDE3IGRlbGV0aW9ucygtKQo+Pgo+PiBkaWZmIC0tZ2l0IGEvc291
+bmQvc29jL2JjbS9iY20yODM1LWkycy5jIGIvc291bmQvc29jL2JjbS9iY20yODM1LWkycy5jCj4+
+IGluZGV4IGU2YTEyZTI3MWIwNy4uOWRiNTQyNjk5YTEzIDEwMDY0NAo+PiAtLS0gYS9zb3VuZC9z
+b2MvYmNtL2JjbTI4MzUtaTJzLmMKPj4gKysrIGIvc291bmQvc29jL2JjbS9iY20yODM1LWkycy5j
+Cj4+IEBAIC00OTMsMTEgKzQ5Myw2IEBAIHN0YXRpYyBpbnQgYmNtMjgzNV9pMnNfaHdfcGFyYW1z
+KHN0cnVjdCAKPj4gc25kX3BjbV9zdWJzdHJlYW0gKnN1YnN0cmVhbSwKPj4gwqDCoMKgwqDCoMKg
+wqDCoMKgIHJldHVybiAtRUlOVkFMOwo+PiDCoMKgwqDCoMKgIH0KPj4gwqAgLcKgwqDCoCBiY20y
+ODM1X2kyc19jYWxjX2NoYW5uZWxfcG9zKCZyeF9jaDFfcG9zLCAmcnhfY2gyX3BvcywKPj4gLcKg
+wqDCoMKgwqDCoMKgIHJ4X21hc2ssIHNsb3Rfd2lkdGgsIGRhdGFfZGVsYXksIG9kZF9zbG90X29m
+ZnNldCk7Cj4+IC3CoMKgwqAgYmNtMjgzNV9pMnNfY2FsY19jaGFubmVsX3BvcygmdHhfY2gxX3Bv
+cywgJnR4X2NoMl9wb3MsCj4+IC3CoMKgwqDCoMKgwqDCoCB0eF9tYXNrLCBzbG90X3dpZHRoLCBk
+YXRhX2RlbGF5LCBvZGRfc2xvdF9vZmZzZXQpOwo+PiAtCj4+IMKgwqDCoMKgwqAgLyoKPj4gwqDC
+oMKgwqDCoMKgICogVHJhbnNtaXR0aW5nIGRhdGEgaW1tZWRpYXRlbHkgYWZ0ZXIgZnJhbWUgc3Rh
+cnQsIGVnCj4+IMKgwqDCoMKgwqDCoCAqIGluIGxlZnQtanVzdGlmaWVkIG9yIERTUCBtb2RlIEEs
+IG9ubHkgd29ya3Mgc3RhYmxlCj4+IEBAIC01MDgsMTkgKzUwMywyNiBAQCBzdGF0aWMgaW50IGJj
+bTI4MzVfaTJzX2h3X3BhcmFtcyhzdHJ1Y3QgCj4+IHNuZF9wY21fc3Vic3RyZWFtICpzdWJzdHJl
+YW0sCj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgICJVbnN0YWJsZSBzbGF2ZSBjb25maWcg
+ZGV0ZWN0ZWQsIEwvUiBtYXkgYmUgc3dhcHBlZCIpOwo+PiDCoCDCoMKgwqDCoMKgIC8qCj4+IC3C
+oMKgwqDCoCAqIFNldCBmb3JtYXQgZm9yIGJvdGggc3RyZWFtcy4KPj4gLcKgwqDCoMKgICogV2Ug
+Y2Fubm90IHNldCBhbm90aGVyIGZyYW1lIGxlbmd0aAo+PiAtwqDCoMKgwqAgKiAoYW5kIHRoZXJl
+Zm9yZSB3b3JkIGxlbmd0aCkgYW55d2F5LAo+PiAtwqDCoMKgwqAgKiBzbyB0aGUgZm9ybWF0IHdp
+bGwgYmUgdGhlIHNhbWUuCj4+ICvCoMKgwqDCoCAqIFNldCBmb3JtYXQgb24gYSBwZXIgc3RyZWFt
+IGJhc2lzLgo+PiArwqDCoMKgwqAgKiBUaGUgYWxpZ25tZW50IGZvcm1hdCBjYW4gYmUgZGlmZmVy
+ZW50IGRlcGVuZGluZyBvbiBkaXJlY3Rpb24uCj4+IMKgwqDCoMKgwqDCoCAqLwo+PiAtwqDCoMKg
+IHJlZ21hcF93cml0ZShkZXYtPmkyc19yZWdtYXAsIEJDTTI4MzVfSTJTX1JYQ19BX1JFRywKPj4g
+LcKgwqDCoMKgwqDCoMKgwqDCoCBmb3JtYXQKPj4gLcKgwqDCoMKgwqDCoMKgIHwgQkNNMjgzNV9J
+MlNfQ0gxX1BPUyhyeF9jaDFfcG9zKQo+PiAtwqDCoMKgwqDCoMKgwqAgfCBCQ00yODM1X0kyU19D
+SDJfUE9TKHJ4X2NoMl9wb3MpKTsKPj4gLcKgwqDCoCByZWdtYXBfd3JpdGUoZGV2LT5pMnNfcmVn
+bWFwLCBCQ00yODM1X0kyU19UWENfQV9SRUcsCj4+IC3CoMKgwqDCoMKgwqDCoMKgwqAgZm9ybWF0
+Cj4+IC3CoMKgwqDCoMKgwqDCoCB8IEJDTTI4MzVfSTJTX0NIMV9QT1ModHhfY2gxX3BvcykKPj4g
+LcKgwqDCoMKgwqDCoMKgIHwgQkNNMjgzNV9JMlNfQ0gyX1BPUyh0eF9jaDJfcG9zKSk7Cj4+ICvC
+oMKgwqAgaWYgKHN1YnN0cmVhbS0+c3RyZWFtID09IFNORFJWX1BDTV9TVFJFQU1fQ0FQVFVSRSkg
+ewo+PiArwqDCoMKgwqDCoMKgwqAgYmNtMjgzNV9pMnNfY2FsY19jaGFubmVsX3BvcygmcnhfY2gx
+X3BvcywgJnJ4X2NoMl9wb3MsCj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHJ4X21hc2ssIHNs
+b3Rfd2lkdGgsIGRhdGFfZGVsYXksIG9kZF9zbG90X29mZnNldCk7Cj4+ICvCoMKgwqDCoMKgwqDC
+oCByZWdtYXBfd3JpdGUoZGV2LT5pMnNfcmVnbWFwLCBCQ00yODM1X0kyU19SWENfQV9SRUcsCj4+
+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBmb3JtYXQKPj4gK8KgwqDCoMKgwqDCoMKgwqDC
+oMKgwqAgfCBCQ00yODM1X0kyU19DSDFfUE9TKHJ4X2NoMV9wb3MpCj4+ICvCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgIHwgQkNNMjgzNV9JMlNfQ0gyX1BPUyhyeF9jaDJfcG9zKSk7Cj4+ICvCoMKgwqAg
+fQo+PiArCj4+ICvCoMKgwqAgaWYgKHN1YnN0cmVhbS0+c3RyZWFtID09IFNORFJWX1BDTV9TVFJF
+QU1fUExBWUJBQ0spIHsKPj4gK8KgwqDCoMKgwqDCoMKgIGJjbTI4MzVfaTJzX2NhbGNfY2hhbm5l
+bF9wb3MoJnR4X2NoMV9wb3MsICZ0eF9jaDJfcG9zLAo+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oCB0eF9tYXNrLCBzbG90X3dpZHRoLCBkYXRhX2RlbGF5LCBvZGRfc2xvdF9vZmZzZXQpOwo+PiAr
+wqDCoMKgwqDCoMKgwqAgcmVnbWFwX3dyaXRlKGRldi0+aTJzX3JlZ21hcCwgQkNNMjgzNV9JMlNf
+VFhDX0FfUkVHLAo+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgZm9ybWF0Cj4+ICvCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgIHwgQkNNMjgzNV9JMlNfQ0gxX1BPUyh0eF9jaDFfcG9zKQo+PiAr
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8IEJDTTI4MzVfSTJTX0NIMl9QT1ModHhfY2gyX3Bvcykp
+Owo+PiArwqDCoMKgIH0KPj4gwqAgwqDCoMKgwqDCoCAvKiBTZXR1cCB0aGUgSTJTIG1vZGUgKi8K
+Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJw
+aS1rZXJuZWwgbWFpbGluZyBsaXN0CmxpbnV4LXJwaS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJwaS1r
+ZXJuZWwK
