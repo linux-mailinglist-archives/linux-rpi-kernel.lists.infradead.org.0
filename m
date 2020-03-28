@@ -2,77 +2,74 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 641131960B9
-	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 27 Mar 2020 22:51:14 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 29D6C1965EA
+	for <lists+linux-rpi-kernel@lfdr.de>; Sat, 28 Mar 2020 12:59:51 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=3BZMyHcyC5REkuRYzh3DQj6jwwbNeh+IT3CiKiGM4hw=; b=gXC2cp7Ttq32MEj5lUMr9jiqg
-	ZtOWaGh7y0bmkqr/s6+2qa5gL3Tq02ZU/fRHitTzEHRaYqSnI+cYOiqqCatBzCtcW52Xa49x9uxX0
-	q76b51ZXCpdl0s5xPly8JjYY7WWz0gIex2rGrVColWVhuj06TYmDRPm7F/9opO7njFmQraLskpHas
-	oAuGaA/bUG1nNhgqKEI5rvFim3JorcPUnAlT7uamGDnuC06xxmxrP0fr0t6ld/gUeNujBLcpdSAGB
-	S5+S72rnT9KTNhVMTV3QalyTEYePrKNMPUOBVnZdV4hzg7K0aD4IEtD6qitBVt9/fi+UuqsIsJYu8
-	gQltl5TXg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jvwlDyTi3ivHM9Ofg8CfMKIajwJZYO6doQvWAyrm9Mk=; b=SLLF4BRNP1NhIf
+	E2WQAKemoUBVQWojUzAv6rWD2GMQvIGC06tPy0yg7FABjF/F4xWHgOX2MP/OyF3M2TKSQsZjV3Bs9
+	L840J88aEaIpF0WkQ50Qhl2oPTnlqF3AjS0+6yLRQUBZ9P9as6h64VzcgTy0Yblk1tnTriZbu2Fgb
+	/vzOCtTRKOYLVXFIAcHisi+1qWYJVfiF4PkqaHl9BGuCE9WKvxpOMAltSmV02oCBNEPwsF7ygIVG0
+	dAWvNjFW0aUuwu/Umx/WbzEOhIl4ugFcXTtkl1IZJKjz30XSITZF9C0Ih6ANhVwKJ1WHufjxwYKa6
+	5XzD5ClXyu8a3uhf/TZA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jHwsZ-0006C1-4s; Fri, 27 Mar 2020 21:51:03 +0000
-Received: from mx.flatmax.org ([13.55.16.222])
+	id 1jIA7c-0007cl-K6; Sat, 28 Mar 2020 11:59:28 +0000
+Received: from mail.horus.com ([78.46.148.228])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jHwsW-0006BX-6M
- for linux-rpi-kernel@lists.infradead.org; Fri, 27 Mar 2020 21:51:01 +0000
-Received: from 41.68.233.220.static.exetel.com.au ([220.233.68.41]
- helo=[192.168.1.50])
- by mx.flatmax.org with esmtpsa (TLS1.2:ECDHE_RSA_AES_128_GCM_SHA256:128)
- (Exim 4.89) (envelope-from <flatmax@flatmax.org>)
- id 1jHwsP-00088s-A0; Sat, 28 Mar 2020 08:50:53 +1100
-Subject: Re: [PATCH] ASoC: bcm2835-i2s: substream alignment now independent in
- hwparams
-To: Matthias Reichl <hias@horus.com>
+ id 1jIA7Y-0007cN-A7
+ for linux-rpi-kernel@lists.infradead.org; Sat, 28 Mar 2020 11:59:26 +0000
+Received: from [192.168.1.20] (193-83-225-155.adsl.highway.telekom.at
+ [193.83.225.155])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (Client CN "E-Mail Matthias Reichl", Issuer "HiassofT CA 2014" (not verified))
+ by mail.horus.com (Postfix) with ESMTPSA id A437C6412F;
+ Sat, 28 Mar 2020 12:59:12 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=horus.com;
+ s=20180324; t=1585396752;
+ bh=TNHYVUFCR6clz/R+eD1bmzTMCLkZjLvojGJzR0otF6A=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=LJxuGkSfrfeuM1g8unxtbFykkMbPU9XznwoYF6eaRgEpwrkzpk+6VB8EviKao//AA
+ dDeLw8xah6fMrQUXKGZW4Buus4t3DX12FL9BPVsooDDicdw4puJNxH9zXo6KlQ7pX3
+ kbwHeTb6jJXF2oKMeGvcnd09q9dMbiupEQZsiMvY=
+Received: by camel2.lan (Postfix, from userid 1000)
+ id 859AD1C72A8; Sat, 28 Mar 2020 12:59:11 +0100 (CET)
+Date: Sat, 28 Mar 2020 12:59:11 +0100
+From: Matthias Reichl <hias@horus.com>
+To: Matt Flax <flatmax@flatmax.org>
+Subject: Re: [PATCH] ASoC: bcm2835-i2s: substream alignment now independent
+ in hwparams
+Message-ID: <20200328115911.GA4997@camel2.lan>
 References: <20200324090823.20754-1-flatmax@flatmax.org>
  <d0684926-3f7a-0b97-a298-4088925442a4@flatmax.org>
  <1dcf128a-4ad3-0efa-81e4-b3ccc7caa8f1@flatmax.org>
  <20200327132324.GA4523@lenny.lan>
-From: Matt Flax <flatmax@flatmax.org>
-Message-ID: <59b9ef4e-0067-593e-b4f9-49a5b271b432@flatmax.org>
-Date: Sat, 28 Mar 2020 08:50:52 +1100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.4.1
+ <59b9ef4e-0067-593e-b4f9-49a5b271b432@flatmax.org>
 MIME-Version: 1.0
-In-Reply-To: <20200327132324.GA4523@lenny.lan>
-Content-Language: en-US
-X-Spam-Score: -2.9 (--)
-X-Spam-Report: Spam detection software, running on the system "mx.flatmax.org",
- has NOT identified this incoming email as spam.  The original
- message has been attached to this so you can view it or label
- similar future email.  If you have any questions, see
- @@CONTACT_ADDRESS@@ for details.
- Content preview:  On 28/3/20 12:23 am, Matthias Reichl wrote: > On Fri, Mar
- 27, 2020 at 11:30:50AM +1100, Matt Flax wrote: >> On 27/3/20 10:56 am, Matt
- Flax wrote: >>> Should this patch be handled through the ALSA team [...] 
- Content analysis details:   (-2.9 points, 5.0 required)
- pts rule name              description
- ---- ---------------------- --------------------------------------------------
- 0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
- blocked.  See
- http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
- for more information. [URIs: flatmax.org]
- -1.0 ALL_TRUSTED            Passed through trusted hosts only via SMTP
- 0.0 TVD_RCVD_IP            Message was received from an IP address
- -1.9 BAYES_00               BODY: Bayes spam probability is 0 to 1%
- [score: 0.0000]
+Content-Disposition: inline
+In-Reply-To: <59b9ef4e-0067-593e-b4f9-49a5b271b432@flatmax.org>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200327_145100_376011_55EA2724 
-X-CRM114-Status: GOOD (  18.15  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20200328_045924_806986_0B025C24 
+X-CRM114-Status: GOOD (  33.46  )
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (0.0 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -86,116 +83,210 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>,
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
 Cc: alsa-devel@alsa-project.org, Mark Brown <broonie@kernel.org>,
  linux-rpi-kernel@lists.infradead.org
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-Ck9uIDI4LzMvMjAgMTI6MjMgYW0sIE1hdHRoaWFzIFJlaWNobCB3cm90ZToKPiBPbiBGcmksIE1h
-ciAyNywgMjAyMCBhdCAxMTozMDo1MEFNICsxMTAwLCBNYXR0IEZsYXggd3JvdGU6Cj4+IE9uIDI3
-LzMvMjAgMTA6NTYgYW0sIE1hdHQgRmxheCB3cm90ZToKPj4+IFNob3VsZCB0aGlzIHBhdGNoIGJl
-IGhhbmRsZWQgdGhyb3VnaCB0aGUgQUxTQSB0ZWFtIHRoZSBSLiBQaSB0ZWFtIG9yIHRoZQo+Pj4g
-QkNNIHRlYW0gPwo+Pj4KPj4gUmVzZW5kaW5nIGFnYWluIHdpdGggcmVkdWNlZCByZWNpcGllbnRz
-Lgo+Pgo+Pgo+Pj4gdGhhbmtzCj4+Pgo+Pj4gTWF0dAo+Pj4KPj4+IE9uIDI0LzMvMjAgODowOCBw
-bSwgTWF0dCBGbGF4IHdyb3RlOgo+Pj4+IFN1YnN0cmVhbSBzYW1wbGUgYWxpZ25tZW50IHdhcyBi
-ZWluZyBzZXQgaW4gaHdwYXJhbXMgZm9yIGJvdGgKPj4+PiBzdWJzdHJlYW1zIGF0IHRoZSBzYW1l
-IHRpbWUuIFRoaXMgYmVjYW1lIGEgcHJvYmxlbSB3aGVuwqDCoMKgIHRoZSBBdWRpbwo+Pj4+IElu
-amVjdG9yIGlzb2xhdGVkIHNvdW5kIGNhcmQgbmVlZGVkIHRvIG9mZnNldCBzYW1wbGUgYWxpZ25t
-ZW50Cj4+Pj4gZm9yIGhpZ2ggc2FtcGxlwqDCoMKgIHJhdGVzLiBUaGUgbGF0ZW5jeSBkaWZmZXJl
-bmNlIGJldHdlZW4gcGxheWJhY2sKPj4+PiBhbmQgY2FwdHVyZSBvY2N1cnMgYmVjYXVzZSBvZiB0
-aGUgZGlnaXRhbCBpc29sYXRpb24gY2hpcAo+Pj4+IHByb3BhZ2F0aW9uIHRpbWUsIHBhcnRpY3Vs
-YXJseSB3aGVuIHRoZSBjb2RlYyBpcyBtYXN0ZXIgYW5kCj4+Pj4gdGhlIERBQyByZXR1cm4gaXMg
-dHdpY2UgZGVsYXllZC4KPj4+Pgo+Pj4+IFRoaXMgcGF0Y2ggc2V0cyBzYW1wbGUgYWxpZ25tZW50
-IHJlZ2lzdGVyc8KgIGJhc2VkIG9uIHRoZSBzdWJzdHJlYW0KPj4+PiBkaXJlY3Rpb24gaW4gaHdw
-YXJhbXMuIFRoaXMgZ2l2ZXMgdGhlIG1hY2hpbmUgZHJpdmVyIG1vcmUgY29udHJvbAo+Pj4+IG92
-ZXIgc2FtcGxlIGFsaWdubWVudCBpbiB0aGUgYmNtMjgzNSBpMnMgZHJpdmVyLgo+Pj4+Cj4+Pj4g
-U2lnbmVkLW9mZi1ieTogTWF0dCBGbGF4IDxmbGF0bWF4QGZsYXRtYXgub3JnPgo+Pj4+IC0tLQo+
-Pj4+ICDCoCBzb3VuZC9zb2MvYmNtL2JjbTI4MzUtaTJzLmMgfCAzNiArKysrKysrKysrKysrKysr
-KysrLS0tLS0tLS0tLS0tLS0tLS0KPj4+PiAgwqAgMSBmaWxlIGNoYW5nZWQsIDE5IGluc2VydGlv
-bnMoKyksIDE3IGRlbGV0aW9ucygtKQo+Pj4+Cj4+Pj4gZGlmZiAtLWdpdCBhL3NvdW5kL3NvYy9i
-Y20vYmNtMjgzNS1pMnMuYyBiL3NvdW5kL3NvYy9iY20vYmNtMjgzNS1pMnMuYwo+Pj4+IGluZGV4
-IGU2YTEyZTI3MWIwNy4uOWRiNTQyNjk5YTEzIDEwMDY0NAo+Pj4+IC0tLSBhL3NvdW5kL3NvYy9i
-Y20vYmNtMjgzNS1pMnMuYwo+Pj4+ICsrKyBiL3NvdW5kL3NvYy9iY20vYmNtMjgzNS1pMnMuYwo+
-Pj4+IEBAIC00OTMsMTEgKzQ5Myw2IEBAIHN0YXRpYyBpbnQgYmNtMjgzNV9pMnNfaHdfcGFyYW1z
-KHN0cnVjdAo+Pj4+IHNuZF9wY21fc3Vic3RyZWFtICpzdWJzdHJlYW0sCj4+Pj4gIMKgwqDCoMKg
-wqDCoMKgwqDCoCByZXR1cm4gLUVJTlZBTDsKPj4+PiAgwqDCoMKgwqDCoCB9Cj4+Pj4gIMKgIC3C
-oMKgwqAgYmNtMjgzNV9pMnNfY2FsY19jaGFubmVsX3BvcygmcnhfY2gxX3BvcywgJnJ4X2NoMl9w
-b3MsCj4+Pj4gLcKgwqDCoMKgwqDCoMKgIHJ4X21hc2ssIHNsb3Rfd2lkdGgsIGRhdGFfZGVsYXks
-IG9kZF9zbG90X29mZnNldCk7Cj4+Pj4gLcKgwqDCoCBiY20yODM1X2kyc19jYWxjX2NoYW5uZWxf
-cG9zKCZ0eF9jaDFfcG9zLCAmdHhfY2gyX3BvcywKPj4+PiAtwqDCoMKgwqDCoMKgwqAgdHhfbWFz
-aywgc2xvdF93aWR0aCwgZGF0YV9kZWxheSwgb2RkX3Nsb3Rfb2Zmc2V0KTsKPj4+PiAtCj4+Pj4g
-IMKgwqDCoMKgwqAgLyoKPj4+PiAgwqDCoMKgwqDCoMKgICogVHJhbnNtaXR0aW5nIGRhdGEgaW1t
-ZWRpYXRlbHkgYWZ0ZXIgZnJhbWUgc3RhcnQsIGVnCj4+Pj4gIMKgwqDCoMKgwqDCoCAqIGluIGxl
-ZnQtanVzdGlmaWVkIG9yIERTUCBtb2RlIEEsIG9ubHkgd29ya3Mgc3RhYmxlCj4+Pj4gQEAgLTUw
-OCwxOSArNTAzLDI2IEBAIHN0YXRpYyBpbnQgYmNtMjgzNV9pMnNfaHdfcGFyYW1zKHN0cnVjdAo+
-Pj4+IHNuZF9wY21fc3Vic3RyZWFtICpzdWJzdHJlYW0sCj4+Pj4gIMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgICJVbnN0YWJsZSBzbGF2ZSBjb25maWcgZGV0ZWN0ZWQsIEwvUiBtYXkgYmUgc3dh
-cHBlZCIpOwo+Pj4+ICDCoCDCoMKgwqDCoMKgIC8qCj4+Pj4gLcKgwqDCoMKgICogU2V0IGZvcm1h
-dCBmb3IgYm90aCBzdHJlYW1zLgo+Pj4+IC3CoMKgwqDCoCAqIFdlIGNhbm5vdCBzZXQgYW5vdGhl
-ciBmcmFtZSBsZW5ndGgKPj4+PiAtwqDCoMKgwqAgKiAoYW5kIHRoZXJlZm9yZSB3b3JkIGxlbmd0
-aCkgYW55d2F5LAo+Pj4+IC3CoMKgwqDCoCAqIHNvIHRoZSBmb3JtYXQgd2lsbCBiZSB0aGUgc2Ft
-ZS4KPj4+PiArwqDCoMKgwqAgKiBTZXQgZm9ybWF0IG9uIGEgcGVyIHN0cmVhbSBiYXNpcy4KPj4+
-PiArwqDCoMKgwqAgKiBUaGUgYWxpZ25tZW50IGZvcm1hdCBjYW4gYmUgZGlmZmVyZW50IGRlcGVu
-ZGluZyBvbiBkaXJlY3Rpb24uCj4+Pj4gIMKgwqDCoMKgwqDCoCAqLwo+Pj4+IC3CoMKgwqAgcmVn
-bWFwX3dyaXRlKGRldi0+aTJzX3JlZ21hcCwgQkNNMjgzNV9JMlNfUlhDX0FfUkVHLAo+Pj4+IC3C
-oMKgwqDCoMKgwqDCoMKgwqAgZm9ybWF0Cj4+Pj4gLcKgwqDCoMKgwqDCoMKgIHwgQkNNMjgzNV9J
-MlNfQ0gxX1BPUyhyeF9jaDFfcG9zKQo+Pj4+IC3CoMKgwqDCoMKgwqDCoCB8IEJDTTI4MzVfSTJT
-X0NIMl9QT1MocnhfY2gyX3BvcykpOwo+Pj4+IC3CoMKgwqAgcmVnbWFwX3dyaXRlKGRldi0+aTJz
-X3JlZ21hcCwgQkNNMjgzNV9JMlNfVFhDX0FfUkVHLAo+Pj4+IC3CoMKgwqDCoMKgwqDCoMKgwqAg
-Zm9ybWF0Cj4+Pj4gLcKgwqDCoMKgwqDCoMKgIHwgQkNNMjgzNV9JMlNfQ0gxX1BPUyh0eF9jaDFf
-cG9zKQo+Pj4+IC3CoMKgwqDCoMKgwqDCoCB8IEJDTTI4MzVfSTJTX0NIMl9QT1ModHhfY2gyX3Bv
-cykpOwo+Pj4+ICvCoMKgwqAgaWYgKHN1YnN0cmVhbS0+c3RyZWFtID09IFNORFJWX1BDTV9TVFJF
-QU1fQ0FQVFVSRSkgewo+Pj4+ICvCoMKgwqDCoMKgwqDCoCBiY20yODM1X2kyc19jYWxjX2NoYW5u
-ZWxfcG9zKCZyeF9jaDFfcG9zLCAmcnhfY2gyX3BvcywKPj4+PiArwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoCByeF9tYXNrLCBzbG90X3dpZHRoLCBkYXRhX2RlbGF5LCBvZGRfc2xvdF9vZmZzZXQpOwo+
-Pj4+ICvCoMKgwqDCoMKgwqDCoCByZWdtYXBfd3JpdGUoZGV2LT5pMnNfcmVnbWFwLCBCQ00yODM1
-X0kyU19SWENfQV9SRUcsCj4+Pj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGZvcm1hdAo+
-Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHwgQkNNMjgzNV9JMlNfQ0gxX1BPUyhyeF9jaDFf
-cG9zKQo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHwgQkNNMjgzNV9JMlNfQ0gyX1BPUyhy
-eF9jaDJfcG9zKSk7Cj4+Pj4gK8KgwqDCoCB9Cj4+Pj4gKwo+Pj4+ICvCoMKgwqAgaWYgKHN1YnN0
-cmVhbS0+c3RyZWFtID09IFNORFJWX1BDTV9TVFJFQU1fUExBWUJBQ0spIHsKPj4+PiArwqDCoMKg
-wqDCoMKgwqAgYmNtMjgzNV9pMnNfY2FsY19jaGFubmVsX3BvcygmdHhfY2gxX3BvcywgJnR4X2No
-Ml9wb3MsCj4+Pj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgdHhfbWFzaywgc2xvdF93aWR0aCwg
-ZGF0YV9kZWxheSwgb2RkX3Nsb3Rfb2Zmc2V0KTsKPj4+PiArwqDCoMKgwqDCoMKgwqAgcmVnbWFw
-X3dyaXRlKGRldi0+aTJzX3JlZ21hcCwgQkNNMjgzNV9JMlNfVFhDX0FfUkVHLAo+Pj4+ICvCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBmb3JtYXQKPj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oCB8IEJDTTI4MzVfSTJTX0NIMV9QT1ModHhfY2gxX3BvcykKPj4+PiArwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoCB8IEJDTTI4MzVfSTJTX0NIMl9QT1ModHhfY2gyX3BvcykpOwo+Pj4+ICvCoMKgwqAg
-fQo+Pj4+ICDCoCDCoMKgwqDCoMKgIC8qIFNldHVwIHRoZSBJMlMgbW9kZSAqLwo+IFRoaXMgd2ls
-bCBicmVhayBkdXBsZXggb3BlcmF0aW9uIGlmIGEgc2Vjb25kIHN0cmVhbSBpcyBvcGVuZWQgd2hl
-bgo+IGEgc3RyZWFtIGlzIGFscmVhZHkgcnVubmluZyBhcyB0aGUgY2hhbm5lbCBwb3NpdGlvbiBy
-ZWdpc3RlcnMgZm9yCj4gdGhlIHNlY29uZCBzdHJlYW0gaGF2ZW4ndCBiZWVuIHNldCB1cC4KPgo+
-IE5vdGUgdGhpcyBjb2RlIGF0IHRoZSB2ZXJ5IGJlZ2lubmluZyBvZiBod19wYXJhbXM6Cj4KPiAg
-ICAgICAgICAvKgo+ICAgICAgICAgICAqIElmIGEgc3RyZWFtIGlzIGFscmVhZHkgZW5hYmxlZCwK
-PiAgICAgICAgICAgKiB0aGUgcmVnaXN0ZXJzIGFyZSBhbHJlYWR5IHNldCBwcm9wZXJseS4KPiAg
-ICAgICAgICAgKi8KPiAgICAgICAgICByZWdtYXBfcmVhZChkZXYtPmkyc19yZWdtYXAsIEJDTTI4
-MzVfSTJTX0NTX0FfUkVHLCAmY3NyZWcpOwo+Cj4gICAgICAgICAgaWYgKGNzcmVnICYgKEJDTTI4
-MzVfSTJTX1RYT04gfCBCQ00yODM1X0kyU19SWE9OKSkKPiAgICAgICAgICAgICAgICAgIHJldHVy
-biAwOwo+Cj4gVGhlIHJlYXNvbiBmb3IgdGhpcyBjaGVjayBpcyB0aGF0IHdlIGNhbid0IGNoYW5n
-ZSBiY20yODM1IEkyUyByZWdpc3RlcnMKPiBhZnRlciBJMlMgUlgvVFggaGFzIGJlZW4gZW5hYmxl
-ZCAtIHRoZSByZWFzb24gd2h5IGlzIGV4cGxhaW5lZCBpbiB0aGUKPiBkYXRhc2hlZXQ6Cj4KPj4g
-VGhlIFBDTSBpbnRlcmZhY2UgcnVucyBhc3luY2hyb25vdXNseSBhdCB0aGUgUENNX0NMSyByYXRl
-IGFuZAo+PiBhdXRvbWF0aWNhbGx5IHRyYW5zZmVycyB0cmFuc21pdCBhbmQgcmVjZWl2ZSBkYXRh
-IGFjcm9zcyB0byB0aGUKPj4gaW50ZXJuYWwgQVBCIGNsb2NrIGRvbWFpbi4gVGhlIGNvbnRyb2wg
-cmVnaXN0ZXJzIGFyZSBOT1QKPj4gc3luY2hyb25pc2VkIGFuZCBzaG91bGQgYmUgcHJvZ3JhbW1l
-ZCBiZWZvcmUgdGhlIGRldmljZSBpcyBlbmFibGVkCj4+IGFuZCBzaG91bGQgTk9UIGJlIGNoYW5n
-ZWQgd2hpbHN0IHRoZSBpbnRlcmZhY2UgaXMgcnVubmluZy4KPj4KPj4gT25seSB0aGUgRU4sIFJY
-T04gYW5kIFRYT04gYml0cyBvZiB0aGUgUENNQ1MgcmVnaXN0ZXIgYXJlIHN5bmNocm9uaXNlZAo+
-PiBhY3Jvc3MgdGhlIFBDTSAtIEFQQiBjbG9jayBkb21haW4gYW5kIGFyZSBhbGxvd2VkIHRvIGJl
-IGNoYW5nZWQgd2hpbHN0Cj4+IHRoZSBpbnRlcmZhY2UgaXMgcnVubmluZy4KPiBUaGVyZWZvcmUg
-d2UgbmVlZCB0byBzZXQgdXAgY2hhbm5lbCBtYXNrcyBmb3IgYm90aCBSWCBhbmQgVFggYmVmb3Jl
-Cj4gYW55IHN0cmVhbSBpcyBzdGFydGVkLgoKCkkgc2VlIHdoYXQgeW91IG1lYW4uIFdlIGNhbid0
-IGNoYW5nZSB0aGUgcmVnaXN0ZXJzIG9uY2UgdGhlIHN5c3RlbSBoYXMgCnN0YXJ0ZWQgaGFsZiBk
-dXBsZXggYW5kIHRoZW4gc3Vic2VxdWVudGx5IGNoYW5nZWQgdG8gZnVsbCBkdXBsZXguCgpUaGVy
-ZSBhcmUgY2FzZXMgaG93ZXZlciB3aGVyZSBwbGF5YmFjayBhbmQgY2FwdHVyZSBuZWVkIHRvIGJl
-IHNldCAKaW5kZXBlbmRlbnRseS4gSW4gdGhlc2UgY2FzZXMgdGhlIG1hY2hpbmUgZHJpdmVyIHJl
-cXVpcmVzIGRpZmZlcmVudCAKZm9ybWF0IHNldHRpbmdzIGJhc2VkIG9uIHRoZSBzdHJlYW0gZGly
-ZWN0aW9uLgoKV2hhdCBpZiB3ZSBtYWtlIGEgY2hlY2sgZm9yIHdoZXRoZXIgdGhlIHN5c3RlbSBp
-cyBhbHJlYWR5IHJ1bm5pbmcgYW5kIGluIAp0aGF0IGNhc2UgcmV0dXJuIGFuIGVycm9yIC0gZm9y
-Y2luZyB0aGUgdXNlciB0byB1c2Ugc3BlY2lmeSB0aGUgc2FtZSAKZGFpX2ZtdCB3aGljaCBpcyBh
-bHJlYWR5IGluIHVzZSBiZWZvcmUgY29udGludWluZyA/CgpXb3VsZCB0aGVyZSBiZSBhIGJldHRl
-ciB3YXkgdG8gYWNoaWV2ZSBkaWZmZXJlbnQgaHdwYXJhbXMgYmFzZWQgb24gCnN0cmVhbSBkaXJl
-Y3Rpb24gPwoKTWF0dAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJwaS1rZXJuZWwgbWFpbGluZyBsaXN0CmxpbnV4LXJwaS1rZXJuZWxAbGlz
-dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
-bmZvL2xpbnV4LXJwaS1rZXJuZWwK
+On Sat, Mar 28, 2020 at 08:50:52AM +1100, Matt Flax wrote:
+> =
+
+> On 28/3/20 12:23 am, Matthias Reichl wrote:
+> > On Fri, Mar 27, 2020 at 11:30:50AM +1100, Matt Flax wrote:
+> > > On 27/3/20 10:56 am, Matt Flax wrote:
+> > > > Should this patch be handled through the ALSA team the R. Pi team o=
+r the
+> > > > BCM team ?
+> > > > =
+
+> > > Resending again with reduced recipients.
+> > > =
+
+> > > =
+
+> > > > thanks
+> > > > =
+
+> > > > Matt
+> > > > =
+
+> > > > On 24/3/20 8:08 pm, Matt Flax wrote:
+> > > > > Substream sample alignment was being set in hwparams for both
+> > > > > substreams at the same time. This became a problem when=A0=A0=A0 =
+the Audio
+> > > > > Injector isolated sound card needed to offset sample alignment
+> > > > > for high sample=A0=A0=A0 rates. The latency difference between pl=
+ayback
+> > > > > and capture occurs because of the digital isolation chip
+> > > > > propagation time, particularly when the codec is master and
+> > > > > the DAC return is twice delayed.
+> > > > > =
+
+> > > > > This patch sets sample alignment registers=A0 based on the substr=
+eam
+> > > > > direction in hwparams. This gives the machine driver more control
+> > > > > over sample alignment in the bcm2835 i2s driver.
+> > > > > =
+
+> > > > > Signed-off-by: Matt Flax <flatmax@flatmax.org>
+> > > > > ---
+> > > > >  =A0 sound/soc/bcm/bcm2835-i2s.c | 36 +++++++++++++++++++--------=
+---------
+> > > > >  =A0 1 file changed, 19 insertions(+), 17 deletions(-)
+> > > > > =
+
+> > > > > diff --git a/sound/soc/bcm/bcm2835-i2s.c b/sound/soc/bcm/bcm2835-=
+i2s.c
+> > > > > index e6a12e271b07..9db542699a13 100644
+> > > > > --- a/sound/soc/bcm/bcm2835-i2s.c
+> > > > > +++ b/sound/soc/bcm/bcm2835-i2s.c
+> > > > > @@ -493,11 +493,6 @@ static int bcm2835_i2s_hw_params(struct
+> > > > > snd_pcm_substream *substream,
+> > > > >  =A0=A0=A0=A0=A0=A0=A0=A0=A0 return -EINVAL;
+> > > > >  =A0=A0=A0=A0=A0 }
+> > > > >  =A0 -=A0=A0=A0 bcm2835_i2s_calc_channel_pos(&rx_ch1_pos, &rx_ch2=
+_pos,
+> > > > > -=A0=A0=A0=A0=A0=A0=A0 rx_mask, slot_width, data_delay, odd_slot_=
+offset);
+> > > > > -=A0=A0=A0 bcm2835_i2s_calc_channel_pos(&tx_ch1_pos, &tx_ch2_pos,
+> > > > > -=A0=A0=A0=A0=A0=A0=A0 tx_mask, slot_width, data_delay, odd_slot_=
+offset);
+> > > > > -
+> > > > >  =A0=A0=A0=A0=A0 /*
+> > > > >  =A0=A0=A0=A0=A0=A0 * Transmitting data immediately after frame s=
+tart, eg
+> > > > >  =A0=A0=A0=A0=A0=A0 * in left-justified or DSP mode A, only works=
+ stable
+> > > > > @@ -508,19 +503,26 @@ static int bcm2835_i2s_hw_params(struct
+> > > > > snd_pcm_substream *substream,
+> > > > >  =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 "Unstable slave config d=
+etected, L/R may be swapped");
+> > > > >  =A0 =A0=A0=A0=A0=A0 /*
+> > > > > -=A0=A0=A0=A0 * Set format for both streams.
+> > > > > -=A0=A0=A0=A0 * We cannot set another frame length
+> > > > > -=A0=A0=A0=A0 * (and therefore word length) anyway,
+> > > > > -=A0=A0=A0=A0 * so the format will be the same.
+> > > > > +=A0=A0=A0=A0 * Set format on a per stream basis.
+> > > > > +=A0=A0=A0=A0 * The alignment format can be different depending o=
+n direction.
+> > > > >  =A0=A0=A0=A0=A0=A0 */
+> > > > > -=A0=A0=A0 regmap_write(dev->i2s_regmap, BCM2835_I2S_RXC_A_REG,
+> > > > > -=A0=A0=A0=A0=A0=A0=A0=A0=A0 format
+> > > > > -=A0=A0=A0=A0=A0=A0=A0 | BCM2835_I2S_CH1_POS(rx_ch1_pos)
+> > > > > -=A0=A0=A0=A0=A0=A0=A0 | BCM2835_I2S_CH2_POS(rx_ch2_pos));
+> > > > > -=A0=A0=A0 regmap_write(dev->i2s_regmap, BCM2835_I2S_TXC_A_REG,
+> > > > > -=A0=A0=A0=A0=A0=A0=A0=A0=A0 format
+> > > > > -=A0=A0=A0=A0=A0=A0=A0 | BCM2835_I2S_CH1_POS(tx_ch1_pos)
+> > > > > -=A0=A0=A0=A0=A0=A0=A0 | BCM2835_I2S_CH2_POS(tx_ch2_pos));
+> > > > > +=A0=A0=A0 if (substream->stream =3D=3D SNDRV_PCM_STREAM_CAPTURE)=
+ {
+> > > > > +=A0=A0=A0=A0=A0=A0=A0 bcm2835_i2s_calc_channel_pos(&rx_ch1_pos, =
+&rx_ch2_pos,
+> > > > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 rx_mask, slot_width, data_dela=
+y, odd_slot_offset);
+> > > > > +=A0=A0=A0=A0=A0=A0=A0 regmap_write(dev->i2s_regmap, BCM2835_I2S_=
+RXC_A_REG,
+> > > > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 format
+> > > > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 | BCM2835_I2S_CH1_POS(rx_ch1_p=
+os)
+> > > > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 | BCM2835_I2S_CH2_POS(rx_ch2_p=
+os));
+> > > > > +=A0=A0=A0 }
+> > > > > +
+> > > > > +=A0=A0=A0 if (substream->stream =3D=3D SNDRV_PCM_STREAM_PLAYBACK=
+) {
+> > > > > +=A0=A0=A0=A0=A0=A0=A0 bcm2835_i2s_calc_channel_pos(&tx_ch1_pos, =
+&tx_ch2_pos,
+> > > > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 tx_mask, slot_width, data_dela=
+y, odd_slot_offset);
+> > > > > +=A0=A0=A0=A0=A0=A0=A0 regmap_write(dev->i2s_regmap, BCM2835_I2S_=
+TXC_A_REG,
+> > > > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 format
+> > > > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 | BCM2835_I2S_CH1_POS(tx_ch1_p=
+os)
+> > > > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 | BCM2835_I2S_CH2_POS(tx_ch2_p=
+os));
+> > > > > +=A0=A0=A0 }
+> > > > >  =A0 =A0=A0=A0=A0=A0 /* Setup the I2S mode */
+> > This will break duplex operation if a second stream is opened when
+> > a stream is already running as the channel position registers for
+> > the second stream haven't been set up.
+> > =
+
+> > Note this code at the very beginning of hw_params:
+> > =
+
+> >          /*
+> >           * If a stream is already enabled,
+> >           * the registers are already set properly.
+> >           */
+> >          regmap_read(dev->i2s_regmap, BCM2835_I2S_CS_A_REG, &csreg);
+> > =
+
+> >          if (csreg & (BCM2835_I2S_TXON | BCM2835_I2S_RXON))
+> >                  return 0;
+> > =
+
+> > The reason for this check is that we can't change bcm2835 I2S registers
+> > after I2S RX/TX has been enabled - the reason why is explained in the
+> > datasheet:
+> > =
+
+> > > The PCM interface runs asynchronously at the PCM_CLK rate and
+> > > automatically transfers transmit and receive data across to the
+> > > internal APB clock domain. The control registers are NOT
+> > > synchronised and should be programmed before the device is enabled
+> > > and should NOT be changed whilst the interface is running.
+> > > =
+
+> > > Only the EN, RXON and TXON bits of the PCMCS register are synchronised
+> > > across the PCM - APB clock domain and are allowed to be changed whilst
+> > > the interface is running.
+> > Therefore we need to set up channel masks for both RX and TX before
+> > any stream is started.
+> =
+
+> =
+
+> I see what you mean. We can't change the registers once the system has
+> started half duplex and then subsequently changed to full duplex.
+> =
+
+> There are cases however where playback and capture need to be set
+> independently. In these cases the machine driver requires different format
+> settings based on the stream direction.
+> =
+
+> What if we make a check for whether the system is already running and in
+> that case return an error - forcing the user to use specify the same dai_=
+fmt
+> which is already in use before continuing ?
+
+I'm not sure if I can follow you. dai_fmt, as the name implies, sets
+the format of the DAI - you can't have different DAI formats for
+playback/capture active at the same time.
+
+This sounds a bit like you may be trying to work around some hardware
+or codec configuration issue by creative use of the API.
+
+> Would there be a better way to achieve different hwparams based on stream
+> direction ?
+
+If you really need different DAI formats for playback/capture it's
+best to disallow full-duplex mode and set the DAI format based on
+stream direction in the machine driver.
+
+so long,
+
+Hias
+
+> =
+
+> Matt
+> =
+
+
+_______________________________________________
+linux-rpi-kernel mailing list
+linux-rpi-kernel@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
