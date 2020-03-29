@@ -2,7 +2,7 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id C890A196D7F
+	by mail.lfdr.de (Postfix) with ESMTPS id 733F0196D7E
 	for <lists+linux-rpi-kernel@lfdr.de>; Sun, 29 Mar 2020 14:46:10 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
@@ -11,62 +11,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=eNog0Oj46MVgI3OaqIOAYZt57ZyebeeDy5Ng1Dl7zyk=; b=tn2p8tCq2mS33SiL5nPUlOHDDy
-	Q2zO3KsLdEpk2OcVWBOBkHIgrbjGeoifkgK56W6xrVPtBbnmiCv1erhyPHFPwTNCSjTuGzbFjE+Cf
-	qpbrbAieX4Pnd6tHRxSJ1f9EtD7Q0j/UDnsBgVKSQjMmeHV4gzLdrEP/gk19Hlt0YWl09a3X01L3n
-	VqK3jNR08OfKfpG7FCrHE1PACQEezX5624s/6bSkJEzDy3EtoDkGlETd5iY1r87qydpkHWUhIz49/
-	DP4e99UNfCHRmjWasN3g3hY3hMLRvLc4ddVuw0C5kMfgWir8czlpkbaTcO0POV7AtlfcxK1jppGQl
-	DfXWuatQ==;
+	bh=0wWplCmf4Y64XYBr43FmrrzzexRpRah8jXAYiTGCVFs=; b=A302nkZGjCCd3dk/ZYF5mpx98l
+	nOoW7zt6ilp9ycxO/OlS/c+51ny0phiw9z7WVh3coO5BWIZevKpu+UqVBQc9yClteAODvyustiGZW
+	LHVTHHc6NujJosgBN7O3ffOXEJNRAIBRJQG2LqK21S3004XXILVoULLxDG69qw/lVI62O9w2Yszxo
+	uT5HwF7KXer2NEnNyIbKRfXC4G8UykTdko8YToKzDGnli7Nbb/CiXs+B5yKEFs/eQMDcxemG4QQh5
+	yqHqbecVseN6gGcjRrOFiAHngZx5lFTNV0Nfi0CO1+/hnquT1JWhz+96LLKnpEDqPC6li1NMtNHmY
+	/fcFxhPQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jIXKC-0001VR-27; Sun, 29 Mar 2020 12:46:00 +0000
-Received: from mout.kundenserver.de ([212.227.126.135])
+	id 1jIXJz-0001Le-DU; Sun, 29 Mar 2020 12:45:47 +0000
+Received: from mout.kundenserver.de ([212.227.126.187])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jIXJv-0001H7-6T
- for linux-rpi-kernel@lists.infradead.org; Sun, 29 Mar 2020 12:45:46 +0000
+ id 1jIXJt-0001HA-Ui
+ for linux-rpi-kernel@lists.infradead.org; Sun, 29 Mar 2020 12:45:45 +0000
 Received: from localhost.localdomain ([37.4.249.171]) by
  mrelayeu.kundenserver.de (mreue010 [212.227.15.167]) with ESMTPSA (Nemesis)
- id 1MsqIi-1j33nX062q-00tFRX; Sun, 29 Mar 2020 14:45:31 +0200
+ id 1MjjSt-1iv3SK1ajz-00lARI; Sun, 29 Mar 2020 14:45:31 +0200
 From: Stefan Wahren <stefan.wahren@i2se.com>
 To: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Hans Verkuil <hverkuil-cisco@xs4all.nl>,
  Dave Stevenson <dave.stevenson@raspberrypi.org>
-Subject: [PATCH 5/9] staging: bcm2835-camera: Move encode component setup in
+Subject: [PATCH 6/9] staging: bcm2835-camera: Move video component setup in
  its own function
-Date: Sun, 29 Mar 2020 14:44:57 +0200
-Message-Id: <1585485901-10172-6-git-send-email-stefan.wahren@i2se.com>
+Date: Sun, 29 Mar 2020 14:44:58 +0200
+Message-Id: <1585485901-10172-7-git-send-email-stefan.wahren@i2se.com>
 X-Mailer: git-send-email 2.7.4
 In-Reply-To: <1585485901-10172-1-git-send-email-stefan.wahren@i2se.com>
 References: <1585485901-10172-1-git-send-email-stefan.wahren@i2se.com>
-X-Provags-ID: V03:K1:BQPmHhJvmbzHkT7+st7uQHneaHyjrOkAfOE/UNb/XiYKc9w+ShP
- E4Cj0TO9bTMNsZ9+9izHwwl27TxlKKbjmcft93WjyG0NyygR62/7tYBE1avHffWDAuZ/2+B
- 0e/5D9DxS55R8hF/RJwoTByBoihZyoagq20dUyBViebFOUkCiBagJxq8HBNQOjKUsd/2P4A
- JtoEo5DMPAtMAGnNME6cQ==
+X-Provags-ID: V03:K1:YzhSUifo50CR1hBK/+wUQhJWgExviyaIT5RNl1tetz71hDkYwq8
+ +ylCG90HZ1NJj+LzT/zoaIbD1RrRBIT5GQRuCUJhTjy8Z7C7fptFYTIrRQOVfjx7/cQe2el
+ a+WahJAITBIYjNNpiTILMwVz1JlUlh4mD4gX/cojX5cwn7N3MCI+/MunYvQLQwLnoLrJ7jT
+ jBVAvhRd45Knlm10T8EVw==
 X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:SFeXStu2+Ao=:+kjDDBBKgaAgOG/vrhF3Qg
- oaTI9Lry7VLHUuj6fCYyoS7qpXw6kcdnDUd/4bb1HppYdGBT/a/8WIU9BbDlLbW7I0QsO6pMd
- 7pmnBdKRleY2TVMo+0/HKnirTgWuv/ivY6cZFgvvZqmUoiiB8gUdOj0F+F2Dm87eFejHAZJwu
- Y0HXQoi6JXrrAVQOxVrAhIXqdufVV6ek+/Xty+TlZME4bPgnCsRxlK6k6JVjGnXj2/bYDbVMc
- LaMqs61YYn1Gj1InVUqj/2rHHiuTnkn880hUADMJWb5mj83lHVhktEiyTCGuIUcz7ZzDuREin
- dpHUumRzGEO8i3/+KHl/fody/vWpqWWd//X0d38r3t44tChPd8VlNOa7cTn9wQipHwd60WosX
- 5hMk2HBk/Y6Q8G1khepCLtS+xdhVSVJCFiHvRPI/HTc+PvA6cdJH3zQ7zsJ+w+Q4k0uTBPOVJ
- 6pqAc7qZoMfAvhIEmaNuioPGT8+q/v9pr6sNoLRD+do/Ml0DNqzuYlp2ZCD78GzFGTzenD/QU
- /uQnjuJCkuVsaSwjAItmGAwtYw8kmZargRGdkTi8y3LA1On89OZNVJocLFkG2me1PEnHmreLQ
- r5P1a2p6Tld3XMOo08SvImlP9BzsfH/Vrb8/kxUeePJPFTgqHB9oeKhKOVoGBhpoo2HKY0qTI
- /i5BcDHiDnwqZZ12vupInvciqGLqQd4rAw/F9GK3YkRGSyngc6gMO0Ewj4XOJLOfkxWw+w7w+
- vwXE6A/+3B8B+Wcb+qpoIRkYPqkHOb3iW2cKJft4s9mHCRI5kQxiq593ex9Hj6Y3fI17aiiWn
- YtgQ8NKqbQZIWNEdogaAmtEI0kgetRLALRPUx1NAcFJNomw7eWKKrYBDnWwub5KlGM0fkg3
+X-UI-Out-Filterresults: notjunk:1;V03:K0:7MgRRIrwdBM=:v5BCaDmqtDFPGVdR5zfjE4
+ vZuDdHMzv5kTZP9+o5r0U/unyHPQ81hgjBVap5bn/zzN9TNyqs7pVppGz6mM0IvrGij9ueTjy
+ YFz5ik7mmv+orU4bMDDzRX6hqrysLsR7O6bVLgHTYnsQcPjZC8vgXzsVRUbit4mfj46ok3mhX
+ KGq/Tu3CaDYy0xnN1EL+T4KYRgx86ziab3aq+ovjTb9DV+FXHEaaICle3MNMTtPfAqDx4rqeF
+ hQEY+fpLvnHZ25QtNB8y0J4frf3qOTSv6pKPA0qJIRYbtP2GTvBTqLbIrbjp43awC68XKSwUs
+ quvxVqLb+uZV9vuAtQuJVfymncCJ6NSZgZ0L40N/Bam7YxzjoKOYEJ0GYjg146dLbdnto4khU
+ vAxQdHEvx56CjlWypJwdHcaY0uSBNsuNCffYXLHb2yl6em9a+payml7GVy2KN+dEOMHrWyKP6
+ do4mAyj3h/Mc6+ethT6dL/XUlz3yXX+3pyGkgAmtqMo1nmiLuGwFfUnmj79h4HYdHs8iwa+gf
+ H79Ry/90N74cyAyUpxfSk49PDfcbVlgH6mjtgKX6RBWCyyymzzJh5PRSKvyUOPuVYQAgbOcc1
+ MWUF2NKEP0gZCo9YF3DBHPDKMu9/l43snZtAaF6uRNn/HS4v0nuW5jsfGYRTJNBYIwpTjY+4G
+ +GUepsbWJohgoR5SIMRSBJwR40MYYBp5LlThUdd1D+nlUY3O/a0ik/RU12vWKWLJIPi5WBNeE
+ ycEzhMmZzIHeg8hjoQKjXoWuC/VrYJymokAXZN2tQXVGTK1TkfiNyjiRA3CemptAFavwSaJpu
+ ner53QzEtbeuhhiOIR7rAnLgfFFXGLOexOELxyaMjE5GxhkjkAmQDdvX/SIgrINkgLA8rvX
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200329_054543_543944_858990CE 
-X-CRM114-Status: GOOD (  15.36  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20200329_054542_297598_D5B5EA24 
+X-CRM114-Status: GOOD (  14.10  )
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (0.0 points)
+ Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [212.227.126.135 listed in list.dnswl.org]
+ no trust [212.227.126.187 listed in list.dnswl.org]
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [212.227.126.187 listed in wl.mailspike.net]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
@@ -88,216 +90,119 @@ Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
 The function mmal_setup_components has to many indention levels. So move
-the setup code for encode component in its own function.
+the setup code for video component in its own function.
 
 Signed-off-by: Stefan Wahren <stefan.wahren@i2se.com>
 ---
- .../vc04_services/bcm2835-camera/bcm2835-camera.c  | 185 ++++++++++-----------
- 1 file changed, 91 insertions(+), 94 deletions(-)
+ .../vc04_services/bcm2835-camera/bcm2835-camera.c  | 88 ++++++++++++----------
+ 1 file changed, 48 insertions(+), 40 deletions(-)
 
 diff --git a/drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c b/drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c
-index ff2ba23..f101918 100644
+index f101918..f11f186 100644
 --- a/drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c
 +++ b/drivers/staging/vc04_services/bcm2835-camera/bcm2835-camera.c
-@@ -1001,6 +1001,94 @@ static int vidioc_try_fmt_vid_cap(struct file *file, void *priv,
+@@ -1001,6 +1001,53 @@ static int vidioc_try_fmt_vid_cap(struct file *file, void *priv,
  	return 0;
  }
  
-+static int mmal_setup_encode_component(struct bm2835_mmal_dev *dev,
-+				       struct v4l2_format *f,
-+				       struct vchiq_mmal_port *port,
-+				       struct vchiq_mmal_port *camera_port,
-+				       struct vchiq_mmal_component *component)
++
++static int mmal_setup_video_component(struct bm2835_mmal_dev *dev,
++				      struct v4l2_format *f)
 +{
-+	struct mmal_fmt *mfmt = get_format(f);
++	bool overlay_enabled = !!dev->component[COMP_PREVIEW]->enabled;
++	struct vchiq_mmal_port *preview_port;
 +	int ret;
 +
-+	v4l2_dbg(1, bcm2835_v4l2_debug, &dev->v4l2_dev,
-+		 "vid_cap - set up encode comp\n");
++	preview_port = &dev->component[COMP_CAMERA]->output[CAM_PORT_PREVIEW];
 +
-+	/* configure buffering */
-+	camera_port->current_buffer.size = camera_port->recommended_buffer.size;
-+	camera_port->current_buffer.num = camera_port->recommended_buffer.num;
++	/* Preview and encode ports need to match on resolution */
++	if (overlay_enabled) {
++		/* Need to disable the overlay before we can update
++		 * the resolution
++		 */
++		ret = vchiq_mmal_port_disable(dev->instance, preview_port);
++		if (!ret) {
++			ret = vchiq_mmal_port_connect_tunnel(dev->instance,
++							     preview_port,
++							     NULL);
++		}
++	}
++	preview_port->es.video.width = f->fmt.pix.width;
++	preview_port->es.video.height = f->fmt.pix.height;
++	preview_port->es.video.crop.x = 0;
++	preview_port->es.video.crop.y = 0;
++	preview_port->es.video.crop.width = f->fmt.pix.width;
++	preview_port->es.video.crop.height = f->fmt.pix.height;
++	preview_port->es.video.frame_rate.num =
++				  dev->capture.timeperframe.denominator;
++	preview_port->es.video.frame_rate.den =
++				  dev->capture.timeperframe.numerator;
++	ret = vchiq_mmal_port_set_format(dev->instance, preview_port);
 +
-+	ret = vchiq_mmal_port_connect_tunnel(dev->instance, camera_port,
-+					     &component->input[0]);
-+	if (ret) {
-+		v4l2_dbg(1, bcm2835_v4l2_debug, &dev->v4l2_dev,
-+			 "%s failed to create connection\n", __func__);
-+		/* ensure capture is not going to be tried */
-+		dev->capture.port = NULL;
-+		return ret;
++	if (overlay_enabled) {
++		ret = vchiq_mmal_port_connect_tunnel(dev->instance,
++				preview_port,
++				&dev->component[COMP_PREVIEW]->input[0]);
++		if (ret)
++			return ret;
++
++		ret = vchiq_mmal_port_enable(dev->instance, preview_port, NULL);
 +	}
 +
-+	port->es.video.width = f->fmt.pix.width;
-+	port->es.video.height = f->fmt.pix.height;
-+	port->es.video.crop.x = 0;
-+	port->es.video.crop.y = 0;
-+	port->es.video.crop.width = f->fmt.pix.width;
-+	port->es.video.crop.height = f->fmt.pix.height;
-+	port->es.video.frame_rate.num =
-+		  dev->capture.timeperframe.denominator;
-+	port->es.video.frame_rate.den =
-+		  dev->capture.timeperframe.numerator;
-+
-+	port->format.encoding = mfmt->mmal;
-+	port->format.encoding_variant = 0;
-+	/* Set any encoding specific parameters */
-+	switch (mfmt->mmal_component) {
-+	case COMP_VIDEO_ENCODE:
-+		port->format.bitrate = dev->capture.encode_bitrate;
-+		break;
-+	case COMP_IMAGE_ENCODE:
-+		/* Could set EXIF parameters here */
-+		break;
-+	default:
-+		break;
-+	}
-+
-+	ret = vchiq_mmal_port_set_format(dev->instance, port);
-+	if (ret) {
-+		v4l2_dbg(1, bcm2835_v4l2_debug, &dev->v4l2_dev,
-+			 "%s failed to set format %dx%d fmt %08X\n",
-+			 __func__,
-+			 f->fmt.pix.width,
-+			 f->fmt.pix.height,
-+			 f->fmt.pix.pixelformat);
-+		return ret;
-+	}
-+
-+	ret = vchiq_mmal_component_enable(dev->instance, component);
-+	if (ret) {
-+		v4l2_dbg(1, bcm2835_v4l2_debug, &dev->v4l2_dev,
-+			 "%s Failed to enable encode components\n", __func__);
-+		return ret;
-+	}
-+
-+	/* configure buffering */
-+	port->current_buffer.num = 1;
-+	port->current_buffer.size = f->fmt.pix.sizeimage;
-+	if (port->format.encoding == MMAL_ENCODING_JPEG) {
-+		v4l2_dbg(1, bcm2835_v4l2_debug, &dev->v4l2_dev,
-+			 "JPG - buf size now %d was %d\n",
-+			 f->fmt.pix.sizeimage,
-+			 port->current_buffer.size);
-+		port->current_buffer.size =
-+		    (f->fmt.pix.sizeimage < (100 << 10)) ?
-+		    (100 << 10) : f->fmt.pix.sizeimage;
-+	}
-+	v4l2_dbg(1, bcm2835_v4l2_debug, &dev->v4l2_dev,
-+		 "vid_cap - cur_buf.size set to %d\n", f->fmt.pix.sizeimage);
-+	port->current_buffer.alignment = 0;
-+
-+	return 0;
++	return ret;
 +}
 +
- static int mmal_setup_components(struct bm2835_mmal_dev *dev,
- 				 struct v4l2_format *f)
- {
-@@ -1147,100 +1235,9 @@ static int mmal_setup_components(struct bm2835_mmal_dev *dev,
- 		dev->capture.port = NULL;
- 	} else {
- 		if (encode_component) {
--			v4l2_dbg(1, bcm2835_v4l2_debug, &dev->v4l2_dev,
--				 "vid_cap - set up encode comp\n");
--
--			/* configure buffering */
--			camera_port->current_buffer.size =
--			    camera_port->recommended_buffer.size;
--			camera_port->current_buffer.num =
--			    camera_port->recommended_buffer.num;
--
+ static int mmal_setup_encode_component(struct bm2835_mmal_dev *dev,
+ 				       struct v4l2_format *f,
+ 				       struct vchiq_mmal_port *port,
+@@ -1184,46 +1231,7 @@ static int mmal_setup_components(struct bm2835_mmal_dev *dev,
+ 	if (!ret &&
+ 	    camera_port ==
+ 	    &dev->component[COMP_CAMERA]->output[CAM_PORT_VIDEO]) {
+-		bool overlay_enabled =
+-		    !!dev->component[COMP_PREVIEW]->enabled;
+-		struct vchiq_mmal_port *preview_port =
+-		    &dev->component[COMP_CAMERA]->output[CAM_PORT_PREVIEW];
+-		/* Preview and encode ports need to match on resolution */
+-		if (overlay_enabled) {
+-			/* Need to disable the overlay before we can update
+-			 * the resolution
+-			 */
 -			ret =
--			    vchiq_mmal_port_connect_tunnel(
--					dev->instance,
--					camera_port,
--					&encode_component->input[0]);
--			if (ret) {
--				v4l2_dbg(1, bcm2835_v4l2_debug,
--					 &dev->v4l2_dev,
--					 "%s failed to create connection\n",
--					 __func__);
--				/* ensure capture is not going to be tried */
--				dev->capture.port = NULL;
--			} else {
--				port->es.video.width = f->fmt.pix.width;
--				port->es.video.height = f->fmt.pix.height;
--				port->es.video.crop.x = 0;
--				port->es.video.crop.y = 0;
--				port->es.video.crop.width = f->fmt.pix.width;
--				port->es.video.crop.height = f->fmt.pix.height;
--				port->es.video.frame_rate.num =
--					  dev->capture.timeperframe.denominator;
--				port->es.video.frame_rate.den =
--					  dev->capture.timeperframe.numerator;
--
--				port->format.encoding = mfmt->mmal;
--				port->format.encoding_variant = 0;
--				/* Set any encoding specific parameters */
--				switch (mfmt->mmal_component) {
--				case COMP_VIDEO_ENCODE:
--					port->format.bitrate =
--					    dev->capture.encode_bitrate;
--					break;
--				case COMP_IMAGE_ENCODE:
--					/* Could set EXIF parameters here */
--					break;
--				default:
--					break;
--				}
--				ret = vchiq_mmal_port_set_format(dev->instance,
--								 port);
--				if (ret)
--					v4l2_dbg(1, bcm2835_v4l2_debug,
--						 &dev->v4l2_dev,
--						 "%s failed to set format %dx%d fmt %08X\n",
--						 __func__,
--						 f->fmt.pix.width,
--						 f->fmt.pix.height,
--						 f->fmt.pix.pixelformat
--						 );
--			}
--
--			if (!ret) {
--				ret = vchiq_mmal_component_enable(
+-			    vchiq_mmal_port_disable(dev->instance,
+-						    preview_port);
+-			if (!ret)
+-				ret =
+-				    vchiq_mmal_port_connect_tunnel(
 -						dev->instance,
--						encode_component);
--				if (ret) {
--					v4l2_dbg(1, bcm2835_v4l2_debug,
--						 &dev->v4l2_dev,
--						 "%s Failed to enable encode components\n",
--						 __func__);
--				}
--			}
--			if (!ret) {
--				/* configure buffering */
--				port->current_buffer.num = 1;
--				port->current_buffer.size =
--				    f->fmt.pix.sizeimage;
--				if (port->format.encoding ==
--				    MMAL_ENCODING_JPEG) {
--					v4l2_dbg(1, bcm2835_v4l2_debug,
--						 &dev->v4l2_dev,
--						 "JPG - buf size now %d was %d\n",
--						 f->fmt.pix.sizeimage,
--						 port->current_buffer.size);
--					port->current_buffer.size =
--					    (f->fmt.pix.sizeimage <
--					     (100 << 10)) ?
--					    (100 << 10) : f->fmt.pix.sizeimage;
--				}
--				v4l2_dbg(1, bcm2835_v4l2_debug,
--					 &dev->v4l2_dev,
--					 "vid_cap - cur_buf.size set to %d\n",
--					 f->fmt.pix.sizeimage);
--				port->current_buffer.alignment = 0;
--			}
-+			ret = mmal_setup_encode_component(dev, f, port,
-+							  camera_port,
-+							  encode_component);
- 		} else {
- 			/* configure buffering */
- 			camera_port->current_buffer.num = 1;
+-						preview_port,
+-						NULL);
+-		}
+-		preview_port->es.video.width = f->fmt.pix.width;
+-		preview_port->es.video.height = f->fmt.pix.height;
+-		preview_port->es.video.crop.x = 0;
+-		preview_port->es.video.crop.y = 0;
+-		preview_port->es.video.crop.width = f->fmt.pix.width;
+-		preview_port->es.video.crop.height = f->fmt.pix.height;
+-		preview_port->es.video.frame_rate.num =
+-					  dev->capture.timeperframe.denominator;
+-		preview_port->es.video.frame_rate.den =
+-					  dev->capture.timeperframe.numerator;
+-		ret = vchiq_mmal_port_set_format(dev->instance, preview_port);
+-		if (overlay_enabled) {
+-			ret = vchiq_mmal_port_connect_tunnel(
+-				dev->instance,
+-				preview_port,
+-				&dev->component[COMP_PREVIEW]->input[0]);
+-			if (!ret)
+-				ret = vchiq_mmal_port_enable(dev->instance,
+-							     preview_port,
+-							     NULL);
+-		}
++		ret = mmal_setup_video_component(dev, f);
+ 	}
+ 
+ 	if (ret) {
 -- 
 2.7.4
 
