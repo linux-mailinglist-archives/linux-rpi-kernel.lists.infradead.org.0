@@ -2,66 +2,89 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 09C951CC319
-	for <lists+linux-rpi-kernel@lfdr.de>; Sat,  9 May 2020 19:11:53 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 661E21CC3BB
+	for <lists+linux-rpi-kernel@lfdr.de>; Sat,  9 May 2020 20:47:46 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:
+	From:In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mMJB81oPz82Ye9zbuAc/O0rWuwer80Ku/YX/Ka9GHWk=; b=Xwv0hjOjfMwH6K
-	ZldC5tO5VwIGj80UZo5mQye6aF2OsxmSxJU6cNNxmY/jTnFR0Eovwc7UHR6B8yj1SO13ub0SgZSAq
-	+WQ0Xm1T+w4TFutQV+/rTuCEuyLi3vt3jSX33n9lIq+MUj9rMbeG33MV554a0meJyVuNTb6iTwxET
-	om5qEXbfkf56PG49mos7dNC9v9/iEXE9OJD+PwTqFfjPlea8jpKOjG4XAfsA6dS5ztv3b2r82F9Td
-	pQa8nAie1qPxlCg6pzZbsOx738alqBO8weRPj7sfJC+yx1VK8ELKnPSa9T/W87J7gQrVRu/S7yTAB
-	Ry/486+glyvF7fsupSiw==;
+	List-Owner; bh=X57hlnWVyQg+0uIKfh/agGny1gRt5SoK8fZv0mk44sk=; b=MUTDSgGCxqPMVl
+	zTRLXCfU8DzDxiyypuPOmYmKf7qL80HWBYh/joXCPPj51schS5ssCxTcVD6a0zYei0k4j9NjcstE0
+	lr6MnZSnnLPEmOg3wH620gTDv8A+7s0Z/R7FmABYOikR4OiUcl0iMKGHfXn59iLf7Er++OWnkgZIb
+	3m+2DyJMNyVw3z5PDzpU45HE1nPbA177Y1YwKnHNcT+Zv3+A9iMdxlQUNOfAg2eENQSoXJfo/ImTF
+	c7RHUuzmqIVcsuNV1icRaxPaeEQKDIS9vLCHg9P4u5MNuruZjRsy0BUhuq1A7Of8HTNQzkfgKKqt4
+	66auI9um60PrFwlfhhIA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jXT0o-0003du-Qv; Sat, 09 May 2020 17:11:42 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1jXUVJ-0002YJ-DJ; Sat, 09 May 2020 18:47:17 +0000
+Received: from mail-lf1-x142.google.com ([2a00:1450:4864:20::142])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jXT0f-0003Vi-T0; Sat, 09 May 2020 17:11:35 +0000
-Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl
- [83.86.89.107])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id DB84D2184D;
- Sat,  9 May 2020 17:11:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1589044293;
- bh=Knc6lihQiyioaGFRTOVqQ9keAhGSuwjLXItKg6yamdM=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=Awx6svb+sXY9Nb1+JkPtcyV+gT732HQk2LBchxvGubEgp3mbS7q9AwBqMxh55g0/t
- Li864Ct2Zx/qanTNcvtRN350fif6Rr+879RB03rX33tTlRlh7X+9aHfnSKofph22sn
- Js8zspBbqLHuW6ZBLywIrEdE3ccr8zKi+rkUJYdU=
-Date: Sat, 9 May 2020 19:11:31 +0200
-From: Greg KH <gregkh@linuxfoundation.org>
-To: John Oldman <john.oldman@polehill.co.uk>
+ id 1jXUVF-0002XY-VQ; Sat, 09 May 2020 18:47:15 +0000
+Received: by mail-lf1-x142.google.com with SMTP id 8so1355234lfp.4;
+ Sat, 09 May 2020 11:47:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:reply-to:from:date:message-id
+ :subject:to:cc;
+ bh=r2VqzdQ3t3l9GLlfIblPu8fIc2SHZonPe2y2Y9yrzwA=;
+ b=GNin6+nWM1QP0m2z2hzY8zsRxqDBXtplG9wjFmOI1ojkUNRLK/92I4+Q7OAX+WzfxJ
+ jeP6kJWDxAzjEZPTJifP7QYUSRiOgFJ0ke4eAeXHoWxJc0jOMZjK1g5wF0zWOpZxTuhv
+ sv0T/R7VPmB2U+RjECSIWuLjjX+Gx2KuWI36/teOaZZHLHYxC3t51ccoY/x9Hv9XdvK6
+ jV09Kal555yn4AtGCKL0piKHqimwgL45NBm2bp5fgO9slMCOhh0JzQ+CHBC4lhDoLPvp
+ i4ihRv9OUGLBDyKhHPev4lxHDLhsTsxQ34cMV7CmmZYgwfYd/TG5gdUR7BY59qve9I0v
+ uyew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:reply-to
+ :from:date:message-id:subject:to:cc;
+ bh=r2VqzdQ3t3l9GLlfIblPu8fIc2SHZonPe2y2Y9yrzwA=;
+ b=oJZAhstu10b+WOi4W9xPLp2M9aw1GJEnD7CBPjJYg+V/6VHCUVYFRjh5Cni1fGwYm/
+ lGLGxmFFBqvS5wUOJ4wsutK4aN56+z7lNy5ljQDcSZT5ok8CKz8yQt/8hMlWcsTjGWu2
+ 52VmaDT4FLoD8DgXC5RKZYjmX9qEFLHJ9VAxITPUGwYWjCUBW1W28J/49I+yy6YG6lHd
+ 3n1gOtKJnpazyT4Cnyjcb5Sx6Bw6pabqw3Riz65TcRV1+obaQs6dwwP/UyFHjScevL09
+ npHpIgtkOhVhp0YzTESsfjwIG1xkoZNcqiG/Lg0ZqKdvLssHRaWjSi54Dcuwmg7yOdWz
+ U/Jg==
+X-Gm-Message-State: AOAM533wZu3sjlcI12DAnmKR+3S/rndg5iKIwlI4TdpaNjTIwiZ2zxfx
+ 86q8PjOuXHYX96OkGlO5im8SBnqMDor8SIjd1ro=
+X-Google-Smtp-Source: ABdhPJy9gyB1ktrqC1Zd3HyibZp0l6obehCp4vpCDO0qkgRUMj3Vjub/ykfUERbE41LdjhQm/0RhnA0bO0Yeti7gp9Q=
+X-Received: by 2002:ac2:4945:: with SMTP id o5mr5705467lfi.21.1589050031766;
+ Sat, 09 May 2020 11:47:11 -0700 (PDT)
+MIME-Version: 1.0
+References: <20200509130714.10586-1-john.oldman@polehill.co.uk>
+ <20200509171131.GA2495033@kroah.com>
+In-Reply-To: <20200509171131.GA2495033@kroah.com>
+From: John Oldman <john.oldman60@gmail.com>
+Date: Sat, 9 May 2020 19:47:00 +0100
+Message-ID: <CAMJX__Skgr+1ZO5JxwnwRt6A1C5rBc50cUDSN+6BM4pmYGPY4w@mail.gmail.com>
 Subject: Re: [PATCH] staging: vc04_services: interface: vchiq_arm:
  vchiq_connected.c: Block comments should align the * on each line
-Message-ID: <20200509171131.GA2495033@kroah.com>
-References: <20200509130714.10586-1-john.oldman@polehill.co.uk>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20200509130714.10586-1-john.oldman@polehill.co.uk>
+To: Greg KH <gregkh@linuxfoundation.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200509_101133_954436_35117704 
-X-CRM114-Status: UNSURE (   6.83  )
+X-CRM114-CacheID: sfid-20200509_114714_034835_D8C9C614 
+X-CRM114-Status: UNSURE (   8.12  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: -5.0 (-----)
+X-Spam-Score: 0.1 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-5.0 points)
+ Content analysis details:   (0.1 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [198.145.29.99 listed in list.dnswl.org]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2a00:1450:4864:20:0:0:0:142 listed in]
+ [list.dnswl.org]
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider [john.oldman60[at]gmail.com]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
+ in digit [john.oldman60[at]gmail.com]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -73,22 +96,35 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: john.oldman@polehill.co.uk
 Cc: devel@driverdev.osuosl.org, linux-kernel@vger.kernel.org,
- bcm-kernel-feedback-list@broadcom.com, linux-arm-kernel@lists.infradead.org,
- linux-rpi-kernel@lists.infradead.org
+ John Oldman <john.oldman@polehill.co.uk>,
+ bcm-kernel-feedback-list@broadcom.com, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-On Sat, May 09, 2020 at 02:07:14PM +0100, John Oldman wrote:
-> Coding style issue
+Hi Greg
 
-Your subject line needs to be much shorter, don't you think?
+Yea, thanks for the feedback.
 
-Please fix up and resend.
+Will fix and resend...
 
-greg k-h
+John
+
+
+On Sat, 9 May 2020 at 18:11, Greg KH <gregkh@linuxfoundation.org> wrote:
+>
+> On Sat, May 09, 2020 at 02:07:14PM +0100, John Oldman wrote:
+> > Coding style issue
+>
+> Your subject line needs to be much shorter, don't you think?
+>
+> Please fix up and resend.
+>
+> greg k-h
 
 _______________________________________________
 linux-rpi-kernel mailing list
