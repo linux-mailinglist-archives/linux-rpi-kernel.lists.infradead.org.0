@@ -2,66 +2,66 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id CFE571CC717
-	for <lists+linux-rpi-kernel@lfdr.de>; Sun, 10 May 2020 08:07:36 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id A4F7B1CC766
+	for <lists+linux-rpi-kernel@lfdr.de>; Sun, 10 May 2020 08:55:38 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=skdxVmYVdCy26I4HEBrXj7LdYzWdYXeH0KXAmZ1KiNU=; b=Z8f
-	FmgPY24KaZNQJmgDAERaXnMtOEFzWIXsrGIa2C7J3skDr4R1gxcioFeGtD+J0Dz3WJ1v0/+ThHVKj
-	iUUGiYd7oDwgOTdXfEizkwuC1D5xoeZSW0jDnk8Wg8w7CKkCqYEgYJ85T4DZduoHhhgBPwsPn4AWe
-	sHIIB7Qogfhqvt257tpwhG9Bm4/a8NBJNZN0Dwnty+/e4GGrDyMIKCJl7ZWFLwhhF5mOlYRC9WAr+
-	G5wf4vPL5SlS6PenbNkruEUoMSuzkUq+iYjMeCQ3Ji0goH5Nhw9vvbrNkVZFcZM5qVGmBvbbD5RgE
-	5aD1rTzrbFuc2f6g1v6kKtfRBx1lnMw==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=h3xqCyFLxEO6vSAaSCNjNFCvNWr7NaXeJHLm/E4w1XI=; b=Muc5zZB1l9DG9b
+	UV7+qkqzzjgoOM3dcet8V3u1cjN41t/QCjrZtIOKCqpkLM6BtYb6qdGK3WitJhrcuqb9IO0w4ihtk
+	DE06rY64vCD3w5/jOEZwl75ac6eFlmj0APEZsbdQ2El84a0TIGgyma614F0BuIoHqpUl0wzA3r+ih
+	Ul/hJMnYXep2G3Xu6xDXMNmDgVoD/iUdJulArj7zWkjhxmWNA0nxxf1jbpHGD/WzfS6E2Ck8Frz04
+	BuR5LMT63/pA13/jRVsYrVTqJRlEw/vVwROlF7HbKxy0T3CAc078DwFCWFx/sxmMKmNBnvH7FvcgA
+	FG5wD4Rb/O0HDr2JrNpg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jXf7K-0008Mz-53; Sun, 10 May 2020 06:07:14 +0000
-Received: from mailomta24-re.btinternet.com ([213.120.69.117]
- helo=re-prd-fep-044.btinternet.com)
+	id 1jXfs4-0005md-Tw; Sun, 10 May 2020 06:55:32 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jXf7F-0008MG-K8; Sun, 10 May 2020 06:07:11 +0000
-Received: from re-prd-rgout-003.btmx-prd.synchronoss.net ([10.2.54.6])
- by re-prd-fep-044.btinternet.com with ESMTP id
- <20200510060705.EELH21962.re-prd-fep-044.btinternet.com@re-prd-rgout-003.btmx-prd.synchronoss.net>;
- Sun, 10 May 2020 07:07:05 +0100
-Authentication-Results: btinternet.com;
- auth=pass (LOGIN) smtp.auth=j.oldman998@btinternet.com
-X-Originating-IP: [31.53.141.224]
-X-OWM-Source-IP: 31.53.141.224 (GB)
-X-OWM-Env-Sender: j.oldman998@btinternet.com
-X-VadeSecure-score: verdict=clean score=0/300, class=clean
-X-RazorGate-Vade: gggruggvucftvghtrhhoucdtuddrgeduhedrkeejgddtlecutefuodetggdotefrodftvfcurfhrohhfihhlvgemuceutffkvffkuffjvffgnffgvefqofdpqfgfvfenuceurghilhhouhhtmecufedttdenucenucfjughrpefhvffufffkofestddtredtredttdenucfhrhhomheplfhohhhnucfqlhgumhgrnhcuoehjohhhnhdrohhlughmrghnsehpohhlvghhihhllhdrtghordhukheqnecuggftrfgrthhtvghrnhepgeeftdfhfeeuiefhgfekfeethedutddtfeduteevleevfedvfefhjeeijefhgffgnecukfhppeefuddrheefrddugedurddvvdegnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehhvghlohephhgvnhhrhidrhhhomhgvpdhinhgvthepfedurdehfedrudeguddrvddvgedpmhgrihhlfhhrohhmpeeojhhohhhnrdholhgumhgrnhesphholhgvhhhilhhlrdgtohdruhhkqedprhgtphhtthhopeeosggtmhdqkhgvrhhnvghlqdhfvggvuggsrggtkhdqlhhishhtsegsrhhorggutghomhdrtghomheqpdhrtghpthhtohepoeguvghvvghlsegurhhivhgvrhguvghvrdhoshhuohhslhdrohhrgheqpdhrtghpthhtohepoehgrhgvghhkhheslhhinhhugihfohhunhgurghtihhonhdrohhrgheqpdhrtghpthhtohepoehjohhhnhdrohhlughmrghnsehpohhlvghhihhllhdrtghordhukheqpdhrtghpthhtohepoehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdr
- ihhnfhhrrgguvggrugdrohhrgheqpdhrtghpthhtohepoehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgheqpdhrtghpthhtohepoehlihhnuhigqdhrphhiqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrgheqpdhrtghpthhtohepoehnshgrvghniihjuhhlihgvnhhnvgesshhushgvrdguvgeq
-X-RazorGate-Vade-Verdict: clean 0
-X-RazorGate-Vade-Classification: clean
-Received: from henry.home (31.53.141.224) by
- re-prd-rgout-003.btmx-prd.synchronoss.net (5.8.340) (authenticated as
- j.oldman998@btinternet.com)
- id 5E3A16DE0FB0AA7B; Sun, 10 May 2020 07:07:05 +0100
-From: John Oldman <john.oldman@polehill.co.uk>
-To: nsaenzjulienne@suse.de
-Subject: [PATCH V2] staging: vc04_services: vchiq_connected.c: Block comment
- alignment
-Date: Sun, 10 May 2020 07:06:45 +0100
-Message-Id: <20200510060645.10159-1-john.oldman@polehill.co.uk>
-X-Mailer: git-send-email 2.17.1
+ id 1jXfru-0005eV-TS; Sun, 10 May 2020 06:55:24 +0000
+Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl
+ [83.86.89.107])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id E2B4120801;
+ Sun, 10 May 2020 06:55:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1589093722;
+ bh=i5eGJPVlmK+E4XcF7rr2doxsy/jQO4NBL2xSdPxqnXY=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=BdYDUObf0M7RBKkgpJMQOM//qgcTHgD4HLXJMvm/0yg8PHYzmQLbD/HcCwqHXrbxf
+ SgJdjqHun6gQKs6rojSgCGfRyHRsA9pIYljd5bnqC7GyjKHs7GR5Uz/gn86gfTDlbn
+ dt4aKmQVM1hyuL8QYEY8YO3Vq8/4tOJh5hVKpDUo=
+Date: Sun, 10 May 2020 08:55:19 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: John Oldman <john.oldman@polehill.co.uk>
+Subject: Re: [PATCH V2] staging: vc04_services: vchiq_connected.c: Block
+ comment alignment
+Message-ID: <20200510065519.GB3434442@kroah.com>
+References: <20200510060645.10159-1-john.oldman@polehill.co.uk>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20200510060645.10159-1-john.oldman@polehill.co.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200509_230709_930710_F95DFE70 
-X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-CacheID: sfid-20200509_235522_970674_06D1545D 
+X-CRM114-Status: UNSURE (   8.94  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: 0.3 (/)
+X-Spam-Score: -5.0 (-----)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (0.3 points)
+ Content analysis details:   (-5.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [213.120.69.117 listed in list.dnswl.org]
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
- 1.0 FORGED_SPF_HELO        No description available.
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [198.145.29.99 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -73,88 +73,32 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: devel@driverdev.osuosl.org, gregkh@linuxfoundation.org,
- linux-kernel@vger.kernel.org, John Oldman <john.oldman@polehill.co.uk>,
- bcm-kernel-feedback-list@broadcom.com, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-MIME-Version: 1.0
+Cc: devel@driverdev.osuosl.org, linux-kernel@vger.kernel.org,
+ bcm-kernel-feedback-list@broadcom.com, linux-arm-kernel@lists.infradead.org,
+ linux-rpi-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-Coding style issue
+On Sun, May 10, 2020 at 07:06:45AM +0100, John Oldman wrote:
+> Coding style issue
+> 
+> Signed-off-by: John Oldman <john.oldman@polehill.co.uk>
+> ---
+> v1: Initial attempt.
+> V2: Resubmitted with shorter comment line, as suggested by Greg KH.
+> 
+> This patch clears the checkpatch.pl "Block comments should align the * on each line" warning.
 
-Signed-off-by: John Oldman <john.oldman@polehill.co.uk>
----
-v1: Initial attempt.
-V2: Resubmitted with shorter comment line, as suggested by Greg KH.
+Why is this text not in the changelog area?  Don't you think that it is
+better than the 3 words you currently put there?
 
-This patch clears the checkpatch.pl "Block comments should align the * on each line" warning.
+Please fix up and resend.
 
- .../interface/vchiq_arm/vchiq_connected.c     | 32 +++++++++----------
- 1 file changed, 16 insertions(+), 16 deletions(-)
+thanks,
 
-diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_connected.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_connected.c
-index 1640906e3929..993535bbc479 100644
---- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_connected.c
-+++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_connected.c
-@@ -15,10 +15,10 @@ static   int                        g_once_init;
- static   struct mutex               g_connected_mutex;
- 
- /****************************************************************************
--*
--* Function to initialize our lock.
--*
--***************************************************************************/
-+ *
-+ * Function to initialize our lock.
-+ *
-+ ***************************************************************************/
- 
- static void connected_init(void)
- {
-@@ -29,13 +29,13 @@ static void connected_init(void)
- }
- 
- /****************************************************************************
--*
--* This function is used to defer initialization until the vchiq stack is
--* initialized. If the stack is already initialized, then the callback will
--* be made immediately, otherwise it will be deferred until
--* vchiq_call_connected_callbacks is called.
--*
--***************************************************************************/
-+ *
-+ * This function is used to defer initialization until the vchiq stack is
-+ * initialized. If the stack is already initialized, then the callback will
-+ * be made immediately, otherwise it will be deferred until
-+ * vchiq_call_connected_callbacks is called.
-+ *
-+ ***************************************************************************/
- 
- void vchiq_add_connected_callback(VCHIQ_CONNECTED_CALLBACK_T callback)
- {
-@@ -64,11 +64,11 @@ void vchiq_add_connected_callback(VCHIQ_CONNECTED_CALLBACK_T callback)
- }
- 
- /****************************************************************************
--*
--* This function is called by the vchiq stack once it has been connected to
--* the videocore and clients can start to use the stack.
--*
--***************************************************************************/
-+ *
-+ * This function is called by the vchiq stack once it has been connected to
-+ * the videocore and clients can start to use the stack.
-+ *
-+ ***************************************************************************/
- 
- void vchiq_call_connected_callbacks(void)
- {
--- 
-2.17.1
-
+greg k-h
 
 _______________________________________________
 linux-rpi-kernel mailing list
