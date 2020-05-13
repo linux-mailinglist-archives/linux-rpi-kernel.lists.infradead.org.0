@@ -2,93 +2,65 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 41D761CE67F
-	for <lists+linux-rpi-kernel@lfdr.de>; Mon, 11 May 2020 23:02:52 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 54C231D1207
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 13 May 2020 13:58:41 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=/gHVEIrQD4GtJVFFQdCBZ6MkhRNYFi27xotputj4wcg=; b=HVI0+IKcfStud6yKNqGFv31Xa1
-	pCaOlsZJk9MbFuLDqzsjhGyNCLSLrO6Nfm87ncYExYfHLlK7UZ0LPdje94amtoNoRr3CiwS6Z5VSA
-	x4cWt048E6tAEU6QQKg8kbrYyyfpqe1Pt5dXUMEay9HJx5MQSDf+xWcF4dUPzAKajNkalgqcxdIJj
-	5b1Ny1EsfguxoCrqyXPHae6YYusO4rRmNU7eBxsmCYV3VROo6g38ub8DwOoL2UYieD07C7ahKPTk3
-	j4QISDd+b5PIV8DPtkraf4i/E4n1davYfE5PtcD/FzoJ1Y9N+FhA4Yx1XlFgtG2I9Ttk9c5Y8Rjjs
-	P2k6oJEw==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=eTyluXkV+ppvBsNx68u/ghxhA0hOh72ndUiaVfn6iEA=; b=Y52lt4qNJ22vZ9
+	dq9QO5fSjTkNOzpYEJ+mmf39IX/tiRT5g832toSWl1ZNs9Xxch9rXOpY38wNHAmg02O6oZP7r59lY
+	RCQldIlCLCTzBQJKIQqDoXjgu5NPm2iikb/cCfiNwQbyXmBcBi3QAXyPH0ndNy15zYH78qnsTtTv4
+	AOXqsHWnMkrnRvJvypODdbkilzF/u8dEVzwPz9cPJAxH2FdZDCsxMP7KXP0qiM8aJ8QmcSam56y3L
+	T7fyKJAnIIi+EOsRNTXFdxJ+Nt2nLPNtGHKLkqmr9iKk/lv8F5YX259wmFZePHmJtRg6lWPicfnjA
+	TvEwZyeVtDlMwn+rJpYA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jYFZZ-0006Tx-2n; Mon, 11 May 2020 21:02:49 +0000
-Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
+	id 1jYq20-0003QB-VH; Wed, 13 May 2020 11:58:36 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jYFZW-0006Tg-1Z
- for linux-rpi-kernel@lists.infradead.org; Mon, 11 May 2020 21:02:47 +0000
-Received: by mail-pf1-x444.google.com with SMTP id x77so5306578pfc.0
- for <linux-rpi-kernel@lists.infradead.org>;
- Mon, 11 May 2020 14:02:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=from:to:cc:subject:date:message-id:in-reply-to:references;
- bh=sSsJuiuQVhX5mi+0hDBDIBKGp39VuH2U96/o+lEhntI=;
- b=stiW8was2ZkQrskwkMD/u2MqfHNAkQB3uEQRKk2uZn0hcIA29HYKSr3aPf1ip6E+NJ
- FBhCXI0cO1MfkYL21OBWDivT/nxpnciW3X0O1EqTHGxnd8rpceTIlIywSF+1WmHuRxLd
- 1eLOhrAeK4ff1GxvFOIr2SXkukkZy++YIzbggOIiW2e5u3u/lnt+5FDSuTgryx2rkQsp
- hQIPP9Z8tcIch+2lr4rzOjabDM15Elvzb+15SWvw/UA1FQisl+VB4bH375R7ztwqqNeE
- NeKVvvMeTtV9hM9NktOXPBE921OW8ecDMiTIWudZCcpglwaq+LZldC2cKOdGsPe/TkZz
- 9NtQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references;
- bh=sSsJuiuQVhX5mi+0hDBDIBKGp39VuH2U96/o+lEhntI=;
- b=rdW3IYuVVRk6acgfLPhQh2m7nbcGJalU2tfY5D+DJ6HduCWhvcGITXajV7LzWrsWY0
- x593XMGt56f6d7E4kux81scXfGo3X+7L2cWwFaBpWBYM3Y15yTmrvHHDKg2Q6PokmEt2
- EHUt+jdT409h558HHpVHxmtNgg6ecUU+UmhJJmbj5ni0iAl8D5J/x/erpdtgxSmc8g8b
- 6kWmfh+3C2tVJnevByLpOWucggM92rmoB0OTvGvOsTRzUDPbCDlaaBoun+q00FhTtlTl
- U7QF39AtA9Fy8cnVly4HUkdK47lrvjXMdWHvXwrAiV/y2YFTcHHBQxPgt3v1FHT+XFS7
- boAQ==
-X-Gm-Message-State: AGi0Pub2+4YV8aScvQnIhCrM7QxjezIOb4UK3ooiLE9sBHRLlSl/BJH2
- JTR/RxvgnICRiRdS/c1Z+GaCmRmX
-X-Google-Smtp-Source: APiQypJRVv554GH4F41XHegtP2kTtAQfKN5F1lohS2Cs+iIkrMulrtyKgFejve5HIUAqf2YdCxUfsA==
-X-Received: by 2002:a63:5a41:: with SMTP id k1mr17002700pgm.424.1589230964794; 
- Mon, 11 May 2020 14:02:44 -0700 (PDT)
-Received: from fainelli-desktop.igp.broadcom.net ([192.19.223.252])
- by smtp.gmail.com with ESMTPSA id p24sm9899121pff.92.2020.05.11.14.02.43
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 11 May 2020 14:02:43 -0700 (PDT)
-From: Florian Fainelli <f.fainelli@gmail.com>
-To: bcm-kernel-feedback-list@broadcom.com,
- Nicolas Saenz Julienne <nsaenzjulienne@suse.de>,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] MAINTAINERS: Update Raspberry Pi development repository
-Date: Mon, 11 May 2020 14:02:42 -0700
-Message-Id: <20200511210242.27892-1-f.fainelli@gmail.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20200511110250.23869-1-nsaenzjulienne@suse.de>
-References: <20200511110250.23869-1-nsaenzjulienne@suse.de>
+ id 1jYq1r-0003Hc-93; Wed, 13 May 2020 11:58:28 +0000
+Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl
+ [83.86.89.107])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 8996620740;
+ Wed, 13 May 2020 11:58:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1589371106;
+ bh=AzQ1GBsA7vb+t+sUqdhpDj5pFQccxwb/vacxaCIKKwM=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=veu54zijFTH9tV9hdep4oqmKRxlo+9/yg1yax/JmUfYmhty8mC9xQt4bNL0BuSlFC
+ orkh9kp754J4DzatlKprBvYa+aUOjx7weYxvCNttblmgA0qv7E6YOp5j+PDrfKDu+p
+ jhNi0N0h1hXgNDBNneUKt7u1RMSETOfVkcToZ7HI=
+Date: Wed, 13 May 2020 13:58:23 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: John Oldman <john.oldman@polehill.co.uk>
+Subject: Re: [PATCH V3] staging: vc04_services: vchiq_connected.c: Block
+ comment alignment
+Message-ID: <20200513115823.GC953616@kroah.com>
+References: <20200510101308.10451-1-john.oldman@polehill.co.uk>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20200510101308.10451-1-john.oldman@polehill.co.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200511_140246_108786_ED7615A8 
-X-CRM114-Status: UNSURE (   5.65  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20200513_045827_338731_8C52375A 
+X-CRM114-Status: GOOD (  14.76  )
+X-Spam-Score: -5.0 (-----)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (-5.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:444 listed in]
- [list.dnswl.org]
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [198.145.29.99 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [f.fainelli[at]gmail.com]
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
+ -0.0 SPF_PASS               SPF: sender matches SPF record
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -100,22 +72,59 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: linux-rpi-kernel@lists.infradead.org
-MIME-Version: 1.0
+Cc: devel@driverdev.osuosl.org, linux-kernel@vger.kernel.org,
+ bcm-kernel-feedback-list@broadcom.com, linux-arm-kernel@lists.infradead.org,
+ linux-rpi-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-On Mon, 11 May 2020 13:02:50 +0200, Nicolas Saenz Julienne <nsaenzjulienne@suse.de> wrote:
-> Eric Anholt's repo isn't used anymore. List current one.
+On Sun, May 10, 2020 at 11:13:08AM +0100, John Oldman wrote:
+> Coding style issue
+> This patch clears the checkpatch.pl "Block comments should align the * on each line" warning.
 > 
-> Signed-off-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+> Signed-off-by: John Oldman <john.oldman@polehill.co.uk>
 > ---
+> v1: Initial attempt.
+> v2: Resubmitted with shorter comment line, as suggested by Greg KH.
+> v3: Resubmitted with descriptiuon text moved into the comment area.
+> 
+>  .../interface/vchiq_arm/vchiq_connected.c     | 32 +++++++++----------
+>  1 file changed, 16 insertions(+), 16 deletions(-)
+> 
+> diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_connected.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_connected.c
+> index 1640906e3929..993535bbc479 100644
+> --- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_connected.c
+> +++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_connected.c
+> @@ -15,10 +15,10 @@ static   int                        g_once_init;
+>  static   struct mutex               g_connected_mutex;
+>  
+>  /****************************************************************************
+> -*
+> -* Function to initialize our lock.
+> -*
+> -***************************************************************************/
+> + *
+> + * Function to initialize our lock.
+> + *
+> + ***************************************************************************/
+>  
+>  static void connected_init(void)
 
-Applied to maintainers/next, thanks!
---
-Florian
+Shouldn't that really be written as:
+
+/* Function to initialize our lock */
+static void connect_init(void);
+
+
+No need for the /****** mess, and no need for the blank line.
+
+Simple and clean is best.
+
+thanks,
+
+greg k-h
 
 _______________________________________________
 linux-rpi-kernel mailing list
