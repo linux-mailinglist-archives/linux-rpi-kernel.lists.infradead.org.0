@@ -2,53 +2,53 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1E71F1D5608
-	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 15 May 2020 18:29:13 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id EB0FD1D560B
+	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 15 May 2020 18:30:13 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=eOpGSNrcQkd8Iphk8QOPFKKLLrrm/psqDPXjpa1WSJQ=; b=kHzmVDMu9vH7VqwNN1EdFp9iO
-	UQNkZMi65zRd1IEwoR9/ZEbYsVaGjq8AzogRfXTrXcGo8ro9tbJW8EAFZHRap+7dKd3hPdRMR7pVP
-	unt47tbWiJt8fNzBUwXTYkOqeCHnho6+gVGEw+2RuXKRCf75jODM4+LQoYU3/v2z67/NAk4Zu/4Ui
-	vM0lhlRESYtO8ixTL6lmPgXNOtkFRnIjvXx3DGHylJDXjKeD+dsPpBajNmZLR5DxUW73If+gsoOQw
-	ZE3faJNZuefgAF5+zm+LuzF/Iz2f5hMVjXnMJs1Fj6x9FdAm3J/VHJDxQ2X/63DWYzS9+W5fPLN0A
-	ExhTkKeRw==;
+	 bh=RhIAzbdR0FYBYvp+DDlTWhE2t7UKz49JXIXunvz9ovU=; b=pPQcWj0AkxREZPJ8w7JTVbj4s
+	WGwf4q5sOZzOiwiBpL3oj8yiZTiTreE4e73kfdpv+j9o0DPbGrUD+aWOyCKkecJBedktoUrevXBqz
+	jp/co+mdRvZ3b7ix1xmy0cOIAoflDYITgDsMxYa2t916O5en2s+yHdADNJXojXN+Z9mvmId3oIIqc
+	f4wCbFH6+jRzzF77ldDx+1FMWgOhrUg05uIUFIe8XRz6SpkA5apeLM8IxP36l5ePsgdiN1mI+4vE/
+	i/NcTK9xIo3MyeqtiiQtXS8NeIUoXr2qSqLf3qOklugKhn/QlaWRoOM+MmFhTw967eYQ6X7gb7y0D
+	xABsUdQOw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jZdCu-0007Le-Ja; Fri, 15 May 2020 16:29:08 +0000
+	id 1jZdDr-0000HE-Ot; Fri, 15 May 2020 16:30:07 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jZdCs-0007LM-K4
- for linux-rpi-kernel@lists.infradead.org; Fri, 15 May 2020 16:29:07 +0000
+ id 1jZdDn-0007r4-Oz
+ for linux-rpi-kernel@lists.infradead.org; Fri, 15 May 2020 16:30:05 +0000
 Received: from localhost (fw-tnat.cambridge.arm.com [217.140.96.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id BC980206D8;
- Fri, 15 May 2020 16:29:05 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id DC34C206D8;
+ Fri, 15 May 2020 16:30:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1589560146;
- bh=02a10HlRELSqC3xc/FlfsbLp83hhvpY7LD4P6Y7ikwg=;
+ s=default; t=1589560203;
+ bh=kcABlY96zZuuvxknCuTu6y2BzoSb5JZQAgWATiaGH4E=;
  h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=uJjW5VDNDgiIsXymkUEuY27/7Zqo/bYh8p6pyISEj4OhawiZviWZw93VvMjlM0M+7
- iHDcJDcw34UlUI29JsVkvCYKO91N4thZaDhaErONviR8inXqvkMpcJ0fbkJyd05JyJ
- 0481pqwvDIyo0Z4vfDJvz9MWVv+RrrXYv7RN7ETA=
-Date: Fri, 15 May 2020 17:29:03 +0100
+ b=EL6CeV32YvSHnEsKtk8Rffu6tdx7k2g/NyPIG4QkZYRI0A3/ee1IlcLWAAwVO+pJv
+ e1dJznSYnTpgXY9LCzdUKesJyZcN792o1oDIfEy1pWzRrlbRDJ5FEg6rsbb/ooFxOQ
+ CPE4Ha3+8L+26Sxh5lF/+efjTyMIUpID/C1AZABw=
+Date: Fri, 15 May 2020 17:30:00 +0100
 From: Mark Brown <broonie@kernel.org>
 To: Lukas Wunner <lukas@wunner.de>
-Subject: Re: [PATCH 2/5] spi: bcm2835: Fix controller unregister order
-Message-ID: <20200515162903.GH5066@sirena.org.uk>
+Subject: Re: [PATCH 5/5] spi: Document devm_spi_register_controller() gotcha
+Message-ID: <20200515163000.GI5066@sirena.org.uk>
 References: <cover.1589557526.git.lukas@wunner.de>
- <2397dd70cdbe95e0bc4da2b9fca0f31cb94e5aed.1589557526.git.lukas@wunner.de>
+ <d0dcbd098401b5d2a486eee7cf2f9dcabacf9605.1589557526.git.lukas@wunner.de>
 MIME-Version: 1.0
-In-Reply-To: <2397dd70cdbe95e0bc4da2b9fca0f31cb94e5aed.1589557526.git.lukas@wunner.de>
+In-Reply-To: <d0dcbd098401b5d2a486eee7cf2f9dcabacf9605.1589557526.git.lukas@wunner.de>
 X-Cookie: Avoid contact with eyes.
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200515_092906_677690_6B7CAAE0 
-X-CRM114-Status: UNSURE (   7.84  )
+X-CRM114-CacheID: sfid-20200515_093003_839999_9C6D819A 
+X-CRM114-Status: UNSURE (   7.67  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -5.2 (-----)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
@@ -79,52 +79,52 @@ List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
 Cc: linux-rpi-kernel@lists.infradead.org, linux-spi@vger.kernel.org
-Content-Type: multipart/mixed; boundary="===============0313851941974319989=="
+Content-Type: multipart/mixed; boundary="===============2308062741912105620=="
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
 
---===============0313851941974319989==
+--===============2308062741912105620==
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="6lXr1rPCNTf1w0X8"
+	protocol="application/pgp-signature"; boundary="EdRE1UL8d3mMOE6m"
 Content-Disposition: inline
 
 
---6lXr1rPCNTf1w0X8
+--EdRE1UL8d3mMOE6m
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Fri, May 15, 2020 at 05:58:02PM +0200, Lukas Wunner wrote:
+On Fri, May 15, 2020 at 05:58:05PM +0200, Lukas Wunner wrote:
+> As a rule, devm_spi_register_controller() must not be used if the
+> driver's ->remove() hook performs teardown steps which shall be
+> performed after unbinding of slaves.
+>=20
+> Dozens of drivers are doing it wrong.  Document this gotcha to
+> hopefully prevent further misuse.
 
-> Fix by using the non-devm variant spi_register_controller().  Note that
-> the struct spi_controller as well as the driver-private data are not
-> freed until after bcm2835_spi_remove() has finished, so accessing them
-> is safe.
+This is something that needs to be documented at the devm level, it
+applies to pretty much every managed API.
 
-Why not use managed allocations of clocks and DMA channels?  This is a
-standard issue with the devm APIs, if you're using them you basically
-need to use them for *everything* up to the point where you start using
-them.
-
---6lXr1rPCNTf1w0X8
+--EdRE1UL8d3mMOE6m
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAl6+w04ACgkQJNaLcl1U
-h9BF0wf6Ajz3aDrk3pYLSVXJ+s8F/JyfnNOvMRwtBPgjnmYAocvIvRQdrOfa75/d
-QlzjIg6w8NV8cgW2FW6lRUwOoQxF58z2NrQcHL0nEhpsyRlwVMcDFVMcQyws1gnh
-UpDzX/g+3ycua/YthTbkynmXk8F86YDbH9hmqbgDYfaXgM0AISlYiEz4XnGaIwmC
-fKrFE/ubMdVxuodboexPdsZzTbAWRsB3lOKcBOUOBLikd+9tpE6n/0cr6PlI8o/y
-r+ndLb7opAEdYnx1KtYilYjh0tT7mOb0bYqy2jxU3RkvB+8CbtJsEGxBGmLDRp+0
-gvq9RGTtrfSmuhMgXXSk3bdnGM8Kpg==
-=lVMZ
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAl6+w4cACgkQJNaLcl1U
+h9DZ2Af+PBsyttZqul8Zsvsfo0lBAKRdPEmmL6COZKHi1rjKqORzv0CfupBvogg3
+B9jgHgEQH730rdi+qFk6suEMguq/E/K4jBj9n6L3+8JnlZjgEvqRVm4Ey0j4pDIr
+Kt7OHSGauAwsM1TfALIugEvvu5L5rM3QS1+zxKcCARBUNR+G0XyI+DeVEUMmSCUN
+137NZfCgmA6hXfRUC5fNgmhcTPSjfJp8FFp4BYL3Ma97LQPXTQSNWl93XqbJzmMm
+wCAN74QoTOz2hrbHu7XRcf8V68A0jtjEXmbZ0bFZ7VQztQhOEB2BduArwqatJcmp
+eQcRj5PV+gugrI/WLqTYvrSiGy1DVA==
+=nEt8
 -----END PGP SIGNATURE-----
 
---6lXr1rPCNTf1w0X8--
+--EdRE1UL8d3mMOE6m--
 
 
---===============0313851941974319989==
+--===============2308062741912105620==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -135,5 +135,5 @@ linux-rpi-kernel mailing list
 linux-rpi-kernel@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
 
---===============0313851941974319989==--
+--===============2308062741912105620==--
 
