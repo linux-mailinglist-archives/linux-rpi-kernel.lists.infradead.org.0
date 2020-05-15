@@ -2,81 +2,86 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5C03A1D4C8E
-	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 15 May 2020 13:26:59 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id B540A1D4D18
+	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 15 May 2020 13:56:16 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=cPzW5o1zkIq64xw1GNaJOWfqSB1AkIJ0fl9nCFq3MC8=; b=fZB
-	mMgJ7wf9qnNXxRBwcLbLJ1Z56euJhC0ghSsfizkvF3AUYVKJC+rZCSYJkDJ1VAuMK/u2RKqfNCx9h
-	uiAtfigTyH78wrgv8WZWEgRjis9MwTCCxmfOV0XluW/cns3k2ekvSqA+cOjiFZjuGbXOBa4wMI00N
-	V3J8pqOvUSvIU34uFC6h49evilliWeTf04F0Rt+vXrC6aB/s/uRy3dOWiwqH/YVfgskkjR7OtoaIn
-	hAtAFSap09r/3S3CYN5ikOxOMCv0TpFn2wKsGcNQBFLO9yb5Ea5I2KHqro47krBlj2ft0jMyZSoND
-	0PVWOc+TI6qO/nHAdmYmJBuR8VfNxNA==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=NK1ed4YWqmujpTABR1UInX5GC629ZgGeQNr0m+Ai97U=; b=b3jfW5p3wNNSwZ
+	QbPWFGI9gbvaI4Pr8j7JUvbdX/SupZcVEwgSwmwQiKS7iA8FDNyaZ/ku77qvHKS06c3dVlhDEx8y4
+	qBHIWMt+15/O3Nku4AKMgaIvTpqdfZNOqpUbRhfFYurD/mPFNEi45qVAVnjFAhCPNuqmr4BAouW6P
+	3FBnDCgdqe0VqZJ/QVp5XJUwA62bVbbMTGiJmCFdbdQeHx2oe7dsm7dnKYA42X/aWaCgdGQssCBfE
+	dRqbq1MXxwmVTWxbVvU898wLTwd90TwGAmf/ahgH8Lw1s0oVfkzdFVi3fclt//ebXeAR7wZOH7kC7
+	BY1wNt7fqGdU3QkxnLrg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jZYTt-0005dx-Oj; Fri, 15 May 2020 11:26:21 +0000
-Received: from mout.gmx.net ([212.227.15.15])
+	id 1jZYwN-0004nq-Cr; Fri, 15 May 2020 11:55:47 +0000
+Received: from mout.gmx.net ([212.227.15.19])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jZYTq-0005cl-6v
- for linux-rpi-kernel@lists.infradead.org; Fri, 15 May 2020 11:26:19 +0000
+ id 1jZYwK-0004ms-AT
+ for linux-rpi-kernel@lists.infradead.org; Fri, 15 May 2020 11:55:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
- s=badeba3b8450; t=1589541973;
- bh=YwBwppl8D2zrfU2Ze6JU553zDCyob6wwOFkmi4KB/VU=;
- h=X-UI-Sender-Class:From:To:Cc:Subject:Date;
- b=d06WyjnyTC2OhH6A03aAC4MtKbYyHoMaCb55VvSknJLEzXa7u7RKunCZ43Y/01nsh
- jmK5SJZ0uOXt5hTXXODOeWD4/uKTDDDofEb7q7V5Xh6CqXmqxgrEABj/DcZODvnhp9
- Wky5+yDDXRFlZv90n2javCnYxLClqOiMAdMSQWZ0=
+ s=badeba3b8450; t=1589543740;
+ bh=M+GeWKCObCBMNllVs+WkLl07rXnlkypzzMGC1vg+tWg=;
+ h=X-UI-Sender-Class:Subject:To:Cc:References:From:Date:In-Reply-To;
+ b=SQMzV3Y10PmudrErO6KejMCXU3U2RyOV215YwLjZb6jeQFAqWnU8XWRiVdqsqjMtu
+ 5by413veFdSKc72gwTf9Src7ot5IirNOEBUXj1Wiaw7TLlZmr/X6Ao/n/r96GLROv+
+ QlVlCet1pqF6hlrQOZ5INw32fHlZ71FhUgIB1rik=
 X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
-Received: from Venus.fritz.box ([78.43.154.122]) by mail.gmx.com (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1N2V4P-1j5bhq0esx-013xnb; Fri, 15
- May 2020 13:26:13 +0200
+Received: from [192.168.178.51] ([78.43.154.122]) by mail.gmx.com (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MkHMZ-1ipXrm47dx-00kex3; Fri, 15
+ May 2020 13:55:40 +0200
+Subject: Re: [PATCH] bcm2835: fix missing variable initialisation
+To: Lukas Wunner <lukas@wunner.de>
+References: <1589541929-12098-1-git-send-email-LinoSanfilippo@gmx.de>
+ <20200515114732.fbiriwdppozvg2d7@wunner.de>
 From: Lino Sanfilippo <LinoSanfilippo@gmx.de>
-To: linux-rpi-kernel@lists.infradead.org
-Subject: [PATCH] bcm2835: fix missing variable initialisation
-Date: Fri, 15 May 2020 13:25:29 +0200
-Message-Id: <1589541929-12098-1-git-send-email-LinoSanfilippo@gmx.de>
-X-Mailer: git-send-email 2.7.4
-X-Provags-ID: V03:K1:wt8wT1Cgo3f406aWunP4rr9GXrWJvSo3WBcLVKQ/Kh04bB2sqbq
- h9dBdqONB+STb/Q+G1oNgWd3h/MjWcB3iUh+BSisOnF0SkjDYzJ5EJ4XAP2/IjuPj1U5ddA
- jrVv+GVU0plEiwhjDbBQQO6UET9m8nUB+w1UaR7eg2ZGlBsAy82yD09fz3bebXipvWa1I2P
- H7cUOj4FdBiaVOzlhAKBg==
+Message-ID: <c9d65552-ebff-ecb2-2042-ef214088ee9e@gmx.de>
+Date: Fri, 15 May 2020 13:55:39 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.7.0
+MIME-Version: 1.0
+In-Reply-To: <20200515114732.fbiriwdppozvg2d7@wunner.de>
+Content-Language: en-US
+X-Provags-ID: V03:K1:dgzHz5gREmHJzfRAUYeNpK9zHyAJEbjxpMHp/qBNLuN+33XC2nu
+ KVYsDwzaHKd8TZoRUB1mMQh8k92fe/3yfFzzZU9T12HfS8ggnjOAzw9th76UyrlH8043Tcc
+ Ysu2vuBKWu0clHtIul9Gh+I2agABkxSZv+NWeEtGfpPcNTp5PFdWxqDn7Skv76sZpFEriTc
+ +easG3aDc7xapNPzr0HvQ==
 X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:zqb1Kqv2ad0=:7lJV9J1yrjOqhE6A01g/rp
- Dgmc9wjdYaZIYyKdBFkZJcagox0CyJW1Z3/Sl/Jo9dJ0qX3qriAaUMYkXozXVlcwLoy2Ejar1
- YPK6W/WP2icqBdxx2BKVcs4fHmRJcD4VLRgYLeWCYSLvSKcIBvgtFnwxnkrzeRtBYp3izW3k0
- 9sSt8217k4XH8PYg9AVocEL8H1Tcg6EtDGsIBq0JWc5RZ2wq8BcF98bfkTWuDyrINWjXWjAFs
- +BY+K72CmyoC2kTQaRFCYTLqOXPINBAMEnB2gker6uVYLVVmlRpBu7wDslxAgknl7uLBDGc7Z
- ddOZUiBSscJSoVIogXIkVS7aZPEoEfuki7hSRq15L1LFLPdxY69noY63cZ9GQW2KJ1Q52Gw2b
- aPhg0TUgWAOqb/ryfx/1QguVbAUNu9X6UN30LuQtcxASjFnv68TueMyDB/IRB9looSXz5/3j7
- 1lnyiN6ieVLqJ32BswbqfGGekKGXhH4HXEd1KzHlQTKokIPLQG7tsoi2Dh6JAOJbppvvY5fXA
- 0+f32i30Qu4c0PqY5kpZkbC0qENzkvvEoJeXywSQkmdbM0aQpx1o6I2r1c/aMl5Pw9ttZKvpR
- fmyuRUN+O01O5WnA0B1jKqVOnxsYld9jX8WXkF/uB2XdvZVmFs//wKJixIKCafaAfz/fg3w5k
- VQRpYCy2i8y1dKhA7dTzb/TOgoDRht4/lWphfy1iqYgxJ67dqfSUw3IkqpMlhZxq9XcL/PZR5
- FEdSrAeXfCirPX36keBjLqlSE8K8xIgfmMQVTFrHBbb3VoR83CxpeeOC7z1dtbBUvHOkj1j2u
- eWuf/P3cqBG4HH3jhxXRHJODKRVG2KEGf4RYPIg5KfSEKvpxRaJfNPDAGkAsQFBxMmEDEFtA2
- D+uugCAsmDEjLgPqAepywS+6ioqETxraMlmfJ2TLStbnVQt975MupYnCkBIN8sUks6/Yb4FGj
- uHWQzMKWe3H5iMh4lpkmK+036ILfNopG3TiY8QjfYYHNwiODX3qWugGlv0nLn93ylAopAmErV
- 4YsnL3Zuc9AJ/RWOPXUFalYlLG/PTUpNnOi2NZ6b1KUdL+WqnB1Xx6z5pvBqp8fsHaSSNVOub
- 4hVTLp6ADVYD5X+WvCOQYaFYYqXbXAgvmBSdKbuuyhO7RfqEZgDkE06WyYXWjJcrqAWIcahJX
- gMD2G8NJJ+ZY4+UjDSI/MIhSL/IHOe7SDBHHTVvyqXAgBuonLc5/L/I8FzqSIyLJbvqAjj8Im
- dTct9u+0xx3/tHOJz
+X-UI-Out-Filterresults: notjunk:1;V03:K0:LiUEpX5LiJ0=:9eCT2evJhJszHmsm2KIAv5
+ RmUx8Ef3SNOdCK3X76sz44ZCf1UBmwin7zuOCQbB+NdbzaSRDB2xERmWi3aj+VJAdZv9etaRc
+ mZQxZzyIZyRxwg/MLLTF68JjEU7Nu74YdkG3QbSuySJ2pGKylXWjmTUOV9MiIl5Js65EWh9Nz
+ bd2DzZvvi8kHz7SGN7msaK0Bah1PWETJwWYUIs8FRo+P3FGEW6LSA5gvHhMnBF6Q6wprvUT8S
+ ZxIR+d1CSJaf41H2E8YELqA8XxxWjWLezbkIPsHlz36kHvyef/E2b7d7nbdQ10tGIabkHYwa8
+ pBJX34vDNp2WyL05lvULB0hAKwqP5Sx30oiGFGietPFznMO19Xmok6yFqQJ8RUEmMeSLlRc2K
+ iTsP+96SH6xIUzQBNFRaYXGOeLESt6u96XCgPuh685wj29Wk9shcQYqMBxHAfnsGZqqxudgTx
+ OL+McAwpbF48X4GOL+0m13bDe1aY0PvqVCfpPiKfuamXSEYm18/mDQK8oY1zrZkbTLfzqh3Mu
+ y5Bw0Cl347eyDfv5tlVB5UyPzPv9/GCWF6ZOfGePa9rpk0EWYQUlgFDsgkSQbWKscuPzEODSc
+ 8zxRdtQ6Gh5etwE0oF5CYYNvL9ps3AJ1YFIZZavKne7gsqPtJqwa9sg4hRkHMevN4DUrFQYra
+ /qRLCRZ4MI7P+8slxP1i84iIin/PohLKSJCGYyjm4Mim/y8mcv0s0OiH7sYsyqm7NV8oE3uUg
+ Ta7FAOu9fIORjJDvx58Q2uhk3Ip0W7kNHbkYmPmyvmMXCGy57jEtVytIXq1mrhGcYZlYaHx1Z
+ LYRQLE+Di99Qh0CuRYO6cEThckDICjLdt4OqT1K7Bo9J2zxYD0/CX5qQ/T3raXkYrhOx7qCxR
+ kHbVZ8pIKzd3mpJskVt1zVM3q7IGGb+hdUrNpJZPcvBU46dlV0U8SxSMC/DteEGiBBcyDAcs1
+ jApQyLc3PH8HOKR6Hq9wEQSBfDFBnzBVQh50L6zSL/YAzpuKxXsYBueMaIJTGeY6ZvYtAQlBt
+ 7ToCkVK0fd5xxITXtZ1FtK1JWk53JaCgCCEacu+nfXMYURVS2DBgZCkGsfj7HNgQoymIX35X3
+ I/GOb45qdJKNbeVjb8yAa8xyWHglYiR7zeX/ejVMRUMvNw8n3Gx7SwSFnqugemu6UloALFe3I
+ eDGw1TfYYDvI1pst47csouRBjkDOZIfKcNgRZn7zLvfl53pn/2OI2Jce8O9leJ0sob1F4j0V/
+ 0rWKY9XfZLR2Mo8qq
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200515_042618_580967_1D96146E 
-X-CRM114-Status: UNSURE (   8.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200515_045544_658523_07DB05D2 
+X-CRM114-Status: GOOD (  11.69  )
 X-Spam-Score: -0.7 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.7 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [212.227.15.15 listed in list.dnswl.org]
+ low trust [212.227.15.19 listed in list.dnswl.org]
  -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [212.227.15.15 listed in wl.mailspike.net]
+ [212.227.15.19 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
  provider [linosanfilippo[at]gmx.de]
@@ -95,37 +100,34 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: dave.stevenson@raspberrypi.org
-MIME-Version: 1.0
+Cc: linux-rpi-kernel@lists.infradead.org, dave.stevenson@raspberrypi.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-In function get_first_supported_format() the value in variable "ret" is used
-as a condition in a for-loop. So make sure it is properly initialized before
-it is evaluated the first time.
+Am 15.05.20 um 13:47 schrieb Lukas Wunner:
+> On Fri, May 15, 2020 at 01:25:29PM +0200, Lino Sanfilippo wrote:
+>> In function get_first_supported_format() the value in variable "ret" is used
+>> as a condition in a for-loop. So make sure it is properly initialized before
+>> it is evaluated the first time.
+>>
+>> Signed-off-by: Lino Sanfilippo <LinoSanfilippo@gmx.de>
+>> ---
+>>  drivers/media/platform/bcm2835/bcm2835-unicam.c | 2 +-
+>
+> This driver isn't present in the upstream kernel, only in the
+> Foundation's downstream repo.  To fix the issue, I think you
+> need to submit a pull request on GitHub rather than a patch
+> to the list.
+>
 
-Signed-off-by: Lino Sanfilippo <LinoSanfilippo@gmx.de>
----
- drivers/media/platform/bcm2835/bcm2835-unicam.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Hi Lukas,
 
-diff --git a/drivers/media/platform/bcm2835/bcm2835-unicam.c b/drivers/media/platform/bcm2835/bcm2835-unicam.c
-index 09e68a9..c071e64 100644
---- a/drivers/media/platform/bcm2835/bcm2835-unicam.c
-+++ b/drivers/media/platform/bcm2835/bcm2835-unicam.c
-@@ -826,7 +826,7 @@ const struct unicam_fmt *get_first_supported_format(struct unicam_device *dev)
- {
- 	struct v4l2_subdev_mbus_code_enum mbus_code;
- 	const struct unicam_fmt *fmt = NULL;
--	int ret;
-+	int ret = 0;
- 	int j;
+thank you for this information and for the review.
 
- 	for (j = 0; ret != -EINVAL && ret != -ENOIOCTLCMD; ++j) {
---
-2.7.4
+Regards,
+Lino
 
 
 _______________________________________________
