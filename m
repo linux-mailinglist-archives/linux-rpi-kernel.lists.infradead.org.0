@@ -2,8 +2,8 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id AC6B61D55A0
-	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 15 May 2020 18:11:29 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 325EB1D5597
+	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 15 May 2020 18:08:40 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
@@ -11,55 +11,50 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	From:References:In-Reply-To:Message-Id:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=mG7AwxnI2jcRxhyu+bTiekN44ySckKd0Z8wwaAfyggM=; b=MCyVHHM6K4btOejts4AY0/sR+7
-	S4y6rWh/EsHwr0dk7H+XxhISQeZTviaFJUmGPNZoPcocXOvmsBeaD5+KADMNq/MUV6A4CjjIsn2s/
-	OeaYp/EbesOQTtSgVp3TszNQowIQm2qe4JDY5EfbHnIUi70L/2cCkIpXDjQWxnHvZDgSDpt0a0NqC
-	rn8r824wHKNqxYJofFP6/v67P7A4/9Avm7RWZu9x5EArmp5JFN/NotDjkQSxX52gd4EtaBIzYpLri
-	v1J4XQQLvRlfTAJSKFMt3urYZOaps0O9SIw/prnK0WDSh987SL0sEhHDpyquxhL0v6oOCLIzf4+XY
-	gx+WOpAA==;
+	bh=mGNhBElAZ4pkKnEm6WNB/GEYHJexz9OrEAmvCg/FQ80=; b=ELsI8NOIa57NyT/DXRRbUT34xH
+	1ABZydNllU6xLC6e2woYdeYaNghEv9LCQy+favs4aqMqShiYpcSPwwjT8UNux4x9JhGLVGLDicCC7
+	Dm7UzCwrOMMuFQn4qJEbpqgTHp7H6GgbGmtgotDiW/XcNop6cJw0r44iCeNbh7QfUUccxjMQxwcWZ
+	jKYhCZs9OI5MoYWD+2gNHHWHVe/IMDwg/Zm5z6yJesy12RgY29SrDUrnbtZ+UsxcKioUUXyfNzizd
+	aDSY2hpEL1l8BdD744b4fDNOxx76nDd71HRb/nJkOvCbnoqqZjytABqrmwcqgCVrvshpOYL9zU7pS
+	GJ1iTKfA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jZcvk-0000YM-Uu; Fri, 15 May 2020 16:11:24 +0000
-Received: from mailout3.hostsharing.net ([176.9.242.54])
+	id 1jZct1-00069R-VK; Fri, 15 May 2020 16:08:35 +0000
+Received: from mailout2.hostsharing.net ([2a01:37:3000::53df:4ee9:0])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jZcvi-0000XV-17
- for linux-rpi-kernel@lists.infradead.org; Fri, 15 May 2020 16:11:23 +0000
+ id 1jZcsw-00066A-QS
+ for linux-rpi-kernel@lists.infradead.org; Fri, 15 May 2020 16:08:33 +0000
 Received: from h08.hostsharing.net (h08.hostsharing.net [83.223.95.28])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (Client CN "*.hostsharing.net",
  Issuer "COMODO RSA Domain Validation Secure Server CA" (not verified))
- by mailout3.hostsharing.net (Postfix) with ESMTPS id EF3FE101E6A91;
- Fri, 15 May 2020 18:00:59 +0200 (CEST)
+ by mailout2.hostsharing.net (Postfix) with ESMTPS id B3168102EDAE9;
+ Fri, 15 May 2020 18:02:18 +0200 (CEST)
 Received: from localhost (unknown [89.246.108.87])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
  (No client certificate requested)
- by h08.hostsharing.net (Postfix) with ESMTPSA id 4D49F6000CEE;
- Fri, 15 May 2020 18:00:59 +0200 (CEST)
-X-Mailbox-Line: From 32f27f4d8242e4d75f9a53f7e8f1f77483b08669 Mon Sep 17
+ by h08.hostsharing.net (Postfix) with ESMTPSA id 7AA466029E64;
+ Fri, 15 May 2020 18:02:18 +0200 (CEST)
+X-Mailbox-Line: From ac79f1e3d6fd9a1f5e0cb4008c43b98ea70be3c2 Mon Sep 17
  00:00:00 2001
-Message-Id: <32f27f4d8242e4d75f9a53f7e8f1f77483b08669.1589557526.git.lukas@wunner.de>
+Message-Id: <ac79f1e3d6fd9a1f5e0cb4008c43b98ea70be3c2.1589557526.git.lukas@wunner.de>
 In-Reply-To: <cover.1589557526.git.lukas@wunner.de>
 References: <cover.1589557526.git.lukas@wunner.de>
 From: Lukas Wunner <lukas@wunner.de>
-Date: Fri, 15 May 2020 17:58:03 +0200
-Subject: [PATCH 3/5] spi: bcm2835aux: Fix controller unregister order
+Date: Fri, 15 May 2020 17:58:04 +0200
+Subject: [PATCH 4/5] spi: bcm2835: Tear down DMA before turning off SPI
+ controller
 To: Mark Brown <broonie@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200515_091122_219804_965ECF2F 
-X-CRM114-Status: UNSURE (   9.82  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -0.7 (/)
+X-CRM114-CacheID: sfid-20200515_090831_003169_1D46894D 
+X-CRM114-Status: GOOD (  10.12  )
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.7 points)
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [176.9.242.54 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [176.9.242.54 listed in wl.mailspike.net]
  0.0 SPF_NONE               SPF: sender does not publish an SPF Record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -78,57 +73,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-The BCM2835aux SPI driver uses devm_spi_register_master() on bind.
-As a consequence, on unbind, __device_release_driver() first invokes
-bcm2835aux_spi_remove() before unregistering the SPI controller via
-devres_release_all().
+On unbind of the BCM2835 SPI driver, the SPI controller is disabled
+first and the DMA channels are terminated and torn down afterwards.
 
-This order is incorrect:  bcm2835aux_spi_remove() turns off the SPI
-controller, including its interrupts and clock.  The SPI controller
-is thus no longer usable.
+This seems backwards:  In the theoretical case that DMA is active,
+it might try to fill the SPI FIFOs even after the controller has
+been disabled.
 
-When the SPI controller is subsequently unregistered, it unbinds all
-its slave devices.  If their drivers need to access the SPI bus,
-e.g. to quiesce their interrupts, unbinding will fail.
+Reverse the order, thereby mirroring what's done on ->probe().
 
-As a rule, devm_spi_register_master() must not be used if the
-->remove() hook performs teardown steps which shall be performed
-after unbinding of slaves.
-
-Fix by using the non-devm variant spi_register_master().  Note that the
-struct spi_master as well as the driver-private data are not freed until
-after bcm2835aux_spi_remove() has finished, so accessing them is safe.
-
-Fixes: 1ea29b39f4c8 ("spi: bcm2835aux: add bcm2835 auxiliary spi device driver")
 Signed-off-by: Lukas Wunner <lukas@wunner.de>
-Cc: stable@vger.kernel.org # v4.4+
-Cc: Martin Sperl <kernel@martin.sperl.org>
 ---
- drivers/spi/spi-bcm2835aux.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ drivers/spi/spi-bcm2835.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/spi/spi-bcm2835aux.c b/drivers/spi/spi-bcm2835aux.c
-index a2162ff56a12..c331efd6e86b 100644
---- a/drivers/spi/spi-bcm2835aux.c
-+++ b/drivers/spi/spi-bcm2835aux.c
-@@ -569,7 +569,7 @@ static int bcm2835aux_spi_probe(struct platform_device *pdev)
- 		goto out_clk_disable;
- 	}
+diff --git a/drivers/spi/spi-bcm2835.c b/drivers/spi/spi-bcm2835.c
+index 06d2782d38ec..20d8581fdf88 100644
+--- a/drivers/spi/spi-bcm2835.c
++++ b/drivers/spi/spi-bcm2835.c
+@@ -1380,14 +1380,14 @@ static int bcm2835_spi_remove(struct platform_device *pdev)
  
--	err = devm_spi_register_master(&pdev->dev, master);
-+	err = spi_register_master(master);
- 	if (err) {
- 		dev_err(&pdev->dev, "could not register SPI master: %d\n", err);
- 		goto out_clk_disable;
-@@ -593,6 +593,8 @@ static int bcm2835aux_spi_remove(struct platform_device *pdev)
+ 	spi_unregister_controller(ctlr);
  
- 	bcm2835aux_debugfs_remove(bs);
- 
-+	spi_unregister_master(master);
++	bcm2835_dma_release(ctlr, bs);
 +
- 	bcm2835aux_spi_reset_hw(bs);
+ 	/* Clear FIFOs, and disable the HW block */
+ 	bcm2835_wr(bs, BCM2835_SPI_CS,
+ 		   BCM2835_SPI_CS_CLEAR_RX | BCM2835_SPI_CS_CLEAR_TX);
  
- 	/* disable the HW block by releasing the clock */
+ 	clk_disable_unprepare(bs->clk);
+ 
+-	bcm2835_dma_release(ctlr, bs);
+-
+ 	return 0;
+ }
+ 
 -- 
 2.26.2
 
