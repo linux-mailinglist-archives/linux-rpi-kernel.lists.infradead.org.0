@@ -2,66 +2,79 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5116B1DBAFB
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 20 May 2020 19:17:44 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 800461DF347
+	for <lists+linux-rpi-kernel@lfdr.de>; Sat, 23 May 2020 01:51:54 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Subject:
-	References:In-Reply-To:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ch7mciJrcmSUWfV+jakFla+Tjjn8I2/FKuxRL29+1c0=; b=q4H4Vwq98xZ8Yt
-	Vl2PIUCPF37xU8RibB5y4p5y6ZQCB1CumLjq5k1BoytcbhSvDRBMSfrtfVw6w10HOqT+hvzInchZf
-	Ddg3l1sCxdjGe6lLppm1eaUBoTTM6ViDQ+WlLNuHWfl9znX6tWCREuOS/Yow9tadd//7YCkNR1D81
-	HXNFuLr6kXKRA9r0tovPF//PXbSJvvn6/63QYmx/TWhxn0rslCkFBDTAsNSdVSRZ30cnkT4lUhG0n
-	b5n1Kw8PZOT9mFEEGAGor0RgJbdrYrVhd+9/br+HhsldNpgWpwGorDhxLACmWLbOUgjuPXHmsxxaO
-	iZ3b5gCa5leDEOsp/qaA==;
+	List-Owner; bh=HCzHGO0WRFR2CAH7cbNFkikIwIiUB1WgUuQKSOLqcqQ=; b=OjMFZa136DcVH7
+	9R/Ag2sphLn+tmsiIWPrXPbittTjA/zbv3WiMN8VF62Yne4iMChjlF4bgvXBC0/Az2fRKppf418gu
+	TuruksporTA9M3l4RuLj7lizF2+Jb8aJpExCfkPQkZm7usvkQR9qn4Vwhifx28fWeMja88hqgGte8
+	+zbkPKUuGutEq+ke1J/7dXYroiSMZhXdVpDVtNNNhGsQkJbs5x7WGwM+T4/hIAo2svbhiKOP5pp5b
+	yJUuJAxwHkiJikgLdBR3hOjq7WnRnKfMvqyr4lFDPfYtKKCouPibZj+ydROV+LwezjIgl6PWoXwBJ
+	xLNZdTbFNAUbk9FVDQKA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jbSLc-0005Qn-BT; Wed, 20 May 2020 17:17:40 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1jcHRh-0007dq-I3; Fri, 22 May 2020 23:51:21 +0000
+Received: from mail-il1-f193.google.com ([209.85.166.193])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jbSLY-0005Jf-Mo
- for linux-rpi-kernel@lists.infradead.org; Wed, 20 May 2020 17:17:38 +0000
-Received: from localhost (fw-tnat.cambridge.arm.com [217.140.96.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 416B8206B6;
- Wed, 20 May 2020 17:17:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1589995055;
- bh=xltVI1+pEmM6zj2tzZiSZnN117AjeYjfwjSrkN5huHg=;
- h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
- b=VkwZD3r0X6BGTzKnlUlwQOmtTp0aMzo3WDTyACwJkV3UdiA043Qp3ZQY/yqR04pj4
- jBbNO4LyAotapaxo4GWUK+ajtn3ICZ3QwZ4gPTXuBzYAaU+ao4J3nXhc4mKrlqTRH9
- dgY6tCbZsXzoRYf6yRBKFlR5W61xwtpSB6PD62zc=
-Date: Wed, 20 May 2020 18:17:33 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Lukas Wunner <lukas@wunner.de>
-In-Reply-To: <cover.1589557526.git.lukas@wunner.de>
-References: <cover.1589557526.git.lukas@wunner.de>
-Subject: Re: [PATCH 0/5] Raspberry Pi SPI unbind fixes
-Message-Id: <158999505312.5069.2701114941516266440.b4-ty@kernel.org>
+ id 1jcHP5-0003MG-9L; Fri, 22 May 2020 23:48:40 +0000
+Received: by mail-il1-f193.google.com with SMTP id 4so12533298ilg.1;
+ Fri, 22 May 2020 16:48:38 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=fcOH9Yyg8RTS1uDyK4ju1tKTwPN2SKJdo9WLhc7R054=;
+ b=Gi/3Ei4PZu0elGWQYPUzN0iqynSjfNvmUucR5tSFfzCHd1Zwjr6uHhfDWGcNr8zXDN
+ hrVfbEXOswXwu1Vv3CZ00ODUNUURjwFiWu4DnkCyPxsIEOTVBuTtfjtEzrv3v+vI63Yu
+ qpvGhI8PzSIi2XaMV5B0DCPFItRvApvKLHf193H6bHpQufRKiBL8L8j7Tra7sMnGIXjL
+ +M8FbqQR/YkaIShtXV4WDyr7EMDbyu1MPcvLwtQ/BbdBhQihTEh2FzxAjuri7n+rwb8T
+ aHc0aAqQvlPqveIt1hVu24YsXnbBcBpdAxwZ+FMpyieL58TOYawg2dY7IMnl6vjQ7OBM
+ clTg==
+X-Gm-Message-State: AOAM533fFwP4lnfYTtVilHtkmI06unL4KOr4ohlx8UNBUTOu4x4E7Lie
+ 1vLy7W4/mIuLfF9K4sa3+b6AFlw=
+X-Google-Smtp-Source: ABdhPJxSQMk+Xgx5mMu8Qr8nZIuiuOwT56dTl3b5bTFmMoPFk+wCyTSsmV14SJYYFxh7j5CDBkgX/w==
+X-Received: by 2002:a92:cf46:: with SMTP id c6mr16172424ilr.4.1590191318280;
+ Fri, 22 May 2020 16:48:38 -0700 (PDT)
+Received: from xps15.herring.priv ([64.188.179.252])
+ by smtp.googlemail.com with ESMTPSA id w23sm4390877iod.9.2020.05.22.16.48.37
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 22 May 2020 16:48:37 -0700 (PDT)
+From: Rob Herring <robh@kernel.org>
+To: Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>
+Subject: [PATCH 04/15] PCI: brcmstb: Use pci_host_probe() to register host
+Date: Fri, 22 May 2020 17:48:21 -0600
+Message-Id: <20200522234832.954484-5-robh@kernel.org>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20200522234832.954484-1-robh@kernel.org>
+References: <20200522234832.954484-1-robh@kernel.org>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200520_101736_789581_B87B3F4B 
-X-CRM114-Status: GOOD (  10.22  )
-X-Spam-Score: -5.2 (-----)
+X-CRM114-CacheID: sfid-20200522_164839_362483_5F316FE5 
+X-CRM114-Status: GOOD (  11.42  )
+X-Spam-Score: 0.8 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-5.2 points)
+ Content analysis details:   (0.8 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [198.145.29.99 listed in list.dnswl.org]
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [209.85.166.193 listed in list.dnswl.org]
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider [robherring2[at]gmail.com]
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
+ 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
+ in digit [robherring2[at]gmail.com]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.166.193 listed in wl.mailspike.net]
+ 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+ EnvelopeFrom freemail headers are different
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -73,58 +86,83 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Jingoo Han <jg1.han@samsung.com>,
- linux-spi@vger.kernel.org, linux-rpi-kernel@lists.infradead.org
-MIME-Version: 1.0
+Cc: linux-pci@vger.kernel.org, bcm-kernel-feedback-list@broadcom.com,
+ linux-arm-kernel@lists.infradead.org, Bjorn Helgaas <bhelgaas@google.com>,
+ linux-rpi-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-On Fri, 15 May 2020 17:58:00 +0200, Lukas Wunner wrote:
-> This series fixes ordering issues occurring on unbind of the
-> Raspberry Pi SPI drivers:
-> 
-> Turns out devm_spi_register_controller() is prone to
-> incorrect use and dozens of drivers have gotten it wrong.
-> I'm only documenting this gotcha here and fixing it in the
-> Raspberry Pi drivers.  Fixing the rest is for another day.
-> 
-> [...]
+The brcmstb host driver does the same host registration and bus scanning
+calls as pci_host_probe, so let's use it instead.
 
-Applied to
+Cc: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+Cc: bcm-kernel-feedback-list@broadcom.com
+Cc: linux-rpi-kernel@lists.infradead.org
+Signed-off-by: Rob Herring <robh@kernel.org>
+---
+ drivers/pci/controller/pcie-brcmstb.c | 20 ++++----------------
+ 1 file changed, 4 insertions(+), 16 deletions(-)
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
+index 7730ea845ff2..15c747c1390a 100644
+--- a/drivers/pci/controller/pcie-brcmstb.c
++++ b/drivers/pci/controller/pcie-brcmstb.c
+@@ -172,7 +172,6 @@ struct brcm_pcie {
+ 	struct device		*dev;
+ 	void __iomem		*base;
+ 	struct clk		*clk;
+-	struct pci_bus		*root_bus;
+ 	struct device_node	*np;
+ 	bool			ssc;
+ 	int			gen;
+@@ -919,9 +918,10 @@ static void __brcm_pcie_remove(struct brcm_pcie *pcie)
+ static int brcm_pcie_remove(struct platform_device *pdev)
+ {
+ 	struct brcm_pcie *pcie = platform_get_drvdata(pdev);
++	struct pci_host_bridge *bridge = pci_host_bridge_from_priv(pcie);
+ 
+-	pci_stop_root_bus(pcie->root_bus);
+-	pci_remove_root_bus(pcie->root_bus);
++	pci_stop_root_bus(bridge->bus);
++	pci_remove_root_bus(bridge->bus);
+ 	__brcm_pcie_remove(pcie);
+ 
+ 	return 0;
+@@ -933,7 +933,6 @@ static int brcm_pcie_probe(struct platform_device *pdev)
+ 	struct pci_host_bridge *bridge;
+ 	struct device_node *fw_np;
+ 	struct brcm_pcie *pcie;
+-	struct pci_bus *child;
+ 	struct resource *res;
+ 	int ret;
+ 
+@@ -1004,20 +1003,9 @@ static int brcm_pcie_probe(struct platform_device *pdev)
+ 	bridge->map_irq = of_irq_parse_and_map_pci;
+ 	bridge->swizzle_irq = pci_common_swizzle;
+ 
+-	ret = pci_scan_root_bus_bridge(bridge);
+-	if (ret < 0) {
+-		dev_err(pcie->dev, "Scanning root bridge failed\n");
+-		goto fail;
+-	}
+-
+-	pci_assign_unassigned_bus_resources(bridge->bus);
+-	list_for_each_entry(child, &bridge->bus->children, node)
+-		pcie_bus_configure_settings(child);
+-	pci_bus_add_devices(bridge->bus);
+ 	platform_set_drvdata(pdev, pcie);
+-	pcie->root_bus = bridge->bus;
+ 
+-	return 0;
++	return pci_host_probe(bridge);
+ fail:
+ 	__brcm_pcie_remove(pcie);
+ 	return ret;
+-- 
+2.25.1
 
-Thanks!
-
-[1/4] spi: Fix controller unregister order
-      commit: 84855678add8aba927faf76bc2f130a40f94b6f7
-[2/4] spi: bcm2835: Fix controller unregister order
-      commit: 9dd277ff92d06f6aa95b39936ad83981d781f49b
-[3/4] spi: bcm2835aux: Fix controller unregister order
-      commit: b9dd3f6d417258ad0beeb292a1bc74200149f15d
-[4/4] spi: bcm2835: Tear down DMA before turning off SPI controller
-      (no commit info)
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
 
 _______________________________________________
 linux-rpi-kernel mailing list
