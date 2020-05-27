@@ -2,44 +2,46 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9F0FF1E410F
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 27 May 2020 13:59:43 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4CAEF1E411B
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 27 May 2020 14:01:54 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PjnnH+xRHzYl6wrLCLLRfLF76ZM8AJVdy4ODWbWI3KA=; b=ndyhjm/DiSaH5T
-	DXMIuSNWeV2TF7Tb74vT71cikofg7z3x+NMpzuozk8DWyzSngB8FSMo7lSI6+DZQMkvfLj+NULWO/
-	ZahCx69VMbXj3ixWAucqXA0ZeJSDKHak7093ea+QRIGBHH/2FgmYOwe/RVbs0vFWxC6EVNQkwZtH+
-	f5fXhQ7rEqBTBVx/aFeCaXEsubH69MlFgxpBwlhfvzhbLHw+tLyRvc1fl0Kglc3xR4TckA58Bmnav
-	5GCc4rOW1dSs1KSq5c8Rh13+HIFQGIExBiAEaScuX/hdwey75brfVGtaw13Xwjo8OeqRhFJmNyZGM
-	IoEJc0FfRntaVJ/o4ydQ==;
+	List-Owner; bh=jmQ4yHQrU2BM1MFzyRaB3b5lkotunXR2AMkwDSNffBA=; b=GkJVhrwGa8LxP/
+	ka2VFkm0EvfPc++8KtawXCppeO23MkltNqK0SPJ/hSfXr/JqdvofEYpDZM/gGZFncuQVS3KRrU4hQ
+	W74by3MIFVAunjQU3oh/C1YyUIdX2uEtswVU/89jPMU2fm8+o79DGZcBrHoH4WGqWw+nkReTbhP7p
+	nIgbkjoLHaD5eoOaSWYEalw9Cv06MNExEV+SgKpAY5ejmNlKS/ExKOdpQ5a5vPAf4sB2rwHYBvotR
+	Bt1w0S5UOjbVLVjFrJv+ThwEGgPQa6iYFrJD/VZBSCn/MFUGxVOmnqv7Gp6k06J5fGYr1xxlS8381
+	FXu/ZZQ9PLGEP55A+2iw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jduiZ-00050s-Et; Wed, 27 May 2020 11:59:31 +0000
+	id 1jdukn-0000NY-Py; Wed, 27 May 2020 12:01:49 +0000
 Received: from mx2.suse.de ([195.135.220.15])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jdudZ-0006cl-61; Wed, 27 May 2020 11:54:23 +0000
+ id 1jdudW-0006Xs-69; Wed, 27 May 2020 11:54:21 +0000
 X-Virus-Scanned: by amavisd-new at test-mx.suse.de
 Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx2.suse.de (Postfix) with ESMTP id F0B2EAC84;
- Wed, 27 May 2020 11:54:20 +0000 (UTC)
+ by mx2.suse.de (Postfix) with ESMTP id D9E3AAD66;
+ Wed, 27 May 2020 11:54:17 +0000 (UTC)
 From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 To: bcm-kernel-feedback-list@broadcom.com,
  linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
-Subject: [RFC 08/50] staging: vchi: Get rid of C++ guards
-Date: Wed, 27 May 2020 13:53:13 +0200
-Message-Id: <20200527115400.31391-9-nsaenzjulienne@suse.de>
+Subject: [RFC 04/50] staging: vchi: Merge vchi_msg_queue() into
+ vchi_queue_kernel_message()
+Date: Wed, 27 May 2020 13:53:09 +0200
+Message-Id: <20200527115400.31391-5-nsaenzjulienne@suse.de>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20200527115400.31391-1-nsaenzjulienne@suse.de>
 References: <20200527115400.31391-1-nsaenzjulienne@suse.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200527_045421_391162_81790EDF 
-X-CRM114-Status: GOOD (  10.11  )
+X-CRM114-CacheID: sfid-20200527_045418_385564_DBBC3556 
+X-CRM114-Status: UNSURE (   9.55  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-2.3 points)
@@ -70,40 +72,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-This is an include only used by the Linux kernel, so no need to worry
-about C++ compatibility.
+There are no gains from that extra indirection level. Also, get rid of
+the function description, the whole file will disappear soon.
 
 Signed-off-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 ---
- drivers/staging/vc04_services/interface/vchi/vchi.h | 8 --------
- 1 file changed, 8 deletions(-)
+ .../interface/vchiq_arm/vchiq_shim.c          | 29 +++----------------
+ 1 file changed, 4 insertions(+), 25 deletions(-)
 
-diff --git a/drivers/staging/vc04_services/interface/vchi/vchi.h b/drivers/staging/vc04_services/interface/vchi/vchi.h
-index 2e41b5f7bdec..1a981e98e82b 100644
---- a/drivers/staging/vc04_services/interface/vchi/vchi.h
-+++ b/drivers/staging/vc04_services/interface/vchi/vchi.h
-@@ -60,10 +60,6 @@ struct vchi_service_handle;
-  * (local / remote)
-  *****************************************************************************/
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c
+index 1c5ddea8b076..081ab67ad6fd 100644
+--- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c
+@@ -84,30 +84,15 @@ int32_t vchi_msg_remove(struct vchi_service_handle *handle)
+ }
+ EXPORT_SYMBOL(vchi_msg_remove);
  
--#ifdef __cplusplus
--extern "C" {
--#endif
+-/***********************************************************
+- * Name: vchi_msg_queue
+- *
+- * Arguments:  struct vchi_service_handle *handle,
+- *             ssize_t (*copy_callback)(void *context, void *dest,
+- *				        size_t offset, size_t maxsize),
+- *	       void *context,
+- *             uint32_t data_size
+- *
+- * Description: Thin wrapper to queue a message onto a connection
+- *
+- * Returns: int32_t - success == 0
+- *
+- ***********************************************************/
+-static
+-int32_t vchi_msg_queue(struct vchi_service_handle *handle, void *context,
+-		       uint32_t data_size)
++int vchi_queue_kernel_message(struct vchi_service_handle *handle, void *data,
++			       unsigned int size)
+ {
+ 	struct shim_service *service = (struct shim_service *)handle;
+ 	enum vchiq_status status;
+ 
+ 	while (1) {
+-		status = vchiq_queue_kernel_message(service->handle, context,
+-						    data_size);
++		status = vchiq_queue_kernel_message(service->handle, data,
++						    size);
+ 
+ 		/*
+ 		 * vchiq_queue_message() may return VCHIQ_RETRY, so we need to
+@@ -122,12 +107,6 @@ int32_t vchi_msg_queue(struct vchi_service_handle *handle, void *context,
+ 
+ 	return vchiq_status_to_vchi(status);
+ }
 -
- // Routine used to initialise the vchi on both local + remote connections
- extern int32_t vchi_initialise(struct vchi_instance_handle **instance_handle);
- 
-@@ -158,10 +154,6 @@ extern int32_t vchi_bulk_queue_transmit(struct vchi_service_handle *handle,
-  * Configuration plumbing
-  *****************************************************************************/
- 
--#ifdef __cplusplus
+-int vchi_queue_kernel_message(struct vchi_service_handle *handle, void *data,
+-			      unsigned int size)
+-{
+-	return vchi_msg_queue(handle, data, size);
 -}
--#endif
--
- #endif /* VCHI_H_ */
+ EXPORT_SYMBOL(vchi_queue_kernel_message);
  
- /****************************** End of file **********************************/
+ /***********************************************************
 -- 
 2.26.2
 
