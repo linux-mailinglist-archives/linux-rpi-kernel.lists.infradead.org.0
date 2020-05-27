@@ -2,46 +2,44 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4CAEF1E411B
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 27 May 2020 14:01:54 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id D36F11E4121
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 27 May 2020 14:02:10 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jmQ4yHQrU2BM1MFzyRaB3b5lkotunXR2AMkwDSNffBA=; b=GkJVhrwGa8LxP/
-	ka2VFkm0EvfPc++8KtawXCppeO23MkltNqK0SPJ/hSfXr/JqdvofEYpDZM/gGZFncuQVS3KRrU4hQ
-	W74by3MIFVAunjQU3oh/C1YyUIdX2uEtswVU/89jPMU2fm8+o79DGZcBrHoH4WGqWw+nkReTbhP7p
-	nIgbkjoLHaD5eoOaSWYEalw9Cv06MNExEV+SgKpAY5ejmNlKS/ExKOdpQ5a5vPAf4sB2rwHYBvotR
-	Bt1w0S5UOjbVLVjFrJv+ThwEGgPQa6iYFrJD/VZBSCn/MFUGxVOmnqv7Gp6k06J5fGYr1xxlS8381
-	FXu/ZZQ9PLGEP55A+2iw==;
+	List-Owner; bh=CBgkeONll3+5I8JTR+CgF4vh13XUE7G1xbNWC0AAaeY=; b=X41D8X03USUaP8
+	V5Fi8lTU6qmkivQzgpxB6XR6rRdwfOZdmcYqJyc4UcJ/YSVLnqD3nSkm3nuHIhF4aEJEcQte//wvx
+	FbWrERdRNjCEtoAFxBvZ7boxuLLjYcuOCp2uhAAkjmmnCgCRxn7PJjnv95UCRxCzc9LyY3jF+RD1K
+	D/HVYO9NkdNj4SqF2MlP1e+nPtFM/kjdzeOLHvAA7YPRMHjzpSPqDwWd4VECV6n+P6AQhOBZ8jA2W
+	5OWlPWL1fwz82cGP2SJSPnMJN0Et3uXd/TpzX0ByJpUzSJ/+s+9xSZqvj32fM/nNj/KElY7ZT1cvZ
+	M8DhkEFaxJUJuMsGZ32A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jdukn-0000NY-Py; Wed, 27 May 2020 12:01:49 +0000
+	id 1jdul4-0000bS-Ex; Wed, 27 May 2020 12:02:06 +0000
 Received: from mx2.suse.de ([195.135.220.15])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jdudW-0006Xs-69; Wed, 27 May 2020 11:54:21 +0000
+ id 1jdudY-0006ci-T6; Wed, 27 May 2020 11:54:23 +0000
 X-Virus-Scanned: by amavisd-new at test-mx.suse.de
 Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx2.suse.de (Postfix) with ESMTP id D9E3AAD66;
- Wed, 27 May 2020 11:54:17 +0000 (UTC)
+ by mx2.suse.de (Postfix) with ESMTP id A26A8ACF2;
+ Wed, 27 May 2020 11:54:18 +0000 (UTC)
 From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 To: bcm-kernel-feedback-list@broadcom.com,
  linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
-Subject: [RFC 04/50] staging: vchi: Merge vchi_msg_queue() into
- vchi_queue_kernel_message()
-Date: Wed, 27 May 2020 13:53:09 +0200
-Message-Id: <20200527115400.31391-5-nsaenzjulienne@suse.de>
+Subject: [RFC 05/50] staging: vchi: Get rid of vchi_service_set_option()
+Date: Wed, 27 May 2020 13:53:10 +0200
+Message-Id: <20200527115400.31391-6-nsaenzjulienne@suse.de>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20200527115400.31391-1-nsaenzjulienne@suse.de>
 References: <20200527115400.31391-1-nsaenzjulienne@suse.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200527_045418_385564_DBBC3556 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200527_045421_212529_FC094E3B 
+X-CRM114-Status: GOOD (  10.45  )
 X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-2.3 points)
@@ -72,66 +70,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-There are no gains from that extra indirection level. Also, get rid of
-the function description, the whole file will disappear soon.
+There are no users for that function.
 
 Signed-off-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 ---
- .../interface/vchiq_arm/vchiq_shim.c          | 29 +++----------------
- 1 file changed, 4 insertions(+), 25 deletions(-)
+ .../vc04_services/interface/vchi/vchi.h       |  5 ---
+ .../interface/vchiq_arm/vchiq_shim.c          | 31 -------------------
+ 2 files changed, 36 deletions(-)
 
+diff --git a/drivers/staging/vc04_services/interface/vchi/vchi.h b/drivers/staging/vc04_services/interface/vchi/vchi.h
+index 62d9d3efa755..1e8d17531e9d 100644
+--- a/drivers/staging/vc04_services/interface/vchi/vchi.h
++++ b/drivers/staging/vc04_services/interface/vchi/vchi.h
+@@ -100,11 +100,6 @@ extern int32_t vchi_service_use(const struct vchi_service_handle *handle);
+ // Routine to decrement ref count on a named service
+ extern int32_t vchi_service_release(const struct vchi_service_handle *handle);
+ 
+-// Routine to set a control option for a named service
+-extern int32_t vchi_service_set_option(const struct vchi_service_handle *handle,
+-				       enum vchi_service_option option,
+-				       int value);
+-
+ /* Routine to send a message from kernel memory across a service */
+ extern int
+ vchi_queue_kernel_message(struct vchi_service_handle *handle,
 diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c
-index 1c5ddea8b076..081ab67ad6fd 100644
+index 081ab67ad6fd..429b0c71e455 100644
 --- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c
 +++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c
-@@ -84,30 +84,15 @@ int32_t vchi_msg_remove(struct vchi_service_handle *handle)
+@@ -567,37 +567,6 @@ int32_t vchi_service_close(const struct vchi_service_handle *handle)
  }
- EXPORT_SYMBOL(vchi_msg_remove);
+ EXPORT_SYMBOL(vchi_service_close);
  
--/***********************************************************
-- * Name: vchi_msg_queue
-- *
-- * Arguments:  struct vchi_service_handle *handle,
-- *             ssize_t (*copy_callback)(void *context, void *dest,
-- *				        size_t offset, size_t maxsize),
-- *	       void *context,
-- *             uint32_t data_size
-- *
-- * Description: Thin wrapper to queue a message onto a connection
-- *
-- * Returns: int32_t - success == 0
-- *
-- ***********************************************************/
--static
--int32_t vchi_msg_queue(struct vchi_service_handle *handle, void *context,
--		       uint32_t data_size)
-+int vchi_queue_kernel_message(struct vchi_service_handle *handle, void *data,
-+			       unsigned int size)
- {
- 	struct shim_service *service = (struct shim_service *)handle;
- 	enum vchiq_status status;
- 
- 	while (1) {
--		status = vchiq_queue_kernel_message(service->handle, context,
--						    data_size);
-+		status = vchiq_queue_kernel_message(service->handle, data,
-+						    size);
- 
- 		/*
- 		 * vchiq_queue_message() may return VCHIQ_RETRY, so we need to
-@@ -122,12 +107,6 @@ int32_t vchi_msg_queue(struct vchi_service_handle *handle, void *context,
- 
- 	return vchiq_status_to_vchi(status);
- }
--
--int vchi_queue_kernel_message(struct vchi_service_handle *handle, void *data,
--			      unsigned int size)
+-int32_t vchi_service_set_option(const struct vchi_service_handle *handle,
+-				enum vchi_service_option option,
+-				int value)
 -{
--	return vchi_msg_queue(handle, data, size);
+-	int32_t ret = -1;
+-	struct shim_service *service = (struct shim_service *)handle;
+-	enum vchiq_service_option vchiq_option;
+-
+-	switch (option) {
+-	case VCHI_SERVICE_OPTION_TRACE:
+-		vchiq_option = VCHIQ_SERVICE_OPTION_TRACE;
+-		break;
+-	case VCHI_SERVICE_OPTION_SYNCHRONOUS:
+-		vchiq_option = VCHIQ_SERVICE_OPTION_SYNCHRONOUS;
+-		break;
+-	default:
+-		service = NULL;
+-		break;
+-	}
+-	if (service) {
+-		enum vchiq_status status =
+-			vchiq_set_service_option(service->handle,
+-						vchiq_option,
+-						value);
+-
+-		ret = vchiq_status_to_vchi(status);
+-	}
+-	return ret;
 -}
- EXPORT_SYMBOL(vchi_queue_kernel_message);
- 
- /***********************************************************
+-EXPORT_SYMBOL(vchi_service_set_option);
+-
+ int32_t vchi_get_peer_version(const struct vchi_service_handle *handle, short *peer_version)
+ {
+ 	int32_t ret = -1;
 -- 
 2.26.2
 
