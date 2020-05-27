@@ -2,79 +2,53 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 800461DF347
-	for <lists+linux-rpi-kernel@lfdr.de>; Sat, 23 May 2020 01:51:54 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 69D4C1E410E
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 27 May 2020 13:59:40 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HCzHGO0WRFR2CAH7cbNFkikIwIiUB1WgUuQKSOLqcqQ=; b=OjMFZa136DcVH7
-	9R/Ag2sphLn+tmsiIWPrXPbittTjA/zbv3WiMN8VF62Yne4iMChjlF4bgvXBC0/Az2fRKppf418gu
-	TuruksporTA9M3l4RuLj7lizF2+Jb8aJpExCfkPQkZm7usvkQR9qn4Vwhifx28fWeMja88hqgGte8
-	+zbkPKUuGutEq+ke1J/7dXYroiSMZhXdVpDVtNNNhGsQkJbs5x7WGwM+T4/hIAo2svbhiKOP5pp5b
-	yJUuJAxwHkiJikgLdBR3hOjq7WnRnKfMvqyr4lFDPfYtKKCouPibZj+ydROV+LwezjIgl6PWoXwBJ
-	xLNZdTbFNAUbk9FVDQKA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kHqN+M7Fvy9biF7qvOCBNXp7vYv3trJe98W8jGW3Njw=; b=df6YT6x4dupDNV
+	LXLF3U0dFkjuDaYeZBPGOJqP3l1iHSQM+ihTwh+9aQWeNn+d+TsZXv3Gy/jM1UWO1tp6fJZBWzPCh
+	St4Ok0nFt0YyKCsiLsL0qZieK9ZabI3rVeQt3FkVwrCsDGAzcGDmn2r51zKuS8b4x09Qo0lLXaxIB
+	gyzeRVkiCh0CmN4LhZyLjMgrRjPJ010wuEW6VL3zlQLsNcBzDNLtcyWSMOcaWh1XRUkdRglDKo8S0
+	sANcWhUrz3EQuTYqodajEIs7ZdDt3AIiASRKUQS6FZo/XBfnGXETWNaj57G5WBm4J3t034JeuTTsq
+	4GAVwuSwwRkkbtXZp9Zw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jcHRh-0007dq-I3; Fri, 22 May 2020 23:51:21 +0000
-Received: from mail-il1-f193.google.com ([209.85.166.193])
+	id 1jduib-00053k-Sj; Wed, 27 May 2020 11:59:33 +0000
+Received: from mx2.suse.de ([195.135.220.15])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jcHP5-0003MG-9L; Fri, 22 May 2020 23:48:40 +0000
-Received: by mail-il1-f193.google.com with SMTP id 4so12533298ilg.1;
- Fri, 22 May 2020 16:48:38 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=fcOH9Yyg8RTS1uDyK4ju1tKTwPN2SKJdo9WLhc7R054=;
- b=Gi/3Ei4PZu0elGWQYPUzN0iqynSjfNvmUucR5tSFfzCHd1Zwjr6uHhfDWGcNr8zXDN
- hrVfbEXOswXwu1Vv3CZ00ODUNUURjwFiWu4DnkCyPxsIEOTVBuTtfjtEzrv3v+vI63Yu
- qpvGhI8PzSIi2XaMV5B0DCPFItRvApvKLHf193H6bHpQufRKiBL8L8j7Tra7sMnGIXjL
- +M8FbqQR/YkaIShtXV4WDyr7EMDbyu1MPcvLwtQ/BbdBhQihTEh2FzxAjuri7n+rwb8T
- aHc0aAqQvlPqveIt1hVu24YsXnbBcBpdAxwZ+FMpyieL58TOYawg2dY7IMnl6vjQ7OBM
- clTg==
-X-Gm-Message-State: AOAM533fFwP4lnfYTtVilHtkmI06unL4KOr4ohlx8UNBUTOu4x4E7Lie
- 1vLy7W4/mIuLfF9K4sa3+b6AFlw=
-X-Google-Smtp-Source: ABdhPJxSQMk+Xgx5mMu8Qr8nZIuiuOwT56dTl3b5bTFmMoPFk+wCyTSsmV14SJYYFxh7j5CDBkgX/w==
-X-Received: by 2002:a92:cf46:: with SMTP id c6mr16172424ilr.4.1590191318280;
- Fri, 22 May 2020 16:48:38 -0700 (PDT)
-Received: from xps15.herring.priv ([64.188.179.252])
- by smtp.googlemail.com with ESMTPSA id w23sm4390877iod.9.2020.05.22.16.48.37
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 22 May 2020 16:48:37 -0700 (PDT)
-From: Rob Herring <robh@kernel.org>
-To: Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>
-Subject: [PATCH 04/15] PCI: brcmstb: Use pci_host_probe() to register host
-Date: Fri, 22 May 2020 17:48:21 -0600
-Message-Id: <20200522234832.954484-5-robh@kernel.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20200522234832.954484-1-robh@kernel.org>
-References: <20200522234832.954484-1-robh@kernel.org>
+ id 1jdudV-0006Xk-Mx; Wed, 27 May 2020 11:54:22 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+ by mx2.suse.de (Postfix) with ESMTP id 10013AC5B;
+ Wed, 27 May 2020 11:54:15 +0000 (UTC)
+From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+To: bcm-kernel-feedback-list@broadcom.com,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Subject: [RFC 00/50] staging: vchiq: Getting rid of the vchi/vchiq split
+Date: Wed, 27 May 2020 13:53:05 +0200
+Message-Id: <20200527115400.31391-1-nsaenzjulienne@suse.de>
+X-Mailer: git-send-email 2.26.2
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200522_164839_362483_5F316FE5 
-X-CRM114-Status: GOOD (  11.42  )
-X-Spam-Score: 0.8 (/)
+X-CRM114-CacheID: sfid-20200527_045418_061464_4A106B04 
+X-CRM114-Status: GOOD (  15.59  )
+X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (0.8 points)
+ Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.166.193 listed in list.dnswl.org]
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider [robherring2[at]gmail.com]
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
- 0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
- in digit [robherring2[at]gmail.com]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [195.135.220.15 listed in list.dnswl.org]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [195.135.220.15 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.166.193 listed in wl.mailspike.net]
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
- EnvelopeFrom freemail headers are different
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -86,82 +60,145 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: linux-pci@vger.kernel.org, bcm-kernel-feedback-list@broadcom.com,
- linux-arm-kernel@lists.infradead.org, Bjorn Helgaas <bhelgaas@google.com>,
- linux-rpi-kernel@lists.infradead.org
+Cc: devel@driverdev.osuosl.org, kernel-list@raspberrypi.com,
+ linux-kernel@vger.kernel.org, laurent.pinchart@ideasonboard.com,
+ gregkh@linuxfoundation.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-The brcmstb host driver does the same host registration and bus scanning
-calls as pci_host_probe, so let's use it instead.
+vchi acts as a mid layer between vchiq and its kernel services, while
+arguably providing little to no benefit: half of the functions exposed
+are a 1:1 copy of vchiq's, and the rest provide some functionality which
+can be easly integrated into vchiq without all the churn. Moreover it
+has been found in the past as a blockage to further fixes in vchiq as
+every change needed its vchi counterpart, if even possible.
 
-Cc: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-Cc: bcm-kernel-feedback-list@broadcom.com
-Cc: linux-rpi-kernel@lists.infradead.org
-Signed-off-by: Rob Herring <robh@kernel.org>
+Hence this series, which merges all vchi functionality into vchiq and
+provies a simpler and more concise API to services.
+
+I'm aware that kernel's vchi API tries to mimic its userspace
+counterpart (or vice versa). Obviously this breaks the parity, but I
+don't think it's a sane goal to have. There is little sense or gain from
+it, and adds impossible constraints to upstreaming the driver.
+
+Overall the series falls short of removing 1500 lines of code, which is
+pretty neat on itself.
+
+So far it has been tested trough bcm2835-camera, audio and vchiq-test. I
+can't do much about vc-sm-cma for now, but the changes are done in a way
+that shouldn't affect its behaviour.
+
+Note that the series builds up on RPi/Laurent's camera support series[1]
+and can't yet be merged. We'd have to coordinate here. We could either
+wait for the vc_sm_cma rework (if it's not going to take months and
+months to finish), or factor out all the vc-sm-cma stuff, merge that into
+the downstream kernel and take the rest of the series on top of
+Laurent's mmal-vchiq changes.
+
+Regards,
+Nicolas
+
+[1] https://lwn.net/ml/linux-media/20200504092611.9798-1-laurent.pinchart@ideasonboard.com/
+
 ---
- drivers/pci/controller/pcie-brcmstb.c | 20 ++++----------------
- 1 file changed, 4 insertions(+), 16 deletions(-)
 
-diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
-index 7730ea845ff2..15c747c1390a 100644
---- a/drivers/pci/controller/pcie-brcmstb.c
-+++ b/drivers/pci/controller/pcie-brcmstb.c
-@@ -172,7 +172,6 @@ struct brcm_pcie {
- 	struct device		*dev;
- 	void __iomem		*base;
- 	struct clk		*clk;
--	struct pci_bus		*root_bus;
- 	struct device_node	*np;
- 	bool			ssc;
- 	int			gen;
-@@ -919,9 +918,10 @@ static void __brcm_pcie_remove(struct brcm_pcie *pcie)
- static int brcm_pcie_remove(struct platform_device *pdev)
- {
- 	struct brcm_pcie *pcie = platform_get_drvdata(pdev);
-+	struct pci_host_bridge *bridge = pci_host_bridge_from_priv(pcie);
- 
--	pci_stop_root_bus(pcie->root_bus);
--	pci_remove_root_bus(pcie->root_bus);
-+	pci_stop_root_bus(bridge->bus);
-+	pci_remove_root_bus(bridge->bus);
- 	__brcm_pcie_remove(pcie);
- 
- 	return 0;
-@@ -933,7 +933,6 @@ static int brcm_pcie_probe(struct platform_device *pdev)
- 	struct pci_host_bridge *bridge;
- 	struct device_node *fw_np;
- 	struct brcm_pcie *pcie;
--	struct pci_bus *child;
- 	struct resource *res;
- 	int ret;
- 
-@@ -1004,20 +1003,9 @@ static int brcm_pcie_probe(struct platform_device *pdev)
- 	bridge->map_irq = of_irq_parse_and_map_pci;
- 	bridge->swizzle_irq = pci_common_swizzle;
- 
--	ret = pci_scan_root_bus_bridge(bridge);
--	if (ret < 0) {
--		dev_err(pcie->dev, "Scanning root bridge failed\n");
--		goto fail;
--	}
--
--	pci_assign_unassigned_bus_resources(bridge->bus);
--	list_for_each_entry(child, &bridge->bus->children, node)
--		pcie_bus_configure_settings(child);
--	pci_bus_add_devices(bridge->bus);
- 	platform_set_drvdata(pdev, pcie);
--	pcie->root_bus = bridge->bus;
- 
--	return 0;
-+	return pci_host_probe(bridge);
- fail:
- 	__brcm_pcie_remove(pcie);
- 	return ret;
+Nicolas Saenz Julienne (50):
+  staging: vchi: Get rid of vchi_service_destroy()
+  staging: vchi: Get rid of vchi_queue_user_message()
+  staging: vchiq: Move copy callback handling into vchiq
+  staging: vchi: Merge vchi_msg_queue() into vchi_queue_kernel_message()
+  staging: vchi: Get rid of vchi_service_set_option()
+  staging: vchi: Get rid of vchiq_status_to_vchi()
+  staging: vchi: Get rid of not implemented function declarations
+  staging: vchi: Get rid of C++ guards
+  staging: vchiq: move vchiq_release_message() into vchiq
+  staging: vchiq: Get rid of VCHIQ_SERVICE_OPENEND callback reason
+  staging: vchi: Get rid of all useless callback reasons
+  staging: vchi: Get rid of vchi_msg_peek()
+  staging: vchi: Get rid of struct vchi_instance_handle
+  staging: vchi: Unify struct shim_service and struct
+    vchi_service_handle
+  staging: vc04_services: bcm2835-audio: Use vchi_msg_hold()
+  staging: vchi: Get rid of vchi_msg_dequeue()
+  staging: vchi_common: Get rid of all unused definitions
+  staging: vc04_services: vc-sm-cma: Get rid of the multiple connections
+    option
+  staging: vchi: Get rid of unnecessary defines
+  staging: vc04_services: Get rid of vchi_cfg.h
+  staging: vchi: Get rid of flags argument in vchi_msg_hold()
+  staging: vchi: Use enum vchiq_bulk_mode instead of vchi's transmission
+    flags
+  staging: vchi: Use vchiq's enum vchiq_reason
+  staging: vchi: Get rid of effect less expression
+  staging: vchiq: Introduce vchiq_validate_params()
+  staging: vchiq: Move message queue into struct vchiq_service
+  staging: vchiq: Get rid of vchiq_util.h
+  staging: vchi: Expose struct vchi_service
+  staging: vchiq: Export vchiq_get_service_userdata()
+  staging: vchiq: Export vchiq_msg_queue_push
+  staging: vchi: Get rid of vchiq_shim's message callback
+  staging: vchiq: Don't use a typedef for vchiq_callback
+  staging: vchi: Use struct vchiq_service_params
+  staging: vchi: Get rid of struct vchi_service
+  staging: vchiq: Pass vchiq's message when holding a message
+  staging: vchi: Rework vchi_msg_hold() to match vchiq_msg_hold()
+  staging: vchiq: Unify fourcc definition mechanisms
+  staging: vchi: Get rid of struct vchiq_instance forward declaration
+  staging: vchi: Don't include vchiq_core.h
+  staging: vchiq: Get rid of unnecessary definitions in vchiq_if.h
+  staging: vchiq: Make vchiq_add_service() local
+  staging: vchiq: Move definitions only used by core into core header
+  staging: vchi: Get rid of vchi_bulk_queue_receive()
+  staging: vchi: Get rid of vchi_bulk_queue_transmit()
+  staging: vchi: Move vchi_queue_kernel_message() into vchiq
+  staging: vchiq: Get rid of vchi
+  staging: vchiq: Move conditional barrier definition into vchiq_core.h
+  staging: vchiq: Use vchiq.h as the main header file for services
+  staging: vchiq: Move defines into core header
+  staging: vchiq: Move vchiq.h into include directory
+
+ drivers/staging/vc04_services/Makefile        |   4 +-
+ .../vc04_services/bcm2835-audio/Makefile      |   2 +-
+ .../bcm2835-audio/bcm2835-vchiq.c             | 100 ++-
+ .../vc04_services/bcm2835-audio/bcm2835.h     |   4 +-
+ .../bcm2835-audio/vc_vchi_audioserv_defs.h    |   5 +-
+ .../linux/raspberrypi/vchiq.h}                |  71 +-
+ .../vc04_services/interface/{vchi => }/TODO   |   0
+ .../vc04_services/interface/vchi/vchi.h       | 240 ------
+ .../vc04_services/interface/vchi/vchi_cfg.h   | 238 ------
+ .../interface/vchi/vchi_common.h              | 138 ----
+ .../vc04_services/interface/vchiq_arm/vchiq.h |  21 -
+ .../interface/vchiq_arm/vchiq_2835_arm.c      |   1 +
+ .../interface/vchiq_arm/vchiq_arm.c           |  86 +-
+ .../interface/vchiq_arm/vchiq_core.c          | 110 ++-
+ .../interface/vchiq_arm/vchiq_core.h          |  53 +-
+ .../interface/vchiq_arm/vchiq_ioctl.h         |   2 +-
+ .../interface/vchiq_arm/vchiq_shim.c          | 751 ------------------
+ .../interface/vchiq_arm/vchiq_util.c          |  85 --
+ .../interface/vchiq_arm/vchiq_util.h          |  50 --
+ .../staging/vc04_services/vc-sm-cma/Makefile  |   1 -
+ .../staging/vc04_services/vc-sm-cma/vc_sm.c   |  10 +-
+ .../vc04_services/vc-sm-cma/vc_sm_cma_vchi.c  | 108 ++-
+ .../vc04_services/vc-sm-cma/vc_sm_cma_vchi.h  |   5 +-
+ .../vc04_services/vc-sm-cma/vc_sm_defs.h      |   3 -
+ .../staging/vc04_services/vchiq-mmal/Makefile |   1 +
+ .../vc04_services/vchiq-mmal/mmal-msg.h       |   1 -
+ .../vc04_services/vchiq-mmal/mmal-vchiq.c     | 177 ++---
+ 27 files changed, 419 insertions(+), 1848 deletions(-)
+ rename drivers/staging/vc04_services/{interface/vchiq_arm/vchiq_if.h => include/linux/raspberrypi/vchiq.h} (55%)
+ rename drivers/staging/vc04_services/interface/{vchi => }/TODO (100%)
+ delete mode 100644 drivers/staging/vc04_services/interface/vchi/vchi.h
+ delete mode 100644 drivers/staging/vc04_services/interface/vchi/vchi_cfg.h
+ delete mode 100644 drivers/staging/vc04_services/interface/vchi/vchi_common.h
+ delete mode 100644 drivers/staging/vc04_services/interface/vchiq_arm/vchiq.h
+ delete mode 100644 drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c
+ delete mode 100644 drivers/staging/vc04_services/interface/vchiq_arm/vchiq_util.c
+ delete mode 100644 drivers/staging/vc04_services/interface/vchiq_arm/vchiq_util.h
+
 -- 
-2.25.1
+2.26.2
 
 
 _______________________________________________
