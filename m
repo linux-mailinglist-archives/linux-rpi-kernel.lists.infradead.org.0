@@ -2,56 +2,64 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id AE73A1E41CC
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 27 May 2020 14:14:40 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 355C71E41DE
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 27 May 2020 14:17:31 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CZkQx14i6p7Cpp/sEoZy+2x0kEH1pllFwGuN9uyqezQ=; b=kMBaTdbttffuIP
-	MdUbECekd1XouldRhB/G9PWW587E+G9MTmHDQdX1YIGxzOuSEbS0iil3wrchFR5vSP/kRn54qPdKT
-	nZVmhRJmR/ZQR4S4vLwYbTSzGHBEn8Zg11z4UnbP1caiFVZfIEvhPZlyPDuyUVfxNWmV00hcy1coi
-	vLIewCBYzEe667vxB/3A/CIaUEAzQGmyC3x3592me3nq9I5gmZ7NDOOwBxpf6c7xD2I3LRV0DcG57
-	gR316DURPZNFJ3qZkg6K1JBesHsti+/FG7Ae/Rog3FWj2zct1ozrfaeyhGoD7XTBLifaG5531CVfv
-	MDEfkNkzQSHULn3dUfjg==;
+	List-Owner; bh=iXXXej58Vag+4XDpmapqloi2TOlxekoiKoF/W5j49Mg=; b=Vt8qGSF7AkP2xT
+	hQsz8ZbewgHSx2+fpuYX3k4PTstcZtdCCbVhTKMadv48kKyGOenetdmbcXAcAul4I036wGci5rAhL
+	RUzlZG2ySu4tgDwDMSfIQfyv5zAvoF1ocsujdj70qRwZT8YcB0SqIKJ1jldRxt05k9BNoFvCQJn0W
+	sP7hJyQxV+CnO2YenquzBj49nKNt/ZzJTzFCIzzZTIPXYMos+dr5YGIG+4EuTLnbJZrUJvBUVgrIB
+	XM+vZydjTO4gjvnVytBzaWbOLmlinNlxCpI2kk8RjZaVvDaa94CBW7GuD8BP2D5L9ymGYkjvF+4hj
+	4FAgFUt1+QVBBgdLLGgg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jdux8-0007wM-1B; Wed, 27 May 2020 12:14:34 +0000
-Received: from mx2.suse.de ([195.135.220.15])
+	id 1jduzp-0003sT-8q; Wed, 27 May 2020 12:17:21 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jdueI-0007NK-7N; Wed, 27 May 2020 11:55:08 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx2.suse.de (Postfix) with ESMTP id 43286ADE3;
- Wed, 27 May 2020 11:55:05 +0000 (UTC)
-From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-To: bcm-kernel-feedback-list@broadcom.com,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: [RFC 49/50] staging: vchiq: Move defines into core header
-Date: Wed, 27 May 2020 13:53:54 +0200
-Message-Id: <20200527115400.31391-50-nsaenzjulienne@suse.de>
-X-Mailer: git-send-email 2.26.2
-In-Reply-To: <20200527115400.31391-1-nsaenzjulienne@suse.de>
+ id 1jdurj-0000XZ-4C; Wed, 27 May 2020 12:09:00 +0000
+Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl
+ [83.86.89.107])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 1643E207D8;
+ Wed, 27 May 2020 12:08:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1590581338;
+ bh=QQD+MRgE+NZNCZ1eRvLYNsmu3HPx3aINjpU48jwRlJg=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=ppw1YZ13U3GlFvOUOKJHjPS6spIo3N1LnVyxUGcYWXLlt024/UzwJ/j8caj9QRbTT
+ aStNnpVrgk/9GGow9w2VyKFQ6ePWmKMXiHP945Qbwoml51r0Kleg1cpF40zR8TI9kv
+ Tv3jem1MlMHO38AXGJOvAA8k+fHHZha6t1JWxNVs=
+Date: Wed, 27 May 2020 14:08:55 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+Subject: Re: [RFC 00/50] staging: vchiq: Getting rid of the vchi/vchiq split
+Message-ID: <20200527120855.GA429709@kroah.com>
 References: <20200527115400.31391-1-nsaenzjulienne@suse.de>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20200527115400.31391-1-nsaenzjulienne@suse.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200527_045506_452747_4D472777 
-X-CRM114-Status: GOOD (  10.20  )
-X-Spam-Score: -2.3 (--)
+X-CRM114-CacheID: sfid-20200527_050859_311719_73B89C9B 
+X-CRM114-Status: GOOD (  15.85  )
+X-Spam-Score: -5.0 (-----)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (-5.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [195.135.220.15 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [195.135.220.15 listed in wl.mailspike.net]
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [198.145.29.99 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -64,55 +72,50 @@ List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
 Cc: devel@driverdev.osuosl.org, kernel-list@raspberrypi.com,
- laurent.pinchart@ideasonboard.com, gregkh@linuxfoundation.org
+ linux-kernel@vger.kernel.org, bcm-kernel-feedback-list@broadcom.com,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ laurent.pinchart@ideasonboard.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-Those are only used in the core vchiq code, while present in vchiq's
-'public' API header. Move them into the right place.
+On Wed, May 27, 2020 at 01:53:05PM +0200, Nicolas Saenz Julienne wrote:
+> vchi acts as a mid layer between vchiq and its kernel services, while
+> arguably providing little to no benefit: half of the functions exposed
+> are a 1:1 copy of vchiq's, and the rest provide some functionality which
+> can be easly integrated into vchiq without all the churn. Moreover it
+> has been found in the past as a blockage to further fixes in vchiq as
+> every change needed its vchi counterpart, if even possible.
+> 
+> Hence this series, which merges all vchi functionality into vchiq and
+> provies a simpler and more concise API to services.
+> 
+> I'm aware that kernel's vchi API tries to mimic its userspace
+> counterpart (or vice versa). Obviously this breaks the parity, but I
+> don't think it's a sane goal to have. There is little sense or gain from
+> it, and adds impossible constraints to upstreaming the driver.
+> 
+> Overall the series falls short of removing 1500 lines of code, which is
+> pretty neat on itself.
+> 
+> So far it has been tested trough bcm2835-camera, audio and vchiq-test. I
+> can't do much about vc-sm-cma for now, but the changes are done in a way
+> that shouldn't affect its behaviour.
+> 
+> Note that the series builds up on RPi/Laurent's camera support series[1]
+> and can't yet be merged. We'd have to coordinate here. We could either
+> wait for the vc_sm_cma rework (if it's not going to take months and
+> months to finish), or factor out all the vc-sm-cma stuff, merge that into
+> the downstream kernel and take the rest of the series on top of
+> Laurent's mmal-vchiq changes.
 
-Signed-off-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
----
- drivers/staging/vc04_services/interface/vchiq_arm/vchiq.h    | 5 -----
- .../staging/vc04_services/interface/vchiq_arm/vchiq_core.h   | 4 ++++
- 2 files changed, 4 insertions(+), 5 deletions(-)
+These look great, but due to the dependancy, I can't take them all.
 
-diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq.h b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq.h
-index 04b7ff41a025..cb9ef9a4150b 100644
---- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq.h
-+++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq.h
-@@ -4,11 +4,6 @@
- #ifndef VCHIQ_H
- #define VCHIQ_H
- 
--#define VCHIQ_SERVICE_HANDLE_INVALID 0
--
--#define VCHIQ_SLOT_SIZE     4096
--#define VCHIQ_MAX_MSG_SIZE  (VCHIQ_SLOT_SIZE - sizeof(struct vchiq_header))
--
- #define VCHIQ_MAKE_FOURCC(x0, x1, x2, x3) \
- 			(((x0) << 24) | ((x1) << 16) | ((x2) << 8) | (x3))
- 
-diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
-index 15e9867f78f4..8a27f3d7217e 100644
---- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
-+++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
-@@ -26,6 +26,10 @@
- 
- #endif	/* IS_ENABLED(CONFIG_RASPBERRYPI_FIRMWARE) */
- 
-+#define VCHIQ_SERVICE_HANDLE_INVALID 0
-+
-+#define VCHIQ_SLOT_SIZE     4096
-+#define VCHIQ_MAX_MSG_SIZE  (VCHIQ_SLOT_SIZE - sizeof(struct vchiq_header))
- 
- /* Run time control of log level, based on KERN_XXX level. */
- #define VCHIQ_LOG_DEFAULT  4
--- 
-2.26.2
+But I can take the first 10, so I did that, they are now queued up,
+thanks!
 
+greg k-h
 
 _______________________________________________
 linux-rpi-kernel mailing list
