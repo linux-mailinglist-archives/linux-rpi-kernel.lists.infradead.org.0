@@ -2,45 +2,44 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id C39111E417E
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 27 May 2020 14:08:40 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 026A11E419F
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 27 May 2020 14:11:10 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LAnrpn1DJ4mGxipIhn30Y+W7dyre2E88YxayrzZUNLQ=; b=KbhEYyIWjfDPI6
-	gSjErQBe/L2QFrsNRexUbmyoHbP/uvQ6ACXPFf4DebFrIEMXPnKxuHePZA5sI+XFfY38XmKvsrQ2k
-	Tql/GYxhuWVsbsz/DXBy6tRE9SAiHq3tmMSKQDjQ7Kyw9oZ6fTJnacsKeu3tga7HaT2c9JxclfTvd
-	+aEXBHEh7JvRH4IHbrgp0IwuZOeAtey/sJkIYtpUGqqvbODjZoW3yTUdx7GTSVwD0GHtycXIkIEpt
-	5IQd/5ivhmhnPsFtaQSshSQdEPIg3fp31l/TquCATROgnQxoz1wF1sRvSk0aXaYqh1jc/ZvO3xJG8
-	9bpWyhZrhWnlCZ9UkIuQ==;
+	List-Owner; bh=uHOoi0pIyR8aYQHgvV3kjfT9JX/jebIP4ttOOWPIhIg=; b=FR/ghn9X9vXpC0
+	j45pRE+evqtdhbz/GFAG+jurZcGf+eAvssy53MauM+zaWGMTB2gHRQjQntIAM6GbJ5RSGY2Mz3HiR
+	pN25Uy526M1YcnhbuNiWJDIhOVzD/L/bH7CXrA6Q/6yrhq2HwtmFlMzf87T5Mfvz4tsukofER6lHM
+	EzC2ev11KV9VF3LAfKpMrRnF/TIxNBl36G7gUpQ6JxgIUsiuUiXV+6RGriy4KAqN5mn0ScBfboSFS
+	RznjvPaMHuYHv+GrEJECly5Vn4AjsL52BsJaaihv0OzgE6jaVB1iJ4K+ULRMvUB8L2eq7tx23P+Fb
+	QZqiSUaNbAM89mFdbl+g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jdurF-00088P-Pf; Wed, 27 May 2020 12:08:29 +0000
+	id 1jdutl-0004rB-6R; Wed, 27 May 2020 12:11:05 +0000
 Received: from mx2.suse.de ([195.135.220.15])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jdudu-00070i-EV; Wed, 27 May 2020 11:54:44 +0000
+ id 1jdudy-00073K-6y; Wed, 27 May 2020 11:54:49 +0000
 X-Virus-Scanned: by amavisd-new at test-mx.suse.de
 Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx2.suse.de (Postfix) with ESMTP id 89954ACF2;
- Wed, 27 May 2020 11:54:43 +0000 (UTC)
+ by mx2.suse.de (Postfix) with ESMTP id A4713AB7D;
+ Wed, 27 May 2020 11:54:46 +0000 (UTC)
 From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 To: bcm-kernel-feedback-list@broadcom.com,
  linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
-Subject: [RFC 30/50] staging: vchiq: Export vchiq_msg_queue_push
-Date: Wed, 27 May 2020 13:53:35 +0200
-Message-Id: <20200527115400.31391-31-nsaenzjulienne@suse.de>
+Subject: [RFC 32/50] staging: vchiq: Don't use a typedef for vchiq_callback
+Date: Wed, 27 May 2020 13:53:37 +0200
+Message-Id: <20200527115400.31391-33-nsaenzjulienne@suse.de>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20200527115400.31391-1-nsaenzjulienne@suse.de>
 References: <20200527115400.31391-1-nsaenzjulienne@suse.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200527_045442_638107_ED080544 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200527_045446_442071_3E24D5C0 
+X-CRM114-Status: GOOD (  10.60  )
 X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-2.3 points)
@@ -71,26 +70,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-vchiq consumer drivers may need to use this function in order to get the
-benefits of vchiq's per service message queueing mechanism.
+Linux coding style says to avoid typdefs.
 
 Signed-off-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 ---
- drivers/staging/vc04_services/interface/vchiq_arm/vchiq_if.h | 1 +
- 1 file changed, 1 insertion(+)
+ .../staging/vc04_services/interface/vchi/vchi.h    |  5 ++++-
+ .../vc04_services/interface/vchiq_arm/vchiq_if.h   | 14 ++++++++------
+ 2 files changed, 12 insertions(+), 7 deletions(-)
 
+diff --git a/drivers/staging/vc04_services/interface/vchi/vchi.h b/drivers/staging/vc04_services/interface/vchi/vchi.h
+index fdc243f3f60a..cb66ea1ffad2 100644
+--- a/drivers/staging/vc04_services/interface/vchi/vchi.h
++++ b/drivers/staging/vc04_services/interface/vchi/vchi.h
+@@ -35,7 +35,10 @@ struct vchi_service {
+ struct service_creation {
+ 	struct vchi_version version;
+ 	int32_t service_id;
+-	vchiq_callback callback;
++	enum vchiq_status (*callback)(enum vchiq_reason reason,
++				      struct vchiq_header *header,
++				      unsigned int handle,
++				      void *bulk_userdata);
+ 	void *callback_param;
+ };
+ 
 diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_if.h b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_if.h
-index 8fd51d885a18..c99caa3add57 100644
+index c99caa3add57..b3d4c14536bd 100644
 --- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_if.h
 +++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_if.h
-@@ -107,6 +107,7 @@ extern enum vchiq_status vchiq_use_service(unsigned int service);
- extern enum vchiq_status vchiq_release_service(unsigned int service);
- extern enum vchiq_status vchiq_queue_kernel_message(unsigned int handle,
- 						    void *context, size_t size);
-+extern void vchiq_msg_queue_push(unsigned handle, struct vchiq_header *header);
- extern void           vchiq_release_message(unsigned int service,
- 	struct vchiq_header *header);
- extern enum vchiq_status vchiq_bulk_transmit(unsigned int service,
+@@ -60,19 +60,21 @@ struct vchiq_element {
+ 	unsigned int size;
+ };
+ 
+-typedef enum vchiq_status (*vchiq_callback)(enum vchiq_reason,
+-					    struct vchiq_header *,
+-					    unsigned int, void *);
+-
+ struct vchiq_service_base {
+ 	int fourcc;
+-	vchiq_callback callback;
++	enum vchiq_status (*callback)(enum vchiq_reason reason,
++				      struct vchiq_header *header,
++				      unsigned int handle,
++				      void *bulk_userdata);
+ 	void *userdata;
+ };
+ 
+ struct vchiq_service_params {
+ 	int fourcc;
+-	vchiq_callback callback;
++	enum vchiq_status (*callback)(enum vchiq_reason reason,
++				      struct vchiq_header *header,
++				      unsigned int handle,
++				      void *bulk_userdata);
+ 	void *userdata;
+ 	short version;       /* Increment for non-trivial changes */
+ 	short version_min;   /* Update for incompatible changes */
 -- 
 2.26.2
 
