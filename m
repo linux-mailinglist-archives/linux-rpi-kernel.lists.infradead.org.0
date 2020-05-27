@@ -2,64 +2,100 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 355C71E41DE
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 27 May 2020 14:17:31 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6396E1E4806
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 27 May 2020 17:46:58 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iXXXej58Vag+4XDpmapqloi2TOlxekoiKoF/W5j49Mg=; b=Vt8qGSF7AkP2xT
-	hQsz8ZbewgHSx2+fpuYX3k4PTstcZtdCCbVhTKMadv48kKyGOenetdmbcXAcAul4I036wGci5rAhL
-	RUzlZG2ySu4tgDwDMSfIQfyv5zAvoF1ocsujdj70qRwZT8YcB0SqIKJ1jldRxt05k9BNoFvCQJn0W
-	sP7hJyQxV+CnO2YenquzBj49nKNt/ZzJTzFCIzzZTIPXYMos+dr5YGIG+4EuTLnbJZrUJvBUVgrIB
-	XM+vZydjTO4gjvnVytBzaWbOLmlinNlxCpI2kk8RjZaVvDaa94CBW7GuD8BP2D5L9ymGYkjvF+4hj
-	4FAgFUt1+QVBBgdLLGgg==;
+	List-Owner; bh=BRMq4cv55HhXmo1aw9paEXQHwYm9EYWkALyqCWwd0mo=; b=kbS6eXb6Lq87YN
+	bP2u+a0JvgmOliVi2TZvnvwUhfX7z9cIUD4E1nfgwavpJDMkEUR8X+ueMjnRadgDJdFNDzfMo6igJ
+	CII+Z0BXYHtlyhHIbHMJU4AwKWYCZdymda9wScTwRpyitU7MpeukFaA7SadG08aCduUlx8SwZ2CBs
+	1DCRLeAHhtaeeC/NuvQB7nA8lz/xvpFZUMpglWq5dOkDdXRb/M4S6Ss/lyABVYw/Hj51+eLt6DmqT
+	gFqfw3BY0y+yl4KLqdUqF6TzNw8YOrg4NzLPcFCDqALhnLqf3D3oUeUqOMkm8ISIYpKSn4FCESA5K
+	smgjJvQLABb+traefcaw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jduzp-0003sT-8q; Wed, 27 May 2020 12:17:21 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1jdyGL-00042K-Jw; Wed, 27 May 2020 15:46:37 +0000
+Received: from out2-smtp.messagingengine.com ([66.111.4.26])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jdurj-0000XZ-4C; Wed, 27 May 2020 12:09:00 +0000
-Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl
- [83.86.89.107])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 1643E207D8;
- Wed, 27 May 2020 12:08:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1590581338;
- bh=QQD+MRgE+NZNCZ1eRvLYNsmu3HPx3aINjpU48jwRlJg=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=ppw1YZ13U3GlFvOUOKJHjPS6spIo3N1LnVyxUGcYWXLlt024/UzwJ/j8caj9QRbTT
- aStNnpVrgk/9GGow9w2VyKFQ6ePWmKMXiHP945Qbwoml51r0Kleg1cpF40zR8TI9kv
- Tv3jem1MlMHO38AXGJOvAA8k+fHHZha6t1JWxNVs=
-Date: Wed, 27 May 2020 14:08:55 +0200
-From: Greg KH <gregkh@linuxfoundation.org>
+ id 1jdyFO-000385-Hi; Wed, 27 May 2020 15:45:40 +0000
+Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
+ by mailout.nyi.internal (Postfix) with ESMTP id 81BE05C0220;
+ Wed, 27 May 2020 11:45:31 -0400 (EDT)
+Received: from mailfrontend2 ([10.202.2.163])
+ by compute4.internal (MEProxy); Wed, 27 May 2020 11:45:31 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cerno.tech; h=
+ from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding; s=fm2; bh=boMgmra7WOWY+
+ GlhAM0YnfrTd/Pn6DIw794uUlk43Ho=; b=ttA60JMA/fKXcDYfIddBdTXP31g3u
+ ku0HVrrXHgHsp+BZ76zihniJctwItF+ucgnsFBdFyaJC+sydFqaQACjdOYrUW40E
+ +JnQr7xN6vWV1e4I91TNsOK4NZRBK/VRWbdpHtq33jjlf3rGF36/4g5w5Z/VEA8Y
+ jAxRh1ANk9WO1DwBjDfAB2hkj0ig6LsJOFvBn8udqre+Wdmh3fg+wch+xxG+6hRC
+ 8T5tW9jIfITAnKFBewIfnDOsyS44DbMemZajrX46shFcmy71Ykt4XKHLeHvQnFtz
+ ClDmB8lsuOBsNJSOrI1vbPyK5ZMHGWu2kWFVkLKbjl+8JQ/kayFZq5Rng==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+ messagingengine.com; h=cc:content-transfer-encoding:date:from
+ :in-reply-to:message-id:mime-version:references:subject:to
+ :x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+ fm2; bh=boMgmra7WOWY+GlhAM0YnfrTd/Pn6DIw794uUlk43Ho=; b=iPohzrkJ
+ 1sqFyhCxxissmlQAAbXK8ZofMHS4lKWW6gvRXdMaFMAuyOhIRfAVHg1CzF7GwUAC
+ SvHirGCgNu3rKn/SrV7ztoTketH0SlNaxPrkNGaTjj9LlzwG/yywHig9WMlFbcCb
+ uOxM7m0e4l1ZwHa4q2l9JAI0g/x7KsU8U7DI2OZ3xM6++8OZCeyVM9VO6Py4DQqL
+ HNr+9iHHVj1nmGL3jjuS9Vsrf1QFbCLsfLfOg5k9F/987zhQtrLI7SDSS+EIabw2
+ 6jkm410tmot72DWCvAZXxAst/mVLEDyZFOcF7ffLL6h4DIW9WcoqexsUIvle1+vy
+ 7n/sr3AjoB6+AQ==
+X-ME-Sender: <xms:G4vOXv36PFRg8Htj3NDqGLhiaa2YeOC-LOSdpG1X20zdjRbyREJj3A>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduhedruddvgedgkeefucetufdoteggodetrfdotf
+ fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+ uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+ cujfgurhephffvufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeforgigihhm
+ vgcutfhiphgrrhguuceomhgrgihimhgvsegtvghrnhhordhtvggthheqnecuggftrfgrth
+ htvghrnhepvdekleevfeffkeejhfffueelteelfeduieefheduudfggffhhfffheevveeh
+ hedvnecukfhppeeltddrkeelrdeikedrjeeinecuvehluhhsthgvrhfuihiivgeptdenuc
+ frrghrrghmpehmrghilhhfrhhomhepmhgrgihimhgvsegtvghrnhhordhtvggthh
+X-ME-Proxy: <xmx:G4vOXuFHqLaWFk2lKB6yzLqpEiUuSsxFYvSmST0UFli_fk9ElxI2Ug>
+ <xmx:G4vOXv4YB0-FWrPGY0TfMmHhxiUQRYLz1q9uKCj85quPAQ0pyOdwcw>
+ <xmx:G4vOXk1EhZkUVi39yPRKGPAjlHyZJuvw8aSpSPp9Yhbo201AtGObvg>
+ <xmx:G4vOXvMTcGwTIn3UvA5lkRVP6-CPzL2ZXFxoqhnFQnPUAnVcSLdzyg>
+Received: from localhost (lfbn-tou-1-1502-76.w90-89.abo.wanadoo.fr
+ [90.89.68.76])
+ by mail.messagingengine.com (Postfix) with ESMTPA id 367E130618B7;
+ Wed, 27 May 2020 11:45:31 -0400 (EDT)
+From: Maxime Ripard <maxime@cerno.tech>
 To: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-Subject: Re: [RFC 00/50] staging: vchiq: Getting rid of the vchi/vchiq split
-Message-ID: <20200527120855.GA429709@kroah.com>
-References: <20200527115400.31391-1-nsaenzjulienne@suse.de>
+Subject: [PATCH v3 03/25] firmware: rpi: Only create clocks device if we don't
+ have a node for it
+Date: Wed, 27 May 2020 17:44:59 +0200
+Message-Id: <f0b979221dedec7db9cab201388bf44c0d987a3d.1590594293.git-series.maxime@cerno.tech>
+X-Mailer: git-send-email 2.26.2
+In-Reply-To: <cover.662a8d401787ef33780d91252a352de91dc4be10.1590594293.git-series.maxime@cerno.tech>
+References: <cover.662a8d401787ef33780d91252a352de91dc4be10.1590594293.git-series.maxime@cerno.tech>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20200527115400.31391-1-nsaenzjulienne@suse.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200527_050859_311719_73B89C9B 
-X-CRM114-Status: GOOD (  15.85  )
-X-Spam-Score: -5.0 (-----)
+X-CRM114-CacheID: sfid-20200527_084538_729126_88F65BD2 
+X-CRM114-Status: GOOD (  11.86  )
+X-Spam-Score: -0.9 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-5.0 points)
+ Content analysis details:   (-0.9 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [198.145.29.99 listed in list.dnswl.org]
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [66.111.4.26 listed in list.dnswl.org]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [66.111.4.26 listed in wl.mailspike.net]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -71,51 +107,52 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: devel@driverdev.osuosl.org, kernel-list@raspberrypi.com,
- linux-kernel@vger.kernel.org, bcm-kernel-feedback-list@broadcom.com,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- laurent.pinchart@ideasonboard.com
+Cc: Tim Gover <tim.gover@raspberrypi.com>, linux-kernel@vger.kernel.org,
+ bcm-kernel-feedback-list@broadcom.com, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, Maxime Ripard <maxime@cerno.tech>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-On Wed, May 27, 2020 at 01:53:05PM +0200, Nicolas Saenz Julienne wrote:
-> vchi acts as a mid layer between vchiq and its kernel services, while
-> arguably providing little to no benefit: half of the functions exposed
-> are a 1:1 copy of vchiq's, and the rest provide some functionality which
-> can be easly integrated into vchiq without all the churn. Moreover it
-> has been found in the past as a blockage to further fixes in vchiq as
-> every change needed its vchi counterpart, if even possible.
-> 
-> Hence this series, which merges all vchi functionality into vchiq and
-> provies a simpler and more concise API to services.
-> 
-> I'm aware that kernel's vchi API tries to mimic its userspace
-> counterpart (or vice versa). Obviously this breaks the parity, but I
-> don't think it's a sane goal to have. There is little sense or gain from
-> it, and adds impossible constraints to upstreaming the driver.
-> 
-> Overall the series falls short of removing 1500 lines of code, which is
-> pretty neat on itself.
-> 
-> So far it has been tested trough bcm2835-camera, audio and vchiq-test. I
-> can't do much about vc-sm-cma for now, but the changes are done in a way
-> that shouldn't affect its behaviour.
-> 
-> Note that the series builds up on RPi/Laurent's camera support series[1]
-> and can't yet be merged. We'd have to coordinate here. We could either
-> wait for the vc_sm_cma rework (if it's not going to take months and
-> months to finish), or factor out all the vc-sm-cma stuff, merge that into
-> the downstream kernel and take the rest of the series on top of
-> Laurent's mmal-vchiq changes.
+The firmware clocks driver was previously probed through a platform_device
+created by the firmware driver.
 
-These look great, but due to the dependancy, I can't take them all.
+Since we will now have a node for that clocks driver, we need to create the
+device only in the case where there's no node for it already.
 
-But I can take the first 10, so I did that, they are now queued up,
-thanks!
+Signed-off-by: Maxime Ripard <maxime@cerno.tech>
+---
+ drivers/firmware/raspberrypi.c | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-greg k-h
+diff --git a/drivers/firmware/raspberrypi.c b/drivers/firmware/raspberrypi.c
+index ef8098856a47..b25901a77c09 100644
+--- a/drivers/firmware/raspberrypi.c
++++ b/drivers/firmware/raspberrypi.c
+@@ -208,6 +208,20 @@ rpi_register_hwmon_driver(struct device *dev, struct rpi_firmware *fw)
+ 
+ static void rpi_register_clk_driver(struct device *dev)
+ {
++	struct device_node *firmware;
++
++	/*
++	 * Earlier DTs don't have a node for the firmware clocks but
++	 * rely on us creating a platform device by hand. If we do
++	 * have a node for the firmware clocks, just bail out here.
++	 */
++	firmware = of_get_compatible_child(dev->of_node,
++					   "raspberrypi,firmware-clocks");
++	if (firmware) {
++		of_node_put(firmware);
++		return;
++	}
++
+ 	rpi_clk = platform_device_register_data(dev, "raspberrypi-clk",
+ 						-1, NULL, 0);
+ }
+-- 
+git-series 0.9.1
 
 _______________________________________________
 linux-rpi-kernel mailing list
