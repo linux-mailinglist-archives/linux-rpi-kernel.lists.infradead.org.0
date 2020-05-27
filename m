@@ -2,45 +2,44 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id C886B1E4120
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 27 May 2020 14:02:09 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 2C2661E412A
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 27 May 2020 14:03:43 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=57lHe4dc6yIIU4ZO6xQn5spEjxxBjrCoiLLiO9l4QoE=; b=NshlHEUCdvmFlV
-	Qq4IvNyIEdJk8lE3VtmLVrqdWz2xa/jm1F22eK5baYS4GufgWqfOCV74lh2HVCyx0Yv68L/2GB87U
-	tJd3jo9bkWKJf5Xh3LUJZ0iUEbgs818punCFiFOztbTp+d1vR/RT1qwBmu2Uinr7UN4skcfZrG//+
-	XdxJPWnRezEAWVGfzkUYxDv0T0J3hunD2nPPjRz8lSej3q8TGNYG6C1BI9NCFSdjuNG9aWMsBX9B6
-	P/rCLL65DVHRBlQLJA5mQbmZQyOx+ImPJu+baqqJ1bVzJ5zHQ8vPKBzlyyIKozIKcgrRaZdOKqo82
-	Ov11GtPNa4CEDORoQfdg==;
+	List-Owner; bh=TRGPskybAzlqcL3sahqxOJNPXv83i/DjPP+pxQEqfHI=; b=sNPz7jC9TLmvTQ
+	RC9u8VELp3UVI4bhe8bHuicqzqul5dkbF46fkX65ff4owuJt0P3FWJwh/er2qirXyNsXvpyePdx+7
+	KP5jb4adqS8ktsKAHS/4YMERizLk/lFm/VjLuCB1viONS6bvNNCwkM47Kmz8z7yowImZNKKCOS2fp
+	Y61kmzBBNnF7hdjCHinn3Trp6WEWz9sFK8I1XV4GWvqP1dmGVtgqwMxcFVzDqOZN2a5p259feyWSH
+	jVuciowtnuTqxtJADS6iIetLA0AqOoYpdVJCwaViwb6lKN3ggEgOwdM/zjHkf5RfzAGVr2Sy7Mt58
+	B+ankFuUZSVJJq8NmDRA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jdul0-0000XR-QQ; Wed, 27 May 2020 12:02:02 +0000
+	id 1jdumR-0001iK-OB; Wed, 27 May 2020 12:03:31 +0000
 Received: from mx2.suse.de ([195.135.220.15])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jduda-0006ex-VI; Wed, 27 May 2020 11:54:24 +0000
+ id 1jdudb-0006ey-5F; Wed, 27 May 2020 11:54:25 +0000
 X-Virus-Scanned: by amavisd-new at test-mx.suse.de
 Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx2.suse.de (Postfix) with ESMTP id 77FDCAF16;
- Wed, 27 May 2020 11:54:22 +0000 (UTC)
+ by mx2.suse.de (Postfix) with ESMTP id 37455AF38;
+ Wed, 27 May 2020 11:54:23 +0000 (UTC)
 From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 To: bcm-kernel-feedback-list@broadcom.com,
  linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
-Subject: [RFC 10/50] staging: vchiq: Get rid of VCHIQ_SERVICE_OPENEND callback
- reason
-Date: Wed, 27 May 2020 13:53:15 +0200
-Message-Id: <20200527115400.31391-11-nsaenzjulienne@suse.de>
+Subject: [RFC 11/50] staging: vchi: Get rid of all useless callback reasons
+Date: Wed, 27 May 2020 13:53:16 +0200
+Message-Id: <20200527115400.31391-12-nsaenzjulienne@suse.de>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20200527115400.31391-1-nsaenzjulienne@suse.de>
 References: <20200527115400.31391-1-nsaenzjulienne@suse.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200527_045423_183061_EF91B364 
-X-CRM114-Status: GOOD (  10.09  )
+X-CRM114-CacheID: sfid-20200527_045423_435067_86A8E29D 
+X-CRM114-Status: GOOD (  12.55  )
 X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-2.3 points)
@@ -71,49 +70,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-Nobody uses it and it's routinely discarded in vchi.
+They are neither produced nor expected, so just delete them.
 
 Signed-off-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 ---
- .../vc04_services/interface/vchiq_arm/vchiq_core.c       | 9 ---------
- .../vc04_services/interface/vchiq_arm/vchiq_shim.c       | 4 ----
- 2 files changed, 13 deletions(-)
+ .../interface/vchi/vchi_common.h              | 40 ++-----------------
+ 1 file changed, 3 insertions(+), 37 deletions(-)
 
-diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
-index ef31e541c902..ae9183db44ee 100644
---- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
-+++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
-@@ -1484,15 +1484,6 @@ parse_open(struct vchiq_state *state, struct vchiq_header *header)
- 					: VCHIQ_SRVSTATE_OPEN);
- 			}
+diff --git a/drivers/staging/vc04_services/interface/vchi/vchi_common.h b/drivers/staging/vc04_services/interface/vchi/vchi_common.h
+index 7fc04e38936d..0f79bea4757d 100644
+--- a/drivers/staging/vc04_services/interface/vchi/vchi_common.h
++++ b/drivers/staging/vc04_services/interface/vchi/vchi_common.h
+@@ -31,8 +31,6 @@ enum vchi_crc_control {
  
--			service->remoteport = remoteport;
--			service->client_id = ((int *)header->data)[1];
--			if (make_service_callback(service, VCHIQ_SERVICE_OPENED,
--				NULL, NULL) == VCHIQ_RETRY) {
--				/* Bail out if not ready */
--				service->remoteport = VCHIQ_PORT_FREE;
--				goto bail_not_ready;
--			}
+ //callback reasons when an event occurs on a service
+ enum vchi_callback_reason {
+-	VCHI_CALLBACK_REASON_MIN,
 -
- 			/* Success - the message has been dealt with */
- 			unlock_service(service);
- 			return 1;
-diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c
-index 55f9e34ea50e..75d87b6992c4 100644
---- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c
-+++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c
-@@ -461,10 +461,6 @@ static enum vchiq_status shim_callback(enum vchiq_reason reason,
- 				  VCHI_CALLBACK_SERVICE_CLOSED, NULL);
- 		break;
+ 	/*
+ 	 * This indicates that there is data available handle is the msg id that
+ 	 * was transmitted with the data
+@@ -41,44 +39,12 @@ enum vchi_callback_reason {
+ 	 * Tasks get kicked by the callback, reset their event and try and read
+ 	 * from the fifo until it fails
+ 	 */
++	VCHI_CALLBACK_SERVICE_CLOSED,
+ 	VCHI_CALLBACK_MSG_AVAILABLE,
+-	VCHI_CALLBACK_MSG_SENT,
+-	VCHI_CALLBACK_MSG_SPACE_AVAILABLE, // XXX not yet implemented
+-
+-	// This indicates that a transfer from the other side has completed
+-	VCHI_CALLBACK_BULK_RECEIVED,
+-	//This indicates that data queued up to be sent has now gone
+-	//handle is the msg id that was used when sending the data
+ 	VCHI_CALLBACK_BULK_SENT,
+-	VCHI_CALLBACK_BULK_RX_SPACE_AVAILABLE, // XXX not yet implemented
+-	VCHI_CALLBACK_BULK_TX_SPACE_AVAILABLE, // XXX not yet implemented
+-
+-	VCHI_CALLBACK_SERVICE_CLOSED,
+-
+-	/*
+-	 * this side has sent XOFF to peer due to lack of data consumption by
+-	 * service (suggests the service may need to take some recovery action
+-	 * if it has been deliberately holding off consuming data)
+-	 */
+-	VCHI_CALLBACK_SENT_XOFF,
+-	VCHI_CALLBACK_SENT_XON,
+-
+-	// indicates that a bulk transfer has finished reading the source buffer
+-	VCHI_CALLBACK_BULK_DATA_READ,
+-
+-	// power notification events (currently host side only)
+-	VCHI_CALLBACK_PEER_OFF,
+-	VCHI_CALLBACK_PEER_SUSPENDED,
+-	VCHI_CALLBACK_PEER_ON,
+-	VCHI_CALLBACK_PEER_RESUMED,
+-	VCHI_CALLBACK_FORCED_POWER_OFF,
+-
+-	// some extra notifications provided by vchiq_arm
+-	VCHI_CALLBACK_SERVICE_OPENED,
+-	VCHI_CALLBACK_BULK_RECEIVE_ABORTED,
++	VCHI_CALLBACK_BULK_RECEIVED,
+ 	VCHI_CALLBACK_BULK_TRANSMIT_ABORTED,
+-
+-	VCHI_CALLBACK_REASON_MAX
++	VCHI_CALLBACK_BULK_RECEIVE_ABORTED,
+ };
  
--	case VCHIQ_SERVICE_OPENED:
--		/* No equivalent VCHI reason */
--		break;
--
- 	case VCHIQ_BULK_TRANSMIT_ABORTED:
- 		service->callback(service->callback_param,
- 				  VCHI_CALLBACK_BULK_TRANSMIT_ABORTED,
+ // service control options
 -- 
 2.26.2
 
