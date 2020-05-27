@@ -2,45 +2,44 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 50E811E411D
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 27 May 2020 14:02:03 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 21FD91E4122
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 27 May 2020 14:02:18 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KXf/BderdDdb2QVy3LtvXUvC3q8XX4xYgWhnTiO773U=; b=ecdIV31rYcEA0W
-	mRUIacr9e8qYEn0aH0fama9LPrXdPBIdooW5GFUWKxuCvaMwESUpg5dOSUrsiodGqk1qChBj48Jgk
-	HvxKGHEtZApe/GYeGyQ0cBtAiXCBGNRG2djMyuOBghUvf/pvbV9gCP76vdQXZyFMEtQO0/s3s8Uwl
-	NjWrk7VP+C90zvqxovapLin22jyrhR9vmQTKJTxTM2r2uzxJDwaeMbOD2upF+FBAIHMKRwVBdxrqe
-	UmgPAqn5K2wTUVUJ++Oe+aoBGi5esWCny3vceJnQ8SKQTNi9C4UVDwYzU4NagaiLz7w1/AYVdT//l
-	0vOoTXknwkTN4ARtVeJA==;
+	List-Owner; bh=RQTogPbtXxxsTjlqpGnEpwTrOwzaZlYllGC2m/M7hJI=; b=GXW38U7OVAqIl4
+	vIGhnAKJcNpJl1ZSrC6s5XOYNc7s3QPbHQD+O61J1EmmMgwI4GLW7ClqnvKVT5g1cJlsxoJ4BTBmp
+	ZrO5NXYOrzFf42+seu+vc6WG2zZ2BLSGlzjyUIx8HMZ5aa76Q9xEFhf5Zdvtj2fyRPkELGofAqrXy
+	FGp7c8C87aXVLm+PxyvFBl8WfXQklaaZ9pCMBLeowN+qknopjZyz3m6lrUbGfWZ+LYxOHTYSQAzdd
+	2qYlqz1kNf3LQ7n1kRDxE6MwhfQkFacCKQVEa+ijR9nbeorjc3JWVv7U1b4QyprbkaXKnR+92CbED
+	nt+OTAuIYL/7F4uxfg6A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jdukv-0000Ug-Sz; Wed, 27 May 2020 12:01:57 +0000
+	id 1jdul9-0000fP-FR; Wed, 27 May 2020 12:02:11 +0000
 Received: from mx2.suse.de ([195.135.220.15])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jdudZ-0006ck-5z; Wed, 27 May 2020 11:54:23 +0000
+ id 1jduda-0006ew-VJ; Wed, 27 May 2020 11:54:24 +0000
 X-Virus-Scanned: by amavisd-new at test-mx.suse.de
 Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx2.suse.de (Postfix) with ESMTP id 3DF3FAE44;
- Wed, 27 May 2020 11:54:20 +0000 (UTC)
+ by mx2.suse.de (Postfix) with ESMTP id B8CE3ACB8;
+ Wed, 27 May 2020 11:54:21 +0000 (UTC)
 From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 To: bcm-kernel-feedback-list@broadcom.com,
  linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
-Subject: [RFC 07/50] staging: vchi: Get rid of not implemented function
- declarations
-Date: Wed, 27 May 2020 13:53:12 +0200
-Message-Id: <20200527115400.31391-8-nsaenzjulienne@suse.de>
+Subject: [RFC 09/50] staging: vchiq: move vchiq_release_message() into vchiq
+Date: Wed, 27 May 2020 13:53:14 +0200
+Message-Id: <20200527115400.31391-10-nsaenzjulienne@suse.de>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20200527115400.31391-1-nsaenzjulienne@suse.de>
 References: <20200527115400.31391-1-nsaenzjulienne@suse.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200527_045421_515150_223262D9 
-X-CRM114-Status: GOOD (  11.25  )
+X-CRM114-CacheID: sfid-20200527_045423_209312_07A24019 
+X-CRM114-Status: GOOD (  11.59  )
 X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-2.3 points)
@@ -71,118 +70,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-They don't exist, they have no users, get rid of them.
+For messages with a reason different from VCHIQ_MESSAGE_AVAILABLE the
+responsibility for releasing them is kept in vchi, in other words,
+services don't need to worry about it. As we're trying to unify vchi and
+vchiq, move the release code into vchiq.
 
 Signed-off-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 ---
- .../vc04_services/interface/vchi/vchi.h       | 59 -------------------
- 1 file changed, 59 deletions(-)
+ .../staging/vc04_services/interface/vchiq_arm/vchiq_core.c    | 4 ++++
+ .../staging/vc04_services/interface/vchiq_arm/vchiq_shim.c    | 4 +---
+ 2 files changed, 5 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/staging/vc04_services/interface/vchi/vchi.h b/drivers/staging/vc04_services/interface/vchi/vchi.h
-index 1e8d17531e9d..2e41b5f7bdec 100644
---- a/drivers/staging/vc04_services/interface/vchi/vchi.h
-+++ b/drivers/staging/vc04_services/interface/vchi/vchi.h
-@@ -67,19 +67,12 @@ extern "C" {
- // Routine used to initialise the vchi on both local + remote connections
- extern int32_t vchi_initialise(struct vchi_instance_handle **instance_handle);
- 
--extern int32_t vchi_exit(void);
--
- extern int32_t vchi_connect(struct vchi_instance_handle *instance_handle);
- 
- //When this is called, ensure that all services have no data pending.
- //Bulk transfers can remain 'queued'
- extern int32_t vchi_disconnect(struct vchi_instance_handle *instance_handle);
- 
--// helper functions
--extern void *vchi_allocate_buffer(struct vchi_service_handle *handle, uint32_t *length);
--extern void vchi_free_buffer(struct vchi_service_handle *handle, void *address);
--extern uint32_t vchi_current_time(struct vchi_instance_handle *instance_handle);
--
- /******************************************************************************
-  * Global service API
-  *****************************************************************************/
-@@ -135,54 +128,14 @@ extern int32_t vchi_msg_hold(struct vchi_service_handle *handle,
- 			     enum vchi_flags flags,
- 			     struct vchi_held_msg *message_descriptor);
- 
--// Initialise an iterator to look through messages in place
--extern int32_t vchi_msg_look_ahead(struct vchi_service_handle *handle,
--				   struct vchi_msg_iter *iter,
--				   enum vchi_flags flags);
--
- /*******************************************************************************
-  * Global service support API - operations on held messages
-  * and message iterators
-  ******************************************************************************/
- 
--// Routine to get the address of a held message
--extern void *vchi_held_msg_ptr(const struct vchi_held_msg *message);
--
--// Routine to get the size of a held message
--extern int32_t vchi_held_msg_size(const struct vchi_held_msg *message);
--
--// Routine to get the transmit timestamp as written into the header by the peer
--extern uint32_t vchi_held_msg_tx_timestamp(const struct vchi_held_msg *message);
--
--// Routine to get the reception timestamp, written as we parsed the header
--extern uint32_t vchi_held_msg_rx_timestamp(const struct vchi_held_msg *message);
--
- // Routine to release a held message after it has been processed
- extern int32_t vchi_held_msg_release(struct vchi_held_msg *message);
- 
--// Indicates whether the iterator has a next message.
--extern int32_t vchi_msg_iter_has_next(const struct vchi_msg_iter *iter);
--
--// Return the pointer and length for the next message and advance the iterator.
--extern int32_t vchi_msg_iter_next(struct vchi_msg_iter *iter,
--				  void **data,
--				  uint32_t *msg_size);
--
--// Remove the last message returned by vchi_msg_iter_next.
--// Can only be called once after each call to vchi_msg_iter_next.
--extern int32_t vchi_msg_iter_remove(struct vchi_msg_iter *iter);
--
--// Hold the last message returned by vchi_msg_iter_next.
--// Can only be called once after each call to vchi_msg_iter_next.
--extern int32_t vchi_msg_iter_hold(struct vchi_msg_iter *iter,
--				  struct vchi_held_msg *message);
--
--// Return information for the next message, and hold it, advancing the iterator.
--extern int32_t vchi_msg_iter_hold_next(struct vchi_msg_iter *iter,
--				       void **data,        // } may be NULL
--				       uint32_t *msg_size, // }
--				       struct vchi_held_msg *message);
--
- /******************************************************************************
-  * Global bulk API
-  *****************************************************************************/
-@@ -194,13 +147,6 @@ extern int32_t vchi_bulk_queue_receive(struct vchi_service_handle *handle,
- 				       enum vchi_flags flags,
- 				       void *transfer_handle);
- 
--// Prepare interface for a transfer from the other side into relocatable memory.
--int32_t vchi_bulk_queue_receive_reloc(const struct vchi_service_handle *handle,
--				      uint32_t offset,
--				      uint32_t data_size,
--				      const enum vchi_flags flags,
--				      void * const bulk_handle);
--
- // Routine to queue up data ready for transfer to the other (once they have signalled they are ready)
- extern int32_t vchi_bulk_queue_transmit(struct vchi_service_handle *handle,
- 					const void *data_src,
-@@ -216,11 +162,6 @@ extern int32_t vchi_bulk_queue_transmit(struct vchi_service_handle *handle,
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
+index 67b2090c91db..ef31e541c902 100644
+--- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
+@@ -372,6 +372,10 @@ make_service_callback(struct vchiq_service *service, enum vchiq_reason reason,
+ 			service->state->id, service->handle);
+ 		status = VCHIQ_SUCCESS;
+ 	}
++
++	if (reason != VCHIQ_MESSAGE_AVAILABLE)
++		vchiq_release_message(service->handle, header);
++
+ 	return status;
  }
- #endif
  
--extern int32_t vchi_bulk_queue_transmit_reloc(struct vchi_service_handle *handle,
--					      uint32_t offset,
--					      uint32_t data_size,
--					      enum vchi_flags flags,
--					      void *transfer_handle);
- #endif /* VCHI_H_ */
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c
+index 0fc5fa05c6c2..55f9e34ea50e 100644
+--- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c
+@@ -444,7 +444,7 @@ static enum vchiq_status shim_callback(enum vchiq_reason reason,
+ 		service->callback(service->callback_param,
+ 				  VCHI_CALLBACK_MSG_AVAILABLE, NULL);
  
- /****************************** End of file **********************************/
+-		goto done;
++		break;
+ 
+ 	case VCHIQ_BULK_TRANSMIT_DONE:
+ 		service->callback(service->callback_param,
+@@ -483,8 +483,6 @@ static enum vchiq_status shim_callback(enum vchiq_reason reason,
+ 	}
+ 
+ release:
+-	vchiq_release_message(service->handle, header);
+-done:
+ 	return VCHIQ_SUCCESS;
+ }
+ 
 -- 
 2.26.2
 
