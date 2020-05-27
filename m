@@ -2,44 +2,45 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 026A11E419F
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 27 May 2020 14:11:10 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 86C8E1E41A2
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 27 May 2020 14:11:19 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uHOoi0pIyR8aYQHgvV3kjfT9JX/jebIP4ttOOWPIhIg=; b=FR/ghn9X9vXpC0
-	j45pRE+evqtdhbz/GFAG+jurZcGf+eAvssy53MauM+zaWGMTB2gHRQjQntIAM6GbJ5RSGY2Mz3HiR
-	pN25Uy526M1YcnhbuNiWJDIhOVzD/L/bH7CXrA6Q/6yrhq2HwtmFlMzf87T5Mfvz4tsukofER6lHM
-	EzC2ev11KV9VF3LAfKpMrRnF/TIxNBl36G7gUpQ6JxgIUsiuUiXV+6RGriy4KAqN5mn0ScBfboSFS
-	RznjvPaMHuYHv+GrEJECly5Vn4AjsL52BsJaaihv0OzgE6jaVB1iJ4K+ULRMvUB8L2eq7tx23P+Fb
-	QZqiSUaNbAM89mFdbl+g==;
+	List-Owner; bh=FRxb+zktZD5hdCF3gZDELIiTnlqdUE5d06Q7IqNz6pc=; b=kZ16kM1E7IKRbU
+	lWEfYwHch2F8vbwvv/SCIIZtq1xlBnfILG6Vzx0ukIgLtmcMt+CeBD5W7Q9f53ollUyKAyhtVRg+u
+	N7ovfzjLNjCP186kI/XVL4aDY2vk2WPAWOozw5WW/4GKzXRBI/g2HuZCFc0UrWEevuNfpCVQfLIrp
+	DPLtSot9rR7KEyZL4dqKni047oGFkWYEPPHqwrvYqStv4696Ov7Nsw2NIov4QiJTkg4BHkTFapXVb
+	g0vTocP11xoGnhxr/0dhgpRiahj3CB2Lc+rpkK2qD8vHeo4v4bGmlIdLkmA8Bra6qWa75NRdl0Cb8
+	E40JVxXJgEvC+DSctovQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jdutl-0004rB-6R; Wed, 27 May 2020 12:11:05 +0000
+	id 1jduto-0004te-Kw; Wed, 27 May 2020 12:11:08 +0000
 Received: from mx2.suse.de ([195.135.220.15])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jdudy-00073K-6y; Wed, 27 May 2020 11:54:49 +0000
+ id 1jdue2-00077M-3e; Wed, 27 May 2020 11:54:53 +0000
 X-Virus-Scanned: by amavisd-new at test-mx.suse.de
 Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx2.suse.de (Postfix) with ESMTP id A4713AB7D;
- Wed, 27 May 2020 11:54:46 +0000 (UTC)
+ by mx2.suse.de (Postfix) with ESMTP id 1046EAD66;
+ Wed, 27 May 2020 11:54:51 +0000 (UTC)
 From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 To: bcm-kernel-feedback-list@broadcom.com,
  linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
-Subject: [RFC 32/50] staging: vchiq: Don't use a typedef for vchiq_callback
-Date: Wed, 27 May 2020 13:53:37 +0200
-Message-Id: <20200527115400.31391-33-nsaenzjulienne@suse.de>
+Subject: [RFC 35/50] staging: vchiq: Pass vchiq's message when holding a
+ message
+Date: Wed, 27 May 2020 13:53:40 +0200
+Message-Id: <20200527115400.31391-36-nsaenzjulienne@suse.de>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20200527115400.31391-1-nsaenzjulienne@suse.de>
 References: <20200527115400.31391-1-nsaenzjulienne@suse.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200527_045446_442071_3E24D5C0 
-X-CRM114-Status: GOOD (  10.60  )
+X-CRM114-CacheID: sfid-20200527_045450_570441_82B7421E 
+X-CRM114-Status: GOOD (  15.61  )
 X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-2.3 points)
@@ -70,62 +71,163 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-Linux coding style says to avoid typdefs.
+vchi created an opaque structure to be held by services while they
+process callback messages. The contents of this opaque structure are the
+service handle, which all services already maintain, and a pointer to
+vchiq's message structure, struct vchiq_header.
+
+Let's get rid of this opaque structure and directly pass struct
+vchiq_header, which is what ultimately vchiq consumes when handling
+callback messages.
 
 Signed-off-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 ---
- .../staging/vc04_services/interface/vchi/vchi.h    |  5 ++++-
- .../vc04_services/interface/vchiq_arm/vchiq_if.h   | 14 ++++++++------
- 2 files changed, 12 insertions(+), 7 deletions(-)
+ .../vc04_services/interface/vchi/vchi.h       | 14 ++---------
+ .../interface/vchiq_arm/vchiq_shim.c          | 25 ++++++-------------
+ .../vc04_services/vc-sm-cma/vc_sm_cma_vchi.c  |  6 ++---
+ 3 files changed, 12 insertions(+), 33 deletions(-)
 
 diff --git a/drivers/staging/vc04_services/interface/vchi/vchi.h b/drivers/staging/vc04_services/interface/vchi/vchi.h
-index fdc243f3f60a..cb66ea1ffad2 100644
+index 74fd169e079a..72771fdee9d6 100644
 --- a/drivers/staging/vc04_services/interface/vchi/vchi.h
 +++ b/drivers/staging/vc04_services/interface/vchi/vchi.h
-@@ -35,7 +35,10 @@ struct vchi_service {
- struct service_creation {
- 	struct vchi_version version;
- 	int32_t service_id;
--	vchiq_callback callback;
-+	enum vchiq_status (*callback)(enum vchiq_reason reason,
-+				      struct vchiq_header *header,
-+				      unsigned int handle,
-+				      void *bulk_userdata);
- 	void *callback_param;
- };
+@@ -11,16 +11,6 @@
+ // Macros to manipulate 'FOURCC' values
+ #define MAKE_FOURCC(x) ((int32_t)((x[0] << 24) | (x[1] << 16) | (x[2] << 8) | x[3]))
  
-diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_if.h b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_if.h
-index c99caa3add57..b3d4c14536bd 100644
---- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_if.h
-+++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_if.h
-@@ -60,19 +60,21 @@ struct vchiq_element {
- 	unsigned int size;
- };
- 
--typedef enum vchiq_status (*vchiq_callback)(enum vchiq_reason,
--					    struct vchiq_header *,
--					    unsigned int, void *);
+-// Opaque service information
+-struct opaque_vchi_service_t;
 -
- struct vchiq_service_base {
- 	int fourcc;
--	vchiq_callback callback;
-+	enum vchiq_status (*callback)(enum vchiq_reason reason,
-+				      struct vchiq_header *header,
-+				      unsigned int handle,
-+				      void *bulk_userdata);
- 	void *userdata;
- };
+-// Descriptor for a held message. Allocated by client, initialised by vchi_msg_hold,
+-// vchi_msg_iter_hold or vchi_msg_iter_hold_next. Fields are for internal VCHI use only.
+-struct vchi_held_msg {
+-	struct opaque_vchi_service_t *service;
+-	void *message;
+-};
+-
+ // Opaque handle for a VCHIQ instance
+ struct vchiq_instance;
  
- struct vchiq_service_params {
- 	int fourcc;
--	vchiq_callback callback;
-+	enum vchiq_status (*callback)(enum vchiq_reason reason,
-+				      struct vchiq_header *header,
-+				      unsigned int handle,
-+				      void *bulk_userdata);
- 	void *userdata;
- 	short version;       /* Increment for non-trivial changes */
- 	short version_min;   /* Update for incompatible changes */
+@@ -67,7 +57,7 @@ extern int vchi_queue_kernel_message(unsigned handle, void *data,
+ extern int32_t vchi_msg_hold(unsigned handle,
+ 			     void **data,        // } may be NULL, as info can be
+ 			     uint32_t *msg_size, // } obtained from HELD_MSG_T
+-			     struct vchi_held_msg *message_descriptor);
++			     struct vchiq_header **message);
+ 
+ /*******************************************************************************
+  * Global service support API - operations on held messages
+@@ -75,7 +65,7 @@ extern int32_t vchi_msg_hold(unsigned handle,
+  ******************************************************************************/
+ 
+ // Routine to release a held message after it has been processed
+-extern int32_t vchi_held_msg_release(struct vchi_held_msg *message);
++extern int32_t vchi_held_msg_release(unsigned handle, struct vchiq_header *message);
+ 
+ /******************************************************************************
+  * Global bulk API
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c
+index 578346965da6..6eb9a9878641 100644
+--- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c
+@@ -113,7 +113,8 @@ EXPORT_SYMBOL(vchi_bulk_queue_transmit);
+ /***********************************************************
+  * Name: vchi_held_msg_release
+  *
+- * Arguments:  struct vchi_held_msg *message
++ * Arguments:  unsgined handle
++ *	       struct vchiq_header *message
+  *
+  * Description: Routine to release a held message (after it has been read with
+  *              vchi_msg_hold)
+@@ -121,7 +122,7 @@ EXPORT_SYMBOL(vchi_bulk_queue_transmit);
+  * Returns: int32_t - success == 0
+  *
+  ***********************************************************/
+-int32_t vchi_held_msg_release(struct vchi_held_msg *message)
++int32_t vchi_held_msg_release(unsigned handle, struct vchiq_header *message)
+ {
+ 	/*
+ 	 * Convert the service field pointer back to an
+@@ -131,8 +132,7 @@ int32_t vchi_held_msg_release(struct vchi_held_msg *message)
+ 	 * to a pointer.
+ 	 */
+ 
+-	vchiq_release_message((unsigned int)(long)message->service,
+-			      (struct vchiq_header *)message->message);
++	vchiq_release_message(handle, message);
+ 
+ 	return 0;
+ }
+@@ -144,7 +144,7 @@ EXPORT_SYMBOL(vchi_held_msg_release);
+  * Arguments:  struct vchi_service *service,
+  *             void **data,
+  *             uint32_t *msg_size,
+- *             struct vchi_held_msg *message_handle
++ *             struct vchiq_header **message
+  *
+  * Description: Routine to return a pointer to the current message (to allow
+  *              in place processing). The message is dequeued - don't forget
+@@ -155,7 +155,7 @@ EXPORT_SYMBOL(vchi_held_msg_release);
+  *
+  ***********************************************************/
+ int32_t vchi_msg_hold(unsigned handle, void **data, uint32_t *msg_size,
+-		      struct vchi_held_msg *message_handle)
++		      struct vchiq_header **message)
+ {
+ 	struct vchiq_header *header;
+ 
+@@ -165,18 +165,7 @@ int32_t vchi_msg_hold(unsigned handle, void **data, uint32_t *msg_size,
+ 
+ 	*data = header->data;
+ 	*msg_size = header->size;
+-
+-	/*
+-	 * upcast the unsigned int which is an int
+-	 * to a pointer and stuff it in the held message.
+-	 * This pointer is opaque to everything except
+-	 * vchi_held_msg_release which simply downcasts it back
+-	 * to an int.
+-	 */
+-
+-	message_handle->service =
+-		(struct opaque_vchi_service_t *)(long)handle;
+-	message_handle->message = header;
++	*message = header;
+ 
+ 	return 0;
+ }
+diff --git a/drivers/staging/vc04_services/vc-sm-cma/vc_sm_cma_vchi.c b/drivers/staging/vc04_services/vc-sm-cma/vc_sm_cma_vchi.c
+index b0339b5438aa..08979502f551 100644
+--- a/drivers/staging/vc04_services/vc-sm-cma/vc_sm_cma_vchi.c
++++ b/drivers/staging/vc04_services/vc-sm-cma/vc_sm_cma_vchi.c
+@@ -176,7 +176,7 @@ static int vc_sm_cma_vchi_videocore_io(void *arg)
+ 	struct sm_instance *instance = arg;
+ 	struct sm_cmd_rsp_blk *cmd = NULL, *cmd_tmp;
+ 	struct vc_sm_result_t *reply;
+-	struct vchi_held_msg msg;
++	struct vchiq_header *message;
+ 	u32 reply_len;
+ 	s32 status;
+ 	int svc_use = 1;
+@@ -234,7 +234,7 @@ static int vc_sm_cma_vchi_videocore_io(void *arg)
+ 		} while (1);
+ 
+ 		while (!vchi_msg_hold(instance->service_handle,
+-				      (void **)&reply, &reply_len, &msg)) {
++				      (void **)&reply, &reply_len, &message)) {
+ 			if (reply->trans_id & 0x80000000) {
+ 				/* Async event or cmd from the VPU */
+ 				if (instance->vpu_event)
+@@ -245,7 +245,7 @@ static int vc_sm_cma_vchi_videocore_io(void *arg)
+ 						      reply_len);
+ 			}
+ 
+-			vchi_held_msg_release(&msg);
++			vchi_held_msg_release(instance->service_handle, message);
+ 		}
+ 
+ 		/* Go through the dead list and free them */
 -- 
 2.26.2
 
