@@ -2,81 +2,81 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2737D1E4874
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 27 May 2020 17:52:37 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 7F44A1E48C7
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 27 May 2020 17:57:31 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k268KuVEOJ/lqySxHNT3uzVyw7OqFaZrreiF/ukI13k=; b=u7GATH+lGavcyS
-	4g1mEeoVoWS28pXUske651weWAZ5T7bGKks0W0Yzan60PogTcFSUjoU0nH4RS4rJfHaybwlnwwN8Z
-	qvqUscUDt9Yw6frV1aV2ynjseiRITiagSnLlQidkrs943mLy5d/rZwqwAC6Az05wYIdc57RzZndU4
-	UkX8dm26RjYVIPjNnHItsDBxFlujVHFh5wJc/MlrNgxdEiASg2rqi/HOQhhClQRykArN1MOYp88d+
-	xturjtedQomvBSBsEbYpAYlV0fNqsagSqAo6B19jSdnycj+WAAdnJt8RLopuqCqWGafE1o8dGxYeE
-	O6b3MA+MM5rEwXqajtfA==;
+	List-Owner; bh=Nv7Q9w4RCPRcXwqOOS7YezVJ76deQ1cWv9mSH5rL7BA=; b=Hmz8YUcAeBB88O
+	qS4VBcVjhZOm1JsPhvv+8a4jNSRJ/EBZ2v4/JdZG6v18Hqd/UvdhODnFO2kv6qb3dSawjoYQtKwZ4
+	mXxtXsaX3D+ldXfoyvTKTsnc52mBotRS1jidbh9Trkj9QiABtAi4tlNyO2AmB54IPOPVM1/b0idBD
+	h+Gb0uUqgfUIYyPYKQMA8UfSwbMuQLgDifKOp/jBmdYa7rqrcPlXy2GQHq5aYRO0m7x9H3+Y/kpU/
+	y3dO45EEEj+VDYgjgW+C9pQz4y2HqMIQpX4H8tkboo1senckHE3g3JIDyoCb1T9Yn9ob5HAMje7V/
+	2GlwDyvBP6ewnwMOJ5/g==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jdyLv-0002HU-7U; Wed, 27 May 2020 15:52:23 +0000
+	id 1jdyQj-0000Bj-QC; Wed, 27 May 2020 15:57:21 +0000
 Received: from out2-smtp.messagingengine.com ([66.111.4.26])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jdyFW-0003GH-7f; Wed, 27 May 2020 15:45:47 +0000
+ id 1jdyFj-0003Rg-Ob; Wed, 27 May 2020 15:46:02 +0000
 Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
- by mailout.nyi.internal (Postfix) with ESMTP id 7E7A25C009C;
- Wed, 27 May 2020 11:45:45 -0400 (EDT)
+ by mailout.nyi.internal (Postfix) with ESMTP id 1C2585C022E;
+ Wed, 27 May 2020 11:45:58 -0400 (EDT)
 Received: from mailfrontend1 ([10.202.2.162])
- by compute4.internal (MEProxy); Wed, 27 May 2020 11:45:45 -0400
+ by compute4.internal (MEProxy); Wed, 27 May 2020 11:45:58 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cerno.tech; h=
  from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding; s=fm2; bh=AjDg50eF8/fT3
- dIsJRXR7a1XQUYcZlWK28+/sYq4TL8=; b=A8Yr1qDAjGPEvcfBDVvSflFlkBROn
- HkHZVljyA/FdA/tSVwpCND7ymE/99oez/hacuPBPg8wOi9SFUngeKWpM7zCIgMRa
- pCU3Jf68Y7o+lBdG1bfzId+Ak1qMKOkk1zcurelnr3OIbxvNzZZG8kfUi5FNow+s
- rQ3b3+8PZfmEPIHUExcm6OfdeD3sNTGaJhw3tea+kbjmQBj4rq/mrSPfRnO5IWuc
- XiKN8POh8htKBeNhYQ2VNaz5n99PqmGD2M0LC/HJr2oOpl8l8FYNWTi3IBX6CbzM
- NGXMGNU3JLjQmyw5ZtE9SoSShLxylewO5B1sSaDZjslrkYWSYa+Nfddmw==
+ :mime-version:content-transfer-encoding; s=fm2; bh=IGxwyMxL9Kcyf
+ SUFGTQGogce6XS1vfJTB6fg+Id+FaY=; b=vtk3c4OvV/hPySlUnT6bJboPNbH97
+ nHc1suL0veILJR0u0/pKMAozsJuASlOHaMz7d4i7lLT0prvlHrTeF3IIEOIup5aX
+ SZq9w6OCiumFD8w9bfyCKu0ug6mBsUIOMH7/k7RMj6oPeVO/V+uK62vMk3pwEBzu
+ IBmP4VFpwhdE/cWmIUH4HqLuyxwvH/RPjb1QQBqitFg2qLGeG7+TEtBxQppQgDXz
+ 00zrfuPx2qsDy1l2hRkKSlf588b9MpvgQYbVPB3bpVUF5I261TafndZdQ1DzE39N
+ QdyW+JHbzYa0mDnGc8pAf1UEf0armoTi8b3jH0l8TndX66QMaHFSoxK7A==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
  messagingengine.com; h=cc:content-transfer-encoding:date:from
  :in-reply-to:message-id:mime-version:references:subject:to
  :x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
- fm2; bh=AjDg50eF8/fT3dIsJRXR7a1XQUYcZlWK28+/sYq4TL8=; b=gX5BfnMm
- 5i1zEdKS2FFCmxBNXukmDlOTXyOrg6SS5EjniXZsNcpQfaHRRcDngpq2qZn3nDvQ
- qfZJBMZ04xjGkboaxofO12EcWS3A6tW6gBHYHCyLS34pRP0YWxSRPxOIvBZsrKXW
- xTDeh1E0qtxs216nypnIlKRD7nYnn6RSmKqUFTY+l1Not5mqUbZ35qkwiKROAus2
- MTP4NFiBWrdW15PYRopS0OMauw1jvV2jLEQUzcqeMuJKCPzNLcivOmrKKkFbZNNE
- sLjHvq52n6VOU8plIPQDsFEAsrUbrhdM9dGNGFDiUSQeQJ8LFihyTqwP72VxlBoK
- LjelHnLThy/R/Q==
-X-ME-Sender: <xms:KYvOXuiNnCHZ2dvM80J3QMxBpLIk6Byyfpg5OtZy-EsUrOEcf6bshw>
+ fm2; bh=IGxwyMxL9KcyfSUFGTQGogce6XS1vfJTB6fg+Id+FaY=; b=T6+wCH+U
+ yBEHT3AUZoav92tBu+V2TEVSJt3ZWxsxE5B+iFEdF/siDE35w0W+GCh26wPOBrHp
+ ESt1WfjRusgThFJyXPFmvo/zLw8XSI04anCasj5aHAxQiv8rsUCZv+UARRghkCBi
+ WS/omFbaupxUOG323GeHXmHyXBzBNTiW45FgT+/5K5igfCqvhE2/8RL/YObRuuxU
+ tT6EMXaOb54QPPw8+VYVEogLmFBjszKaKsX8kkApVjmfjY/Iy+ep/UVl9znK01Xz
+ wHQ6sccy4OCJ+IqGHyDEjMBrxocwJ7PXaCDyL6fxWURviohdQECjUQQ4ELAUnxcH
+ wfH49ajKO5YneQ==
+X-ME-Sender: <xms:NYvOXjvpRQ6jL_CIVNtPtmufzTg76G5hUrM7qIKI33UjzOJFDWv7bw>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduhedruddvgedgkeefucetufdoteggodetrfdotf
  fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
  uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
  cujfgurhephffvufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeforgigihhm
  vgcutfhiphgrrhguuceomhgrgihimhgvsegtvghrnhhordhtvggthheqnecuggftrfgrth
  htvghrnhepvdekleevfeffkeejhfffueelteelfeduieefheduudfggffhhfffheevveeh
- hedvnecukfhppeeltddrkeelrdeikedrjeeinecuvehluhhsthgvrhfuihiivgepuddtne
+ hedvnecukfhppeeltddrkeelrdeikedrjeeinecuvehluhhsthgvrhfuihiivgepudekne
  curfgrrhgrmhepmhgrihhlfhhrohhmpehmrgigihhmvgestggvrhhnohdrthgvtghh
-X-ME-Proxy: <xmx:KYvOXvD3_EDkBsZTXziqYuUyBgDePE2Gk1lKTGOoTCe2nLxytDqn0w>
- <xmx:KYvOXmGJF5vSL7mplmM0FQmPvh7rxi3G_px3dES6dvZlWoppzBwxUQ>
- <xmx:KYvOXnQQwjaI9g1sKfxZpcqHefwF6Zf90U6Q6HWNahEsVlj6m4w-MQ>
- <xmx:KYvOXmrXehv3cRsmuhw-4URqKWCvaK4o8O9kEZ5os6RtO2LPN90PUw>
+X-ME-Proxy: <xmx:NYvOXkdsqVd7IpCPZWjuT7c2CfONoVw8z7QVUO17x24S8LuIkw7hUg>
+ <xmx:NYvOXmw8P-VsFV3ulnkX1f5EC5GI7SyqmsKACYeXi-R6002SzDP-vw>
+ <xmx:NYvOXiMuqQzB4hB6byjtgNzc6hLddMZ1naFE5ktyjoFeypaE8m8FFA>
+ <xmx:NovOXum1HZuDQy-9IbXevwIlivc2KydTJcXVq3A4A3s0V8FwH6BGFQ>
 Received: from localhost (lfbn-tou-1-1502-76.w90-89.abo.wanadoo.fr
  [90.89.68.76])
- by mail.messagingengine.com (Postfix) with ESMTPA id 1F5343280060;
- Wed, 27 May 2020 11:45:45 -0400 (EDT)
+ by mail.messagingengine.com (Postfix) with ESMTPA id B02603280059;
+ Wed, 27 May 2020 11:45:57 -0400 (EDT)
 From: Maxime Ripard <maxime@cerno.tech>
 To: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-Subject: [PATCH v3 12/25] clk: bcm: rpi: Use CCF boundaries instead of rolling
- our own
-Date: Wed, 27 May 2020 17:45:08 +0200
-Message-Id: <eb1b2838f1c3c006c24bcb9816f75e1351c63b05.1590594293.git-series.maxime@cerno.tech>
+Subject: [PATCH v3 20/25] clk: bcm: rpi: Add an enum for the firmware clocks
+Date: Wed, 27 May 2020 17:45:16 +0200
+Message-Id: <c56fb0a912fe254416ed5a247e6fb6d79fb604bc.1590594293.git-series.maxime@cerno.tech>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <cover.662a8d401787ef33780d91252a352de91dc4be10.1590594293.git-series.maxime@cerno.tech>
 References: <cover.662a8d401787ef33780d91252a352de91dc4be10.1590594293.git-series.maxime@cerno.tech>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200527_084546_437701_E1844DFA 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20200527_084600_116495_4ECA8480 
+X-CRM114-Status: UNSURE (   8.02  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.9 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-0.9 points)
@@ -115,66 +115,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-The raspberrypi firmware clock driver has a min_rate / max_rate clamping by
-storing the info it needs in a private structure.
-
-However, the CCF already provides such a facility, so we can switch to it
-to remove the boilerplate.
+While the firmware allows us to discover the available clocks, we need to
+discriminate those clocks to only register the ones meaningful to Linux.
+The firmware also doesn't provide a clock name, so having a list of the ID
+will help us to give clocks a proper name later on.
 
 Signed-off-by: Maxime Ripard <maxime@cerno.tech>
 ---
- drivers/clk/bcm/clk-raspberrypi.c | 18 ++++++++----------
- 1 file changed, 8 insertions(+), 10 deletions(-)
+ drivers/clk/bcm/clk-raspberrypi.c | 23 +++++++++++++++++++----
+ 1 file changed, 19 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/clk/bcm/clk-raspberrypi.c b/drivers/clk/bcm/clk-raspberrypi.c
-index a20492fade6a..e135ad28d38d 100644
+index 5f4e2d49432f..eebd16040f8a 100644
 --- a/drivers/clk/bcm/clk-raspberrypi.c
 +++ b/drivers/clk/bcm/clk-raspberrypi.c
-@@ -36,9 +36,6 @@ struct raspberrypi_clk {
+@@ -18,7 +18,23 @@
+ 
+ #include <soc/bcm2835/raspberrypi-firmware.h>
+ 
+-#define RPI_FIRMWARE_ARM_CLK_ID		0x00000003
++enum rpi_firmware_clk_id {
++	RPI_FIRMWARE_EMMC_CLK_ID = 1,
++	RPI_FIRMWARE_UART_CLK_ID,
++	RPI_FIRMWARE_ARM_CLK_ID,
++	RPI_FIRMWARE_CORE_CLK_ID,
++	RPI_FIRMWARE_V3D_CLK_ID,
++	RPI_FIRMWARE_H264_CLK_ID,
++	RPI_FIRMWARE_ISP_CLK_ID,
++	RPI_FIRMWARE_SDRAM_CLK_ID,
++	RPI_FIRMWARE_PIXEL_CLK_ID,
++	RPI_FIRMWARE_PWM_CLK_ID,
++	RPI_FIRMWARE_HEVC_CLK_ID,
++	RPI_FIRMWARE_EMMC2_CLK_ID,
++	RPI_FIRMWARE_M2MC_CLK_ID,
++	RPI_FIRMWARE_PIXEL_BVB_CLK_ID,
++	RPI_FIRMWARE_NUM_CLK_ID,
++};
+ 
+ #define RPI_FIRMWARE_STATE_ENABLE_BIT	BIT(0)
+ #define RPI_FIRMWARE_STATE_WAIT_BIT	BIT(1)
+@@ -31,8 +47,6 @@
+ 
+ #define A2W_PLL_FRAC_BITS		20
+ 
+-#define NUM_FW_CLKS			16
+-
+ struct raspberrypi_clk {
+ 	struct device *dev;
  	struct rpi_firmware *firmware;
- 	struct platform_device *cpufreq;
+@@ -320,7 +334,8 @@ static int raspberrypi_clk_probe(struct platform_device *pdev)
+ 	rpi->firmware = firmware;
+ 	platform_set_drvdata(pdev, rpi);
  
--	unsigned long min_rate;
--	unsigned long max_rate;
--
- 	struct clk_hw pllb;
- };
- 
-@@ -142,13 +139,11 @@ static int raspberrypi_fw_pll_set_rate(struct clk_hw *hw, unsigned long rate,
- static int raspberrypi_pll_determine_rate(struct clk_hw *hw,
- 					  struct clk_rate_request *req)
- {
--	struct raspberrypi_clk *rpi = container_of(hw, struct raspberrypi_clk,
--						   pllb);
- 	u64 div, final_rate;
- 	u32 ndiv, fdiv;
- 
- 	/* We can't use req->rate directly as it would overflow */
--	final_rate = clamp(req->rate, rpi->min_rate, rpi->max_rate);
-+	final_rate = clamp(req->rate, req->min_rate, req->max_rate);
- 
- 	div = (u64)final_rate << A2W_PLL_FRAC_BITS;
- 	do_div(div, req->best_parent_rate);
-@@ -215,12 +210,15 @@ static int raspberrypi_register_pllb(struct raspberrypi_clk *rpi)
- 	dev_info(rpi->dev, "CPU frequency range: min %u, max %u\n",
- 		 min_rate, max_rate);
- 
--	rpi->min_rate = min_rate * RPI_FIRMWARE_PLLB_ARM_DIV_RATE;
--	rpi->max_rate = max_rate * RPI_FIRMWARE_PLLB_ARM_DIV_RATE;
--
- 	rpi->pllb.init = &init;
- 
--	return devm_clk_hw_register(rpi->dev, &rpi->pllb);
-+	ret = devm_clk_hw_register(rpi->dev, &rpi->pllb);
-+	if (!ret)
-+		clk_hw_set_rate_range(&rpi->pllb,
-+				      min_rate * RPI_FIRMWARE_PLLB_ARM_DIV_RATE,
-+				      max_rate * RPI_FIRMWARE_PLLB_ARM_DIV_RATE);
-+
-+	return ret;
- }
- 
- static struct clk_fixed_factor raspberrypi_clk_pllb_arm = {
+-	clk_data = devm_kzalloc(dev, struct_size(clk_data, hws, NUM_FW_CLKS),
++	clk_data = devm_kzalloc(dev, struct_size(clk_data, hws,
++						 RPI_FIRMWARE_NUM_CLK_ID),
+ 				GFP_KERNEL);
+ 	if (!clk_data)
+ 		return -ENOMEM;
 -- 
 git-series 0.9.1
 
