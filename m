@@ -2,44 +2,45 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 715C11E41B2
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 27 May 2020 14:13:30 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id CF75C1E41C9
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 27 May 2020 14:14:37 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=amE7nzudqPwpneTkdxJEnabL2Q0x4iI9wOQdSXeH0bk=; b=BknYJNK/BtGkpQ
-	urILvYpMqsZVIk3sjOydfeInbgpZk/sK8ZGYziVizYpGwuneeY8eQzclcYXVNOHqx5+EfvujXf58M
-	tQM26jfS0wxle57IIA04p1y1QxZsG+SpqjghpMMeV8whIUiLko8av5kvxhH+WnInR9XWqPqV7WLFK
-	vLoCmeNHe9suTPSXYT1nLRlKbtQ/7g/znZ8YWYAMllHzexhjughJK6v1u9i7oncpRWAbRo8wbMarZ
-	lP5Pvj3Jgrx2LHI/U3mzE3oe0iCQWojLNX7Ubi2b8YakUpqNvexLNvnOt7YUCMeiwSnxSEn4T+8n9
-	Z5sWo6e7JkPNt7XNi+vQ==;
+	List-Owner; bh=BPpCA7qNEjgsUHTEVFpLXJc+4kr8n7lEsWpOQLAYrlU=; b=ZNqLwTO3DnkTA1
+	S/VTnTjaP2XIX/mZhl71aoJD3sI4qfOpcYFDRHhzj6GyKSWNOhW3IHSjEENY7ZmCRaQ2v5Jg6JAkl
+	06DF5neEGUeHe3nqtDh4dqKSJpcnO9P1h2KWzKtzyfRHjXGhg3xmJ6C5pD1DwUDn5xvpbDkh9hRpS
+	axd/dNL804z3gfN6J0OuvizLXJP5g6hOp8+mf+X72TAReXqPsnjKtGz4H1dtU5KgGVyPR67x0xAt0
+	hn4F8ezTKO0pwhqv0c4RJSlvV+K5yiK66s4PQPpfQMhP66b700d4e4kQLit/yNslAIr7yUgibsVqF
+	a+O0Ck9ZC0CANKF4xMdQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jduw2-0006yR-18; Wed, 27 May 2020 12:13:26 +0000
+	id 1jdux3-0007rr-DC; Wed, 27 May 2020 12:14:29 +0000
 Received: from mx2.suse.de ([195.135.220.15])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jdue8-0007Dp-NZ; Wed, 27 May 2020 11:54:59 +0000
+ id 1jdueE-0007Iv-Hh; Wed, 27 May 2020 11:55:05 +0000
 X-Virus-Scanned: by amavisd-new at test-mx.suse.de
 Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx2.suse.de (Postfix) with ESMTP id DA392AC84;
- Wed, 27 May 2020 11:54:57 +0000 (UTC)
+ by mx2.suse.de (Postfix) with ESMTP id EDA56AFB1;
+ Wed, 27 May 2020 11:55:02 +0000 (UTC)
 From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 To: bcm-kernel-feedback-list@broadcom.com,
  linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
-Subject: [RFC 43/50] staging: vchi: Get rid of vchi_bulk_queue_receive()
-Date: Wed, 27 May 2020 13:53:48 +0200
-Message-Id: <20200527115400.31391-44-nsaenzjulienne@suse.de>
+Subject: [RFC 47/50] staging: vchiq: Move conditional barrier definition into
+ vchiq_core.h
+Date: Wed, 27 May 2020 13:53:52 +0200
+Message-Id: <20200527115400.31391-48-nsaenzjulienne@suse.de>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20200527115400.31391-1-nsaenzjulienne@suse.de>
 References: <20200527115400.31391-1-nsaenzjulienne@suse.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200527_045457_086548_3A1C1642 
-X-CRM114-Status: GOOD (  14.96  )
+X-CRM114-CacheID: sfid-20200527_045502_851643_FD8E7BA1 
+X-CRM114-Status: GOOD (  10.59  )
 X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-2.3 points)
@@ -70,183 +71,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-Its vchiq counterpart, vchiq_bulk_receive() is only used by vchi. We can
-then merge both functions by moving vchi_bulk_queue_receive()'s retry
-mechanism into vchiq_bulk_receive() and let services call the later.
+The barrier is only used by core code. So keep the barrier definition in
+the core header.
 
 Signed-off-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 ---
- .../vc04_services/interface/vchi/vchi.h       |  7 ----
- .../interface/vchiq_arm/vchiq_arm.c           | 42 ++++++++++++-------
- .../interface/vchiq_arm/vchiq_shim.c          | 38 -----------------
- .../vc04_services/vchiq-mmal/mmal-vchiq.c     | 20 ++++-----
- 4 files changed, 37 insertions(+), 70 deletions(-)
+ .../vc04_services/interface/vchiq_arm/vchiq.h        | 11 -----------
+ .../vc04_services/interface/vchiq_arm/vchiq_core.h   | 12 ++++++++++++
+ 2 files changed, 12 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/staging/vc04_services/interface/vchi/vchi.h b/drivers/staging/vc04_services/interface/vchi/vchi.h
-index d24e7027c08f..ca20b99122f2 100644
---- a/drivers/staging/vc04_services/interface/vchi/vchi.h
-+++ b/drivers/staging/vc04_services/interface/vchi/vchi.h
-@@ -58,13 +58,6 @@ extern int32_t vchi_held_msg_release(unsigned handle, struct vchiq_header *messa
-  * Global bulk API
-  *****************************************************************************/
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq.h b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq.h
+index 211b20705e36..57fe7d5e9a85 100644
+--- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq.h
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq.h
+@@ -6,15 +6,4 @@
  
--// Routine to prepare interface for a transfer from the other side
--extern int32_t vchi_bulk_queue_receive(unsigned handle,
--				       void *data_dst,
--				       uint32_t data_size,
--				       enum vchiq_bulk_mode mode,
--				       void *transfer_handle);
+ #include "vchiq_if.h"
+ 
+-/* Do this so that we can test-build the code on non-rpi systems */
+-#if IS_ENABLED(CONFIG_RASPBERRYPI_FIRMWARE)
 -
- // Routine to queue up data ready for transfer to the other (once they have signalled they are ready)
- extern int32_t vchi_bulk_queue_transmit(unsigned handle,
- 					const void *data_src,
-diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
-index 4d98d4d3ee8a..084e98b4ca61 100644
---- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
-+++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
-@@ -380,24 +380,36 @@ vchiq_bulk_transmit(unsigned int handle, const void *data,
- }
- EXPORT_SYMBOL(vchiq_bulk_transmit);
+-#else
+-
+-#ifndef dsb
+-#define dsb(a)
+-#endif
+-
+-#endif	/* IS_ENABLED(CONFIG_RASPBERRYPI_FIRMWARE) */
+-
+ #endif
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
+index ff91c04ba6b9..15e9867f78f4 100644
+--- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.h
+@@ -15,6 +15,18 @@
  
--enum vchiq_status
--vchiq_bulk_receive(unsigned int handle, void *data,
--	unsigned int size, void *userdata, enum vchiq_bulk_mode mode)
-+enum vchiq_status vchiq_bulk_receive(unsigned int handle, void *data,
-+				     unsigned int size, void *userdata,
-+				     enum vchiq_bulk_mode mode)
- {
- 	enum vchiq_status status;
+ #include "vchiq.h"
  
--	switch (mode) {
--	case VCHIQ_BULK_MODE_NOCALLBACK:
--	case VCHIQ_BULK_MODE_CALLBACK:
--		status = vchiq_bulk_transfer(handle, data, size, userdata,
--					     mode, VCHIQ_BULK_RECEIVE);
--		break;
--	case VCHIQ_BULK_MODE_BLOCKING:
--		status = vchiq_blocking_bulk_transfer(handle,
--			(void *)data, size, VCHIQ_BULK_RECEIVE);
--		break;
--	default:
--		return VCHIQ_ERROR;
-+	while (1) {
-+		switch (mode) {
-+		case VCHIQ_BULK_MODE_NOCALLBACK:
-+		case VCHIQ_BULK_MODE_CALLBACK:
-+			status = vchiq_bulk_transfer(handle, data, size, userdata,
-+						     mode, VCHIQ_BULK_RECEIVE);
-+			break;
-+		case VCHIQ_BULK_MODE_BLOCKING:
-+			status = vchiq_blocking_bulk_transfer(handle,
-+				(void *)data, size, VCHIQ_BULK_RECEIVE);
-+			break;
-+		default:
-+			return VCHIQ_ERROR;
-+		}
++/* Do this so that we can test-build the code on non-rpi systems */
++#if IS_ENABLED(CONFIG_RASPBERRYPI_FIRMWARE)
 +
-+		/*
-+		 * vchiq_*_bulk_transfer() may return VCHIQ_RETRY, so we need
-+		 * to implement a retry mechanism since this function is
-+		 * supposed to block until queued
-+		 */
-+		if (status != VCHIQ_RETRY)
-+			break;
++#else
 +
-+		msleep(1);
- 	}
- 
- 	return status;
-diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c
-index 52654123463d..f69936a9eb29 100644
---- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c
-+++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_shim.c
-@@ -31,44 +31,6 @@ int vchi_queue_kernel_message(unsigned handle, void *data, unsigned int size)
- }
- EXPORT_SYMBOL(vchi_queue_kernel_message);
- 
--/***********************************************************
-- * Name: vchi_bulk_queue_receive
-- *
-- * Arguments:  VCHI_BULK_HANDLE_T handle,
-- *             void *data_dst,
-- *             const uint32_t data_size,
-- *             enum vchi_flags flags
-- *             void *bulk_handle
-- *
-- * Description: Routine to setup a rcv buffer
-- *
-- * Returns: int32_t - success == 0
-- *
-- ***********************************************************/
--int32_t vchi_bulk_queue_receive(unsigned handle, void *data_dst,
--				uint32_t data_size, enum vchiq_bulk_mode mode,
--				void *bulk_handle)
--{
--	enum vchiq_status status;
--
--	while (1) {
--		status = vchiq_bulk_receive(handle, data_dst, data_size,
--					    bulk_handle, mode);
--		/*
--		 * vchiq_bulk_receive() may return VCHIQ_RETRY, so we need to
--		 * implement a retry mechanism since this function is supposed
--		 * to block until queued
--		 */
--		if (status != VCHIQ_RETRY)
--			break;
--
--		msleep(1);
--	}
--
--	return status;
--}
--EXPORT_SYMBOL(vchi_bulk_queue_receive);
--
- /***********************************************************
-  * Name: vchi_bulk_queue_transmit
-  *
-diff --git a/drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c b/drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c
-index d35d2b50991b..b5d40074cdc7 100644
---- a/drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c
-+++ b/drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c
-@@ -277,7 +277,7 @@ static void buffer_work_cb(struct work_struct *work)
-  * VCHI will allow up to 4 bulk receives to be scheduled before blocking.
-  * If we block in the service_callback context then we can't process the
-  * VCHI_CALLBACK_BULK_RECEIVED message that would otherwise allow the blocked
-- * vchi_bulk_queue_receive() call to complete.
-+ * vchiq_bulk_receive() call to complete.
-  */
- static void buffer_to_host_work_cb(struct work_struct *work)
- {
-@@ -293,19 +293,19 @@ static void buffer_to_host_work_cb(struct work_struct *work)
- 		len = 8;
- 	/* queue the bulk submission */
- 	vchi_service_use(instance->service_handle);
--	ret = vchi_bulk_queue_receive(instance->service_handle,
--				      msg_context->u.bulk.buffer->buffer,
--				      /* Actual receive needs to be a multiple
--				       * of 4 bytes
--				       */
--				      (len + 3) & ~3,
--				      VCHIQ_BULK_MODE_CALLBACK,
--				      msg_context);
-+	ret = vchiq_bulk_receive(instance->service_handle,
-+				 msg_context->u.bulk.buffer->buffer,
-+			         /* Actual receive needs to be a multiple
-+			          * of 4 bytes
-+			          */
-+			         (len + 3) & ~3,
-+			         msg_context,
-+			         VCHIQ_BULK_MODE_CALLBACK);
- 
- 	vchi_service_release(instance->service_handle);
- 
- 	if (ret != 0)
--		pr_err("%s: ctx: %p, vchi_bulk_queue_receive failed %d\n",
-+		pr_err("%s: ctx: %p, vchiq_bulk_receive failed %d\n",
- 		       __func__, msg_context, ret);
- }
- 
++#ifndef dsb
++#define dsb(a)
++#endif
++
++#endif	/* IS_ENABLED(CONFIG_RASPBERRYPI_FIRMWARE) */
++
++
+ /* Run time control of log level, based on KERN_XXX level. */
+ #define VCHIQ_LOG_DEFAULT  4
+ #define VCHIQ_LOG_ERROR    3
 -- 
 2.26.2
 
