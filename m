@@ -2,45 +2,44 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 39B791E412F
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 27 May 2020 14:04:22 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 68E6C1E412D
+	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 27 May 2020 14:04:07 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g/ejSby/A6EiuoW9AI0W6ZfOoh8YjxDVZaWmW16fAhI=; b=SU5Fv4oNrMlyfn
-	MYHXhNwZ2PljZ6fxcBGOeDe5AEH0aQNkxPaeSuYooBJ0ixlAFnvd8Uv55KzgeZfVD/dWXsSfdNKsG
-	uPkiJTxs7gvWzSeZRJtsO/zonfcMGJ12h6ncedlHVdzfBUF87n4zXa5OWNeNXClP1KrkkHZQDjXKb
-	9D6BHV/+g9T19/i8OHiEAR8XM8dgw1fLhj2zSgBzfKDQQaEX75D1s6+SXK83syJ4elQ5dA8DkUDEQ
-	xPp60eKvlOzd4r7pbNavxDdLibKeaSTmDUl55ISBcoatrOfkGzOFACcSBVNWD79ravml767gbq34t
-	qgzYFmmp3tcxUtBCc3og==;
+	List-Owner; bh=s4XkfV+NHZXTxxCgFOyd+763ovcvB7jJqha715yAnxU=; b=WVtTZphY7CmKOZ
+	zUb4VJmh1D1ygP7LXv5AoXKfqIlVdhkzAGkrgGAeYpmkh84+8MUDtBDPBm1mSiNkMGPkrt+I7yk0P
+	/IkbSVgZ3Leh/HBvdNkTFW7neruaynvhUB76lULpxi5/hwsVzZJQkAGRS2TUUDfGPu/fzCA/X8zbf
+	z7q0dqQBToixH3y1/eNZeWbbGENs4ashniAqiFNQHz6bEikbzMU0jXwmOywTyqqUKVNbDneHUv23C
+	pvwEebIbe7HpWtyY6UgGnPX6blMC2QWzOb2lO9jmvHaf8rTBh2nSFgW9qSR9t9y3jn8KsVZDXVlBU
+	/oOHny6mx0UY8A+Hj3iA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jdunC-0002Il-9O; Wed, 27 May 2020 12:04:18 +0000
+	id 1jdumw-00025H-1l; Wed, 27 May 2020 12:04:02 +0000
 Received: from mx2.suse.de ([195.135.220.15])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jdudj-0006oW-CX; Wed, 27 May 2020 11:54:33 +0000
+ id 1jdudj-0006qb-S9; Wed, 27 May 2020 11:54:34 +0000
 X-Virus-Scanned: by amavisd-new at test-mx.suse.de
 Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx2.suse.de (Postfix) with ESMTP id 16DC5AD17;
+ by mx2.suse.de (Postfix) with ESMTP id 04D8BAC91;
  Wed, 27 May 2020 11:54:32 +0000 (UTC)
 From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 To: bcm-kernel-feedback-list@broadcom.com,
  linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
-Subject: [RFC 19/50] staging: vchi: Get rid of unnecessary defines
-Date: Wed, 27 May 2020 13:53:24 +0200
-Message-Id: <20200527115400.31391-20-nsaenzjulienne@suse.de>
+Subject: [RFC 20/50] staging: vc04_services: Get rid of vchi_cfg.h
+Date: Wed, 27 May 2020 13:53:25 +0200
+Message-Id: <20200527115400.31391-21-nsaenzjulienne@suse.de>
 X-Mailer: git-send-email 2.26.2
 In-Reply-To: <20200527115400.31391-1-nsaenzjulienne@suse.de>
 References: <20200527115400.31391-1-nsaenzjulienne@suse.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200527_045431_576243_0E9419A6 
-X-CRM114-Status: UNSURE (   8.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200527_045432_203975_D41389E6 
+X-CRM114-Status: GOOD (  20.07  )
 X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-2.3 points)
@@ -71,52 +70,271 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-Those defines aren't used by anyone. Get rid of them.
+Nothing in it is being used.
 
 Signed-off-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 ---
- drivers/staging/vc04_services/interface/vchi/vchi.h   | 11 -----------
- drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c |  1 -
- 2 files changed, 12 deletions(-)
+ .../vc04_services/interface/vchi/vchi.h       |   1 -
+ .../vc04_services/interface/vchi/vchi_cfg.h   | 238 ------------------
+ 2 files changed, 239 deletions(-)
+ delete mode 100644 drivers/staging/vc04_services/interface/vchi/vchi_cfg.h
 
 diff --git a/drivers/staging/vc04_services/interface/vchi/vchi.h b/drivers/staging/vc04_services/interface/vchi/vchi.h
-index a369feb3a448..bf0c7a496f5a 100644
+index bf0c7a496f5a..55e51e5a1fdc 100644
 --- a/drivers/staging/vc04_services/interface/vchi/vchi.h
 +++ b/drivers/staging/vc04_services/interface/vchi/vchi.h
-@@ -11,21 +11,10 @@
-  * Global defs
-  *****************************************************************************/
+@@ -4,7 +4,6 @@
+ #ifndef VCHI_H_
+ #define VCHI_H_
  
--#define VCHI_BULK_ROUND_UP(x)     ((((unsigned long)(x)) + VCHI_BULK_ALIGN - 1) & ~(VCHI_BULK_ALIGN - 1))
--#define VCHI_BULK_ROUND_DOWN(x)   (((unsigned long)(x)) & ~(VCHI_BULK_ALIGN - 1))
--#define VCHI_BULK_ALIGN_NBYTES(x) (VCHI_BULK_ALIGNED(x) ? 0 : (VCHI_BULK_ALIGN - ((unsigned long)(x) & (VCHI_BULK_ALIGN - 1))))
+-#include "vchi_cfg.h"
+ #include "vchi_common.h"
+ 
+ /******************************************************************************
+diff --git a/drivers/staging/vc04_services/interface/vchi/vchi_cfg.h b/drivers/staging/vc04_services/interface/vchi/vchi_cfg.h
+deleted file mode 100644
+index 138c36151a22..000000000000
+--- a/drivers/staging/vc04_services/interface/vchi/vchi_cfg.h
++++ /dev/null
+@@ -1,238 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 OR BSD-3-Clause */
+-/* Copyright (c) 2010-2012 Broadcom. All rights reserved. */
 -
--#ifdef USE_VCHIQ_ARM
--#define VCHI_BULK_ALIGNED(x)      1
--#else
--#define VCHI_BULK_ALIGNED(x)      (((unsigned long)(x) & (VCHI_BULK_ALIGN - 1)) == 0)
+-#ifndef VCHI_CFG_H_
+-#define VCHI_CFG_H_
+-
+-/*******************************************************************************
+- * Defines in this first section are part of the VCHI API and may be examined by
+- * VCHI services.
+- ******************************************************************************/
+-
+-/*
+- * Required alignment of base addresses for bulk transfer, if unaligned
+- * transfers are not enabled
+- * Really determined by the message driver, and should be available from
+- * a run-time call.
+- */
+-#ifndef VCHI_BULK_ALIGN
+-#   if __VCCOREVER__ >= 0x04000000
+-#       define VCHI_BULK_ALIGN 32 // Allows for the need to do cache cleans
+-#   else
+-#       define VCHI_BULK_ALIGN 16
+-#   endif
 -#endif
 -
- struct vchi_version {
- 	uint32_t version;
- 	uint32_t version_min;
- };
--#define VCHI_VERSION(v_) { v_, v_ }
- #define VCHI_VERSION_EX(v_, m_) { v_, m_ }
- 
- // Macros to manipulate 'FOURCC' values
-diff --git a/drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c b/drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c
-index a1995d1e5180..5183aff453eb 100644
---- a/drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c
-+++ b/drivers/staging/vc04_services/vchiq-mmal/mmal-vchiq.c
-@@ -32,7 +32,6 @@
- 
- #include "vc-sm-cma/vc_sm_knl.h"
- 
--#define USE_VCHIQ_ARM
- #include "interface/vchi/vchi.h"
- 
- /*
+-/*
+- * Required length multiple for bulk transfers, if unaligned transfers are
+- * not enabled
+- * May be less than or greater than VCHI_BULK_ALIGN
+- * Really determined by the message driver, and should be available from
+- * a run-time call.
+- */
+-#ifndef VCHI_BULK_GRANULARITY
+-#   if __VCCOREVER__ >= 0x04000000
+-#       define VCHI_BULK_GRANULARITY 32 // Allows for the need to do cache cleans
+-#   else
+-#       define VCHI_BULK_GRANULARITY 16
+-#   endif
+-#endif
+-
+-/* The largest possible message to be queued with vchi_msg_queue. */
+-#ifndef VCHI_MAX_MSG_SIZE
+-#   if defined VCHI_LOCAL_HOST_PORT
+-#       define VCHI_MAX_MSG_SIZE     16384         // makes file transfers fast, but should they be using bulk?
+-#   else
+-#       define VCHI_MAX_MSG_SIZE      4096 // NOTE: THIS MUST BE LARGER THAN OR EQUAL TO THE SIZE OF THE KHRONOS MERGE BUFFER!!
+-#   endif
+-#endif
+-
+-/******************************************************************************
+- * Defines below are system configuration options, and should not be used by
+- * VCHI services.
+- ******************************************************************************/
+-
+-/*
+- * How many connections can we support? A localhost implementation uses
+- * 2 connections, 1 for host-app, 1 for VMCS, and these are hooked together
+- * by a loopback MPHI VCFW  driver.
+- */
+-#ifndef VCHI_MAX_NUM_CONNECTIONS
+-#   define VCHI_MAX_NUM_CONNECTIONS 3
+-#endif
+-
+-/*
+- * How many services can we open per connection? Extending this doesn't cost
+- * processing time, just a small amount of static memory.
+- */
+-#ifndef VCHI_MAX_SERVICES_PER_CONNECTION
+-#  define VCHI_MAX_SERVICES_PER_CONNECTION 36
+-#endif
+-
+-/* Adjust if using a message driver that supports more logical TX channels */
+-#ifndef VCHI_MAX_BULK_TX_CHANNELS_PER_CONNECTION
+-#   define VCHI_MAX_BULK_TX_CHANNELS_PER_CONNECTION 9 // 1 MPHI + 8 CCP2 logical channels
+-#endif
+-
+-/* Adjust if using a message driver that supports more logical RX channels */
+-#ifndef VCHI_MAX_BULK_RX_CHANNELS_PER_CONNECTION
+-#   define VCHI_MAX_BULK_RX_CHANNELS_PER_CONNECTION 1 // 1 MPHI
+-#endif
+-
+-/*
+- * How many receive slots do we use. This times VCHI_MAX_MSG_SIZE gives the
+- * effective receive queue space, less message headers.
+- */
+-#ifndef VCHI_NUM_READ_SLOTS
+-#  if defined(VCHI_LOCAL_HOST_PORT)
+-#     define VCHI_NUM_READ_SLOTS 4
+-#  else
+-#     define VCHI_NUM_READ_SLOTS 48
+-#  endif
+-#endif
+-
+-/*
+- * Do we utilise overrun facility for receive message slots? Can aid peer
+- * transmit performance. Only define on VideoCore end, talking to host.
+- */
+-//#define VCHI_MSG_RX_OVERRUN
+-
+-/*
+- * How many transmit slots do we use. Generally don't need many,
+- * as the hardware driver underneath VCHI will usually have its own buffering.
+- */
+-#ifndef VCHI_NUM_WRITE_SLOTS
+-#  define VCHI_NUM_WRITE_SLOTS 4
+-#endif
+-
+-/*
+- * If a service has held or queued received messages in VCHI_XOFF_THRESHOLD or
+- * more slots, then it's taking up too much buffer space,
+- * and the peer service will be told to stop transmitting with an XOFF message.
+- * For this to be effective, the VCHI_NUM_READ_SLOTS needs to be considerably
+- * bigger than VCHI_NUM_WRITE_SLOTS, or the transmit latency is too high.
+- */
+-#ifndef VCHI_XOFF_THRESHOLD
+-#  define VCHI_XOFF_THRESHOLD (VCHI_NUM_READ_SLOTS / 2)
+-#endif
+-
+-/*
+- * After we've sent an XOFF, the peer will be told to resume transmission
+- * once the local service has dequeued/released enough messages that it's now
+- * occupying VCHI_XON_THRESHOLD slots or fewer.
+- */
+-#ifndef VCHI_XON_THRESHOLD
+-#  define VCHI_XON_THRESHOLD (VCHI_NUM_READ_SLOTS / 4)
+-#endif
+-
+-/*
+- * A size below which a bulk transfer omits the handshake completely and always
+- * goes via the message channel, if bulk auxiliary is being sent on that
+- * service. (The user can guarantee this by enabling unaligned transmits).
+- * Not API.
+- */
+-#ifndef VCHI_MIN_BULK_SIZE
+-#  define VCHI_MIN_BULK_SIZE    (VCHI_MAX_MSG_SIZE / 2 < 4096 ? VCHI_MAX_MSG_SIZE / 2 : 4096)
+-#endif
+-
+-/*
+- * Maximum size of bulk transmission chunks, for each interface type.
+- * A trade-off between speed and latency; the smaller the chunk size the better
+- * change of messages and other bulk transmissions getting in when big bulk
+- * transfers are happening. Set to 0 to not break transmissions into chunks.
+- */
+-#ifndef VCHI_MAX_BULK_CHUNK_SIZE_MPHI
+-#  define VCHI_MAX_BULK_CHUNK_SIZE_MPHI (16 * 1024)
+-#endif
+-
+-/*
+- * NB Chunked CCP2 transmissions violate the letter of the CCP2 spec
+- * by using "JPEG8" mode with multiple-line frames. Only use if the receiver
+- * can cope.
+- */
+-#ifndef VCHI_MAX_BULK_CHUNK_SIZE_CCP2
+-#  define VCHI_MAX_BULK_CHUNK_SIZE_CCP2 0
+-#endif
+-
+-/*
+- * How many TX messages can we have pending in our transmit slots.
+- * Once exhausted, vchi_msg_queue will be blocked.
+- */
+-#ifndef VCHI_TX_MSG_QUEUE_SIZE
+-#  define VCHI_TX_MSG_QUEUE_SIZE           256
+-#endif
+-
+-/*
+- * How many RX messages can we have parsed in the receive slots. Once exhausted,
+- * parsing will be suspended until older messages are dequeued/released.
+- */
+-#ifndef VCHI_RX_MSG_QUEUE_SIZE
+-#  define VCHI_RX_MSG_QUEUE_SIZE           256
+-#endif
+-
+-/*
+- * Really should be able to cope if we run out of received message descriptors,
+- * by suspending parsing as the comment above says, but we don't.
+- * This sweeps the issue under the carpet.
+- */
+-#if VCHI_RX_MSG_QUEUE_SIZE < (VCHI_MAX_MSG_SIZE / 16 + 1) * VCHI_NUM_READ_SLOTS
+-#  undef VCHI_RX_MSG_QUEUE_SIZE
+-#  define VCHI_RX_MSG_QUEUE_SIZE ((VCHI_MAX_MSG_SIZE / 16 + 1) * VCHI_NUM_READ_SLOTS)
+-#endif
+-
+-/*
+- * How many bulk transmits can we have pending. Once exhausted,
+- * vchi_bulk_queue_transmit will be blocked.
+- */
+-#ifndef VCHI_TX_BULK_QUEUE_SIZE
+-#  define VCHI_TX_BULK_QUEUE_SIZE           64
+-#endif
+-
+-/*
+- * How many bulk receives can we have pending. Once exhausted,
+- *vchi_bulk_queue_receive will be blocked.
+- */
+-#ifndef VCHI_RX_BULK_QUEUE_SIZE
+-#  define VCHI_RX_BULK_QUEUE_SIZE           64
+-#endif
+-
+-/*
+- * A limit on how many outstanding bulk requests we expect the peer to give us.
+- * If the peer asks for more than this, VCHI will fail and assert.
+- * The number is determined by the peer's hardware
+- * - it's the number of outstanding requests that can be queued
+- * on all bulk channels. VC3's MPHI peripheral allows 16.
+- */
+-#ifndef VCHI_MAX_PEER_BULK_REQUESTS
+-#  define VCHI_MAX_PEER_BULK_REQUESTS       32
+-#endif
+-
+-/*
+- * Define VCHI_CCP2TX_MANUAL_POWER if the host tells us when to turn the CCP2
+- * transmitter on and off.
+- */
+-/*#define VCHI_CCP2TX_MANUAL_POWER*/
+-
+-#ifndef VCHI_CCP2TX_MANUAL_POWER
+-
+-/*
+- * Timeout (in milliseconds) for putting the CCP2TX interface into IDLE state.
+- * Set negative for no IDLE.
+- */
+-#  ifndef VCHI_CCP2TX_IDLE_TIMEOUT
+-#    define VCHI_CCP2TX_IDLE_TIMEOUT        5
+-#  endif
+-
+-/*
+- * Timeout (in milliseconds) for putting the CCP2TX interface into OFF state.
+- * Set negative for no OFF.
+- */
+-#  ifndef VCHI_CCP2TX_OFF_TIMEOUT
+-#    define VCHI_CCP2TX_OFF_TIMEOUT         1000
+-#  endif
+-
+-#endif /* VCHI_CCP2TX_MANUAL_POWER */
+-
+-#endif /* VCHI_CFG_H_ */
+-
+-/****************************** End of file **********************************/
 -- 
 2.26.2
 
