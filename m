@@ -2,100 +2,66 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 667BB1E48B4
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 27 May 2020 17:57:08 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9641C1E849F
+	for <lists+linux-rpi-kernel@lfdr.de>; Fri, 29 May 2020 19:19:42 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Subject:
+	References:In-Reply-To:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=70Q4QLbjbsGWEsr4QhtTapvms1bPUHwO+ygRCJY+J1Q=; b=KtgZmYevWXPvbf
-	Qx53ctA/EuGZkjdcEH4Lt6ZBrsimOe1q129rq73weGk/LGcxWCzDE72Zn9uC8GroCTqk/MZZjkpPy
-	IM0UxPKpfubQOKKEQitCxlaqzX98TzUZUxXeBJgd/lH814roqJd9gXmwlZCmALq8FjpmTZNcPZCwI
-	3642euSExv4dixfB9qG1HPjSxI9FTe0wWh3tjFm5nZiIOc9/kW+TtijFMLUrB9SteXj81X5OGuHws
-	TT+vw6jTGJAIVqBgHw1kOQbBtfIZLQ1RMJFMM6Z+aGpP6tahIfTaQjGK9rOcgAAn23r7Bp60XRJfm
-	ginnb1wszPICGSbE5hCQ==;
+	List-Owner; bh=EbrTIB0MmUPFZcixQSiHrhE9Eub+0ncovB9fW1woi+s=; b=cdZ0cr099ppoOs
+	QjZjkbwgZMNXI2LFdutl1w2/0fg20kqJja8AWS/SueglUeOGWe/pVBbWI6luG0FQatSISK+wbUh1m
+	aTt6CRd6c3pycqwR8XVNUXXQ8F8DhDCL24cuwpYzOQd82LVxQD9Rsr0bL9i35rgyRvvvlvUtq56xr
+	NYN5S/iLJnaUfHDU5OKyYj0iF7Xyv+Mzr2cJPAlXRudZF2sqawXQxNcDLZjQgMLw10CDYe5Ps8Yc9
+	BDvusbus10TnXLhf2JagbnNDr+a8go4slRmaiLVRVZUYTcb0TbfsWle6TGBMrG2Z/BL8UTTiLjzJn
+	m9eTIHmby++MLyb8ZOhA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jdyQR-0008Om-Tj; Wed, 27 May 2020 15:57:03 +0000
-Received: from out2-smtp.messagingengine.com ([66.111.4.26])
+	id 1jeif1-0008Gn-Vo; Fri, 29 May 2020 17:19:12 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jdyFq-0003hi-Sa; Wed, 27 May 2020 15:46:10 +0000
-Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
- by mailout.nyi.internal (Postfix) with ESMTP id 053785C0220;
- Wed, 27 May 2020 11:46:06 -0400 (EDT)
-Received: from mailfrontend2 ([10.202.2.163])
- by compute4.internal (MEProxy); Wed, 27 May 2020 11:46:06 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cerno.tech; h=
- from:to:cc:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding; s=fm2; bh=87eNKXUXLK3tl
- nLtCpRNlpSIF8WfpGhrUkNfAEF99uc=; b=Lvo2Y+qkUjbo3DDu0fzrcR2f1wgTW
- UJZ5UvkUhM65Fd76Uei/flqLULaXV0AEHgdClcT2Gi53GpgBSZ2Di9EgowZvaCPX
- 7L8fOAadlHob08WuF6Lls01Rflyr3oI9hdF7Saw/TCUEBjH7n/7nGg5EFFN4UI9z
- wWHNauMu6xIiySMy0holRk9wgS8dztfcu0Ls2fG3lU+UHY7fHa9173ZV0yDiS82E
- bLmag+oSkzKf0HxwRM/pdIFCmZr5jJpXyfaZnzV0NRt0o+fL3/mTNlLHuWewa9O2
- o+7ITsinNck/SYsVvPNYyxhIjSYMLM4hbtFvjxx6CpkGVwNBDq3g0V66A==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
- messagingengine.com; h=cc:content-transfer-encoding:date:from
- :in-reply-to:message-id:mime-version:references:subject:to
- :x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
- fm2; bh=87eNKXUXLK3tlnLtCpRNlpSIF8WfpGhrUkNfAEF99uc=; b=l65K9OGZ
- TSbIrtWXlZu9MVogylcJ8/dHF30saDK8dc30RM7Va5QzcmimMbGWaU+rxZiKmuq/
- PvW1qOYpDg9CwxGxJnm2jF2ANwJHGd5zmH7BT1dz8Bwl2HJFhhFx5kQUgX0z+2Yx
- sb1Ydhf/5pBzeh+VPDfX+g/HCh27xVl/SYg+hrmpLO5jccSonf52sfE/T39K1Fqb
- QwSfvSU+BDGIS1A3Fd8HKdir4MhozeMdiq3beIlcuuhDuZ4RMhP0vxnW5Qmc6LZ7
- hNQ5KZDFK/HJpYhHQtlhO1d8kEarYPHHP5ZBDQpWeobbSESlJhHoAVjZFL6Zgo64
- mJFZ+xlvjcDD4w==
-X-ME-Sender: <xms:PYvOXoY_ybKs2nv92JfY7Nnxm3Y5IzRdFdQp5AkOWR-TGEHDh7m6gA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduhedruddvgedgkeefucetufdoteggodetrfdotf
- fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
- uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
- cujfgurhephffvufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeforgigihhm
- vgcutfhiphgrrhguuceomhgrgihimhgvsegtvghrnhhordhtvggthheqnecuggftrfgrth
- htvghrnhepvdekleevfeffkeejhfffueelteelfeduieefheduudfggffhhfffheevveeh
- hedvnecukfhppeeltddrkeelrdeikedrjeeinecuvehluhhsthgvrhfuihiivgepvddvne
- curfgrrhgrmhepmhgrihhlfhhrohhmpehmrgigihhmvgestggvrhhnohdrthgvtghh
-X-ME-Proxy: <xmx:PYvOXjaMQPqg5dpar60mvJ6uAfMj3KXapdS1XitN4jiLMQvSeDq6lQ>
- <xmx:PYvOXi-PnJjpBlIzpKqJn5lNoFWJnoZTzFgR3fWStdTwD74vcmbNkQ>
- <xmx:PYvOXiqdhKkG5itgr8mcgAGyGU9haKcrAaUk8RCfB9t-vkBfHJW_xQ>
- <xmx:PovOXkCm27yFuWpONNGk0jlJ0YX0jnovff8pvQjk2q7WQkQGtu3LWw>
-Received: from localhost (lfbn-tou-1-1502-76.w90-89.abo.wanadoo.fr
- [90.89.68.76])
- by mail.messagingengine.com (Postfix) with ESMTPA id 832A230614FA;
- Wed, 27 May 2020 11:46:05 -0400 (EDT)
-From: Maxime Ripard <maxime@cerno.tech>
-To: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-Subject: [PATCH v3 25/25] ARM: dts: bcm2711: Add firmware clocks node
-Date: Wed, 27 May 2020 17:45:21 +0200
-Message-Id: <ec9e6942c9f16390e530c2aea2a565f95fe6e929.1590594293.git-series.maxime@cerno.tech>
-X-Mailer: git-send-email 2.26.2
-In-Reply-To: <cover.662a8d401787ef33780d91252a352de91dc4be10.1590594293.git-series.maxime@cerno.tech>
-References: <cover.662a8d401787ef33780d91252a352de91dc4be10.1590594293.git-series.maxime@cerno.tech>
-MIME-Version: 1.0
+ id 1jeiel-00086L-F8; Fri, 29 May 2020 17:18:56 +0000
+Received: from localhost (fw-tnat.cambridge.arm.com [217.140.96.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id EFB852074D;
+ Fri, 29 May 2020 17:18:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1590772730;
+ bh=a5S1gx+JJjYPO8/mi+Gcgzo3QS58fT7hT71d61WRYqY=;
+ h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
+ b=fr3b99EKpWX6dNiBPw7VavMlT7GriqwmdJIPGhfIMPclSFt3svBQ+4tI6fWQ90ct2
+ ux78Dcs4U0fu896v258Aup5J1T495R63lJH5K7WGmMOnz/c1jBJ+UruRGE6+O91nAG
+ uKEGDpzO80C/Q23LkPLZ3VSJqY94VGd97iPWWdME=
+Date: Fri, 29 May 2020 18:18:47 +0100
+From: Mark Brown <broonie@kernel.org>
+To: linux-kernel@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>
+In-Reply-To: <20200528190605.24850-1-f.fainelli@gmail.com>
+References: <20200528190605.24850-1-f.fainelli@gmail.com>
+Subject: Re: [PATCH] spi: bcm2835: Implement shutdown callback
+Message-Id: <159077271266.17043.15897964625717364519.b4-ty@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200527_084607_096797_934C6D91 
-X-CRM114-Status: UNSURE (   8.88  )
+X-CRM114-CacheID: sfid-20200529_101855_524245_52D1F687 
+X-CRM114-Status: UNSURE (   9.39  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: -0.9 (/)
+X-Spam-Score: -5.2 (-----)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.9 points)
+ Content analysis details:   (-5.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [66.111.4.26 listed in list.dnswl.org]
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [66.111.4.26 listed in wl.mailspike.net]
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [198.145.29.99 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -107,40 +73,51 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Tim Gover <tim.gover@raspberrypi.com>, linux-kernel@vger.kernel.org,
- bcm-kernel-feedback-list@broadcom.com, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, Maxime Ripard <maxime@cerno.tech>
+Cc: Scott Branden <sbranden@broadcom.com>, Ray Jui <rjui@broadcom.com>,
+ "open list:SPI SUBSYSTEM" <linux-spi@vger.kernel.org>,
+ "maintainer:BROADCOM BCM281XX/BCM11XXX/BCM216XX ARM ARCHITE..."
+ <bcm-kernel-feedback-list@broadcom.com>,
+ "moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>,
+ "moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE"
+ <linux-rpi-kernel@lists.infradead.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-Now that we have a clock driver for the clocks exposed by the firmware,
-let's add the device tree nodes for it.
+On Thu, 28 May 2020 12:06:05 -0700, Florian Fainelli wrote:
+> Make sure we clear the FIFOs, stop the block, disable the clock and
+> release the DMA channel.
 
-Signed-off-by: Maxime Ripard <maxime@cerno.tech>
----
- arch/arm/boot/dts/bcm2711-rpi-4-b.dts | 5 +++++
- 1 file changed, 5 insertions(+)
+Applied to
 
-diff --git a/arch/arm/boot/dts/bcm2711-rpi-4-b.dts b/arch/arm/boot/dts/bcm2711-rpi-4-b.dts
-index c7f1d97e69bb..222d7825e1ab 100644
---- a/arch/arm/boot/dts/bcm2711-rpi-4-b.dts
-+++ b/arch/arm/boot/dts/bcm2711-rpi-4-b.dts
-@@ -69,6 +69,11 @@
- };
- 
- &firmware {
-+	firmware_clocks: clocks {
-+		compatible = "raspberrypi,firmware-clocks";
-+		#clock-cells = <1>;
-+	};
-+
- 	expgpio: gpio {
- 		compatible = "raspberrypi,firmware-gpio";
- 		gpio-controller;
--- 
-git-series 0.9.1
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+
+Thanks!
+
+[1/1] spi: bcm2835: Implement shutdown callback
+      commit: 118eb0e52eb74b899053a0f46dfe7e178788d23b
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 _______________________________________________
 linux-rpi-kernel mailing list
