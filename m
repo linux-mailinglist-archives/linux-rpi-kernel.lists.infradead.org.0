@@ -2,46 +2,44 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0EDF11EF448
-	for <lists+linux-rpi-kernel@lfdr.de>; Fri,  5 Jun 2020 11:34:31 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4531D1EF6FF
+	for <lists+linux-rpi-kernel@lfdr.de>; Fri,  5 Jun 2020 14:05:27 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	MIME-Version:References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	 bh=ql9Whq1dVPGQvluo8vRBU0X5OhUfASsci/l/MPl/K/Q=; b=o5rPJn+4svW412i04yCJZvAax
-	/mFRPcA8VWA9UTTvJAiMmpvTDHcRi29nNxA18/X0DrMDBhFud6s9MYurSOtvsXyzyXzi+FNJCtkAS
-	xDBOtUU7l8Ddu+w7oPW5nPMdCOLXGrfJ8aLeUCxoL+Q9qrH3XctiE3n+ctfB8b7J/3p1z6IrroV9C
-	8pFMkxxe8yIFyOqs6oOqPw3MgyZqKYkHqnXmegK6oo7USpMsGDbI1sVKm3TxvGGwdsU9guEFL5Pov
-	aVLHFLSw8k413qGVTsPkrrdRP1mlItFwAsqIshJrTIKD3w6Bbywbrk7gDW4QKt2IqSZCt/dWs+mXG
-	lp5wLK0PQ==;
+	 bh=J223MpYZ7V0vK2q8fXTlmAcHSJiomLDXq2an7u9jQt0=; b=h06ShOmL6FciP8EjATZON9+sV
+	ucEwZoa4D7ajbwQWYx0fw77m3AP9YtWNX7gvWnHMoQyebL4G0MtWL0VOe/Ys4/luu5hMoJ3PFNv5m
+	cdlOzMgT3OC2cMN8WmhAPPWieSrcJxZ7MFLtVGHZpjKfxfUGgXPZY7xbkJXSCPMaClkrYly2yEwVb
+	KbAmveGBdGrwonDuQPF0dlc0n3k1wjOJIvKC3lj0e8wfDELTQuUqDXo5fV1Y6r+PBIMLuZh3KlJpH
+	35Uwhd/4LZvOoANNH53jfsk9QTf308rZBt+0ZNB7E9n+EQjlTUT6vTuVJ8cGC0+VDFzAPM4oy947g
+	cVdPmDumQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jh8k3-0001cm-6t; Fri, 05 Jun 2020 09:34:23 +0000
+	id 1jhB67-0001vh-NL; Fri, 05 Jun 2020 12:05:19 +0000
 Received: from mx2.suse.de ([195.135.220.15])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jh8jp-0001UU-Dx; Fri, 05 Jun 2020 09:34:11 +0000
+ id 1jhB5l-0007jk-HH; Fri, 05 Jun 2020 12:04:59 +0000
 X-Virus-Scanned: by amavisd-new at test-mx.suse.de
 Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx2.suse.de (Postfix) with ESMTP id 29C5EAD1A;
- Fri,  5 Jun 2020 09:34:11 +0000 (UTC)
-Message-ID: <99eb84154ef837832d872e05f4c6323908cdf456.camel@suse.de>
-Subject: Re: [PATCH v3 12/25] clk: bcm: rpi: Use CCF boundaries instead of
- rolling our own
+ by mx2.suse.de (Postfix) with ESMTP id 7D510AEBE;
+ Fri,  5 Jun 2020 12:04:58 +0000 (UTC)
+Message-ID: <d8be3a45491224e0c91355131a9bcf605f38fb76.camel@suse.de>
+Subject: Re: [PATCH v3 20/25] clk: bcm: rpi: Add an enum for the firmware
+ clocks
 From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 To: Maxime Ripard <maxime@cerno.tech>
-Date: Fri, 05 Jun 2020 11:34:05 +0200
-In-Reply-To: <20200605092802.xkoazjnin7xyqkoy@gilmour.lan>
+Date: Fri, 05 Jun 2020 14:04:51 +0200
+In-Reply-To: <c56fb0a912fe254416ed5a247e6fb6d79fb604bc.1590594293.git-series.maxime@cerno.tech>
 References: <cover.662a8d401787ef33780d91252a352de91dc4be10.1590594293.git-series.maxime@cerno.tech>
- <eb1b2838f1c3c006c24bcb9816f75e1351c63b05.1590594293.git-series.maxime@cerno.tech>
- <e096d89ab881d69b2477b209838a308f9de114b1.camel@suse.de>
- <20200605092802.xkoazjnin7xyqkoy@gilmour.lan>
+ <c56fb0a912fe254416ed5a247e6fb6d79fb604bc.1590594293.git-series.maxime@cerno.tech>
 User-Agent: Evolution 3.36.2 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200605_023409_766716_A2327ECA 
-X-CRM114-Status: GOOD (  21.05  )
+X-CRM114-CacheID: sfid-20200605_050457_866020_DD99ECC0 
+X-CRM114-Status: GOOD (  14.04  )
 X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-2.3 points)
@@ -68,127 +66,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>,
 Cc: Tim Gover <tim.gover@raspberrypi.com>, linux-kernel@vger.kernel.org,
  bcm-kernel-feedback-list@broadcom.com, linux-rpi-kernel@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org
-Content-Type: multipart/mixed; boundary="===============2127463303729373869=="
+Content-Type: multipart/mixed; boundary="===============7291019546562279456=="
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
 
---===============2127463303729373869==
+--===============7291019546562279456==
 Content-Type: multipart/signed; micalg="pgp-sha256";
-	protocol="application/pgp-signature"; boundary="=-cb1rk5pgqkytLeD/HsnD"
+	protocol="application/pgp-signature"; boundary="=-GP9+0KNilneDNEwCxB11"
 
 
---=-cb1rk5pgqkytLeD/HsnD
+--=-GP9+0KNilneDNEwCxB11
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, 2020-06-05 at 11:28 +0200, Maxime Ripard wrote:
-> Hi Nicolas,
+On Wed, 2020-05-27 at 17:45 +0200, Maxime Ripard wrote:
+> While the firmware allows us to discover the available clocks, we need to
+> discriminate those clocks to only register the ones meaningful to Linux.
+> The firmware also doesn't provide a clock name, so having a list of the I=
+D
+> will help us to give clocks a proper name later on.
 >=20
-> On Thu, Jun 04, 2020 at 08:02:22PM +0200, Nicolas Saenz Julienne wrote:
-> > On Wed, 2020-05-27 at 17:45 +0200, Maxime Ripard wrote:
-> > > The raspberrypi firmware clock driver has a min_rate / max_rate clamp=
-ing
-> > > by
-> > > storing the info it needs in a private structure.
-> > >=20
-> > > However, the CCF already provides such a facility, so we can switch t=
-o it
-> > > to remove the boilerplate.
-> > >=20
-> > > Signed-off-by: Maxime Ripard <maxime@cerno.tech>
-> > > ---
-> > >  drivers/clk/bcm/clk-raspberrypi.c | 18 ++++++++----------
-> > >  1 file changed, 8 insertions(+), 10 deletions(-)
-> > >=20
-> > > diff --git a/drivers/clk/bcm/clk-raspberrypi.c b/drivers/clk/bcm/clk-
-> > > raspberrypi.c
-> > > index a20492fade6a..e135ad28d38d 100644
-> > > --- a/drivers/clk/bcm/clk-raspberrypi.c
-> > > +++ b/drivers/clk/bcm/clk-raspberrypi.c
-> > > @@ -36,9 +36,6 @@ struct raspberrypi_clk {
-> > >  	struct rpi_firmware *firmware;
-> > >  	struct platform_device *cpufreq;
-> > > =20
-> > > -	unsigned long min_rate;
-> > > -	unsigned long max_rate;
-> > > -
-> > >  	struct clk_hw pllb;
-> > >  };
-> > > =20
-> > > @@ -142,13 +139,11 @@ static int raspberrypi_fw_pll_set_rate(struct c=
-lk_hw
-> > > *hw, unsigned long rate,
-> > >  static int raspberrypi_pll_determine_rate(struct clk_hw *hw,
-> > >  					  struct clk_rate_request *req)
-> > >  {
-> > > -	struct raspberrypi_clk *rpi =3D container_of(hw, struct raspberrypi=
-_clk,
-> > > -						   pllb);
-> > >  	u64 div, final_rate;
-> > >  	u32 ndiv, fdiv;
-> > > =20
-> > >  	/* We can't use req->rate directly as it would overflow */
-> > > -	final_rate =3D clamp(req->rate, rpi->min_rate, rpi->max_rate);
-> > > +	final_rate =3D clamp(req->rate, req->min_rate, req->max_rate);
-> > > =20
-> > >  	div =3D (u64)final_rate << A2W_PLL_FRAC_BITS;
-> > >  	do_div(div, req->best_parent_rate);
-> > > @@ -215,12 +210,15 @@ static int raspberrypi_register_pllb(struct
-> > > raspberrypi_clk *rpi)
-> > >  	dev_info(rpi->dev, "CPU frequency range: min %u, max %u\n",
-> > >  		 min_rate, max_rate);
-> > > =20
-> > > -	rpi->min_rate =3D min_rate * RPI_FIRMWARE_PLLB_ARM_DIV_RATE;
-> > > -	rpi->max_rate =3D max_rate * RPI_FIRMWARE_PLLB_ARM_DIV_RATE;
-> > > -
-> > >  	rpi->pllb.init =3D &init;
-> > > =20
-> > > -	return devm_clk_hw_register(rpi->dev, &rpi->pllb);
-> > > +	ret =3D devm_clk_hw_register(rpi->dev, &rpi->pllb);
-> > > +	if (!ret)
-> > > +		clk_hw_set_rate_range(&rpi->pllb,
-> > > +				      min_rate * RPI_FIRMWARE_PLLB_ARM_DIV_RATE,
-> > > +				      max_rate *
-> > > RPI_FIRMWARE_PLLB_ARM_DIV_RATE);
-> >=20
-> > Isn't there a potential race here? Albeit unlikely, cpufreq could show
-> > up and call clk_round_rate() in between the registration and you
-> > setting the ranges.
+> Signed-off-by: Maxime Ripard <maxime@cerno.tech>
+> ---
+>  drivers/clk/bcm/clk-raspberrypi.c | 23 +++++++++++++++++++----
+>  1 file changed, 19 insertions(+), 4 deletions(-)
 >=20
-> IIRC, driver's probe are not called in parallel but in sequence, so we
-> should be covered here.
+> diff --git a/drivers/clk/bcm/clk-raspberrypi.c b/drivers/clk/bcm/clk-
+> raspberrypi.c
+> index 5f4e2d49432f..eebd16040f8a 100644
+> --- a/drivers/clk/bcm/clk-raspberrypi.c
+> +++ b/drivers/clk/bcm/clk-raspberrypi.c
+> @@ -18,7 +18,23 @@
+> =20
+>  #include <soc/bcm2835/raspberrypi-firmware.h>
+> =20
+> -#define RPI_FIRMWARE_ARM_CLK_ID		0x00000003
+> +enum rpi_firmware_clk_id {
+> +	RPI_FIRMWARE_EMMC_CLK_ID =3D 1,
+> +	RPI_FIRMWARE_UART_CLK_ID,
+> +	RPI_FIRMWARE_ARM_CLK_ID,
+> +	RPI_FIRMWARE_CORE_CLK_ID,
+> +	RPI_FIRMWARE_V3D_CLK_ID,
+> +	RPI_FIRMWARE_H264_CLK_ID,
+> +	RPI_FIRMWARE_ISP_CLK_ID,
+> +	RPI_FIRMWARE_SDRAM_CLK_ID,
+> +	RPI_FIRMWARE_PIXEL_CLK_ID,
+> +	RPI_FIRMWARE_PWM_CLK_ID,
+> +	RPI_FIRMWARE_HEVC_CLK_ID,
+> +	RPI_FIRMWARE_EMMC2_CLK_ID,
+> +	RPI_FIRMWARE_M2MC_CLK_ID,
+> +	RPI_FIRMWARE_PIXEL_BVB_CLK_ID,
+> +	RPI_FIRMWARE_NUM_CLK_ID,
+> +};
+> =20
+>  #define RPI_FIRMWARE_STATE_ENABLE_BIT	BIT(0)
+>  #define RPI_FIRMWARE_STATE_WAIT_BIT	BIT(1)
+> @@ -31,8 +47,6 @@
+> =20
+>  #define A2W_PLL_FRAC_BITS		20
+> =20
+> -#define NUM_FW_CLKS			16
+> -
+>  struct raspberrypi_clk {
+>  	struct device *dev;
+>  	struct rpi_firmware *firmware;
+> @@ -320,7 +334,8 @@ static int raspberrypi_clk_probe(struct platform_devi=
+ce
+> *pdev)
+>  	rpi->firmware =3D firmware;
+>  	platform_set_drvdata(pdev, rpi);
+> =20
+> -	clk_data =3D devm_kzalloc(dev, struct_size(clk_data, hws, NUM_FW_CLKS),
+> +	clk_data =3D devm_kzalloc(dev, struct_size(clk_data, hws,
+> +						 RPI_FIRMWARE_NUM_CLK_ID),
 
-Right, of course.
+nit: you're allocating one structure too many right?
 
-Reviewed-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+Acked-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 
 Regards,
 Nicolas
 
 
---=-cb1rk5pgqkytLeD/HsnD
+--=-GP9+0KNilneDNEwCxB11
 Content-Type: application/pgp-signature; name="signature.asc"
 Content-Description: This is a digitally signed message part
 Content-Transfer-Encoding: 7bit
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCAAdFiEErOkkGDHCg2EbPcGjlfZmHno8x/4FAl7aEY0ACgkQlfZmHno8
-x/4umQf/Uc3QL2xEaD4EW/hr8XDzlJ9lGMJ5F7R36Z4DMXaYoZQD5qNeZDiOiHuy
-rvo5pwHIJMC4Pxl14Rpc9R8CThc0PoNyEFmC8fQFSILD/iQq67YDh2HvURg0klGi
-1FPDbDkLboH757AN1ghsHDP38gYPehhyeCL//HcDuHYgFbFzhtC4T5+dF/4C9GBK
-pD3NaQlkfKFuPEjkMOhKOI0oWgYprzuDG9LUQgUOXpkexsJkMzTng8PqidhgGreM
-eQPpFeMBn/wd9TYtyGSBYIKzvCeTu73BrALg8hOtrioSRXMwnrm/eSygEwvc8ehQ
-Em1ViGFL7VnKAbT1tAMZckefzadfxA==
-=gAK7
+iQEzBAABCAAdFiEErOkkGDHCg2EbPcGjlfZmHno8x/4FAl7aNOMACgkQlfZmHno8
+x/663Af/Ue9v4O4m3tuVBEUtlVFqdD+i3sT2CM6Kgid7VjNWLvsgN8tbreLEg/kj
+MSPVWTG+XKpO/gk+qom/1tuUTCXYtc69+v/ZeTUfKPr/qhrijdrgwv7MHZx53zUi
+t6ZAFskKADhFQbMXPQQjXzUUwAtSf+RpWGIz2QcLpX6k3KlYkSYcVs2V5l1uxcv6
+xa7cBA3m+CPK2URXdFdyrb1+xCKKL+hWPTI8Sxhb/jST92xsfV3m/nV6x9NaJweI
+tqb7oybKtgK5D8nmpU7Uk5cFMrN/c+TUpgB8fC+j4Wk/laqtNI5MsIC/5oZsnXlq
+JJwitiIAqvtbem36Y5KbsOjGUhW3JQ==
+=ytwt
 -----END PGP SIGNATURE-----
 
---=-cb1rk5pgqkytLeD/HsnD--
+--=-GP9+0KNilneDNEwCxB11--
 
 
 
---===============2127463303729373869==
+--===============7291019546562279456==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -199,6 +181,6 @@ linux-rpi-kernel mailing list
 linux-rpi-kernel@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
 
---===============2127463303729373869==--
+--===============7291019546562279456==--
 
 
