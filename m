@@ -2,202 +2,71 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id C6C381FA0CD
-	for <lists+linux-rpi-kernel@lfdr.de>; Mon, 15 Jun 2020 21:53:18 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 19BA21FB444
+	for <lists+linux-rpi-kernel@lfdr.de>; Tue, 16 Jun 2020 16:27:05 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-ID:Subject:
-	From:To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=PIaJqC90JRAGVOFPCdf8pMjJQo5x8DURoUzzEk1rRAA=; b=l+mtue7TxMXo07
-	R2cagApWQRjgUk9ELeNrlmmNCxrXZKk4besrQiTnuSfs6UP1/D/0ZL5bZXk/ZuG9Z24T+NpZww3k7
-	GOa9F67UmFAeUBB2AQDVa35uoP51vxk89h3MYcBqFk3fB76HriJZuf5cDblFghrjBpSO/Xcyl/UEo
-	i6ShejgIoQ01TfAEqt+D2Za6+ZnV7Hz20SRvab6Q+FfguHwGGmHcyX6anq+wcqzdOYOJUK9kUV4zm
-	DviyZSBBW1Wj+pTTLl/TsHQ3BGm21g6e//0MOrpXVJzj+EW760q0dazztpuFWb9CXjK/llON5dhrQ
-	MjPfxs4Eib+MiBra+DAg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=RCYBW67NZ/Zq9XD+dlgKBcCsnjpbsiukYazZh3sMkB4=; b=ZkyMSiAQ/KKXECnYE49L9fyqo
+	IykusmP4eUfJ2vWqJJgeyboZyV/O4S4v2IaMkYMPXYPy0Sb7nwi653Np+dLswbtgCNYP6ujvhnZPM
+	KBJoo1V7F8AqYL7exZKfx4kYD92cDC50q0V92fqAuv0fymmwo8hvWBOKkReLkwb9+8BKIjZiHQWy7
+	2B+Xw5YH2rC3d/G6jHm9Sr0ebbadTnp3PgBJPf1bR+0/Gym9u2GGNyLvd6xNSGkdY5odH8VfRfvRF
+	719TPeTIUdWGNvdEJ5k4ndzajzi0X/qt4fm3B9432o71apL20WztoWsxqWK+8IXYSymzDdsTmw3xi
+	CG6k2V/Dw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jkvAQ-0005jw-Oz; Mon, 15 Jun 2020 19:53:14 +0000
-Received: from mout.kundenserver.de ([212.227.126.135])
+	id 1jlCYF-000195-36; Tue, 16 Jun 2020 14:26:59 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jkvAN-0005jL-A8
- for linux-rpi-kernel@lists.infradead.org; Mon, 15 Jun 2020 19:53:13 +0000
-Received: from [192.168.1.167] ([37.4.249.202]) by mrelayeu.kundenserver.de
- (mreue009 [212.227.15.167]) with ESMTPSA (Nemesis) id
- 1MpDRv-1j7UXl3W1P-00qgiz; Mon, 15 Jun 2020 21:53:06 +0200
-To: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-From: Stefan Wahren <stefan.wahren@i2se.com>
-Subject: Possible regressions with Linux 5.8-rc1
-Autocrypt: addr=stefan.wahren@i2se.com; keydata=
- LS0tLS1CRUdJTiBQR1AgUFVCTElDIEtFWSBCTE9DSy0tLS0tClZlcnNpb246IEdudVBHIHYy
- CgptUUlOQkZ0NmdCTUJFQUN1Yi9wQmV2SHhidkplZnlaRzMySklObW4yYnNFUFgyNVY2ZmVq
- bXlZd21DR0tqRnRMCi9Eb1VNRVZIRHhDSjQ3Qk1YbzM0NGZIVjFDM0FudWRnTjFCZWhMb0J0
- TEh4bW5lQ3pnSDNLY1B0V1c3cHRqNEcKdEp2OUNRRFp5MjdTS29FUHh5YUk4Q0YweWdSeEpj
- NzJNOUk5d21zUFo1YlVIc0x1WVdNcVE3SmNSbVBzNkQ4ZwpCa2srOC95bmdFeU5FeHd4SnBS
- MXlsajVianhXREh5WVF2dUo1THpaS3VPOUxCM2xYVnNjNGJxWEVqYzZWRnVaCkZDQ2svc3lp
- by9ZaHNlOE4rUXN4N01RYWd6NHdLVWtRUWJmWGcxVnFrVG5BaXZYczQyVm5Ja211NWd6SXcv
- MHQKUkp2NTBGUmhIaHhweUtBSThCOG5oTjhRdng3TVZrUGM1dkRmZDN1R1lXNDdKUGhWUUJj
- VXdKd05rLzQ5RjllQQp2ZzJtdE1QRm5GT1JrV1VSdlArRzZGSmZtNitDdk92N1lmUDF1ZXdB
- aTRsbitKTzFnK2dqVklXbC9XSnB5MG5UCmlwZGZlSDlkSGtnU2lmUXVuWWN1Y2lzTXlvUmJG
- OTU1dENna0VZOUVNRWRZMXQ4aUdEaUNnWDZzNTBMSGJpM2sKNDUzdWFjcHhmUVhTYUF3UGtz
- bDhNa0NPc3YyZUVyNElOQ0hZUUR5WmljbEJ1dUNnOEVOYlI2QUdWdFpTUGNRYgplbnpTektS
- Wm9POUNhcUlEK2ZhdkxpQi9kaHptSEErOWJnSWhtWGZ2WFJMRFp6ZThwbzFkeXQzRTFzaFhp
- ZGRaClBBOE51SlZ6RUl0MmxtSTZWOHBaRHBuMjIxcmZLaml2UlFpYW9zNTRUZ1pqak1ZSTdu
- bko3ZTZ4endBUkFRQUIKdENCVGRHVm1ZVzRnVjJGb2NtVnVJRHgzWVdoeVpXNXpkRUJuYlhn
- dWJtVjBQb2tDTndRVEFRZ0FJUVVDWElkYwo0Z0liQXdVTENRZ0hBZ1lWQ0FrS0N3SUVGZ0lE
- QVFJZUFRSVhnQUFLQ1JDVWdld1BFWkR5MjFPVEQvOUdpWkxkCnRSWWNteVJKZ2x0aVFRekFp
- UWRjSUQ3OGxHb1dwL3grci92Y1U2YjZqdVl1ZVR3Z1Iwclc3djdsMklSQnlEN24KSEp4YSt0
- SVNvUVpCZ2hvbE1JZmI5TXRoR09KTENZNzdrL1FoQWhuMzJOR1prZWp3OXR6a3MvNDBtclpT
- VVQ4NApaeWJzUVhyTE0vSFI2VElJL0RlUEIwbktEM0ppcHBzMlVIUUQ5cUQySWpFd1NRUGxI
- akNPckVaaDQ1UFo3bTkrClo5M0x6aVRlc1dabFlRdUxpSndzNHJLcHRIVzFkL3dSZWxzaG1t
- NlFxY0wybDRDL2U0MGVEQjlncTRkU1poOVgKUEVZbGxpeU5RaDdhMkxTZHVtRTFyK2NTd0lq
- RS91ZHRSdmRPOWFLb0psT2JVSzVkTmpTUEg3d0tUYndkWGRZRApHUHdEaFhkNThOQXdyK1BY
- QmxQajB0STFMQ3ErTEJ4ZUt6aFdYK0dWcTlEb2pWanlVREV4Rk5Ga1h1b0M3ZzhtClY5VDB0
- ZUJpdVpSbm91WEt3VjJGcHRaT0hIN0JVRVd0a0t0aGgxZXRmT1dwaWdCemtVN2JQc2ZJWVQr
- cnk5dGIKMW9KK3Y0MVBOYXFaRW1QVXBKeHZmek5UN3Ayd01lRDdaajlmMHJ1YlJQdExBSjJR
- R2pyRkhzdVh3QU9xcHl6ZQoxOEVidHNZazBOMHp1SEVoY2orUEJJQmZoMFlJWWQ1MW9mNkdJ
- aU95UjlxMFhYdHBsVUo3VDIvSDF1UXFrWGxwCitnVzRWa2lmc2NJckl1eWZueFpXMTJlSXZq
- NnlicVdMN2FZS0dZbVQ2aUxDUGJIWXlZY2F5bDRFa0ZjckNGN0UKZTBXVC9zY1ZNaE8vNVgv
- SGFOQTVIQngvcjUycGdMY3Y0aTlNeExRbVUzUmxabUZ1SUZkaGFISmxiaUE4YzNSbApabUZ1
- TG5kaGFISmxia0JwTW5ObExtTnZiVDZKQWpnRUV3RUNBQ0lGQWx0NmdCTUNHd01HQ3drSUJ3
- TUNCaFVJCkFna0tDd1FXQWdNQkFoNEJBaGVBQUFvSkVKU0I3QThSa1BMYmpic1AvamdqYVNz
- NUh0bGtBSXZXUytGcm15N2MKaG5jT0F4TFRWL0Q2UkV3SU95R0poRkt3d29pck55UTJnOXZV
- YTNZQ1lDZjFmSjh3RWhhS09COWQwTHBNUm5MNApkRVQ4ZDgyMzhFL3BLK0hxTktpSXNKaHM2
- SnNLOFpnalZRR3JtbWZua0dyWisxdjBIQnV4ZGljZ0duUC9XdHVBClVsOGw2Mi9BTGJheXlq
- KzYxQ2xyc0V0UklhcU82N0xJWXdQaVBEUkkrWGlNek5pR3pIRi8xUTZHUjAyUkg2YTMKRjg5
- ejhhUHhjSGkxWnZDdDJ5a3o2VUVjaHpQMHI1Z3FGSisvTC9VcHU4ME1YaVk0djVlSWFCNTJn
- VlBnaXlNQQpsTDJkRHMxbUladm5yUkxSWTJ0YjNtQVlOa1Y1QjVJRFQzcGtXeTZrS281T0Nn
- SytZZFlPUjhGTloyb04ydDhPCnJLK1ZudGFLN01NU0tIbG1ZL3NPd3RSbEVoMU9CbXJjQ3dH
- d21wLzA1R2tSNDZmL0lzaFJWZUZPUmF3K0dBcXQKUDIrQ0ZhMkNOQS9JSG5aTm95aWtsRHpQ
- UUhVVUdzck5wcERyaFg5Sm1oQm1nMXYyeXdIMU5YdTFpRGZQMUJBdwpLZ29rdDVmNVVhUkY5
- c0FBNTN2V0V2YlVVTjllZXNGR0x6UFdkSkdRNWhwZC9WSDVJUXk5U0JyaC93SWNla3E1Cm4w
- a042cGJUSHhHRTUyU2kvTVZJa05UdURaM2FwbjJqbERaNHBPdHBCWEkydlAzYlBPK05pcUJa
- anNVM3R4TGkKV2R2MkZqeXp6NlhMUndlV1JZVkw1SGE2TER0eG9yMnZ1NlVQMDdwOXh6MXhS
- WmFPRFczb1lsSEZ6WXBhNFc1ZwpMSGIybEVrSXVVZlNjaWNHYmpqQXRDbFRkR1ZtWVc0Z1Yy
- Rm9jbVZ1SUR4emRHVm1ZVzR1ZDJGb2NtVnVRR2x1CkxYUmxZMmd1WTI5dFBva0NOd1FUQVFn
- QUlRVUNYSWRlaHdJYkF3VUxDUWdIQWdZVkNBa0tDd0lFRmdJREFRSWUKQVFJWGdBQUtDUkNV
- Z2V3UEVaRHkyeUhURC85VUY3UWxEa0d4elE3QWFDSTZOOTVpUWY4LzFvU1VhRE51Mlk2SQpL
- K0R6UXBiMVRiVE9yM1ZKd3dZOGEzT1d6NU5MU09MTVdlVnh0K29zTW1sUUlHdWJEM09EWko4
- aXpQbEcvSnJOCnQ1elNkbU41SUE1ZjNlc1dXUVZLdmdoWkFnVERxZHB2K1pIVzJFbXhuQUox
- dUxGWFhlUWQzVVpjQzVyMy9nL3YKU2FNbzl4ZWszSjVtTnVEbTcxbEVXc0FzL0JBY0ZjK3lu
- TGh4d0JXQld3c3Z3UjhiSHRKNURPTVd2YUt1RHNrcApJR0ZVZS9LYjJCK2pyYXZRM1RuNnMv
- SHFKTTBjZXhTSHo1cGUrMHNHdlArdDlKNzIzNEJGUXdlRkV4cmlleThVCkl4T3I0WEFiYWFi
- U3J5WW5VL3pWSDlVMWkyQUlRWk1XSkFldkN2VmdRL1UrTmVSaFh1ZGU5WVVtRE1EbzJzQjIK
- VkFGRUFxaUYyUVVIUEEybThhN0VPM3lmTDRyTWswaUh6TElLdmg2L3JIOFFDWThpM1h4VE5M
- OWlDTHpCV3UvTgpPbkNBYlMremx2TFphaVNNaDVFZnV4VHR2NFBsVmRFamY2MlArWkhJRDE2
- Z1VEd0VtYXpMQU1yeDY2NmpINWt1ClVDVFZ5bWJMMFR2Qis2TDZBUmw4QU55TTRBRG1rV2tw
- eU0yMmtDdUlTWUFFZlFSM3VXWFo5WWd4YVBNcWJWK3cKQnJoSmc0SGFONkM2eFRxR3YzcjRC
- MmFxYjc3L0NWb1JKMVo5Y3BIQ3dpT3pJYUFtdnl6UFU2TXhDRFhaOEZnWQpsVDR2MjNHNWlt
- SlAyemdYNXMrRjZBQ1VKOVVRUEQwdVRmK0o5RGEycitza2gvc1dPbloreWNvSE5CUXZvY1pF
- Ck5BSFFmN2tDRFFSYmVvQVRBUkFBMkhkMGZzRFZLNzJSTFNESGJ5ME9oZ0RjRGxWQk0yTSto
- WVlwTzNmWDFyKysKc2hpcVBLQ0hWQXNRNWJ4ZTdIbUppbUhhNEtLWXMya3YvbWx0L0NhdUNK
- Ly9wbWN5Y0JNN0d2d25Lem11WHp1QQpHbVZUWkM2V1I1TGtha0ZydEhPelZtc0VHcE52NVJj
- OWw2SFlGcExrYlNrVmk1U1BRWkp5K0VNZ01DRmdqclpmClZGNnlvdHdFMWFmN0hOdE1oTlBh
- TEROMW9VS0Y1aitSeVJnNWl3SnVDRGtuSGp3QlFWNHBndzIvNXZTOEE3WlEKdjJNYlcvVExF
- eXBLWGlmNzhJaGdBelh0RTJYck0xbi9vNlpINzFvUkZGS096NDJsRmR6ZHJTWDBZc3FYZ0hD
- WAo1Z0l0TGZxemoxcHNNYTlvMWVpTlRFbTFkVlFyVHFueXMwbDE4b2FsUk5zd1lsUW1uWUJ3
- cHdDa2FUSExNSHdLCmZHQmJvNWRMUEVzaHRWb3dJNm5zZ3FMVHlRSG1xSFlxVVpZSXBpZ21t
- QzNTd0JXWTFWNmZmVUVta3FwQUFDRW4KTDQvZ1Vnbjd5US81ZDBzZXFuQXEycFNCSE1VVW9D
- Y1R6RVFVV1ZraUR2M1JrN2hURm1oVHNNcTc4eHYyWFJzWApNUjZ5UWhTVFBGWkNZRFVFeEVs
- RXNTbzlGV0hXcjZ6SHlZY2M4cURMRnZHOUZQaG1RdVQyczlCbHg2Z0kzMjNHCm5FcTFsd1dQ
- SlZ6UDRqUWtKS0lBWHdGcHYrVzhDV0xxekRXT3ZkbHJEYVRhVk1zY0ZUZUg1VzZVcHJsNjVq
- cUYKUUdNcGNSR0NzOEdDVVcxM0gwSXlPdFF0d1dYQTRueStTTDgxcHZpQW1hU1hVOGxhS2FS
- dTkxVk9WYUY5ZjRzQQpFUUVBQVlrQ0h3UVlBUUlBQ1FVQ1czcUFFd0liREFBS0NSQ1VnZXdQ
- RVpEeTIrb1hELzljSEhSa0JaT2ZrbVNxCjE0U3Z4MDYyUHRVMEtWNDcwVFNucC9qV29ZSm5L
- SXczRzBtWElSZ3J0SDJkUHdwSWdWanNZeVJTVk1LbVNwdDUKWnJEZjlOdFRiTldnazhWb0xl
- WnpZRW8rSjNvUHFGclRNczNhWVl2N2U0K0pLNjk1WW5tUSttT0Q5bmlhOTE1dApyNUFaajk1
- VWZTVGx5VW15aWMxZDhvdnNmMWZQN1hDVVZSRmNSamZOZkRGMW9ML3BEZ01QNUdaMk93YVRl
- am15CkN1SGpNOElSMUNpYXZCcFlEbUJuVFlrN1B0aHk2YXRXdllsMGZ5L0NxYWpUS3N4Nytw
- OXh6aXU4WmZWWCtpS0IKQ2MrSGUrRURFZEdJRGh2TlovSVFIZk9CMlBVWFdHUytzOUZOVHhy
- L0E2bkxHWG5BOVk2dzkzaVBkWUl3eFM3SwpYTG9LSmVlMTBEamx6c1lzUmZsRk9XMFpPaVNp
- aElDWGlRVjF1cU02dHpGRzlndFJjaXVzNVVBdGhXYU8xT3dVClNDUW1mQ09tNGZ2TUlKSUE5
- cnh0b1M2T3FSUWNpRjNjcm1vMHJKQ3ROMmF3WmZnaThYRWlmN2Q2aGp2MEVLTTkKWFpvaUFa
- WVpEKy9pTG01VGFLV042b0dJdGkwVmpKdjhaWk9aT2ZDYjZ2cUZJa0pXK2FPdTRvclRMRk16
- MjhhbwpVM1F5V3BOQzhGRm1kWXNWdWE4czZnTjFOSWE2eTNxYS9aQjhiQS9pa3k1OUFFejRp
- RElScmdVek1FZzhBazdUCmZtMUtpWWVpVHRCRENvMjVCdlhqYnFzeXhrUUQxbmtSbTZGQVZ6
- RXVPUEllOEp1cVcyeEQ5aXhHWXZqVTVoa1IKZ0pwM2dQNWIrY25HM0xQcXF1UTJFNmdvS1VN
- TEFia0NEUVJiZmw5REFSQUFzRExjYStMbFAydm5mdEVHaHBjQQpCR1ZOUUVGbkdQckNhdVU2
- SGhOODA1V3RQVHRtc1JPdUp6cWdVVDBtcHFXSWZacTZzTXd5dkhLOVRzL0tIM0paClVWYlJD
- M3oyaDNLZmhIL0RhZjk1cGQ2bVBjL2g5dkYvT3kzK2VUV2hnR25QNmNBNWtsUitmTzFXaEc4
- VnJpWHYKck5lUkcyMHN6emplSG9jblNJY1Q1WHVaUjB1REhPaUd4T2l6MXNNUkZUR3h6R095
- MTlSOXJ2dTYzdGlJM2Q3dgpnYzc1T0NBZGtlQi9TZUNFbGFSdzBUZjdMWmJQampzRjI2M0JZ
- bk1mNGtrTkVLdnFXY1UyaWNNcCtxZXpqeW5CCnB2ZXVlMHJDVFFCWUFRbG9GQ1ZUR0hyV1dB
- NkQ0VzVPMkFmSWRJYzF1MUpDWnAyZjVMV1ZvVUZUVklyUW5RUVUKU0hDaWZyOU1aeExUdFBK
- ZFU1Mm9TUHczZGs0aExQOGlKSUx1dnYvYXZhakNzUVlIRXR3WXNiZUZaeGl1TGdscApBN1lj
- Sk5ObXBnQ3BNRDR3VWh2bEN0QUtOQlFXeXIyOTc2OThFUVRuNDZlQmVVNkttMkNpaFhrZ3dD
- eWY4ZXlLCkxFM3NYZXdhcTVrZ1pXdk5xNml1NXFZSVJCOXl3K2NYYzYwZE9aRE9scTkzWDVT
- QVJZemFvZXBrSHo0cmtMa1AKUG8rdENIeUhRUHNHblBYYzlXVDgwREM5Tm5KR2R2VWx5NXJk
- TUk0eHBaeWdlb2tqd293VlFsUFV1Y1M2TXluNwpmOHc4Y2dmQjdDMklBSWNEeDJwUC9IendY
- dmtDT1FOQTdtVjFsTTA4bitnVmtUcnpweGlwNURicTRDSW9ZeDJNCkpaVDhiR1JINlhqY1VE
- S2EwOVFoeVpzQUVRRUFBWWtFUkFRWUFRZ0FEd1VDVzM1ZlF3SWJBZ1VKQThKbkFBSXAKQ1JD
- VWdld1BFWkR5MjhGZElBUVpBUWdBQmdVQ1czNWZRd0FLQ1JCVnhETFBjVk1NamNkc0QvMFJo
- QXN1UVlPeQpyMTNCbDNOaFhrWUFaR3AyWkZER3VrZTdPU2tWOG9qT09UZFR5ei9jT1JHQ2J5
- ZEQrRGd2cUZ5VmRuT1hLZ08wCmxKbUd3ckdlTGRnZ0F2aDBpaHJwNU8wWVVKOWJCU1htR01t
- UVRZSC9BbUxUR2FkYnVqQ1dqNWZGVWtDeXd4aW0KSHV5MFBiMjRwelR2UzUwR1k1WStxSDBG
- SE5haWdka2tpV04zcnVnN0haRXUvQ3lsUFpqT1h6K0QxUVBNckV4dwo3ZC9NS2FiVis5YU5i
- UVlabGRJajk4UXd2VUYxS1N6YThqbFVJdnBoUnEyN0FUOGZER1lHUGZERU1nMmNCT2FlCkty
- N29uUXM0YjdhV082aWZEbHhRVHB6c3pvK0FuODA3Tk1TdFZFRmYrczNBaFZEM2U3bmY4SkJh
- dmJWckFlMGsKb20yNm96elBubnh6K2xxVlZ0dzZVazRYTUl6dGl4L0h3SFl3dUNuY1VYWndL
- MEkzeUFKd2pZd29vck9DaEozUwpFVWJKUVB0R3NneFJERXhWQkZlNk5MUC82MnhQOU82dGFj
- d09kYjBNbVAxYjM5cFJBVEM3YmdkMWxkVUxpNzVaCmxKckowL1NpVkVyb3FOWXk3OXRmbWdB
- WjJVeFptczlTckV5Nm85UVNmc24xYVh2K01QTDlKYUNHbWtQNnpiTFEKTm5kajBKY2FRbmtD
- MHZneWRPMUJtNk11OTZQOXVmbEtaY0FTNndtTE01SWRIT3lqTDg4d0h3anVjakFPQnRjdwpw
- MG9HVG5WT25Sc05ZU084VzhZWi9LZGJ1Nzg1ZGF6TXFKMmlOakFEdUJiZG02TjRqNUVkTW5r
- TG4wQklmUEpwCmRnbTR2bDJVcExqd1JHci9NM3dtbTVwdnMrNnVCN2hrL0ZKaUQvNGxsRU5Q
- NGVNMWg3U200aitWcTZOMSt6VEIKSVhKQWViSXFhc0RwNXlaUzdYcnk0STM2bjg1WEVZZkcw
- MWx0QXlob05WMkRPOFNJUlFwdWkydHErOVJQM1JLMQpKREJ4eEVKWTJFTzVKWjhNeGFQSFEw
- RFQwNWxSRmpLMkFsaGRFSXRqTGpwSjNmVW05c3FMeE1XeHpQNlV6M2lpCjJ1YTR1bnJ0Nk9D
- VHFRd2lqRi8zYlRXaXd2VkFBSG5NRlVpb1hzaEhhb2hWRGNWZm5lSU1mVjBiUUNYWWkzTnAK
- WTB2MFp3Y2lGSCtnU0M3cUQ2WE51aHBWR1NMNElpbGlGeS9TemNhSkV6QUhlTERTaFpQMkNX
- ZG5DNHZnbDM3dApocHg4aDU1WWhKbjZIU3VVelBnaGFLdFZCMmsrajdaZXlaK1NGeHA3SXVi
- SEN3TEhsUWhUNzVSd1EzaUF4S242CjBxajUxY1lUbnF4ZFpYVzZmSDNQa3VNellVNUdwcVIv
- MU9sNWMvd2ZJNmc2QW04eUtXLzBFVUx0K0tuNExGc1MKbTdZM201SDV2MTJVNkpCWXZWK3Ix
- M2paaW9zNEVFREU5M0Q1c05IMk1JeVJ6Q0RxMXpkZHQ0WHV5S0ZqUEtXMQo5aWJaRGZGVjdL
- dUNzdnVMMjNzQmMxc0NNb3ArRTFtVC9ReE9JQTZvRFQxTVFzdHdPVnVReURDdi9PdktTZ2Z6
- CjhGWEdMNkFQY2xqQ3FqOEFKaHhReXN4ZG9pUVA4bS92dStialdHR3Z4dzVzMWxncGlSRFRS
- VVBnY0pKTmFHWTIKVklEclpRaTROU2lOUTBOSWkrZGp1NGZOTW1DcFFxZzh0YkMzY0FhNnl3
- bTZvUUIxU0JobURYMmUxMWdSbGx1SQpPblRHUEUwSFRvM2w3MmxoYmc9PQo9cVpNVgotLS0t
- LUVORCBQR1AgUFVCTElDIEtFWSBCTE9DSy0tLS0tCg==
-Message-ID: <104f3fb4-97a8-26df-8e03-c1e6a9fa6923@i2se.com>
-Date: Mon, 15 Jun 2020 21:53:06 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.8.0
+ id 1jlCSj-0002q0-K9
+ for linux-rpi-kernel@bombadil.infradead.org; Tue, 16 Jun 2020 14:21:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:References:
+ In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
+ Content-Transfer-Encoding:Content-ID:Content-Description;
+ bh=+YRjh8Y5W0tJt/k3Bt63Vkgyxpkq91SpmskmGfwazsE=; b=NcujeNx2XH2rgXxHoB9omiRT6a
+ h8u+H6b4QzReSqRMYlKBZtVHbAUpnAgUkJLMcN0hph1PTbcWiKwFKH0BExxWLN233CDqUao04W5Sx
+ 6c9VFTnPTGZ30BSL5QzN7FN/tw5gDDleil7z68yxNbCDk4sX/TOnVAme3ptL/N7+3xcwsHxvjLgdq
+ b/EU4Ud9A0k34Di/n7v2h8Xeck+i+wubrGjW2+9jsLt8fa6gmKax9Bh4t9wrTcrQsM6Y8AaHFqL0H
+ SHV8jAuY6XWCXv5EVC+imh2FxFU9z9zF+rxj6e23BWe0X3tXs9I3Pu7INm28YB/LnqFYEdmrRu/IP
+ DnNUe4tA==;
+Received: from mx2.suse.de ([195.135.220.15])
+ by casper.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1jlCSf-0002Sg-7x
+ for linux-rpi-kernel@lists.infradead.org; Tue, 16 Jun 2020 14:21:16 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+ by mx2.suse.de (Postfix) with ESMTP id B028CB0E6;
+ Tue, 16 Jun 2020 14:21:14 +0000 (UTC)
+Message-ID: <e6d64464cc39cf8a01956aee747b5e672bef8c4f.camel@suse.de>
+Subject: Re: Possible regressions with Linux 5.8-rc1
+From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+To: Stefan Wahren <stefan.wahren@i2se.com>
+Date: Tue, 16 Jun 2020 16:21:09 +0200
+In-Reply-To: <104f3fb4-97a8-26df-8e03-c1e6a9fa6923@i2se.com>
+References: <104f3fb4-97a8-26df-8e03-c1e6a9fa6923@i2se.com>
+User-Agent: Evolution 3.36.3 
 MIME-Version: 1.0
-Content-Language: en-US
-X-Provags-ID: V03:K1:zz5mEaINHL4esoMMAD0jPEPvvGeLw8fsPsgKtmXzrorzJrT1KyC
- OMPj1edQ5vkENrOgcC5qqLjk1xl6DDITVOldC4L6AWnm4vP8xTOTHt4UFWnSHvWG3Quyzxp
- 7fvFLQDREn7/dlUy7BRRtrRsumvNkX4ybdki9dDinuBtliWyDBVvXd0fNhWcvlw3Zwqy+pN
- UtLP/llJBr04paLLH6TmQ==
-X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:2p86vnH86fE=:QlfaplrDHXYfM1ON+K6+vl
- CZA/bc9g0exndoMWAfdiJ5G0Q8z0eOp7aAx182sFNoW8lgBQsVBrjlkiVJg8QYf13AJhm3JmE
- Sbd/Of/rSWTAedwgONQihJi09eu4OB2FW8BTa7uZU/00FKuIPZZq/yxmHoEgK7uVa1Hhl1TCn
- bSZFLAlqP+twuZxTvsDUbkMvfodM6zxp5LZvLt33K0agF2O5Nmdn7hm0wj7MP0vpJGCV0Nsds
- WtvCk3IVy3z2TXoluYirKSgkXMbfaTR392LtuNwVI7RHoSnyUZoPMGHaxuhgP6GHPMpHgvVRo
- AjLujdb6N660KUWQE/Ozor6rjzIt/1ity/VBcgLs1c9U9WxtEs6kWkt9H2lqEvuaNe57Bq1u5
- CWCq4o20SfOLIbGMx/GjQcwUwZrw3tLUjCnTozGrgFFMj8DdWF5yyni6Oq8EnwgyYLGThHRbw
- XCTgLbJQfCUKlPW1c8UHrFsG2I/Lej6+e/vKgwBwQa20az6R3zL5fjzWbd0PWz/YGseYo38Kd
- FFLUnc63OOiarciR886JfG/dJ4l2cMzbHcluETPTglNbjd9G14cVkb+GO78rJ2MzhPmA1CvOY
- VOdnPmx0YkAboyKl54lQGtkR+KzqRMfvAL2tYr4sE+UtsLP55ackm8LRHzYx9VlFSkY0p2tLe
- HbOeO/ajLL1MhgqcpMn8Zz1csFyzAbOF8X6TXsO0UF6TPRQewvSRKnY6JQrwRNljRsa5cnepF
- DzVV9FdbFXzKbU1H6p4LoDrgcQCDmhNu7BiTFW3l/Gg+d1SvH7ayWEhyWtCGop+B6KxCp5/uw
- A7FHrLsQet/VQNRQi/FPGE7IIbCYLDdW0aVgXGzp+OOL5D9fhylDxh0T1R6T8XBPYobFcpc
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200615_125311_647130_9BC933F6 
-X-CRM114-Status: UNSURE (   6.66  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -0.0 (/)
-X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.0 points)
+X-CRM114-CacheID: sfid-20200616_152113_624055_4B51FB28 
+X-CRM114-Status: GOOD (  11.31  )
+X-Spam-Score: -4.2 (----)
+X-Spam-Report: SpamAssassin version 3.4.4 on casper.infradead.org summary:
+ Content analysis details:   (-4.2 points, 5.0 required)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [212.227.126.135 listed in list.dnswl.org]
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [212.227.126.135 listed in wl.mailspike.net]
- -0.0 SPF_PASS               SPF: sender matches SPF record
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [195.135.220.15 listed in list.dnswl.org]
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [195.135.220.15 listed in wl.mailspike.net]
+ -1.9 BAYES_00               BODY: Bayes spam probability is 0 to 1%
+ [score: 0.0000]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -210,43 +79,103 @@ List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
 Cc: linux-rpi-kernel@lists.infradead.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============2142406038999245268=="
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-SGksCgp0b2RheSBpIHRlc3RlZCBMaW51eCA1LjgtcmMxIChtdWx0aV92N19kZWZjb25maWcpIG9u
-IG15IFJhc3BiZXJyeSBQaSAzCmFuZCBzcG90dGVkIDIgaXNzdWVzLgoKMS4gSERNSSBkaXNwbGF5
-IGdvZXMgYmxhY2sgYWZ0ZXIgc3dpdGNoaW5nIGZyb20gY29uc29sZSB0byBYLiBMb29raW5nIGF0
-CnRoZSBrZXJuZWwgbWVzc2FnZXMgZG9lc24ndCBzaG93IGFueSBzdXNwaWNpb3VzOgoKW8KgwqDC
-oCA5LjI3MDYzOV0gdmM0X2hkbWkgM2Y5MDIwMDAuaGRtaTogdmM0LWhkbWktaGlmaSA8LT4gM2Y5
-MDIwMDAuaGRtaQptYXBwaW5nIG9rClvCoMKgwqAgOS4yNzA2NjNdIHZjNF9oZG1pIDNmOTAyMDAw
-LmhkbWk6IEFTb0M6IG5vIERNSSB2ZW5kb3IgbmFtZSEKW8KgwqDCoCA5LjI3MTI4N10gdmM0LWRy
-bSBzb2M6Z3B1OiBib3VuZCAzZjkwMjAwMC5oZG1pIChvcHMgdmM0X2hkbWlfb3BzIFt2YzRdKQpb
-wqDCoMKgIDkuMjcxNDQyXSB2YzQtZHJtIHNvYzpncHU6IGJvdW5kIDNmODA2MDAwLnZlYyAob3Bz
-IHZjNF92ZWNfb3BzIFt2YzRdKQpbwqDCoMKgIDkuMjcxNTQ0XSB2YzQtZHJtIHNvYzpncHU6IGJv
-dW5kIDNmMDA0MDAwLnR4cCAob3BzIHZjNF90eHBfb3BzIFt2YzRdKQpbwqDCoMKgIDkuMjcxNjI0
-XSB2YzQtZHJtIHNvYzpncHU6IGJvdW5kIDNmNDAwMDAwLmh2cyAob3BzIHZjNF9odnNfb3BzIFt2
-YzRdKQpbwqDCoMKgIDkuMjcxODYzXSB2YzQtZHJtIHNvYzpncHU6IGJvdW5kIDNmMjA2MDAwLnBp
-eGVsdmFsdmUgKG9wcwp2YzRfY3J0Y19vcHMgW3ZjNF0pClvCoMKgwqAgOS4yNzIwNzldIHZjNC1k
-cm0gc29jOmdwdTogYm91bmQgM2YyMDcwMDAucGl4ZWx2YWx2ZSAob3BzCnZjNF9jcnRjX29wcyBb
-dmM0XSkKW8KgwqDCoCA5LjI3MjI5Ml0gdmM0LWRybSBzb2M6Z3B1OiBib3VuZCAzZjgwNzAwMC5w
-aXhlbHZhbHZlIChvcHMKdmM0X2NydGNfb3BzIFt2YzRdKQpbwqDCoMKgIDkuMjcyMzkxXSB2YzQt
-ZHJtIHNvYzpncHU6IGJvdW5kIDNmYzAwMDAwLnYzZCAob3BzIHZjNF92M2Rfb3BzIFt2YzRdKQpb
-wqDCoMKgIDkuMjcyMzk3XSBjaGVja2luZyBnZW5lcmljICgzZTMzMDAwMCA4Y2EwMDApIHZzIGh3
-ICgwIGZmZmZmZmZmKQpbwqDCoMKgIDkuMjcyNDAyXSBmYjA6IHN3aXRjaGluZyB0byB2YzRkcm1m
-YiBmcm9tIHNpbXBsZQpbwqDCoMKgIDkuMjcyODkxXSBDb25zb2xlOiBzd2l0Y2hpbmcgdG8gY29s
-b3VyIGR1bW15IGRldmljZSA4MHgzMApbwqDCoMKgIDkuMjcyOTMwXSBbZHJtXSBTdXBwb3J0cyB2
-YmxhbmsgdGltZXN0YW1wIGNhY2hpbmcgUmV2IDIgKDIxLjEwLjIwMTMpLgpbwqDCoMKgIDkuMjcz
-NzUxXSBbZHJtXSBJbml0aWFsaXplZCB2YzQgMC4wLjAgMjAxNDA2MTYgZm9yIHNvYzpncHUgb24g
-bWlub3IgMApbwqDCoMKgIDkuMzQ2MTgwXSBDb25zb2xlOiBzd2l0Y2hpbmcgdG8gY29sb3VyIGZy
-YW1lIGJ1ZmZlciBkZXZpY2UgOTB4MzAKW8KgwqDCoCA5LjM2Mzk5Nl0gdmM0LWRybSBzb2M6Z3B1
-OiBmYjA6IHZjNGRybWZiIGZyYW1lIGJ1ZmZlciBkZXZpY2UKCjIuIFRoZXJlIGlzIGFuIGlzc3Vl
-IHdpdGggdGhlIHRpbWVzdGFtcCBvZiB0aGUgZmlybXdhcmU6CgpbwqDCoMKgIDQuMDE2MzA1XSBy
-YXNwYmVycnlwaS1maXJtd2FyZSBzb2M6ZmlybXdhcmU6IEF0dGFjaGVkIHRvIGZpcm13YXJlCmZy
-b20gMTg0NDY3NDQwNzM3MDU1MDcwNDgtMDgtMTFUMjE6MzM6MzYKCkkgZGlkbid0IGhhZCB0aGUg
-dGltZSBmb3IgYW55IGZ1cnRoZXIgaW52ZXN0aWdhdGlvbnMuCgpSZWdhcmRzClN0ZWZhbgoKCgpf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1ycGkt
-a2VybmVsIG1haWxpbmcgbGlzdApsaW51eC1ycGkta2VybmVsQGxpc3RzLmluZnJhZGVhZC5vcmcK
-aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1ycGkta2Vy
-bmVsCg==
+
+--===============2142406038999245268==
+Content-Type: multipart/signed; micalg="pgp-sha256";
+	protocol="application/pgp-signature"; boundary="=-Kiz2JGUB+FQLVIZOZih/"
+
+
+--=-Kiz2JGUB+FQLVIZOZih/
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, 2020-06-15 at 21:53 +0200, Stefan Wahren wrote:
+> Hi,
+>=20
+> today i tested Linux 5.8-rc1 (multi_v7_defconfig) on my Raspberry Pi 3
+> and spotted 2 issues.
+>=20
+> 1. HDMI display goes black after switching from console to X. Looking at
+> the kernel messages doesn't show any suspicious:
+>=20
+> [    9.270639] vc4_hdmi 3f902000.hdmi: vc4-hdmi-hifi <-> 3f902000.hdmi
+> mapping ok
+> [    9.270663] vc4_hdmi 3f902000.hdmi: ASoC: no DMI vendor name!
+> [    9.271287] vc4-drm soc:gpu: bound 3f902000.hdmi (ops vc4_hdmi_ops [vc=
+4])
+> [    9.271442] vc4-drm soc:gpu: bound 3f806000.vec (ops vc4_vec_ops [vc4]=
+)
+> [    9.271544] vc4-drm soc:gpu: bound 3f004000.txp (ops vc4_txp_ops [vc4]=
+)
+> [    9.271624] vc4-drm soc:gpu: bound 3f400000.hvs (ops vc4_hvs_ops [vc4]=
+)
+> [    9.271863] vc4-drm soc:gpu: bound 3f206000.pixelvalve (ops
+> vc4_crtc_ops [vc4])
+> [    9.272079] vc4-drm soc:gpu: bound 3f207000.pixelvalve (ops
+> vc4_crtc_ops [vc4])
+> [    9.272292] vc4-drm soc:gpu: bound 3f807000.pixelvalve (ops
+> vc4_crtc_ops [vc4])
+> [    9.272391] vc4-drm soc:gpu: bound 3fc00000.v3d (ops vc4_v3d_ops [vc4]=
+)
+> [    9.272397] checking generic (3e330000 8ca000) vs hw (0 ffffffff)
+> [    9.272402] fb0: switching to vc4drmfb from simple
+> [    9.272891] Console: switching to colour dummy device 80x30
+> [    9.272930] [drm] Supports vblank timestamp caching Rev 2 (21.10.2013)=
+.
+> [    9.273751] [drm] Initialized vc4 0.0.0 20140616 for soc:gpu on minor =
+0
+> [    9.346180] Console: switching to colour frame buffer device 90x30
+> [    9.363996] vc4-drm soc:gpu: fb0: vc4drmfb frame buffer device
+>=20
+> 2. There is an issue with the timestamp of the firmware:
+>=20
+> [    4.016305] raspberrypi-firmware soc:firmware: Attached to firmware
+> from 18446744073705507048-08-11T21:33:36
+>=20
+> I didn't had the time for any further investigations.
+
+Thanks for reporting, I'll have a look at them!
+
+Regards,
+Nicolas
+
+
+--=-Kiz2JGUB+FQLVIZOZih/
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCAAdFiEErOkkGDHCg2EbPcGjlfZmHno8x/4FAl7o1VUACgkQlfZmHno8
+x/7zWgf/YuOF5l9m7LVensh5cQfs+jJn7uxq7cuKXuKlxBhzvPY34bwBmUioqEq3
+lcE4yTQE8b7uFzhywA/+edtFM+EfveQ+xrxBXNydRxqsQoDeaEhLos0KKZQFgnou
+sA6a1/0bR+WsgcSD7xArUmc2BkWlGfRsA9uXOA+CtCwZWdUHj6rbWNKZntv57zQl
++6LwsI6slnsBm3+koa/awieW6Mqi0EOeNJAiyAXAXoj1KQ9C20x8PfJ1HVMwOn0l
+EQz4gSUzTH0VagS7dYH515cOIn0/5VPu/f1W963WAttkIxrI8zlyE0iEMuEQ6ZEa
+O0V4VB7Le5oUI+FIwPQ4q7BwZZgmnQ==
+=q9+J
+-----END PGP SIGNATURE-----
+
+--=-Kiz2JGUB+FQLVIZOZih/--
+
+
+
+--===============2142406038999245268==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-rpi-kernel mailing list
+linux-rpi-kernel@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
+
+--===============2142406038999245268==--
+
+
