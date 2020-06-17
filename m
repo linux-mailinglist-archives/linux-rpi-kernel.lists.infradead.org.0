@@ -2,54 +2,93 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id B31981FCC02
-	for <lists+linux-rpi-kernel@lfdr.de>; Wed, 17 Jun 2020 13:15:43 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 66DA01FD823
+	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 18 Jun 2020 00:03:59 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=9LIHjEyTuvn79DK/g4pTHT+FA7CvEgHmMmhdrAcpF/0=; b=NyLO/+QWlt4yEJ
-	pwmLF/FBMxjtNFFVTWAjNKufkH0pv5Xo4C2u0x87VRQXi5nuuALx7C0zdmSTXVhjXhR6GIR/1JPaD
-	Ns99U9J4ha4k/AYUqR5Q1x5ByUQoKbx7rFsXzOchW/wZjF6OmzqUeJ6x27k1tlxURxmtGLNhPitqH
-	1HpITtSGQLTaqnEZdOyD4lz6OglkrxDJneD/zJwzdYv5H941H6V+cs02N5e3o8Tr6Ad9rsxvOMBT0
-	t1ISNCZEg/UZZe9+1COKaJLVdGqS0SgYA2gIk2H0rY7AAI9uFTVep7tX6O6emtB82R0Wz+RPltnYV
-	Bvqu3JSO8QImFKtQm+Kw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=I33Qu9vK9AyK+K/uWFdabP+JJv+tg5762bGLp0QKbMA=; b=negF0GPmU9Ai/+
+	e/YhFM496+R+80c1+ln1YC8YVsMe5OolMDOv1guyxQvn4LMy7V5XnaA8UGfnEj1bW0z951UNZ+lsg
+	bD0tpZ8kOiWpH2QAEpfYetWFqkYkFqzzZxpZBnQOJMwkZKBwY73BbDULUfJ6nO2I8tEeGYIfyhivc
+	lfimOPVGVDR9B9f9CUDCSQQ9Aem6NH72Z5sGHYxkkbLCd/aGGfk709RvxJHpXUy75n6svNqXJCz6f
+	/QzSERpBzmLiZQgL+Cav3o9GSYOavsaVBivnjq6qWtWo2rM2pvVit5sgVT7FGaJeUmhx7bdS5/TO+
+	CuMH1YtThi5zzCiD5vcQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jlW2c-0004WX-Cv; Wed, 17 Jun 2020 11:15:38 +0000
-Received: from mx2.suse.de ([195.135.220.15])
+	id 1jlg9z-0003z5-M0; Wed, 17 Jun 2020 22:03:55 +0000
+Received: from mail-pj1-x1044.google.com ([2607:f8b0:4864:20::1044])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jlW2P-0004Mb-Dh; Wed, 17 Jun 2020 11:15:27 +0000
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.220.254])
- by mx2.suse.de (Postfix) with ESMTP id DB231AD2A;
- Wed, 17 Jun 2020 11:15:27 +0000 (UTC)
-From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-To: Florian Fainelli <f.fainelli@gmail.com>,
-	linux-kernel@vger.kernel.org
-Subject: [GIT PULL 1/1] bcm2835-drivers-fixes-2020-0-17
-Date: Wed, 17 Jun 2020 13:14:54 +0200
-Message-Id: <20200617111453.23345-1-nsaenzjulienne@suse.de>
-X-Mailer: git-send-email 2.27.0
+ id 1jlg9p-0003q5-LF; Wed, 17 Jun 2020 22:03:46 +0000
+Received: by mail-pj1-x1044.google.com with SMTP id i4so1724836pjd.0;
+ Wed, 17 Jun 2020 15:03:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=subject:to:cc:references:from:message-id:date:user-agent
+ :mime-version:in-reply-to:content-language:content-transfer-encoding;
+ bh=FxWBzqH20Ldut/ncbfepnMWFG7FF0MXXG+/ZQ1Q/k20=;
+ b=Q8L/mum3I/Hjh9d+oNtQ/w09JtOl4ahKeV0h2TqgLkmhSyQ0mUf4EwhseOmSA3Kt47
+ oRGdFqyRqOS3w00z7fjchxraFVbvK5caeXqNwRhwaZbR5lKuA6XMnx3BGvZ/91G9e5BW
+ r7WpLacvYI3YIeR1zbACg4BQtwVGgMhWTN0r3h/wiFJcHKPNep8SgrvjOfin44XQXoxx
+ Ngw9EcQ3/Jp/u7dp+kYjK6SH3I8kKCb7zKvZm4Hwh98+zX1MjAIBVbNUsvDKeSI2vlvY
+ +lbfI7/eNNJklE+c2SOgIw/nfyE/seqM40xxsiwi/VPpCZF06UjdDzI3F5d9xxL4hAGi
+ GGEQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+ :user-agent:mime-version:in-reply-to:content-language
+ :content-transfer-encoding;
+ bh=FxWBzqH20Ldut/ncbfepnMWFG7FF0MXXG+/ZQ1Q/k20=;
+ b=DbKfGvUCR37RllPGX4cnP+xj/PX53rY16ZFjMv7DG02SOvGdkeRQNmFhNpMEzxOl3Y
+ wufPTZ/dXKLNzZa5b9bO7FOh3uj77rI4kRG1lMWmp9hu9L+VNPqb/PSZJcQPF7ISgase
+ GJHxIqOUMr4+bk7mMehV7YQNnmZstu0yCSme30054cR5Pdr/9/z4/j8gQlIGFkVMWoZI
+ zsCVGiYaiqNkxhimHGAXF+2SiACjUjh2hZQJHMFwcH8wIFx3fVgqzR8GQhqhaX7yeos5
+ 68pLqbXfeMT86IXKdXbdw9KguEBKdxolG/Y28A0YljxqaKTjWOdwtSaqQTQs7iZcBqGW
+ zlPQ==
+X-Gm-Message-State: AOAM533j2JyY60fKaOMkQGiJlF7CUcaMefaYNPoROArb6ysn+dg09JDq
+ 9+P9r6jmEcOHPCnUVKs7e9rSD4M5
+X-Google-Smtp-Source: ABdhPJytA/fm6+Sl/XlT8Ovsoq9qBn/cy71kg2hsfEpLahwJljbs66yJm9Fn8uiKl5Pw8GYrfcQgSA==
+X-Received: by 2002:a17:90a:b384:: with SMTP id e4mr1049797pjr.1.1592431424672; 
+ Wed, 17 Jun 2020 15:03:44 -0700 (PDT)
+Received: from [10.230.188.43] ([192.19.223.252])
+ by smtp.gmail.com with ESMTPSA id j6sm745499pfi.183.2020.06.17.15.03.42
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Wed, 17 Jun 2020 15:03:43 -0700 (PDT)
+Subject: Re: [GIT PULL 1/1] bcm2835-drivers-fixes-2020-0-17
+To: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>,
+ Florian Fainelli <f.fainelli@gmail.com>, linux-kernel@vger.kernel.org
+References: <20200617111453.23345-1-nsaenzjulienne@suse.de>
+From: Florian Fainelli <f.fainelli@gmail.com>
+Message-ID: <7979468c-3781-ea2f-ec36-1f949a14e807@gmail.com>
+Date: Wed, 17 Jun 2020 15:03:42 -0700
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Firefox/68.0 Thunderbird/68.9.0
 MIME-Version: 1.0
+In-Reply-To: <20200617111453.23345-1-nsaenzjulienne@suse.de>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200617_041526_296202_8A9D37B0 
-X-CRM114-Status: UNSURE (   9.88  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -2.3 (--)
+X-CRM114-CacheID: sfid-20200617_150345_694849_2474EBF3 
+X-CRM114-Status: GOOD (  11.44  )
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-2.3 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
- medium trust [195.135.220.15 listed in list.dnswl.org]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [2607:f8b0:4864:20:0:0:0:1044 listed in]
+ [list.dnswl.org]
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider [f.fainelli[at]gmail.com]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [195.135.220.15 listed in wl.mailspike.net]
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -61,36 +100,40 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: linux-arm-kernel@lists.infradead.org, bcm-kernel-feedback-list@broadcom.com,
- linux-rpi-kernel@lists.infradead.org
+Cc: bcm-kernel-feedback-list@broadcom.com, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-Hi Florian,
 
-The following changes since commit b3a9e3b9622ae10064826dccb4f7a52bd88c7407:
 
-  Linux 5.8-rc1 (2020-06-14 12:45:04 -0700)
+On 6/17/2020 4:14 AM, Nicolas Saenz Julienne wrote:
+> Hi Florian,
+> 
+> The following changes since commit b3a9e3b9622ae10064826dccb4f7a52bd88c7407:
+> 
+>   Linux 5.8-rc1 (2020-06-14 12:45:04 -0700)
+> 
+> are available in the Git repository at:
+> 
+>   https://git.kernel.org/pub/scm/linux/kernel/git/nsaenz/linux-rpi.git tags/bcm2835-drivers-fixes-2020-0-17
+> 
+> for you to fetch changes up to da785a87787c97823d12107a4f0ec7adcc2a78d9:
+> 
+>   ARM: bcm2835: Fix integer overflow in rpi_firmware_print_firmware_revision() (2020-06-17 12:51:45 +0200)
+> 
+> ----------------------------------------------------------------
+> Fixes raspberry pi firmware version output
+> 
+> ----------------------------------------------------------------
+> Andy Shevchenko (1):
+>       ARM: bcm2835: Fix integer overflow in rpi_firmware_print_firmware_revision()
 
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/nsaenz/linux-rpi.git tags/bcm2835-drivers-fixes-2020-0-17
-
-for you to fetch changes up to da785a87787c97823d12107a4f0ec7adcc2a78d9:
-
-  ARM: bcm2835: Fix integer overflow in rpi_firmware_print_firmware_revision() (2020-06-17 12:51:45 +0200)
-
-----------------------------------------------------------------
-Fixes raspberry pi firmware version output
-
-----------------------------------------------------------------
-Andy Shevchenko (1):
-      ARM: bcm2835: Fix integer overflow in rpi_firmware_print_firmware_revision()
-
- drivers/firmware/raspberrypi.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+Merged into drivers/fixes, thanks!
+-- 
+Florian
 
 _______________________________________________
 linux-rpi-kernel mailing list
