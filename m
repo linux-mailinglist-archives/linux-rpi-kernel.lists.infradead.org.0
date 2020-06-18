@@ -2,46 +2,46 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id F2E441FDC22
-	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 18 Jun 2020 03:17:12 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id C0F861FDE26
+	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 18 Jun 2020 03:31:12 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X+5G9iaSjWFv4oLo0TDn+AikEB3ERMTGfYtyAoZrqfA=; b=WV0ZzP5R+pVtGE
-	c3US02H+Fb0c059pIcZ3yHNnadv0brzQhWGba8JlTWj4UI5wQeHGe3fQVUcuyxdV//caQ/Wf8kyEB
-	GtB7Npkm2DyxV6E9Mtkh6Y4ZQcXKukouzywZO8X/7Y0GMTdg1sPnFdKu+2VRnO2beH9UFsk+4TDQh
-	09Pz/zFDfHA/CeoQBUqKxIHPm1hunFsCgyJZ3CuSO6jJ/369caB4Z2CVEQktm7ffu3Pi0JyG3uplk
-	Ep1jXNDiIvHKocmkJqtN3EVkXXe74+lOVLssJ0nwJrGxdSuv6Ctu47qQyTTHb90pXN/Wi5AlWqKa4
-	WErFOHnPenTCYkiUzwgQ==;
+	List-Owner; bh=77XShfZ+nDDab4M/xHKAAKt4lO/ndsTRaXJ9GPc8M0w=; b=KCQ4jvwDwbNQ5s
+	Y2sXmz4wDqNT5dvA1Geog64RmOFg4AGCGDN/UiYJjnql8dtfPJy04KdlbjSiMUGNyNKaypkHgYsPI
+	a/IsvUr4sPxa72lgKxFNFKJ/H/jNS/sjoBM9yRe3RYPrPs6af0BAw9JlRAtnSj2mtqPvp+X1ArMpf
+	CTqZRUtqObccjCYCMI88I/0NZZDqsRBjC0tBTopgYpEr2jNEdDlYiFWd5JkbMiyyHS85owtRloB0C
+	Srgj0iYJWTqHYwO1aqcjSvfWktoQeF6X5cEx5zWHXwOOnf7JV1/nIaYLMLxgzd1lj+HOyGlYHeWWw
+	TQ9QunCqvwNWS4mHu4gw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jljAy-0007w5-C1; Thu, 18 Jun 2020 01:17:08 +0000
+	id 1jljOU-0000za-RC; Thu, 18 Jun 2020 01:31:06 +0000
 Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jlj4h-0000SJ-M4; Thu, 18 Jun 2020 01:10:41 +0000
+ id 1jlj88-0003RY-1L; Thu, 18 Jun 2020 01:14:14 +0000
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net
  [73.47.72.35])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id B45B420CC7;
- Thu, 18 Jun 2020 01:10:37 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 32C7D221EA;
+ Thu, 18 Jun 2020 01:14:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1592442638;
- bh=rhVADCPT/OCDnHYRLvpB5LjV+mc8Z/AZJUCSyHnY/oc=;
+ s=default; t=1592442851;
+ bh=wKX1ufoesJrahDJvQwblpOGk12X8sdXC+leoopU/RTc=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=x7/eNye9SjigWGQs2wSi3u2fLu6zVPOJ9/NxnkYFHGKEm/bK8gelGPQBHDyRhUWDe
- QJk8p5kBrd2Aoz30WpbkHr+MgR+erehducWV0D7VJGoF3b60Sc/mfJvQFyCVC6RgCn
- 25SFXm299F2/n6T5xgbGwACyLeNmc8ajsUmq0wLk=
+ b=iqqMZg+A59ECaGSP7IROXrwRlMldBoc74sbbyZx622l8y1WeT45N08JWHwhr4RqI4
+ I3/P1QsbVJn3PnlFRpU90wivbn9E6Ls8i0/e3ddLm0zBCUK8Bqqt0IoAyy7bCUQG+s
+ 2KLqR2lHUiV3UOewtpV+BSyGL7TsUKfnxYT29Hoo=
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: [PATCH AUTOSEL 5.7 114/388] ARM: dts: bcm283x: Use firmware PM driver
- for V3D
-Date: Wed, 17 Jun 2020 21:03:31 -0400
-Message-Id: <20200618010805.600873-114-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.7 282/388] clk: bcm2835: Fix return type of
+ bcm2835_register_gate
+Date: Wed, 17 Jun 2020 21:06:19 -0400
+Message-Id: <20200618010805.600873-282-sashal@kernel.org>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20200618010805.600873-1-sashal@kernel.org>
 References: <20200618010805.600873-1-sashal@kernel.org>
@@ -49,8 +49,8 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200617_181039_837107_A0953451 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20200617_181412_244486_6EF3F1A3 
+X-CRM114-Status: GOOD (  12.17  )
 X-Spam-Score: -5.2 (-----)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
  Content analysis details:   (-5.2 points)
@@ -79,101 +79,66 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Sasha Levin <sashal@kernel.org>, devicetree@vger.kernel.org,
+Cc: Sasha Levin <sashal@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
  bcm-kernel-feedback-list@broadcom.com, linux-rpi-kernel@lists.infradead.org,
+ Nathan Chancellor <natechancellor@gmail.com>, linux-clk@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+From: Nathan Chancellor <natechancellor@gmail.com>
 
-[ Upstream commit 3ac395a5b3f3b678663fbb58381fdae2b1b57588 ]
+[ Upstream commit f376c43bec4f8ee8d1ba5c5c4cfbd6e84fb279cb ]
 
-The register based driver turned out to be unstable, specially on RPi3a+
-but not limited to it. While a fix is being worked on, we roll back to
-using firmware based scheme.
+bcm2835_register_gate is used as a callback for the clk_register member
+of bcm2835_clk_desc, which expects a struct clk_hw * return type but
+bcm2835_register_gate returns a struct clk *.
 
-Fixes: e1dc2b2e1bef ("ARM: bcm283x: Switch V3D over to using the PM driver instead of firmware")
-Signed-off-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
-Tested-by: Stefan Wahren <stefan.wahren@i2se.com>
-Link: https://lore.kernel.org/r/20200303173217.3987-1-nsaenzjulienne@suse.de
+This discrepancy is hidden by the fact that bcm2835_register_gate is
+cast to the typedef bcm2835_clk_register by the _REGISTER macro. This
+turns out to be a control flow integrity violation, which is how this
+was noticed.
+
+Change the return type of bcm2835_register_gate to be struct clk_hw *
+and use clk_hw_register_gate to do so. This should be a non-functional
+change as clk_register_gate calls clk_hw_register_gate anyways but this
+is needed to avoid issues with further changes.
+
+Fixes: b19f009d4510 ("clk: bcm2835: Migrate to clk_hw based registration and OF APIs")
+Link: https://github.com/ClangBuiltLinux/linux/issues/1028
+Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+Link: https://lkml.kernel.org/r/20200516080806.1459784-1-natechancellor@gmail.com
+Signed-off-by: Stephen Boyd <sboyd@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- arch/arm/boot/dts/bcm2835-common.dtsi     |  1 -
- arch/arm/boot/dts/bcm2835-rpi-common.dtsi | 12 ++++++++++++
- arch/arm/boot/dts/bcm2835.dtsi            |  1 +
- arch/arm/boot/dts/bcm2836.dtsi            |  1 +
- arch/arm/boot/dts/bcm2837.dtsi            |  1 +
- 5 files changed, 15 insertions(+), 1 deletion(-)
- create mode 100644 arch/arm/boot/dts/bcm2835-rpi-common.dtsi
+ drivers/clk/bcm/clk-bcm2835.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm/boot/dts/bcm2835-common.dtsi b/arch/arm/boot/dts/bcm2835-common.dtsi
-index 2b1d9d4c0cde..4119271c979d 100644
---- a/arch/arm/boot/dts/bcm2835-common.dtsi
-+++ b/arch/arm/boot/dts/bcm2835-common.dtsi
-@@ -130,7 +130,6 @@ v3d: v3d@7ec00000 {
- 			compatible = "brcm,bcm2835-v3d";
- 			reg = <0x7ec00000 0x1000>;
- 			interrupts = <1 10>;
--			power-domains = <&pm BCM2835_POWER_DOMAIN_GRAFX_V3D>;
- 		};
+diff --git a/drivers/clk/bcm/clk-bcm2835.c b/drivers/clk/bcm/clk-bcm2835.c
+index ded13ccf768e..7c845c293af0 100644
+--- a/drivers/clk/bcm/clk-bcm2835.c
++++ b/drivers/clk/bcm/clk-bcm2835.c
+@@ -1448,13 +1448,13 @@ static struct clk_hw *bcm2835_register_clock(struct bcm2835_cprman *cprman,
+ 	return &clock->hw;
+ }
  
- 		vc4: gpu {
-diff --git a/arch/arm/boot/dts/bcm2835-rpi-common.dtsi b/arch/arm/boot/dts/bcm2835-rpi-common.dtsi
-new file mode 100644
-index 000000000000..8a55b6cded59
---- /dev/null
-+++ b/arch/arm/boot/dts/bcm2835-rpi-common.dtsi
-@@ -0,0 +1,12 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * This include file covers the common peripherals and configuration between
-+ * bcm2835, bcm2836 and bcm2837 implementations that interact with RPi's
-+ * firmware interface.
-+ */
-+
-+#include <dt-bindings/power/raspberrypi-power.h>
-+
-+&v3d {
-+	power-domains = <&power RPI_POWER_DOMAIN_V3D>;
-+};
-diff --git a/arch/arm/boot/dts/bcm2835.dtsi b/arch/arm/boot/dts/bcm2835.dtsi
-index 53bf4579cc22..0549686134ea 100644
---- a/arch/arm/boot/dts/bcm2835.dtsi
-+++ b/arch/arm/boot/dts/bcm2835.dtsi
-@@ -1,6 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
- #include "bcm283x.dtsi"
- #include "bcm2835-common.dtsi"
-+#include "bcm2835-rpi-common.dtsi"
+-static struct clk *bcm2835_register_gate(struct bcm2835_cprman *cprman,
++static struct clk_hw *bcm2835_register_gate(struct bcm2835_cprman *cprman,
+ 					 const struct bcm2835_gate_data *data)
+ {
+-	return clk_register_gate(cprman->dev, data->name, data->parent,
+-				 CLK_IGNORE_UNUSED | CLK_SET_RATE_GATE,
+-				 cprman->regs + data->ctl_reg,
+-				 CM_GATE_BIT, 0, &cprman->regs_lock);
++	return clk_hw_register_gate(cprman->dev, data->name, data->parent,
++				    CLK_IGNORE_UNUSED | CLK_SET_RATE_GATE,
++				    cprman->regs + data->ctl_reg,
++				    CM_GATE_BIT, 0, &cprman->regs_lock);
+ }
  
- / {
- 	compatible = "brcm,bcm2835";
-diff --git a/arch/arm/boot/dts/bcm2836.dtsi b/arch/arm/boot/dts/bcm2836.dtsi
-index 82d6c4662ae4..b390006aef79 100644
---- a/arch/arm/boot/dts/bcm2836.dtsi
-+++ b/arch/arm/boot/dts/bcm2836.dtsi
-@@ -1,6 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
- #include "bcm283x.dtsi"
- #include "bcm2835-common.dtsi"
-+#include "bcm2835-rpi-common.dtsi"
- 
- / {
- 	compatible = "brcm,bcm2836";
-diff --git a/arch/arm/boot/dts/bcm2837.dtsi b/arch/arm/boot/dts/bcm2837.dtsi
-index 9e95fee78e19..0199ec98cd61 100644
---- a/arch/arm/boot/dts/bcm2837.dtsi
-+++ b/arch/arm/boot/dts/bcm2837.dtsi
-@@ -1,5 +1,6 @@
- #include "bcm283x.dtsi"
- #include "bcm2835-common.dtsi"
-+#include "bcm2835-rpi-common.dtsi"
- 
- / {
- 	compatible = "brcm,bcm2837";
+ typedef struct clk_hw *(*bcm2835_clk_register)(struct bcm2835_cprman *cprman,
 -- 
 2.25.1
 
