@@ -2,72 +2,57 @@ Return-Path: <linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infr
 X-Original-To: lists+linux-rpi-kernel@lfdr.de
 Delivered-To: lists+linux-rpi-kernel@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id A960D1FE2F7
-	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 18 Jun 2020 04:05:27 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 52A1F1FF002
+	for <lists+linux-rpi-kernel@lfdr.de>; Thu, 18 Jun 2020 12:54:34 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O5R3gD8Y1kcbzjSSmO95dJ9iYV/rwk1/dDJwPeLGyoc=; b=QlFHKKz2HuvRMb
-	NDfYOGQ1PfQcuhvH/ntHt2LSVeRRwIYzN9eMeNIUxxtJQg2fCKkuL4BXbRvntKsQ+lN3ryTTvoStz
-	WBcVYG1FSzCZsfrAzyAV2xkTPoVPEq3OhLVQM1BAFnEhusmIaJSdD15M7DeD+MmCrgl6iP/M4+nGP
-	C5xGW+lQUQn2Ua2MVhTKLCt5yWClaYfB4Blk2PKXw69GY3ieDjBlh76VYzA1/QtT+/YaPVpPT09p+
-	rzR75Q/njeDtUhL3iwN8Jr9txXJU3FchE5jLHpf9pyB+mDYIFB6rRuLOQyrNC2XZm4WacnNH7BiBA
-	5Z+AtfLqUdRSlNW9ONIg==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=98N3xVivzx4MkGGVpQh0mANmLogCFHMGjBa5EgZRAfQ=; b=FwTty7lKHHQSTgU2l3oF4KAjk
+	sPWOpL8S3JmxGRj07l3adnVma/Y+IGEYrk5+86scpuUms0xSG+t7kjJ21wyEvv1yZzvuYGG3MiQ/A
+	3o1Sn+9qNajwL0MnC75JwKz6vIpSIAQZQsyC2fm1g44b8Frh+ggGR1lzwJLNJfdAbH5KSbbgIX+8M
+	XOm1TkqaNdaJopg4pX9LXJoWfVqFpZPuNfsGGiXCRlEcDuqzUJR520pFpURf1BVhc+/wCfOlSESxV
+	o19huoRYl8TNgZEVztEwc2AZkGy0JmninQcteTcaEeXLxkyiMKCWYtl4ESpKvLTpv2PHWhsmW4030
+	BH2bYQ6uQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jljve-0005Hl-I0; Thu, 18 Jun 2020 02:05:22 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1jlsBh-00074T-K0; Thu, 18 Jun 2020 10:54:29 +0000
+Received: from mx2.suse.de ([195.135.220.15])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jljNA-0006CN-6q; Thu, 18 Jun 2020 01:29:48 +0000
-Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net
- [73.47.72.35])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id B8C6B2220B;
- Thu, 18 Jun 2020 01:29:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1592443783;
- bh=vwPg8yQwOC7KdRKw7KYgCpGvhDYGfVaBJR4Vg7IRaoU=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=IGm0A2qlsU6UQtVaoVLrHQpUD7bPsIg/q2Mv0LIcbDy/FdOFCKfGqKogLulPKlRJQ
- u/apr0xh4xT/HGnBVXGYLRXkNc245pmOyzi2NzcnxRu/arq+OOhwoa+Hp3srlMtM0i
- jhUCPCZRVBH0x9bd4rBPFnmgz7Io+hBu6ZRe+Kv8=
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH AUTOSEL 4.9 65/80] clk: bcm2835: Fix return type of
- bcm2835_register_gate
-Date: Wed, 17 Jun 2020 21:28:04 -0400
-Message-Id: <20200618012819.609778-65-sashal@kernel.org>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20200618012819.609778-1-sashal@kernel.org>
-References: <20200618012819.609778-1-sashal@kernel.org>
+ id 1jlsBX-0006w4-Lg; Thu, 18 Jun 2020 10:54:20 +0000
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+ by mx2.suse.de (Postfix) with ESMTP id 01E55AC53;
+ Thu, 18 Jun 2020 10:54:13 +0000 (UTC)
+Message-ID: <6b8edfca3890f026bd0a33591d6fd1f9691e7e4e.camel@suse.de>
+Subject: Re: [PATCH 04/15] PCI: brcmstb: Use pci_host_probe() to register host
+From: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+To: Rob Herring <robh@kernel.org>, Lorenzo Pieralisi
+ <lorenzo.pieralisi@arm.com>
+Date: Thu, 18 Jun 2020 12:54:12 +0200
+In-Reply-To: <20200522234832.954484-5-robh@kernel.org>
+References: <20200522234832.954484-1-robh@kernel.org>
+ <20200522234832.954484-5-robh@kernel.org>
+User-Agent: Evolution 3.36.3 
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200617_182944_362529_E4A8D125 
-X-CRM114-Status: GOOD (  12.17  )
-X-Spam-Score: -5.2 (-----)
+X-CRM114-CacheID: sfid-20200618_035419_854827_D3EACA13 
+X-CRM114-Status: UNSURE (   8.88  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: -2.3 (--)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-5.2 points)
+ Content analysis details:   (-2.3 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [198.145.29.99 listed in list.dnswl.org]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
+ medium trust [195.135.220.15 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.0 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+ [195.135.220.15 listed in wl.mailspike.net]
+ 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
 X-BeenThere: linux-rpi-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -79,71 +64,74 @@ List-Post: <mailto:linux-rpi-kernel@lists.infradead.org>
 List-Help: <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel>, 
  <mailto:linux-rpi-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Sasha Levin <sashal@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+Cc: Bjorn Helgaas <bhelgaas@google.com>, linux-pci@vger.kernel.org,
  bcm-kernel-feedback-list@broadcom.com, linux-rpi-kernel@lists.infradead.org,
- Nathan Chancellor <natechancellor@gmail.com>, linux-clk@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5510383576705854633=="
 Sender: "linux-rpi-kernel" <linux-rpi-kernel-bounces@lists.infradead.org>
 Errors-To: linux-rpi-kernel-bounces+lists+linux-rpi-kernel=lfdr.de@lists.infradead.org
 
-From: Nathan Chancellor <natechancellor@gmail.com>
 
-[ Upstream commit f376c43bec4f8ee8d1ba5c5c4cfbd6e84fb279cb ]
+--===============5510383576705854633==
+Content-Type: multipart/signed; micalg="pgp-sha256";
+	protocol="application/pgp-signature"; boundary="=-OPGLGZsMisDLgv+ey9Oy"
 
-bcm2835_register_gate is used as a callback for the clk_register member
-of bcm2835_clk_desc, which expects a struct clk_hw * return type but
-bcm2835_register_gate returns a struct clk *.
 
-This discrepancy is hidden by the fact that bcm2835_register_gate is
-cast to the typedef bcm2835_clk_register by the _REGISTER macro. This
-turns out to be a control flow integrity violation, which is how this
-was noticed.
+--=-OPGLGZsMisDLgv+ey9Oy
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Change the return type of bcm2835_register_gate to be struct clk_hw *
-and use clk_hw_register_gate to do so. This should be a non-functional
-change as clk_register_gate calls clk_hw_register_gate anyways but this
-is needed to avoid issues with further changes.
+On Fri, 2020-05-22 at 17:48 -0600, Rob Herring wrote:
+> The brcmstb host driver does the same host registration and bus scanning
+> calls as pci_host_probe, so let's use it instead.
+>=20
+> Cc: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+> Cc: bcm-kernel-feedback-list@broadcom.com
+> Cc: linux-rpi-kernel@lists.infradead.org
+> Signed-off-by: Rob Herring <robh@kernel.org>
+> ---
 
-Fixes: b19f009d4510 ("clk: bcm2835: Migrate to clk_hw based registration and OF APIs")
-Link: https://github.com/ClangBuiltLinux/linux/issues/1028
-Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-Link: https://lkml.kernel.org/r/20200516080806.1459784-1-natechancellor@gmail.com
-Signed-off-by: Stephen Boyd <sboyd@kernel.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- drivers/clk/bcm/clk-bcm2835.c | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+Don't know if I'm a little late for this series but:
 
-diff --git a/drivers/clk/bcm/clk-bcm2835.c b/drivers/clk/bcm/clk-bcm2835.c
-index 73aab6e984cd..2b5075298cdc 100644
---- a/drivers/clk/bcm/clk-bcm2835.c
-+++ b/drivers/clk/bcm/clk-bcm2835.c
-@@ -1295,13 +1295,13 @@ static struct clk_hw *bcm2835_register_clock(struct bcm2835_cprman *cprman,
- 	return &clock->hw;
- }
- 
--static struct clk *bcm2835_register_gate(struct bcm2835_cprman *cprman,
-+static struct clk_hw *bcm2835_register_gate(struct bcm2835_cprman *cprman,
- 					 const struct bcm2835_gate_data *data)
- {
--	return clk_register_gate(cprman->dev, data->name, data->parent,
--				 CLK_IGNORE_UNUSED | CLK_SET_RATE_GATE,
--				 cprman->regs + data->ctl_reg,
--				 CM_GATE_BIT, 0, &cprman->regs_lock);
-+	return clk_hw_register_gate(cprman->dev, data->name, data->parent,
-+				    CLK_IGNORE_UNUSED | CLK_SET_RATE_GATE,
-+				    cprman->regs + data->ctl_reg,
-+				    CM_GATE_BIT, 0, &cprman->regs_lock);
- }
- 
- typedef struct clk_hw *(*bcm2835_clk_register)(struct bcm2835_cprman *cprman,
--- 
-2.25.1
+Tested-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
+Acked-by: Nicolas Saenz Julienne <nsaenzjulienne@suse.de>
 
+Regards,
+Nicolas
+
+
+--=-OPGLGZsMisDLgv+ey9Oy
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCAAdFiEErOkkGDHCg2EbPcGjlfZmHno8x/4FAl7rR9QACgkQlfZmHno8
+x/7VRQf/bPWts76212hIHit8+p5DzB+2Blgg7QpJyU2JvqGZJMBwvogWjXz8SfD/
+eNOwoD9ggoyzg+BMDb72y4r46gwJNyYPlJCmrAs8i2Fl084eCwIJ8tcyjEV407i7
++Z2tsG4Z+OZuS/NJwco/yE3YI+UFTtNz7Scka1XkEgoMDsudljc+kQDGZzwVacDL
+oCrrwdOxlErLaBd8A8TU8VYYZDFG9Oq5aAPildR3DvJWBXmMA1eTss6Ak6ctXmM2
++JfRcX3v5k/Q8rV8wFjklO18SvVmx5RvW+ELZ2DCDpg3q/Ny+ODVmqwPnMrVO6k0
+XCSmwzx8e0yqRYjEHsdlTXpFnf6zNQ==
+=Rx7M
+-----END PGP SIGNATURE-----
+
+--=-OPGLGZsMisDLgv+ey9Oy--
+
+
+
+--===============5510383576705854633==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-rpi-kernel mailing list
 linux-rpi-kernel@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-rpi-kernel
+
+--===============5510383576705854633==--
+
+
